@@ -1,22 +1,22 @@
 version: 2.1
-jods:
+jobs:
   build:
     docker:
-      - image: tomoron/portfolio-coffee
+      - image: tomoron/portfolio-coffee:latest
         auth:
           username: tomoron
-          password: tomo32177
-        enviroment:
+          password: $DOCKERHUB_PASSWORD
+        environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
       - image: circleci/mysql:8.0
-        enviroment:
-          MYSQL_ROOT_PASSWORD: password
+        environment:
+          MYSQL_ROOT_PASSWORD: $MYSQL_PASSWORD
           MYSQL_USER: root
           MYSQL_DB: circleci_test
     working_directory: ~/coffee
     steps:
       - checkout
       - run:
-        name: bundleをインストール
-        command: bundle install
+          name: bundleをインストール
+          command: bundle install
