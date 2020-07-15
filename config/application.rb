@@ -33,5 +33,6 @@ module Coffee
     config.generators.system_tests = nil
     config.generators.template_engine = :slim
     config.i18n.default_locale =:ja
+    config.generators.jb = true
   end
 end
