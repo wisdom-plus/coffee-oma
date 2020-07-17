@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+@import "semantic-ui";
+
+.text-left{
+  text-align: left;
+}
