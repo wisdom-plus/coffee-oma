@@ -1,42 +1,45 @@
-h2
-  | Edit 
-  = resource_name.to_s.humanize
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div
-      | Currently waiting confirmation for: 
-      = resource.unconfirmed_email
-  .field
-    = f.label :password
-    i
-      | (leave blank if you don't want to change it)
-    br
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      br
-      em
-        = @minimum_password_length
-        |  characters minimum
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    i
-      | (we need your current password to confirm your changes)
-    br
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-h3
-  | Cancel my account
-p
-  | Unhappy? 
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-= link_to "Back", :back
+.ui.middle.aligned.center.aligned.grid
+  .column style= "width: 543px"
+    h1.content アカウント編集
+    = form_with model: @user, url: user_registration_path ,id: 'edit_user',class: "edit_user ui form text-left",method: :put, local: true do |f|
+      .field
+        = f.label :email
+        br
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        div
+          | Currently waiting confirmation for:
+          = resource.unconfirmed_email
+      .field
+        = f.label :password
+        i
+          | (leave blank if you don't want to change it)
+        br
+        - if @minimum_password_length
+          .ui.pointing.below.label
+            font style= "vertical-align: inherit;"
+              | パスワードは
+              = @minimum_password_length
+              | 文字以上にしてください
+        .ui.left.icon.input
+          i.lock.icon
+          = f.password_field :password, autocomplete: "new-password"
+      .field
+        = f.label :password_confirmation
+        br
+        .ui.left.icon.input
+          i.lock.icon
+          = f.password_field :password_confirmation, autocomplete: "new-password"
+      .field
+        = f.label :current_password
+        i
+          | (we need your current password to confirm your changes)
+        br
+        .ui.left.icon.input
+          i.lock.icon
+          = f.password_field :current_password, autocomplete: "current-password"
+      .field
+        = f.submit "Update", class: "ui fluid teal submit button"
+    h3.content アカウントの削除
+    p.content 削除すると元には戻せません
+    = button_to "アカウントの削除", registration_path(resource_name), data: { confirm: "本当によろしいですか?" }, method: :delete, class: "ui negative button"
