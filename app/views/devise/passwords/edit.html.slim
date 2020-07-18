@@ -1,22 +1,28 @@
-h2
-  | Change your password
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  = f.hidden_field :reset_password_token
-  .field
-    = f.label :password, "New password"
-    br
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-      br
-    = f.password_field :password, autofocus: true, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation, "Confirm new password"
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Change my password"
-= render "devise/shared/links"
+.ui.middle.aligned.center.aligned.grid
+  .column style= "width: 543px"
+    h1.content パスワードを変更する
+    = form_with model: @user, url: user_password_path ,id: 'new_user',class: "new_user ui form text-left",local: true, method: :put do |f|
+      = f.hidden_field :reset_password_token
+      .field
+        = f.label :password, "新しいパスワード"
+        - if @minimum_password_length
+          .ui.pointing.below.label
+            font style= "vertical-align: inherit;"
+              | パスワードは
+              = @minimum_password_length
+              | 文字以上にしてください
+        br
+        .ui.left.icon.input
+          i.lock.icon
+          = f.password_field :password, autofocus: true, autocomplete: "new-password"
+      .field
+        = f.label :password_confirmation, "確認用パスワード"
+        br
+        .ui.left.icon.input
+          i.lock.icon
+          = f.password_field :password_confirmation, autocomplete: "new-password"
+      .field
+        = f.submit "パスワードをリセットする", class: "ui fluid teal submit button"
+    .ui.message.text-left
+      .container= render "devise/shared/links"
+

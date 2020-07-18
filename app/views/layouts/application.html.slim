@@ -12,8 +12,10 @@ html
     .ui.container
       a.item href= "#"
         font style= "vertical-align: inherit;" ホーム
-      a.item href= "/users/sign_in"
-        font style= "vertical-align: inherit;" ログイン
+      - if user_signed_in?
+        =link_to "ログアウト",destroy_user_session_path,method: :delete,class: "item"
+      - else
+        =link_to "ログイン",user_session_path,class: "item"
   .ui.container.top-padding
     - if notice || alert
       .ui.message.flash-message
