@@ -17,6 +17,14 @@ jobs:
     working_directory: ~/coffee
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - rails-bundle-v2-{{ checksum "Gemfile.lock"}}
+            - rails-bundle-v2-
       - run:
           name: bundleをインストール
           command: bundle install
+      - save_cache:
+          key: rails-bundle-v2-{{ checkout "Gemfile.lock"}}
+          paths:
+            - vendor/bundle
