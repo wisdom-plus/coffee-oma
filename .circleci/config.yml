@@ -30,7 +30,7 @@ jobs:
           key: rails-{{ checksum "Gemfile.lock"}}-{{ checksum "yarn.lock"}}
           paths:
             - vendor/bundle
-            - ~/.node_modules
+            - node_modules
       - run:
           name: webpackを追加
           command: bundle exec bin/webpack
