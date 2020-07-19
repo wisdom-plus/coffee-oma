@@ -19,7 +19,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - rails-{{ checksum "Gemfile.lock"}}-{{ checkcum "yarn.lock"}}
+            - rails-{{ checksum "Gemfile.lock"}}-{{ checksum "yarn.lock"}}
       - run:
           name: bundleをインストール
           command: bundle check || bundle install --jobs=4
