@@ -37,7 +37,6 @@ gem 'kaminari'
 gem 'pry-rails'
 gem 'semantic-ui-sass', '~> 2.4', '>= 2.4.2.0'
 gem 'slim'
-gem 'solargraph'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -64,6 +63,7 @@ group :development do
   gem 'bullet'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'solargraph'
 end
 
 group :test do
