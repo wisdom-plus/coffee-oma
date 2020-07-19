@@ -49,6 +49,7 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
   gem 'spring-commands-rspec'
+  gem 'rspec-junit_formotter'
 end
 
 group :development do
