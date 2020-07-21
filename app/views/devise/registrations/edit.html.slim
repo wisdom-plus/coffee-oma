@@ -19,9 +19,7 @@
           | Currently waiting confirmation for:
           = resource.unconfirmed_email
       .field
-        = f.label :password
-        i
-          | (leave blank if you don't want to change it)
+        = f.label :new_password
         br
         - if @minimum_password_length
           .ui.pointing.below.label
@@ -32,20 +30,14 @@
         .ui.left.icon.input
           i.lock.icon
           = f.password_field :password, autocomplete: "new-password"
+        i
+          | (パスワードを変更しない場合は、空欄にしてください)
       .field
         = f.label :password_confirmation
         br
         .ui.left.icon.input
           i.lock.icon
           = f.password_field :password_confirmation, autocomplete: "new-password"
-      .field
-        = f.label :current_password
-        i
-          | (we need your current password to confirm your changes)
-        br
-        .ui.left.icon.input
-          i.lock.icon
-          = f.password_field :current_password, autocomplete: "current-password"
       .field
         = f.submit "Update", class: "ui fluid teal submit button"
     h3.content アカウントの削除
