@@ -21,5 +21,6 @@ html
       .ui.message.flash-message
         i.close.icon
         .header
-          font style= "vertical-align: inherit;" = notice = alert
+          font style= "vertical-align: inherit;" = notice if notice
+          font style= "vertical-align: inherit;" = alert if alert
     = yield
