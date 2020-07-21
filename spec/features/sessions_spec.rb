@@ -5,7 +5,7 @@ RSpec.feature "Sessions", type: :feature do
 
   describe "sessions" do
     describe "sign_in" do
-      context "sign_in(seccess)" do
+      context "sign_in(success)" do
         before do
           login(user, user.email, user.password)
         end
@@ -34,7 +34,7 @@ RSpec.feature "Sessions", type: :feature do
           login(user,user.email,user.password)
         end
 
-        it "seccess sign_out" do
+        it "success sign_out" do
           click_on 'ログアウト'
           expect(page).to have_content 'ログアウトしました。'
         end
