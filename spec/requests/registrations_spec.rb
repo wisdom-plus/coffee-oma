@@ -1,10 +1,75 @@
 require 'rails_helper'
 
 RSpec.describe "Registrations", type: :request do
-  describe "GET /registrations" do
-    it "works! (now write some real specs)" do
-      get registrations_index_path
+  let(:user) {create(:user)}
+  let(:user_params) {attributes_for(:user)}
+  let(:user_update_params) {attributes_for(:user, username: "test")}
+
+  describe "GET /users/sign_up" do
+    it "request success" do
+      get new_user_registration_path
       expect(response).to have_http_status(200)
     end
   end
+
+  describe "GET /users/edit" do
+    before do
+      user.confirm
+      sign_in user
+    end
+
+    it "request success" do
+      get edit_user_registration_path
+      expect(response).to have_http_status(200)
+    end
+
+  end
+
+  describe "POST /users" do
+    before do
+      ActionMailer::Base.deliveries.clear
+    end
+
+    it "request success" do
+      post user_registration_path, params: {user: user_params}
+      expect(response).to have_http_status(302)
+    end
+
+    it "send mail" do
+      post user_registration_path, params: {user: user_params}
+      expect(ActionMailer::Base.deliveries.size).to eq 1
+    end
+
+    it "user created" do
+      expect do
+        post user_registration_path, params: {user: user_params}
+      end.to change(User, :count).by 1
+    end
+  end
+
+  describe "DELETE /users" do
+    before do
+      user.confirm
+      sign_in user
+    end
+
+    it "requests success" do
+      delete user_registration_path
+      expect(response).to have_http_status(302)
+    end
+
+    it "user delete" do
+      expect do
+        delete user_registration_path
+      end.to change(User, :count).by -1
+    end
+  end
+
+  describe "PATCH /users" do
+    it "request success" do
+      patch user_registration_path, params: {user: user_update_params}
+      expect(response).to have_http_status(302)
+    end
+  end
+
 end

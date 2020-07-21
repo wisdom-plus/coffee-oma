@@ -4,7 +4,7 @@ RSpec.describe "Sessions", type: :request do
   let(:user) {create(:user)}
 
   describe "GET users/sign_in" do
-    it "render sign_in" do
+    it "request success" do
       get new_user_session_path
       expect(response).to have_http_status(200)
     end
@@ -16,7 +16,7 @@ RSpec.describe "Sessions", type: :request do
       post user_session_path , params: {user: {email: 'test@example.com', password: 'kajshdjduidj', remember_me: '0'}}
     end
 
-    it "redirect_to root" do
+    it "request success" do
       expect(response).to have_http_status(302)
     end
 
@@ -28,7 +28,7 @@ RSpec.describe "Sessions", type: :request do
       sign_in user
     end
 
-    it "redirect_to root" do
+    it "requests success" do
       delete destroy_user_session_path
       expect(response).to have_http_status(302)
     end
