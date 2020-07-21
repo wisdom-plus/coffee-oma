@@ -7,13 +7,13 @@
         br
         .ui.left.icon.input
           i.user.icon
-          = f.text_field :username, autofocus: true, autocomplete: "name", placeholder: "user-name"
+          = f.text_field :username, autofocus: true, autocomplete: "name", placeholder: "user-name", id: "spec-user-name"
       .field
         = f.label :email
         br
         .ui.left.icon.input
           i.mail.icon
-          = f.email_field :email, autofocus: true, autocomplete: "email"
+          = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail address",id: "spec-E-mail address"
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
         div
           | Currently waiting confirmation for:
@@ -29,7 +29,7 @@
               | 文字以上にしてください
         .ui.left.icon.input
           i.lock.icon
-          = f.password_field :password, autocomplete: "new-password"
+          = f.password_field :password, autocomplete: "new-password", placehoder: "new-password"
         i
           | (パスワードを変更しない場合は、空欄にしてください)
       .field
@@ -37,7 +37,7 @@
         br
         .ui.left.icon.input
           i.lock.icon
-          = f.password_field :password_confirmation, autocomplete: "new-password"
+          = f.password_field :password_confirmation, autocomplete: "new-password", plachoder: "confrimation-new-password"
       .field
         = f.submit "Update", class: "ui fluid teal submit button"
     h3.content アカウントの削除
