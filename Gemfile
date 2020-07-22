@@ -37,7 +37,6 @@ gem 'kaminari'
 gem 'pry-rails'
 gem 'semantic-ui-sass', '~> 2.4', '>= 2.4.2.0'
 gem 'slim'
-gem 'solargraph'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -49,6 +48,10 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
   gem 'spring-commands-rspec'
+  gem 'rspec_junit_formatter'
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'webdrivers'
 end
 
 group :development do
@@ -63,9 +66,5 @@ group :development do
   gem 'bullet'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
-group :test do
-  gem 'capybara'
-  gem 'webdrivers'
+  gem 'solargraph'
 end
