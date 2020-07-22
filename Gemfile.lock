@@ -378,6 +378,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   sass-rails (>= 6)
+  selenium-webdriver
   semantic-ui-sass (~> 2.4, >= 2.4.2.0)
   slim
   solargraph

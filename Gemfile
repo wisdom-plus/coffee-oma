@@ -49,6 +49,9 @@ group :development, :test do
   gem 'rubocop-rspec'
   gem 'spring-commands-rspec'
   gem 'rspec_junit_formatter'
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'webdrivers'
 end
 
 group :development do
@@ -64,9 +67,4 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'solargraph'
-end
-
-group :test do
-  gem 'capybara'
-  gem 'webdrivers'
 end
