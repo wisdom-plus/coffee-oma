@@ -59,6 +59,10 @@ Lint/StructNewOverride:
 
 Layout/LineLength:
   Max: 150
+  Exclude:
+    - "**/spec/**/*"
+    - "config/routes.rb"
+    - "config/initializers/**"
 
 Metrics/AbcSize:
   Exclude:
@@ -162,3 +166,6 @@ Style/RegexpLiteral:
 # https://rubocop.readthedocs.io/en/stable/cops_style/#styleslicingwithrange
 Style/SlicingWithRange:
   Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

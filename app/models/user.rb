@@ -28,7 +28,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :timeoutable
 
-
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
@@ -36,7 +35,7 @@ class User < ApplicationRecord
       params.delete(:password)
       params.delete(:password_confirmation)
     end
-    result =update_attributes(params, *options)
+    result = update(params, *options)
     clean_up_passwords
     result
   end

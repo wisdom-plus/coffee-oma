@@ -41,16 +41,16 @@ gem 'slim'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capybara'
   gem 'factory_bot_rails'
+  gem 'rspec_junit_formatter'
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-performance'
-  gem 'rubocop-rails'
+  gem 'rubocop-rails', require: false
   gem 'rubocop-rspec'
-  gem 'spring-commands-rspec'
-  gem 'rspec_junit_formatter'
   gem 'selenium-webdriver'
-  gem 'capybara'
+  gem 'spring-commands-rspec'
   gem 'webdrivers'
 end
 
@@ -64,7 +64,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet'
+  gem 'solargraph'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'solargraph'
 end
