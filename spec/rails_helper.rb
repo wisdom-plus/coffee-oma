@@ -3,7 +3,7 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -21,7 +21,7 @@ require 'rspec/rails'
 # require only the support files necessary.
 #
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 begin
@@ -66,23 +66,22 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include LoginHelper
   Capybara.register_driver :remote_chrome do |app|
-    url = "http://chrome:4444/wd/hub"
+    url = 'http://chrome:4444/wd/hub'
     caps = ::Selenium::WebDriver::Remote::Capabilities.chrome(
-      "goog:chromeOptions" => {
-        "args" => [
-          "no-sandbox",
-          "headless",
-          "disable-gpu",
-          "window-size=1680,1050"
+      'goog:chromeOptions' => {
+        'args' => [
+          'no-sandbox',
+          'headless',
+          'disable-gpu',
+          'window-size=1680,1050'
         ]
       }
     )
     Capybara::Selenium::Driver.new(app, browser: :remote, url: url, desired_capabilities: caps)
   end
 
-  RSpec.configure do |config|
-
-    config.before(:each, type: :system) do
+  RSpec.configure do |conf|
+    conf.before(:each, type: :system) do
       driven_by :rack_test
     end
 

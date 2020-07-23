@@ -32,15 +32,15 @@ module Coffee
     # Don't generate system test files.
     config.generators.system_tests = nil
     config.generators.template_engine = :slim
-    config.i18n.default_locale =:ja
+    config.i18n.default_locale = :ja
     config.generators.active_record = true
     config.generators do |g|
       g.test_framework :rspec,
-        views_specs: false,
-        helper_specs: false,
-        controller_specs: false,
-        routing_specs: false
+                       views_specs: false,
+                       helper_specs: false,
+                       controller_specs: false,
+                       routing_specs: false
     end
-    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+    config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag }
   end
 end
