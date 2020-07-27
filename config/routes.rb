@@ -1,6 +1,15 @@
 # == Route Map
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
+#                       products_search GET    /products/search(.:format)                                                               products#search
+#                              products GET    /products(.:format)                                                                      products#index
+#                                       POST   /products(.:format)                                                                      products#create
+#                           new_product GET    /products/new(.:format)                                                                  products#new
+#                          edit_product GET    /products/:id/edit(.:format)                                                             products#edit
+#                               product GET    /products/:id(.:format)                                                                  products#show
+#                                       PATCH  /products/:id(.:format)                                                                  products#update
+#                                       PUT    /products/:id(.:format)                                                                  products#update
+#                                       DELETE /products/:id(.:format)                                                                  products#destroy
 #                                  root GET    /                                                                                        home#index
 #                      new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
 #                          user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
@@ -42,7 +51,8 @@
 #                  rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-  get 'products/index', to: 'products#search'
+  get 'products/search', to: 'products#search'
+  resources :products
   root to: 'home#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
 end
