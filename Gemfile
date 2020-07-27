@@ -37,6 +37,8 @@ gem 'kaminari'
 gem 'pry-rails'
 gem 'semantic-ui-sass', '~> 2.4', '>= 2.4.2.0'
 gem 'slim'
+gem 'amazon-ecs'
+gem 'rakuten_web_service'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
