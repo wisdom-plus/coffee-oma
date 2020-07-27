@@ -58,6 +58,8 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    amazon-ecs (2.6.0)
+      nokogiri (~> 1.10)
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
@@ -211,6 +213,7 @@ GEM
       thor (>= 0.20.3, < 2.0)
     rainbow (3.0.0)
     rake (13.0.1)
+    rakuten_web_service (1.12.0)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -349,6 +352,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  amazon-ecs
   annotate
   awesome_print
   better_errors
@@ -371,6 +375,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
+  rakuten_web_service
   rspec-rails
   rspec_junit_formatter
   rubocop
