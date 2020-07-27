@@ -1,0 +1,8 @@
+.search-box
+  = form_with url: products_index_path, method: :get, class: "ui form", local: true do |f|
+      .form-group
+        = f.text_field :keyword, class: ""
+        = f.submit '検索', class: "ui btn "
+- if @items.present?
+  - @items.first(10).each do |item|
+    = item.name
