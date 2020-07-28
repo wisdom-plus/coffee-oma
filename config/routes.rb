@@ -51,7 +51,6 @@
 #                  rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-  get 'products/search', to: 'products#search'
   resources :products
   root to: 'home#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }

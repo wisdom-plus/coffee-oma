@@ -21,3 +21,7 @@
 .top-padding{
   padding-top: 50px;
 }
+.ui.sticky.fixed.top {
+  top: 50px;
+  bottom: auto;
+}

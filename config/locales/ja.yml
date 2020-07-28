@@ -1,6 +1,8 @@
----
 ja:
   activerecord:
+    attributes:
+      products:
+        keyword: "検索ワード"
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -205,3 +207,7 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  views:
+    products:
+      index:
+        keyword: "検索ワード"

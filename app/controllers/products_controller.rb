@@ -1,10 +1,4 @@
 class ProductsController < ApplicationController
-  def search
-    if params[:keyword]
-      @items = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword],imageFlag: 1, elements: "itemName")
-    end
-    redirect_to action: "index"
-  end
 
   def new
 
@@ -18,7 +12,9 @@ class ProductsController < ApplicationController
   end
 
   def index
-
+    if params[:keyword]
+      @items = rakuten_search(params[:keyword])
+    end
   end
 
   def update
@@ -31,4 +27,11 @@ class ProductsController < ApplicationController
   def show
 
   end
+
+  private
+
+  def rakuten_search(search_keyword)
+    RakutenWebService::Ichiba::Item.search(keyword: search_keyword,imageFlag: 1)
+  end
+
 end
