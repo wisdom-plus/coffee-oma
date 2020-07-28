@@ -15,9 +15,10 @@ ActiveRecord::Schema.define(version: 2020_07_27_035509) do
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "itemname"
     t.string "catchcopy"
+    t.integer "itemprice"
     t.text "itemcaption"
     t.text "itemurl"
-    t.text "mediumlmageurls"
+    t.text "imageurl"
     t.string "shopname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,7 +1,6 @@
 # == Route Map
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
-#                       products_search GET    /products/search(.:format)                                                               products#search
 #                              products GET    /products(.:format)                                                                      products#index
 #                                       POST   /products(.:format)                                                                      products#create
 #                           new_product GET    /products/new(.:format)                                                                  products#new

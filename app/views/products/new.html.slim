@@ -26,5 +26,14 @@
             span Brand:  #{item.shop_name}
           .description
             =item.catchcopy
+        = form_with model: @product,url: products_path, local: true do |f|
+          =f.hidden_field(:itemname, :value => item.name)
+          =f.hidden_field(:itemprice, :value => item.price)
+          =f.hidden_field(:shopname, :value => item.shop_name)
+          =f.hidden_field(:catchcopy, :value => item.catchcopy)
+          =f.hidden_field(:imageurl, :value => item.medium_image_urls[0])
+          =f.hidden_field(:itemurl, :value => item.url)
+          =f.hidden_field(:itemcaption, :value => item.caption)
+          =f.submit "登録する", class: "ui fluid teal submit button"
         .extra.content
-          i.yen.sign.icon =item.price
+          i.yen.sign.icon =item.price.to_s(:delimited)

@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
     if params[:keyword]
       @items = rakuten_search(params[:keyword])
     end
+    @product = Product.new
   end
 
   def create
