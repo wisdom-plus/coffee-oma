@@ -22,6 +22,14 @@
   padding-top: 50px;
 }
 .ui.sticky.fixed.top {
-  top: 50px;
+  top: auto;
   bottom: auto;
+}
+.ui.cards {
+  display: flex;
+  margin: 1em -0.5em;
+  flex-wrap: wrap;
+}
+.footer.segment {
+  padding: 5em 0em;
 }

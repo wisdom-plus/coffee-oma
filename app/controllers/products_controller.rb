@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
 
   def new
-
+    if params[:keyword]
+      @items = rakuten_search(params[:keyword])
+    end
   end
 
   def create
@@ -12,9 +14,7 @@ class ProductsController < ApplicationController
   end
 
   def index
-    if params[:keyword]
-      @items = rakuten_search(params[:keyword])
-    end
+
   end
 
   def update
