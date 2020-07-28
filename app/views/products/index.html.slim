@@ -1,15 +1,3 @@
-.ui.middle.aligned.center.aligned.grid
-  .column style= "width: 543px"
-    h1.content 製品の登録
-    = form_with url: products_path, method: :get, class: "ui mini form text-left", local: true do |f|
-      .field
-        = f.label :keyword, '検索ワード'
-        br
-        .ui.left.icon.input
-          i.search.icon
-          = f.text_field :keyword, placeholder: "search",class: ""
-      .field
-        = f.submit 'seach', class: "ui fluid teal submit button "
 - if @items.present?
   .ui.three.stackable.cards.segment#example1
     .ui.right.very.close.rail

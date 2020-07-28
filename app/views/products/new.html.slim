@@ -1,0 +1,30 @@
+.ui.middle.aligned.center.aligned.grid
+  .column style= "width: 543px"
+    h1.content アイテムを登録する
+    = form_with url: new_product_path, method: :get, class: "ui mini form text-left", local: true do |f|
+      .field
+        = f.label :keyword, '検索ワード'
+        br
+        .ui.left.icon.input
+          i.search.icon
+          = f.text_field :keyword, placeholder: "search",class: ""
+      .field
+        = f.submit 'seach', class: "ui fluid teal submit button "
+- if @items.present?
+  .ui.three.stackable.cards.segment#example1
+    .ui.right.very.close.rail
+      .ui.segment.sticky
+        a href="#"
+          i.chevron.circle.up.icon Top
+    - @items.first(10).each do |item|
+      .ui.fluid.card
+        .image
+          img src="#{item.medium_image_urls[0]}"
+        .content
+          .herader =item.name
+          .meta
+            span Brand:  #{item.shop_name}
+          .description
+            =item.catchcopy
+        .extra.content
+          i.yen.sign.icon =item.price
