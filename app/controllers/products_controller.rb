@@ -8,21 +8,13 @@ class ProductsController < ApplicationController
   end
 
   def create
-
-  end
-
-  def destroy
+    items = Product.new(product_params)
+    items.save
+    redirect_to products_path
   end
 
   def index
-
-  end
-
-  def update
-
-  end
-
-  def edit
+    @items = Product.all
   end
 
   def show
@@ -35,4 +27,7 @@ class ProductsController < ApplicationController
     RakutenWebService::Ichiba::Item.search(keyword: search_keyword,imageFlag: 1)
   end
 
+  def product_params
+    params.require(:product).permit(:itemname, :itemprice, :shopname, :catchcopy, :imageurl,:itemurl, :itemcaption)
+  end
 end
