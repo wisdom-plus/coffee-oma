@@ -1,14 +1,6 @@
 # == Route Map
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
-#                              products GET    /products(.:format)                                                                      products#index
-#                                       POST   /products(.:format)                                                                      products#create
-#                           new_product GET    /products/new(.:format)                                                                  products#new
-#                          edit_product GET    /products/:id/edit(.:format)                                                             products#edit
-#                               product GET    /products/:id(.:format)                                                                  products#show
-#                                       PATCH  /products/:id(.:format)                                                                  products#update
-#                                       PUT    /products/:id(.:format)                                                                  products#update
-#                                       DELETE /products/:id(.:format)                                                                  products#destroy
 #                                  root GET    /                                                                                        home#index
 #                      new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
 #                          user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
@@ -28,6 +20,10 @@
 #                 new_user_confirmation GET    /users/confirmation/new(.:format)                                                        devise/confirmations#new
 #                     user_confirmation GET    /users/confirmation(.:format)                                                            devise/confirmations#show
 #                                       POST   /users/confirmation(.:format)                                                            devise/confirmations#create
+#                              products GET    /products(.:format)                                                                      products#index
+#                                       POST   /products(.:format)                                                                      products#create
+#                           new_product GET    /products/new(.:format)                                                                  products#new
+#                               product GET    /products/:id(.:format)                                                                  products#show
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
 #         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
@@ -50,7 +46,7 @@
 #                  rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-  resources :products
   root to: 'home#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
+  resources :products, only: [:new, :create, :index, :show]
 end
