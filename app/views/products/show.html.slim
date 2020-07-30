@@ -1,0 +1,10 @@
+.ui.middle.aligned.center.aligned.grid
+  .column
+    h1.content アイテムの一覧
+.ui.vertical.stripe.segment
+  .ui.middle.aligned.stackable.graid.conteiner
+    .row
+      .six.wide.left.floated.column
+        =image_tag "#{@item.imageurl}"
+      .eight.wide.column
+        h4.ui.header　#{@item.itemname}
