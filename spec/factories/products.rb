@@ -15,6 +15,11 @@
 #
 FactoryBot.define do
   factory :product do
-    
+    itemname {"コーヒーの器具の名前"}
+    itemprice {1000}
+    shopname {shopname}
+    itemurl {"https://example.com"}
+    itemcaption {"itemの説明文が入ります"}
+    catchcopy {"itemのキャッチコピーが入ります"}
   end
 end
