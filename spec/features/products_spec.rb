@@ -5,22 +5,43 @@ RSpec.describe "Products", type: :feature do
 
   describe 'product' do
     describe 'new' do
-      it 'render page' do
+      before do
         visit new_product_path
+      end
+
+      it 'render page' do
         expect(page).to have_current_path new_product_path
       end
-    end
 
-    describe 'create' do
-      context 'redirect page' do
+      it 'search rakuten' do
+        fill_in 'keyword', with: 'コーヒー'
+        click_on 'search'
+        expect(page).to have_button '登録する'
+      end
 
+      it 'create product' do
+        fill_in 'keyword', with: 'コーヒー'
+        click_on 'search'
+        within first('div.ui.fluid.card') do
+          click_button '登録する'
+        end
+        expect(page).to have_content 'アイテムの一覧'
       end
     end
 
     describe 'index' do
-      it 'render page' do
+      before do
+        product
         visit products_path
+      end
+
+      it 'render page' do
         expect(page).to have_current_path products_path
+      end
+
+      it 'product displayed' do
+        link = find('.ui.fluid.link.card')
+        expect(link[:href]).to eq product_path(product.id)
       end
     end
 
