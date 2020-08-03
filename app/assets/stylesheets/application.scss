@@ -21,3 +21,25 @@
 .top-padding{
   padding-top: 50px;
 }
+.ui.sticky.fixed.top {
+  top: auto;
+  bottom: auto;
+}
+.ui.cards {
+  display: flex;
+  margin: 1em -0.5em;
+  flex-wrap: wrap;
+}
+.footer.segment {
+  padding: 5em 0em;
+}
+body,
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.ui.inverted.vertical.footer.segment{
+  margin-top: auto;
+}
