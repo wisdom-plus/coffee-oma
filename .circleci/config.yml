@@ -13,7 +13,7 @@ jobs:
         environment:
           MYSQL_ROOT_PASSWORD: $MYSQL_PASSWORD
           MYSQL_USER: root
-          MYSQL_DB: circleci_test
+          MYSQL_DB: coffee_test
     working_directory: ~/coffee
     steps:
       - checkout
