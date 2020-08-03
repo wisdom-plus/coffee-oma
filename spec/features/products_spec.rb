@@ -49,10 +49,16 @@ RSpec.describe "Products", type: :feature do
       before do
         product
       end
+
       it 'render page' do
         visit product_path(product.id)
         expect(page).to have_current_path product_path(product.id)
         end
+
+      it 'product displayed' do
+        visit product_path(product.id)
+        expect(page).to have_content 'コーヒーの器具の名前'
+      end
     end
   end
 end
