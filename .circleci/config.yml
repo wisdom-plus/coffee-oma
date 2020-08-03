@@ -9,10 +9,10 @@ jobs:
         environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
-      - image: circleci/mysql:8.0
+      - image: mysql:8.0
         environment:
-          MYSQL_ROOT_PASSWORD: $MYSQL_PASSWORD
-          MYSQL_USER: root
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABE: db
     working_directory: ~/coffee
     steps:
       - checkout
