@@ -36,6 +36,9 @@ jobs:
           name: webpackを追加
           command: bundle exec bin/webpack
       - run:
+          name: Decode ENV file
+          command: echo $ENV_FILE | base64 --decode > .env
+      - run:
           name: rubocop
           command: bundle exec rubocop
       - run: mv ./config/database.yml.ci ./config/database.yml
