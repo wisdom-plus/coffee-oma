@@ -1,0 +1,39 @@
+.ui.middle.aligned.center.aligned.grid.vertical.stripe
+  .column style= "width: 543px"
+    h1.content アイテムを登録する
+    = form_with url: new_product_path, method: :get, class: "ui mini form text-left", local: true do |f|
+      .field
+        = f.label :keyword, '検索ワード'
+        br
+        .ui.left.icon.input
+          i.search.icon
+          = f.text_field :keyword, placeholder: "search",class: ""
+      .field
+        = f.submit 'search', class: "ui fluid teal submit button "
+- if @items.present?
+  .ui.three.stackable.cards.segment#example1
+    .ui.right.very.close.rail
+      .ui.segment.sticky
+        a href="#"
+          i.chevron.circle.up.icon Top
+    - @items.first(10).each do |item|
+      .ui.fluid.card
+        .image
+          img src="#{item.medium_image_urls[0]}"
+        .content
+          .herader =item.name
+          .meta
+            span Brand:  #{item.shop_name}
+          .description
+            =item.catchcopy
+        = form_with model: @product,url: products_path, local: true do |f|
+          =f.hidden_field(:itemname, :value => item.name)
+          =f.hidden_field(:itemprice, :value => item.price)
+          =f.hidden_field(:shopname, :value => item.shop_name)
+          =f.hidden_field(:catchcopy, :value => item.catchcopy)
+          =f.hidden_field(:imageurl, :value => item.medium_image_urls[0])
+          =f.hidden_field(:itemurl, :value => item.url)
+          =f.hidden_field(:itemcaption, :value => item.caption)
+          =f.submit "登録する", class: "ui fluid teal submit button"
+        .extra.content
+          i.yen.sign.icon =item.price.to_s(:delimited)

@@ -1,0 +1,21 @@
+.ui.middle.aligned.center.aligned.grid.vertical.stripe
+  .column
+    h1.content アイテムの一覧
+- if @items.present?
+  .ui.three.stackable.cards.segment#example1
+    .ui.right.very.close.rail
+      .ui.segment.sticky
+        a href="#"
+          i.chevron.circle.up.icon Top
+    - @items.first(10).each do |item|
+      a.ui.fluid.link.card href= product_path(item.id)
+        .image
+          img src="#{item.imageurl}"
+        .content
+          .herader =item.itemname
+          .meta
+            span Brand:  #{item.shopname}
+          .description
+            =item.catchcopy
+        .extra.content
+          i.yen.sign.icon =item.itemprice
