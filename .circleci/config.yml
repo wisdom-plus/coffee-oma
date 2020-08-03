@@ -13,6 +13,7 @@ jobs:
         environment:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABE: db
+        command: --default-authentication-plugin=mysql_native_password
     working_directory: ~/coffee
     steps:
       - checkout
