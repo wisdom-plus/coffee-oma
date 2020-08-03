@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'amazon-ecs'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
@@ -35,11 +36,10 @@ gem 'dotenv-rails'
 gem 'html2slim'
 gem 'kaminari'
 gem 'pry-rails'
+gem 'rails-i18n'
+gem 'rakuten_web_service'
 gem 'semantic-ui-sass', '~> 2.4', '>= 2.4.2.0'
 gem 'slim'
-gem 'amazon-ecs'
-gem 'rakuten_web_service'
-gem 'rails-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

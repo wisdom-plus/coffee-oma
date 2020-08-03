@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Products", type: :feature do
-  let(:product) { create(:product)}
+RSpec.describe 'Products', type: :feature do
+  let(:product) { create(:product) }
 
   describe 'product' do
     describe 'new' do
@@ -53,7 +53,7 @@ RSpec.describe "Products", type: :feature do
       it 'render page' do
         visit product_path(product.id)
         expect(page).to have_current_path product_path(product.id)
-        end
+      end
 
       it 'product displayed' do
         visit product_path(product.id)
