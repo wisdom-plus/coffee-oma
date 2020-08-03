@@ -13,7 +13,6 @@ jobs:
         environment:
           MYSQL_ROOT_PASSWORD: $MYSQL_PASSWORD
           MYSQL_USER: root
-          MYSQL_DATABASE: db
     working_directory: ~/coffee
     steps:
       - checkout
