@@ -24,6 +24,8 @@
 #                                       POST   /products(.:format)                                                                      products#create
 #                           new_product GET    /products/new(.:format)                                                                  products#new
 #                               product GET    /products/:id(.:format)                                                                  products#show
+#                               reviews GET    /reviews(.:format)                                                                       reviews#index
+#                                       POST   /reviews(.:format)                                                                       reviews#create
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
 #         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
