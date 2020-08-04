@@ -34,11 +34,15 @@ module Coffee
     config.i18n.default_locale = :ja
     config.generators.active_record = true
     config.generators do |g|
+      g.template_engine = :slim
       g.test_framework :rspec,
                        views_specs: false,
                        helper_specs: false,
                        controller_specs: false,
-                       routing_specs: false
+                       routing_specs: false,
+                       model_specs: false,
+                       feature_specs: true,
+                       request_specs: true
     end
     config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag }
   end
