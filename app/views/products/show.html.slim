@@ -20,9 +20,9 @@
               td.center.aligned ブランド
               td.center.aligned #{@item.shopname}
             tr
-              td colspan=3 = link_to "楽天で詳しく見る","#{@item.itemurl}",class: "fluid circular ui red button"
+              td.cen colspan=3 = link_to "楽天で詳しく見る","#{@item.itemurl}",class: " circular ui center floated red button"
     .row
-      .center.column
+      .column
         table.ui.celled.table
           thead
             tr
@@ -31,3 +31,15 @@
             tr
               td
                 = @item.itemcaption
+  .ui.middle.aligned.center.aligned.grid
+    .column
+      h1.content レビューの投稿
+      =form_with model: @review, url: reviews_path, class: "ui equal width form column", method: :post,local: true do |f|
+        .fields
+          =f.label :title, "タイトル",class: "four wide field"
+          =f.text_field :title, placeholder: "title", class: "ten wide field"
+        .fields
+          =f.label :content, "レビュー内容", class: "four wide field"
+          =f.text_area :content, placeholder: "レビューの内容",class: "ten wide field"
+        .field
+            = f.submit '  submit  ', class: "large ui center floated positive button"
