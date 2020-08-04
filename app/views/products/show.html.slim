@@ -5,7 +5,7 @@
   .ui.middle.aligned.stackable.grid.conteiner
     .row
       .six.wide.left.floated.column
-        =image_tag "#{@item.imageurl}", class: "ui medium bordered rounded image"
+        =image_tag "#{@item.imageurl}", class: "ui large bordered rounded image"
       .ten.wide.column
         table.ui.celled.table
           thead
@@ -19,3 +19,15 @@
             tr
               td.center.aligned ブランド
               td.center.aligned #{@item.shopname}
+            tr
+              td colspan=3 = link_to "楽天で詳しく見る","#{@item.itemurl}",class: "fluid circular ui red button"
+    .row
+      .center.column
+        table.ui.celled.table
+          thead
+            tr
+              th 商品の説明文
+          tbody
+            tr
+              td
+                = @item.itemcaption
