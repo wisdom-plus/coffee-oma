@@ -1,45 +1,54 @@
-.ui.middle.aligned.center.aligned.grid
-  .column
-    h1.content アイテムの詳細
-.ui.vertical.stripe.segment
-  .ui.middle.aligned.stackable.grid.conteiner
-    .row
-      .six.wide.left.floated.column
-        =image_tag "#{@item.imageurl}", class: "ui large bordered rounded image"
-      .ten.wide.column
-        table.ui.celled.table
-          thead
-            tr
-              th colspan=3  #{@item.itemname}
-          tbody
-            tr
-              td.center.aligned  価格
-              td.center.aligned
-                i.yen.icon #{@item.itemprice.to_s(:delimited)}
-            tr
-              td.center.aligned ブランド
-              td.center.aligned #{@item.shopname}
-            tr
-              td.cen colspan=3 = link_to "楽天で詳しく見る","#{@item.itemurl}",class: " circular ui center floated red button"
-    .row
-      .column
-        table.ui.celled.table
-          thead
-            tr
-              th 商品の説明文
-          tbody
-            tr
-              td
-                = @item.itemcaption
   .ui.middle.aligned.center.aligned.grid
     .column
-      h1.content レビューの投稿
-      =form_with model: @review, url: reviews_path, class: "ui equal width form column", method: :post,local: true do |f|
-        .fields
-          =f.label :title, "タイトル",class: "four wide field"
-          =f.text_field :title, placeholder: "title", class: "ten wide field"
-        .fields
-          =f.label :content, "レビュー内容", class: "four wide field"
-          =f.text_area :content, placeholder: "レビューの内容",class: "ten wide field"
-        .field
+      h1.content アイテムの詳細
+  .ui.vertical.stripe.segment
+    .ui.middle.aligned.stackable.grid.conteiner
+      .row
+        .six.wide.left.floated.column
+          =image_tag "#{@item.imageurl}", class: "ui large bordered rounded image"
+        .ten.wide.column
+          table.ui.celled.table
+            thead
+              tr
+                th colspan=3  #{@item.itemname}
+            tbody
+              tr
+                td.center.aligned  価格
+                td.center.aligned
+                  i.yen.icon #{@item.itemprice.to_s(:delimited)}
+              tr
+                td.center.aligned ブランド
+                td.center.aligned #{@item.shopname}
+              tr
+                td.cen colspan=3 = link_to "楽天で詳しく見る","#{@item.itemurl}",class: " circular ui center floated red button"
+      .row
+        .column
+          table.ui.celled.table
+            thead
+              tr
+                th 商品の説明文
+            tbody
+              tr
+                td
+                  = @item.itemcaption
+    .ui.comments
+      .comment
+        / a.avatar
+        /   img src="" alt=""/
+        .content
+          a.author アバター
+        .text　テストテスト
+
+    .ui.middle.aligned.center.aligned.grid
+      .column
+        h1.content レビューの投稿
+        =form_with model: @review, url: reviews_path, class: "ui equal width form column", method: :post,local: true do |f|
+          .fields
+            =f.label :title, "タイトル",class: "four wide field"
+            =f.text_field :title, placeholder: "title", class: "ten wide field"
+          .fields
+            =f.label :content, "レビュー内容", class: "four wide field"
+            =f.text_area :content, placeholder: "レビューの内容",class: "ten wide field"
+          .field
+            = f.hidden_field(:product_id, :value => @item.id )
             = f.submit '  submit  ', class: "large ui center floated positive button"
