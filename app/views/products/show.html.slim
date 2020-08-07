@@ -32,12 +32,16 @@
                 td
                   = @item.itemcaption
     .ui.comments
-      .comment
-        / a.avatar
-        /   img src="" alt=""/
-        .content
-          a.author アバター
-        .text　テストテスト
+      - @reviews.each do |review|
+        .comment
+          / a.avatar
+          /   img src="" alt=""/
+          .content
+            a.author = review.title
+            .metadata
+              .date #{time_ago_in_words(review.created_at)}前
+          .text
+            =review.content
 
     .ui.middle.aligned.center.aligned.grid
       .column
