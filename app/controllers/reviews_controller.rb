@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def create
-    review = Review.new(review_params, user_id: current_user.id)
+    review = Review.new(review_params)
     review.save
     redirect_to "/products/#{review_params[:product_id]}"
   end
@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :content, :product_id)
+    params.require(:review).permit(:title, :content, :product_id, :user_id)
   end
 
 end
