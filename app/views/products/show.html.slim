@@ -42,7 +42,7 @@
               .date #{time_ago_in_words(review.created_at)}前
           .text
             =review.content
-
+  - if current_user
     .ui.middle.aligned.center.aligned.grid
       .column
         h1.content レビューの投稿
@@ -55,4 +55,5 @@
             =f.text_area :content, placeholder: "レビューの内容",class: "ten wide field"
           .field
             = f.hidden_field(:product_id, :value => @item.id )
+            = f.hidden_field(:user_id, :value => current_user.id )
             = f.submit '  submit  ', class: "large ui center floated positive button"
