@@ -17,5 +17,9 @@
 #
 FactoryBot.define do
   factory :review do
+    content {'コーヒー器具に関するレビューの本文'}
+    title {'レビューのタイトル'}
+    user
+    product
   end
 end

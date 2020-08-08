@@ -46,7 +46,7 @@
     .ui.middle.aligned.center.aligned.grid
       .column
         h1.content レビューの投稿
-        =form_with model: @review, url: reviews_path, class: "ui equal width form column", method: :post,local: true do |f|
+        =form_with model: @review, url: product_reviews_path(@item.id), class: "ui equal width form column", method: :post,local: true do |f|
           .fields
             =f.label :title, "タイトル",class: "four wide field"
             =f.text_field :title, placeholder: "title", class: "ten wide field"
