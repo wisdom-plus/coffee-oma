@@ -20,12 +20,12 @@
 #                 new_user_confirmation GET    /users/confirmation/new(.:format)                                                        devise/confirmations#new
 #                     user_confirmation GET    /users/confirmation(.:format)                                                            devise/confirmations#show
 #                                       POST   /users/confirmation(.:format)                                                            devise/confirmations#create
+#                       product_reviews GET    /products/:product_id/reviews(.:format)                                                  reviews#index
+#                                       POST   /products/:product_id/reviews(.:format)                                                  reviews#create
 #                              products GET    /products(.:format)                                                                      products#index
 #                                       POST   /products(.:format)                                                                      products#create
 #                           new_product GET    /products/new(.:format)                                                                  products#new
 #                               product GET    /products/:id(.:format)                                                                  products#show
-#                               reviews GET    /reviews(.:format)                                                                       reviews#index
-#                                       POST   /reviews(.:format)                                                                       reviews#create
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
 #         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
@@ -50,6 +50,7 @@
 Rails.application.routes.draw do
   root to: 'home#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  resources :products, only: %i[new create index show]
-  resources :reviews, only: %i[index create]
+  resources :products, only: %i[new create index show] do
+    resources :reviews, only: %i[index create]
+  end
 end
