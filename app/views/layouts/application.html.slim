@@ -13,6 +13,8 @@ html
       .ui.container
         a.item href= "#"
           font style= "vertical-align: inherit;" ホーム
+        a.item href= products_path
+          font style= "vertical-align: inherit;" アイテム一覧
         - if user_signed_in?
           =link_to "ログアウト",destroy_user_session_path,method: :delete,class: "item"
         - else

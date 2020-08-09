@@ -20,6 +20,8 @@
 #                 new_user_confirmation GET    /users/confirmation/new(.:format)                                                        devise/confirmations#new
 #                     user_confirmation GET    /users/confirmation(.:format)                                                            devise/confirmations#show
 #                                       POST   /users/confirmation(.:format)                                                            devise/confirmations#create
+#                       product_reviews GET    /products/:product_id/reviews(.:format)                                                  reviews#index
+#                                       POST   /products/:product_id/reviews(.:format)                                                  reviews#create
 #                              products GET    /products(.:format)                                                                      products#index
 #                                       POST   /products(.:format)                                                                      products#create
 #                           new_product GET    /products/new(.:format)                                                                  products#new
@@ -46,9 +48,9 @@
 #                  rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-
   root to: 'home#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  resources :products, only: %i[new create index show]
-  resources :reviews, only: %i[index create]
+  resources :products, only: %i[new create index show] do
+    resources :reviews, only: %i[index create]
+  end
 end
