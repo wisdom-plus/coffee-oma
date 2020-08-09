@@ -18,6 +18,8 @@ class ProductsController < ApplicationController
 
   def show
     @item = Product.find(params[:id])
+    @review = Review.new
+    @reviews = Review.all.includes(:user)
   end
 
   private
