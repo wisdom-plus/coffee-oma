@@ -3,8 +3,8 @@ class CreateReviews < ActiveRecord::Migration[6.0]
     create_table :reviews do |t|
         t.references :user
         t.references :product
-        t.string :title
-        t.text :content
+        t.string :title, null: false
+        t.text :content, null: false
 
       t.timestamps
     end

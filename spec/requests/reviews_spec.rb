@@ -4,7 +4,7 @@ RSpec.describe 'Reviews', type: :request do
   let(:product) { create(:product)}
   let(:user) { create(:user)}
   let(:review) { create(:review,user: user, product: product)}
-  let(:review_params) { attributes_for(:review, user: user, product: product)}
+  let(:review_params) { attributes_for(:review, user_id: user.id, product_id: product.id)}
 
   describe 'POST create' do
     before do

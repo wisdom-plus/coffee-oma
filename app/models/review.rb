@@ -3,8 +3,8 @@
 # Table name: reviews
 #
 #  id         :bigint           not null, primary key
-#  content    :text(65535)
-#  title      :string(255)
+#  content    :text(65535)      not null
+#  title      :string(255)      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  product_id :bigint
@@ -18,4 +18,6 @@
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :product
+  validates :title, presence: true
+  validates :content, presence: true
 end
