@@ -290,6 +290,10 @@ GEM
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
+    slim-rails (3.2.0)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      slim (>= 3.0, < 5.0)
     solargraph (0.39.11)
       backport (~> 1.1)
       benchmark
@@ -390,6 +394,7 @@ DEPENDENCIES
   selenium-webdriver
   semantic-ui-sass (~> 2.4, >= 2.4.2.0)
   slim
+  slim-rails
   solargraph
   spring
   spring-commands-rspec
