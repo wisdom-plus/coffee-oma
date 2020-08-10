@@ -41,7 +41,7 @@ module Coffee
                        helper_specs: false,
                        controller_specs: false,
                        routing_specs: false,
-                       model_specs: false,
+                       model_specs: false
     end
     config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag }
   end
