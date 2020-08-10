@@ -15,4 +15,5 @@
 #
 class Product < ApplicationRecord
   has_many :reviews, dependent: :destroy
+  has_many :likes, depemndent: :destroy
 end
