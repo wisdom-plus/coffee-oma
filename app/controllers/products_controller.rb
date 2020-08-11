@@ -20,9 +20,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @review = Review.new
     @reviews = Review.all.includes(:user)
-    if current_user
-      @like = Like.find_by(user_id: current_user.id, product_id: params[:id])
-    end
+    @like = Like.find_by(user_id: current_user.id, product_id: params[:id]) if current_user
   end
 
   private

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Reviews", type: :system do
+RSpec.describe 'Reviews', type: :system do
   let(:user) { create(:user) }
   let(:product) { create(:product) }
   let(:review) { create(:review, user: user, product: product) }
