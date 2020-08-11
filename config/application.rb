@@ -30,19 +30,18 @@ module Coffee
     # the framework and any gems in your application.
 
     # Don't generate system test files.
-    config.generators.system_tests = nil
     config.i18n.default_locale = :ja
     config.generators.active_record = true
     config.generators do |g|
-      g.template_engine = :slim
+      g.template_engine :slim
+      g.integration_tool :rspec
+      g.system_tests :rspec
       g.test_framework :rspec,
                        views_specs: false,
                        helper_specs: false,
                        controller_specs: false,
                        routing_specs: false,
-                       model_specs: false,
-                       feature_specs: true,
-                       request_specs: true
+                       model_specs: false
     end
     config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag }
   end

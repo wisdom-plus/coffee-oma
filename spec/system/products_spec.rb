@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Products', type: :feature do
+RSpec.describe 'Products', type: :system do
   let(:product) { create(:product) }
 
   describe 'product' do

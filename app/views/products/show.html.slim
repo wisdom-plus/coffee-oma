@@ -5,22 +5,32 @@
     .ui.middle.aligned.stackable.grid.conteiner
       .row
         .six.wide.left.floated.column
-          =image_tag "#{@item.imageurl}", class: "ui large bordered rounded image"
+          =image_tag "#{@product.imageurl}", class: "ui large bordered rounded image"
         .ten.wide.column
           table.ui.celled.table
             thead
               tr
-                th colspan=3  #{@item.itemname}
+                th colspan=3  #{@product.itemname}
             tbody
               tr
                 td.center.aligned  価格
                 td.center.aligned
-                  i.yen.icon #{@item.itemprice.to_s(:delimited)}
+                  i.yen.icon #{@product.itemprice.to_s(:delimited)}
               tr
                 td.center.aligned ブランド
-                td.center.aligned #{@item.shopname}
+                td.center.aligned #{@product.shopname}
               tr
-                td.cen colspan=3 = link_to "楽天で詳しく見る","#{@item.itemurl}",class: " circular ui center floated red button"
+                td.cen colspan=3
+                  = link_to "楽天で詳しく見る","#{@product.itemurl}",class: " circular ui red button"
+                  - if signed_in?
+                    - if @like.nil?
+                      = link_to likes_path(product_id: @product.id), method: :post, class:"circular ui green button" do
+                        i.heart.icon
+                        | お気に入り登録
+                    - else
+                      = link_to like_path(@like.id), method: :delete, class:"circular ui green button" do
+                        i.heart.icon
+                        | お気に入り登録中
       .row
         .column
           table.ui.celled.table
@@ -30,7 +40,7 @@
             tbody
               tr
                 td
-                  = @item.itemcaption
+                  = @product.itemcaption
     .ui.comments
       - @reviews.each do |review|
         .comment
@@ -46,7 +56,7 @@
     .ui.middle.aligned.center.aligned.grid
       .column
         h1.content レビューの投稿
-        =form_with model: @review, url: product_reviews_path(@item.id), class: "ui equal width form column", method: :post,local: true do |f|
+        =form_with model: @review, url: product_reviews_path(@product.id), class: "ui equal width form column", method: :post,local: true do |f|
           .fields
             =f.label :title, "タイトル",class: "four wide field"
             =f.text_field :title, placeholder: "title", class: "ten wide field"
@@ -54,6 +64,6 @@
             =f.label :content, "レビュー内容", class: "four wide field"
             =f.text_area :content, placeholder: "レビューの内容",class: "ten wide field"
           .field
-            = f.hidden_field(:product_id, :value => @item.id )
+            = f.hidden_field(:product_id, :value => @product.id )
             = f.hidden_field(:user_id, :value => current_user.id )
             = f.submit '  submit  ', class: "large ui center floated positive button"
