@@ -23,9 +23,14 @@
                 td.cen colspan=3
                   = link_to "楽天で詳しく見る","#{@product.itemurl}",class: " circular ui red button"
                   - if signed_in?
-                    = link_to likes_path(product_id: @product.id), method: :post, class:"circular ui green button" do
-                      i.heart.icon
-                      | お気に入り登録
+                    - if @like.nil?
+                      = link_to likes_path(product_id: @product.id), method: :post, class:"circular ui green button" do
+                        i.heart.icon
+                        | お気に入り登録
+                    - else
+                      = link_to like_path(@like.id), method: :delete, class:"circular ui green button" do
+                        i.heart.icon
+                        | お気に入り登録中
       .row
         .column
           table.ui.celled.table
