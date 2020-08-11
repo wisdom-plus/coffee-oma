@@ -1,23 +1,23 @@
 class ProductsController < ApplicationController
   def new
     if params[:keyword]
-      @items = rakuten_search(params[:keyword])
+      @products = rakuten_search(params[:keyword])
     end
     @product = Product.new
   end
 
   def create
-    items = Product.new(product_params)
-    items.save
+    products = Product.new(product_params)
+    products.save
     redirect_to products_path
   end
 
   def index
-    @items = Product.all
+    @products = Product.all
   end
 
   def show
-    @item = Product.find(params[:id])
+    @product = Product.find(params[:id])
     @review = Review.new
     @reviews = Review.all.includes(:user)
   end
