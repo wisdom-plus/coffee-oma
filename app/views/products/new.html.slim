@@ -10,30 +10,30 @@
           = f.text_field :keyword, placeholder: "search",class: ""
       .field
         = f.submit 'search', class: "ui fluid teal submit button "
-- if @items.present?
+- if @products.present?
   .ui.three.stackable.cards.segment#example1
     .ui.right.very.close.rail
       .ui.segment.sticky
         a href="#"
           i.chevron.circle.up.icon Top
-    - @items.first(10).each do |item|
+    - @products.first(10).each do |product|
       .ui.fluid.card
         .image
-          img src="#{item.medium_image_urls[0]}"
+          img src="#{product.medium_image_urls[0]}"
         .content
-          .herader =item.name
+          .herader =product.name
           .meta
-            span Brand:  #{item.shop_name}
+            span Brand:  #{product.shop_name}
           .description
-            =item.catchcopy
+            =product.catchcopy
         = form_with model: @product,url: products_path, local: true do |f|
-          =f.hidden_field(:itemname, :value => item.name)
-          =f.hidden_field(:itemprice, :value => item.price)
-          =f.hidden_field(:shopname, :value => item.shop_name)
-          =f.hidden_field(:catchcopy, :value => item.catchcopy)
-          =f.hidden_field(:imageurl, :value => item.medium_image_urls[0])
-          =f.hidden_field(:itemurl, :value => item.url)
-          =f.hidden_field(:itemcaption, :value => item.caption)
+          =f.hidden_field(:itemname, :value => product.name)
+          =f.hidden_field(:itemprice, :value => product.price)
+          =f.hidden_field(:shopname, :value => product.shop_name)
+          =f.hidden_field(:catchcopy, :value => product.catchcopy)
+          =f.hidden_field(:imageurl, :value => product.medium_image_urls[0])
+          =f.hidden_field(:itemurl, :value => product.url)
+          =f.hidden_field(:itemcaption, :value => product.caption)
           =f.submit "登録する", class: "ui fluid teal submit button"
         .extra.content
-          i.yen.sign.icon =item.price.to_s(:delimited)
+          i.yen.sign.icon =product.price.to_s(:delimited)
