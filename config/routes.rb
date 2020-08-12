@@ -20,6 +20,8 @@
 #                 new_user_confirmation GET    /users/confirmation/new(.:format)                                                        devise/confirmations#new
 #                     user_confirmation GET    /users/confirmation(.:format)                                                            devise/confirmations#show
 #                                       POST   /users/confirmation(.:format)                                                            devise/confirmations#create
+#                                       GET    /users/:id/show(.:format)                                                                users/registrations#show
+#                                       GET    /users/:id/edit(.:format)                                                                users/registrations#edit
 #                       product_reviews GET    /products/:product_id/reviews(.:format)                                                  reviews#index
 #                                       POST   /products/:product_id/reviews(.:format)                                                  reviews#create
 #                              products GET    /products(.:format)                                                                      products#index
@@ -28,6 +30,8 @@
 #                               product GET    /products/:id(.:format)                                                                  products#show
 #                                 likes POST   /likes(.:format)                                                                         likes#create
 #                                  like DELETE /likes/:id(.:format)                                                                     likes#destroy
+#                         relationships POST   /relationships(.:format)                                                                 relationships#create
+#                          relationship DELETE /relationships/:id(.:format)                                                             relationships#destroy
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
 #         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
@@ -50,12 +54,15 @@
 #                  rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-  get 'relationships/create'
-  get 'relationships/destroy'
   root to: 'home#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_scope :user do
+    get 'users/:id/show' => 'users/registrations#show'
+    get 'users/:id/edit' => 'users/registrations#edit'
+  end
   resources :products, only: %i[new create index show] do
     resources :reviews, only: %i[index create]
   end
   resources :likes, only: %i[create destroy]
+  resources :relationships, only: %i[create destroy]
 end
