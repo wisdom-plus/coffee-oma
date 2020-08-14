@@ -19,16 +19,17 @@
       i.users.icon
         = @user.followers.count
         |フォロワー
-  .segment
-    - if @user.id == current_user.id
-      =link_to edit_user_registration_path,class: "circular ui blue button"
-        |プロフィールを編集
-    - elsif current_user.followings.include?(@user)
-      =link_to relationship_path(@follow.id), method: :delete,class: "circular ui blue button"
-        |フォロー解除
-    - else
-      =link_to relationships_path(follow_id: @user.id), method: :post,class: "circular ui blue button"
-        |フォローする
+  - if signed_in?
+    .segment
+      - if @user.id == current_user.id
+        =link_to edit_user_registration_path,class: "circular ui blue button"
+          |プロフィールを編集
+      - elsif current_user.followings.include?(@user)
+        =link_to relationship_path(@follow.id), method: :delete,class: "circular ui blue button"
+          |フォロー解除
+      - else
+        =link_to relationships_path(follow_id: @user.id), method: :post,class: "circular ui blue button"
+          |フォローする
 .ui.centered.grid.margin-zero
   .twelve.wide.column
     .ui.top.attached.four.tabular.menu
