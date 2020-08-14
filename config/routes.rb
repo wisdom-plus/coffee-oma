@@ -58,7 +58,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_scope :user do
     get 'users/:id/show' => 'users/registrations#show'
-    get 'users/:id/edit' => 'users/registrations#edit'
   end
   resources :products, only: %i[new create index show] do
     resources :reviews, only: %i[index create]
