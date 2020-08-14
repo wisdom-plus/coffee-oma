@@ -21,7 +21,6 @@
 #                     user_confirmation GET    /users/confirmation(.:format)                                                            devise/confirmations#show
 #                                       POST   /users/confirmation(.:format)                                                            devise/confirmations#create
 #                                       GET    /users/:id/show(.:format)                                                                users/registrations#show
-#                                       GET    /users/:id/edit(.:format)                                                                users/registrations#edit
 #                       product_reviews GET    /products/:product_id/reviews(.:format)                                                  reviews#index
 #                                       POST   /products/:product_id/reviews(.:format)                                                  reviews#create
 #                              products GET    /products(.:format)                                                                      products#index
