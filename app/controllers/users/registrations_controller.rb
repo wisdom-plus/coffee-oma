@@ -31,7 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def show
     @user = User.find(params[:id])
-    @follow = Relationship.find_by(user_id: current_user.id, follow_id: @user.id)
+    @follow = Relationship.find_by(user_id: current_user.id, follow_id: @user.id) if signed_in?
   end
 
   # GET /resource/cancel
