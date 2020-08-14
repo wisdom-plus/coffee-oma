@@ -1,0 +1,31 @@
+.ui.center.aligned.container
+  =image_tag "/elyse.png",alt: "　テスト画像", class: "ui centered small circular image"
+  h1.header
+    =@user.username
+  .content
+    / = @user.profile
+    |プロフィールを表示しています。
+  .ui.label
+    i.calendar.alternate.outline.icon
+      =@user.created_at.strftime("%Y年%m月")
+      |から利用
+  .ui.label
+    i.user.icon
+      = @user.followings.count
+      |フォロー中
+  .ui.label
+    i.users.icon
+      = @user.followers.count
+      |フォロワー
+.ui.centered.grid.margin-zero
+  .twelve.wide.column
+    .ui.top.attached.tabular.menu
+      a.active.item data-tab= "first" タブ１
+      a.item data-tab= "second" タブ２
+      a.item data-tab= "third" タブ３
+    .ui.bottom.attached.tab.segment.active data-tab= "first"
+      内容１
+    .ui.bottom.attached.tab.segment data-tab= "second"
+      内容2
+    .ui.bottom.attached.tab.segment data-tab= "third"
+      内容3
