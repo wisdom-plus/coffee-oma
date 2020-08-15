@@ -1,0 +1,47 @@
+.ui.center.aligned.container
+  =image_tag "/elyse.png",alt: "　テスト画像", class: "ui centered small circular image"
+  h1.header
+    =@user.username
+  .segment
+    .content
+      / = @user.profile
+      |プロフィールを表示しています。
+  .segment
+    .ui.label
+      i.calendar.alternate.outline.icon
+        =@user.created_at.strftime("%Y年%m月")
+        |から利用
+    .ui.label
+      i.user.icon
+        = @user.followings.count
+        |フォロー中
+    .ui.label
+      i.users.icon
+        = @user.followers.count
+        |フォロワー
+  - if signed_in?
+    .segment
+      - if @user.id == current_user.id
+        =link_to edit_user_registration_path,class: "circular ui blue button"
+          |プロフィールを編集
+      - elsif current_user.followings.include?(@user)
+        =link_to relationship_path(@follow.id), method: :delete,class: "circular ui blue button"
+          |フォロー解除
+      - else
+        =link_to relationships_path(follow_id: @user.id), method: :post,class: "circular ui blue button"
+          |フォローする
+.ui.centered.grid.margin-zero
+  .twelve.wide.column
+    .ui.top.attached.four.tabular.menu
+      a.active.item data-tab= "first" 投稿レビュー
+      a.item data-tab= "second" お気に入りしたアイテム
+      a.item data-tab= "third" フォロー一覧
+      a.item data-tab= "four" フォロワー一覧
+    .ui.bottom.attached.tab.segment.active data-tab= "first"
+      内容１
+    .ui.bottom.attached.tab.segment data-tab= "second"
+      内容2
+    .ui.bottom.attached.tab.segment data-tab= "third"
+      内容3
+    .ui.bottom.attached.tab.segment data-tab= "four"
+      内容4

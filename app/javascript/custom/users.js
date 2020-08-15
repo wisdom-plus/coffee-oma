@@ -7,4 +7,5 @@ $(function () {
       context: '#example1'
     })
     ;
+  $('.menu .item').tab();
 });
