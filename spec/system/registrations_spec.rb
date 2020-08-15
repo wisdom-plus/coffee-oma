@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Registrations', type: :system do
   let(:user) { create(:user) }
-  let(:user1) { create(:user, email: "test1@example.com", username: "test2")}
+  let(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
 
   describe 'registrations' do
     describe 'sign_up' do
@@ -84,7 +84,7 @@ RSpec.describe 'Registrations', type: :system do
 
         it 'success render(user)' do
           visit "/users/#{user.id}/show"
-          expect(page).to have_content "#{user.username}"
+          expect(page).to have_content user.username.to_s
         end
 
         it 'success have link edit' do
@@ -94,7 +94,7 @@ RSpec.describe 'Registrations', type: :system do
 
         it 'success render(user1)' do
           visit "/users/#{user1.id}/show"
-          expect(page).to have_content "#{user1.username}"
+          expect(page).to have_content user1.username.to_s
         end
 
         it 'not have link edit' do
