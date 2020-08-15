@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Registrations', type: :request do
   let(:user) { create(:user) }
+  let(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
   let(:user_params) { attributes_for(:user) }
   let(:user_update_params) { attributes_for(:user, username: 'test') }
 
@@ -20,6 +21,23 @@ RSpec.describe 'Registrations', type: :request do
 
     it 'request success' do
       get edit_user_registration_path
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe 'GET /users/:id/show' do
+    before do
+      user.confirm
+      sign_in user
+    end
+
+    it 'request success(user)' do
+      get "/users/#{user.id}/show"
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'request success(user1)' do
+      get "/users/#{user1.id}/show"
       expect(response).to have_http_status(:ok)
     end
   end

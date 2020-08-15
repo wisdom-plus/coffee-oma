@@ -29,6 +29,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def show
+    @user = User.find(params[:id])
+    @follow = Relationship.find_by(user_id: current_user.id, follow_id: @user.id) if signed_in?
+  end
+
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
   # in to be expired now. This is useful if the user wants to

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Registrations', type: :system do
   let(:user) { create(:user) }
+  let(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
 
   describe 'registrations' do
     describe 'sign_up' do
@@ -45,7 +46,7 @@ RSpec.describe 'Registrations', type: :system do
       end
     end
 
-    describe 'delete users/registration' do
+    describe 'delete /users' do
       context 'delete users_registration_path' do
         before do
           login(user, user.email, user.password)
@@ -59,7 +60,7 @@ RSpec.describe 'Registrations', type: :system do
       end
     end
 
-    describe 'get edit/registrstion' do
+    describe 'get /users/edit' do
       before do
         login(user, user.email, user.password)
         visit edit_user_registration_path
@@ -71,6 +72,41 @@ RSpec.describe 'Registrations', type: :system do
           fill_in 'spec-E-mail address', with: user.email
           click_button 'Update'
           expect(page).to have_content 'アカウント情報を変更しました。'
+        end
+      end
+    end
+
+    describe 'get /users/:id/show' do
+      context 'signed' do
+        before do
+          login(user, user.email, user.password)
+        end
+
+        it 'success render(user)' do
+          visit "/users/#{user.id}/show"
+          expect(page).to have_content user.username.to_s
+        end
+
+        it 'success have link edit' do
+          visit "/users/#{user.id}/show"
+          expect(page).to have_link 'プロフィールを編集'
+        end
+
+        it 'success render(user1)' do
+          visit "/users/#{user1.id}/show"
+          expect(page).to have_content user1.username.to_s
+        end
+
+        it 'not have link edit' do
+          visit "/users/#{user1.id}/show"
+          expect(page).to have_no_link edit_user_registration_path
+        end
+      end
+
+      context 'not signed' do
+        it 'not have link edit' do
+          visit "/users/#{user.id}/show"
+          expect(page).to have_no_link edit_user_registration_path
         end
       end
     end

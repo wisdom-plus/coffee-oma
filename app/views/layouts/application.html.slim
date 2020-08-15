@@ -17,6 +17,7 @@ html
           font style= "vertical-align: inherit;" アイテム一覧
         - if user_signed_in?
           =link_to "ログアウト",destroy_user_session_path,method: :delete,class: "item"
+          = link_to 'ユーザー',"/users/#{current_user.id}/show", class: "item"
         - else
           =link_to "ログイン",user_session_path,class: "item"
     .ui.container.top-padding
