@@ -1,5 +1,5 @@
 .ui.center.aligned.container
-  =image_tag "/elyse.png",alt: "　テスト画像", class: "ui centered small circular image"
+  =image_tag @user.icon.url,alt: "テスト画像", class: "ui centered small circular image"
   h1.header
     =@user.username
   .segment

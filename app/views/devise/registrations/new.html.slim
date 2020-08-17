@@ -15,6 +15,10 @@
           i.mail.icon
           = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail address"
       .field
+        = f.label :icon
+        = f.file_field :icon, autofocus: true
+
+      .field
         = f.label :password
         - if @minimum_password_length
           .ui.pointing.below.label
