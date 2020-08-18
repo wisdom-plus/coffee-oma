@@ -3,9 +3,18 @@
     h1.content アカウント編集
     = form_with model: @user, url: user_registration_path ,id: 'edit_user',class: "edit_user ui form text-left",method: :put, local: true do |f|
       .field
-        =image_tag @user.icon.url,alt: "テスト画像", class: "ui centered small circular image"
-        = f.label :icon
-        = f.file_field :icon, autofocus: true
+        .ui.circular.segment#dimmer
+          .ui.fluid.small.image
+            =image_tag @user.icon.url,alt: "アイコン画像",class: "ui circular image"
+            .ui.bottom.right.attached.label#dimmer-button
+              i.icons
+                i.ui.large.camera.icon
+                i.ui.bottom.right.corner.add.icon
+          .ui.dimmer
+            .content
+              .center
+                .ui.inverted
+                  = f.file_field :icon, autofocus: true, class: "ui button"
       .field
         = f.label :username
         br
