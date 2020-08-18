@@ -8,4 +8,8 @@ $(function () {
     })
     ;
   $('.menu .item').tab();
+  $(document).on('turbolinks:load', function () {
+    $('.ui.accordion').accordion();
+  });
+  $('.ui.accordion').accordion();
 });
