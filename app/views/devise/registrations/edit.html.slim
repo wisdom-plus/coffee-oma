@@ -5,16 +5,16 @@
       .field
         .ui.circular.segment#dimmer
           .ui.fluid.small.image
-            =image_tag @user.icon.url,alt: "アイコン画像",class: "ui circular image"
+            =image_tag @user.icon.url,alt: "アイコン画像",class: "ui circular image",id: "img_prev"
             .ui.bottom.right.attached.label#dimmer-button
               i.icons
                 i.ui.large.camera.icon
                 i.ui.bottom.right.corner.add.icon
           .ui.dimmer
-            .content
-              .center
-                .ui.inverted
-                  = f.file_field :icon, autofocus: true, class: "ui button"
+            = f.label :icon do
+              .ui.teal.button
+                |アイコンを変更する
+              = f.file_field :icon, autofocus: true, class: "file-form"
       .field
         = f.label :username
         br
