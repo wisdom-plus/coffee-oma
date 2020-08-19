@@ -67,9 +67,27 @@ RSpec.describe 'Registrations', type: :system do
       end
 
       context 'edit(seccess)' do
-        it 'user edit seccess' do
+        it 'displayed icon ' do
+          expect(page).to have_selector '#img_prev'
+        end
+
+        it 'user edit seccess(username)' do
           fill_in 'spec-user-name', with: 'test'
           fill_in 'spec-E-mail address', with: user.email
+          click_button 'Update'
+          expect(page).to have_content 'アカウント情報を変更しました。'
+        end
+
+        it 'user edit seccess(email)' do
+          fill_in 'spec-user-name', with: 'test1'
+          fill_in 'spec-E-mail address', with: 'test1@example.com'
+          click_button 'Update'
+          expect(page).to have_content 'アカウント情報を変更しました。'
+        end
+
+        it 'user edit seccess(password)' do
+          fill_in 'spec-password', with: "password"
+          fill_in 'spec-password-confirmation', with: "password"
           click_button 'Update'
           expect(page).to have_content 'アカウント情報を変更しました。'
         end
@@ -80,6 +98,11 @@ RSpec.describe 'Registrations', type: :system do
       context 'signed' do
         before do
           login(user, user.email, user.password)
+        end
+
+        it 'displayed icon ' do
+          visit "/users/#{user.id}/show"
+          expect(page).to have_selector 'img'
         end
 
         it 'success render(user)' do

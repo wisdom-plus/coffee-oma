@@ -31,6 +31,10 @@
         div
           | Currently waiting confirmation for:
           = resource.unconfirmed_email
+      .field
+        = f.label :profile
+        br
+        = f.text_area :profile, autofocus: true, placeholder: "\uF044 profile", id: "spec-profile", class: "editicon"
       .ui.accordion.field
         .title#accordion
           i.dropdown.icon
@@ -48,12 +52,12 @@
                 | 文字以上にしてください
           .ui.left.icon.input
             i.lock.icon
-            = f.password_field :password, autocomplete: "new-password", placehoder: "new-password"
+            = f.password_field :password, autocomplete: "new-password", placehoder: "new-password", id: "spec-password"
           = f.label :password_confirmation
           br
           .ui.left.icon.input
             i.lock.icon
-            = f.password_field :password_confirmation, autocomplete: "new-password", plachoder: "confrimation-new-password"
+            = f.password_field :password_confirmation, autocomplete: "new-password", plachoder: "confrimation-new-password", id: "spec-password-confirmation"
       .field
         = f.submit "Update", class: "ui fluid teal submit button"
     h3.content アカウントの削除
