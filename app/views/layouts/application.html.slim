@@ -11,8 +11,8 @@ html
   #wrapper
     .ui.fixed.inverted.menu
       .ui.container
-        a.item href= "#"
-          font style= "vertical-align: inherit;" ホーム
+        =link_to root_path , class: "item", id: "logopadding" do
+          =image_tag("/coffeeoma-logo.png", class: "ui tinysmall image")
         a.item href= products_path
           font style= "vertical-align: inherit;" アイテム一覧
         - if user_signed_in?
