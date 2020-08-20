@@ -19,7 +19,7 @@
   text-align: left;
 }
 .top-padding{
-  padding-top: 50px;
+  padding-top: 60px;
 }
 .ui.sticky.fixed.top {
   top: auto;
@@ -80,4 +80,12 @@ body,
   -webkit-font-smoothing: antialiased;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+}
+#logopadding{
+  padding: 0;
+}
+.ui.tinysmall.image{
+  width: 140px;
+  height: auto;
+  font-size: 0.92857143rem;
 }
