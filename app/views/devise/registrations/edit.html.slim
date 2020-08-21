@@ -5,7 +5,7 @@
       .field
         .ui.circular.segment#dimmer
           .ui.fluid.small.image
-            =image_tag @user.icon.url,alt: "アイコン画像",class: "ui circular image",id: "img_prev"
+            =image_tag @user.icon.url,alt: "アイコン画像",class: "ui circular image",id: "img-prev"
             .ui.bottom.right.attached.label#dimmer-button
               i.icons
                 i.ui.large.camera.icon
@@ -14,7 +14,7 @@
             = f.label :icon do
               .ui.teal.button
                 |アイコンを変更する
-              = f.file_field :icon, autofocus: true, class: "file-form"
+              = f.file_field :image, autofocus: true, class: "file-form"
       .field
         = f.label :username
         br
