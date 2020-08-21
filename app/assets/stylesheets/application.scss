@@ -19,7 +19,7 @@
   text-align: left;
 }
 .top-padding{
-  padding-top: 50px;
+  padding-top: 60px;
 }
 .ui.sticky.fixed.top {
   top: auto;
@@ -52,4 +52,40 @@ body,
 }
 .ui.centered.grid.margin-zero{
   margin-top: 1rem
+}
+#dimmer{
+  border: none;
+  box-shadow: none;
+  left: 70%;
+}
+.file-form{
+  display: none;
+}
+#position-height{
+  height: 25%;
+}
+.editicon{
+  display: inline-block;
+  opacity: 1;
+  margin: 0em 0.25rem 0em 0em;
+  width: 1.18em;
+  height: 1em;
+  font-family: 'Icons';
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  speak: none;
+  font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+#logopadding{
+  padding: 0;
+}
+.ui.tinysmall.image{
+  width: 140px;
+  height: auto;
+  font-size: 0.92857143rem;
 }
