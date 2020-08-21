@@ -86,8 +86,8 @@ RSpec.describe 'Registrations', type: :system do
         end
 
         it 'user edit seccess(password)' do
-          fill_in 'spec-password', with: "password"
-          fill_in 'spec-password-confirmation', with: "password"
+          fill_in 'spec-password', with: 'password'
+          fill_in 'spec-password-confirmation', with: 'password'
           click_button 'Update'
           expect(page).to have_content 'アカウント情報を変更しました。'
         end
