@@ -8,6 +8,7 @@
 #  confirmed_at           :datetime
 #  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default(""), not null
+#  icon                   :string(255)
 #  profile                :text(65535)
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
@@ -28,5 +29,6 @@ FactoryBot.define do
     email { 'test@example.com' }
     password { 'kajshdjduidj' }
     username { 'test1' }
+    icon { Rack::Test::UploadedFile.new(Rails.root.join('spec/system/test.png')) }
   end
 end
