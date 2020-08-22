@@ -79,7 +79,7 @@
             span Brand:  #{product.shop_name}
           .description
             =product.catchcopy
-        = form_with model: @product,url: products_path, local: true do |f|
+        = form_with model: @product,url: rakuten_create_products_path, local: true do |f|
           =f.hidden_field(:itemname, :value => product.name)
           =f.hidden_field(:itemprice, :value => product.price)
           =f.hidden_field(:shopname, :value => product.shop_name)
