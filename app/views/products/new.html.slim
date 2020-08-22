@@ -24,21 +24,21 @@
             .content
               .header
                 =f.label "商品の名前"
-                = f.text_field :itemname, autofocus: true, autocomplete: "name", placeholder: "item-name"
+                = f.text_field :itemname, autofocus: true, placeholder: "item-name"
               .meta
                 =f.label "メーカーの名前"
-                = f.text_field :shopname, autofocus: true, autocomplete: "name", placeholder: "shop-name"
+                = f.text_field :shopname, autofocus: true, placeholder: "shop-name"
               .description
                 =f.label "商品のキャッチコピー"
-                = f.text_area :catchcopy, rows: 5,autofocus: true, autocomplete: "name", placeholder: "catchcopy"
+                = f.text_area :catchcopy, rows: 5,autofocus: true, placeholder: "catchcopy"
             .extra.content
               =f.label "商品の値段"
               .ui.left.icon.input
                 i.yen.icon
-                = f.text_field :itemprice, autofocus: true, autocomplete: "name", placeholder: "itemprice"
+                = f.text_field :itemprice, autofocus: true, placeholder: "itemprice"
             .extra.content
               = f.label "商品のURL"
-              = f.text_field :itemurl, autofocus: true, autocomplete: "name", placeholder: "itemurl"
+              = f.text_field :itemurl, autofocus: true, placeholder: "itemurl"
           table.ui.celled.table
             thead
               tr
@@ -46,7 +46,7 @@
             tbody
               tr
                 td
-                  = f.text_area :itemcaption, autofocus: true, autocomplete: "name", placeholder: "itemcaption"
+                  = f.text_area :itemcaption, autofocus: true , placeholder: "itemcaption"
           =f.submit 'submit', class: "ui teal submit button"
       .title.ui.teal.button#accordion
         i.dropdown.icon
