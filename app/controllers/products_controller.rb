@@ -7,8 +7,15 @@ class ProductsController < ApplicationController
   end
 
   def create
-    products = Product.new(product_params)
-    products.save
+    product = Product.new(product_params)
+    product.save
+    redirect_to products_path
+  end
+
+  def rakuten_create
+    product = Product.new(product_params)
+    product.remote_imageurl_url = product_params[:imageurl].chomp("?_ex=128x128")
+    product.save
     redirect_to products_path
   end
 
@@ -30,6 +37,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:itemname, :itemprice, :shopname, :catchcopy, :imageurl, :itemurl, :itemcaption)
+      params.require(:product).permit(:itemname, :itemprice, :shopname, :catchcopy,:imageurl, :itemurl, :itemcaption, :rakuten)
     end
 end
