@@ -19,13 +19,17 @@ RSpec.describe 'Products', type: :system do
         expect(page).to have_button '登録する'
       end
 
-      it 'create product' do
+      it 'create rakuten_product' do
         fill_in 'keyword', with: 'コーヒー'
         click_on 'search'
         within first('div.ui.fluid.card') do
           click_button '登録する'
         end
         expect(page).to have_content 'アイテムの一覧'
+      end
+
+      it 'create rakuten_product' do
+
       end
     end
 
