@@ -21,5 +21,6 @@ FactoryBot.define do
     itemurl { 'https://example.com' }
     itemcaption { 'itemの説明文が入ります' }
     catchcopy { 'itemのキャッチコピーが入ります' }
+    imageurl { Rack::Test::UploadedFile.new(Rails.root.join('spec/support/noimage.jpg')) }
   end
 end
