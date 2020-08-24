@@ -69,7 +69,7 @@
       .ui.segment.sticky
         a href="#"
           i.chevron.circle.up.icon Top
-    - @products.first(10).each do |product|
+    - @products.each do |product|
       .ui.fluid.card
         .image
           img src="#{product.medium_image_urls[0]}"
@@ -90,3 +90,4 @@
           =f.submit "登録する", class: "ui fluid teal submit button"
         .extra.content
           i.yen.sign.icon =product.price.to_s(:delimited)
+  =paginate @products
