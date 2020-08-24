@@ -1,15 +1,68 @@
 .ui.middle.aligned.center.aligned.grid.vertical.stripe
   .column style= "width: 543px"
     h1.content アイテムを登録する
-    = form_with url: new_product_path, method: :get, class: "ui mini form text-left", local: true do |f|
-      .field
-        = f.label :keyword, '検索ワード'
-        br
-        .ui.left.icon.input
-          i.search.icon
-          = f.text_field :keyword, placeholder: "search",class: ""
-      .field
-        = f.submit 'search', class: "ui fluid teal submit button "
+    .ui.accordion.field
+      .title.ui.teal.button.active#accordion
+        i.dropdown.icon
+        font style="vertical-align: inherit;"
+          font style="vertical-align: inherit;"
+            |アイテムを登録する
+      .content.field
+        =form_with model: @product, url: products_path ,local: true,class: "ui mini form" do |f|
+          .ui.centered.card.field.text-left#newcard
+            .image#dimmer-product
+              img#img-prev src="/noimage.jpg"
+              .ui.bottom.right.attached.label#dimmer-button
+                i.icons
+                  i.ui.large.camera.icon
+                  i.ui.bottom.right.corner.add.icon
+              .ui.dimmer
+                = f.label :imageurl do
+                  .ui.teal.button
+                    |画像を追加する
+                  = f.file_field :imageurl, autofocus: true, class: "file-form"
+            .content
+              .header
+                =f.label "商品の名前"
+                = f.text_field :itemname, autofocus: true, placeholder: "item-name"
+              .meta
+                =f.label "メーカーの名前"
+                = f.text_field :shopname, autofocus: true, placeholder: "shop-name"
+              .description
+                =f.label "商品のキャッチコピー"
+                = f.text_area :catchcopy, rows: 5,autofocus: true, placeholder: "catchcopy"
+            .extra.content
+              =f.label "商品の値段"
+              .ui.left.icon.input
+                i.yen.icon
+                = f.text_field :itemprice, autofocus: true, placeholder: "itemprice"
+            .extra.content
+              = f.label "商品のURL"
+              = f.text_field :itemurl, autofocus: true, placeholder: "itemurl"
+          table.ui.celled.table
+            thead
+              tr
+                th 商品の説明文
+            tbody
+              tr
+                td
+                  = f.text_area :itemcaption, autofocus: true , placeholder: "itemcaption"
+          =f.submit 'submit', class: "ui teal submit button"
+      .title.ui.teal.button#accordion
+        i.dropdown.icon
+        font style="vertical-align: inherit;"
+          font style="vertical-align: inherit;"
+            |楽天で検索する
+      .content.field
+        = form_with url: new_product_path, method: :get, class: "ui mini form text-left", local: true do |f|
+          .field
+            = f.label :keyword, '検索ワード'
+            br
+            .ui.left.icon.input
+              i.search.icon
+              = f.text_field :keyword, placeholder: "search"
+          .field
+            = f.submit 'search', class: "ui fluid teal submit button "
 - if @products.present?
   .ui.three.stackable.cards.segment#example1
     .ui.right.very.close.rail
@@ -26,7 +79,7 @@
             span Brand:  #{product.shop_name}
           .description
             =product.catchcopy
-        = form_with model: @product,url: products_path, local: true do |f|
+        = form_with model: @product,url: rakuten_create_products_path, local: true do |f|
           =f.hidden_field(:itemname, :value => product.name)
           =f.hidden_field(:itemprice, :value => product.price)
           =f.hidden_field(:shopname, :value => product.shop_name)

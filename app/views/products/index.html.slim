@@ -7,10 +7,10 @@
       .ui.segment.sticky
         a href="#"
           i.chevron.circle.up.icon Top
-    - @products.first(10).each do |product|
+    - @products.each do |product|
       a.ui.fluid.link.card href= product_path(product.id)
         .image
-          img src="#{product.imageurl}"
+          img src="#{product.imageurl.url}"
         .content
           .herader =product.itemname
           .meta
