@@ -61,7 +61,7 @@ Rails.application.routes.draw do
   end
   resources :products, only: %i[new create index show] do
     collection do
-      post "rakuten_create"
+      post 'rakuten_create'
     end
     resources :reviews, only: %i[index create]
   end
