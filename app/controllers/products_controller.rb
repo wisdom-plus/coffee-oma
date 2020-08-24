@@ -1,7 +1,16 @@
 class ProductsController < ApplicationController
   def new
     if params[:keyword]
-      @products = rakuten_search(params[:keyword])
+      products = rakuten_search(params[:keyword])
+      @products_all = []
+      products.each do |product|
+        if product.name.include?(" コーヒー")
+          @products_all.push(product)
+        end
+      end
+      if @products_all.present?
+        @products = Kaminari.paginate_array(@products_all).page(params[:page]).per(9)
+      end
     end
     @product = Product.new
   end
@@ -21,7 +30,7 @@ class ProductsController < ApplicationController
 
   def index
     @q =Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
+    @products = @q.result(distinct: true).page(params[:page]).per(9)
   end
 
   def show
