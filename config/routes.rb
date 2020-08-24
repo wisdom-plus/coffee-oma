@@ -21,6 +21,7 @@
 #                     user_confirmation GET    /users/confirmation(.:format)                                                            devise/confirmations#show
 #                                       POST   /users/confirmation(.:format)                                                            devise/confirmations#create
 #                                       GET    /users/:id/show(.:format)                                                                users/registrations#show
+#               rakuten_create_products POST   /products/rakuten_create(.:format)                                                       products#rakuten_create
 #                       product_reviews GET    /products/:product_id/reviews(.:format)                                                  reviews#index
 #                                       POST   /products/:product_id/reviews(.:format)                                                  reviews#create
 #                              products GET    /products(.:format)                                                                      products#index
@@ -59,6 +60,9 @@ Rails.application.routes.draw do
     get 'users/:id/show' => 'users/registrations#show'
   end
   resources :products, only: %i[new create index show] do
+    collection do
+      post 'rakuten_create'
+    end
     resources :reviews, only: %i[index create]
   end
   resources :likes, only: %i[create destroy]

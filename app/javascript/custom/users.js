@@ -3,15 +3,17 @@ $(function () {
     $('.ui.accordion').accordion();
     $('#dimmer-button').on('click', function () {
       $('#dimmer').dimmer('toggle');
+      $('#dimmer-product').dimmer('toggle');
     });
     $('.file-form').on('change', function () {
       $('#dimmer').dimmer('hide');
+      $('#dimmer-product').dimmer('hide');
       var file = this.files[0];
       var reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = function () {
         var image = this.result;
-        $('#img_prev').attr({ src: image });
+        $('#img-prev').attr({ src: image });
       };
     });
   });
@@ -26,15 +28,17 @@ $(function () {
   $('.ui.accordion').accordion();
   $('#dimmer-button').on('click', function () {
     $('#dimmer').dimmer('toggle');
-  })
+    $('#dimmer-product').dimmer('toggle');
+  });
   $('.file-form').on('change', function () {
     $('#dimmer').dimmer('hide');
+    $('#dimmer-product').dimmer('hide');
     var file = this.files[0];
     var reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
       var image = this.result;
-      $('#img_prev').attr({ src: image });
+      $('#img-prev').attr({ src: image });
     };
   });
 });

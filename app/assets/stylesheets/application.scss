@@ -74,8 +74,6 @@ body,
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
-  speak: none;
-  font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-backface-visibility: hidden;
@@ -88,4 +86,11 @@ body,
   width: 140px;
   height: auto;
   font-size: 0.92857143rem;
+}
+.title.ui.teal.button{
+  padding:0.78571429em;
+  padding-right:14px;
+}
+#newcard{
+  width: 500px;
 }

@@ -68,7 +68,7 @@ RSpec.describe 'Registrations', type: :system do
 
       context 'edit(seccess)' do
         it 'displayed icon ' do
-          expect(page).to have_selector '#img_prev'
+          expect(page).to have_selector '#img-prev'
         end
 
         it 'user edit seccess(username)' do
