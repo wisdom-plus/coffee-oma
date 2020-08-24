@@ -1,8 +1,16 @@
 .ui.middle.aligned.center.aligned.grid.vertical.stripe
   .column
     h1.content アイテムの一覧
+    = search_form_for @q ,class: "ui mini form"do |f|
+      .eight.wide.field.form-centered
+        .ui.action.input
+          = f.search_field :itemname_cont, placeholder: "search"
+          = button_tag type: 'submit', class: "ui icon teal button" do
+            i.search.icon
+
+
 - if @products.present?
-  .ui.three.stackable.cards.segment#example1
+  .ui.three.stackable.cards.segment#sidebar
     .ui.right.very.close.rail
       .ui.segment.sticky
         a href="#"

@@ -22,7 +22,7 @@ $(function () {
   });
   $('.sticky')
     .sticky({
-      context: '#example1'
+      context: '#sidebar'
     });
   $('.menu .item').tab();
   $('.ui.accordion').accordion();
