@@ -38,25 +38,24 @@ RSpec.describe 'Products', type: :system do
       end
 
       it 'create manual_product' do
-        fill_in 'item-name' , with: 'コーヒーの器具の名前'
-        fill_in 'shop-name' , with: 'コーヒーのメーカー'
-        fill_in 'catchcopy' , with: 'キャッチコピー'
-        fill_in 'itemprice' , with: '1000'
-        fill_in 'itemcaption' , with: 'アイテムの説明文が入ります'
+        fill_in 'item-name', with: 'コーヒーの器具の名前'
+        fill_in 'shop-name', with: 'コーヒーのメーカー'
+        fill_in 'catchcopy', with: 'キャッチコピー'
+        fill_in 'itemprice', with: '1000'
+        fill_in 'itemcaption', with: 'アイテムの説明文が入ります'
         click_on 'submit'
         expect(page).to have_content 'コーヒーの器具の名前'
       end
 
       it 'redirect index(manual_product)' do
-        fill_in 'item-name' , with: 'コーヒーの器具の名前'
-        fill_in 'shop-name' , with: 'コーヒーのメーカー'
-        fill_in 'catchcopy' , with: 'キャッチコピー'
-        fill_in 'itemprice' , with: '1000'
-        fill_in 'itemcaption' , with: 'アイテムの説明文が入ります'
+        fill_in 'item-name', with: 'コーヒーの器具の名前'
+        fill_in 'shop-name', with: 'コーヒーのメーカー'
+        fill_in 'catchcopy', with: 'キャッチコピー'
+        fill_in 'itemprice', with: '1000'
+        fill_in 'itemcaption', with: 'アイテムの説明文が入ります'
         click_on 'submit'
         expect(page).to have_current_path products_path
       end
-
     end
 
     describe 'index' do

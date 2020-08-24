@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Products', type: :request do
   let(:product) { create(:product) }
   let(:product_params) { attributes_for(:product) }
-  let(:rakuten_product_params) { attributes_for(:product, imageurl: ENV['RAKUTEN_TEST_IMAGE_URL'])}
+  let(:rakuten_product_params) { attributes_for(:product, imageurl: ENV['RAKUTEN_TEST_IMAGE_URL']) }
+
   describe 'GET /products' do
     it 'request seccees' do
       get products_path
