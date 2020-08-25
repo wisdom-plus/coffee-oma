@@ -1,7 +1,10 @@
 class ProductsController < ApplicationController
   def new
     if params[:keyword]
-      @products = rakuten_search(params[:keyword])
+      rakuten_array(params[:keyword])
+      if @products_all.present?
+        @products = Kaminari.paginate_array(@products_all).page(params[:page]).per(9)
+      end
     end
     @product = Product.new
   end
@@ -20,7 +23,8 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true).page(params[:page]).per(9)
   end
 
   def show
@@ -32,11 +36,23 @@ class ProductsController < ApplicationController
 
   private
 
-    def rakuten_search(search_keyword)
-      RakutenWebService::Ichiba::Item.search(keyword: search_keyword, imageFlag: 1)
+    def rakuten_search(search_keyword, page_count)
+      RakutenWebService::Ichiba::Item.search(keyword: search_keyword, imageFlag: 1, page: page_count)
     end
 
     def product_params
-      params.require(:product).permit(:itemname, :itemprice, :shopname, :catchcopy, :imageurl, :itemurl, :itemcaption, :rakuten)
+      params.require(:product).permit(:itemname, :itemprice, :shopname, :catchcopy, :imageurl, :itemurl, :itemcaption)
+    end
+
+    def rakuten_array(keyword)
+      @products_all = []
+      (1..5).each do |page_count|
+        products = rakuten_search(keyword, page_count)
+        products.each do |product|
+          if product.name.include?('コーヒー')
+            @products_all.push(product)
+          end
+        end
+      end
     end
 end

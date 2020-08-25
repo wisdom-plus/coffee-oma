@@ -64,13 +64,13 @@
           .field
             = f.submit 'search', class: "ui fluid teal submit button "
 - if @products.present?
-  .ui.three.stackable.cards.segment#example1
+  .ui.three.stackable.cards.segment.scroll#sidebar
     .ui.right.very.close.rail
       .ui.segment.sticky
         a href="#"
           i.chevron.circle.up.icon Top
-    - @products.first(10).each do |product|
-      .ui.fluid.card
+    - @products.each do |product|
+      .ui.fluid.card.post
         .image
           img src="#{product.medium_image_urls[0]}"
         .content
@@ -90,3 +90,4 @@
           =f.submit "登録する", class: "ui fluid teal submit button"
         .extra.content
           i.yen.sign.icon =product.price.to_s(:delimited)
+  =paginate @products
