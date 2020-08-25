@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
   private
 
     def rakuten_search(search_keyword, page_count)
-      RakutenWebService::Ichiba::Item.search(keyword: search_keyword, imageFlag: 1, page: page_count,elements: ['itemName'])
+      RakutenWebService::Ichiba::Item.search(keyword: search_keyword, imageFlag: 1, page: page_count, elements: ['itemName'])
     end
 
     def product_params
@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
 
     def rakuten_array(keyword)
       @products_all = []
-      for page_count in 1..5 do
+      (1..5).each do |page_count|
         products = rakuten_search(keyword, page_count)
         products.each do |product|
           if product.name.include?('コーヒー')

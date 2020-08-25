@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Products', type: :system do
   let(:product) { create(:product) }
-  let(:product1) { create(:product,itemname: '器具の名前が入ります')}
+  let(:product1) { create(:product, itemname: '器具の名前が入ります') }
 
   describe 'product' do
     describe 'new' do
@@ -81,17 +81,16 @@ RSpec.describe 'Products', type: :system do
       end
 
       it 'search product' do
-        fill_in "search",	with: "コーヒー"
+        fill_in 'search',	with: 'コーヒー'
         find('.ui.icon.teal.button').click
         expect(page).to have_content 'コーヒーの器具の名前'
       end
 
-      it 'search product' do
-        fill_in "search",	with: "コーヒー"
+      it 'not search product1' do
+        fill_in 'search',	with: 'コーヒー'
         find('.ui.icon.teal.button').click
         expect(page).to have_no_content '器具の名前が入れます'
       end
-
     end
 
     describe 'show' do

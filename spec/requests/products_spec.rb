@@ -19,7 +19,7 @@ RSpec.describe 'Products', type: :request do
     end
 
     it 'search rakuten' do
-      get new_product_path, params: {keyword: 'コーヒー'}
+      get new_product_path, params: { keyword: 'コーヒー' }
       expect(response).to have_http_status(:ok)
     end
   end
