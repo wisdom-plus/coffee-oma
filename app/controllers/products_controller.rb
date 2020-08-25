@@ -36,20 +36,22 @@ class ProductsController < ApplicationController
 
   private
 
-    def rakuten_search(search_keyword)
-      RakutenWebService::Ichiba::Item.search(keyword: search_keyword, imageFlag: 1)
+    def rakuten_search(search_keyword, page_count)
+      RakutenWebService::Ichiba::Item.search(keyword: search_keyword, imageFlag: 1, page: page_count,elements: ['itemName'])
     end
 
     def product_params
-      params.require(:product).permit(:itemname, :itemprice, :shopname, :catchcopy, :imageurl, :itemurl, :itemcaption, :rakuten)
+      params.require(:product).permit(:itemname, :itemprice, :shopname, :catchcopy, :imageurl, :itemurl, :itemcaption)
     end
 
     def rakuten_array(keyword)
-      products = rakuten_search(keyword)
       @products_all = []
-      products.each do |product|
-        if product.name.include?('コーヒー')
-          @products_all.push(product)
+      for page_count in 1..5 do
+        products = rakuten_search(keyword, page_count)
+        products.each do |product|
+          if product.name.include?('コーヒー')
+            @products_all.push(product)
+          end
         end
       end
     end
