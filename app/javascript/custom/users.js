@@ -5,6 +5,9 @@ $(function () {
       $('#dimmer').dimmer('toggle');
       $('#dimmer-product').dimmer('toggle');
     });
+    $('.sticky').sticky({
+      context: '#sidebar'
+    });
     $('.file-form').on('change', function () {
       $('#dimmer').dimmer('hide');
       $('#dimmer-product').dimmer('hide');
@@ -16,13 +19,21 @@ $(function () {
         $('#img-prev').attr({ src: image });
       };
     });
+    var InfiniteScroll = require('infinite-scroll');
+    var infScroll = new InfiniteScroll('.scroll', {
+      path: ".page_next",
+      append: ".post",
+      history: false,
+      prefill: true,
+      hideNav: '.pagination'
+    });
   });
   $('.close').click(function () {
     $('.flash-message').closest('.flash-message').transition('fade');
   });
   $('.sticky')
     .sticky({
-      context: '#example1'
+      context: '#sidebar'
     });
   $('.menu .item').tab();
   $('.ui.accordion').accordion();
@@ -40,5 +51,13 @@ $(function () {
       var image = this.result;
       $('#img-prev').attr({ src: image });
     };
+  });
+  var InfiniteScroll = require('infinite-scroll');
+  var infScroll = new InfiniteScroll('.scroll', {
+    path: ".page_next",
+    append: ".post",
+    history: false,
+    prefill: true,
+    hideNav: ".pagination"
   });
 });

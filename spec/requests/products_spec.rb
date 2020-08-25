@@ -17,6 +17,11 @@ RSpec.describe 'Products', type: :request do
       get new_product_path
       expect(response).to have_http_status(:ok)
     end
+
+    it 'search rakuten' do
+      get new_product_path, params: { keyword: 'コーヒー' }
+      expect(response).to have_http_status(:ok)
+    end
   end
 
   describe 'POST /products' do
