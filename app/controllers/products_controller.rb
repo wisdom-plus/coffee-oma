@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
   private
 
     def rakuten_search(search_keyword, page_count)
-      RakutenWebService::Ichiba::Item.search(keyword: search_keyword, imageFlag: 1, page: page_count, elements: ['itemName'])
+      RakutenWebService::Ichiba::Item.search(keyword: search_keyword, imageFlag: 1, page: page_count)
     end
 
     def product_params
