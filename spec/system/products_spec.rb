@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Products', type: :system do
   let(:product) { create(:product) }
+  let(:product1) { create(:product,itemname: '器具の名前が入ります')}
 
   describe 'product' do
     describe 'new' do
@@ -61,6 +62,7 @@ RSpec.describe 'Products', type: :system do
     describe 'index' do
       before do
         product
+        product1
         visit products_path
       end
 
@@ -69,7 +71,7 @@ RSpec.describe 'Products', type: :system do
       end
 
       it 'product displayed' do
-        link = find('.ui.fluid.link.card')
+        link = first('.ui.fluid.link.card')
         expect(link[:href]).to eq product_path(product.id)
       end
 
@@ -77,6 +79,19 @@ RSpec.describe 'Products', type: :system do
         click_link nil, href: product_path(product.id)
         expect(page).to have_current_path product_path(product.id)
       end
+
+      it 'search product' do
+        fill_in "search",	with: "コーヒー"
+        find('.ui.icon.teal.button').click
+        expect(page).to have_content 'コーヒーの器具の名前'
+      end
+
+      it 'search product' do
+        fill_in "search",	with: "コーヒー"
+        find('.ui.icon.teal.button').click
+        expect(page).to have_no_content '器具の名前が入れます'
+      end
+
     end
 
     describe 'show' do
