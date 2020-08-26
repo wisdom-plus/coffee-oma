@@ -32,6 +32,8 @@
 #                                  like DELETE /likes/:id(.:format)                                                                     likes#destroy
 #                         relationships POST   /relationships(.:format)                                                                 relationships#create
 #                          relationship DELETE /relationships/:id(.:format)                                                             relationships#destroy
+#                              contacts POST   /contacts(.:format)                                                                      contacts#create
+#                           new_contact GET    /contacts/new(.:format)                                                                  contacts#new
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
 #         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
@@ -54,6 +56,7 @@
 #                  rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
+
   root to: 'home#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_scope :user do
@@ -67,4 +70,5 @@ Rails.application.routes.draw do
   end
   resources :likes, only: %i[create destroy]
   resources :relationships, only: %i[create destroy]
+  resources :contacts, only: %i[new create]
 end
