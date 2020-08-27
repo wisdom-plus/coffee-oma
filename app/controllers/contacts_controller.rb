@@ -1,13 +1,13 @@
 class ContactsController < ApplicationController
   def new
-    contact = Contact.new
+    @contact = Contact.new
   end
 
   def create
     contact = Contact.new(contact_params)
     if contact.save
-      ContactMailer.contact_mail(@contact).deliver
-      ContactMailer.reply_mail(@contact).deliver
+      ContactMailer.with(contact).contact_mail.deliver
+      ContactMailer.with(contact).reply_mail.deliver
       redirect_to root_path, notice: 'お問い合わせメールが送信されました'
     end
   end

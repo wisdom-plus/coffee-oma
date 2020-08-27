@@ -1,1 +1,21 @@
-h1 問合せ
+.ui.middle.aligned.center.aligned.grid
+  .column style= "width: 543px"
+    h1.content お問い合わせフォーム
+    = form_with model: @contact, url: contacts_path, method: :post,class: "new_user ui form text-left", local: true do |f|
+      .field
+        = f.label :name
+        br
+        .ui.left.icon.input
+          i.user.icon
+          = f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "お名前"
+      .field
+        = f.label :email
+        br
+        .ui.left.icon.input
+          i.mail.icon
+          = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレス"
+      .field
+        =f.label :content
+        =f.text_area :content, autofocus: true, placeholder: "\uF044 問合せ内容", class: "editicon"
+      .field
+        = f.submit "送信", class: "ui fluid teal submit button"
