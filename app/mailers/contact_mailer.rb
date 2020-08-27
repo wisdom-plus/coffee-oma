@@ -4,7 +4,7 @@ class ContactMailer < ApplicationMailer
   def contact_mail(contact)
     @contact = contact
     mail(
-      to: ENV[MY_MAILADRESS],
+      to: ENV['MY_MAILADRESS'],
       subject: 'お問い合わせ通知'
     )
   end
