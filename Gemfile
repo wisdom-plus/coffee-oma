@@ -58,6 +58,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'spring-commands-rspec'
   gem 'webdrivers'
+  gem 'letter_opener_web'
 end
 
 group :development do
