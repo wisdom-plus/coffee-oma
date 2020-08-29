@@ -1,8 +1,12 @@
 ja:
   activerecord:
     attributes:
-      products:
+      product:
         keyword: "検索ワード"
+      contact:
+        name: "お名前"
+        email: "メールアドレス"
+        content: "お問い合わせ内容"
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -211,3 +215,7 @@ ja:
     products:
       index:
         keyword: "検索ワード"
+    contacts:
+      name: "お名前"
+      email: "メールアドレス"
+      content: "お問い合わせ内容"

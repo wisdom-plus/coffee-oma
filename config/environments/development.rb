@@ -61,4 +61,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   BetterErrors::Middleware.allow_ip! '0.0.0.0/0'
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  ActionMailer::Base.delivery_method = :letter_opener_web
 end

@@ -1,6 +1,7 @@
 $(function () {
   $(document).on('turbolinks:load', function () {
     $('.ui.accordion').accordion();
+    $('.menu .item').tab();
     $('#dimmer-button').on('click', function () {
       $('#dimmer').dimmer('toggle');
       $('#dimmer-product').dimmer('toggle');
