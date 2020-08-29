@@ -30,7 +30,7 @@ RSpec.describe 'Products', type: :request do
       expect(response).to have_http_status(:found)
     end
 
-    it 'prodcut created' do
+    it 'created product' do
       expect do
         post products_path, params: { product: product_params }
       end.to change(Product, :count).by 1
@@ -43,7 +43,7 @@ RSpec.describe 'Products', type: :request do
       expect(response).to have_http_status(:found)
     end
 
-    it 'prodcut created' do
+    it 'created product' do
       expect do
         post rakuten_create_products_path, params: { product: rakuten_product_params }
       end.to change(Product, :count).by 1
