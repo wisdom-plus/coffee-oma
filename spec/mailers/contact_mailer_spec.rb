@@ -1,13 +1,13 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe ContactMailer, type: :mailer do
-  let(:contact) {create(:contact)}
+  let(:contact) { create(:contact) }
 
   describe 'contact' do
     context 'contact_mail' do
       subject(:mail) do
         ContactMailer.contact_mail(contact).deliver_now
-        mail = ActionMailer::Base.deliveries.last
+        ActionMailer::Base.deliveries.last
       end
 
       it 'send mail' do
@@ -21,7 +21,7 @@ RSpec.describe ContactMailer, type: :mailer do
     context 'reply_mail' do
       subject(:mail) do
         ContactMailer.reply_mail(contact).deliver_now
-        mail = ActionMailer::Base.deliveries.last
+        ActionMailer::Base.deliveries.last
       end
 
       it 'send mail' do

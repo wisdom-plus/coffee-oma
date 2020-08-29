@@ -11,8 +11,8 @@
 #
 FactoryBot.define do
   factory :contact do
-    content {'これは問合せメールの本文が入ります'}
-    email {'test@example.com'}
-    name {'test1'}
+    content { 'これは問合せメールの本文が入ります' }
+    email { 'test@example.com' }
+    name { 'test1' }
   end
 end
