@@ -76,6 +76,7 @@ Metrics/BlockLength:
     - "spec/**/*"
     - "app/views/**/*.jbuilder"
     - "lib/tasks/dev.rake"
+    - "config/environments/development.rb"
 
 Metrics/ClassLength:
   CountComments: false

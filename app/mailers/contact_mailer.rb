@@ -16,6 +16,4 @@ class ContactMailer < ApplicationMailer
       subject: 'お問い合わせありがとうございます'
     )
   end
-
-
 end

@@ -66,7 +66,6 @@
 #               GET    /:id/attachments/:file(.:format) letter_opener_web/letters#attachment
 
 Rails.application.routes.draw do
-
   root to: 'home#index'
   get '/private_policy' => 'home#private_policy'
   get '/policy' => 'home#policy'
@@ -83,5 +82,5 @@ Rails.application.routes.draw do
   resources :likes, only: %i[create destroy]
   resources :relationships, only: %i[create destroy]
   resources :contacts, only: %i[new create]
-  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
