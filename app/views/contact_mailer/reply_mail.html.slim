@@ -1,8 +1,19 @@
+h3
+  |※このメールはシステムによる自動送信です。このメールに直接返信することはできません。
 p
-  | 問合せがあります
-  = @contact.name
-  | !
+  |Coffeeomaをにお問い合わせありがとうございます。
 p
-  =@contact.content
+  |下記の内容でメッセージを受け付けました。
+
+h3
+  |＝＝＝＝＝お問い合わせ内容＝＝＝＝＝
 p
-  =@contact.email
+  |お名前： #{@contact.name} 様
+p
+  |メールアドレス： #{@contact.email}
+p
+  |お問い合わせ内容：
+  =simple_format(h(@contact.content))
+h3
+  |＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
