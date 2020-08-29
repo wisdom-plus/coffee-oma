@@ -2,6 +2,8 @@
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
 #                                  root GET    /                                                                                        home#index
+#                        private_policy GET    /private_policy(.:format)                                                                home#private_policy
+#                                policy GET    /policy(.:format)                                                                        home#policy
 #                      new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
 #                          user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
 #                  destroy_user_session DELETE /users/sign_out(.:format)                                                                devise/sessions#destroy
@@ -34,6 +36,7 @@
 #                          relationship DELETE /relationships/:id(.:format)                                                             relationships#destroy
 #                              contacts POST   /contacts(.:format)                                                                      contacts#create
 #                           new_contact GET    /contacts/new(.:format)                                                                  contacts#new
+#                     letter_opener_web        /letter_opener                                                                           LetterOpenerWeb::Engine
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
 #         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
@@ -54,10 +57,19 @@
 #                    rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
 #             update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
 #                  rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
+#
+# Routes for LetterOpenerWeb::Engine:
+# clear_letters DELETE /clear(.:format)                 letter_opener_web/letters#clear
+# delete_letter DELETE /:id(.:format)                   letter_opener_web/letters#destroy
+#       letters GET    /                                letter_opener_web/letters#index
+#        letter GET    /:id(/:style)(.:format)          letter_opener_web/letters#show
+#               GET    /:id/attachments/:file(.:format) letter_opener_web/letters#attachment
 
 Rails.application.routes.draw do
 
   root to: 'home#index'
+  get '/private_policy' => 'home#private_policy'
+  get '/policy' => 'home#policy'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_scope :user do
     get 'users/:id/show' => 'users/registrations#show'
