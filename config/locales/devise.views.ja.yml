@@ -30,7 +30,7 @@ ja:
         icon: アイコン
         profile: プロフィール
     models:
-      user: ユーザ
+      user: ユーザー
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
