@@ -43,7 +43,7 @@
                   = @product.itemcaption
     .ui.comments
       - @reviews.each do |review|
-        .comment
+        .comment.ui.very.padded.segment#border
           a.avatar.ui.circular.image
             img src=review.user.icon.url alt="アイコン画像"
           .content

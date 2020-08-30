@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'activeadmin'
 gem 'amazon-ecs'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.3.1'
@@ -43,7 +44,6 @@ gem 'ransack'
 gem 'semantic-ui-sass', '~> 2.4', '>= 2.4.2.0'
 gem 'slim'
 gem 'slim-rails'
-gem 'activeadmin'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
