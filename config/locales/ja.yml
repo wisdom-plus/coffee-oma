@@ -3,10 +3,36 @@ ja:
     attributes:
       product:
         keyword: "検索ワード"
+        itemname: "商品名"
+        catchcopy: "キャッチコピー"
+        itemprice: "商品価格"
+        itemcaption: "説明文"
+        itemurl: "商品ページURL"
+        imageurl: "画像URL"
+        shopname: "販売店"
+        created_at: "作成日"
+        updated_at: "更新日"
+      review:
+        user: "投稿者"
+        product: "商品"
+        title: "タイトル"
+        content: "投稿本文"
+        created_at: "作成日"
+        updated_at: "更新日"
       contact:
         name: "お名前"
         email: "メールアドレス"
         content: "お問い合わせ内容"
+      admin_user:
+        current_sign_in_at: "ログイン状態"
+        sign_in_count: "ログイン回数"
+        created_at: "作成日"
+        email: "メールアドレス"
+    models:
+      product: "商品"
+      admin_user: "管理者"
+      review: "レビュー"
+      comment: "コメント"
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
