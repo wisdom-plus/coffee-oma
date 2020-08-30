@@ -44,14 +44,14 @@
     .ui.comments
       - @reviews.each do |review|
         .comment
-          / a.avatar
-          /   img src="" alt=""/
+          a.avatar.ui.circular.image
+            img src=review.user.icon.url alt="アイコン画像"
           .content
             a.author = review.title
             .metadata
               .date #{time_ago_in_words(review.created_at)}前
-          .text
-            =review.content
+            .text
+              =simple_format(h(review.content))
   - if current_user
     .ui.middle.aligned.center.aligned.grid
       .column
