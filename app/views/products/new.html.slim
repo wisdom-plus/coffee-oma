@@ -35,13 +35,13 @@
               =f.label "商品の値段"
               .ui.left.icon.input
                 i.yen.icon
-                = f.text_field :itemprice, autofocus: true, placeholder: "itemprice"
+                = f.text_field :itemprice, autofocus: true, placeholder: "item-price"
             .extra.content
               = f.label "商品のURL"
-              = f.text_field :itemurl, autofocus: true, placeholder: "itemurl"
+              = f.text_field :itemurl, autofocus: true, placeholder: "item-url"
             .extra.content
               =f.label :tag_list
-              =f.text_field :tag_list, autofocus: true, placeholder: 'tagname'
+              =f.text_field :tag_list, value: 'コーヒー,',autofocus: true, placeholder: 'tag-name'
           table.ui.celled.table
             thead
               tr
