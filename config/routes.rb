@@ -80,6 +80,8 @@
 #                                       POST       /products(.:format)                                                                      products#create
 #                           new_product GET        /products/new(.:format)                                                                  products#new
 #                               product GET        /products/:id(.:format)                                                                  products#show
+#                                       PATCH      /products/:id(.:format)                                                                  products#update
+#                                       PUT        /products/:id(.:format)                                                                  products#update
 #                                 likes POST       /likes(.:format)                                                                         likes#create
 #                                  like DELETE     /likes/:id(.:format)                                                                     likes#destroy
 #                         relationships POST       /relationships(.:format)                                                                 relationships#create
@@ -125,7 +127,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'users/:id/show' => 'users/registrations#show'
   end
-  resources :products, only: %i[new create index show] do
+  resources :products, only: %i[new create index show update] do
     collection do
       post 'rakuten_create'
     end

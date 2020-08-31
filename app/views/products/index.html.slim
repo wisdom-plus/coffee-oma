@@ -27,4 +27,7 @@
             =product.catchcopy
         .extra.content
           i.yen.sign.icon =product.itemprice
+        .extra.content
+          -product.tag_list.first(3).each do |tag|
+            .ui.teal.tag.label #{tag}
   = paginate @products

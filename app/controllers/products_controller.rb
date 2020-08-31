@@ -34,6 +34,14 @@ class ProductsController < ApplicationController
     @like = Like.find_by(user_id: current_user.id, product_id: params[:id]) if current_user
   end
 
+  def update
+    product = Product.find(params[:id])
+    product.tag_list.add(params[:tag_list].split(','))
+    product.save
+    redirect_to product_path(params[:id])
+  end
+
+
   private
 
     def rakuten_search(search_keyword, page_count)
