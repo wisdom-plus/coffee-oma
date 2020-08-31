@@ -39,6 +39,9 @@
             .extra.content
               = f.label "商品のURL"
               = f.text_field :itemurl, autofocus: true, placeholder: "itemurl"
+            .extra.content
+              =f.label :tag_list
+              =f.text_field :tag_list, autofocus: true, placeholder: 'tagname'
           table.ui.celled.table
             thead
               tr
