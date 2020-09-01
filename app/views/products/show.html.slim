@@ -24,7 +24,7 @@
                 td.center.aligned
                   .ui.accordion.field
                     - @product.tag_list.each do |tag|
-                      .ui.teal.tag.label
+                      .ui.teal.tag.label#a_opacity
                         =link_to tag, products_path(tag_name: tag)
                     .mini.compact.ui.right.floated.button.title#accordion タグを編集
                     .content.field
