@@ -34,7 +34,8 @@
                         .ui.pointing.label.margin 単語を','で区切ると複数のタグを登録できます。
               tr
                 td.cen colspan=3
-                  = link_to "楽天で詳しく見る","#{@product.itemurl}",class: " circular ui red button"
+                  - if @product.itemurl.nil?
+                    = link_to "商品を詳しく見る","#{@product.itemurl}",class: " circular ui red button"
                   - if signed_in?
                     - if @like.nil?
                       = link_to likes_path(product_id: @product.id), method: :post, class:"circular ui green button" do
