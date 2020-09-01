@@ -44,7 +44,7 @@ RSpec.describe 'Products', type: :system do
         fill_in 'catchcopy', with: 'キャッチコピー'
         fill_in 'item-price', with: '1000'
         fill_in 'item-caption', with: 'アイテムの説明文が入ります'
-        fill_in 'tag-name', with: "コーヒー,豆"
+        fill_in 'tag-name', with: 'コーヒー,豆'
         click_on 'submit'
         expect(page).to have_content 'コーヒーの器具の名前'
       end
@@ -55,7 +55,7 @@ RSpec.describe 'Products', type: :system do
         fill_in 'catchcopy', with: 'キャッチコピー'
         fill_in 'item-price', with: '1000'
         fill_in 'item-caption', with: 'アイテムの説明文が入ります'
-        fill_in 'tag-name', with: "コーヒー,豆"
+        fill_in 'tag-name', with: 'コーヒー,豆'
         click_on 'submit'
         expect(page).to have_current_path products_path
       end
@@ -119,7 +119,7 @@ RSpec.describe 'Products', type: :system do
       end
 
       it 'edit tag' do
-        fill_in 'tag_list', with: "コーヒー豆"
+        fill_in 'tag_list', with: 'コーヒー豆'
         click_on '登録'
         visit product_path(product.id)
         expect(page).to have_content 'コーヒー豆'
@@ -127,7 +127,7 @@ RSpec.describe 'Products', type: :system do
 
       it 'redirect index(tag)' do
         click_on 'コーヒー'
-        expect(current_path).to eq products_path
+        expect(page).to have_current_path products_path, ignore_query: true
       end
     end
   end
