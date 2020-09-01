@@ -35,13 +35,14 @@
               =f.label "商品の値段"
               .ui.left.icon.input
                 i.yen.icon
-                = f.text_field :itemprice, autofocus: true, placeholder: "item-price"
+                = f.number_field :itemprice, autofocus: true, placeholder: "item-price"
             .extra.content
               = f.label "商品のURL"
-              = f.text_field :itemurl, autofocus: true, placeholder: "item-url"
+              = f.url_field :itemurl, autofocus: true, placeholder: "item-url"
             .extra.content
               =f.label :tag_list
               =f.text_field :tag_list, value: 'コーヒー,',autofocus: true, placeholder: 'tag-name'
+              .ui.pointing.label 単語を','で区切ると複数のタグを登録できます。
           table.ui.celled.table
             thead
               tr
@@ -90,6 +91,7 @@
           =f.hidden_field(:imageurl, :value => product.medium_image_urls[0])
           =f.hidden_field(:itemurl, :value => product.url)
           =f.hidden_field(:itemcaption, :value => product.caption)
+          =f.hidden_field(:tag_list, :value => 'コーヒー,楽天')
           =f.submit "登録する", class: "ui fluid teal submit button"
         .extra.content
           i.yen.sign.icon =product.price.to_s(:delimited)
