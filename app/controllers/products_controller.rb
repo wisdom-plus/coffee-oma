@@ -24,7 +24,11 @@ class ProductsController < ApplicationController
 
   def index
     @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true).page(params[:page]).per(9)
+    if params[:tag_name]
+      @products = Product.tagged_with("#{params[:tag_name]}").page(params[:page]).per(9) if params[:tag_name]
+    else
+      @products = @q.result(distinct: true).page(params[:page]).per(9)
+    end
   end
 
   def show
