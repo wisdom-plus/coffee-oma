@@ -24,11 +24,11 @@ class ProductsController < ApplicationController
 
   def index
     @q = Product.ransack(params[:q])
-    if params[:tag_name]
-      @products = Product.tagged_with("#{params[:tag_name]}").page(params[:page]).per(9) if params[:tag_name]
-    else
-      @products = @q.result(distinct: true).page(params[:page]).per(9)
-    end
+    @products = if params[:tag_name]
+                  tag_search(params[:tag_name]).page(params[:page]).per(9)
+                else
+                  @q.result(distinct: true).page(params[:page]).per(9)
+                end
   end
 
   def show
@@ -44,7 +44,6 @@ class ProductsController < ApplicationController
     product.save
     redirect_to product_path(params[:id])
   end
-
 
   private
 
@@ -66,5 +65,9 @@ class ProductsController < ApplicationController
           end
         end
       end
+    end
+
+    def tag_search(tagname)
+      Product.tagged_with(tagname.to_s)
     end
 end
