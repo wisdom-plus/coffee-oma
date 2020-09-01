@@ -106,3 +106,9 @@ body,
   border:1px solid rgba(34, 36, 38, 0.2);
   padding: 1rem;
 }
+.ui.pointing.label.margin{
+  margin-top: 0;
+}
+.ui.teal.tag.label > a{
+  opacity:1;
+}

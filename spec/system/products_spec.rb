@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Products', type: :system do
-  let(:product) { create(:product) }
-  let(:product1) { create(:product, itemname: '器具の名前が入ります') }
+  let(:product) { create(:product, tag_list: 'コーヒー') }
+  let(:product1) { create(:product, itemname: '器具の名前が入ります', tag_list: '豆') }
 
   describe 'product' do
     describe 'new' do
@@ -42,8 +42,9 @@ RSpec.describe 'Products', type: :system do
         fill_in 'item-name', with: 'コーヒーの器具の名前'
         fill_in 'shop-name', with: 'コーヒーのメーカー'
         fill_in 'catchcopy', with: 'キャッチコピー'
-        fill_in 'itemprice', with: '1000'
-        fill_in 'itemcaption', with: 'アイテムの説明文が入ります'
+        fill_in 'item-price', with: '1000'
+        fill_in 'item-caption', with: 'アイテムの説明文が入ります'
+        fill_in 'tag-name', with: 'コーヒー,豆'
         click_on 'submit'
         expect(page).to have_content 'コーヒーの器具の名前'
       end
@@ -52,8 +53,9 @@ RSpec.describe 'Products', type: :system do
         fill_in 'item-name', with: 'コーヒーの器具の名前'
         fill_in 'shop-name', with: 'コーヒーのメーカー'
         fill_in 'catchcopy', with: 'キャッチコピー'
-        fill_in 'itemprice', with: '1000'
-        fill_in 'itemcaption', with: 'アイテムの説明文が入ります'
+        fill_in 'item-price', with: '1000'
+        fill_in 'item-caption', with: 'アイテムの説明文が入ります'
+        fill_in 'tag-name', with: 'コーヒー,豆'
         click_on 'submit'
         expect(page).to have_current_path products_path
       end
@@ -91,21 +93,41 @@ RSpec.describe 'Products', type: :system do
         find('.ui.icon.teal.button').click
         expect(page).to have_no_content '器具の名前が入れます'
       end
+
+      it 'search product tag' do
+        visit products_path(tag_name: 'コーヒー')
+        expect(page).to have_content 'コーヒーの器具の名前'
+      end
     end
 
     describe 'show' do
       before do
         product
+        visit product_path(product.id)
       end
 
       it 'render page' do
-        visit product_path(product.id)
         expect(page).to have_current_path product_path(product.id)
       end
 
       it 'product displayed' do
-        visit product_path(product.id)
         expect(page).to have_content 'コーヒーの器具の名前'
+      end
+
+      it 'display tag' do
+        expect(page).to have_css '.ui.teal.tag.label'
+      end
+
+      it 'edit tag' do
+        fill_in 'tag_list', with: 'コーヒー豆'
+        click_on '登録'
+        visit product_path(product.id)
+        expect(page).to have_content 'コーヒー豆'
+      end
+
+      it 'redirect index(tag)' do
+        click_on 'コーヒー'
+        expect(page).to have_current_path products_path, ignore_query: true
       end
     end
   end

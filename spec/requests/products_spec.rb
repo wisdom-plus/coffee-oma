@@ -10,6 +10,11 @@ RSpec.describe 'Products', type: :request do
       get products_path
       expect(response).to have_http_status(:ok)
     end
+
+    it 'request seccees(tag_name)' do
+      get products_path, params: { tag_name: 'コーヒー' }
+      expect(response).to have_http_status(:ok)
+    end
   end
 
   describe 'GET /products/new' do
