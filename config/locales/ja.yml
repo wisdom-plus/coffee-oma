@@ -12,6 +12,7 @@ ja:
         shopname: "販売店"
         created_at: "作成日"
         updated_at: "更新日"
+        tag_list: "タグリスト"
       review:
         user: "投稿者"
         product: "商品"

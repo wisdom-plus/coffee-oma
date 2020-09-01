@@ -24,7 +24,11 @@ class ProductsController < ApplicationController
 
   def index
     @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true).page(params[:page]).per(9)
+    @products = if params[:tag_name]
+                  tag_search(params[:tag_name]).page(params[:page]).per(9)
+                else
+                  @q.result(distinct: true).page(params[:page]).per(9)
+                end
   end
 
   def show
@@ -34,6 +38,13 @@ class ProductsController < ApplicationController
     @like = Like.find_by(user_id: current_user.id, product_id: params[:id]) if current_user
   end
 
+  def update
+    product = Product.find(params[:id])
+    product.tag_list.add(params[:tag_list].split(','))
+    product.save
+    redirect_to product_path(params[:id])
+  end
+
   private
 
     def rakuten_search(search_keyword, page_count)
@@ -41,7 +52,7 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:itemname, :itemprice, :shopname, :catchcopy, :imageurl, :itemurl, :itemcaption)
+      params.require(:product).permit(:itemname, :itemprice, :shopname, :catchcopy, :imageurl, :itemurl, :itemcaption, :tag_list)
     end
 
     def rakuten_array(keyword)
@@ -54,5 +65,9 @@ class ProductsController < ApplicationController
           end
         end
       end
+    end
+
+    def tag_search(tagname)
+      Product.tagged_with(tagname.to_s)
     end
 end
