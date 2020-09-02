@@ -20,6 +20,7 @@ ja:
         content: "投稿本文"
         created_at: "作成日"
         updated_at: "更新日"
+        rate: "評価"
       contact:
         name: "お名前"
         email: "メールアドレス"
