@@ -28,6 +28,15 @@ $(function () {
       prefill: true,
       hideNav: '.pagination'
     });
+    var rate = require('raty-js')
+    $('#star').raty({
+      size: 36,
+      starOn: "/star-on.png",
+      starOff: "/star-off.png",
+      starHalf: "/star-half.png",
+      half: true,
+      scoreName: 'review[rate]'
+    });
   });
   $('.close').click(function () {
     $('.flash-message').closest('.flash-message').transition('fade');
@@ -60,5 +69,18 @@ $(function () {
     history: false,
     prefill: true,
     hideNav: ".pagination"
+  });
+  $('#star').raty({
+    size: 36,
+    starOn: "/star-on.png",
+    starOff: "/star-off.png",
+    starHalf: "/star-half.png",
+    half: true,
+    scoreName: 'review[rate]',
+    precision: true,
+    score() {
+      var sco = $('#star').raty('score')
+      $('#review_star').attr({ val: score })
+    }
   });
 });
