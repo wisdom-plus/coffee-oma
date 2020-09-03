@@ -76,11 +76,6 @@ $(function () {
     starOff: "/star-off.png",
     starHalf: "/star-half.png",
     half: true,
-    scoreName: 'review[rate]',
-    precision: true,
-    score() {
-      var sco = $('#star').raty('score')
-      $('#review_star').attr({ val: score })
-    }
+    scoreName: 'review[rate]'
   });
 });
