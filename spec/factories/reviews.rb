@@ -20,6 +20,7 @@ FactoryBot.define do
   factory :review do
     content { 'コーヒー器具に関するレビューの本文' }
     title { 'レビューのタイトル' }
+    rate {1}
     user
     product
   end
