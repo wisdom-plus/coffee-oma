@@ -20,6 +20,13 @@
                 td.center.aligned ブランド
                 td.center.aligned #{@product.shopname}
               tr
+                td.center.aligned 評価
+                td.center.aligned#star
+                  - unless @product.reviews.average(:rate).nil?
+                    =@product.reviews.average(:rate).floor(1)
+                  - else
+                    |評価はまだありません
+              tr
                 td.center.aligned タグ
                 td.center.aligned
                   .ui.accordion.field
@@ -65,6 +72,7 @@
             a.author = review.title
             .metadata
               .date #{time_ago_in_words(review.created_at)}前
+              .ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
             .text
               =simple_format(h(review.content))
   - if current_user
@@ -75,6 +83,11 @@
           .fields
             =f.label :title, "タイトル",class: "four wide field"
             =f.text_field :title, placeholder: "title", class: "ten wide field"
+          .fields
+            =f.label :rate, class: "four wide field"
+            .ten.wide.field
+              .ui.star.rating#rating
+            =f.hidden_field(:rate)
           .fields
             =f.label :content, "レビュー内容", class: "four wide field"
             =f.text_area :content, placeholder: "レビューの内容",class: "ten wide field"
