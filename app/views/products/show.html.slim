@@ -42,17 +42,10 @@
                         .ui.pointing.label.margin 単語を','で区切ると複数のタグを登録できます。
               tr
                 td.cen colspan=3
-                  - if @product.itemurl.nil?
+                  - unless @product.itemurl.nil?
                     = link_to "商品を詳しく見る","#{@product.itemurl}",class: " circular ui red button"
-                  - if signed_in?
-                    - if @like.nil?
-                      = link_to likes_path(product_id: @product.id), method: :post, class:"circular ui green button" do
-                        i.heart.icon
-                        | お気に入り登録
-                    - else
-                      = link_to like_path(@like.id), method: :delete, class:"circular ui green button" do
-                        i.heart.icon
-                        | お気に入り登録中
+                  #like_button
+                    = render partial:'share/like',locals: {like: @like, product: @product}
       .row
         .column
           table.ui.celled.table
