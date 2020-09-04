@@ -26,6 +26,7 @@ RSpec.describe 'Reviews', type: :system do
         before do
           fill_in 'タイトル',	with: 'コーヒー器具のタイトル'
           fill_in 'レビュー内容',	with: 'コーヒー器具の内容'
+          find('#review_rate', visible: false).set('1')
           click_button '  submit  '
         end
 
@@ -35,6 +36,7 @@ RSpec.describe 'Reviews', type: :system do
 
         it 'displayed review' do
           expect(page).to have_content 'コーヒー器具のタイトル'
+          expect(find('.read')['data-rating']).to eq '1.0'
         end
       end
 
@@ -42,6 +44,7 @@ RSpec.describe 'Reviews', type: :system do
         it 'black title' do
           fill_in 'タイトル',	with: ''
           fill_in 'レビュー内容',	with: 'コーヒー器具の内容'
+          find('#review_rate', visible: false).set('1')
           click_button '  submit  '
           expect(page).to have_no_content 'コーヒー器具の内容'
         end
@@ -49,6 +52,7 @@ RSpec.describe 'Reviews', type: :system do
         it 'black content' do
           fill_in 'タイトル',	with: 'コーヒー器具のタイトル'
           fill_in 'レビュー内容',	with: ''
+          find('#review_rate', visible: false).set('1')
           click_button '  submit  '
           expect(page).to have_no_content 'コーヒー器具のタイトル'
         end
