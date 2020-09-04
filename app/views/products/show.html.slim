@@ -20,6 +20,13 @@
                 td.center.aligned ブランド
                 td.center.aligned #{@product.shopname}
               tr
+                td.center.aligned 評価
+                td.center.aligned#star
+                  - unless @product.reviews.average(:rate).nil?
+                    =@product.reviews.average(:rate).floor(1)
+                  - else
+                    |評価はまだありません
+              tr
                 td.center.aligned タグ
                 td.center.aligned
                   .ui.accordion.field
