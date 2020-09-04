@@ -3961,7 +3961,7 @@ jquery-ujs@^1.2.2:
   dependencies:
     jquery ">=1.8.0"
 
-jquery@>=1.8.0, jquery@^3.4.1, jquery@^3.5.1:
+jquery@>=1.8.0, jquery@^3.3.1, jquery@^3.4.1, jquery@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
   integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==
@@ -5935,6 +5935,13 @@ range-parser@^1.2.1, range-parser@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
+
+raty-js@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/raty-js/-/raty-js-2.9.0.tgz#63076c3e17d6d9824d3998fe0a5d4625022db6fb"
+  integrity sha512-sh4w6Zebi3JGmhdc6KEPVXZVkgE75j3F/0aA/CV6uq4I06AS82y8p6Kpiwh1cnmZiWbjeARv/4XQKpio68X8RA==
+  dependencies:
+    jquery "^3.3.1"
 
 raw-body@2.4.0:
   version "2.4.0"
