@@ -3,8 +3,6 @@ class LikesController < ApplicationController
     @like = Like.new(user_id: current_user.id, product_id: params[:product_id])
     @like.save
     render 'create.js.erb'
-
-
   end
 
   def destroy
