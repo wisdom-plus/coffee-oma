@@ -12,13 +12,13 @@ RSpec.describe 'Relationships', type: :request do
 
   describe 'POST create' do
     it 'request success' do
-      post relationships_path, params: { follow_id: user1.id }
-      expect(response).to have_http_status(:found)
+      post relationships_path, params: { follow_id: user1.id }, xhr: true
+      expect(response).to have_http_status(:ok)
     end
 
     it 'created relationship' do
       expect do
-        post relationships_path, params: { follow_id: user1.id }
+        post relationships_path, params: { follow_id: user1.id }, xhr: true
       end.to change(Relationship, :count).by 1
     end
   end
@@ -29,13 +29,13 @@ RSpec.describe 'Relationships', type: :request do
     end
 
     it 'request success' do
-      delete relationship_path(follow.id), params: { id: follow.id }
-      expect(response).to have_http_status(:found)
+      delete relationship_path(follow.id), params: { id: follow.id }, xhr: true
+      expect(response).to have_http_status(:ok)
     end
 
     it 'destroy relationship' do
       expect do
-        delete relationship_path(follow.id), params: { id: follow.id }
+        delete relationship_path(follow.id), params: { id: follow.id }, xhr: true
       end.to change(Relationship, :count).by(-1)
     end
   end
