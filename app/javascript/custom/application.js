@@ -20,14 +20,16 @@ $(function () {
         $('#img-prev').attr({ src: image });
       };
     });
-    var InfiniteScroll = require('infinite-scroll');
-    var infScroll = new InfiniteScroll('.scroll', {
-      path: ".page_next",
-      append: ".post",
-      history: false,
-      prefill: true,
-      hideNav: '.pagination'
-    });
+    if ($('.page_next').length) {
+      var InfiniteScroll = require('infinite-scroll');
+      var infScroll = new InfiniteScroll('.scroll', {
+        path: ".page_next",
+        append: ".post",
+        history: false,
+        prefill: true,
+        hideNav: ".pagination"
+      });
+    };
     $('#rating').rating({
       maxRating: 5,
       onRate: function (rating) {
@@ -35,7 +37,6 @@ $(function () {
       }
     });
     $('.read').rating('disable');
-
   });
   $('.close').click(function () {
     $('.flash-message').closest('.flash-message').transition('fade');
@@ -61,14 +62,16 @@ $(function () {
       $('#img-prev').attr({ src: image });
     };
   });
-  var InfiniteScroll = require('infinite-scroll');
-  var infScroll = new InfiniteScroll('.scroll', {
-    path: ".page_next",
-    append: ".post",
-    history: false,
-    prefill: true,
-    hideNav: ".pagination"
-  });
+  if ($('.page_next').length) {
+    var InfiniteScroll = require('infinite-scroll');
+    var infScroll = new InfiniteScroll('.scroll', {
+      path: ".page_next",
+      append: ".post",
+      history: false,
+      prefill: true,
+      hideNav: ".pagination"
+    });
+  };
   $('#rating').rating({
     maxRating: 5,
     onRate: function (rating) {
@@ -76,13 +79,15 @@ $(function () {
     }
   });
   $('.read').rating('disable');
-  $('#star').raty({
-    size: 36,
-    starOff: '/star-off.png',
-    starOn: '/star-on.png',
-    starHalf: '/star-half.png',
-    score: gon.star_average,
-    half: true,
-    readOnly: true
-  });
+  if ($('#star').length) {
+    $('#star').raty({
+      size: 36,
+      starOff: '/star-off.png',
+      starOn: '/star-on.png',
+      starHalf: '/star-half.png',
+      score: gon.star_average,
+      half: true,
+      readOnly: true
+    });
+  };
 });
