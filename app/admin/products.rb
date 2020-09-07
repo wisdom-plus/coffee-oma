@@ -13,4 +13,18 @@ ActiveAdmin.register Product do
     permitted << :other if params[:action] == 'create' && current_user.admin?
     permitted
   end
+
+  form do |f|
+    f.inputs "Details", :multipart => true do
+      f.input :itemname
+      f.input :itemprice
+      f.input :shopname
+      f.input :catchcopy
+      f.input :imageurl
+      f.input :itemurl
+      f.input :itemcaption
+      f.input :tag_list
+    end
+    f.actions
+  end
 end
