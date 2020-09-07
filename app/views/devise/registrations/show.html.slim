@@ -24,15 +24,27 @@
 .ui.centered.grid.margin-zero
   .twelve.wide.column
     .ui.top.attached.four.tabular.menu
-      a.active.item data-tab= "first" 投稿レビュー
+      a.active.item data-tab= "first" 投稿したレビュー
       a.item data-tab= "second" お気に入りしたアイテム
       a.item data-tab= "third" フォロー一覧
       a.item data-tab= "four" フォロワー一覧
     .ui.bottom.attached.tab.segment.active data-tab= "first"
-      内容１
+      -if @review.empty?
+        h4 まだ投稿はありません
+      - else
+        =@review.first.title
     .ui.bottom.attached.tab.segment data-tab= "second"
-      内容2
+      - if @like.empty?
+        h4 まだお気に入りはありません
+      -else
+        =@like.first.product_id
     .ui.bottom.attached.tab.segment data-tab= "third"
-      内容3
+      - if @user.followings.empty?
+        h4 まだフォローはしていません
+      - else
+        =@user.followings.first.username
     .ui.bottom.attached.tab.segment data-tab= "four"
-      内容4
+      - if @user.followers.empty?
+        h4 まだフォロワーはいません
+      - else
+        =@user.followers.first.username
