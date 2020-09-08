@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-
+  before_action :user_exist?, only: [:show]
   # GET /resource/sign_up
   # def new
   #   super
@@ -30,8 +30,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(relationships: [:follow]).find(params[:id])
     @follow = Relationship.find_by(user_id: current_user.id, follow_id: @user.id) if signed_in?
+    @like = Like.where(user_id: @user.id).includes(:product)
+    @review = Review.where(user_id: @user.id).includes(:product)
   end
 
   # GET /resource/cancel
@@ -64,6 +66,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  private
+
+    def user_exist?
+      redirect_to root_path if User.find_by(id: params[:id]).nil?
+    end
 
   protected
 

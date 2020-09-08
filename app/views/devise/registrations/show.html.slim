@@ -2,10 +2,10 @@
   =image_tag @user.icon.url,alt: "テスト画像", class: "ui centered small circular image"
   h1.header
     =@user.username
-  .segment
-    .content
-      = @user.profile
-  .segment
+  .segment.mb-12
+    - if signed_in?
+      .segment.mb-12#follow_button
+        =render partial: 'share/follow', locals: {user: @user, follow: @follow}
     .ui.label
       i.calendar.alternate.outline.icon
         =@user.created_at.strftime("%Y年%m月")
@@ -18,21 +18,85 @@
       i.users.icon
         = @user.followers.count
         |フォロワー
-  - if signed_in?
-    .segment#follow_button
-      =render partial: 'share/follow', locals: {user: @user, follow: @follow}
+  .ui.centered.grid
+    .nine.wide.column
+      table.ui.celled.table
+        thead
+          tr
+            th プロフィール
+        tbody
+          tr
+            td
+              - if @user.profile.nil?
+                h3 プロフィールはまだありません
+              - else
+                =simple_format(h(@user.profile))
 .ui.centered.grid.margin-zero
   .twelve.wide.column
     .ui.top.attached.four.tabular.menu
-      a.active.item data-tab= "first" 投稿レビュー
+      a.active.item data-tab= "first" 投稿したレビュー
       a.item data-tab= "second" お気に入りしたアイテム
-      a.item data-tab= "third" フォロー一覧
-      a.item data-tab= "four" フォロワー一覧
+      a.item data-tab= "third" フォロー中
+      a.item data-tab= "four" フォロワー
     .ui.bottom.attached.tab.segment.active data-tab= "first"
-      内容１
+      -if @review.empty?
+        h4 まだ投稿はありません
+      - else
+        - @review.each do |review|
+          .ui.segment
+            h4.ui.header
+              img.ui.circular.image src=review.product.imageurl alt="アイテム画像"
+              a href=product_path(review.product.id)
+                =review.product.itemname
+            .item
+              .content
+                h3.header =review.title
+                .meta.review_meta
+                  span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
+                  span.date #{time_ago_in_words(review.created_at)}前
+                .description
+                  =simple_format(h(review.content))
     .ui.bottom.attached.tab.segment data-tab= "second"
-      内容2
+      - if @like.empty?
+        h4 まだお気に入りはありません
+      -else
+        - @like.each do |like|
+          .ui.segment
+            .ui.items
+              a.item href= product_path(like.product.id)
+                .ui.tiny.circular.image
+                  img src= like.product.imageurl
+                .content
+                  h3.header
+                    =like.product.itemname
     .ui.bottom.attached.tab.segment data-tab= "third"
-      内容3
+      - if @user.followings.empty?
+        h4 まだフォローはしていません
+      - else
+        - @user.followings.each do |user|
+          .ui.segment
+            .ui.items
+              .item
+                .ui.tiny.circular.image
+                  img src= user.icon.url
+                .content
+                  h3.header
+                    =user.username
+                  .description
+                    =simple_format(h(user.profile))
     .ui.bottom.attached.tab.segment data-tab= "four"
-      内容4
+      - if @user.followers.empty?
+        h4 まだフォロワーはいません
+      - else
+        - @user.followers.each do |user|
+          .ui.segment
+            .ui.items
+              .item
+                .ui.tiny.circular.image
+                  img src= user.icon.url
+                .content
+                  h3.header
+                    =user.username
+                  .description
+                    =simple_format(h(user.profile))
+    .segment

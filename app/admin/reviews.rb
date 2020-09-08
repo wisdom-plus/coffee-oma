@@ -4,13 +4,13 @@ ActiveAdmin.register Review do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :user_id, :product_id, :title, :content
+  # permit_params :user_id, :product_id, :title, :content, :rate
   #
   # or
   #
-  # permit_params do
-  #   permitted = [:user_id, :product_id, :title, :content]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+  permit_params do
+    permitted = %i[user_id product_id title content rate]
+    permitted << :other if params[:action] == 'create' && current_user.admin?
+    permitted
+  end
 end
