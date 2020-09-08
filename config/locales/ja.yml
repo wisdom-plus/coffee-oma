@@ -30,11 +30,16 @@ ja:
         sign_in_count: "ログイン回数"
         created_at: "作成日"
         email: "メールアドレス"
+      tag:
+        name: "タグ名"
+        created_at: "作成日"
+        updated_at: "更新日"
     models:
       product: "商品"
       admin_user: "管理者"
       review: "レビュー"
       comment: "コメント"
+      tag: "タグ"
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

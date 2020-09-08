@@ -33,16 +33,17 @@
                     - @product.tag_list.each do |tag|
                       .ui.teal.tag.label#a_opacity
                         =link_to tag, products_path(tag_name: tag)
-                    .mini.compact.ui.right.floated.button.title#accordion タグを編集
-                    .content.field
-                      =form_with  url: product_path(@product.id), method: :put, local: true ,class: "ui mini form" do |f|
-                        .inline.field
-                          =f.text_field :tag_list, autofocus: true, placeholder: 'タグを追加登録'
-                          =f.submit '登録', class: "compact ui teal button"
-                        .ui.pointing.label.margin 単語を','で区切ると複数のタグを登録できます。
+                    - if signed_in?
+                      .mini.compact.ui.right.floated.button.title#accordion タグを編集
+                      .content.field
+                        =form_with  url: product_path(@product.id), method: :put, local: true ,class: "ui mini form" do |f|
+                          .inline.field
+                            =f.text_field :tag_list, autofocus: true, placeholder: 'タグを追加登録'
+                            =f.submit '登録', class: "compact ui teal button"
+                          .ui.pointing.label.margin 単語を','で区切ると複数のタグを登録できます。
               tr
                 td.cen colspan=3
-                  - unless @product.itemurl.nil?
+                  - unless @product.itemurl.empty?
                     = link_to "商品を詳しく見る","#{@product.itemurl}",class: " circular ui red button"
                   #like_button
                     = render partial:'share/like',locals: {like: @like, product: @product}
@@ -56,18 +57,23 @@
               tr
                 td
                   = @product.itemcaption
-    .ui.comments
-      - @reviews.each do |review|
-        .comment.ui.very.padded.segment#border
-          a.avatar.ui.circular.image
-            img src=review.user.icon.url alt="アイコン画像"
+  .ui.items
+    -@reviews.each do |review|
+      .ui.segment.review_item
+        h4.ui.header
+          img.ui.circular.image src=review.user.icon alt="アイコン画像"
+          =review.user.username
+        .item
           .content
-            a.author = review.title
-            .metadata
-              .date #{time_ago_in_words(review.created_at)}前
-              .ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
-            .text
+            h3.header =review.title
+            .meta.review_meta
+              span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
+              span.date #{time_ago_in_words(review.created_at)}前
+            .description
               =simple_format(h(review.content))
+            .extra
+              a.ui.teal.label href= "/users/#{review.user.id}/show"
+                |ユーザーの詳細
   - if current_user
     .ui.middle.aligned.center.aligned.grid
       .column

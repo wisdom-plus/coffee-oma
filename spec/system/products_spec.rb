@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Products', type: :system do
   let(:product) { create(:product, tag_list: 'コーヒー') }
   let(:product1) { create(:product, itemname: '器具の名前が入ります', tag_list: '豆') }
+  let(:user) { create(:user) }
 
   describe 'product' do
     describe 'new' do
@@ -103,6 +104,7 @@ RSpec.describe 'Products', type: :system do
     describe 'show' do
       before do
         product
+        login(user, user.email, user.password)
         visit product_path(product.id)
       end
 
