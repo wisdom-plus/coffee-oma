@@ -57,18 +57,23 @@
               tr
                 td
                   = @product.itemcaption
-    .ui.comments
-      - @reviews.each do |review|
-        .comment.ui.padded.segment#border
-          a.avatar.ui.circular.image href="/users/#{review.user_id}/show"
-            img src=review.user.icon alt="アイコン画像"
+  .ui.items
+    -@reviews.each do |review|
+      .ui.segment.review_item
+        h4.ui.header
+          img.ui.circular.image src=review.user.icon alt="アイコン画像"
+          =review.user.username
+        .item
           .content
-            a.author = review.title
-            .metadata
-              .ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
-              .date #{time_ago_in_words(review.created_at)}前
-            .text
+            h3.header =review.title
+            .meta.review_meta
+              span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
+              span.date #{time_ago_in_words(review.created_at)}前
+            .description
               =simple_format(h(review.content))
+            .extra
+              a.ui.teal.label href= "/users/#{review.user.id}/show"
+                |ユーザーの詳細
   - if current_user
     .ui.middle.aligned.center.aligned.grid
       .column
