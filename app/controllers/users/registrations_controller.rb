@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-    before_action :user_exist?, only: [:show]
+  before_action :user_exist?, only: [:show]
   # GET /resource/sign_up
   # def new
   #   super
@@ -67,6 +67,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   private
+
     def user_exist?
       redirect_to root_path if User.find_by(id: params[:id]).nil?
     end

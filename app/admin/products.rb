@@ -9,13 +9,13 @@ ActiveAdmin.register Product do
   # or
   #
   permit_params do
-    permitted = [:itemname, :itemprice, :shopname, :catchcopy, :imageurl, :itemurl, :itemcaption, :tag_list]
+    permitted = %i[itemname itemprice shopname catchcopy imageurl itemurl itemcaption tag_list]
     permitted << :other if params[:action] == 'create' && current_user.admin?
     permitted
   end
 
   form do |f|
-    f.inputs "Details", :multipart => true do
+    f.inputs 'Details', multipart: true do
       f.input :itemname
       f.input :itemprice
       f.input :shopname
