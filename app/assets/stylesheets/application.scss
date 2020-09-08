@@ -33,9 +33,6 @@
   margin: 1em -0.5em;
   flex-wrap: wrap;
 }
-.footer.segment {
-  padding: 5em 0em;
-}
 body,
 #wrapper {
   display: flex;
@@ -103,10 +100,9 @@ body,
   height: auto;
   font-size: 1rem;
 }
-#border{
-  border:1px solid rgba(34, 36, 38, 0.2);
-  padding: 1rem;
-  background-color: #F3F4F5;
+.review_item{
+  display: inline-block;
+  width: 70%;
 }
 .ui.pointing.label.margin{
   margin-top: 0;
@@ -116,4 +112,13 @@ body,
 }
 #like_button{
   display: inline-block;
+}
+.review_meta{
+  margin-bottom: 7px;
+}
+.extra{
+  margin-top: 7px;
+}
+.mb-12{
+  margin-bottom: 12px;
 }
