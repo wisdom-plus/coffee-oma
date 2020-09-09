@@ -36,6 +36,7 @@ class ProductsController < ApplicationController
     @review = Review.new
     @reviews = Review.where(product_id: @product.id).includes(:user)
     @like = Like.find_by(user_id: current_user.id, product_id: params[:id]) if current_user
+
     return if @product.reviews.average(:rate).nil?
 
     gon.star_average = (@product.reviews.average(:rate) * 2).floor / 2.to_f
