@@ -10,6 +10,15 @@
 #                                       PUT        /admin/password(.:format)                                                                active_admin/devise/passwords#update
 #                                       POST       /admin/password(.:format)                                                                active_admin/devise/passwords#create
 #                            admin_root GET        /admin(.:format)                                                                         admin/dashboard#index
+#               batch_action_admin_tags POST       /admin/tags/batch_action(.:format)                                                       admin/tags#batch_action
+#                            admin_tags GET        /admin/tags(.:format)                                                                    admin/tags#index
+#                                       POST       /admin/tags(.:format)                                                                    admin/tags#create
+#                         new_admin_tag GET        /admin/tags/new(.:format)                                                                admin/tags#new
+#                        edit_admin_tag GET        /admin/tags/:id/edit(.:format)                                                           admin/tags#edit
+#                             admin_tag GET        /admin/tags/:id(.:format)                                                                admin/tags#show
+#                                       PATCH      /admin/tags/:id(.:format)                                                                admin/tags#update
+#                                       PUT        /admin/tags/:id(.:format)                                                                admin/tags#update
+#                                       DELETE     /admin/tags/:id(.:format)                                                                admin/tags#destroy
 #                       admin_dashboard GET        /admin/dashboard(.:format)                                                               admin/dashboard#index
 #           batch_action_admin_products POST       /admin/products/batch_action(.:format)                                                   admin/products#batch_action
 #                        admin_products GET        /admin/products(.:format)                                                                admin/products#index
@@ -84,6 +93,8 @@
 #                                       PUT        /products/:id(.:format)                                                                  products#update
 #                                 likes POST       /likes(.:format)                                                                         likes#create
 #                                  like DELETE     /likes/:id(.:format)                                                                     likes#destroy
+#                          review_likes POST       /review_likes(.:format)                                                                  review_likes#create
+#                           review_like DELETE     /review_likes/:id(.:format)                                                              review_likes#destroy
 #                         relationships POST       /relationships(.:format)                                                                 relationships#create
 #                          relationship DELETE     /relationships/:id(.:format)                                                             relationships#destroy
 #                              contacts POST       /contacts(.:format)                                                                      contacts#create
@@ -134,6 +145,7 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[index create]
   end
   resources :likes, only: %i[create destroy]
+  resources :review_likes, only: %i[create destroy]
   resources :relationships, only: %i[create destroy]
   resources :contacts, only: %i[new create]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
