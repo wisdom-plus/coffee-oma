@@ -32,6 +32,7 @@ gem 'amazon-ecs'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'carrierwave'
+gem 'counter_culture', '~> 2.0'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
@@ -51,6 +52,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'letter_opener_web'
   gem 'rspec_junit_formatter'
