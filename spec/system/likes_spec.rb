@@ -47,7 +47,6 @@ RSpec.describe 'Likes', type: :system do
 
       it 'click button' do
         click_on 'お気に入り登録中'
-        visit product_path(product.id)
         expect(page).to have_link 'お気に入り登録'
       end
     end
