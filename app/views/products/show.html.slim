@@ -75,7 +75,8 @@
               a.ui.teal.label href= "/users/#{review.user.id}/show"
                 |ユーザーの詳細
               div class="review_like_button_#{review.id} inline"
-                =render partial:'share/review_like', locals: {review_like: review.review_likes.where(user_id: current_user.id).first, review: review}
+                - if signed_in?
+                  =render partial:'share/review_like', locals: {review_like: review.review_likes.where(user_id: current_user.id).first, review: review}
   - if current_user
     .ui.middle.aligned.center.aligned.grid
       .column

@@ -1,9 +1,8 @@
-- if signed_in?
   - if review_like.nil?
-    = link_to review_likes_path(review_id: review.id), method: :post, class:"ui grey label", remote: true do
+    = link_to review_likes_path(review_id: review.id), method: :post, class:"ui grey label create_button", remote: true do
       i.heart.outline.icon
         =review.review_likes.size
   - else
-    = link_to review_like_path(review_like.id), method: :delete, class:"ui red label", remote: true do
+    = link_to review_like_path(review_like.id), method: :delete, class:"ui red label destroy_button", remote: true do
       i.heart.icon
         =review.review_likes.size
