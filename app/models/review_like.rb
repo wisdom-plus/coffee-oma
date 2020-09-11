@@ -16,5 +16,5 @@
 class ReviewLike < ApplicationRecord
   belongs_to :user
   belongs_to :review
-  counter_culture :review, column_name: "reviewlikes_count"
+  counter_culture :review, column_name: 'reviewlikes_count'
 end

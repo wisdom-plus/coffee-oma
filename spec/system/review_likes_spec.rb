@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "ReviewLikes", type: :system do
+RSpec.describe 'ReviewLikes', type: :system do
   let(:user) { create(:user) }
   let(:product) { create(:product) }
-  let(:review) { create(:review, user: user, product: product)}
-  let(:review_like) {create(:review_like, user: user, review: review)}
+  let(:review) { create(:review, user: user, product: product) }
+  let(:review_like) { create(:review_like, user: user, review: review) }
 
   describe 'create' do
     context 'signed' do

@@ -32,6 +32,7 @@ gem 'amazon-ecs'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'carrierwave'
+gem 'counter_culture', '~> 2.0'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
@@ -46,7 +47,6 @@ gem 'ransack'
 gem 'semantic-ui-sass', '~> 2.4', '>= 2.4.2.0'
 gem 'slim'
 gem 'slim-rails'
-gem 'counter_culture', '~> 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
