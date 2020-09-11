@@ -15,7 +15,7 @@
 #
 FactoryBot.define do
   factory :review_like do
-    user_id { nil }
-    review_id { nil }
+    user
+    review
   end
 end
