@@ -21,6 +21,6 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :product
   has_many :review_likes, dependent: :destroy
-  validates :title, presence: true
-  validates :content, presence: true
+  validates :title,:content, :rate, :user_id, :product_id, presence: true
+
 end
