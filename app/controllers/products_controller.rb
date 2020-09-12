@@ -11,15 +11,19 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.new(product_params)
-    product.save
-    redirect_to products_path
+    if product.save
+      redirect_to products_path, notice: "アイテムを登録しました"
+    else
+      flash.now[:alert] = "アイテムの登録に失敗しました"
+      render :new
+    end
   end
 
   def rakuten_create
     product = Product.new(product_params)
     product.remote_imageurl_url = product_params[:imageurl].chomp('?_ex=128x128')
     product.save
-    redirect_to products_path
+    redirect_to products_path, notice: "アイテムを登録しました"
   end
 
   def index
