@@ -18,4 +18,6 @@ class Product < ApplicationRecord
   has_many :likes, dependent: :destroy
   mount_uploader :imageurl, ImageurlUploader
   acts_as_taggable
+
+  validates :itemname, :itemprice, :shopname, :itemcaption, :catchcopy, presence: true
 end

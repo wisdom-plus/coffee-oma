@@ -16,4 +16,5 @@
 class Like < ApplicationRecord
   belongs_to :user
   belongs_to :product
+  validates :user_id,:prduct_id, presece: true
 end
