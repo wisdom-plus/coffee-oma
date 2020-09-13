@@ -4,6 +4,9 @@ class ProductsController < ApplicationController
       rakuten_array(params[:keyword])
       if @products_all.present?
         @products = Kaminari.paginate_array(@products_all).page(params[:page]).per(9)
+      else
+        flash.now[:alert] = "関連するものが見つかりませんでした"
+        render :new
       end
     end
     @product = Product.new
@@ -21,7 +24,7 @@ class ProductsController < ApplicationController
 
   def rakuten_create
     product = Product.new(product_params)
-    product.remote_imageurl_url = product_params[:imageurl].chomp('?_ex=128x128')
+    product.remote_imageurl_url = product_params[:imageurl].chomp("?_ex=128x128")
     product.save
     redirect_to products_path, notice: "アイテムを登録しました"
   end
@@ -29,7 +32,7 @@ class ProductsController < ApplicationController
   def index
     @q = Product.ransack(params[:q])
     @products = if params[:tag_name]
-                  tag_search(params[:tag_name]).page(params[:page]).per(9)
+                  Product.tag_search(params[:tag_name]).page(params[:page]).per(9)
                 else
                   @q.result(distinct: true).page(params[:page]).per(9)
                 end
@@ -43,12 +46,12 @@ class ProductsController < ApplicationController
 
     return if @product.reviews.average(:rate).nil?
 
-    gon.star_average = (@product.reviews.average(:rate) * 2).floor / 2.to_f
+    gon.rate_average = @product.rate_average
   end
 
   def update
     product = Product.find(params[:id])
-    product.tag_list.add(params[:tag_list].split(','))
+    product.tag_list_add(params[:tag_list])
     product.save
     redirect_to product_path(params[:id])
   end
@@ -73,9 +76,5 @@ class ProductsController < ApplicationController
           end
         end
       end
-    end
-
-    def tag_search(tagname)
-      Product.tagged_with(tagname.to_s)
     end
 end

@@ -20,4 +20,16 @@ class Product < ApplicationRecord
   acts_as_taggable
 
   validates :itemname, :itemprice, :shopname, :itemcaption, :catchcopy, presence: true
+
+  def self.tag_search(tagname)
+    self.tagged_with(tagname.to_s)
+  end
+
+  def tag_list_add(params)
+    tag_list.add(params.split(','))
+  end
+
+  def rate_average
+    (self.reviews.average(:rate) * 2).floor / 2.to_f
+  end
 end

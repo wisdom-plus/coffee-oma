@@ -45,7 +45,7 @@ $(document).on('turbolinks:load', function () {
       starOff: '/star-off.png',
       starOn: '/star-on.png',
       starHalf: '/star-half.png',
-      score: gon.star_average,
+      score: gon.rate_average,
       half: true,
       readOnly: true
     });
