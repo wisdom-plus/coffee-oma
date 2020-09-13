@@ -27,7 +27,7 @@ html
       - if notice || alert
         .ui.message.flash-message
           i.close.icon
-          .ui.center.aligned.header
+          .ui.center.aligned.header#message
             font style= "vertical-align: inherit;" = notice if notice
             font style= "vertical-align: inherit;" = alert if alert
       = yield
