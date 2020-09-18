@@ -76,7 +76,7 @@
                 |ユーザーの詳細
               div class="review_like_button_#{review.id} inline"
                 - if signed_in?
-                  =render partial:'share/review_like', locals: {review_like: review.review_likes.where(user_id: current_user.id).first, review: review}
+                  =render partial:'share/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
   - if current_user
     .ui.middle.aligned.center.aligned.grid
       .column

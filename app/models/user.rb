@@ -33,6 +33,7 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy, inverse_of: 'user'
   has_many :followers, through: :reverse_of_relationships, source: :user
 
+  validates :username, presence: true
   mount_uploader :icon, IconUploader
 
   devise :database_authenticatable, :registerable,
@@ -48,5 +49,29 @@ class User < ApplicationRecord
     result = update(params, *options)
     clean_up_passwords
     result
+  end
+
+  def follow(other_user)
+    return if self == other_user
+
+    relationships.find_or_create_by(follow_id: other_user.id)
+  end
+
+  def unfollow(other_user_id)
+    relationship = relationships.find_by(follow_id: other_user_id)
+    relationship&.destroy
+  end
+
+  def following?(other_user)
+    followings.include?(other_user)
+  end
+
+  def create_like(like_product_id)
+    likes.find_or_create_by(product_id: like_product_id)
+  end
+
+  def destroy_like(like_id)
+    like = likes.find_by(id: like_id)
+    like&.destroy
   end
 end

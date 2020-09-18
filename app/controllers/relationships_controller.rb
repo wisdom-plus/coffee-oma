@@ -1,15 +1,23 @@
 class RelationshipsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
-    @follow = Relationship.new(user_id: current_user.id, follow_id: params[:follow_id]) unless current_user.id == params[:follow_id]
-    @follow.save
     @user = User.find(params[:follow_id])
-    render 'create.js.erb'
+    @follow = current_user.follow(@user)
+    if @follow.save
+      render 'create.js.erb'
+    else
+      flash.now[:alert] = 'フォローに失敗しました'
+    end
   end
 
   def destroy
-    @follow = Relationship.find(params[:id])
-    @user = User.find(@follow.follow_id)
-    @follow.destroy
-    render 'destroy.js.erb'
+    @user = User.find(params[:follow_id])
+    follow = current_user.unfollow(@user)
+    if follow.destroy
+      render 'destroy.js.erb'
+    else
+      flash.now[:alert] = 'フォロー解除に失敗しました'
+    end
   end
 end
