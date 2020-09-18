@@ -69,7 +69,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
     def user_exist?
-      redirect_to root_path if User.find_by(id: params[:id]).nil?
+      redirect_to root_path, alert: 'ユーザーが存在しません' if User.find_by(id: params[:id]).nil?
     end
 
   protected

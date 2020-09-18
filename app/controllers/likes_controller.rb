@@ -1,14 +1,24 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
-    @like = Like.new(user_id: current_user.id, product_id: params[:product_id])
-    @like.save
-    render 'create.js.erb'
+    @like = current_user.create_like(params[:product_id])
+    if @like.save
+      render 'create.js.erb'
+    else
+      flash.now[:alert] = 'ライクに失敗しました'
+      redirect_to product_path(params[:product_id])
+    end
   end
 
   def destroy
-    like = Like.find_by(id: params[:id])
+    like = current_user.destroy_like(params[:id])
     @product = Product.find_by(id: like.product_id)
-    like.destroy
-    render 'destroy.js.erb'
+    if like.destroy
+      render 'destroy.js.erb'
+    else
+      flase.now[:alert] = 'ライクの取り消しに失敗しました'
+      redirect_to product_path(@product.id)
+    end
   end
 end

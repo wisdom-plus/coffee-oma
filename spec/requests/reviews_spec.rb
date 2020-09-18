@@ -9,6 +9,7 @@ RSpec.describe 'Reviews', type: :request do
   describe 'POST create' do
     before do
       user.confirm
+      sign_in user
       product
     end
 
@@ -25,6 +26,11 @@ RSpec.describe 'Reviews', type: :request do
   end
 
   describe 'GET index' do
+    before do
+      user.confirm
+      sign_in user
+    end
+
     it 'request seccess' do
       get product_reviews_path(product.id)
       expect(response).to have_http_status(:ok)

@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Products', type: :request do
+  let(:user) { create(:user) }
   let(:product) { create(:product) }
   let(:product_params) { attributes_for(:product) }
   let(:rakuten_product_params) { attributes_for(:product, imageurl: ENV['RAKUTEN_TEST_IMAGE_URL']) }
@@ -18,6 +19,11 @@ RSpec.describe 'Products', type: :request do
   end
 
   describe 'GET /products/new' do
+    before do
+      user.confirm
+      sign_in user
+    end
+
     it 'request seccees' do
       get new_product_path
       expect(response).to have_http_status(:ok)
@@ -30,6 +36,11 @@ RSpec.describe 'Products', type: :request do
   end
 
   describe 'POST /products' do
+    before do
+      user.confirm
+      sign_in user
+    end
+
     it 'request seccees' do
       post products_path, params: { product: product_params }
       expect(response).to have_http_status(:found)
@@ -43,6 +54,11 @@ RSpec.describe 'Products', type: :request do
   end
 
   describe 'POST /products/rakuten_create' do
+    before do
+      user.confirm
+      sign_in user
+    end
+
     it 'request seccees' do
       post rakuten_create_products_path, params: { product: rakuten_product_params }
       expect(response).to have_http_status(:found)

@@ -1,8 +1,14 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     review = Review.new(review_params)
-    review.save
-    redirect_to "/products/#{review_params[:product_id]}"
+    if review.save
+      redirect_to product_path(review.product_id), notice: 'レビューを登録しました'
+    else
+      flash[:alert] = 'レビューが登録に失敗しました'
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def index; end
