@@ -7,7 +7,7 @@ class RelationshipsController < ApplicationController
     if @follow.save
       render 'create.js.erb'
     else
-      flash.now[:alert] = "フォローに失敗しました"
+      flash.now[:alert] = 'フォローに失敗しました'
     end
   end
 
@@ -17,7 +17,7 @@ class RelationshipsController < ApplicationController
     if follow.destroy
       render 'destroy.js.erb'
     else
-      flash.now[:alert] = "フォロー解除に失敗しました"
+      flash.now[:alert] = 'フォロー解除に失敗しました'
     end
   end
 end

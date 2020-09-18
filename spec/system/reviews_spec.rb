@@ -6,7 +6,6 @@ RSpec.describe 'Reviews', type: :system do
   let(:review) { create(:review, user: user, product: product) }
 
   describe 'review' do
-
     describe 'create' do
       before do
         login(user, user.email, user.password)
@@ -32,13 +31,12 @@ RSpec.describe 'Reviews', type: :system do
       end
 
       context 'failure' do
-
         it 'blank title' do
           fill_in 'タイトル',	with: ''
           fill_in 'レビュー内容',	with: 'コーヒー器具の内容'
           find('#review_rate', visible: false).set('1')
           click_button '  submit  '
-          expect(page).to have_content "レビューが登録に失敗しました"
+          expect(page).to have_content 'レビューが登録に失敗しました'
         end
 
         it 'blank content' do

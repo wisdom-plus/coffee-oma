@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create rekuten_create update]
+  before_action :authenticate_user!, only: %i[new create rakuten_create update]
 
   def new
     if params[:keyword]
@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
       if @products_all.present?
         @products = Kaminari.paginate_array(@products_all).page(params[:page]).per(9)
       else
-        flash.now[:alert] = "関連するものが見つかりませんでした"
+        flash.now[:alert] = '関連するものが見つかりませんでした'
         render :new
       end
     end
@@ -17,18 +17,18 @@ class ProductsController < ApplicationController
   def create
     product = Product.new(product_params)
     if product.save
-      redirect_to products_path, notice: "アイテムを登録しました"
+      redirect_to products_path, notice: 'アイテムを登録しました'
     else
-      flash.now[:alert] = "アイテムの登録に失敗しました"
+      flash.now[:alert] = 'アイテムの登録に失敗しました'
       render :new
     end
   end
 
   def rakuten_create
     product = Product.new(product_params)
-    product.remote_imageurl_url = product_params[:imageurl].chomp("?_ex=128x128")
+    product.remote_imageurl_url = product_params[:imageurl].chomp('?_ex=128x128')
     product.save
-    redirect_to products_path, notice: "アイテムを登録しました"
+    redirect_to products_path, notice: 'アイテムを登録しました'
   end
 
   def index
@@ -62,6 +62,7 @@ class ProductsController < ApplicationController
   end
 
   private
+
     def product_params
       params.require(:product).permit(:itemname, :itemprice, :shopname, :catchcopy, :imageurl, :itemurl, :itemcaption, :tag_list)
     end
