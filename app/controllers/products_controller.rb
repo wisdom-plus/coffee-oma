@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create rekuten_create update]
+
   def new
     if params[:keyword]
       rakuten_array(params[:keyword])
@@ -52,18 +54,20 @@ class ProductsController < ApplicationController
   def update
     product = Product.find(params[:id])
     product.tag_list_add(params[:tag_list])
-    product.save
-    redirect_to product_path(params[:id])
+    if product.save
+      redirect_to product_path(params[:id])
+    else
+      render product_path(params[:id])
+    end
   end
 
   private
+    def product_params
+      params.require(:product).permit(:itemname, :itemprice, :shopname, :catchcopy, :imageurl, :itemurl, :itemcaption, :tag_list)
+    end
 
     def rakuten_search(search_keyword, page_count)
       RakutenWebService::Ichiba::Item.search(keyword: search_keyword, imageFlag: 1, page: page_count)
-    end
-
-    def product_params
-      params.require(:product).permit(:itemname, :itemprice, :shopname, :catchcopy, :imageurl, :itemurl, :itemcaption, :tag_list)
     end
 
     def rakuten_array(keyword)

@@ -8,6 +8,7 @@ RSpec.describe 'Products', type: :system do
   describe 'product' do
     describe 'new' do
       before do
+        login(user, user.email, user.password)
         visit new_product_path
       end
 
