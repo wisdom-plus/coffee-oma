@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @like = current_user.create_like(params[:product_id])
     if @like.save

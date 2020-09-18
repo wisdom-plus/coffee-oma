@@ -6,15 +6,6 @@ RSpec.describe 'Reviews', type: :system do
   let(:review) { create(:review, user: user, product: product) }
 
   describe 'review' do
-    describe 'index' do
-      before do
-        visit product_reviews_path(product.id)
-      end
-
-      it 'render page' do
-        expect(page).to have_current_path product_reviews_path(product.id)
-      end
-    end
 
     describe 'create' do
       before do
@@ -41,20 +32,21 @@ RSpec.describe 'Reviews', type: :system do
       end
 
       context 'failure' do
-        it 'black title' do
+
+        it 'blank title' do
           fill_in 'タイトル',	with: ''
           fill_in 'レビュー内容',	with: 'コーヒー器具の内容'
           find('#review_rate', visible: false).set('1')
           click_button '  submit  '
-          expect(page).to have_no_content 'コーヒー器具の内容'
+          expect(page).to have_content "レビューが登録に失敗しました"
         end
 
-        it 'black content' do
+        it 'blank content' do
           fill_in 'タイトル',	with: 'コーヒー器具のタイトル'
           fill_in 'レビュー内容',	with: ''
           find('#review_rate', visible: false).set('1')
           click_button '  submit  '
-          expect(page).to have_no_content 'コーヒー器具のタイトル'
+          expect(page).to have_content 'レビューが登録に失敗しました'
         end
       end
     end

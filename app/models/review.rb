@@ -26,4 +26,9 @@ class Review < ApplicationRecord
     greater_than_or_equal_to: 1,
     less_than_or_equal_to: 5
   }, presence: true
+
+  def like_record(liker_id)
+    self.review_likes.find_by(user_id: liker_id)
+  end
+
 end
