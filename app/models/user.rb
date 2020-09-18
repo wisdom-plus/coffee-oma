@@ -52,26 +52,26 @@ class User < ApplicationRecord
   end
 
   def follow(other_user)
-    unless self == other_user
-      self.relationships.find_or_create_by(follow_id: other_user.id)
-    end
+    return if self == other_user
+
+    relationships.find_or_create_by(follow_id: other_user.id)
   end
 
   def unfollow(other_user_id)
-    relationship = self.relationships.find_by(follow_id: other_user_id)
-    relationship.destroy if relationship
+    relationship = relationships.find_by(follow_id: other_user_id)
+    relationship&.destroy
   end
 
   def following?(other_user)
-    self.followings.include?(other_user)
+    followings.include?(other_user)
   end
 
   def create_like(like_product_id)
-    self.likes.find_or_create_by(product_id: like_product_id)
+    likes.find_or_create_by(product_id: like_product_id)
   end
 
   def destroy_like(like_id)
-    like = self.likes.find_by(id: like_id)
-    like.destroy if like
+    like = likes.find_by(id: like_id)
+    like&.destroy
   end
 end

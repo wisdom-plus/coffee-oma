@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
       ContactMailer.reply_mail(contact).deliver
       redirect_to root_path, notice: 'お問い合わせメールが送信されました'
     else
-      render :new, alert: "お問い合わせメールの送信し失敗しました"
+      render :new, alert: 'お問い合わせメールの送信し失敗しました'
     end
   end
 

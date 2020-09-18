@@ -6,7 +6,7 @@ class LikesController < ApplicationController
     if @like.save
       render 'create.js.erb'
     else
-      flash.now[:alert] = "ライクに失敗しました"
+      flash.now[:alert] = 'ライクに失敗しました'
       redirect_to product_path(params[:product_id])
     end
   end
@@ -17,7 +17,7 @@ class LikesController < ApplicationController
     if like.destroy
       render 'destroy.js.erb'
     else
-      flase.now[:alert] = "ライクの取り消しに失敗しました"
+      flase.now[:alert] = 'ライクの取り消しに失敗しました'
       redirect_to product_path(@product.id)
     end
   end
