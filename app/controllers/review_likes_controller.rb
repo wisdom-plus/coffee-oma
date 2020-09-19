@@ -5,6 +5,7 @@ class ReviewLikesController < ApplicationController
     @review_like = ReviewLike.new(user_id: current_user.id, review_id: params[:review_id])
     @review_like.save
     @review = Review.find(params[:review_id])
+    @review.create_notification_like(current_user)
     render 'create.js.erb'
   end
 

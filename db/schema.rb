@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_09_18_115141) do
     t.integer "visited_id", null: false
     t.integer "review_id"
     t.string "action", default: "", null: false
-    t.boolean "checked", null: false
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
