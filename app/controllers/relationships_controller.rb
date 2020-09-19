@@ -5,6 +5,7 @@ class RelationshipsController < ApplicationController
     @user = User.find(params[:follow_id])
     @follow = current_user.follow(@user)
     if @follow.save
+      @user.create_notification_follow(current_user)
       render 'create.js.erb'
     else
       flash.now[:alert] = 'フォローに失敗しました'
