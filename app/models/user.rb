@@ -76,4 +76,13 @@ class User < ApplicationRecord
     like = likes.find_by(id: like_id)
     like&.destroy
   end
+
+  def create_notification_follow(current_user)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ?", current_user.id, id, "follow"])
+    if temp.blank?
+      notification = current_user.active_nitification.new(visited_id: id, action: "follow")
+      notification.save
+    end
+  end
+
 end

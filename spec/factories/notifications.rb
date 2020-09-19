@@ -4,7 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  action     :string(255)      default(""), not null
-#  checked    :boolean          not null
+#  checked    :boolean          default(FALSE), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  review_id  :integer
