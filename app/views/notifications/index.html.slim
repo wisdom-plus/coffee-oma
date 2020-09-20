@@ -1,2 +1,32 @@
-h1 Notifications#index
-p Find me in app/views/notifications/index.html.slim
+.ui.centered.grid.margin-zero
+  .twelve.wide.column
+    h1.content 通知
+    .ui.top.attached.three.tabular.menu
+      a.active.item date-tab = "first" すべて
+      a.item data-tab = "second" フォロー
+      a.item data-tab = "third" ライク
+    .ui.bottom.attached.tab.segment.active data-tab= "first"
+      - if @notifications.empty?
+        通知はまだ届いていません
+      - else
+        - @notifications.each do |notification|
+          .ui.segment
+            .ui.items
+              .item
+                h3.ui.icon.header
+                  - if notification.action == "follow"
+                      i.blue.users.icon.mt-10
+                  - elsif notification.action == "like"
+                      i.red.heart.icon.mt-10
+                .ui.tiny.circular.image
+                    img src = notification.visitor.icon.url
+                .content
+                  .description
+                    - if notification.action == "follow"
+                      = notification.visitor.username
+                      |さんにフォローされました
+                    - elsif notification.action == "like"
+                      = notification.visitor.username
+                      |さんがあなたのレビューにライクしました
+    .ui.bottom.attached.tab.segment data-tab= "second"
+    .ui.bottom.attached.tab.segment data-tab= "third"
