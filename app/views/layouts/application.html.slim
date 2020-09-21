@@ -10,7 +10,7 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   bod
   #wrapper
-    .ui.fixed.teal.inverted.menu
+    .ui.main.fixed.teal.inverted.menu
       .ui.container
         =link_to root_path , class: "item", id: "logopadding" do
           =image_tag("/coffeeoma-logo.png", class: "ui tinysmall image")
@@ -19,10 +19,20 @@ html
         - if user_signed_in?
           a.item href= new_product_path
             font style= "vertical-align: inherit;" アイテムを登録する
-          = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "item"
-          = link_to 'ユーザー',"/users/#{current_user.id}/show", class: "item"
+          .right.menu
+            = link_to 'ユーザー',"/users/#{current_user.id}/show", class: "item"
+            = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "item"
+            - if unchecked_notifications.any?
+              = link_to notifications_path, class: "ui item" do
+                i.icons
+                  i.bell.outline.icon
+                  i.bottom.right.corner.red.circle.icon
+            - else
+              =link_to notifications_path, class: "ui item" do
+                i.bell.outline.icon
         - else
-          =link_to "ログイン",user_session_path,class: "item"
+          .right.menu
+            =link_to "ログイン",user_session_path,class: "item"
     .ui.container.top-padding
       - if notice || alert
         .ui.message.flash-message
