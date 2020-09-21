@@ -2,7 +2,7 @@
   .twelve.wide.column
     h1.content 通知
     .ui.top.attached.three.tabular.menu
-      a.active.item date-tab = "first" すべて
+      a.active.item data-tab = "first" すべて
       a.item data-tab = "second" フォロー
       a.item data-tab = "third" ライク
     .ui.bottom.attached.tab.segment.active data-tab= "first"
@@ -21,12 +21,58 @@
                 .ui.tiny.circular.image
                     img src = notification.visitor.icon.url
                 .content
-                  .description
-                    - if notification.action == "follow"
+                  - if notification.action == "follow"
+                    a.header href = "/users/#{notification.visitor.id}/show"
                       = notification.visitor.username
                       |さんにフォローされました
-                    - elsif notification.action == "like"
+                    .meta
+                      span.date #{time_ago_in_words(notification.created_at)}前
+                  - elsif notification.action == "like"
+                    a.header href = product_path(notification.review.product_id)
                       = notification.visitor.username
                       |さんがあなたのレビューにライクしました
+                    .meta
+                      span.date #{time_ago_in_words(notification.created_at)}前
+                    .description
+                      =simple_format(h(notification.review.content))
     .ui.bottom.attached.tab.segment data-tab= "second"
+      - if @notifications.empty?
+        通知はまだ届いていません
+      - else
+        - @notifications.each do |notification|
+          - if notification.action == "follow"
+            .ui.segment
+              .ui.items
+                .item
+                  h3.ui.icon.header
+                    i.blue.users.icon.mt-10
+                  .ui.tiny.circular.image
+                    img src = notification.visitor.icon.url
+                  .content
+                    a.header href = "users/#{notification.visitor.id}/show"
+                      = notification.visitor.username
+                      |さんにフォローされました
+                    .meta
+                      span.date #{time_ago_in_words(notification.created_at)}前
     .ui.bottom.attached.tab.segment data-tab= "third"
+      - if @notifications.empty?
+        通知はまだ届いていません
+      - else
+        - @notifications.each do |notification|
+          - if notification.action == "like"
+            .ui.segment
+              .ui.items
+                .item
+                  h3.ui.icon.header
+                    i.red.heart.icon.mt-10
+                  .ui.tiny.circular.image
+                    img src = notification.visitor.icon.url
+                  .content
+                    a.header href = product_path(notification.review.product_id)
+                      = notification.visitor.username
+                      |さんがあなたのレビューにライクしました
+                    .meta
+                      span.date #{time_ago_in_words(notification.created_at)}前
+                    .description
+                      =simple_format(h(notification.review.content))
+    .segment
