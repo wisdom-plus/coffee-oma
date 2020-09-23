@@ -22,7 +22,7 @@ html
           .right.menu
             = link_to 'ユーザー',"/users/#{current_user.id}/show", class: "item"
             = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "item"
-            - if unchecked_notifications.any?
+            - if unchecked_notifications?
               = link_to notifications_path, class: "ui item new_notification" do
                 i.icons
                   i.bell.outline.icon
