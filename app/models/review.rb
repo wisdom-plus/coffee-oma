@@ -33,14 +33,13 @@ class Review < ApplicationRecord
   end
 
   def create_notification_like(current_user)
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and review_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
-    if temp.blank?
-      notification = current_user.active_notifications.new(review_id: id, visited_id: user_id, action: "like")
-      if notification.visitor_id == notification.visited_id
-        notification.checked = true
-      end
-      notification.save
-    end
-  end
+    temp = Notification.where(['visitor_id = ? and visited_id = ? and review_id = ? and action = ? ', current_user.id, user_id, id, 'like'])
+    notification = current_user.active_notifications.new(review_id: id, visited_id: user_id, action: 'like')
+    return if temp.present?
 
+    if notification.visitor_id == notification.visited_id
+      notification.checked = true
+    end
+    notification.save
+  end
 end
