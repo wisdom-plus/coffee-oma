@@ -23,7 +23,7 @@ html
             = link_to 'ユーザー',"/users/#{current_user.id}/show", class: "item"
             = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "item"
             - if unchecked_notifications.any?
-              = link_to notifications_path, class: "ui item" do
+              = link_to notifications_path, class: "ui item new_notification" do
                 i.icons
                   i.bell.outline.icon
                   i.bottom.right.corner.red.circle.icon
