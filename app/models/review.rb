@@ -21,6 +21,7 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :product
   has_many :review_likes, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   validates :title, :content, :user_id, :product_id, presence: true
   validates :rate, numericality: {
     greater_than_or_equal_to: 1,
@@ -29,5 +30,16 @@ class Review < ApplicationRecord
 
   def like_record(liker_id)
     review_likes.find_by(user_id: liker_id)
+  end
+
+  def create_notification_like(current_user)
+    temp = Notification.where(['visitor_id = ? and visited_id = ? and review_id = ? and action = ? ', current_user.id, user_id, id, 'like'])
+    notification = current_user.active_notifications.new(review_id: id, visited_id: user_id, action: 'like')
+    return if temp.present?
+
+    if notification.visitor_id == notification.visited_id
+      notification.checked = true
+    end
+    notification.save
   end
 end

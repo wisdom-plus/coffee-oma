@@ -7,12 +7,12 @@ RSpec.describe 'Products', type: :request do
   let(:rakuten_product_params) { attributes_for(:product, imageurl: ENV['RAKUTEN_TEST_IMAGE_URL']) }
 
   describe 'GET /products' do
-    it 'request seccees' do
+    it 'request success' do
       get products_path
       expect(response).to have_http_status(:ok)
     end
 
-    it 'request seccees(tag_name)' do
+    it 'request success(tag_name)' do
       get products_path, params: { tag_name: 'コーヒー' }
       expect(response).to have_http_status(:ok)
     end
@@ -24,7 +24,7 @@ RSpec.describe 'Products', type: :request do
       sign_in user
     end
 
-    it 'request seccees' do
+    it 'request success' do
       get new_product_path
       expect(response).to have_http_status(:ok)
     end
@@ -41,7 +41,7 @@ RSpec.describe 'Products', type: :request do
       sign_in user
     end
 
-    it 'request seccees' do
+    it 'request success' do
       post products_path, params: { product: product_params }
       expect(response).to have_http_status(:found)
     end
@@ -59,7 +59,7 @@ RSpec.describe 'Products', type: :request do
       sign_in user
     end
 
-    it 'request seccees' do
+    it 'request success' do
       post rakuten_create_products_path, params: { product: rakuten_product_params }
       expect(response).to have_http_status(:found)
     end
@@ -72,7 +72,7 @@ RSpec.describe 'Products', type: :request do
   end
 
   describe 'GET /products/:id' do
-    it 'request seccees' do
+    it 'request success' do
       get product_path(product.id)
       expect(response).to have_http_status(:ok)
     end
