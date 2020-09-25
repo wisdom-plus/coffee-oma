@@ -100,6 +100,9 @@
 #                              contacts POST       /contacts(.:format)                                                                      contacts#create
 #                           new_contact GET        /contacts/new(.:format)                                                                  contacts#new
 #                         notifications GET        /notifications(.:format)                                                                 notifications#index
+#                                 rooms GET        /rooms(.:format)                                                                         rooms#index
+#                              messages POST       /messages(.:format)                                                                      messages#create
+#                           new_message GET        /messages/new(.:format)                                                                  messages#new
 #                     letter_opener_web            /letter_opener                                                                           LetterOpenerWeb::Engine
 #         rails_postmark_inbound_emails POST       /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST       /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
@@ -150,5 +153,7 @@ Rails.application.routes.draw do
   resources :relationships, only: %i[create destroy]
   resources :contacts, only: %i[new create]
   resources :notifications, only: :index
+  resources :rooms, only: :index
+  resources :messages, only: %i[new create]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
