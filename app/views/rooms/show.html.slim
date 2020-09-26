@@ -1,0 +1,13 @@
+h1 room show
+- @messages.each do |message|
+  h4
+    =message.message
+
+= form_with model: @message, url: messages_path, class: "ui equal width form column" ,method: :post, local: true do |f|
+  .fields
+    =f.label :message, class: "four wide field"
+    = f.text_area :message, placeholder: "メッセージの内容", class: "ten wide field"
+  .fields
+    = f.hidden_field(:user_id, :value => current_user.id)
+    = f.hidden_field(:room_id, :value => @room.id)
+    = f.submit "送信", class: "large ui center floated positive button"
