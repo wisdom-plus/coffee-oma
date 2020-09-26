@@ -25,4 +25,13 @@ class Room < ApplicationRecord
     end
   end
 
+  def another_user(user)
+    if self.participant1_id == user.id
+      return self.participant2
+    else
+      return self.participant1
+    end
+  end
+
+
 end

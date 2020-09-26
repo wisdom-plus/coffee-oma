@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
   before_action :check_including, only: %i[show]
 
   def index
-    @rooms = Room.where("participant1_id = ? or participant2_id = ?", current_user.id, current_user)
+    @rooms = Room.includes([:participant1],[:participant2]).where("participant1_id = ? or participant2_id = ?", current_user.id, current_user)
   end
 
   def create
