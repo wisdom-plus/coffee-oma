@@ -1,7 +1,22 @@
-h1 room show
-- @messages.each do |message|
-  h4
-    =message.message
+h1
+  =@room.another_user(current_user).username
+.ui.centered.grid
+  .twelve.wide.column
+    - @messages.each do |message|
+      - if message.user_id == current_user.id
+        .balloon_r
+          .faceicon
+            img.ui.circular.image src = message.user.icon.url
+          .says
+            .content
+              =simple_format(h(message.message))
+      - else
+        .balloon_l
+          .faceicon
+            img.ui.tiny.circular.image src = message.user.icon.url
+          .says
+            .content
+              =simple_format(h(message.message))
 
 = form_with model: @message, url: messages_path, class: "ui equal width form column" ,method: :post, local: true do |f|
   .fields
