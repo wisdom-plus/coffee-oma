@@ -71,6 +71,10 @@ class User < ApplicationRecord
     followings.include?(other_user)
   end
 
+  def follow_user(other_user)
+    relationships.find_by(follow_id: other_user.id)
+  end
+
   def create_like(like_product_id)
     likes.find_or_create_by(product_id: like_product_id)
   end

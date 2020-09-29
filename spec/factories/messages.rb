@@ -22,6 +22,6 @@
 FactoryBot.define do
   factory :message do
     user
-    message {'これはメッセージです'}
+    message { 'これはメッセージです' }
   end
 end

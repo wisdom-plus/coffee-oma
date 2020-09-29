@@ -9,8 +9,7 @@ class MessagesController < ApplicationController
 
   private
 
-  def message_params
-    params.require(:message).permit(:message, :user_id, :room_id)
-  end
-
+    def message_params
+      params.require(:message).permit(:message, :user_id, :room_id)
+    end
 end

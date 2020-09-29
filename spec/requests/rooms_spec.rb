@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "Rooms", type: :request do
-  let(:user) { create(:user)}
+RSpec.describe 'Rooms', type: :request do
+  let(:user) { create(:user) }
   let(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
-  let(:room) { create(:room, participant1: user, participant2: user1)}
-  let(:message) { create(:message, user: user, room: room)}
+  let(:room) { create(:room, participant1: user, participant2: user1) }
+  let(:message) { create(:message, user: user, room: room) }
 
   describe 'GET index' do
     before do
@@ -40,7 +40,7 @@ RSpec.describe "Rooms", type: :request do
     end
 
     it 'request success' do
-      post rooms_path, params: { user_id: user1.id}
+      post rooms_path, params: { user_id: user1.id }
       expect(response).to have_http_status(:found)
     end
 
