@@ -11,6 +11,7 @@ $(document).on('turbolinks:load', function () {
   $('.sticky').sticky({
     context: '#sidebar'
   });
+  $('.ui.dropdown').dropdown();
   $('.file-form').on('change', function () {
     $('#dimmer').dimmer('hide');
     $('#dimmer-product').dimmer('hide');
