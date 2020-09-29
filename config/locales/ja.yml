@@ -34,12 +34,22 @@ ja:
         name: "タグ名"
         created_at: "作成日"
         updated_at: "更新日"
+      room:
+        message: "メッセージ"
+        created_at: "作成日"
+        updated_at: "更新日"
+      message:
+        message: "メッセージ"
+        created_at: "作成日"
+        updated_at: "更新日"
     models:
       product: "商品"
       admin_user: "管理者"
       review: "レビュー"
       comment: "コメント"
       tag: "タグ"
+      room: "ルーム"
+      message: "メッセージ"
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

@@ -7,7 +7,7 @@
       a.item data-tab = "third" ライク
     .ui.bottom.attached.tab.segment.active data-tab= "first"
       - if @notifications.empty?
-        通知はまだ届いていません
+        |通知はまだ届いていません
       - else
         - @notifications.each do |notification|
           .ui.segment
@@ -37,7 +37,7 @@
                       =simple_format(h(notification.review.content))
     .ui.bottom.attached.tab.segment data-tab= "second"
       - if @notifications.empty?
-        通知はまだ届いていません
+        |通知はまだ届いていません
       - else
         - @notifications.each do |notification|
           - if notification.action == "follow"
@@ -56,7 +56,7 @@
                       span.date #{time_ago_in_words(notification.created_at)}前
     .ui.bottom.attached.tab.segment data-tab= "third"
       - if @notifications.empty?
-        通知はまだ届いていません
+        |通知はまだ届いていません
       - else
         - @notifications.each do |notification|
           - if notification.action == "like"
