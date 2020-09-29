@@ -25,6 +25,9 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  has_many :participant1_rooms, class_name: 'Room', foreign_key: 'participant1_id', dependent: :destroy, inverse_of: 'participant1'
+  has_many :participant2_rooms, class_name: 'Room', foreign_key: 'participant2_id', dependent: :destroy, inverse_of: 'participant2'
+  has_many :messages, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :review_likes, dependent: :destroy
@@ -66,6 +69,10 @@ class User < ApplicationRecord
 
   def following?(other_user)
     followings.include?(other_user)
+  end
+
+  def follow_user(other_user)
+    relationships.find_by(follow_id: other_user.id)
   end
 
   def create_like(like_product_id)
