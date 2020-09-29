@@ -16,22 +16,24 @@
 class Room < ApplicationRecord
   has_many :messages, dependent: :destroy
   belongs_to :participant1, class_name: 'User', optional: true
-  belongs_to :participant2, class_name: "User", optional: true
+  belongs_to :participant2, class_name: 'User', optional: true
   validate :check_participant
 
   def check_participant
-    if self.participant1_id > self.participant2_id
-      self.participant1_id, self.participant2_id = self.participant2_id, self.participant1_id
-    end
+    return unless participant1_id > participant2_id
+
+    self.participant1_id, self.participant2_id = participant2_id, participant1_id
   end
 
   def another_user(user)
-    if self.participant1_id == user.id
-      return self.participant2
+    if participant1_id == user.id
+      participant2
     else
-      return self.participant1
+      participant1
     end
   end
 
-
+  def self.find_room(user1, user2)
+    find_by(participant1_id: user1.id, participant2_id: user2.id)
+  end
 end

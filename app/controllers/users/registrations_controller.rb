@@ -31,16 +31,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def show
     @user = User.includes(relationships: [:follow]).find(params[:id])
-    @follow = Relationship.find_by(user_id: current_user.id, follow_id: @user.id) if signed_in?
+    @follow = current_user.follow_user(@user) if signed_in?
     @like = Like.where(user_id: @user.id).includes(:product)
     @review = Review.where(user_id: @user.id).includes(:product)
-    if signed_in? && @user != current_user
-      if @user.id > current_user.id
-        @room = Room.find_by(participant1_id: current_user.id, participant2_id: @user.id)
-      else
-        @room = Room.find_by(participant1_id: @user.id,participant2_id: current_user)
-      end
-    end
+    return unless signed_in? && @user != current_user
+
+    @room = if @user.id > current_user.id
+              Room.find_room(@user, current_user)
+            else
+              Room.find_room(current_user, @user)
+            end
   end
 
   # GET /resource/cancel
