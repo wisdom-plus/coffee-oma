@@ -20,7 +20,7 @@ h1
 
 = form_with model: @message, url: messages_path, class: "ui equal width form column" ,method: :post, local: true do |f|
   .fields
-    =f.label :message, class: "four wide field"
+    = f.label :message, class: "four wide field"
     = f.text_area :message, placeholder: "メッセージの内容", class: "ten wide field"
   .fields
     = f.hidden_field(:user_id, :value => current_user.id)
