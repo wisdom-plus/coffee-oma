@@ -21,8 +21,7 @@
 #
 FactoryBot.define do
   factory :message do
-    user { nil }
-    room { nil }
-    message { "MyText" }
+    user
+    message {'これはメッセージです'}
   end
 end
