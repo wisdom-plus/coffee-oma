@@ -94,6 +94,4 @@
             =f.label :content, "レビュー内容", class: "four wide field"
             =f.text_area :content, placeholder: "レビューの内容",class: "ten wide field"
           .field
-            = f.hidden_field(:product_id, :value => @product.id )
-            = f.hidden_field(:user_id, :value => current_user.id )
             = f.submit '  submit  ', class: "large ui center floated positive button"

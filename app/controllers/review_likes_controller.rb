@@ -2,7 +2,7 @@ class ReviewLikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @review_like = ReviewLike.new(user_id: current_user.id, review_id: params[:review_id])
+    @review_like = current_user.create_review_like(params[:review_id])
     @review_like.save
     @review = Review.find(params[:review_id])
     @review.create_notification_like(current_user)
@@ -10,8 +10,7 @@ class ReviewLikesController < ApplicationController
   end
 
   def destroy
-    review_like = ReviewLike.find_by(id: params[:id])
-    review_like.destroy
+    review_like = current_user.destroy_review_like(params[:id])
     @review = Review.find_by(id: review_like.review_id)
     render 'destroy.js.erb'
   end
