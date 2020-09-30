@@ -35,8 +35,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def show
     @user = User.includes(relationships: [:follow]).find(params[:id])
     @follow = current_user.follow_user(@user) if signed_in?
-    @like = Like.where(user_id: @user.id).includes(:product)
-    @review = Review.where(user_id: @user.id).includes(:product)
+    @like = Like.where("user_id = ?" ,@user.id).includes(:product)
+    @review = Review.where("user_id = ?", @user.id).includes(:product)
     return unless signed_in? && @user != current_user
 
     @room = if @user.id > current_user.id

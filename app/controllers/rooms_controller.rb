@@ -19,7 +19,7 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @message = Message.new
-    @messages = Message.includes([:user]).where(room_id: params[:id])
+    @messages = Message.includes([:user]).where("room_id = ?", params[:id])
   end
 
   private
