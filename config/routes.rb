@@ -82,6 +82,7 @@
 #                     user_confirmation GET        /users/confirmation(.:format)                                                            devise/confirmations#show
 #                                       POST       /users/confirmation(.:format)                                                            devise/confirmations#create
 #                                       GET        /users/:id/show(.:format)                                                                users/registrations#show
+#                   users_guest_sign_in POST       /users/guest_sign_in(.:format)                                                           users/sessions#new_guest
 #               rakuten_create_products POST       /products/rakuten_create(.:format)                                                       products#rakuten_create
 #                       product_reviews GET        /products/:product_id/reviews(.:format)                                                  reviews#index
 #                                       POST       /products/:product_id/reviews(.:format)                                                  reviews#create
@@ -142,6 +143,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_scope :user do
     get 'users/:id/show' => 'users/registrations#show'
+    post 'users/guest_sign_in' => "users/sessions#new_guest"
   end
   resources :products, only: %i[new create index show update] do
     collection do
