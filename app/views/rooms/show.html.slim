@@ -1,5 +1,7 @@
-h1
-  =@room.another_user(current_user).username
+.ui.middle.aligned.center.aligned.grid
+  .column
+    h1.content
+      =@room.another_user(current_user).username
 .ui.centered.grid
   .twelve.wide.column
     - @messages.each do |message|
@@ -22,10 +24,8 @@ h1
           .meta.room_meta_l
             span.date =l message.created_at, format: :date
 
-  = form_with model: @message, url: messages_path, class: "ui form center aligned ten wide column" ,method: :post, local: true do |f|
+  = form_with model: @message, url: messages_path(room_id: @room.id), class: "ui form center aligned ten wide column mb-20" ,method: :post, local: true do |f|
     .field
       = f.text_area :message, placeholder: "メッセージの内容"
     .field
       = f.submit "送信", class: "large ui teal button"
-      = f.hidden_field(:user_id, :value => current_user.id)
-      = f.hidden_field(:room_id, :value => @room.id)

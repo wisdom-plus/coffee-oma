@@ -84,6 +84,16 @@ class User < ApplicationRecord
     like&.destroy
   end
 
+  def create_review_like(review_id)
+    review_likes.find_or_create_by(review_id: review_id)
+  end
+
+  def destroy_review_like(reviewlike_id)
+    review_like = review_likes.find_by(id: reviewlike_id)
+    review_like&.destroy
+  end
+
+
   def create_notification_follow(current_user)
     temp = Notification.where(['visitor_id = ? and visited_id = ? and action = ?', current_user.id, id, 'follow'])
     return if temp.present?
