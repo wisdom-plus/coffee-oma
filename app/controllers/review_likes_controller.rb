@@ -11,8 +11,8 @@ class ReviewLikesController < ApplicationController
 
   def destroy
     review_like = ReviewLike.find_by(id: params[:id])
-    @review = Review.find_by(id: review_like.review_id)
     review_like.destroy
+    @review = Review.find_by(id: review_like.review_id)
     render 'destroy.js.erb'
   end
 end
