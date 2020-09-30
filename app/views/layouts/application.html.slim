@@ -38,7 +38,9 @@ html
                 i.bell.outline.icon
         - else
           .right.menu
-            =link_to "ログイン",user_session_path,class: "item"
+            = link_to "ゲストログイン", users_guest_sign_in_path, method: :post,class: "item"
+            = link_to "ログイン",user_session_path,class: "item"
+            = link_to "新規登録", new_user_registration_path, class: "item"
     .ui.container.top-padding
       - if notice || alert
         .ui.message.flash-message
