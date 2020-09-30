@@ -5,6 +5,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
   before_action :user_exist?, only: [:show]
   before_action :check_guest, only: %i[destroy update]
+  prepend_before_action :check_captcha, only: [:create]
+  prepend_before_action :customize_sign_up_params, only: [:create]
   # GET /resource/sign_up
   # def new
   #   super
@@ -86,6 +88,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
     end
 
+    def customize_sign_up_params
+      devise_parameter_sanitizer.permit :sign_up, keys: [:username, :email, :password, :password_confirmation, :remember_me]
+    end
+
+    def check_captcha
+      self.resource = resource_class.new sign_up_params
+      resource.validate
+      unless verify_recaptcha(model: resource)
+        respond_with_navigational(resource) { render :new }
+      end
+    end
 
   protected
 
