@@ -39,7 +39,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @review = Review.where("user_id = ?", @user.id).includes(:product)
     return unless signed_in? && @user != current_user
 
-    @room = if @user.id > current_user.id
+    @room = if @user.id < current_user.id
               Room.find_room(@user, current_user)
             else
               Room.find_room(current_user, @user)
