@@ -27,8 +27,8 @@
 FactoryBot.define do
   factory :user do
     email { 'test@example.com' }
-    password { 'kajshdjduidj' }
-    username { 'test1' }
+    password { 'password' }
+    username { 'test' }
     icon { Rack::Test::UploadedFile.new(Rails.root.join('spec/support/test.png')) }
   end
 end
