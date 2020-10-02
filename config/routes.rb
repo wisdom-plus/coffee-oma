@@ -84,8 +84,7 @@
 #                                       GET        /users/:id/show(.:format)                                                                users/registrations#show
 #                   users_guest_sign_in POST       /users/guest_sign_in(.:format)                                                           users/sessions#new_guest
 #               rakuten_create_products POST       /products/rakuten_create(.:format)                                                       products#rakuten_create
-#                       product_reviews GET        /products/:product_id/reviews(.:format)                                                  reviews#index
-#                                       POST       /products/:product_id/reviews(.:format)                                                  reviews#create
+#                       product_reviews POST       /products/:product_id/reviews(.:format)                                                  reviews#create
 #                              products GET        /products(.:format)                                                                      products#index
 #                                       POST       /products(.:format)                                                                      products#create
 #                           new_product GET        /products/new(.:format)                                                                  products#new
@@ -149,7 +148,7 @@ Rails.application.routes.draw do
     collection do
       post 'rakuten_create'
     end
-    resources :reviews, only: %i[index create]
+    resources :reviews, only: %i[create]
   end
   resources :likes, only: %i[create destroy]
   resources :review_likes, only: %i[create destroy]

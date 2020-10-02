@@ -77,11 +77,11 @@
               div class="review_like_button_#{review.id} inline"
                 - if signed_in?
                   =render partial:'share/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
-  - if current_user
+  - if signed_in?
     .ui.middle.aligned.center.aligned.grid
       .column
         h1.content レビューの投稿
-        =form_with model: @review, url: product_reviews_path(@product.id), class: "ui equal width form column", method: :post,local: true do |f|
+        =form_with model: @review, url: product_reviews_path(@product.id), class: "ui equal width form column", id: "review_form", method: :post,local: true do |f|
           .fields
             =f.label :title, "タイトル",class: "four wide field"
             =f.text_field :title, placeholder: "title", class: "ten wide field"

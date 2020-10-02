@@ -6,12 +6,10 @@ class ReviewsController < ApplicationController
     if review.save
       redirect_to product_path(review.product_id), notice: 'レビューを登録しました'
     else
-      flash[:alert] = 'レビューが登録に失敗しました'
+      flash[:alert] = 'レビューの登録に失敗しました'
       redirect_back(fallback_location: root_path)
     end
   end
-
-  def index; end
 
   private
     def review_params
