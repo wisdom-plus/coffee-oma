@@ -20,11 +20,11 @@
         |フォロワー
     - if signed_in?
       - if @room.nil?
-        = link_to rooms_path(user_id: @user.id), method: :post, class: "ui label" do
+        = link_to rooms_path(user_id: @user.id), method: :post, class: "ui label spec-messge" do
           i.mail.icon
             |メッセージを送る
       - else
-        = link_to room_path(@room.id),class: "ui label" do
+        = link_to room_path(@room.id),class: "ui label spec-message" do
           i.mail.icon
             |メッセージを送る
   .ui.centered.grid
