@@ -27,10 +27,10 @@ class Room < ApplicationRecord
   end
 
   def another_user(user)
-    if participant1_id == user.id
-      participant2
+    if self.participant1_id == user.id
+      self.participant2
     else
-      participant1
+      self.participant1
     end
   end
 

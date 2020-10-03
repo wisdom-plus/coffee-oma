@@ -13,7 +13,7 @@ RSpec.describe 'Sessions', type: :request do
   describe 'POST users/sign_in' do
     before do
       user.confirm
-      post user_session_path, params: { user: { email: 'test@example.com', password: 'kajshdjduidj', remember_me: '0' } }
+      post user_session_path, params: { user: { email: 'test@example.com', password: 'password', remember_me: '0' } }
     end
 
     it 'request success' do
