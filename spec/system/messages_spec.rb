@@ -5,7 +5,6 @@ RSpec.describe 'Messages', type: :system do
   let(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
   let(:room) { create(:room, participant1: user, participant2: user1) }
   let(:message) { create(:message, user: user, room: room) }
-  let(:message_params) { attributes_for(:message, user_id: user.id, room_id: room.id) }
 
   describe 'create' do
     before do
@@ -14,9 +13,9 @@ RSpec.describe 'Messages', type: :system do
     end
 
     it 'create message' do
-      fill_in 'message[message]', with: 'これはメッセージのテストです'
+      fill_in 'message[message]', with: message.message
       click_on '送信'
-      expect(page).to have_content 'これはメッセージのテストです'
+      expect(page).to have_content message.message
       expect(page).to have_css '.balloon_r'
     end
 

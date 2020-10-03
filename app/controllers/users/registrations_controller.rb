@@ -4,15 +4,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   before_action :user_exist?, only: [:show]
+  before_action :check_guest, only: %i[destroy update]
+  prepend_before_action :check_captcha, only: [:create]
+  prepend_before_action :customize_sign_up_params, only: [:create]
   # GET /resource/sign_up
   # def new
   #   super
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # GET /resource/edit
   # def edit
@@ -20,23 +23,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
 
   def show
     @user = User.includes(relationships: [:follow]).find(params[:id])
     @follow = current_user.follow_user(@user) if signed_in?
-    @like = Like.where(user_id: @user.id).includes(:product)
-    @review = Review.where(user_id: @user.id).includes(:product)
+    @like = Like.where('user_id = ?', @user.id).includes(:product)
+    @review = Review.where('user_id = ?', @user.id).includes(:product)
     return unless signed_in? && @user != current_user
 
-    @room = if @user.id > current_user.id
+    @room = if @user.id < current_user.id
               Room.find_room(@user, current_user)
             else
               Room.find_room(current_user, @user)
@@ -77,6 +80,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     def user_exist?
       redirect_to root_path, alert: 'ユーザーが存在しません' if User.find_by(id: params[:id]).nil?
+    end
+
+    def check_guest
+      return unless resource.email == 'guest@example.com'
+
+      redirect_to root_path, alert: 'ゲストユーザーは変更・削除ができません。'
+    end
+
+    def customize_sign_up_params
+      devise_parameter_sanitizer.permit :sign_up, keys: %i[username email password password_confirmation remember_me]
+    end
+
+    def check_captcha
+      self.resource = resource_class.new sign_up_params
+      resource.validate
+      return if verify_recaptcha(model: resource)
+
+      respond_with_navigational(resource) { render :new }
     end
 
   protected
