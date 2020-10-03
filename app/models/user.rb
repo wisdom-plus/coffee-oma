@@ -93,7 +93,6 @@ class User < ApplicationRecord
     review_like&.destroy
   end
 
-
   def create_notification_follow(current_user)
     temp = Notification.where(['visitor_id = ? and visited_id = ? and action = ?', current_user.id, id, 'follow'])
     return if temp.present?
@@ -104,10 +103,9 @@ class User < ApplicationRecord
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
-      user.username = "ゲストユーザー"
+      user.username = 'ゲストユーザー'
       user.password = SecureRandom.urlsafe_base64
-      user.confirmed_at = Time.now
+      user.confirmed_at = Time.zone.now
     end
   end
-
 end

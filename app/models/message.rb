@@ -26,7 +26,12 @@ class Message < ApplicationRecord
   validates :message, presence: true
 
   def create_notification_message(current_user)
-    temp = Notification.where(['visitor_id = ? and visited_id = ? and message_id = ? and action = ? ', current_user.id, room.another_user(current_user).id, id, 'message'])
+    temp = Notification.where(
+      ['visitor_id = ? and visited_id = ? and message_id = ? and action = ? ',
+       current_user.id, room.another_user(current_user).id, id, 'message']
+    )
+    return if temp.present?
+
     notification = current_user.active_notifications.new(message_id: id, visited_id: room.another_user(current_user).id, action: 'message')
     notification.save
   end

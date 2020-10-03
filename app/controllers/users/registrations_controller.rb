@@ -13,9 +13,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # GET /resource/edit
   # def edit
@@ -23,20 +23,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
 
   def show
     @user = User.includes(relationships: [:follow]).find(params[:id])
     @follow = current_user.follow_user(@user) if signed_in?
-    @like = Like.where("user_id = ?" ,@user.id).includes(:product)
-    @review = Review.where("user_id = ?", @user.id).includes(:product)
+    @like = Like.where('user_id = ?', @user.id).includes(:product)
+    @review = Review.where('user_id = ?', @user.id).includes(:product)
     return unless signed_in? && @user != current_user
 
     @room = if @user.id < current_user.id
@@ -83,21 +83,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     def check_guest
-      if resource.email == "guest@example.com"
-        redirect_to root_path, alert: "ゲストユーザーは変更・削除ができません。"
-      end
+      return unless resource.email == 'guest@example.com'
+
+      redirect_to root_path, alert: 'ゲストユーザーは変更・削除ができません。'
     end
 
     def customize_sign_up_params
-      devise_parameter_sanitizer.permit :sign_up, keys: [:username, :email, :password, :password_confirmation, :remember_me]
+      devise_parameter_sanitizer.permit :sign_up, keys: %i[username email password password_confirmation remember_me]
     end
 
     def check_captcha
       self.resource = resource_class.new sign_up_params
       resource.validate
-      unless verify_recaptcha(model: resource)
-        respond_with_navigational(resource) { render :new }
-      end
+      return if verify_recaptcha(model: resource)
+
+      respond_with_navigational(resource) { render :new }
     end
 
   protected
