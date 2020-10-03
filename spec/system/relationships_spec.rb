@@ -41,8 +41,8 @@ RSpec.describe 'Relationships', type: :system do
     end
   end
 
-  context "when not login" do
-    it "is displayed follow button" do
+  context 'when not login' do
+    it 'is displayed follow button' do
       visit "/users/#{user1.id}/show"
       expect(page).to have_no_link 'フォローする'
     end

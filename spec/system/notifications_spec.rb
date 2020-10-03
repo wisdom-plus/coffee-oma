@@ -5,14 +5,14 @@ RSpec.describe 'Notifications', type: :system do
   let(:user1) { create(:user, email: 'test2@example.com', username: 'test2') }
   let(:product) { create(:product) }
   let(:review) { create(:review, user: user, product: product) }
-  let(:room) { create(:room, participant1: user, participant2: user1)}
-  let(:message) { create(:message, room: room, user: user1)}
+  let(:room) { create(:room, participant1: user, participant2: user1) }
+  let(:message) { create(:message, room: room, user: user1) }
   let(:notification_follow) { create(:notification, visitor: user1, visited: user, action: 'follow') }
   let(:notification_like) { create(:notification, visitor: user1, visited: user, review: review, action: 'like') }
-  let(:notification_message) { create(:notification, visitor: user1, visited: user, message: message, action: "message")}
+  let(:notification_message) { create(:notification, visitor: user1, visited: user, message: message, action: 'message') }
 
   describe 'index' do
-    context "when login" do
+    context 'when login' do
       before do
         notification_follow
         notification_like
@@ -39,10 +39,10 @@ RSpec.describe 'Notifications', type: :system do
       end
     end
 
-    context "when not login" do
-      it "not render page" do
+    context 'when not login' do
+      it 'not render page' do
         visit notifications_path
-        expect(current_path).to eq new_user_session_path
+        expect(page).to have_current_path new_user_session_path, ignore_query: true
       end
     end
   end

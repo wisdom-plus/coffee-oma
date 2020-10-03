@@ -10,7 +10,7 @@ class RelationshipsController < ApplicationController
 
   def destroy
     @user = User.find(params[:follow_id])
-    follow = current_user.unfollow(@user)
+    @follow = current_user.unfollow(@user)
     render 'destroy.js.erb'
   end
 end

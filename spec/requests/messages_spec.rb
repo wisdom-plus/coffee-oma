@@ -15,13 +15,13 @@ RSpec.describe 'Messages', type: :request do
     end
 
     it 'request message' do
-      post messages_path, params: { message: message_params , room_id: room.id}
+      post messages_path, params: { message: message_params, room_id: room.id }
       expect(response).to have_http_status(:found)
     end
 
     it 'created message' do
       expect do
-        post messages_path, params: { message: message_params , room_id: room.id}
+        post messages_path, params: { message: message_params, room_id: room.id }
       end.to change(Message, :count).by 1
     end
   end
