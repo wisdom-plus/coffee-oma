@@ -31,6 +31,7 @@ module Coffee
 
     # Don't generate system test files.
     config.i18n.default_locale = :ja
+    config.time_zone = 'Tokyo'
     config.generators.active_record = true
     config.generators do |g|
       g.template_engine :slim

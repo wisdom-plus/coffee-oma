@@ -12,6 +12,7 @@
 #
 #  index_rooms_on_participant1_id  (participant1_id)
 #  index_rooms_on_participant2_id  (participant2_id)
+#  uique_partcipant1_partcipant2   (participant1_id,participant2_id) UNIQUE
 #
 class Room < ApplicationRecord
   has_many :messages, dependent: :destroy

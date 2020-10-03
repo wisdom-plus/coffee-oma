@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_132803) do
+ActiveRecord::Schema.define(version: 2020_10_01_133023) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(version: 2020_09_25_132803) do
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "message_id"
+    t.index ["message_id"], name: "index_notifications_on_message_id"
     t.index ["review_id"], name: "index_notifications_on_review_id"
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
     t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
@@ -127,6 +129,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_132803) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "participant1_id", null: false
     t.bigint "participant2_id", null: false
+    t.index ["participant1_id", "participant2_id"], name: "uique_partcipant1_partcipant2", unique: true
     t.index ["participant1_id"], name: "index_rooms_on_participant1_id"
     t.index ["participant2_id"], name: "index_rooms_on_participant2_id"
   end
@@ -180,6 +183,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_132803) do
 
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "notifications", "messages"
   add_foreign_key "notifications", "reviews"
   add_foreign_key "notifications", "users", column: "visited_id"
   add_foreign_key "notifications", "users", column: "visitor_id"

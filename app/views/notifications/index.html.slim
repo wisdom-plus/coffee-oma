@@ -1,10 +1,11 @@
 .ui.centered.grid.margin-zero
   .twelve.wide.column
     h1.content 通知
-    .ui.top.attached.three.tabular.menu
+    .ui.top.attached.four.tabular.menu
       a.active.item data-tab = "first" すべて
       a.item data-tab = "second" フォロー
       a.item data-tab = "third" ライク
+      a.item data-tab = "four" メッセージ
     .ui.bottom.attached.tab.segment.active data-tab= "first"
       - if @notifications.empty?
         |通知はまだ届いていません
@@ -15,9 +16,11 @@
               .item
                 h3.ui.icon.header
                   - if notification.action == "follow"
-                      i.blue.users.icon.mt-10
+                    i.blue.users.icon.mt-10
                   - elsif notification.action == "like"
-                      i.red.heart.icon.mt-10
+                    i.red.heart.icon.mt-10
+                  - else
+                    i.blue.mail.icon.mt-10
                 .ui.tiny.circular.image
                     img src = notification.visitor.icon.url
                 .content
@@ -35,6 +38,12 @@
                       span.date #{time_ago_in_words(notification.created_at)}前
                     .description
                       =simple_format(h(notification.review.content))
+                  - else
+                    a.header href = room_path(notification.message.room_id)
+                      = notification.visitor.username
+                      |さんからメッセージが届きました
+                    .meta
+                      span.date #{time_ago_in_words(notification.created_at)}前
     .ui.bottom.attached.tab.segment data-tab= "second"
       - if @notifications.empty?
         |通知はまだ届いていません
@@ -75,4 +84,23 @@
                       span.date #{time_ago_in_words(notification.created_at)}前
                     .description
                       =simple_format(h(notification.review.content))
+    .ui.bottom.attached.tab.segment data-tab = "four"
+      - if @notifications.empty?
+        |通知はまだ届いていません
+      - else
+        - @notifications.each do |notification|
+          - if notification.action == "message"
+            .ui.segment
+              .ui.items
+                .item
+                  h3.ui.icon.header
+                    i.blue.mail.icon.mt-10
+                  .ui.tiny.circular.image
+                    img src = notification.visitor.icon.url
+                  .content
+                    a.header href = room_path(notification.message.room_id)
+                      = notification.visitor.username
+                      |さんからメッセージが届きました
+                    .meta
+                      span.date #{time_ago_in_words(notification.created_at)}前
     .segment

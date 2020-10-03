@@ -6,8 +6,8 @@ RSpec.describe 'ReviewLikes', type: :system do
   let(:review) { create(:review, user: user, product: product) }
   let(:review_like) { create(:review_like, user: user, review: review) }
 
-  describe 'create' do
-    context 'signed' do
+  context 'when login' do
+    context 'create' do
       before do
         login(user, user.email, user.password)
         review
@@ -25,21 +25,7 @@ RSpec.describe 'ReviewLikes', type: :system do
       end
     end
 
-    context 'not signed' do
-      before do
-        user
-        review
-        visit product_path(product.id)
-      end
-
-      it 'not render like button' do
-        expect(page).to have_no_link nil, href: review_likes_path(review_id: review.id)
-      end
-    end
-  end
-
-  describe 'destroy' do
-    context 'signed' do
+    context 'destroy' do
       before do
         login(user, user.email, user.password)
         review
@@ -57,17 +43,16 @@ RSpec.describe 'ReviewLikes', type: :system do
         expect(page).to have_css '.create_button'
       end
     end
+  end
 
-    context 'not signed' do
-      before do
-        review
-        review_like
-        visit product_path(product.id)
-      end
+  context 'when not signed' do
+    before do
+      review
+      visit product_path(product.id)
+    end
 
-      it 'not render button' do
-        expect(page).to have_no_link nil, href: review_like_path(review_like.id)
-      end
+    it 'not render like button' do
+      expect(page).to have_no_link nil, href: review_likes_path(review_id: review.id)
     end
   end
 end

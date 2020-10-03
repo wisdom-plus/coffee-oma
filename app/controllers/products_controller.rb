@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @review = Review.new
-    @reviews = Review.where(product_id: @product.id).includes(:user)
+    @reviews = Review.where('product_id = ?', @product.id).includes(:user)
     @like = Like.find_by(user_id: current_user.id, product_id: params[:id]) if current_user
 
     return if @product.reviews.average(:rate).nil?
