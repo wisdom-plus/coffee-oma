@@ -16,7 +16,7 @@ RSpec.describe 'Messages', type: :request do
 
     it 'request message' do
       post messages_path, params: { message: message_params, room_id: room.id }
-      expect(response).to have_http_status(:found)
+      expect(response).to have_http_status(:no_content)
     end
 
     it 'created message' do
