@@ -15,6 +15,7 @@ RSpec.describe 'Messages', type: :system do
     it 'create message' do
       fill_in 'message[message]', with: message.message
       click_on '送信'
+      visit room_path(room.id)
       expect(page).to have_content message.message
       expect(page).to have_css '.balloon_r'
     end
@@ -22,6 +23,7 @@ RSpec.describe 'Messages', type: :system do
     it 'not create message' do
       fill_in 'message[message]', with: ''
       click_on '送信'
+      visit room_path(room.id)
       expect(page).to have_no_css '.balloon_r'
     end
   end
