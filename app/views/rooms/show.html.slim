@@ -3,28 +3,10 @@
     h1.content
       =@room.another_user(current_user).username
 .ui.centered.grid
-  .twelve.wide.column
-    - @messages.each do |message|
-      - if message.user_id == current_user.id
-        .balloon_r
-          .faceicon
-            img.ui.circular.image src = message.user.icon.url
-          .meta.room_meta_r
-            span.date =l message.created_at, format: :date
-          .says
-            .content
-              =simple_format(h(message.message))
-      - else
-        .balloon_l
-          .faceicon
-            img.ui.circular.image src = message.user.icon.url
-          .says
-            .content
-              =simple_format(h(message.message))
-          .meta.room_meta_l
-            span.date =l message.created_at, format: :date
+  .twelve.wide.column#room data-user_id=current_user.id data-room_id= @room.id
+    =render partial: "messages/message", locals: {messages: @messages}
 
-  = form_with model: @message, url: messages_path(room_id: @room.id), class: "ui form center aligned ten wide column mb-20" ,method: :post, local: true do |f|
+  = form_with model: @message, url: messages_path(room_id: @room.id), class: "ui form center aligned ten wide column mb-20" ,method: :post do |f|
     .field
       = f.text_area :message, placeholder: "メッセージの内容"
     .field
