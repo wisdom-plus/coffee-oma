@@ -6,6 +6,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   build-essential \
   libpq-dev \
   node.js \
+  chromium-driver \
   yarn \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*

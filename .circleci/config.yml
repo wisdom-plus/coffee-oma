@@ -2,7 +2,10 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.7.1
+      - image: tomoron/portfolio-coffee:latest
+        auth:
+          username: tomoron
+          password: $DOCKERHUB_PASSWORD
         environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
