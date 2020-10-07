@@ -2,10 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: tomoron/portfolio-coffee:latest
-        auth:
-          username: tomoron
-          password: $DOCKERHUB_PASSWORD
+      - image: circleci/ruby:2.7.1-buster-node-browsers
         environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
@@ -19,20 +16,12 @@ jobs:
     working_directory: ~/coffee
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - rails-{{ checksum "Gemfile.lock"}}-{{ checksum "yarn.lock"}}
       - run:
           name: bundleをインストール
           command: bundle check || bundle install --jobs=4
       - run:
           name: yarnを追加
           command: yarn install
-      - save_cache:
-          key: rails-{{ checksum "Gemfile.lock"}}-{{ checksum "yarn.lock"}}
-          paths:
-            - vendor/bundle
-            - node_modules
       - run:
           name: webpackを追加
           command: bundle exec bin/webpack
@@ -57,8 +46,3 @@ jobs:
               --out /tmp/test-results/rspec.xml \
               --format progress \
               $TEST_FILES
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
