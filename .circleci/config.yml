@@ -20,20 +20,12 @@ jobs:
           background: true
 
       - checkout
-      - restore_cache:
-          keys:
-            - rails-{{ checksum "Gemfile.lock"}}-{{ checksum "yarn.lock"}}
       - run:
           name: bundleをインストール
           command: bundle check || bundle install --jobs=4
       - run:
           name: yarnを追加
           command: yarn install --cache-folder ~/.cache/yarn
-      - save_cache:
-          key: rails-{{ checksum "Gemfile.lock"}}-{{ checksum "yarn.lock"}}
-          paths:
-            - vendor/bundle
-            - node_modules
       - run:
           name: webpackを追加
           command: bundle exec bin/webpack
