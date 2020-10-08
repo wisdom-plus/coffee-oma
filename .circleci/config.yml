@@ -10,12 +10,14 @@ jobs:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
           ENV_FILE: $ENV_FILE
+          SELENIUM_DRIVER_URL: "http://localhost:4444/wd/hub"
       - image: mysql:8.0
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: "true"
           MYSQL_ROOT_HOST: "127.0.0.1"
           MYSQL_DATABE: db
         command: --default-authentication-plugin=mysql_native_password
+      - image: selenium/standalone-chrome-debug:latest
     working_directory: ~/coffee
     steps:
       - checkout

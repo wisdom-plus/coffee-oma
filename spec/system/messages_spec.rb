@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Messages', type: :system do
+RSpec.describe 'Messages', type: :system, js: true do
   let(:user) { create(:user) }
   let(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
   let(:room) { create(:room, participant1: user, participant2: user1) }
