@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Messages', type: :system do
+RSpec.describe 'Messages', type: :system, js: true do
   let(:user) { create(:user) }
   let(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
   let(:room) { create(:room, participant1: user, participant2: user1) }
@@ -15,7 +15,6 @@ RSpec.describe 'Messages', type: :system do
     it 'create message' do
       fill_in 'message[message]', with: message.message
       click_on '送信'
-      visit room_path(room.id)
       expect(page).to have_content message.message
       expect(page).to have_css '.balloon_r'
     end
@@ -23,7 +22,6 @@ RSpec.describe 'Messages', type: :system do
     it 'not create message' do
       fill_in 'message[message]', with: ''
       click_on '送信'
-      visit room_path(room.id)
       expect(page).to have_no_css '.balloon_r'
     end
   end
