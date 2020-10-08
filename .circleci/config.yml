@@ -2,7 +2,10 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.7.1-buster-browsers
+      - image: tomoron/portfolio-coffee:latest
+        auth:
+          username: tomoron
+          password: $DOCKERHUB_PASSWORD
         environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
@@ -15,17 +18,29 @@ jobs:
         command: --default-authentication-plugin=mysql_native_password
     working_directory: ~/coffee
     steps:
-      - run:
-          command: chromedriver
-          background: true
-
       - checkout
+      - run:
+          name: システムの依存関係のインストール
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y libappindicator1 fonts-liberation
+            export CHROME_BIN=/usr/bin/google-chrome
+            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            sudo dpkg -i google-chrome*.deb
+      - restore_cache:
+          keys:
+            - rails-{{ checksum "Gemfile.lock"}}-{{ checksum "yarn.lock"}}
       - run:
           name: bundleをインストール
           command: bundle check || bundle install --jobs=4
       - run:
           name: yarnを追加
-          command: yarn install --cache-folder ~/.cache/yarn
+          command: yarn install
+      - save_cache:
+          key: rails-{{ checksum "Gemfile.lock"}}-{{ checksum "yarn.lock"}}
+          paths:
+            - vendor/bundle
+            - node_modules
       - run:
           name: webpackを追加
           command: bundle exec bin/webpack
@@ -50,3 +65,8 @@ jobs:
               --out /tmp/test-results/rspec.xml \
               --format progress \
               $TEST_FILES
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
