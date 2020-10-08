@@ -171,3 +171,6 @@ Style/SlicingWithRange:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+GlobalVars:
+  AllowedVariables: [$SELENIUM_DRIVER_URL]
