@@ -60,12 +60,10 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :system, js: true) do
-    if $SELENIUM_DRIVER_URL.blank?
-      driven_by :remote_chrome
-      Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
-      Capybara.server_port = 4444
-      Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
-    end
+    driven_by :remote_chrome
+    Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
+    Capybara.server_port = 4444
+    Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
   end
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
