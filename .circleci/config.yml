@@ -10,6 +10,7 @@ jobs:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
           ENV_FILE: $ENV_FILE
+          SELENIUM_DRIVER_URL: http://chrome:4444/wd/hub
       - image: mysql:8.0
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: "true"
