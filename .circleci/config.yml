@@ -16,17 +16,10 @@ jobs:
           MYSQL_ROOT_HOST: "127.0.0.1"
           MYSQL_DATABE: db
         command: --default-authentication-plugin=mysql_native_password
+      - image: selenium/standalone-chrome-debug:latest
     working_directory: ~/coffee
     steps:
       - checkout
-      - run:
-          name: システムの依存関係のインストール
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y libappindicator1 fonts-liberation
-            export CHROME_BIN=/usr/bin/google-chrome
-            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-            sudo dpkg -i google-chrome*.deb
       - restore_cache:
           keys:
             - rails-{{ checksum "Gemfile.lock"}}-{{ checksum "yarn.lock"}}
