@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', function () {
             </div>
             <div class="says">
               <div class="content">
-              ${data.message.message}
+              ${data.message}
               </div>
             </div>
           </div>
@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function () {
             </div>
             <div class="says">
               <div class="content">
-              ${data.message.message}
+              ${data.message}
               </div>
             </div>
             <div class="meta room_meta_l">
