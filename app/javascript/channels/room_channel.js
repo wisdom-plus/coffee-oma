@@ -61,5 +61,6 @@ $(document).on('turbolinks:load', function () {
   }
   else if (this.subscription) {
     consumer.subscriptions.remove(this.subscription);
+    delete this.subscription;
   };
 });
