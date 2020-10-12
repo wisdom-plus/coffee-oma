@@ -77,6 +77,9 @@
               div class="review_like_button_#{review.id} inline"
                 - if signed_in?
                   =render partial:'share/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
+              div class= "report_button_#{review.id} inline"
+                -if signed_in?
+                  = render partial: "share/report", locals: {review: review}
   - if signed_in?
     .ui.middle.aligned.center.aligned.grid
       .column
