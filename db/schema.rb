@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_01_133023) do
+ActiveRecord::Schema.define(version: 2020_10_12_001553) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -102,6 +102,15 @@ ActiveRecord::Schema.define(version: 2020_10_01_133023) do
     t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
+  create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "review_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["review_id"], name: "index_reports_on_review_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
   create_table "review_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "review_id"
@@ -189,4 +198,6 @@ ActiveRecord::Schema.define(version: 2020_10_01_133023) do
   add_foreign_key "notifications", "users", column: "visitor_id"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
+  add_foreign_key "reports", "reviews"
+  add_foreign_key "reports", "users"
 end
