@@ -21,10 +21,11 @@
                 td.center.aligned #{@product.shopname}
               tr
                 td.center.aligned 評価
-                td.center.aligned#star
-                  - unless @product.reviews.average(:rate).nil?
+                - unless @product.reviews.average(:rate).nil?
+                  td.center.aligned#star
                     =@product.reviews.average(:rate).floor(1)
-                  - else
+                - else
+                  td.center.aligned
                     |評価はまだありません
               tr
                 td.center.aligned タグ
@@ -56,7 +57,7 @@
             tbody
               tr
                 td
-                  = @product.itemcaption
+                  = simple_format(h(@product.itemcaption))
   .ui.items
     -@reviews.each do |review|
       .ui.segment.review_item
