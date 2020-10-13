@@ -104,6 +104,7 @@
 #                                       POST       /rooms(.:format)                                                                         rooms#create
 #                                  room GET        /rooms/:id(.:format)                                                                     rooms#show
 #                              messages POST       /messages(.:format)                                                                      messages#create
+#                               reports POST       /reports(.:format)                                                                       reports#create
 #                     letter_opener_web            /letter_opener                                                                           LetterOpenerWeb::Engine
 #         rails_postmark_inbound_emails POST       /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST       /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
@@ -157,5 +158,6 @@ Rails.application.routes.draw do
   resources :notifications, only: :index
   resources :rooms, only: %i[show create index]
   resources :messages, only: %i[create]
+  resources :reports, only: %i[create]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
