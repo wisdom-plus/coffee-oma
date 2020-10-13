@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'ReviewLikes', type: :system ,js: true do
+RSpec.describe 'ReviewLikes', type: :system, js: true do
   let(:user) { create(:user) }
   let(:product) { create(:product) }
   let(:review) { create(:review, user: user, product: product) }

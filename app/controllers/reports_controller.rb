@@ -6,6 +6,6 @@ class ReportsController < ApplicationController
     if @review.reports.size > 10
       DeleteReviewJob.perform_later(params[:review_id])
     end
-    render "create.js.erb"
+    render 'create.js.erb'
   end
 end
