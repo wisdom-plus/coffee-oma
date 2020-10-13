@@ -3,5 +3,7 @@ class RoomChannel < ApplicationCable::Channel
     stream_from "room_channel_#{params['room_id']}"
   end
 
-  def unsubscribed; end
+  def unsubscribed
+    stop_all_streams
+  end
 end

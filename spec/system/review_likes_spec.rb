@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'ReviewLikes', type: :system do
+RSpec.describe 'ReviewLikes', type: :system, js: true do
   let(:user) { create(:user) }
   let(:product) { create(:product) }
   let(:review) { create(:review, user: user, product: product) }
@@ -20,7 +20,6 @@ RSpec.describe 'ReviewLikes', type: :system do
 
       it 'click like button' do
         click_link nil, href: review_likes_path(review_id: review.id)
-        visit product_path(product.id)
         expect(page).to have_css '.destroy_button'
       end
     end
@@ -39,7 +38,6 @@ RSpec.describe 'ReviewLikes', type: :system do
 
       it 'click button' do
         click_link nil, href: review_like_path(review_like.id)
-        visit product_path(product.id)
         expect(page).to have_css '.create_button'
       end
     end

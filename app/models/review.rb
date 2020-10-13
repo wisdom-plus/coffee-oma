@@ -22,6 +22,7 @@ class Review < ApplicationRecord
   belongs_to :product
   has_many :review_likes, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :reports, dependent: :destroy
   validates :title, :content, :user_id, :product_id, presence: true
   validates :rate, numericality: {
     greater_than_or_equal_to: 1,

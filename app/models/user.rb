@@ -29,6 +29,7 @@ class User < ApplicationRecord
   has_many :participant2_rooms, class_name: 'Room', foreign_key: 'participant2_id', dependent: :destroy, inverse_of: 'participant2'
   has_many :messages, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :reports, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :review_likes, dependent: :destroy
   has_many :relationships, dependent: :destroy
