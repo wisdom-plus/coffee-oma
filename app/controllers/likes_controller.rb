@@ -1,6 +1,11 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @ranking =
+  end
+
+
   def create
     @like = current_user.create_like(params[:product_id])
     render 'create.js.erb'

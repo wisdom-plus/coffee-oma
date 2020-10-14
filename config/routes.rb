@@ -10,15 +10,15 @@
 #                                       PUT        /admin/password(.:format)                                                                active_admin/devise/passwords#update
 #                                       POST       /admin/password(.:format)                                                                active_admin/devise/passwords#create
 #                            admin_root GET        /admin(.:format)                                                                         admin/dashboard#index
-#               batch_action_admin_tags POST       /admin/tags/batch_action(.:format)                                                       admin/tags#batch_action
-#                            admin_tags GET        /admin/tags(.:format)                                                                    admin/tags#index
-#                                       POST       /admin/tags(.:format)                                                                    admin/tags#create
-#                         new_admin_tag GET        /admin/tags/new(.:format)                                                                admin/tags#new
-#                        edit_admin_tag GET        /admin/tags/:id/edit(.:format)                                                           admin/tags#edit
-#                             admin_tag GET        /admin/tags/:id(.:format)                                                                admin/tags#show
-#                                       PATCH      /admin/tags/:id(.:format)                                                                admin/tags#update
-#                                       PUT        /admin/tags/:id(.:format)                                                                admin/tags#update
-#                                       DELETE     /admin/tags/:id(.:format)                                                                admin/tags#destroy
+#        batch_action_admin_admin_users POST       /admin/admin_users/batch_action(.:format)                                                admin/admin_users#batch_action
+#                     admin_admin_users GET        /admin/admin_users(.:format)                                                             admin/admin_users#index
+#                                       POST       /admin/admin_users(.:format)                                                             admin/admin_users#create
+#                  new_admin_admin_user GET        /admin/admin_users/new(.:format)                                                         admin/admin_users#new
+#                 edit_admin_admin_user GET        /admin/admin_users/:id/edit(.:format)                                                    admin/admin_users#edit
+#                      admin_admin_user GET        /admin/admin_users/:id(.:format)                                                         admin/admin_users#show
+#                                       PATCH      /admin/admin_users/:id(.:format)                                                         admin/admin_users#update
+#                                       PUT        /admin/admin_users/:id(.:format)                                                         admin/admin_users#update
+#                                       DELETE     /admin/admin_users/:id(.:format)                                                         admin/admin_users#destroy
 #                       admin_dashboard GET        /admin/dashboard(.:format)                                                               admin/dashboard#index
 #           batch_action_admin_products POST       /admin/products/batch_action(.:format)                                                   admin/products#batch_action
 #                        admin_products GET        /admin/products(.:format)                                                                admin/products#index
@@ -29,24 +29,6 @@
 #                                       PATCH      /admin/products/:id(.:format)                                                            admin/products#update
 #                                       PUT        /admin/products/:id(.:format)                                                            admin/products#update
 #                                       DELETE     /admin/products/:id(.:format)                                                            admin/products#destroy
-#        batch_action_admin_admin_users POST       /admin/admin_users/batch_action(.:format)                                                admin/admin_users#batch_action
-#                     admin_admin_users GET        /admin/admin_users(.:format)                                                             admin/admin_users#index
-#                                       POST       /admin/admin_users(.:format)                                                             admin/admin_users#create
-#                  new_admin_admin_user GET        /admin/admin_users/new(.:format)                                                         admin/admin_users#new
-#                 edit_admin_admin_user GET        /admin/admin_users/:id/edit(.:format)                                                    admin/admin_users#edit
-#                      admin_admin_user GET        /admin/admin_users/:id(.:format)                                                         admin/admin_users#show
-#                                       PATCH      /admin/admin_users/:id(.:format)                                                         admin/admin_users#update
-#                                       PUT        /admin/admin_users/:id(.:format)                                                         admin/admin_users#update
-#                                       DELETE     /admin/admin_users/:id(.:format)                                                         admin/admin_users#destroy
-#              batch_action_admin_users POST       /admin/users/batch_action(.:format)                                                      admin/users#batch_action
-#                           admin_users GET        /admin/users(.:format)                                                                   admin/users#index
-#                                       POST       /admin/users(.:format)                                                                   admin/users#create
-#                        new_admin_user GET        /admin/users/new(.:format)                                                               admin/users#new
-#                       edit_admin_user GET        /admin/users/:id/edit(.:format)                                                          admin/users#edit
-#                            admin_user GET        /admin/users/:id(.:format)                                                               admin/users#show
-#                                       PATCH      /admin/users/:id(.:format)                                                               admin/users#update
-#                                       PUT        /admin/users/:id(.:format)                                                               admin/users#update
-#                                       DELETE     /admin/users/:id(.:format)                                                               admin/users#destroy
 #            batch_action_admin_reviews POST       /admin/reviews/batch_action(.:format)                                                    admin/reviews#batch_action
 #                         admin_reviews GET        /admin/reviews(.:format)                                                                 admin/reviews#index
 #                                       POST       /admin/reviews(.:format)                                                                 admin/reviews#create
@@ -56,6 +38,24 @@
 #                                       PATCH      /admin/reviews/:id(.:format)                                                             admin/reviews#update
 #                                       PUT        /admin/reviews/:id(.:format)                                                             admin/reviews#update
 #                                       DELETE     /admin/reviews/:id(.:format)                                                             admin/reviews#destroy
+#               batch_action_admin_tags POST       /admin/tags/batch_action(.:format)                                                       admin/tags#batch_action
+#                            admin_tags GET        /admin/tags(.:format)                                                                    admin/tags#index
+#                                       POST       /admin/tags(.:format)                                                                    admin/tags#create
+#                         new_admin_tag GET        /admin/tags/new(.:format)                                                                admin/tags#new
+#                        edit_admin_tag GET        /admin/tags/:id/edit(.:format)                                                           admin/tags#edit
+#                             admin_tag GET        /admin/tags/:id(.:format)                                                                admin/tags#show
+#                                       PATCH      /admin/tags/:id(.:format)                                                                admin/tags#update
+#                                       PUT        /admin/tags/:id(.:format)                                                                admin/tags#update
+#                                       DELETE     /admin/tags/:id(.:format)                                                                admin/tags#destroy
+#              batch_action_admin_users POST       /admin/users/batch_action(.:format)                                                      admin/users#batch_action
+#                           admin_users GET        /admin/users(.:format)                                                                   admin/users#index
+#                                       POST       /admin/users(.:format)                                                                   admin/users#create
+#                        new_admin_user GET        /admin/users/new(.:format)                                                               admin/users#new
+#                       edit_admin_user GET        /admin/users/:id/edit(.:format)                                                          admin/users#edit
+#                            admin_user GET        /admin/users/:id(.:format)                                                               admin/users#show
+#                                       PATCH      /admin/users/:id(.:format)                                                               admin/users#update
+#                                       PUT        /admin/users/:id(.:format)                                                               admin/users#update
+#                                       DELETE     /admin/users/:id(.:format)                                                               admin/users#destroy
 #                        admin_comments GET        /admin/comments(.:format)                                                                admin/comments#index
 #                                       POST       /admin/comments(.:format)                                                                admin/comments#create
 #                         admin_comment GET        /admin/comments/:id(.:format)                                                            admin/comments#show
@@ -91,7 +91,8 @@
 #                               product GET        /products/:id(.:format)                                                                  products#show
 #                                       PATCH      /products/:id(.:format)                                                                  products#update
 #                                       PUT        /products/:id(.:format)                                                                  products#update
-#                                 likes POST       /likes(.:format)                                                                         likes#create
+#                                 likes GET        /likes(.:format)                                                                         likes#index
+#                                       POST       /likes(.:format)                                                                         likes#create
 #                                  like DELETE     /likes/:id(.:format)                                                                     likes#destroy
 #                          review_likes POST       /review_likes(.:format)                                                                  review_likes#create
 #                           review_like DELETE     /review_likes/:id(.:format)                                                              review_likes#destroy
@@ -151,7 +152,7 @@ Rails.application.routes.draw do
     end
     resources :reviews, only: %i[create]
   end
-  resources :likes, only: %i[create destroy]
+  resources :likes, only: %i[create destroy index]
   resources :review_likes, only: %i[create destroy]
   resources :relationships, only: %i[create destroy]
   resources :contacts, only: %i[new create]
