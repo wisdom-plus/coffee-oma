@@ -28,7 +28,7 @@ class Product < ApplicationRecord
   end
 
   def tag_list_add(params)
-    tag_list.add(params.split(','))
+    tag_list.add(params.split(' '))
   end
 
   def rate_average

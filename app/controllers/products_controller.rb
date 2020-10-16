@@ -27,8 +27,12 @@ class ProductsController < ApplicationController
   def rakuten_create
     product = Product.new(product_params)
     product.remote_imageurl_url = product_params[:imageurl].chomp('?_ex=128x128')
-    product.save
-    redirect_to products_path, notice: 'アイテムを登録しました'
+    if product.save
+      redirect_to products_path, notice: 'アイテムを登録しました'
+    else
+      flash.now[:alret] = 'アイテムの登録に失敗しました'
+      render :new
+    end
   end
 
   def index
@@ -64,11 +68,11 @@ class ProductsController < ApplicationController
   private
 
     def product_params
-      params.require(:product).permit(:itemname, :itemprice, :shopname, :catchcopy, :imageurl, :itemurl, :itemcaption, :tag_list)
+      params.require(:product).permit(:itemname, :itemprice, :shopname, :catchcopy, :imageurl, :itemurl, :itemcaption).merge(tag_list: params[:product][:tag_list].split(' '))
     end
 
     def rakuten_search(search_keyword, page_count)
-      RakutenWebService::Ichiba::Item.search(keyword: search_keyword, imageFlag: 1, page: page_count)
+      RakutenWebService::Ichiba::Item.search(keyword: search_keyword, imageFlag: 1, page: page_count, elements: "itemName,itemPrice,shopName,catchcopy,mediumImageUrls,itemUrl,itemCaption")
     end
 
     def rakuten_array(keyword)
