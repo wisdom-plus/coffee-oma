@@ -2,7 +2,7 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @ranking =
+    @rankings = Product.all.order('likes_count desc').limit(9)
   end
 
 

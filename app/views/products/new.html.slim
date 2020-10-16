@@ -7,7 +7,7 @@
         font style="vertical-align: inherit;"
           font style="vertical-align: inherit;"
             |アイテムを登録する
-      .content.field
+      .content.field.active
         =form_with model: @product, url: products_path ,local: true,class: "ui mini form" do |f|
           .ui.centered.card.field.text-left#newcard
             .image#dimmer-product
@@ -41,8 +41,8 @@
               = f.url_field :itemurl, autofocus: true, placeholder: "item-url"
             .extra.content
               =f.label :tag_list
-              =f.text_field :tag_list, value: 'コーヒー,',autofocus: true, placeholder: 'tag-name'
-              .ui.pointing.label 単語を','で区切ると複数のタグを登録できます。
+              =f.text_field :tag_list, value: 'コーヒー ',autofocus: true, placeholder: 'tag-name'
+              .ui.pointing.label 単語を空白で区切ると複数のタグを登録できます。
           table.ui.celled.table
             thead
               tr
@@ -91,9 +91,15 @@
           =f.hidden_field(:imageurl, :value => product.medium_image_urls[0])
           =f.hidden_field(:itemurl, :value => product.url)
           =f.hidden_field(:itemcaption, :value => product.caption)
-          =f.hidden_field(:tag_list, :value => 'コーヒー,楽天')
+          =f.hidden_field(:tag_list, :value => 'コーヒー 楽天')
           =f.submit "登録する", class: "ui fluid teal submit button"
         .extra.content
           i.yen.sign.icon =product.price.to_s(:delimited)
+  .page-load-status
+    .ui.segment.infinite-scroll-request
+      .ui.active.inverted.dimmer
+        .ui.medium.text.loader
+          |読み込み中です
+    .infinite-scroll-last
   =paginate @products
 

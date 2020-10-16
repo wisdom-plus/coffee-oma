@@ -16,6 +16,8 @@ html
           =image_tag("/coffeeoma-logo.png", class: "ui tinysmall image")
         a.item href= products_path
           font style= "vertical-align: inherit;" アイテム一覧
+        a.item href = likes_path
+          font style= "vertical-align: inherit;" ランキング
         - if user_signed_in?
           a.item href= new_product_path
             font style= "vertical-align: inherit;" アイテムを登録する

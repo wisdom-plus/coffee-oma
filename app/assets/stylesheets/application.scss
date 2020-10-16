@@ -145,3 +145,14 @@ body,
 .mb-20{
   margin-bottom: 20px;
 }
+.ui.active.inverted.dimmer{
+  height: 80px;
+  position: inherit;
+}
+.ui.segment.infinite-scroll-request{
+  padding: 0;
+}
+.ui.teal.top.left.attached.label{
+  font-size: 14px;
+  padding: 0.6em 1em;
+}
