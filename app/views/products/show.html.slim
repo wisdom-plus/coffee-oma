@@ -1,6 +1,14 @@
+  .ui.grid
+    .column
+      .ui.breadcrumb
+        =link_to 'Home', root_path, class: 'section'
+        i.right.chevron.icon.devider
+        =link_to '一覧', products_path, class: 'section'
+        i.right.chevron.icon.devider
+        .active.section 詳細
   .ui.middle.aligned.center.aligned.grid
     .column
-      h1.content アイテムの詳細
+      h1#title アイテムの詳細
   .ui.vertical.stripe.segment
     .ui.middle.aligned.stackable.grid.conteiner
       .row
