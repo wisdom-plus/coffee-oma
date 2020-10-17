@@ -1,6 +1,12 @@
+.ui.grid
+  .column
+    .ui.breadcrumb
+      =link_to 'Home', root_path, class: 'section'
+      i.right.chevron.icon.devider
+      .active.section お問い合わせ
 .ui.middle.aligned.center.aligned.grid
   .column style= "width: 543px"
-    h1.content お問い合わせ
+    h1#title お問い合わせ
     = form_with model: @contact, method: :post,class: "new_user ui form text-left segment", local: true do |f|
       .field
         = f.label :name
