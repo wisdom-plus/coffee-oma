@@ -1,6 +1,12 @@
+.ui.grid
+  .column
+    .ui.breadcrumb
+      =link_to 'Home', root_path, class: 'section'
+      i.right.chevron.icon.devider
+      .active.section 通知
 .ui.centered.grid.margin-zero
   .twelve.wide.column
-    h1.content 通知
+    h1#title 通知
     .ui.top.attached.four.tabular.menu
       a.active.item data-tab = "first" すべて
       a.item data-tab = "second" フォロー

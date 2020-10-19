@@ -1,6 +1,14 @@
+  .ui.grid
+    .column
+      .ui.breadcrumb
+        =link_to 'Home', root_path, class: 'section'
+        i.right.chevron.icon.devider
+        =link_to '一覧', products_path, class: 'section'
+        i.right.chevron.icon.devider
+        .active.section 詳細
   .ui.middle.aligned.center.aligned.grid
     .column
-      h1.content アイテムの詳細
+      h1#title アイテムの詳細
   .ui.vertical.stripe.segment
     .ui.middle.aligned.stackable.grid.conteiner
       .row
@@ -21,10 +29,11 @@
                 td.center.aligned #{@product.shopname}
               tr
                 td.center.aligned 評価
-                td.center.aligned#star
-                  - unless @product.reviews.average(:rate).nil?
+                - unless @product.reviews.average(:rate).nil?
+                  td.center.aligned#star
                     =@product.reviews.average(:rate).floor(1)
-                  - else
+                - else
+                  td.center.aligned
                     |評価はまだありません
               tr
                 td.center.aligned タグ
@@ -40,7 +49,7 @@
                           .inline.field
                             =f.text_field :tag_list, autofocus: true, placeholder: 'タグを追加登録'
                             =f.submit '登録', class: "compact ui teal button"
-                          .ui.pointing.label.margin 単語を','で区切ると複数のタグを登録できます。
+                          .ui.pointing.label.margin 単語を空白で区切ると複数のタグを登録できます。
               tr
                 td.cen colspan=3
                   - unless @product.itemurl.empty?
@@ -56,7 +65,7 @@
             tbody
               tr
                 td
-                  = @product.itemcaption
+                  = simple_format(h(@product.itemcaption))
   .ui.items
     -@reviews.each do |review|
       .ui.segment.review_item
