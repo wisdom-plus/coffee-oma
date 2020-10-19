@@ -1,6 +1,14 @@
+.ui.grid
+  .column
+    .ui.breadcrumb
+      =link_to 'Home', root_path, class: 'section'
+      i.right.chevron.icon.devider
+      =link_to 'メッセージ一覧', rooms_path, class: 'section'
+      i.right.chevron.icon.devider
+      .active.section メッセージ
 .ui.middle.aligned.center.aligned.grid
   .column
-    h1.content
+    h1#title
       =@room.another_user(current_user).username
 .ui.centered.grid
   .twelve.wide.column#room data-user_id=current_user.id data-room_id= @room.id

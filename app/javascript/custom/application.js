@@ -30,7 +30,11 @@ $(document).on('turbolinks:load', function () {
       append: ".post",
       history: false,
       prefill: true,
+      status: '.page-load-status',
       hideNav: ".pagination"
+    });
+    infScroll.on('request', function (path) {
+      $('.ui.sticky').sticky('refresh');
     });
   };
   $('#rating').rating({

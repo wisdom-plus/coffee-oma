@@ -1,6 +1,12 @@
+.ui.grid
+  .column
+    .ui.breadcrumb
+      =link_to 'Home', root_path, class: 'section'
+      i.right.chevron.icon.devider
+      .active.section 一覧
 .ui.middle.aligned.center.aligned.grid.vertical.stripe
   .column
-    h1.content アイテムの一覧
+    h1#title アイテムの一覧
     = search_form_for @q ,class: "ui mini form"do |f|
       .eight.wide.field.form-centered
         .ui.action.input

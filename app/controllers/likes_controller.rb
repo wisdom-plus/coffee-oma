@@ -1,5 +1,9 @@
 class LikesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[create destroy]
+
+  def index
+    @rankings = Product.all.order('likes_count desc').limit(9)
+  end
 
   def create
     @like = current_user.create_like(params[:product_id])

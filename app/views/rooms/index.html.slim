@@ -1,6 +1,12 @@
+.ui.grid
+  .column
+    .ui.breadcrumb
+      =link_to 'Home', root_path, class: 'section'
+      i.right.chevron.icon.devider
+      .active.section メッセージ一覧
 .ui.middle.aligned.center.aligned.grid
   .column
-    h1.content メッセージ一覧
+    h1#title メッセージ一覧
 .ui.centered.grid
   .twelve.wide.column
     - @rooms.each do |room|

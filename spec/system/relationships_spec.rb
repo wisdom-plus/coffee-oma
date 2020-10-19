@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Relationships', type: :system do
   let(:user) { create(:user) }
-  let(:user1) { create(:user, username: 'test2', email: 'test1@example.com') }
+  let(:user1) { create(:user, username: 'test1', email: 'test1@example.com') }
   let(:follow) { create(:relationship, user: user, follow: user1) }
 
   context 'when login' do

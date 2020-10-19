@@ -1,3 +1,9 @@
+.ui.grid
+  .column
+    .ui.breadcrumb
+      =link_to 'Home', root_path, class: 'section'
+      i.right.chevron.icon.devider
+      .active.section プロフィール
 .ui.center.aligned.container
   =image_tag @user.icon.url,alt: "テスト画像", class: "ui centered small circular image"
   h1.header

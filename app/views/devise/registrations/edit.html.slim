@@ -1,6 +1,12 @@
+.ui.grid
+  .column
+    .ui.breadcrumb
+      =link_to 'Home', root_path, class: 'section'
+      i.right.chevron.icon.devider
+      .active.section ユーザー編集
 .ui.middle.aligned.center.aligned.grid
   .column style= "width: 543px"
-    h1.content アカウント編集
+    h1#title アカウント編集
     = form_with model: @user, url: user_registration_path ,id: 'edit_user',class: "edit_user ui form text-left",method: :put, local: true do |f|
       .field
         .ui.circular.segment#dimmer
