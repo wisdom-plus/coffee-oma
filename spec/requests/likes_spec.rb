@@ -41,4 +41,17 @@ RSpec.describe 'Likes', type: :request do
       end.to change(Like, :count).by(-1)
     end
   end
+
+  describe 'GET index' do
+    before do
+      user.confirm
+      sign_in user
+      like
+    end
+
+    it 'request success' do
+      get likes_path
+      expect(response).to have_http_status(:ok)
+    end
+  end
 end

@@ -24,5 +24,6 @@ FactoryBot.define do
     itemcaption { 'itemの説明文が入ります' }
     catchcopy { 'itemのキャッチコピーが入ります' }
     imageurl { Rack::Test::UploadedFile.new(Rails.root.join('spec/support/noimage.jpg')) }
+    tag_list { 'コーヒー' }
   end
 end
