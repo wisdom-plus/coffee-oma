@@ -162,3 +162,20 @@ body,
 #title{
   margin-bottom: 1rem;
 }
+.inverted.menu .toc.item{
+  display: none;
+}
+body.pushable {
+  background: white !important;
+}
+html, body{
+  height: auto;
+}
+@media only screen and (max-width: 700px) {
+  .inverted.menu .toc.item{
+    display: block;
+  }
+  .inverted.menu .item.hide{
+    display: none;
+  }
+}

@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  def index; end
+  def top; end
 
   def private_policy; end
 
