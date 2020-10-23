@@ -3,6 +3,9 @@ $(document).on('turbolinks:load', function () {
     $('.flash-message').closest('.flash-message').transition('fade');
   });
   $('.ui.accordion').accordion();
+  $('.sidebar.icon').on('click', function () {
+    $('.ui.sidebar').sidebar('toggle');
+  });
   $('.menu .item').tab();
   $('#dimmer-button').on('click', function () {
     $('#dimmer').dimmer('toggle');

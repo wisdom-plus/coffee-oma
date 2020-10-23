@@ -60,7 +60,7 @@
 #                                       POST       /admin/comments(.:format)                                                                admin/comments#create
 #                         admin_comment GET        /admin/comments/:id(.:format)                                                            admin/comments#show
 #                                       DELETE     /admin/comments/:id(.:format)                                                            admin/comments#destroy
-#                                  root GET        /                                                                                        home#index
+#                                  root GET        /                                                                                        home#top
 #                        private_policy GET        /private_policy(.:format)                                                                home#private_policy
 #                                policy GET        /policy(.:format)                                                                        home#policy
 #                      new_user_session GET        /users/sign_in(.:format)                                                                 devise/sessions#new
@@ -138,7 +138,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root to: 'home#index'
+  root to: 'home#top'
   get '/private_policy' => 'home#private_policy'
   get '/policy' => 'home#policy'
   devise_for :users, controllers: { registrations: 'users/registrations' }
