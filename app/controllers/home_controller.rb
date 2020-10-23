@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
-  def index; end
+  def top
+    @rankings = Product.all.order('likes_count desc').limit(3)
+    @reviews = Review.all.includes([:product], [:user]).last(3)
+  end
 
   def private_policy; end
 
