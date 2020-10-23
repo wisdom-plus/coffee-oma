@@ -49,7 +49,7 @@ RSpec.describe 'Sessions', type: :system do
     end
 
     it 'is successfully sign_out' do
-      click_on 'ログアウト'
+      find('.spec-logout').click
       expect(page).to have_content 'ログアウトしました。'
     end
   end
