@@ -15,24 +15,29 @@
  */
 @import "semantic-ui";
 
-.text-left{
+.text-left {
   text-align: left;
 }
-.form-centered{
+
+.form-centered {
   display: inline-block;
 }
-.top-padding{
+
+.top-padding {
   padding-top: 60px;
 }
+
 .ui.sticky.fixed.top {
   top: auto;
   bottom: auto;
 }
+
 .ui.cards {
   display: flex;
   margin: 1em -0.5em;
   flex-wrap: wrap;
 }
+
 body,
 #wrapper {
   display: flex;
@@ -40,32 +45,39 @@ body,
   min-height: 100vh;
 }
 
-.ui.inverted.vertical.footer.segment{
+.ui.inverted.vertical.footer.segment {
   margin-top: auto;
   padding: 4rem 0rem;
 }
+
 .ui.table td.cen {
   padding: 0.78571429em 0.78571429em;
   text-align: center;
 }
-.ui.vertical.stripe.segment{
+
+.ui.vertical.stripe.segment {
   border: none;
 }
-.ui.centered.grid.margin-zero{
+
+.ui.centered.grid.margin-zero {
   margin-top: 1rem;
 }
-#dimmer{
+
+#dimmer {
   border: none;
   box-shadow: none;
   left: 70%;
 }
-.file-form{
+
+.file-form {
   display: none;
 }
-#position-height{
+
+#position-height {
   height: 25%;
 }
-.editicon{
+
+.editicon {
   display: inline-block;
   opacity: 1;
   margin: 0em 0.25rem 0em 0em;
@@ -78,104 +90,163 @@ body,
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
-#logopadding{
+
+#logopadding {
   padding: 0;
 }
-.ui.tinysmall.image{
+
+.ui.tinysmall.image {
   width: 140px;
   height: auto;
   font-size: 0.92857143rem;
 }
-.title.ui.teal.button{
-  padding:0.78571429em;
-  padding-right:14px;
+
+.title.ui.teal.button {
+  padding: 0.78571429em;
+  padding-right: 14px;
 }
-#newcard{
+
+#newcard {
   width: 640px;
 }
-.ui.smallmedium.image{
+
+.ui.smallmedium.image {
   width: 200px;
   height: auto;
   font-size: 1rem;
 }
-.review_item{
+
+.review_item {
   display: inline-block;
   width: 70%;
 }
-.ui.pointing.label.margin{
+.top_review{
+  display: inline-block;
+  width: 100%;
+}
+.ui.pointing.label.margin {
   margin-top: 0;
 }
-.ui.teal.tag.label > a{
-  opacity:1;
+
+.ui.teal.tag.label>a {
+  opacity: 1;
 }
-#like_button{
+
+#like_button {
   display: inline-block;
 }
-.review_meta{
+
+.review_meta {
   margin-bottom: 7px;
 }
-.extra{
+
+.extra {
   margin-top: 7px;
 }
-.mb-12{
+
+.mb-12 {
   margin-bottom: 12px;
 }
-.inline{
+
+.inline {
   display: inline;
   margin: 0em 0.14285714em;
 }
-.ui.icon.header .icon.mt-10{
+
+.ui.icon.header .icon.mt-10 {
   margin-top: 12px;
   margin-right: 8px;
 }
-.ui.items > .item > .image > img {
+
+.ui.items>.item>.image>img {
   border-radius: 500rem;
 }
-.no-color-change{
-  color:rgba(0, 0, 0, 0.85)
+
+.no-color-change {
+  color: rgba(0, 0, 0, 0.85)
 }
-.room_meta_r{
-  margin:auto 5px 10px 0;
+
+.room_meta_r {
+  margin: auto 5px 10px 0;
 }
-.room_meta_l{
-  margin:auto 0 10px 5px;
+
+.room_meta_l {
+  margin: auto 0 10px 5px;
 }
-.mb-20{
+
+.mb-20 {
   margin-bottom: 20px;
 }
-.ui.active.inverted.dimmer{
+
+.ui.active.inverted.dimmer {
   height: 80px;
   position: inherit;
 }
-.ui.segment.infinite-scroll-request{
+
+.ui.segment.infinite-scroll-request {
   padding: 0;
 }
-.ui.teal.top.left.attached.label{
+
+.ui.teal.top.left.attached.label {
   font-size: 16px;
   padding: 0.6em 1em;
 }
-.ui.segment.mt-3rem{
+
+.ui.segment.mt-3rem {
   margin-top: 3rem;
 }
-#title{
+
+#title {
   margin-bottom: 1rem;
 }
-.inverted.menu .toc.item{
+
+.inverted.menu .toc.item {
   display: none;
 }
+
 body.pushable {
   background: white !important;
 }
-html, body{
+
+html,
+body {
   height: auto;
 }
+
+h1.ui.header.top-title{
+  min-height: 1em;
+  font-size: 5em;
+}
+
+h1.ui.header{
+  font-size: 3rem;
+}
+
+.m-3rem{
+  margin: 3rem 0em !important;
+}
+
+.titlecenter{
+  justify-content: center;
+}
+
+.topfaceicon img{
+  width: 100px; /*任意のサイズ*/
+  height: auto;
+}
+.balloon_l.top .says:after {
+  top:30px;
+  left: -26px;
+  border-right: 22px solid #00B5AD;
+}
 @media only screen and (max-width: 700px) {
-  .inverted.menu .toc.item{
+  .inverted.menu .toc.item {
     display: block;
   }
-  .inverted.menu .item.hide{
+
+  .inverted.menu .item.hide {
     display: none;
   }
 }
