@@ -92,19 +92,19 @@ html
               font style= "vertical-align: inherit;" = notice if notice
               font style= "vertical-align: inherit;" = alert if alert
         = yield
-      footer.ui.inverted.vertical.footer.segment
-        .ui.container
-          .ui.stackable.inverted.divided.equal.height.stackable.grid
-            .three.wide.column
-              =link_to root_path , class: "item", id: "logopadding" do
-                =image_tag("/coffeeoma-logo.png", class: "ui smallmedium image")
-            .three.wide.column
-              .ui.inverted.link.list
-                a.item href=root_path トップページ
-                a.item href=private_policy_path プライベートポリシー
-                a.item href=policy_path 利用規約
-                a.item href=new_contact_path お問い合わせ
-            .three.wide.column
-              .ui.inverted.link.list
-                a.item href=products_path アイテムの一覧を見る
-                a.item href=new_product_path アイテムを登録する
+    footer.ui.inverted.vertical.footer.segment
+      .ui.container
+        .ui.stackable.inverted.divided.equal.height.stackable.grid
+          .three.wide.column
+            =link_to root_path , class: "item", id: "logopadding" do
+              =image_tag("/coffeeoma-logo.png", class: "ui smallmedium image")
+          .three.wide.column
+            .ui.inverted.link.list
+              a.item href=root_path トップページ
+              a.item href=private_policy_path プライベートポリシー
+              a.item href=policy_path 利用規約
+              a.item href=new_contact_path お問い合わせ
+          .three.wide.column
+            .ui.inverted.link.list
+              a.item href=products_path アイテムの一覧を見る
+              a.item href=new_product_path アイテムを登録する
