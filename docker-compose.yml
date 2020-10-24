@@ -19,7 +19,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mysql-data:/var/lib/mysql
+      - mysql-data:/var/lib/mysql:delegated
     command: --default-authentication-plugin=mysql_native_password
   chrome:
     image: selenium/standalone-chrome-debug:latest
