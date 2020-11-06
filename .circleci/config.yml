@@ -72,7 +72,7 @@ workflows:
   test-and-deploy:
     jobs:
       - test
-      - aws-ecr/build_and_push_image:
+      - aws-ecr/build-and-push-image:
           requires:
             - test
           filters:
@@ -85,7 +85,7 @@ workflows:
           tag: "${CIRCLE_SHA1}"
       - aws-ecs/deploy-service-update:
           requires:
-            - aws-ecr/build_and_push_image
+            - aws-ecr/build-and-push-image
           filters:
             branches:
               only:
