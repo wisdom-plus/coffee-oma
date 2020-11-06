@@ -1,6 +1,9 @@
 version: 2.1
+orbs:
+  aws-ecr: circleci/aws-ecr@6.14.0
+  aws-ecs: circleci/aws-ecs@1.4.0
 jobs:
-  build:
+  test:
     docker:
       - image: tomoron/portfolio-coffee:latest
         auth:
@@ -10,7 +13,6 @@ jobs:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
           ENV_FILE: $ENV_FILE
-          SELENIUM_DRIVER_URL: "http://localhost:4444/wd/hub"
       - image: mysql:8.0
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: "true"
@@ -65,3 +67,28 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - test
+      - aws-ecr/build_and_push_image:
+          requires:
+            - test
+          filters:
+            only:
+              - master
+          account-url: "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
+          repo: "${AWS_RESOURCE_NAME_PREFIX}"
+          region: ${AWS_DEFAULT_REGION}
+          tag: "${CIRCLE_SHA1}"
+      - aws-ecs/deploy-service-update:
+          requires:
+            - aws-ecr/build_and_push_image
+          filters:
+            only:
+              - master
+          aws-region: ${AWS_DEFAULT_REGION}
+          family: "${AWS_RESOURCE_NAME_PREFIX}-service"
+          cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster"
+          container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service,tag=${CIRCLE_SHA1}"
