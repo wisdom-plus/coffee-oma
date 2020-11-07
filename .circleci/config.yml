@@ -26,9 +26,6 @@ jobs:
       - checkout:
           path: ~/coffee
       - run:
-          name: ディレクトリを移動
-          command: cd rails
-      - run:
           name: bundleをインストール
           command: bundle check || bundle install --jobs=4
       - run:
