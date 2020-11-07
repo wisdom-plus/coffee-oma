@@ -21,7 +21,7 @@ jobs:
         command: --default-authentication-plugin=mysql_native_password
       - image: selenium/standalone-chrome-debug:latest
         name: chrome
-    working_directory: ~/coffee
+    working_directory: ~/portfolio/rails
     steps:
       - checkout
       - restore_cache:
@@ -75,23 +75,24 @@ workflows:
       - aws-ecr/build-and-push-image:
           requires:
             - test
-          filters:
-            branches:
-              only:
-                - master
           account-url: AWS_ECR_ACCOUNT_URL
+          path: "./rails"
           repo: "portfolio-rails"
           region: AWS_DEFAULT_REGION
           tag: "${CIRCLE_SHA1}"
           dockerfile: "Dockerfile.production"
-      - aws-ecs/deploy-service-update:
-          requires:
-            - aws-ecr/build-and-push-image
           filters:
             branches:
               only:
                 - master
-          aws-region: ${AWS_DEFAULT_REGION}
+      - aws-ecs/deploy-service-update:
+          requires:
+            - aws-ecr/build-and-push-image
+          aws-region: "${AWS_DEFAULT_REGION}"
           family: "${AWS_RESOURCE_NAME_PREFIX}-service"
           cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster"
           container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service,tag=${CIRCLE_SHA1}"
+          filters:
+            branches:
+              only:
+                - master
