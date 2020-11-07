@@ -25,17 +25,28 @@ jobs:
     steps:
       - checkout:
           path: ~/coffee
+      - restore_cache:
+          keys:
+            - rails-gem-{{ checksum "Gemfile.lock"}}
+            - rails-gem-
       - run:
           name: bundleをインストール
           command: bundle check || bundle install --jobs=4
+      - save_cache:
+          key: rails-gem-{{ checksum "Gemfile.lock"}}
+          paths:
+            - vendor/bundle
+      - restore_cache:
+          keys:
+            - rails-yarn-{{ checksum "yarn.lock"}}
+            - rails-yarn-
       - run:
           name: yarnを追加
           command: yarn install
       - save_cache:
-          key: rails-{{ checksum "Gemfile.lock"}}-{{ checksum "yarn.lock"}}
+          key: rails-yarn-{{ checksum "yarn.lock"}}
           paths:
-            - vendor/bundle
-            - node_modules
+            - ~/.cache/yarn
       - run:
           name: webpackを追加
           command: bundle exec bin/webpack
