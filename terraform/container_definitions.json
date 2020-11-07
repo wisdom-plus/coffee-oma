@@ -1,0 +1,32 @@
+[
+  {
+    "name": "nginx",
+    "image": "nginx:latest",
+    "essential": true,
+    "portMappings": [
+      {
+        "protocol": "tcp",
+        "containerPort": 80
+      }
+    ]
+  },
+  {
+    "name": "rails",
+    "image": "860542255954.dkr.ecr.ap-northeast-1.amazonaws.com/portfolio-ecr:latest",
+    "essential": true,
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-region": "ap-northeast-1",
+        "awslogs-stream-prefix": "rails",
+        "awslogs-group": "/ecs/rails"
+      }
+    },
+    "portMappings": [
+      {
+        "protocol": "tcp",
+        "containerPort": 3000
+      }
+    ]
+  }
+]
