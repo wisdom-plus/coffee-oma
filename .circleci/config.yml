@@ -24,9 +24,6 @@ jobs:
     working_directory: ~/coffee-portfolio/rails
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - rails-{{ checksum "Gemfile.lock"}}-{{ checksum "yarn.lock"}}
       - run:
           name: bundleをインストール
           command: bundle check || bundle install --jobs=4
