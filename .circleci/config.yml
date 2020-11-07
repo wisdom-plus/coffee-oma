@@ -21,7 +21,7 @@ jobs:
         command: --default-authentication-plugin=mysql_native_password
       - image: selenium/standalone-chrome-debug:latest
         name: chrome
-    working_directory: ~/portfolio/rails
+    working_directory: ~/coffee-portfolio/rails
     steps:
       - checkout
       - restore_cache:
