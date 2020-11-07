@@ -21,9 +21,12 @@ jobs:
         command: --default-authentication-plugin=mysql_native_password
       - image: selenium/standalone-chrome-debug:latest
         name: chrome
+    working_directory: ~/coffee
     steps:
       - checkout
-      - working_directory: ~/coffee-portfolio/rails
+      - run:
+          name: ディレクトリを移動
+          command: cd ./rails
       - run:
           name: bundleをインストール
           command: bundle check || bundle install --jobs=4
