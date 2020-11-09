@@ -14,6 +14,9 @@ jobs:
           DB_HOST: 127.0.0.1
           ENV_FILE: $ENV_FILE
       - image: mysql:8.0
+        auth:
+          username: tomoron
+          password: $DOCKERHUB_PASSWORD
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: "true"
           MYSQL_ROOT_HOST: "127.0.0.1"
@@ -21,6 +24,9 @@ jobs:
         command: --default-authentication-plugin=mysql_native_password
       - image: selenium/standalone-chrome-debug:latest
         name: chrome
+        auth:
+          username: tomoron
+          password: $DOCKERHUB_PASSWORD
     working_directory: ~/coffee/rails
     steps:
       - checkout:
