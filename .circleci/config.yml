@@ -89,19 +89,11 @@ workflows:
           repo: "portfolio-rails"
           region: AWS_DEFAULT_REGION
           tag: "${CIRCLE_SHA1}"
-          dockerfile: "Dockerfile.production"
-          filters:
-            branches:
-              only:
-                - master
+          dockerfile: Dockerfile.production
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
-          aws-region: "${AWS_DEFAULT_REGION}"
-          family: "${AWS_RESOURCE_NAME_PREFIX}-service"
-          cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster"
+          aws-region: AWS_DEFAULT_REGION
+          family: "portfolio-service"
+          cluster-name: "portfolio-cluster"
           container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service,tag=${CIRCLE_SHA1}"
-          filters:
-            branches:
-              only:
-                - master
