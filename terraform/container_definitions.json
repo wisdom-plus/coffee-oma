@@ -3,6 +3,11 @@
     "name": "nginx",
     "image": "nginx:latest",
     "essential": true,
+    "command": [
+      "sudo",
+      "/etc/init.d/nginx",
+      "start"
+    ],
     "portMappings": [
       {
         "protocol": "tcp",
