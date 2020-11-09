@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "assume_role" {
     actions = ["sts:AssumeRole"]
 
     principals {
-      type        = "Sevice"
+      type        = "Service"
       identifiers = [var.identifier]
     }
   }
@@ -31,6 +31,7 @@ resource "aws_iam_role_policy_attachment" "default" {
 output "iam_role_arn" {
   value = aws_iam_role.default.arn
 }
+
 output "iam_role_name" {
   value = aws_iam_role.default.name
 }
