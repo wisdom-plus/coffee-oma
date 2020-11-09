@@ -5,7 +5,7 @@ orbs:
 jobs:
   test:
     docker:
-      - image: tomoron/portfolio-coffee:latest
+      - image: tomoron/coffee-oma:latest
         auth:
           username: tomoron
           password: $DOCKERHUB_PASSWORD

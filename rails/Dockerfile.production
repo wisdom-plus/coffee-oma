@@ -23,4 +23,4 @@ RUN bundle install --jobs=4
 COPY . /$APP_name
 EXPOSE 3000
 
-CMD ["unicorn", "-p", "3000", "-c", "/app/config/unicorn.rb", "-E", "production"]
+CMD ["unicorn", "-p", "3000", "-c", "~/rails/config/unicorn.rb", "-E", "production"]
