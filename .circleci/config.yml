@@ -100,7 +100,7 @@ workflows:
       - aws-ecr/build-and-push-image:
           name: nginx-build-and-push-image
           requires:
-            - test
+            - rails-build-and-push-image
           account-url: AWS_ECR_ACCOUNT_URL
           path: "./nginx"
           repo: "portfolio-nginx"
@@ -110,7 +110,7 @@ workflows:
       - aws-ecs/deploy-service-update:
           name: nginx-deploy-service-update
           requires:
-            - aws-ecr/build-and-push-image
+            - nginx-build-and-push-image
           aws-region: AWS_DEFAULT_REGION
           family: "portfolio-service"
           cluster-name: "portfolio-cluster"
@@ -118,7 +118,7 @@ workflows:
       - aws-ecs/deploy-service-update:
           name: rails-deploy-service-update
           requires:
-            - aws-ecr/build-and-push-image
+            - nginx-deploy-service-update
           aws-region: AWS_DEFAULT_REGION
           family: "portfolio-service"
           cluster-name: "portfolio-cluster"
