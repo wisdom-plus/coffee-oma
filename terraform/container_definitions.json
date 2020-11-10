@@ -3,11 +3,6 @@
     "name": "nginx",
     "image": "860542255954.dkr.ecr.ap-northeast-1.amazonaws.com/portfolio-nginx",
     "essential": true,
-    "command": [
-      "sudo",
-      "/etc/init.d/nginx",
-      "start"
-    ],
     "logConfiguration": {
       "logDriver": "awslogs",
       "options": {
@@ -27,6 +22,14 @@
     "name": "rails",
     "image": "860542255954.dkr.ecr.ap-northeast-1.amazonaws.com/portfolio-rails:latest",
     "essential": true,
+    "command": [
+      "bundle",
+      "exec",
+      "unicorn_rails",
+      "-E",
+      "production",
+      "-D"
+    ],
     "environment": [
       {
         "name": "RAILS_ENV",
