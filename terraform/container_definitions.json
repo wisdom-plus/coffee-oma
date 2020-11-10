@@ -1,7 +1,7 @@
 [
   {
     "name": "nginx",
-    "image": "860542255954.dkr.ecr.ap-northeast-1.amazonaws.com/portfolio-nginx",
+    "image": "860542255954.dkr.ecr.ap-northeast-1.amazonaws.com/portfolio-nginx:latest",
     "essential": true,
     "logConfiguration": {
       "logDriver": "awslogs",
