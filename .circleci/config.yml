@@ -102,4 +102,4 @@ workflows:
           aws-region: AWS_DEFAULT_REGION
           family: "portfolio-service"
           cluster-name: "portfolio-cluster"
-          container-image-name-updates: "container=portfolio-service,tag=${CIRCLE_SHA1}"
+          container-image-name-updates: "container=rails,tag=${CIRCLE_SHA1}"
