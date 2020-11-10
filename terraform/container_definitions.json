@@ -8,6 +8,14 @@
       "/etc/init.d/nginx",
       "start"
     ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-region": "ap-northeast-1",
+        "awslogs-stream-prefix": "nginx",
+        "awslogs-group": "/ecs/nginx"
+      }
+    },
     "portMappings": [
       {
         "protocol": "tcp",
@@ -31,6 +39,14 @@
       {
         "name": "DB_DATABASE",
         "value": "portfolio-db"
+      },
+      {
+        "name": "SSM_ACTIVATION_CODE",
+        "value": "Pl1ALx2boV5OCr9mnBOc"
+      },
+      {
+        "name": "SSM_ACTIVATION_ID",
+        "value": "5b711542-27f7-4f56-ac7e-30c1472ae9b3"
       }
     ],
     "logConfiguration": {

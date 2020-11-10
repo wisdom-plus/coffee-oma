@@ -12,8 +12,8 @@ resource "aws_ecs_cluster" "portfolio-ecs" { #ECSクラスタの定義
 
 resource "aws_ecs_task_definition" "portfolio-ecs-task" { #タスク定義
   family                   = "portfolio-service"
-  cpu                      = "256"
-  memory                   = "512"
+  cpu                      = "512"
+  memory                   = "1024"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   container_definitions    = file("./container_definitions.json")
@@ -57,11 +57,15 @@ module "nginx_sg" {
   cidr_blocks = [aws_vpc.portfolio-vpc.cidr_block]
 }
 
-resource "aws_cloudwatch_log_group" "for_ecs" { #cloudwatch logの定義
+resource "aws_cloudwatch_log_group" "for_ecs_rails" { #cloudwatch logの定義
   name              = "/ecs/rails"
   retention_in_days = 30
 }
 
+resource "aws_cloudwatch_log_group" "for_ecs_nginx" { #cloudwatch logの定義
+  name              = "/ecs/nginx"
+  retention_in_days = 30
+}
 
 data "aws_iam_policy_document" "assume_role" {
   statement {
