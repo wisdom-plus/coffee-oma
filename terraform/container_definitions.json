@@ -14,6 +14,16 @@
         "awslogs-group": "/ecs/nginx"
       }
     },
+    "environment": [
+      {
+        "name": "SSM_ACTIVATION_CODE",
+        "value": "0SP+Lpp+k+UBy9eselaf"
+      },
+      {
+        "name": "SSM_ACTIVATION_ID",
+        "value": "e2bec3dc-e56c-4d72-bbc2-607cd57129f6"
+      }
+    ],
     "portMappings": [
       {
         "protocol": "tcp",
