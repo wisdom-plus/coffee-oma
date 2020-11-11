@@ -21,7 +21,7 @@ resource "aws_db_option_group" "portfolio-db-option-group" { #DBオブション�
 
 resource "aws_db_subnet_group" "portfolio-db-subnet-group" { #DBサブネットグループの定義
   name       = "portfolio-db-subnet"
-  subnet_ids = [aws_subnet.portfolio-private-subnet-1.id]
+  subnet_ids = [aws_subnet.portfolio-private-subnet-1.id, aws_subnet.portfolio-private-subnet-2.id]
 }
 
 resource "aws_db_instance" "portfolio-db" { #DBインスタンスの定義
