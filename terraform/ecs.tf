@@ -17,7 +17,7 @@ resource "aws_ecs_task_definition" "portfolio-ecs-task" { #タスク定義
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   container_definitions    = file("./container_definitions.json")
-  execution_role_arn       = aws_iam_role.ecs_task.arn
+  execution_role_arn       = module.ecs_task_execution_role.iam_role_arn
 }
 
 resource "aws_ecs_service" "portfolio-ecs-service" { #ECSサービスの定義
@@ -31,10 +31,10 @@ resource "aws_ecs_service" "portfolio-ecs-service" { #ECSサービスの定義
 
   network_configuration {
     assign_public_ip = false
-    security_groups  = [module.nginx_sg.security_group_id]
+    security_groups  = [module.nginx_sg.security_group_id, module.nginx_https_sg.security_group_id]
 
     subnets = [
-      aws_subnet.portfolio-private-subnet-1.id, aws_subnet.portfolio-private-subnet-2.id
+      aws_subnet.portfolio-private-subnet-1.id
     ]
   }
 
@@ -57,6 +57,14 @@ module "nginx_sg" {
   cidr_blocks = [aws_vpc.portfolio-vpc.cidr_block]
 }
 
+module "nginx_https_sg" {
+  source      = "./security_group"
+  name        = "nginx-https-sg"
+  vpc_id      = aws_vpc.portfolio-vpc.id
+  port        = 443
+  cidr_blocks = [aws_vpc.portfolio-vpc.cidr_block]
+}
+
 resource "aws_cloudwatch_log_group" "for_ecs_rails" { #cloudwatch logの定義
   name              = "/ecs/rails"
   retention_in_days = 30
@@ -67,23 +75,23 @@ resource "aws_cloudwatch_log_group" "for_ecs_nginx" { #cloudwatch logの定義
   retention_in_days = 30
 }
 
-data "aws_iam_policy_document" "assume_role" {
-  statement {
-    actions = ["sts:AssumeRole"]
+data "aws_iam_policy" "ecs_task_execution_role_policy" { #ポリシーの参照
+  arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+}
 
-    principals {
-      type        = "Service"
-      identifiers = ["ecs-tasks.amazonaws.com"]
-    }
+data "aws_iam_policy_document" "ecs_task_execution" { #ポリシードキュメントの定義
+  source_json = data.aws_iam_policy.ecs_task_execution_role_policy.policy
+
+  statement {
+    effect    = "Allow"
+    actions   = ["ssm:GetParameters", "kms:Decrypt"]
+    resources = ["*"]
   }
 }
 
-resource "aws_iam_role" "ecs_task" {
-  name               = "MyEcsTaskRole"
-  assume_role_policy = data.aws_iam_policy_document.assume_role.json
-}
-
-resource "aws_iam_role_policy_attachment" "ecs_task" {
-  role       = aws_iam_role.ecs_task.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+module "ecs_task_execution_role" { #IAMロールの定義
+  source     = "./iam_role"
+  name       = "ecs-task-execution"
+  identifier = "exs-tasks.amazonaws.com"
+  policy     = data.aws_iam_policy_document.ecs_task_execution.json
 }

@@ -6,7 +6,7 @@ resource "aws_lb" "portfolio-lb" { #ロードバランサーの定義
   enable_deletion_protection = false
 
   subnets = [
-    aws_subnet.portfolio-public-subnet-1.id, aws_subnet.portfolio-public-subnet-2.id
+    aws_subnet.portfolio-public-subnet-1.id
   ]
 
   security_groups = [
