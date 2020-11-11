@@ -15,6 +15,6 @@ WORKDIR /$APP_NAME
 COPY ./Gemfile /$APP_NAME/Gemfile
 COPY ./Gemfile.lock /$APP_NAME/Gemfile.lock
 RUN bundle install --jobs=4
-COPY . /$APP_name/
+COPY . /$APP_NAME/
 EXPOSE 3000
 
