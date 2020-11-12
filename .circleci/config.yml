@@ -97,28 +97,10 @@ workflows:
           region: AWS_DEFAULT_REGION
           tag: "${CIRCLE_SHA1}"
           dockerfile: Dockerfile.production
-      - aws-ecr/build-and-push-image:
-          name: nginx-build-and-push-image
-          requires:
-            - rails-build-and-push-image
-          account-url: AWS_ECR_ACCOUNT_URL
-          path: "./nginx"
-          repo: "portfolio-nginx"
-          region: AWS_DEFAULT_REGION
-          tag: "${CIRCLE_SHA1}"
-          dockerfile: Dockerfile
-      - aws-ecs/deploy-service-update:
-          name: nginx-deploy-service-update
-          requires:
-            - nginx-build-and-push-image
-          aws-region: AWS_DEFAULT_REGION
-          family: "portfolio-service"
-          cluster-name: "portfolio-cluster"
-          container-image-name-updates: "container=nginx,tag=${CIRCLE_SHA1}"
       - aws-ecs/deploy-service-update:
           name: rails-deploy-service-update
           requires:
-            - nginx-deploy-service-update
+            - rails-build-and-push-image
           aws-region: AWS_DEFAULT_REGION
           family: "portfolio-service"
           cluster-name: "portfolio-cluster"
