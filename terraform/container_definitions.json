@@ -36,9 +36,8 @@
       "bundle",
       "exec",
       "unicorn_rails",
-      "-E",
-      "production",
-      "-D"
+      "-c",
+      "config/unicorn.rb"
     ],
     "environment": [
       {

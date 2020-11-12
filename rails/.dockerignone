@@ -1,3 +1,4 @@
 /node_modules
 /vender/bundlels
-
+tmp/*
+log/*
