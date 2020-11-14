@@ -39,9 +39,15 @@ resource "aws_ecs_service" "portfolio-ecs-service" { #ECSサービスの定義
   }
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.portfolio-target-group.arn
+    target_group_arn = aws_lb_target_group.portfolio-target-group-http.arn
     container_name   = "nginx"
     container_port   = 80
+  }
+
+  load_balancer {
+    target_group_arn = aws_lb_target_group.portfolio-target-group-https.arn
+    container_name   = "nginx"
+    container_port   = 443
   }
 
   lifecycle {

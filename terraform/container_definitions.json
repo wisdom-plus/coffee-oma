@@ -25,6 +25,15 @@
       {
         "protocol": "tcp",
         "containerPort": 80
+      },
+      {
+        "protocol": "tcp",
+        "containerPort": 443
+      }
+    ],
+    "volumesFrom": [
+      {
+        "sourceDontainer": "rails"
       }
     ]
   },

@@ -135,8 +135,8 @@ resource "aws_lb_listener" "redirect_http_to_https" { #HTTPからHTTPSにリダ�
   }
 }
 
-resource "aws_lb_target_group" "portfolio-target-group" { #ターゲットグループの定義
-  name                 = "portfolio"
+resource "aws_lb_target_group" "portfolio-target-group-http" { #ターゲットグループの定義
+  name                 = "portfolio-http"
   target_type          = "ip"
   vpc_id               = aws_vpc.portfolio-vpc.id
   port                 = 80
@@ -148,7 +148,7 @@ resource "aws_lb_target_group" "portfolio-target-group" { #ターゲットグル
     healthy_threshold   = 5
     unhealthy_threshold = 2
     timeout             = 5
-    interval            = 30
+    interval            = 300
     matcher             = 200
     port                = "traffic-port"
     protocol            = "HTTP"
@@ -157,13 +157,36 @@ resource "aws_lb_target_group" "portfolio-target-group" { #ターゲットグル
   depends_on = [aws_lb.portfolio-lb]
 }
 
-resource "aws_lb_listener_rule" "portfolio-listener-rule" { #リスナールールの定義
-  listener_arn = aws_lb_listener.https.arn
-  priority     = 100
+resource "aws_lb_target_group" "portfolio-target-group-https" { #ターゲットグループの定義
+  name                 = "portfolio-https"
+  target_type          = "ip"
+  vpc_id               = aws_vpc.portfolio-vpc.id
+  port                 = 443
+  protocol             = "HTTPS"
+  deregistration_delay = 300
+
+  health_check {
+    path                = "/"
+    healthy_threshold   = 5
+    unhealthy_threshold = 2
+    timeout             = 5
+    interval            = 300
+    matcher             = 200
+    port                = "traffic-port"
+    protocol            = "HTTPS"
+  }
+
+  depends_on = [aws_lb.portfolio-lb]
+}
+
+
+resource "aws_lb_listener_rule" "portfolio-listener-rule-http" { #リスナールールの定義
+  listener_arn = aws_lb_listener.http.arn
+  priority     = 99
 
   action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.portfolio-target-group.arn
+    target_group_arn = aws_lb_target_group.portfolio-target-group-http.arn
   }
 
   condition {
@@ -173,4 +196,19 @@ resource "aws_lb_listener_rule" "portfolio-listener-rule" { #リスナールー�
   }
 }
 
+resource "aws_lb_listener_rule" "portfolio-listener-rule-https" { #リスナールールの定義
+  listener_arn = aws_lb_listener.https.arn
+  priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.portfolio-target-group-https.arn
+  }
+
+  condition {
+    path_pattern {
+      values = ["/*"]
+    }
+  }
+}
 
