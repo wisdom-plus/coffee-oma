@@ -22,6 +22,7 @@ COPY ./Gemfile.lock /$APP_NAME/Gemfile.lock
 RUN bundle install --without test development --jobs=4
 COPY . /$APP_NAME/
 RUN gem clean
+VOLUME [ "/tmp" ]
 EXPOSE 3000
 
 
