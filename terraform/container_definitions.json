@@ -33,7 +33,7 @@
     ],
     "volumesFrom": [
       {
-        "sourceDontainer": "rails"
+        "sourceContainer": "rails"
       }
     ]
   },
