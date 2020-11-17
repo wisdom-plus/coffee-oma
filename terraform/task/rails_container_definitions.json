@@ -3,6 +3,9 @@
     "name": "rails",
     "image": "860542255954.dkr.ecr.ap-northeast-1.amazonaws.com/portfolio-rails:latest",
     "essential": true,
+    "entrypoint": [
+      "entrypoint.sh"
+    ],
     "command": [
       "bundle",
       "exec",

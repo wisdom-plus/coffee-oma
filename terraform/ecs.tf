@@ -33,7 +33,7 @@ resource "aws_ecs_task_definition" "portfolio-ecs-task-db" { #タスク定義
 resource "aws_ecs_service" "portfolio-ecs-service" { #ECSサービスの定義
   name                              = "portfolio-service"
   cluster                           = aws_ecs_cluster.portfolio-ecs.arn
-  task_definition                   = aws_ecs_task_definition.portfolio-ecs-task.arn
+  task_definition                   = aws_ecs_task_definition.portfolio-ecs-task-rails.arn
   desired_count                     = 1
   launch_type                       = "FARGATE"
   platform_version                  = "1.4.0"
