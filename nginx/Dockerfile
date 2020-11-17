@@ -8,5 +8,5 @@ RUN apt-get update && \
   && rm -rf /var/lib/apt/lists/*
 ENV LANG ja_JP.UTF-8
 ENV LC_TIME C
-COPY ./nginx.conf /etc/nginx/nginx.conf
-COPY ./conf.d/default.conf /etc/nginx/conf.d/default.conf
+COPY custom.conf /etc/nginx/conf.d
+EXPOSE 80

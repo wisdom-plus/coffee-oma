@@ -11,19 +11,17 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-RUN curl https://s3.ap-northeast-1.amazonaws.com/amazon-ssm-ap-northeast-1/latest/debian_amd64/amazon-ssm-agent.deb -o /tmp/amazon-ssm-agent.deb \
-  && dpkg -i /tmp/amazon-ssm-agent.deb \
-  && cp /etc/amazon/ssm/seelog.xml.template /etc/amazon/ssm/seelog.xml
-
-ENV APP_NAME coffee-oma
-WORKDIR /$APP_NAME
-COPY ./Gemfile /$APP_NAME/Gemfile
-COPY ./Gemfile.lock /$APP_NAME/Gemfile.lock
-RUN bundle install --without test development --jobs=4
-COPY . /$APP_NAME/
-RUN gem clean
-VOLUME [ "/tmp" ]
+ENV APP_HOME /usr/src/coffee-oma/
+RUN mkdir -p $APP_HOME
+WORKDIR $APP_HOME
+COPY ./Gemfile $APP_HOME/Gemfile
+COPY ./Gemfile.lock $APP_HOME/Gemfile.lock
+RUN bundle install --jobs=4 || gem clean
+COPY . $APP_HOME
+RUN bundle exec rails assets:precompile RAILS_ENV=productione
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+VOLUME [ "${APP_HOME}/tmp" ]
 EXPOSE 3000
-
-
 

@@ -10,13 +10,23 @@ resource "aws_ecs_cluster" "portfolio-ecs" { #ECSクラスタの定義
   name = "portfolio-cluster"
 }
 
-resource "aws_ecs_task_definition" "portfolio-ecs-task" { #タスク定義
+resource "aws_ecs_task_definition" "portfolio-ecs-task-rails" { #タスク定義
   family                   = "portfolio-service"
   cpu                      = "512"
   memory                   = "1024"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
-  container_definitions    = file("./container_definitions.json")
+  container_definitions    = file("./task/rails_container_definitions.json")
+  execution_role_arn       = module.ecs_task_execution_role.iam_role_arn
+}
+
+resource "aws_ecs_task_definition" "portfolio-ecs-task-db" { #タスク定義
+  family                   = "portfolio-service"
+  cpu                      = "512"
+  memory                   = "1024"
+  network_mode             = "awsvpc"
+  requires_compatibilities = ["FARGATE"]
+  container_definitions    = file("./task/rails_db_create_container_definitions.json")
   execution_role_arn       = module.ecs_task_execution_role.iam_role_arn
 }
 
@@ -42,12 +52,6 @@ resource "aws_ecs_service" "portfolio-ecs-service" { #ECSサービスの定義
     target_group_arn = aws_lb_target_group.portfolio-target-group-http.arn
     container_name   = "nginx"
     container_port   = 80
-  }
-
-  load_balancer {
-    target_group_arn = aws_lb_target_group.portfolio-target-group-https.arn
-    container_name   = "nginx"
-    container_port   = 443
   }
 
   lifecycle {

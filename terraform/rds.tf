@@ -34,7 +34,7 @@ resource "aws_db_instance" "portfolio-db" { #DBインスタンスの定義
   storage_type               = "gp2"
   storage_encrypted          = true
   username                   = "root"
-  password                   = "VeryStrongPassword!" #パスワードがtfstateファイルに平文で書き込まれる
+  password                   = "VeryStrongPassword!"
   publicly_accessible        = false
   backup_window              = "09:10-09:40"
   backup_retention_period    = 3
