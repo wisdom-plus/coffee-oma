@@ -18,7 +18,6 @@ environment ENV.fetch('RAILS_ENV') { 'development' }
 
 # Specifies the `pidfile` that Puma will use.
 
-
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked web server processes. If using threads and workers together
 # the concurrency of the application would be max `threads` * `workers`.
@@ -36,7 +35,7 @@ environment ENV.fetch('RAILS_ENV') { 'development' }
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
-app_path = File.expand_path("..", __dir__)
+app_path = File.expand_path('..', __dir__)
 directory app_path
 pidfile "#{app_path}/tmp/pids/puma.pid"
 state_path "#{app_path}/tmp/pids/puma.state"
