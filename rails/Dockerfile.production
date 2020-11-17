@@ -18,10 +18,9 @@ COPY ./Gemfile $APP_HOME/Gemfile
 COPY ./Gemfile.lock $APP_HOME/Gemfile.lock
 RUN bundle install --jobs=4 || gem clean
 COPY . $APP_HOME
-RUN bundle exec rails assets:precompile RAILS_ENV=productione
+RUN bundle exec rails assets:precompile RAILS_ENV=production
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
 VOLUME [ "${APP_HOME}/tmp" ]
 EXPOSE 3000
 
