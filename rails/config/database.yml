@@ -15,11 +15,11 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: password
-  host: db
 
 development:
   <<: *default
   database: coffee_development
+  host: db
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,6 +27,7 @@ development:
 test:
   <<: *default
   database: coffee_test
+  host: db
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -50,5 +51,7 @@ test:
 production:
   <<: *default
   database: coffee_production
-  username: coffee
+  username: root
   password: <%= ENV['COFFEE_DATABASE_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>

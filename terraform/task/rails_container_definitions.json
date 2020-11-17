@@ -1,0 +1,84 @@
+[
+  {
+    "name": "rails",
+    "image": "860542255954.dkr.ecr.ap-northeast-1.amazonaws.com/portfolio-rails:latest",
+    "essential": true,
+    "command": [
+      "bundle",
+      "exec",
+      "pumactl",
+      "start"
+    ],
+    "environment": [
+      {
+        "name": "RAILS_ENV",
+        "value": "production"
+      },
+      {
+        "name": "DB_HOST",
+        "value": "portfolio-db.cr5zcaqhxjxz.ap-northeast-1.rds.amazonaws.com"
+      },
+      {
+        "name": "DB_DATABASE",
+        "value": "portfolio-db"
+      },
+      {
+        "name": "COFFEE_DATABASE_PASSWORD",
+        "value": "VeryStrongPassword!"
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-region": "ap-northeast-1",
+        "awslogs-stream-prefix": "rails",
+        "awslogs-group": "/ecs/rails"
+      }
+    },
+    "portMappings": [
+      {
+        "protocol": "tcp",
+        "containerPort": 3000
+      }
+    ],
+    "healthCheck": {
+      "command": [
+        "CMD-SHELL",
+        "curl --unix-socket /usr/src/coffee-oma/tmp/sockets/puma.sock ./",
+        "|| exit 1"
+      ],
+      "startPeriod": 15
+    }
+  },
+  {
+    "name": "nginx",
+    "image": "860542255954.dkr.ecr.ap-northeast-1.amazonaws.com/portfolio-nginx:latest",
+    "essential": true,
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-region": "ap-northeast-1",
+        "awslogs-stream-prefix": "nginx",
+        "awslogs-group": "/ecs/nginx"
+      }
+    },
+    "portMappings": [
+      {
+        "protocol": "tcp",
+        "containerPort": 80
+      }
+    ],
+    "volumesFrom": [
+      {
+        "sourceContainer": "rails",
+        "readOnly": true
+      }
+    ],
+    "dependsOn": [
+      {
+        "condition": "HEALTHY",
+        "containerName": "rails"
+      }
+    ]
+  }
+]
