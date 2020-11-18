@@ -11,14 +11,14 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-ENV APP_HOME /usr/src/coffee-oma/
+ENV APP_HOME /usr/src/coffee-oma
+ARG name
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 COPY ./Gemfile $APP_HOME/Gemfile
 COPY ./Gemfile.lock $APP_HOME/Gemfile.lock
 RUN bundle install --jobs=4 || gem clean
 COPY . $APP_HOME
-RUN bundle exec rails assets:precompile RAILS_ENV=production
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 VOLUME [ "${APP_HOME}/tmp" ]
