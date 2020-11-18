@@ -7,8 +7,6 @@
       "entrypoint.sh"
     ],
     "command": [
-      "bundle",
-      "exec",
       "pumactl",
       "start"
     ],
@@ -16,18 +14,6 @@
       {
         "name": "RAILS_ENV",
         "value": "production"
-      },
-      {
-        "name": "DB_HOST",
-        "value": "portfolio-db.cr5zcaqhxjxz.ap-northeast-1.rds.amazonaws.com"
-      },
-      {
-        "name": "DB_DATABASE",
-        "value": "portfolio-db"
-      },
-      {
-        "name": "COFFEE_DATABASE_PASSWORD",
-        "value": "VeryStrongPassword!"
       }
     ],
     "logConfiguration": {
