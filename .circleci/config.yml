@@ -82,11 +82,19 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
-workflows:
-  version: 2
-  test-and-deploy:
-    jobs:
-      - test
+  ecr-push:
+    docker:
+      - image: tomoron/portfolio-coffee:latest
+        auth:
+          username: tomoron
+          password: $DOCKERHUB_PASSWORD
+    working_directory: ~/coffee/rails
+    steps:
+      - checkout:
+          path: ~/coffee
+      - run:
+          name: Decode ENV file
+          command: echo $ENV_FILE | base64 --decode > .env
       - aws-ecr/build-and-push-image:
           name: rails-build-and-push-image
           requires:
@@ -97,10 +105,19 @@ workflows:
           region: AWS_DEFAULT_REGION
           tag: "${CIRCLE_SHA1}"
           dockerfile: Dockerfile.production
+
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - test
+      - ecr-push:
+          requires:
+            - test
       - aws-ecs/deploy-service-update:
           name: rails-deploy-service-update
           requires:
-            - rails-build-and-push-image
+            - ecr-push
           aws-region: AWS_DEFAULT_REGION
           family: "portfolio-service"
           cluster-name: "portfolio-cluster"
