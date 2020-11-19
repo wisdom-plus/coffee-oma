@@ -1,6 +1,9 @@
 version: 2.1
+orbs:
+  aws-ecr: circleci/aws-ecr@6.14.0
+  aws-ecs: circleci/aws-ecs@1.4.0
 jobs:
-  build:
+  test:
     docker:
       - image: tomoron/portfolio-coffee:latest
         auth:
@@ -10,8 +13,10 @@ jobs:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
           ENV_FILE: $ENV_FILE
-          SELENIUM_DRIVER_URL: "http://localhost:4444/wd/hub"
       - image: mysql:8.0
+        auth:
+          username: tomoron
+          password: $DOCKERHUB_PASSWORD
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: "true"
           MYSQL_ROOT_HOST: "127.0.0.1"
@@ -19,23 +24,35 @@ jobs:
         command: --default-authentication-plugin=mysql_native_password
       - image: selenium/standalone-chrome-debug:latest
         name: chrome
-    working_directory: ~/coffee
+        auth:
+          username: tomoron
+          password: $DOCKERHUB_PASSWORD
+    working_directory: ~/coffee/rails
     steps:
-      - checkout
+      - checkout:
+          path: ~/coffee
       - restore_cache:
           keys:
-            - rails-{{ checksum "Gemfile.lock"}}-{{ checksum "yarn.lock"}}
+            - rails-gem-{{ checksum "Gemfile.lock"}}
+            - rails-gem-
       - run:
           name: bundleをインストール
           command: bundle check || bundle install --jobs=4
+      - save_cache:
+          key: rails-gem-{{ checksum "Gemfile.lock"}}
+          paths:
+            - vendor/bundle
+      - restore_cache:
+          keys:
+            - rails-yarn-{{ checksum "yarn.lock"}}
+            - rails-yarn-
       - run:
           name: yarnを追加
           command: yarn install
       - save_cache:
-          key: rails-{{ checksum "Gemfile.lock"}}-{{ checksum "yarn.lock"}}
+          key: rails-yarn-{{ checksum "yarn.lock"}}
           paths:
-            - vendor/bundle
-            - node_modules
+            - ~/.cache/yarn
       - run:
           name: webpackを追加
           command: bundle exec bin/webpack
@@ -65,3 +82,35 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - test
+      - aws-ecr/build-and-push-image:
+          name: rails-build-and-push-image
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - master
+          account-url: AWS_ECR_ACCOUNT_URL
+          path: "./rails"
+          repo: "portfolio-rails"
+          region: AWS_DEFAULT_REGION
+          tag: "${CIRCLE_SHA1}"
+          dockerfile: Dockerfile.production
+      - aws-ecs/deploy-service-update:
+          name: rails-deploy-service-update
+          requires:
+            - rails-build-and-push-image
+          filters:
+            branches:
+              only:
+                - master
+          aws-region: AWS_DEFAULT_REGION
+          family: "portfolio-service"
+          cluster-name: "portfolio-cluster"
+          container-image-name-updates: "container=rails,tag=${CIRCLE_SHA1}"
