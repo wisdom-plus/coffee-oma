@@ -157,3 +157,24 @@ resource "aws_vpc_endpoint" "logs" {
 data "aws_vpc_endpoint_service" "logs" {
   service = "logs"
 }
+
+resource "aws_vpc_endpoint" "email-smtp" {
+  vpc_id            = aws_vpc.portfolio-vpc.id
+  service_name      = data.aws_vpc_endpoint_service.email-smtp.service_name
+  vpc_endpoint_type = "Interface"
+
+  security_group_ids = [module.http_sg.security_group_id, module.https_sg.security_group_id, module.stmp_sg.security_group_id]
+  subnet_ids         = [aws_subnet.portfolio-private-subnet-1.id]
+}
+
+data "aws_vpc_endpoint_service" "email-smtp" {
+  service = "email-smtp"
+}
+
+module "stmp_sg" {
+  source      = "./security_group"
+  name        = "stmp-sg"
+  vpc_id      = aws_vpc.portfolio-vpc.id
+  port        = 587
+  cidr_blocks = ["0.0.0.0/0"]
+}
