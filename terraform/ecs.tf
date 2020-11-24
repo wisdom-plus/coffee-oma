@@ -30,6 +30,7 @@ resource "aws_ecs_task_definition" "portfolio-ecs-task-db" { #タスク定義
   execution_role_arn       = module.ecs_task_execution_role.iam_role_arn
 }
 
+
 resource "aws_ecs_service" "portfolio-ecs-service" { #ECSサービスの定義
   name                              = "portfolio-service"
   cluster                           = aws_ecs_cluster.portfolio-ecs.arn
