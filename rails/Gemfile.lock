@@ -74,8 +74,6 @@ GEM
     after_commit_action (1.1.0)
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
-    amazon-ecs (2.6.0)
-      nokogiri (~> 1.10)
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
@@ -327,7 +325,6 @@ GEM
       thor (>= 0.20.3, < 2.0)
     rainbow (3.0.0)
     rake (13.0.1)
-    rakuten_web_service (1.12.0)
     ransack (2.3.2)
       activerecord (>= 5.2.1)
       activesupport (>= 5.2.1)
@@ -479,7 +476,6 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   acts-as-taggable-on (~> 6.0)
-  amazon-ecs
   annotate
   awesome_print
   aws-sdk-rails (~> 3)
@@ -510,7 +506,6 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
   rails-i18n
-  rakuten_web_service
   ransack
   recaptcha
   rspec-rails

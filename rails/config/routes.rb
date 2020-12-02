@@ -147,9 +147,6 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in' => 'users/sessions#new_guest'
   end
   resources :products, only: %i[new create index show update] do
-    collection do
-      post 'rakuten_create'
-    end
     resources :reviews, only: %i[create]
   end
   resources :likes, only: %i[create destroy index]
