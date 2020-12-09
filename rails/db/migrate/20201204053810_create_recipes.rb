@@ -6,6 +6,8 @@ class CreateRecipes < ActiveRecord::Migration[6.0]
       t.integer :temperature, null: false
       t.integer :time, null: false
       t.integer :amount, null: false
+      t.references :user, foreign_key: true
+      t.boolean :status, default: false
       t.timestamps
     end
   end

@@ -1,0 +1,62 @@
+.ui.grid
+  .column
+    .ui.breadcrumb
+      =link_to 'Home', root_path, class: 'section'
+      i.right.chevron.icon.devider
+      .active.section 登録レシピを編集する
+.ui.middle.aligned.center.aligned.grid
+  .column
+    h1#title 登録レシピを編集する
+    h3
+      | これはでもいいですか
+.ui.vertical.stripe.segment
+  .ui.middle.aligned.stackable.grid.conteiner
+    .row
+      .six.wide.left.floated.column
+        / =image_tag "#{@recipe.imageurl}", class: "ui large bordered rounded image"
+      .ten.wide.column
+        = form_with model: @recipe, url: recipe_path, local: true, class: "ui mini form" do |f|
+          table.ui.celled.table
+            thead
+              tr
+                th.one.wide.center.aligned
+                th.one.wide.center.aligned パラメーター
+            tbody
+              tr
+                td.center.aligned  粉量
+                td.center.aligned.centered.fields
+                  .four.wide.field
+                      = f.text_field :powdergram,autofocus: true
+              tr
+                td.center.aligned 挽き目
+                td.center.aligned.centered.fields
+                  .four.wide.field
+                    = f.text_field :grinding, autofocus: true
+              tr
+                td.center.aligned 湯温
+                td.center.aligned.centered.fields
+                  .four.wide.field
+                    = f.number_field :temperature, autofocus: true
+              tr
+                td.center.aligned 抽出時間
+                td.center.aligned.centered.inline.fields
+                  .six.wide.field
+                    = f.number_field :time1, autofocus: true
+                    = f.number_field :time2, autofocus: true
+              tr
+                td.center.aligned 抽出時間
+                td.center.aligned.centered.fields
+                  .four.wide.field
+                    = f.number_field :amount, autofocus: true
+              tr
+                td.center.aligned 公開設定
+                td.center.aligned
+                  .inline.field
+                    - if @recipe.status == true
+                      = f.check_box :status, {checked: true},true,false
+                    - else
+                      = f.check_box :status, {}, true, false
+                    = f.label :status, '公開設定を変更することができます'
+              tr
+                td.cen colspan=4
+                  = f.submit "変更を登録する", class: "ui teal submit button"

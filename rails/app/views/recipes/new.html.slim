@@ -8,6 +8,9 @@
   .column style= "width: 640px"
     h1#title 抽出レシピを登録する
     .content.field
+      h3
+        | あなたが淹れたコーヒーを記録しておき、<br>
+          次もおいしいコーヒーを淹れれるようにしましょう
       =form_with model: @recipe, url: recipes_path ,local: true,class: "ui mini form" do |f|
         .ui.centered.card.field.text-left#newcard
           / .image#dimmer-product
@@ -40,4 +43,7 @@
               = f.label "抽出量"
               .three.wide.field
                 = f.number_field :amount, autofocus: true, placeholder: "amount"
+            .inline.fields
+              = f.check_box :status, {},true,false
+              = f.label :status ,"投稿をタイムラインに公開する"
         =f.submit '登録する', class: "ui teal submit button"

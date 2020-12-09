@@ -1,0 +1,22 @@
+.column
+  .ui.breadcrumb
+    =link_to 'Home', root_path, class: 'section'
+    i.right.chevron.icon.devider
+    .active.section レシピを登録
+.ui.middle.aligned.center.aligned.grid.vertical.stripe
+  .column style= "width: 640px"
+    h1#title タイムライン
+.ui.three.stackable.cards.segment.scroll#sidebar
+  .ui.right.very.close.rail
+    .ui.segment.sticky
+      a href="#"
+        i.chevron.circle.up.icon Top
+  -@recipes.each do |recipe|
+    a.card href = recipe_path(recipe.id)
+      .content
+        img
+        .header #{recipe.user.username}
+        .meta
+          span.data #{recipe.user.username}
+          span.date.right.floated #{time_ago_in_words(recipe.updated_at)}前
+        .description

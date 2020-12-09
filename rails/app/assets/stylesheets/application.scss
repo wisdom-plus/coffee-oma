@@ -241,6 +241,10 @@ h1.ui.header{
   left: -26px;
   border-right: 22px solid #00B5AD;
 }
+.center.aligned.centered.fields{
+  justify-content: center;
+  margin: 0rem;
+}
 @media only screen and (max-width: 700px) {
   .inverted.menu .toc.item {
     display: block;
