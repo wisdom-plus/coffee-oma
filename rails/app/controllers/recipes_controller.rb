@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create,:edit, :update, :destory]
+  before_action :authenticate_user!, only: [:new, :create,:edit, :update, :destroy]
   def index
     @recipes = Recipe.where(['status = ?', true])
   end
@@ -28,8 +28,11 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id])
-    @recipe.destroy
-    redirect_to "/user/#{current_user.id}/show"
+    if @recipe.destroy
+      redirect_to "/user/#{current_user.id}/show"
+    else
+      render :index
+    end
   end
 
   def update

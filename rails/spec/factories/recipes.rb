@@ -23,6 +23,12 @@
 #
 FactoryBot.define do
   factory :recipe do
-    
+    user
+    amount {220}
+    grinding {'細かい'}
+    powdergram {18}
+    temperature {92}
+    time {180}
+    status {false}
   end
 end
