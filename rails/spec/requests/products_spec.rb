@@ -47,7 +47,6 @@ RSpec.describe 'Products', type: :request do
     end
   end
 
-
   describe 'GET /products/:id' do
     it 'request success' do
       get product_path(product.id)

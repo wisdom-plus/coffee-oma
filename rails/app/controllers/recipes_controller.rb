@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create,:edit, :update, :destroy]
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
   def index
     @recipes = Recipe.where(['status = ?', true])
   end
@@ -9,13 +9,12 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe =  Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def edit
     @recipe = Recipe.find(params[:id])
   end
-
 
   def create
     @recipe = current_user.recipe.new(recipe_params)
@@ -42,13 +41,11 @@ class RecipesController < ApplicationController
     else
       render :edit
     end
-
   end
 
   private
 
-  def recipe_params
-    params.require(:recipe).permit(:powdergram, :grinding, :temperature, :time, :amount, :time1, :time2, :status)
-  end
+    def recipe_params
+      params.require(:recipe).permit(:powdergram, :grinding, :temperature, :time, :amount, :time1, :time2, :status)
+    end
 end
-

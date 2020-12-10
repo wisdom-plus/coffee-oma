@@ -1,19 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe "Recipes", type: :request do
+RSpec.describe 'Recipes', type: :request do
   let(:user) { create(:user) }
-  let(:recipe) { create(:recipe, user: user)}
-  let(:recipe_params) { attributes_for(:recipe)}
+  let(:recipe) { create(:recipe, user: user) }
+  let(:recipe_params) { attributes_for(:recipe) }
 
-  describe "GET /recipes" do
+  describe 'GET /recipes' do
     it 'request success' do
       get recipes_path
       expect(response).to have_http_status(:ok)
     end
   end
 
-  describe "GET /recipe/new" do
-    context "when login" do
+  describe 'GET /recipe/new' do
+    context 'when login' do
       before do
         user.confirm
         sign_in user
@@ -25,13 +25,12 @@ RSpec.describe "Recipes", type: :request do
       end
     end
 
-    context "when not login" do
+    context 'when not login' do
       it 'request fail' do
         get new_recipe_path
         expect(response).to redirect_to new_user_session_path
       end
     end
-
   end
 
   describe 'POST /recipes' do
@@ -42,7 +41,7 @@ RSpec.describe "Recipes", type: :request do
       end
 
       it 'request success' do
-        post recipes_path, params: { recipe: recipe_params}
+        post recipes_path, params: { recipe: recipe_params }
         expect(response).to have_http_status(:found)
       end
 
@@ -53,16 +52,15 @@ RSpec.describe "Recipes", type: :request do
       end
     end
 
-    context "when not login" do
+    context 'when not login' do
       it 'request fail' do
-        post recipes_path, params: { recipe: recipe_params}
+        post recipes_path, params: { recipe: recipe_params }
         expect(response).to redirect_to new_user_session_path
       end
     end
-
   end
 
-  describe "GET /recipe/:id" do
+  describe 'GET /recipe/:id' do
     it 'request success' do
       get recipe_path(recipe.id)
       expect(response).to have_http_status(:ok)
@@ -70,7 +68,7 @@ RSpec.describe "Recipes", type: :request do
   end
 
   describe 'GET /recipe/:id/edit' do
-    context "when login" do
+    context 'when login' do
       before do
         user.confirm
         sign_in user
@@ -82,7 +80,7 @@ RSpec.describe "Recipes", type: :request do
       end
     end
 
-    context "when not login" do
+    context 'when not login' do
       it 'request fail' do
         get edit_recipe_path(recipe.id)
         expect(response).to redirect_to new_user_session_path
@@ -90,30 +88,29 @@ RSpec.describe "Recipes", type: :request do
     end
   end
 
-  describe "PATCH /recipe/:id" do
-    context "when login" do
+  describe 'PATCH /recipe/:id' do
+    context 'when login' do
       before do
         user.confirm
         sign_in user
       end
 
       it 'request success' do
-        patch recipe_path(recipe.id), params: { recipe: recipe_params}
+        patch recipe_path(recipe.id), params: { recipe: recipe_params }
         expect(response).to have_http_status(:found)
       end
     end
 
     context 'when not login' do
       it 'request fail' do
-        patch recipe_path(recipe.id), params: { recipe: recipe_params}
+        patch recipe_path(recipe.id), params: { recipe: recipe_params }
         expect(response).to redirect_to new_user_session_path
       end
     end
   end
 
-
-  describe "DELETE /recipes/:id" do
-    context "when login" do
+  describe 'DELETE /recipes/:id' do
+    context 'when login' do
       before do
         user.confirm
         sign_in user
@@ -132,7 +129,7 @@ RSpec.describe "Recipes", type: :request do
       end
     end
 
-    context "when not login " do
+    context 'when not login ' do
       it 'request fail' do
         delete recipe_path(recipe.id)
         expect(response).to redirect_to new_user_session_path
