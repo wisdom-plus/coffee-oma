@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create rakuten_create update]
+  before_action :authenticate_user!, only: %i[new create update]
 
   def new
     if params[:keyword]
@@ -23,7 +23,6 @@ class ProductsController < ApplicationController
       render :new
     end
   end
-
 
   def index
     @q = Product.ransack(params[:q])

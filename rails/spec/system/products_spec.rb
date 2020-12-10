@@ -12,18 +12,19 @@ RSpec.describe 'Products', type: :system do
         visit new_product_path
       end
 
-      it 'create manual_product' do
-        fill_in 'item-name', with: 'コーヒーの器具の名前'
-        fill_in 'shop-name', with: 'コーヒーのメーカー'
-        fill_in 'catchcopy', with: 'キャッチコピー'
-        fill_in 'item-price', with: '1000'
-        fill_in 'item-caption', with: 'アイテムの説明文が入ります'
-        fill_in 'tag-name', with: 'コーヒー,豆'
-        click_on 'submit'
-        expect(page).to have_content 'コーヒーの器具の名前'
+      it 'create product' do
+        expect do
+          fill_in 'item-name', with: 'コーヒーの器具の名前'
+          fill_in 'shop-name', with: 'コーヒーのメーカー'
+          fill_in 'catchcopy', with: 'キャッチコピー'
+          fill_in 'item-price', with: '1000'
+          fill_in 'item-caption', with: 'アイテムの説明文が入ります'
+          fill_in 'tag-name', with: 'コーヒー,豆'
+          click_on 'submit'
+        end.to change(Product, :count).by 1
       end
 
-      it 'redirect index(manual_product)' do
+      it 'redirect index(product)' do
         fill_in 'item-name', with: 'コーヒーの器具の名前'
         fill_in 'shop-name', with: 'コーヒーのメーカー'
         fill_in 'catchcopy', with: 'キャッチコピー'

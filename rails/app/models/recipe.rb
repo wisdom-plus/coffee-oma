@@ -25,22 +25,21 @@ class Recipe < ApplicationRecord
   belongs_to :user
   validates :powdergram, :grinding, :temperature, :time, :amount, presence: true
 
-
   attr_writer :time1, :time2
 
   before_validation :set_time
 
   def time1
-    @time1 ||= time.present? ? time/60 : nil
+    @time1 ||= time.present? ? time / 60 : nil
   end
 
   def time2
-    @time2 ||= time.present? ? time%60 : nil
+    @time2 ||= time.present? ? time % 60 : nil
   end
 
   private
 
-  def set_time
-    self.time = time1.present? && time2.present? ? time1.to_i*60+time2.to_i : nil
-  end
+    def set_time
+      (self.time = time1.present? && time2.present?) ? (time1.to_i * 60 + time2.to_i) : nil
+    end
 end
