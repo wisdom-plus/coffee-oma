@@ -1,0 +1,49 @@
+.ui.grid
+  .column
+    .ui.breadcrumb
+      =link_to 'Home', root_path, class: 'section'
+      i.right.chevron.icon.devider
+      .active.section レシピを登録
+.ui.middle.aligned.center.aligned.grid.vertical.stripe
+  .column style= "width: 640px"
+    h1#title 抽出レシピを登録する
+    .content.field
+      h3
+        | あなたが淹れたコーヒーを記録しておき、<br>
+          次もおいしいコーヒーを淹れれるようにしましょう
+      =form_with model: @recipe, url: recipes_path ,local: true,class: "ui mini form" do |f|
+        .ui.centered.card.field.text-left#newcard
+          / .image#dimmer-product
+          /   img#img-prev src="/noimage.jpg"
+          /   .ui.bottom.right.attached.label#dimmer-button
+          /     i.icons
+          /       i.ui.large.camera.icon
+          /       i.ui.bottom.right.corner.add.icon
+          /   .ui.dimmer
+          /     = f.label :imageurl do
+          /       .ui.teal.button
+          /         |画像を追加する
+          /       = f.file_field :imageurl, autofocus: true, class: "file-form"
+          .content
+            .inline.fields
+              =f.label "粉量"
+              .field
+                = f.number_field :powdergram, autofocus: true, placeholder: "powdergram"
+              =f.label "挽き目"
+              .field
+                = f.text_field :grinding, autofocus: true, placeholder: "grinding"
+              =f.label "湯温"
+              .field
+                = f.number_field :temperature,autofocus: true, placeholder: "temperature"
+            .inline.fields
+              =f.label "抽出時間"
+              .four.wide.field
+                = f.number_field :time1, autofocus: true, placeholder: "min"
+                = f.number_field :time2, autofocus: true, placeholder: "sec"
+              = f.label "抽出量"
+              .three.wide.field
+                = f.number_field :amount, autofocus: true, placeholder: "amount"
+            .inline.fields
+              = f.check_box :status, {},true,false
+              = f.label :status ,"投稿をタイムラインに公開する"
+        =f.submit '登録する', class: "ui teal submit button"

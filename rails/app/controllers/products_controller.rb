@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create rakuten_create update]
+  before_action :authenticate_user!, only: %i[new create update]
 
   def new
     if params[:keyword]
@@ -20,17 +20,6 @@ class ProductsController < ApplicationController
       redirect_to products_path, notice: 'アイテムを登録しました'
     else
       flash.now[:alert] = 'アイテムの登録に失敗しました'
-      render :new
-    end
-  end
-
-  def rakuten_create
-    product = Product.new(product_params)
-    product.remote_imageurl_url = product_params[:imageurl].chomp('?_ex=128x128')
-    if product.save
-      redirect_to products_path, notice: 'アイテムを登録しました'
-    else
-      flash.now[:alret] = 'アイテムの登録に失敗しました'
       render :new
     end
   end
@@ -71,23 +60,5 @@ class ProductsController < ApplicationController
       params.require(:product).permit(
         :itemname, :itemprice, :shopname, :catchcopy, :imageurl, :itemurl, :itemcaption
       ).merge(tag_list: params[:product][:tag_list].split(' '))
-    end
-
-    def rakuten_search(search_keyword, page_count)
-      RakutenWebService::Ichiba::Item.search(
-        keyword: search_keyword, imageFlag: 1, page: page_count, elements: 'itemName,itemPrice,shopName,catchcopy,mediumImageUrls,itemUrl,itemCaption'
-      )
-    end
-
-    def rakuten_array(keyword)
-      @products_all = []
-      (1..5).each do |page_count|
-        products = rakuten_search(keyword, page_count)
-        products.each do |product|
-          if product.name.include?('コーヒー')
-            @products_all.push(product)
-          end
-        end
-      end
     end
 end

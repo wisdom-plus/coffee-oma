@@ -92,6 +92,9 @@ workflows:
           name: rails-build-and-push-image
           requires:
             - test
+          filters:
+            branches:
+              only: master
           account-url: AWS_ECR_ACCOUNT_URL
           path: "./rails"
           repo: "portfolio-rails"
@@ -102,6 +105,9 @@ workflows:
           name: rails-deploy-service-update
           requires:
             - rails-build-and-push-image
+          filters:
+            branches:
+              only: master
           aws-region: AWS_DEFAULT_REGION
           family: "portfolio-service"
           cluster-name: "portfolio-cluster"
