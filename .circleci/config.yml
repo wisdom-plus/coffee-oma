@@ -93,7 +93,7 @@ workflows:
           requires:
             - test
           filters:
-            branchcs:
+            branches:
               only: master
           account-url: AWS_ECR_ACCOUNT_URL
           path: "./rails"
@@ -106,7 +106,7 @@ workflows:
           requires:
             - rails-build-and-push-image
           filters:
-            branchcs:
+            branches:
               only: master
           aws-region: AWS_DEFAULT_REGION
           family: "portfolio-service"
