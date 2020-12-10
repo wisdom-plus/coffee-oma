@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Registrations', type: :system do
   let(:user) { create(:user) }
-  let(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
+  let(:user1) { create(:user, email: 'test1@example.com', username: 'test1') }
 
   describe 'sign_up' do
     context 'when success' do
