@@ -143,6 +143,10 @@
 #               GET    /:id/attachments/:file(.:format) letter_opener_web/letters#attachment
 
 Rails.application.routes.draw do
+  get 'beans/new'
+  get 'beans/create'
+  get 'beans/show'
+  get 'beans/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: 'home#top'
