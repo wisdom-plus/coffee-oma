@@ -24,7 +24,9 @@
 class Recipe < ApplicationRecord
   belongs_to :user
   validates :powdergram, :grinding, :temperature, :time, :amount, presence: true
-
+  validates :time, :temperature, :powdergram, :amount, numericality: {
+    greater_than_or_equal_to: 0
+  }
   attr_writer :time1, :time2
 
   before_validation :set_time
