@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_12_11_115731) do
     t.string "purification"
     t.string "country"
     t.string "area"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

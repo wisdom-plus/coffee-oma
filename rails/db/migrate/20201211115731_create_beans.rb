@@ -7,6 +7,7 @@ class CreateBeans < ActiveRecord::Migration[6.0]
       t.string :purification
       t.string :country
       t.string :area
+      t.text :description
       t.timestamps
     end
   end

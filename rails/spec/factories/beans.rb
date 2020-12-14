@@ -5,6 +5,7 @@
 #  id           :bigint           not null, primary key
 #  area         :string(255)
 #  country      :string(255)
+#  description  :text(65535)
 #  name         :string(255)
 #  purification :string(255)
 #  roast        :integer          default(0), not null
