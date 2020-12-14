@@ -16,9 +16,6 @@
 class Bean < ApplicationRecord
   enum roast: [ "焙煎度不明", "生豆","ミディアム","ハイ","シティ","フルシティ","フレンチ","イタリアン"]
 
-  validates :name, :area, :roast, presence: true
-  validates :roast, numericality: {
-    greater_than_or_equal_to: 0,
-    less_than_or_equal_to: 7
-  }
+  validates :name, :country, :roast, presence: true
+
 end

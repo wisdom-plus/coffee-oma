@@ -1,2 +1,50 @@
-h1 Beans#show
-p Find me in app/views/beans/show.html.slim
+.ui.grid
+  .column
+    .ui.breadcrumb
+      =link_to 'Home', root_path, class: 'section'
+      i.right.chevron.icon.devider
+      =link_to '一覧', beans_path, class: 'section'
+      i.right.chevron.icon.devider
+      .active.section コーヒー豆の詳細
+.ui.middle.aligned.center.aligned.grid
+  .column
+    h1#title コーヒー豆の詳細
+.ui.vertical.stripe.segment
+    .ui.middle.aligned.stackable.grid.conteiner
+      .row
+        .six.wide.left.floated.column
+          / =image_tag "#{@product.imageurl}", class: "ui large bordered rounded image"
+        .ten.wide.column
+          table.ui.celled.table
+            thead
+              tr
+                th.center.aligned colspan=3  #{@bean.name}
+            tbody
+              tr
+                td.center.aligned 生産国
+                td.center.aligned #{@bean.country}
+              tr
+                td.center.aligned 地域
+                td.center.aligned #{@bean.area}
+              tr
+                td.center.aligned 焙煎
+                td.center.aligned #{@bean.roast}
+              tr
+                td.center.aligned 精製方法
+                td.center.aligned #{@bean.purification}
+              tr
+                td.cen colspan=3
+                  - unless @bean.url.present?
+                    =link_to '商品ページを見に行く', "#{@bean.url}", class: "circular ui red button"
+                  - else
+                    .circular.ui.button URLがありません
+      .row
+        .column
+          table.ui.celled.table
+            thead
+              tr
+                th 商品の説明文
+            tbody
+              tr
+                td.ui.text.container
+                  = simple_format(h(@bean.description))
