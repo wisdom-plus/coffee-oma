@@ -27,11 +27,13 @@
               = f.text_field :name, autofocus: true, placeholder: "name"
             .meta
               =f.label "生産国"
-              = f.text_field :area, autofocus: true, placeholder: "area"
+              = f.text_field :country, autofocus: true, placeholder: "country"
               =f.label "地域"
-              = f.text_field :purification, autofocus: true, placeholder: "purification"
+              = f.text_field :area, autofocus: true, placeholder: "area"
               = f.label "焙煎度"
               = f.select :roast, [["焙煎度不明","焙煎度不明"],["生豆","生豆"],["ミディアム","ミディアム"],["ハイ","ハイ"],["シティ","シティ"],["フルシティ","フルシティ"],["フレンチ","フレンチ"],["イタリアン","イタリアン"]], include_blank: "選択してください"
+              = f.label "精製方法"
+              = f.text_field :purification, autofocus: true, placeholder: "purification"
           .extra.content
             = f.label "商品のURL"
             = f.url_field :url, autofocus: true, placeholder: "url"

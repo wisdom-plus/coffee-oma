@@ -64,7 +64,7 @@
                 th 商品の説明文
             tbody
               tr
-                td
+                td.ui.text.container
                   = simple_format(h(@product.itemcaption))
   .ui.items
     -@reviews.each do |review|
