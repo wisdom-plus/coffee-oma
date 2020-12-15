@@ -7,6 +7,9 @@
 .ui.middle.aligned.center.aligned.grid.vertical.stripe
   .column
     h1#title コーヒー豆の一覧
+    h3
+      |　なければ
+      =link_to "こちらから登録", new_bean_path
 - if @beans.present?
   .ui.three.stackable.cards.segment.scroll#sidebar
     .ui.right.very.close.rail

@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @grinding = ["極細挽き","細引き","中細挽き","中挽き","中粗挽き","粗挽き"]
   end
 
   def show

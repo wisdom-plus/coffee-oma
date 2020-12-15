@@ -31,7 +31,7 @@
               =f.label "地域"
               = f.text_field :area, autofocus: true, placeholder: "area"
               = f.label "焙煎度"
-              = f.select :roast, [["焙煎度不明","焙煎度不明"],["生豆","生豆"],["ミディアム","ミディアム"],["ハイ","ハイ"],["シティ","シティ"],["フルシティ","フルシティ"],["フレンチ","フレンチ"],["イタリアン","イタリアン"]], include_blank: "選択してください"
+              = f.select :roast, @roast,include_blank: "選択してください", selected: "選択してください"
               = f.label "精製方法"
               = f.text_field :purification, autofocus: true, placeholder: "purification"
           .extra.content
