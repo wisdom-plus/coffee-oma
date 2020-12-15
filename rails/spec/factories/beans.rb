@@ -21,12 +21,12 @@
 FactoryBot.define do
   factory :bean do
     user
-    area {"サンパウロ"}
-    country {"ブラジル"}
-    description {"これはテストです"}
-    name {"コーヒー豆の名前"}
-    purification {"ナチェラル"}
-    roast {"シティ"}
-    url {"https://example.com"}
+    area { 'サンパウロ' }
+    country { 'ブラジル' }
+    description { 'これはテストです' }
+    name { 'コーヒー豆の名前' }
+    purification { 'ナチェラル' }
+    roast { 'シティ' }
+    url { 'https://example.com' }
   end
 end

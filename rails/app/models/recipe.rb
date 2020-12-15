@@ -42,6 +42,6 @@ class Recipe < ApplicationRecord
   private
 
     def set_time
-      self.time = (time1.present? && time2.present?) ? ((time1.to_i * 60) + time2.to_i) : nil
+      self.time = (time1.present? && time2.present? ? ((time1.to_i * 60) + time2.to_i) : nil)
     end
 end
