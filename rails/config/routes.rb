@@ -113,6 +113,14 @@
 #                                       PATCH      /recipes/:id(.:format)                                                                   recipes#update
 #                                       PUT        /recipes/:id(.:format)                                                                   recipes#update
 #                                       DELETE     /recipes/:id(.:format)                                                                   recipes#destroy
+#                                 beans GET        /beans(.:format)                                                                         beans#index
+#                                       POST       /beans(.:format)                                                                         beans#create
+#                              new_bean GET        /beans/new(.:format)                                                                     beans#new
+#                             edit_bean GET        /beans/:id/edit(.:format)                                                                beans#edit
+#                                  bean GET        /beans/:id(.:format)                                                                     beans#show
+#                                       PATCH      /beans/:id(.:format)                                                                     beans#update
+#                                       PUT        /beans/:id(.:format)                                                                     beans#update
+#                                       DELETE     /beans/:id(.:format)                                                                     beans#destroy
 #                     letter_opener_web            /letter_opener                                                                           LetterOpenerWeb::Engine
 #         rails_postmark_inbound_emails POST       /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST       /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
@@ -165,5 +173,6 @@ Rails.application.routes.draw do
   resources :messages, only: %i[create]
   resources :reports, only: %i[create]
   resources :recipes
+  resources :beans
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end

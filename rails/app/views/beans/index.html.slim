@@ -1,0 +1,32 @@
+.ui.grid
+  .column
+    .ui.breadcrumb
+      =link_to 'Home', root_path, class: 'section'
+      i.right.chevron.icon.devider
+      .active.section コーヒー豆一覧
+.ui.middle.aligned.center.aligned.grid.vertical.stripe
+  .column
+    h1#title コーヒー豆の一覧
+    h3
+      |　なければ
+      =link_to "こちらから登録", new_bean_path
+- if @beans.present?
+  .ui.three.stackable.cards.segment.scroll#sidebar
+    .ui.right.very.close.rail
+      .ui.segment.sticky
+        a href="#"
+          i.chevron.circle.up.icon Top
+    - @beans.each do |bean|
+      a.ui.fluid.link.card.post href= bean_path(bean.id)
+        / .image
+        /   img src="#{product.imageurl.url}"
+        .content
+          .herader =bean.name
+          .meta
+            span Area:  #{bean.country}
+            span Roast:  #{bean.roast}
+          .description
+            =bean.description
+        .extra.content
+  / = paginate @beans
+  .segment

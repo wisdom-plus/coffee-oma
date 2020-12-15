@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @grinding = %w[極細挽き 細引き 中細挽き 中挽き 中粗挽き 粗挽き]
   end
 
   def show
@@ -17,10 +18,11 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = current_user.recipe.new(recipe_params)
+    @recipe = current_user.recipes.new(recipe_params)
     if @recipe.save
       redirect_to "/users/#{current_user.id}/show"
     else
+      @grinding = %w[極細挽き 細挽き 中細挽き 中挽き 中粗挽き 粗挽き]
       render :new
     end
   end
