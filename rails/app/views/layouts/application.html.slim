@@ -10,6 +10,9 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body#wrapper
     .ui.vertical.inverted.sidebar.menu.left
+      a.item.hide href= recipes_path
+        i.clock.outline.icon
+        font style= "vertical-align: inherit;" タイムライン
       a.item href= products_path
         i.search.icon
         font style= "vertical-align: inherit;" アイテム一覧
@@ -17,9 +20,9 @@ html
         i.signal.icon
         font style= "vertical-align: inherit;" ランキング
       - if user_signed_in?
-        a.item href= new_product_path
+        a.item.hide href= new_recipe_path
           i.plus.icon
-          font style= "vertical-align: inherit;" アイテムを登録する
+          font style= "vertical-align: inherit;" レシピを登録する
         .ui.floating.dropdown.item
           i.user.icon
           font style= "vertical-align: inherit;" ユーザー
@@ -58,9 +61,6 @@ html
             i.signal.icon
             font style= "vertical-align: inherit;" ランキング
           - if user_signed_in?
-            a.item.hide href= new_product_path
-              i.plus.icon
-              font style= "vertical-align: inherit;" アイテムを登録する
             a.item.hide href= new_recipe_path
               i.plus.icon
               font style= "vertical-align: inherit;" レシピを登録する

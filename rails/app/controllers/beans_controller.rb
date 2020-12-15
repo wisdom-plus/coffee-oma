@@ -1,6 +1,7 @@
 class BeansController < ApplicationController
   def new
     @bean = Bean.new
+    @roast =["焙煎度不明","生豆","ミディアム","ハイ","シティ","フルシティ","フレンチ","イタリアン"]
   end
 
   def create
