@@ -33,7 +33,7 @@
               = f.label "焙煎度"
               = f.select :roast, @roast,include_blank: "選択してください", selected: "選択してください"
               = f.label "精製方法"
-              = f.text_field :purification, autofocus: true, placeholder: "purification"
+              = f.select :purification, ["ナチュラル","ウォッシュド","ハニー","スマトラ式"],include_blank: "選択してください", selected: "選択してください"
           .extra.content
             = f.label "商品のURL"
             = f.url_field :url, autofocus: true, placeholder: "url"

@@ -15,7 +15,7 @@ RSpec.describe 'Recipes', type: :system do
 
       it 'redirect user/show(recipe)' do
         fill_in 'powdergram', with: '22'
-        fill_in 'grinding',	with: '粗目'
+        select "極細挽き",from: "recipe_grinding"
         fill_in 'temperature', with: '95'
         fill_in 'recipe_time1', with: '2'
         fill_in 'recipe_time2', with: '45'
@@ -28,7 +28,7 @@ RSpec.describe 'Recipes', type: :system do
       it 'create recipe' do
         expect do
           fill_in 'powdergram', with: '22'
-          fill_in 'grinding',	with: '粗目'
+          select "極細挽き",from: "recipe_grinding"
           fill_in 'temperature', with: '95'
           fill_in 'recipe_time1', with: '2'
           fill_in 'recipe_time2', with: '45'
@@ -41,7 +41,7 @@ RSpec.describe 'Recipes', type: :system do
       it 'not create recipe' do
         expect do
           fill_in 'powdergram', with: ''
-          fill_in 'grinding',	with: '粗目'
+          select "極細挽き",from: "recipe_grinding"
           fill_in 'temperature', with: '95'
           fill_in 'recipe_time1', with: '2'
           fill_in 'recipe_time2', with: '45'
