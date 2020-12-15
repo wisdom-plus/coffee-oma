@@ -22,6 +22,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to "/users/#{current_user.id}/show"
     else
+      @grinding = ["極細挽き","細挽き","中細挽き","中挽き","中粗挽き","粗挽き"]
       render :new
     end
   end

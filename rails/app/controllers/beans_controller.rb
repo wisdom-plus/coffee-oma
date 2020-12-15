@@ -13,6 +13,7 @@ class BeansController < ApplicationController
       redirect_to beans_path
     else
       flash[:error] = "登録に失敗しました"
+      @roast =["焙煎度不明","生豆","ミディアム","ハイ","シティ","フルシティ","フレンチ","イタリアン"]
       render :new
     end
   end
