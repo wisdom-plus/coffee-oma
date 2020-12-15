@@ -3,17 +3,17 @@ class BeansController < ApplicationController
 
   def new
     @bean = Bean.new
-    @roast =["焙煎度不明","生豆","ミディアム","ハイ","シティ","フルシティ","フレンチ","イタリアン"]
+    @roast = %w[焙煎度不明 生豆 ミディアム ハイ シティ フルシティ フレンチ イタリアン]
   end
 
   def create
     @bean = current_user.beans.new(bean_params)
     if @bean.save
-      flash[:success] = "登録に成功しました"
+      flash[:success] = '登録に成功しました'
       redirect_to beans_path
     else
-      flash[:error] = "登録に失敗しました"
-      @roast =["焙煎度不明","生豆","ミディアム","ハイ","シティ","フルシティ","フレンチ","イタリアン"]
+      flash[:error] = '登録に失敗しました'
+      @roast = %w[焙煎度不明 生豆 ミディアム ハイ シティ フルシティ フレンチ イタリアン]
       render :new
     end
   end
@@ -22,14 +22,13 @@ class BeansController < ApplicationController
     @bean = Bean.find(params[:id])
   end
 
-
   def index
     @beans = Bean.all
   end
 
   private
 
-  def bean_params
-    params.require(:bean).permit(:area, :country, :name, :purification, :roast, :url, :description)
-  end
+    def bean_params
+      params.require(:bean).permit(:area, :country, :name, :purification, :roast, :url, :description)
+    end
 end
