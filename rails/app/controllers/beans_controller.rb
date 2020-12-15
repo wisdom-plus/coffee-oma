@@ -1,11 +1,13 @@
 class BeansController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create]
+
   def new
     @bean = Bean.new
     @roast =["焙煎度不明","生豆","ミディアム","ハイ","シティ","フルシティ","フレンチ","イタリアン"]
   end
 
   def create
-    @bean = Bean.new(bean_params)
+    @bean = current_user.beans.new(bean_params)
     if @bean.save
       flash[:success] = "登録に成功しました"
       redirect_to beans_path

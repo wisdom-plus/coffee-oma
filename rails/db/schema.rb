@@ -39,15 +39,17 @@ ActiveRecord::Schema.define(version: 2020_12_11_115731) do
   end
 
   create_table "beans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "roast", default: 0, null: false
     t.text "url"
     t.string "purification"
-    t.string "country"
+    t.string "country", null: false
     t.string "area"
     t.text "description"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_beans_on_user_id"
   end
 
   create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
