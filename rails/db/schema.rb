@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_11_115731) do
+ActiveRecord::Schema.define(version: 2020_12_18_045322) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -36,6 +36,21 @@ ActiveRecord::Schema.define(version: 2020_12_11_115731) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "bean_reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "acidity", default: 0, null: false
+    t.integer "sweet", default: 0, null: false
+    t.integer "rich", default: 0, null: false
+    t.integer "bitter", default: 0, null: false
+    t.integer "flavor", default: 0, null: false
+    t.bigint "user_id"
+    t.bigint "bean_id"
+    t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bean_id"], name: "index_bean_reviews_on_bean_id"
+    t.index ["user_id"], name: "index_bean_reviews_on_user_id"
   end
 
   create_table "beans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|

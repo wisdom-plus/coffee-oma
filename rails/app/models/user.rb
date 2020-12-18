@@ -34,6 +34,7 @@ class User < ApplicationRecord
   has_many :reports, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :review_likes, dependent: :destroy
+  has_many :bean_reviews, dependent: :destroy
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy, inverse_of: 'user'
