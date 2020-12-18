@@ -31,4 +31,5 @@ class Bean < ApplicationRecord
   validates :name, :country, :roast, presence: true
 
   belongs_to :user
+  has_many :bean_reviews, dependent: :destroy
 end
