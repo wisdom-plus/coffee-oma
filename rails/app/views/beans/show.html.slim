@@ -46,5 +46,32 @@
                 th 商品の説明文
             tbody
               tr
-                td.ui.text.container
+                td
                   = simple_format(h(@bean.description))
+.ui.items
+  - @bean_reviews.each do |review|
+    .ui.segment.review_item
+      h4.ui.header
+        / img.ui.circular.image src=
+        =review.user.username
+      .item
+        .content
+          .meta
+          span.date #{time_ago_in_words|(review.created_at)}前
+        .description
+          =simple_format(h(review.content))
+        .extra
+          a.ui.teal.label href= "/users/#{review.user.id}/show"
+            |ユーザーの詳細
+- if signed_in?
+  .ui.middle.aligned.center.aligned.grid
+    .column
+      h1.content レビューの投稿
+      =form_with model: @bean_review, url: bean_bean_reviews_path(@bean.id), class: "ui equal width form column", id: "review_form", method: :post,local: true do |f|
+        .fields
+          = f.label :content, class: "four wide field"
+          = f.text_area :content, placeholder: "content", class: "ten wide field"
+        .field
+          = f.submit "submit" , class: "large ui center floated positive button"
+- else
+  .segment
