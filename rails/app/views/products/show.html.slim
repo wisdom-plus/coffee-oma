@@ -1,111 +1,111 @@
-  .ui.grid
-    .column
-      .ui.breadcrumb
-        =link_to 'Home', root_path, class: 'section'
-        i.right.chevron.icon.devider
-        =link_to '一覧', products_path, class: 'section'
-        i.right.chevron.icon.devider
-        .active.section 詳細
+.ui.grid
+  .column
+    .ui.breadcrumb
+      =link_to 'Home', root_path, class: 'section'
+      i.right.chevron.icon.devider
+      =link_to '一覧', products_path, class: 'section'
+      i.right.chevron.icon.devider
+      .active.section 詳細
+.ui.middle.aligned.center.aligned.grid
+  .column
+    h1#title アイテムの詳細
+.ui.vertical.stripe.segment
+  .ui.middle.aligned.stackable.grid.conteiner
+    .row
+      .six.wide.left.floated.column
+        =image_tag "#{@product.imageurl}", class: "ui large bordered rounded image"
+      .ten.wide.column
+        table.ui.celled.table
+          thead
+            tr
+              th colspan=3  #{@product.itemname}
+          tbody
+            tr
+              td.center.aligned  価格
+              td.center.aligned
+                i.yen.icon #{@product.itemprice.to_s(:delimited)}
+            tr
+              td.center.aligned ブランド
+              td.center.aligned #{@product.shopname}
+            tr
+              td.center.aligned 評価
+              - unless @product.reviews.average(:rate).nil?
+                td.center.aligned#star
+                  =@product.reviews.average(:rate).floor(1)
+              - else
+                td.center.aligned
+                  |評価はまだありません
+            tr
+              td.center.aligned タグ
+              td.center.aligned
+                .ui.accordion.field
+                  - @product.tag_list.each do |tag|
+                    .ui.teal.tag.label#a_opacity
+                      =link_to tag, products_path(tag_name: tag)
+                  - if signed_in?
+                    .mini.compact.ui.right.floated.button.title#accordion タグを編集
+                    .content.field
+                      =form_with  url: product_path(@product.id), method: :put, local: true ,class: "ui mini form tag_form" do |f|
+                        .inline.field
+                          =f.text_field :tag_list, autofocus: true, placeholder: 'タグを追加登録'
+                          =f.submit '登録', class: "compact ui teal button"
+                        .ui.pointing.label.margin 単語を空白で区切ると複数のタグを登録できます。
+            tr
+              td.cen colspan=3
+                - unless @product.itemurl.empty?
+                  = link_to "商品を詳しく見る","#{@product.itemurl}",class: " circular ui red button"
+                #like_button
+                  = render partial:'share/like',locals: {like: @like, product: @product}
+    .row
+      .column
+        table.ui.celled.table
+          thead
+            tr
+              th 商品の説明文
+          tbody
+            tr
+              td
+                = simple_format(h(@product.itemcaption))
+.ui.items
+  -@reviews.each do |review|
+    .ui.segment.review_item
+      h4.ui.header
+        img.ui.circular.image src=review.user.icon alt="アイコン画像"
+        =review.user.username
+      .item
+        .content
+          h3.header =review.title
+          .meta.review_meta
+            span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
+            span.date #{time_ago_in_words(review.created_at)}前
+          .description
+            =simple_format(h(review.content))
+          .extra
+            a.ui.teal.label href= "/users/#{review.user.id}/show"
+              |ユーザーの詳細
+            div class="review_like_button_#{review.id} inline"
+              - if signed_in?
+                =render partial:'share/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
+            div class= "report_button_#{review.id} inline"
+              -if signed_in?
+                = render partial: "share/report", locals: {review: review}
+- if signed_in?
   .ui.middle.aligned.center.aligned.grid
     .column
-      h1#title アイテムの詳細
-  .ui.vertical.stripe.segment
-    .ui.middle.aligned.stackable.grid.conteiner
-      .row
-        .six.wide.left.floated.column
-          =image_tag "#{@product.imageurl}", class: "ui large bordered rounded image"
-        .ten.wide.column
-          table.ui.celled.table
-            thead
-              tr
-                th colspan=3  #{@product.itemname}
-            tbody
-              tr
-                td.center.aligned  価格
-                td.center.aligned
-                  i.yen.icon #{@product.itemprice.to_s(:delimited)}
-              tr
-                td.center.aligned ブランド
-                td.center.aligned #{@product.shopname}
-              tr
-                td.center.aligned 評価
-                - unless @product.reviews.average(:rate).nil?
-                  td.center.aligned#star
-                    =@product.reviews.average(:rate).floor(1)
-                - else
-                  td.center.aligned
-                    |評価はまだありません
-              tr
-                td.center.aligned タグ
-                td.center.aligned
-                  .ui.accordion.field
-                    - @product.tag_list.each do |tag|
-                      .ui.teal.tag.label#a_opacity
-                        =link_to tag, products_path(tag_name: tag)
-                    - if signed_in?
-                      .mini.compact.ui.right.floated.button.title#accordion タグを編集
-                      .content.field
-                        =form_with  url: product_path(@product.id), method: :put, local: true ,class: "ui mini form tag_form" do |f|
-                          .inline.field
-                            =f.text_field :tag_list, autofocus: true, placeholder: 'タグを追加登録'
-                            =f.submit '登録', class: "compact ui teal button"
-                          .ui.pointing.label.margin 単語を空白で区切ると複数のタグを登録できます。
-              tr
-                td.cen colspan=3
-                  - unless @product.itemurl.empty?
-                    = link_to "商品を詳しく見る","#{@product.itemurl}",class: " circular ui red button"
-                  #like_button
-                    = render partial:'share/like',locals: {like: @like, product: @product}
-      .row
-        .column
-          table.ui.celled.table
-            thead
-              tr
-                th 商品の説明文
-            tbody
-              tr
-                td.ui.text.container
-                  = simple_format(h(@product.itemcaption))
-  .ui.items
-    -@reviews.each do |review|
-      .ui.segment.review_item
-        h4.ui.header
-          img.ui.circular.image src=review.user.icon alt="アイコン画像"
-          =review.user.username
-        .item
-          .content
-            h3.header =review.title
-            .meta.review_meta
-              span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
-              span.date #{time_ago_in_words(review.created_at)}前
-            .description
-              =simple_format(h(review.content))
-            .extra
-              a.ui.teal.label href= "/users/#{review.user.id}/show"
-                |ユーザーの詳細
-              div class="review_like_button_#{review.id} inline"
-                - if signed_in?
-                  =render partial:'share/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
-              div class= "report_button_#{review.id} inline"
-                -if signed_in?
-                  = render partial: "share/report", locals: {review: review}
-  - if signed_in?
-    .ui.middle.aligned.center.aligned.grid
-      .column
-        h1.content レビューの投稿
-        =form_with model: @review, url: product_reviews_path(@product.id), class: "ui equal width form column", id: "review_form", method: :post,local: true do |f|
-          .fields
-            =f.label :title, "タイトル",class: "four wide field"
-            =f.text_field :title, placeholder: "title", class: "ten wide field"
-          .fields
-            =f.label :rate, class: "four wide field"
-            .ten.wide.field
-              .ui.star.rating#rating
-            =f.hidden_field(:rate)
-          .fields
-            =f.label :content, "レビュー内容", class: "four wide field"
-            =f.text_area :content, placeholder: "レビューの内容",class: "ten wide field"
-          .field
-            = f.submit '  submit  ', class: "large ui center floated positive button"
-  - else
-    .segment
+      h1.content レビューの投稿
+      =form_with model: @review, url: product_reviews_path(@product.id), class: "ui equal width form column", id: "review_form", method: :post,local: true do |f|
+        .fields
+          =f.label :title, "タイトル",class: "four wide field"
+          =f.text_field :title, placeholder: "title", class: "ten wide field"
+        .fields
+          =f.label :rate, class: "four wide field"
+          .ten.wide.field
+            .ui.star.rating#rating
+          =f.hidden_field(:rate)
+        .fields
+          =f.label :content, "レビュー内容", class: "four wide field"
+          =f.text_area :content, placeholder: "レビューの内容",class: "ten wide field"
+        .field
+          = f.submit '  submit  ', class: "large ui center floated positive button"
+- else
+  .segment

@@ -1,8 +1,4 @@
 class BeanReviewsController < ApplicationController
-  def new
-    @bean_review = Bean_review.new
-  end
-
 
   def create
     @bean_review = Object.new(params[:bean_review])
