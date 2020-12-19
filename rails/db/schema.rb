@@ -38,21 +38,6 @@ ActiveRecord::Schema.define(version: 2020_12_18_045322) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "bean_reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "acidity", default: 0, null: false
-    t.integer "sweet", default: 0, null: false
-    t.integer "rich", default: 0, null: false
-    t.integer "bitter", default: 0, null: false
-    t.integer "flavor", default: 0, null: false
-    t.bigint "user_id"
-    t.bigint "bean_id"
-    t.text "content", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["bean_id"], name: "index_bean_reviews_on_bean_id"
-    t.index ["user_id"], name: "index_bean_reviews_on_user_id"
-  end
-
   create_table "beans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.integer "roast", default: 0, null: false
@@ -173,6 +158,14 @@ ActiveRecord::Schema.define(version: 2020_12_18_045322) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "rate"
     t.integer "reviewlikes_count", default: 0, null: false
+    t.integer "acidity", default: 0
+    t.integer "sweet", default: 0
+    t.integer "rich", default: 0
+    t.integer "bitter", default: 0
+    t.integer "flavor", default: 0
+    t.string "type"
+    t.bigint "bean_id"
+    t.index ["bean_id"], name: "index_reviews_on_bean_id"
     t.index ["product_id"], name: "index_reviews_on_product_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

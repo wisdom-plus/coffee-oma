@@ -26,7 +26,7 @@
 #  index_reviews_on_user_id     (user_id)
 #
 FactoryBot.define do
-  factory :bean_review do
+  factory :product_review do
     
   end
 end
