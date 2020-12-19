@@ -25,8 +25,8 @@
 #  index_reviews_on_product_id  (product_id)
 #  index_reviews_on_user_id     (user_id)
 #
-FactoryBot.define do
-  factory :bean_review do
-    
-  end
+require 'rails_helper'
+
+RSpec.describe ProductReview, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

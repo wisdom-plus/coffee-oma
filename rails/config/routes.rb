@@ -113,6 +113,7 @@
 #                                       PATCH      /recipes/:id(.:format)                                                                   recipes#update
 #                                       PUT        /recipes/:id(.:format)                                                                   recipes#update
 #                                       DELETE     /recipes/:id(.:format)                                                                   recipes#destroy
+#                     bean_bean_reviews POST       /beans/:bean_id/bean_reviews(.:format)                                                   bean_reviews#create
 #                                 beans GET        /beans(.:format)                                                                         beans#index
 #                                       POST       /beans(.:format)                                                                         beans#create
 #                              new_bean GET        /beans/new(.:format)                                                                     beans#new

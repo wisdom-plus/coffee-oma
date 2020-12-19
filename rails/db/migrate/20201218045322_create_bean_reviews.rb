@@ -1,15 +1,11 @@
 class CreateBeanReviews < ActiveRecord::Migration[6.0]
   def change
-    create_table :bean_reviews do |t|
-      t.integer :acidity, null: false, default: 0
-      t.integer :sweet, null: false, default: 0
-      t.integer :rich, null: false, default: 0
-      t.integer :bitter, null: false, default: 0
-      t.integer :flavor, null: false, default: 0
-      t.references :user, foregin_key: true
-      t.references :bean, foregin_key: true
-      t.text :content, null: false
-      t.timestamps
-    end
+      add_column :reviews, :acidity, :integer, default: 0
+      add_column :reviews, :sweet, :integer, default: 0
+      add_column :reviews, :rich, :integer, default: 0
+      add_column :reviews, :bitter, :integer, default: 0
+      add_column :reviews, :flavor, :integer,  default: 0
+      add_column :reviews, :type, :string
+      add_reference :reviews, :bean, foregin_key: true
   end
 end
