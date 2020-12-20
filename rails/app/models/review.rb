@@ -3,35 +3,28 @@
 # Table name: reviews
 #
 #  id                :bigint           not null, primary key
-#  acidity           :integer          default(0)
-#  bitter            :integer          default(0)
 #  content           :text(65535)      not null
-#  flavor            :integer          default(0)
 #  rate              :float(24)
 #  reviewlikes_count :integer          default(0), not null
-#  rich              :integer          default(0)
-#  sweet             :integer          default(0)
 #  title             :string(255)      not null
-#  type              :string(255)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
-#  bean_id           :bigint
 #  product_id        :bigint
 #  user_id           :bigint
 #
 # Indexes
 #
-#  index_reviews_on_bean_id     (bean_id)
 #  index_reviews_on_product_id  (product_id)
 #  index_reviews_on_user_id     (user_id)
 #
 class Review < ApplicationRecord
-  belongs_to :user
-  belongs_to :product
+  belongs_to :product,foreign_key: "product_id"
+  belongs_to :user, foreign_key: "user_id"
   has_many :review_likes, dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_many :reports, dependent: :destroy
   counter_culture :product
+
   validates :title, :content, :user_id, :product_id, presence: true
   validates :rate, numericality: {
     greater_than_or_equal_to: 1,

@@ -30,7 +30,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :recipes, dependent: :destroy
   has_many :beans, dependent: :destroy
-  has_many :reviews, dependent: :destroy
+  has_many :reviews, dependent: :destroy, foreign_key: 'user_id'
   has_many :reports, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :review_likes, dependent: :destroy
