@@ -45,9 +45,11 @@ ActiveRecord::Schema.define(version: 2020_12_18_045322) do
     t.integer "bitter", default: 0
     t.integer "flavor", default: 0
     t.bigint "bean_id"
+    t.bigint "user_id"
     t.string "title", null: false
     t.text "content", null: false
     t.index ["bean_id"], name: "index_bean_reviews_on_bean_id"
+    t.index ["user_id"], name: "index_bean_reviews_on_user_id"
   end
 
   create_table "beans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|

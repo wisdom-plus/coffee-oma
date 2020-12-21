@@ -11,10 +11,15 @@
 #  sweet   :integer          default(0)
 #  title   :string(255)      not null
 #  bean_id :bigint
+#  user_id :bigint
 #
 # Indexes
 #
 #  index_bean_reviews_on_bean_id  (bean_id)
+#  index_bean_reviews_on_user_id  (user_id)
 #
 class BeanReview < ApplicationRecord
+  belongs_to :bean, foreign_key: "bean_id"
+  belongs_to :user, foreign_key: "user_id"
+  validates :title, :content, :acidity, :bitter, :flavor, :rich, :sweet, presence: true
 end

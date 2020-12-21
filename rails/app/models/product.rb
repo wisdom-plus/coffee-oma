@@ -16,7 +16,7 @@
 #  updated_at    :datetime         not null
 #
 class Product < ApplicationRecord
-  has_many :reviews, dependent: :destroy, foreign_key: "producut_id"
+  has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
   mount_uploader :imageurl, ImageurlUploader
   acts_as_taggable

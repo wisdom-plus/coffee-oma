@@ -7,6 +7,7 @@ class CreateBeanReviews < ActiveRecord::Migration[6.0]
       t.integer :bitter, default: 0
       t.integer :flavor,  default: 0
       t.references :bean, foregin_key: true
+      t.references :user, foregin_key: true
       t.string :title, null: false
       t.text :content, null: false
     end

@@ -71,6 +71,16 @@
         .fields
           = f.label :content, class: "four wide field"
           = f.text_area :content, placeholder: "content", class: "ten wide field"
+        .fields
+          = f.label :acidity, class: "four wide field"
+          .ten.wide.field
+            .ui.star.rating.formrating data-max-rating= "5"
+          = f.hidden_field(:acidity)
+        .fields
+          = f.label :rich, class: "four wide field"
+          .ten.wide.field
+            .ui.star.rating.formrating data-max-rating= "5"
+          = f.hidden_field(:rich)
         .field
           = f.submit "submit" , class: "large ui center floated positive button"
 - else

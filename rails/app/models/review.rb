@@ -18,8 +18,8 @@
 #  index_reviews_on_user_id     (user_id)
 #
 class Review < ApplicationRecord
-  belongs_to :product,foreign_key: "product_id"
-  belongs_to :user, foreign_key: "user_id"
+  belongs_to :product
+  belongs_to :user
   has_many :review_likes, dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_many :reports, dependent: :destroy

@@ -11,10 +11,12 @@
 #  sweet   :integer          default(0)
 #  title   :string(255)      not null
 #  bean_id :bigint
+#  user_id :bigint
 #
 # Indexes
 #
 #  index_bean_reviews_on_bean_id  (bean_id)
+#  index_bean_reviews_on_user_id  (user_id)
 #
 require 'rails_helper'
 
