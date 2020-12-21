@@ -46,6 +46,12 @@ $(document).on('turbolinks:load', function () {
       $('#review_rate').val(rating)
     }
   });
+  $('.formrating').rating({
+    maxRating: 5,
+    onRate: function (rating) {
+      $('#bean_review_acidity').val(rating)
+    }
+  });
   $('.read').rating('disable');
   if ($('#star').length) {
     $('#star').raty({

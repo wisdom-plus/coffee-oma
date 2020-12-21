@@ -1,7 +1,7 @@
 class BeanReviewsController < ApplicationController
 
   def create
-    @bean_review = Object.new(params[:bean_review])
+    @bean_review = Object.new(bean_review_params)
     if @bean_review.save
       flash[:success] = "登録に成功しました"
       redirect_to @bean_review
