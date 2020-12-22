@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2020_12_18_045322) do
     t.bigint "user_id"
     t.string "title", null: false
     t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["bean_id"], name: "index_bean_reviews_on_bean_id"
     t.index ["user_id"], name: "index_bean_reviews_on_user_id"
   end
