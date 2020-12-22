@@ -49,7 +49,8 @@ $(document).on('turbolinks:load', function () {
   $('.formrating').rating({
     maxRating: 5,
     onRate: function (rating) {
-      $('#bean_review_acidity').val(rating)
+      var form = $(this).data("taste");
+      $("#bean_review_" + form).val(rating)
     }
   });
   $('.read').rating('disable');
