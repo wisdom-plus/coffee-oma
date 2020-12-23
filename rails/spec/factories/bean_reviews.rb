@@ -29,7 +29,7 @@ FactoryBot.define do
     flavor {3}
     sweet {4}
     rich {5}
-    titile {"タイトル"}
+    title {"タイトル"}
     content {"コーヒー豆のレビュー内容"}
   end
 end

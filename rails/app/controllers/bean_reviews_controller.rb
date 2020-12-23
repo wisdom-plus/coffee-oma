@@ -7,7 +7,7 @@ class BeanReviewsController < ApplicationController
       redirect_to bean_path(@bean_review.bean_id)
     else
       flash[:error] = "登録に失敗しました"
-      render
+      redirect_to bean_path(@bean_review.bean_id)
     end
   end
 
