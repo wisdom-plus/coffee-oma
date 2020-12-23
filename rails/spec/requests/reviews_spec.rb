@@ -13,7 +13,7 @@ RSpec.describe 'Reviews', type: :request do
       product
     end
 
-    it 'request seccess' do
+    it 'request success' do
       post product_reviews_path(product.id), params: { review: review_params }
       expect(response).to have_http_status(:found)
     end
