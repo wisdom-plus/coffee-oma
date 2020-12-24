@@ -65,7 +65,7 @@
             |ユーザーの詳細
 - if signed_in?
   .ui.middle.aligned.center.aligned.grid
-    .column
+    .column.mb-12
       h1.content レビューの投稿
       =form_with model: @bean_review, url: bean_bean_reviews_path(@bean.id), class: "ui equal width form column", id: "bean_review_form", method: :post,local: true do |f|
         .fields

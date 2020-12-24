@@ -19,6 +19,5 @@
 #
 FactoryBot.define do
   factory :product_review do
-    
   end
 end

@@ -91,7 +91,7 @@
                 = render partial: "share/report", locals: {review: review}
 - if signed_in?
   .ui.middle.aligned.center.aligned.grid
-    .column
+    .column.mb-12
       h1.content レビューの投稿
       =form_with model: @review, url: product_reviews_path(@product.id), class: "ui equal width form column", id: "review_form", method: :post,local: true do |f|
         .fields
