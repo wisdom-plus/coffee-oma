@@ -46,5 +46,58 @@
                 th 商品の説明文
             tbody
               tr
-                td.ui.text.container
+                td
                   = simple_format(h(@bean.description))
+.ui.items
+  - @bean_reviews.each do |review|
+    .ui.segment.review_item
+      h4.ui.header
+        / img.ui.circular.image src=
+        =review.user.username
+      .item
+        .content
+          .meta
+            span.date #{time_ago_in_words(review.created_at)}前
+        .description
+          =simple_format(h(review.content))
+        .extra
+          a.ui.teal.label href= "/users/#{review.user.id}/show"
+            |ユーザーの詳細
+- if signed_in?
+  .ui.middle.aligned.center.aligned.grid
+    .column.mb-12
+      h1.content レビューの投稿
+      =form_with model: @bean_review, url: bean_bean_reviews_path(@bean.id), class: "ui equal width form column", id: "bean_review_form", method: :post,local: true do |f|
+        .fields
+          = f.label :title, class: "four wide field"
+          = f.text_field :title, placeholder: "title", class: "ten wide field"
+        .fields
+          = f.label "パラメータ", class: "four wide field"
+          .eleven.wide.field.inline.fields
+            .field
+              = f.label :acidity
+              .ui.star.rating.formrating data-max-rating= "5" data-taste="acidity"
+              = f.hidden_field(:acidity)
+            .field
+              = f.label :bitter
+              .ui.star.rating.formrating data-max-rating= "5" data-taste="bitter"
+              = f.hidden_field(:bitter)
+            .field
+              = f.label :rich
+              .ui.star.rating.formrating data-max-rating= "5" data-taste="rich"
+              = f.hidden_field(:rich)
+            .field
+              = f.label :flavor
+              .ui.star.rating.formrating data-max-rating= "5" data-taste="flavor"
+              = f.hidden_field(:flavor)
+            .field
+              = f.label :sweet
+              .ui.star.rating.formrating data-max-rating= "5" data-taste="sweet"
+              = f.hidden_field(:sweet)
+        .fields
+          = f.label :content, class: "four wide field"
+          = f.text_area :content, placeholder: "content", class: "ten wide field"
+        .field
+          = f.submit "submit" , class: "large ui center floated positive button"
+- else
+  .segment
