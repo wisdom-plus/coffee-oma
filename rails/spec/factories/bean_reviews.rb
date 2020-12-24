@@ -24,12 +24,12 @@ FactoryBot.define do
   factory :bean_review do
     user
     bean
-    bitter {1}
-    acidity {2}
-    flavor {3}
-    sweet {4}
-    rich {5}
-    title {"タイトル"}
-    content {"コーヒー豆のレビュー内容"}
+    bitter { 1 }
+    acidity { 2 }
+    flavor { 3 }
+    sweet { 4 }
+    rich { 5 }
+    title { 'タイトル' }
+    content { 'コーヒー豆のレビュー内容' }
   end
 end

@@ -175,7 +175,7 @@ Rails.application.routes.draw do
   resources :reports, only: %i[create]
   resources :recipes
   resources :beans do
-    resources :bean_reviews,only: %i[create]
+    resources :bean_reviews, only: %i[create]
   end
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
