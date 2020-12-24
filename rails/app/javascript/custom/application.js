@@ -46,6 +46,13 @@ $(document).on('turbolinks:load', function () {
       $('#review_rate').val(rating)
     }
   });
+  $('.formrating').rating({
+    maxRating: 5,
+    onRate: function (rating) {
+      var form = $(this).data("taste");
+      $("#bean_review_" + form).val(rating)
+    }
+  });
   $('.read').rating('disable');
   if ($('#star').length) {
     $('#star').raty({

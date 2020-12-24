@@ -20,6 +20,8 @@ class BeansController < ApplicationController
 
   def show
     @bean = Bean.find(params[:id])
+    @bean_reviews = BeanReview.where('bean_id= ?', @bean.id).includes([:user])
+    @bean_review = BeanReview.new
   end
 
   def index
