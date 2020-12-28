@@ -13,7 +13,7 @@
     .ui.middle.aligned.stackable.grid.conteiner
       .row
         .six.wide.left.floated.column
-          / =image_tag "#{@product.imageurl}", class: "ui large bordered rounded image"
+          =image_tag "#{@bean.image}", class: "ui large bordered rounded image"
         .ten.wide.column
           table.ui.celled.table
             thead
@@ -34,7 +34,7 @@
                 td.center.aligned #{@bean.purification}
               tr
                 td.cen colspan=3
-                  - unless @bean.url.present?
+                  - unless @bean.url.blank?
                     =link_to '商品ページを見に行く', "#{@bean.url}", class: "circular ui red button"
                   - else
                     .circular.ui.button URLがありません

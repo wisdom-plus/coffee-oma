@@ -3,7 +3,6 @@ class BeansController < ApplicationController
 
   def new
     @bean = Bean.new
-    @roast = %w[焙煎度不明 生豆 ミディアム ハイ シティ フルシティ フレンチ イタリアン]
   end
 
   def create
@@ -13,7 +12,6 @@ class BeansController < ApplicationController
       redirect_to beans_path
     else
       flash[:error] = '登録に失敗しました'
-      @roast = %w[焙煎度不明 生豆 ミディアム ハイ シティ フルシティ フレンチ イタリアン]
       render :new
     end
   end
@@ -31,6 +29,6 @@ class BeansController < ApplicationController
   private
 
     def bean_params
-      params.require(:bean).permit(:area, :country, :name, :purification, :roast, :url, :description)
+      params.require(:bean).permit(:area, :country, :name, :purification, :roast, :url, :description, :image)
     end
 end
