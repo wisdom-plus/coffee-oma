@@ -1,4 +1,5 @@
 # == Schema Information
+# Schema version: 20201228080513
 #
 # Table name: beans
 #
@@ -6,8 +7,9 @@
 #  area         :string(255)
 #  country      :string(255)      not null
 #  description  :text(65535)
+#  image        :string(255)
 #  name         :string(255)      not null
-#  purification :string(255)
+#  purification :integer          default("不明"), not null
 #  roast        :integer          default("焙煎度不明"), not null
 #  url          :text(65535)
 #  created_at   :datetime         not null

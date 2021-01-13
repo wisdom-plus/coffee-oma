@@ -13,7 +13,7 @@
     .ui.middle.aligned.stackable.grid.conteiner
       .row
         .six.wide.left.floated.column
-          / =image_tag "#{@product.imageurl}", class: "ui large bordered rounded image"
+          =image_tag "#{@bean.image}", class: "ui large bordered rounded image"
         .ten.wide.column
           table.ui.celled.table
             thead
@@ -33,8 +33,15 @@
                 td.center.aligned 精製方法
                 td.center.aligned #{@bean.purification}
               tr
+                td.center.aligned 評価
+                - unless @bean_reviews.empty?
+                  td.center.aligned
+                    canvas#chart width= "200" height= "100"
+                - else
+                  td.center.aligned まだ評価がありません
+              tr
                 td.cen colspan=3
-                  - unless @bean.url.present?
+                  - unless @bean.url.blank?
                     =link_to '商品ページを見に行く', "#{@bean.url}", class: "circular ui red button"
                   - else
                     .circular.ui.button URLがありません
@@ -52,10 +59,11 @@
   - @bean_reviews.each do |review|
     .ui.segment.review_item
       h4.ui.header
-        / img.ui.circular.image src=
+        img.ui.circular.image src= review.user.icon alt= "アイコン画像"
         =review.user.username
       .item
         .content
+          h3.header = review.title
           .meta
             span.date #{time_ago_in_words(review.created_at)}前
         .description
@@ -83,6 +91,10 @@
               .ui.star.rating.formrating data-max-rating= "5" data-taste="bitter"
               = f.hidden_field(:bitter)
             .field
+              = f.label :sweet
+              .ui.star.rating.formrating data-max-rating= "5" data-taste="sweet"
+              = f.hidden_field(:sweet)
+            .field
               = f.label :rich
               .ui.star.rating.formrating data-max-rating= "5" data-taste="rich"
               = f.hidden_field(:rich)
@@ -90,10 +102,6 @@
               = f.label :flavor
               .ui.star.rating.formrating data-max-rating= "5" data-taste="flavor"
               = f.hidden_field(:flavor)
-            .field
-              = f.label :sweet
-              .ui.star.rating.formrating data-max-rating= "5" data-taste="sweet"
-              = f.hidden_field(:sweet)
         .fields
           = f.label :content, class: "four wide field"
           = f.text_area :content, placeholder: "content", class: "ten wide field"
@@ -101,3 +109,4 @@
           = f.submit "submit" , class: "large ui center floated positive button"
 - else
   .segment
+script
