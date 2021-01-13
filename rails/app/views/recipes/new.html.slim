@@ -13,17 +13,6 @@
           次もおいしいコーヒーを淹れれるようにしましょう
       =form_with model: @recipe, url: recipes_path ,local: true,class: "ui mini form" do |f|
         .ui.centered.card.field.text-left#newcard
-          / .image#dimmer-product
-          /   img#img-prev src="/noimage.jpg"
-          /   .ui.bottom.right.attached.label#dimmer-button
-          /     i.icons
-          /       i.ui.large.camera.icon
-          /       i.ui.bottom.right.corner.add.icon
-          /   .ui.dimmer
-          /     = f.label :imageurl do
-          /       .ui.teal.button
-          /         |画像を追加する
-          /       = f.file_field :imageurl, autofocus: true, class: "file-form"
           .content
             .inline.fields
               =f.label "粉量"

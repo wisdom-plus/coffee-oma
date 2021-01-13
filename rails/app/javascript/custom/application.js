@@ -65,4 +65,26 @@ $(document).on('turbolinks:load', function () {
       readOnly: true
     });
   };
+  if ($('#chart').length) {
+    var ctx = document.getElementById('chart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['酸味', '苦味', '甘み', 'コク', '香り'],
+        datasets: [{
+          label: '',
+          data: gon.evaluation,
+          backgroundColor: "rgba(123,85,68,0.6)"
+        }]
+      },
+      options: {
+        scale: {
+          ticks: {
+            suggestedMin: 0,
+            suggestedMax: 5
+          }
+        }
+      }
+    });
+  };
 });
