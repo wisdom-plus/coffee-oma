@@ -14,9 +14,15 @@ html
       a.item.hide href= recipes_path
         i.clock.outline.icon
         font style= "vertical-align: inherit;" タイムライン
-      a.item href= products_path
+      .ui.floationg.dropdown.item
         i.search.icon
         font style= "vertical-align: inherit;" アイテム一覧
+        i.dropdown.icon
+          .menu
+            a.item href = products_path
+              font style= "vertical-align: inherit;" アイテム一覧
+            a.item href = beans_path
+              font style= "vertical-align: inherit;" コーヒー豆一覧
       a.item href = likes_path
         i.signal.icon
         font style= "vertical-align: inherit;" ランキング
@@ -55,9 +61,15 @@ html
           a.item.hide href= recipes_path
             i.clock.outline.icon
             font style= "vertical-align: inherit;" タイムライン
-          a.item.hide href= products_path
+          .ui.floating.dropdown.item
             i.search.icon
             font style= "vertical-align: inherit;" アイテム一覧
+            i.dropdown.icon
+            .menu
+              a.item href = products_path
+                font style= "vertical-align: inherit;" アイテム一覧
+              a.item href = beans_path
+                font style= "vertical-align: inherit;" コーヒー豆一覧
           a.item.hide href = likes_path
             i.signal.icon
             font style= "vertical-align: inherit;" ランキング

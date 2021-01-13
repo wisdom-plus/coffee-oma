@@ -38,9 +38,8 @@ class Bean < ApplicationRecord
   has_many :bean_reviews, dependent: :destroy
 
   def evaluations
-    ["acidity","bitter","sweet","rich","flavor"].map do |e|
+    %w[acidity bitter sweet rich flavor].map do |e|
       bean_reviews.average(e).to_s
     end
   end
-
 end
