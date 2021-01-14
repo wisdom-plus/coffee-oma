@@ -113,7 +113,6 @@ ActiveRecord::Schema.define(version: 2020_12_28_080513) do
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "itemname"
-    t.string "catchcopy"
     t.integer "itemprice"
     t.text "itemcaption"
     t.text "itemurl"

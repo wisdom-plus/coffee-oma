@@ -3,7 +3,6 @@
 # Table name: products
 #
 #  id            :bigint           not null, primary key
-#  catchcopy     :string(255)
 #  imageurl      :text(65535)
 #  itemcaption   :text(65535)
 #  itemname      :string(255)
