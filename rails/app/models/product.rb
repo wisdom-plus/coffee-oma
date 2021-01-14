@@ -3,7 +3,6 @@
 # Table name: products
 #
 #  id            :bigint           not null, primary key
-#  catchcopy     :string(255)
 #  imageurl      :text(65535)
 #  itemcaption   :text(65535)
 #  itemname      :string(255)
@@ -21,7 +20,7 @@ class Product < ApplicationRecord
   mount_uploader :imageurl, ImageurlUploader
   acts_as_taggable
 
-  validates :itemname, :itemprice, :shopname, :itemcaption, :catchcopy, presence: true
+  validates :itemname, :itemprice, :shopname, :itemcaption, presence: true
 
   def self.tag_search(tagname)
     tagged_with(tagname.to_s)
