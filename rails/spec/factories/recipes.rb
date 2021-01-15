@@ -4,7 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  amount      :integer          not null
-#  grinding    :string(255)      not null
+#  grinding    :integer          default(0), not null
 #  powdergram  :integer          not null
 #  temperature :integer          not null
 #  time        :integer          not null
