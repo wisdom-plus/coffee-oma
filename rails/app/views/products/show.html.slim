@@ -49,7 +49,7 @@
                         .inline.field
                           =f.text_field :tag_list, autofocus: true, placeholder: 'タグを追加登録'
                           =f.submit '登録', class: "compact ui teal button"
-                        .ui.pointing.label.margin 単語を空白で区切ると複数のタグを登録できます。
+                        .ui.pointing.label.margin 単語を半角スペースで区切ると複数のタグを登録できます。
             tr
               td.cen colspan=3
                 - unless @product.itemurl.empty?

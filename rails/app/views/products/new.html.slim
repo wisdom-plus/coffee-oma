@@ -39,7 +39,7 @@
           .extra.content
             =f.label :tag_list
             =f.text_field :tag_list, value: 'コーヒー ',autofocus: true, placeholder: 'tag-name'
-            .ui.pointing.label 単語を空白で区切ると複数のタグを登録できます。
+            .ui.pointing.label 単語を半角スペースで区切ると複数のタグを登録できます。
         table.ui.celled.table
           thead
             tr
@@ -49,12 +49,4 @@
               td
                 = f.text_area :itemcaption, autofocus: true , placeholder: "item-caption"
         =f.submit 'submit', class: "ui teal submit button"
-  -if @products
-    .page-load-status
-      .ui.segment.infinite-scroll-request
-        .ui.active.inverted.dimmer
-          .ui.medium.text.loader
-            |読み込み中です
-      .infinite-scroll-last
-    =paginate @products
-
+.grid
