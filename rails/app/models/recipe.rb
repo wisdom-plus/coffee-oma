@@ -6,23 +6,13 @@
 #  amount      :integer          not null
 #  grinding    :string(255)      not null
 #  powdergram  :integer          not null
-#  status      :boolean          default(FALSE)
 #  temperature :integer          not null
 #  time        :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  user_id     :bigint
-#
-# Indexes
-#
-#  index_recipes_on_user_id  (user_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (user_id => users.id)
 #
 class Recipe < ApplicationRecord
-  belongs_to :user
+  belongs_to :bean_review
   validates :powdergram, :grinding, :temperature, :time, :amount, presence: true
   validates :time, :temperature, :powdergram, :amount, numericality: {
     greater_than_or_equal_to: 0

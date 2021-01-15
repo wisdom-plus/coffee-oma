@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
   def index
-    @recipes = Recipe.where(['status = ?', true])
+    @recipes = Recipe.all
   end
 
   def new
@@ -22,7 +22,6 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to "/users/#{current_user.id}/show", notice: '登録に成功しました'
     else
-      @grinding = %w[極細挽き 細挽き 中細挽き 中挽き 中粗挽き 粗挽き]
       flash.now[:alert] = '登録に失敗しました'
       render :new
     end
