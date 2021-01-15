@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_082343) do
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "powdergram", null: false
-    t.string "grinding", null: false
+    t.integer "grinding", default: 0, null: false
     t.integer "temperature", null: false
     t.integer "time", null: false
     t.integer "amount", null: false

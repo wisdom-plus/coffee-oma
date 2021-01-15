@@ -4,7 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  amount      :integer          not null
-#  grinding    :string(255)      not null
+#  grinding    :integer          default(0), not null
 #  powdergram  :integer          not null
 #  temperature :integer          not null
 #  time        :integer          not null
@@ -18,6 +18,7 @@ class Recipe < ApplicationRecord
     greater_than_or_equal_to: 0
   }
   attr_writer :time1, :time2
+  enum grinding: { 極細挽き: 0, 細引き: 1, 中細挽き: 2, 中挽き: 3, 中粗挽き: 4, 粗挽き:5, 極粗挽き: 6}
 
   before_validation :set_time
 

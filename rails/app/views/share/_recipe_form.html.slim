@@ -7,7 +7,7 @@
           = f.number_field :powdergram, autofocus: true, placeholder: "powdergram", min: 0
         =f.label "挽き目"
         .field
-          =f.select :grinding,@grinding,include_blank: "選択してください", selected: "選択してください"
+          =f.select :grinding,Recipe.grinding.keys.map{|k| [k,k]},include_blank: "選択してください", selected: "選択してください"
         =f.label "湯温"
         .field
           = f.number_field :temperature,autofocus: true, placeholder: "temperature", max: 100
