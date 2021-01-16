@@ -132,6 +132,8 @@ ActiveRecord::Schema.define(version: 2021_01_15_082343) do
     t.integer "amount", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "bean_review_id"
+    t.index ["bean_review_id"], name: "index_recipes_on_bean_review_id"
   end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -238,6 +240,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_082343) do
   add_foreign_key "notifications", "reviews"
   add_foreign_key "notifications", "users", column: "visited_id"
   add_foreign_key "notifications", "users", column: "visitor_id"
+  add_foreign_key "recipes", "bean_reviews"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
   add_foreign_key "reports", "reviews"
