@@ -1,21 +1,20 @@
-=form_with model: recipe, url: bean_bean_reviews_path(bean.id) ,local: true,class: "ui mini form" do |f|
-  .ui.centered.card.field.text-left#newcard
-    .content
-      .inline.fields
-        =f.label "粉量"
-        .field
-          = f.number_field :powdergram, autofocus: true, placeholder: "powdergram", min: 0
-        =f.label "挽き目"
-        .field
-          =f.select :grinding,Recipe.grindings.keys.map{|k| [k,k]},include_blank: "選択してください", selected: "選択してください"
-        =f.label "湯温"
-        .field
-          = f.number_field :temperature,autofocus: true, placeholder: "temperature", max: 100
-      .inline.fields
-        =f.label "抽出時間"
-        .four.wide.field
-          = f.number_field :time1, autofocus: true, placeholder: "min", min: 0, max: 10
-          = f.number_field :time2, autofocus: true, placeholder: "sec", min: 0, max: 60
-        = f.label "抽出量"
-        .three.wide.field
-          = f.number_field :amount, autofocus: true, placeholder: "amount",min: 0, step: 10
+.ui.centered.card.field.text-left.transition.hidden#newcard
+  .content
+    .inline.fields
+      =f.label "粉量"
+      .field
+        = f.number_field :powdergram, autofocus: true, placeholder: "powdergram", min: 0
+      =f.label "挽き目"
+      .field
+        =f.select :grinding,Recipe.grindings.keys.map{|k| [k,k]},include_blank: "選択してください", selected: "選択してください"
+      =f.label "湯温"
+      .field
+        = f.number_field :temperature,autofocus: true, placeholder: "temperature", max: 100
+    .inline.fields
+      =f.label "抽出時間"
+      .four.wide.field
+        = f.number_field :time1, autofocus: true, placeholder: "min", min: 0, max: 10
+        = f.number_field :time2, autofocus: true, placeholder: "sec", min: 0, max: 60
+      = f.label "抽出量"
+      .three.wide.field
+        = f.number_field :amount, autofocus: true, placeholder: "amount",min: 0, step: 10

@@ -4,27 +4,10 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
-  def new
-    @recipe = Recipe.new
-  end
-
-  def show
-    @recipe = Recipe.find(params[:id])
-  end
-
   def edit
     @recipe = Recipe.find(params[:id])
   end
 
-  def create
-    @recipe = current_user.recipes.new(recipe_params)
-    if @recipe.save
-      redirect_to "/users/#{current_user.id}/show", notice: '登録に成功しました'
-    else
-      flash.now[:alert] = '登録に失敗しました'
-      render :new
-    end
-  end
 
   def destroy
     @recipe = Recipe.find(params[:id])
@@ -45,10 +28,4 @@ class RecipesController < ApplicationController
       render :edit
     end
   end
-
-  private
-
-    def recipe_params
-      params.require(:recipe).permit(:powdergram, :grinding, :temperature, :time, :amount, :time1, :time2, :status)
-    end
 end
