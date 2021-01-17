@@ -105,26 +105,13 @@
         .fields
           = f.label :content, class: "four wide field"
           = f.text_area :content, placeholder: "content", class: "ten wide field"
-        .fields
-          .ui.centered.card.field.text-left#newcard
-            .content
-              .inline.fields
-                =f.label "粉量"
-                .field
-                  = f.number_field :powdergram, autofocus: true, placeholder: "powdergram", min: 0
-                =f.label "挽き目"
-                .field
-                  =f.select :grinding,Recipe.grindings.keys.map{|k| [k,k]},include_blank: "選択してください", selected: "選択してください"
-                =f.label "湯温"
-                .field
-                  = f.number_field :temperature,autofocus: true, placeholder: "temperature", max: 100
-              .inline.fields
-                =f.label "抽出時間"
-                .four.wide.field
-                  = f.number_field :time1, autofocus: true, placeholder: "min", min: 0, max: 10
-                  = f.number_field :time2, autofocus: true, placeholder: "sec", min: 0, max: 60
-                = f.label "抽出量"
-                .three.wide.field
-                  = f.number_field :amount, autofocus: true, placeholder: "amount",min: 0, step: 10
+        .fields.ui.accordion
+          .title#accordion.four.wide.field
+            i.dropdown.icon
+            font style="vertical-align: inherit;"
+              font style="vertical-align: inherit;"
+                |抽出レシピを登録する
+          .eleven.wide.field.inline.field
+            = render partial: "share/recipe_form", locals: {f: f}
         .field
           = f.submit "submit" , class: "large ui center floated positive button"
