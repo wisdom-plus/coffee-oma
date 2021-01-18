@@ -1,11 +1,11 @@
 class BeanReviewsController < ApplicationController
   def create
-    @bean_review = current_user.bean_reviews.new(bean_review_params)
-    if @bean_review.save && recipe_params != nil
-      @recipe = @bean_review.create_recipe(recipe_params)
+    @bean_review = current_user.bean_reviews.create(bean_review_params)
+    @recipe = @bean_review.build_recipe(recipe_params)
+    if @recipe.save
       flash[:notice] = '登録に成功しました'
-    elsif @bean_review.save && recipe_params == nil
-      flash[:notice] = 'レシピの登録に失敗しました'
+    elsif @bean_review.save
+      flash[:notice] = 'レビューの登録に成功しました。レシピの登録に失敗しました'
     else
       flash[:alert] = 'レビューの登録に失敗しました'
     end
