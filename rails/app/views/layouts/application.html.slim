@@ -11,9 +11,9 @@ html
     script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
   body#wrapper
     .ui.vertical.inverted.sidebar.menu.left
-      a.item.hide href= recipes_path
-        i.clock.outline.icon
-        font style= "vertical-align: inherit;" タイムライン
+      / a.item.hide href= recipes_path
+      /   i.clock.outline.icon
+      /   font style= "vertical-align: inherit;" タイムライン
       .ui.floationg.dropdown.item
         i.search.icon
         font style= "vertical-align: inherit;" アイテム一覧
@@ -27,9 +27,6 @@ html
         i.signal.icon
         font style= "vertical-align: inherit;" ランキング
       - if user_signed_in?
-        a.item.hide href= new_recipe_path
-          i.plus.icon
-          font style= "vertical-align: inherit;" レシピを登録する
         .ui.floating.dropdown.item
           i.user.icon
           font style= "vertical-align: inherit;" ユーザー
@@ -58,9 +55,9 @@ html
         .ui.container
           =link_to root_path , class: "item", id: "logopadding" do
             =image_tag("/coffeeoma-logo.png", class: "ui tinysmall image")
-          a.item.hide href= recipes_path
-            i.clock.outline.icon
-            font style= "vertical-align: inherit;" タイムライン
+          / a.item.hide href= recipes_path
+          /   i.clock.outline.icon
+          /   font style= "vertical-align: inherit;" タイムライン
           .ui.floating.dropdown.item
             i.search.icon
             font style= "vertical-align: inherit;" アイテム一覧
@@ -74,9 +71,6 @@ html
             i.signal.icon
             font style= "vertical-align: inherit;" ランキング
           - if user_signed_in?
-            a.item.hide href= new_recipe_path
-              i.plus.icon
-              font style= "vertical-align: inherit;" レシピを登録する
             .right.menu
               .item.ui.floating.dropdown.hide
                 i.user.icon
