@@ -22,12 +22,11 @@
 #
 FactoryBot.define do
   factory :recipe do
-    user
+    bean_review
     amount { 220 }
-    grinding { '細かい' }
+    grinding { '中挽き' }
     powdergram { 18 }
     temperature { 92 }
     time { 180 }
-    status { false }
   end
 end
