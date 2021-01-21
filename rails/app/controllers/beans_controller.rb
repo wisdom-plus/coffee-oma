@@ -18,7 +18,7 @@ class BeansController < ApplicationController
 
   def show
     @bean = Bean.find(params[:id])
-    @bean_reviews = BeanReview.where('bean_id= ?', @bean.id).includes([:user])
+    @bean_reviews = BeanReview.where('bean_id= ?', @bean.id).includes([:user],[:recipe])
     @bean_review = BeanReview.new
     @recipe = Recipe.new
     return if @bean_reviews.empty?
