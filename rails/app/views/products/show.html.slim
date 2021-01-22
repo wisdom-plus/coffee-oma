@@ -66,6 +66,10 @@
             tr
               td
                 = simple_format(h(@product.itemcaption))
+.ui.dividing.header
+  font style="vertical-align: inherit;"
+    font style="vertical-align: inherit;"
+      |ユーザーレビュー
 .ui.items
   -@reviews.each do |review|
     .ui.segment.review_item
@@ -89,6 +93,7 @@
             div class= "report_button_#{review.id} inline"
               -if signed_in?
                 = render partial: "share/report", locals: {review: review}
+.ui.section.divider
 - if signed_in?
   .ui.middle.aligned.center.aligned.grid
     .column.mb-12
