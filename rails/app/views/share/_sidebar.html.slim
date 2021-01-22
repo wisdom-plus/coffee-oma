@@ -1,0 +1,21 @@
+.ui.left.demo.vertical.inverted.sidebar.labeled.icon.menu
+  - if user_signed_in?
+    .item
+      i.user.icon
+      font style= "vertical-align: inherit;" ユーザー
+    = link_to 'プロフィール',"/users/#{current_user.id}/show", class: "item"
+    = link_to 'ユーザーを編集', edit_user_registration_path, class:"item"
+    = link_to 'メッセージ一覧', rooms_path, class: "item"
+    = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "item spec-logout"
+    - if unchecked_notifications?
+      = link_to notifications_path, class: "ui item new_notification" do
+        i.icons
+          i.bell.outline.icon
+          i.bottom.right.corner.red.circle.icon
+    - else
+      =link_to notifications_path, class: "ui item" do
+        i.bell.outline.icon
+  - else
+      = link_to "ゲストログイン", users_guest_sign_in_path, method: :post,class: "item"
+      = link_to "ログイン",user_session_path,class: "item"
+      = link_to "新規登録", new_user_registration_path, class: "item"
