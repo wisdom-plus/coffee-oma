@@ -35,8 +35,8 @@
               tr
                 td.center.aligned 評価
                 - unless @bean_reviews.empty?
-                  td.center.aligned
-                    canvas#chart width= "200" height= "100"
+                  td.center.aligned.chart-container style = "position: relative; width: 400px; height: 150px;"
+                    canvas#chart
                 - else
                   td.center.aligned まだ評価がありません
               tr
@@ -55,6 +55,10 @@
               tr
                 td
                   = simple_format(h(@bean.description))
+.ui.dividing.header
+  font style="vertical-align: inherit;"
+    font style="vertical-align: inherit;"
+      |ユーザーレビュー
 .ui.items
   - @bean_reviews.each do |review|
     .ui.segment.review_item
@@ -66,11 +70,36 @@
           h3.header = review.title
           .meta
             span.date #{time_ago_in_words(review.created_at)}前
-        .description
-          =simple_format(h(review.content))
-        .extra
-          a.ui.teal.label href= "/users/#{review.user.id}/show"
-            |ユーザーの詳細
+          .description
+            =simple_format(h(review.content))
+          .extra
+            .ui.accordion.inline
+              .title
+                i.dropdown.icon
+                font style="vertical-align: inherit;"
+                  font style="vertical-align: inherit;"
+                    |抽出レシピを登録する
+              .content
+                table.ui.celled.definition.table
+                  tbody
+                    tr
+                      td.center.aligned.one.wide  粉量
+                      td.center.aligned.two.wide #{review.recipe.powdergram}
+                    tr
+                      td.center.aligned 挽き目
+                      td.center.aligned #{review.recipe.grinding}
+                    tr
+                      td.center.aligned 湯温
+                      td.center.aligned #{review.recipe.temperature}
+                    tr
+                      td.center.aligned 抽出時間
+                      td.center.aligned #{review.recipe.time}
+                    tr
+                      td.center.aligned 抽出量
+                      td.center.aligned.spec #{review.recipe.amount}
+            a.ui.teal.label href= "/users/#{review.user.id}/show"
+              |ユーザーの詳細
+.ui.section.divider
 - if signed_in?
   .ui.middle.aligned.center.aligned.grid
     .column.mb-12
@@ -106,7 +135,7 @@
           = f.label :content, class: "four wide field"
           = f.text_area :content, placeholder: "content", class: "ten wide field"
         .fields.ui.accordion
-          .title#accordion.four.wide.field
+          .four.wide.field.title#accordion
             i.dropdown.icon
             font style="vertical-align: inherit;"
               font style="vertical-align: inherit;"

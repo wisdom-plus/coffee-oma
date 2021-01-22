@@ -81,7 +81,8 @@ $(document).on('turbolinks:load', function () {
         scale: {
           ticks: {
             suggestedMin: 0,
-            suggestedMax: 5
+            suggestedMax: 5,
+            stepSize: 1
           }
         }
       }
