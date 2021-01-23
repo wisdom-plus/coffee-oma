@@ -3,7 +3,6 @@
 # Table name: products
 #
 #  id            :bigint           not null, primary key
-#  catchcopy     :string(255)
 #  imageurl      :text(65535)
 #  itemcaption   :text(65535)
 #  itemname      :string(255)
@@ -22,7 +21,6 @@ FactoryBot.define do
     shopname { 'コーヒーのお店' }
     itemurl { 'https://example.com' }
     itemcaption { 'itemの説明文が入ります' }
-    catchcopy { 'itemのキャッチコピーが入ります' }
     imageurl { Rack::Test::UploadedFile.new(Rails.root.join('spec/support/noimage.jpg')) }
     tag_list { 'コーヒー' }
   end

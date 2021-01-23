@@ -2,32 +2,33 @@
 #
 # Table name: recipes
 #
-#  id          :bigint           not null, primary key
-#  amount      :integer          not null
-#  grinding    :string(255)      not null
-#  powdergram  :integer          not null
-#  status      :boolean          default(FALSE)
-#  temperature :integer          not null
-#  time        :integer          not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  user_id     :bigint
+#  id             :bigint           not null, primary key
+#  amount         :integer          not null
+#  grinding       :integer          default("極細挽き"), not null
+#  powdergram     :integer          not null
+#  temperature    :integer          not null
+#  time           :integer          not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  bean_review_id :bigint
 #
 # Indexes
 #
-#  index_recipes_on_user_id  (user_id)
+#  index_recipes_on_bean_review_id  (bean_review_id)
 #
 # Foreign Keys
 #
-#  fk_rails_...  (user_id => users.id)
+#  fk_rails_...  (bean_review_id => bean_reviews.id)
 #
 class Recipe < ApplicationRecord
-  belongs_to :user
+  belongs_to :bean_review
   validates :powdergram, :grinding, :temperature, :time, :amount, presence: true
   validates :time, :temperature, :powdergram, :amount, numericality: {
     greater_than_or_equal_to: 0
   }
   attr_writer :time1, :time2
+
+  enum grinding: { 極細挽き: 0, 細挽き: 1, 中細挽き: 2, 中挽き: 3, 中粗挽き: 4, 粗挽き: 5, 極粗挽き: 6 }
 
   before_validation :set_time
 

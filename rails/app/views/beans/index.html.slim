@@ -10,6 +10,13 @@
     h3
       |　なければ
       =link_to "こちらから登録", new_bean_path
+    = search_form_for @q ,class: "ui mini form"do |f|
+      .eight.wide.field.form-centered
+        .ui.action.input
+          = f.search_field :name_cont, placeholder: "search"
+          = button_tag type: 'submit', class: "ui icon teal button" do
+            i.search.icon
+
 - if @beans.present?
   .ui.three.stackable.cards.segment.scroll#sidebar
     .ui.right.very.close.rail
@@ -18,8 +25,8 @@
           i.chevron.circle.up.icon Top
     - @beans.each do |bean|
       a.ui.fluid.link.card.post href= bean_path(bean.id)
-        / .image
-        /   img src="#{product.imageurl.url}"
+        .image
+          img src="#{bean.image.url}"
         .content
           .herader =bean.name
           .meta
@@ -28,5 +35,5 @@
           .description
             =bean.description
         .extra.content
-  / = paginate @beans
+  = paginate @beans
   .segment

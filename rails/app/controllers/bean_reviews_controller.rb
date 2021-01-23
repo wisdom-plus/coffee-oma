@@ -1,10 +1,13 @@
 class BeanReviewsController < ApplicationController
   def create
-    @bean_review = current_user.bean_reviews.new(bean_review_params)
-    if @bean_review.save
+    @bean_review = current_user.bean_reviews.create(bean_review_params)
+    @recipe = @bean_review.build_recipe(recipe_params)
+    if @recipe.save
       flash[:notice] = '登録に成功しました'
+    elsif @bean_review.save
+      flash[:notice] = 'レビューの登録に成功しました。レシピの登録に失敗しました'
     else
-      flash[:alert] = '登録に失敗しました'
+      flash[:alert] = 'レビューの登録に失敗しました'
     end
     redirect_to bean_path(@bean_review.bean_id)
   end
@@ -13,5 +16,9 @@ class BeanReviewsController < ApplicationController
 
     def bean_review_params
       params.require(:bean_review).permit(:acidity, :bitter, :content, :flavor, :rich, :sweet, :title).merge(bean_id: params[:bean_id])
+    end
+
+    def recipe_params
+      params.require(:bean_review).permit(:powdergram, :grinding, :temperature, :time, :amount, :time1, :time2)
     end
 end

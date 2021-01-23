@@ -11,7 +11,7 @@
   .segment.mb-12
     - if signed_in?
       .segment.mb-12#follow_button
-        =render partial: 'share/follow', locals: {user: @user, follow: @follow}
+        =render partial: 'shared/follow', locals: {user: @user, follow: @follow}
     .ui.label
       i.calendar.alternate.outline.icon
         =@user.created_at.strftime("%Y年%m月")

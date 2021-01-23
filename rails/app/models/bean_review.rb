@@ -21,6 +21,7 @@
 #  index_bean_reviews_on_user_id  (user_id)
 #
 class BeanReview < ApplicationRecord
+  has_one :recipe, dependent: :destroy
   belongs_to :bean
   belongs_to :user
   validates :title, :content, :acidity, :bitter, :flavor, :rich, :sweet, presence: true
