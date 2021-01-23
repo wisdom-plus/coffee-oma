@@ -16,7 +16,6 @@ RSpec.describe 'Products', type: :system do
         expect do
           fill_in 'item-name', with: 'コーヒーの器具の名前'
           fill_in 'shop-name', with: 'コーヒーのメーカー'
-          fill_in 'catchcopy', with: 'キャッチコピー'
           fill_in 'item-price', with: '1000'
           fill_in 'item-caption', with: 'アイテムの説明文が入ります'
           fill_in 'tag-name', with: 'コーヒー,豆'
@@ -27,7 +26,6 @@ RSpec.describe 'Products', type: :system do
       it 'redirect index(product)' do
         fill_in 'item-name', with: 'コーヒーの器具の名前'
         fill_in 'shop-name', with: 'コーヒーのメーカー'
-        fill_in 'catchcopy', with: 'キャッチコピー'
         fill_in 'item-price', with: '1000'
         fill_in 'item-caption', with: 'アイテムの説明文が入ります'
         fill_in 'tag-name', with: 'コーヒー,豆'

@@ -202,7 +202,7 @@ body,
   margin-bottom: 1rem;
 }
 
-.inverted.menu .toc.item {
+.inverted.menu .right.menu.toc {
   display: none;
 }
 
@@ -224,6 +224,14 @@ h1.ui.header{
   font-size: 3rem;
 }
 
+.mr-1rem{
+  margin-right: 1rem !important;
+}
+
+.mb-1rem{
+  margin-bottom: 1rem !important;
+}
+
 .m-3rem{
   margin: 3rem 0em !important;
 }
@@ -233,7 +241,7 @@ h1.ui.header{
 }
 
 .topfaceicon img{
-  width: 100px; /*任意のサイズ*/
+  width: 100px;
   height: auto;
 }
 .balloon_l.top .says:after {
@@ -246,11 +254,11 @@ h1.ui.header{
   margin: 0rem;
 }
 @media only screen and (max-width: 700px) {
-  .inverted.menu .toc.item {
+  .inverted.menu .right.menu.toc {
     display: block;
   }
 
-  .inverted.menu .item.hide {
+  .inverted.menu .right.menu.hide {
     display: none;
   }
 }

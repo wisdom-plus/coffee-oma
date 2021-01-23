@@ -10,57 +10,12 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
   body#wrapper
-    .ui.vertical.inverted.sidebar.menu.left
-      a.item.hide href= recipes_path
-        i.clock.outline.icon
-        font style= "vertical-align: inherit;" タイムライン
-      .ui.floationg.dropdown.item
-        i.search.icon
-        font style= "vertical-align: inherit;" アイテム一覧
-        i.dropdown.icon
-          .menu
-            a.item href = products_path
-              font style= "vertical-align: inherit;" アイテム一覧
-            a.item href = beans_path
-              font style= "vertical-align: inherit;" コーヒー豆一覧
-      a.item href = likes_path
-        i.signal.icon
-        font style= "vertical-align: inherit;" ランキング
-      - if user_signed_in?
-        a.item.hide href= new_recipe_path
-          i.plus.icon
-          font style= "vertical-align: inherit;" レシピを登録する
-        .ui.floating.dropdown.item
-          i.user.icon
-          font style= "vertical-align: inherit;" ユーザー
-          i.dropdown.icon
-          .left.menu
-            = link_to 'プロフィール',"/users/#{current_user.id}/show", class: "item"
-            = link_to 'ユーザーを編集', edit_user_registration_path, class:"item"
-            = link_to 'メッセージ一覧', rooms_path, class: "item"
-            = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "item"
-        - if unchecked_notifications?
-          = link_to notifications_path, class: "ui item new_notification" do
-            font style= "vertical-align: inherit;" 通知
-            i.icons
-              i.bell.outline.icon
-              i.bottom.right.corner.red.circle.icon
-        - else
-          =link_to notifications_path, class: "ui item" do
-            font style= "vertical-align: inherit;" 通知
-            i.bell.outline.icon
-      - else
-        = link_to "ゲストログイン", users_guest_sign_in_path, method: :post,class: "item"
-        = link_to "ログイン",user_session_path,class: "item"
-        = link_to "新規登録", new_user_registration_path, class: "item"
+    =render partial: 'shared/sidebar'
     .pusher
       .ui.main.fixed.teal.inverted.menu
         .ui.container
           =link_to root_path , class: "item", id: "logopadding" do
             =image_tag("/coffeeoma-logo.png", class: "ui tinysmall image")
-          a.item.hide href= recipes_path
-            i.clock.outline.icon
-            font style= "vertical-align: inherit;" タイムライン
           .ui.floating.dropdown.item
             i.search.icon
             font style= "vertical-align: inherit;" アイテム一覧
@@ -70,15 +25,12 @@ html
                 font style= "vertical-align: inherit;" アイテム一覧
               a.item href = beans_path
                 font style= "vertical-align: inherit;" コーヒー豆一覧
-          a.item.hide href = likes_path
+          a.item href = likes_path
             i.signal.icon
             font style= "vertical-align: inherit;" ランキング
-          - if user_signed_in?
-            a.item.hide href= new_recipe_path
-              i.plus.icon
-              font style= "vertical-align: inherit;" レシピを登録する
-            .right.menu
-              .item.ui.floating.dropdown.hide
+          .right.menu.hide
+            - if user_signed_in?
+              .item.ui.floating.dropdown
                 i.user.icon
                 font style= "vertical-align: inherit;" ユーザー
                 i.dropdown.icon
@@ -88,20 +40,19 @@ html
                   = link_to 'メッセージ一覧', rooms_path, class: "item"
                   = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "item spec-logout"
               - if unchecked_notifications?
-                = link_to notifications_path, class: "ui item new_notification hide" do
+                = link_to notifications_path, class: "ui item new_notification" do
                   i.icons
                     i.bell.outline.icon
                     i.bottom.right.corner.red.circle.icon
               - else
-                =link_to notifications_path, class: "ui item hide" do
+                =link_to notifications_path, class: "ui item" do
                   i.bell.outline.icon
-          - else
-            .right.menu
-              = link_to "ゲストログイン", users_guest_sign_in_path, method: :post,class: "item hide"
-              = link_to "ログイン",user_session_path,class: "item hide"
-              = link_to "新規登録", new_user_registration_path, class: "item hide"
-          .right.menu
-            a.toc.item
+            - else
+                = link_to "ゲストログイン", users_guest_sign_in_path, method: :post,class: "item"
+                = link_to "ログイン",user_session_path,class: "item"
+                = link_to "新規登録", new_user_registration_path, class: "item"
+          .right.menu.toc
+            a.item
                 i.sidebar.icon
       .ui.container.top-padding
         - if notice || alert
@@ -111,19 +62,4 @@ html
               font style= "vertical-align: inherit;" = notice if notice
               font style= "vertical-align: inherit;" = alert if alert
         = yield
-    footer.ui.inverted.vertical.footer.segment
-      .ui.container
-        .ui.stackable.inverted.divided.equal.height.stackable.grid
-          .three.wide.column
-            =link_to root_path , class: "item", id: "logopadding" do
-              =image_tag("/coffeeoma-logo.png", class: "ui smallmedium image")
-          .three.wide.column
-            .ui.inverted.link.list
-              a.item href=root_path トップページ
-              a.item href=private_policy_path プライベートポリシー
-              a.item href=policy_path 利用規約
-              a.item href=new_contact_path お問い合わせ
-          .three.wide.column
-            .ui.inverted.link.list
-              a.item href=products_path アイテムの一覧を見る
-              a.item href=new_product_path アイテムを登録する
+    =render partial: 'shared/footer'

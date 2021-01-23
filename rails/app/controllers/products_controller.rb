@@ -2,15 +2,6 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create update]
 
   def new
-    if params[:keyword]
-      rakuten_array(params[:keyword])
-      if @products_all.present?
-        @products = Kaminari.paginate_array(@products_all).page(params[:page]).per(9)
-      else
-        flash.now[:alert] = '関連するものが見つかりませんでした'
-        render :new
-      end
-    end
     @product = Product.new
   end
 
@@ -36,7 +27,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @review = Review.new
-    @reviews = Review.where('product_id = ?', @product.id).includes(:user)
+    @reviews = Review.where('product_id = ?', @product.id).includes(:user).page(params[:page]).per(5)
     @like = Like.find_by(user_id: current_user.id, product_id: params[:id]) if current_user
 
     return if @product.reviews.average(:rate).nil?
@@ -58,7 +49,7 @@ class ProductsController < ApplicationController
 
     def product_params
       params.require(:product).permit(
-        :itemname, :itemprice, :shopname, :catchcopy, :imageurl, :itemurl, :itemcaption
+        :itemname, :itemprice, :shopname, :imageurl, :itemurl, :itemcaption
       ).merge(tag_list: params[:product][:tag_list].split(' '))
     end
 end

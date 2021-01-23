@@ -84,6 +84,7 @@
 #                                       GET        /users/:id/show(.:format)                                                                users/registrations#show
 #                   users_guest_sign_in POST       /users/guest_sign_in(.:format)                                                           users/sessions#new_guest
 #                       product_reviews POST       /products/:product_id/reviews(.:format)                                                  reviews#create
+#                        product_review DELETE     /products/:product_id/reviews/:id(.:format)                                              reviews#destroy
 #                              products GET        /products(.:format)                                                                      products#index
 #                                       POST       /products(.:format)                                                                      products#create
 #                           new_product GET        /products/new(.:format)                                                                  products#new
@@ -105,15 +106,8 @@
 #                                  room GET        /rooms/:id(.:format)                                                                     rooms#show
 #                              messages POST       /messages(.:format)                                                                      messages#create
 #                               reports POST       /reports(.:format)                                                                       reports#create
-#                               recipes GET        /recipes(.:format)                                                                       recipes#index
-#                                       POST       /recipes(.:format)                                                                       recipes#create
-#                            new_recipe GET        /recipes/new(.:format)                                                                   recipes#new
-#                           edit_recipe GET        /recipes/:id/edit(.:format)                                                              recipes#edit
-#                                recipe GET        /recipes/:id(.:format)                                                                   recipes#show
-#                                       PATCH      /recipes/:id(.:format)                                                                   recipes#update
-#                                       PUT        /recipes/:id(.:format)                                                                   recipes#update
-#                                       DELETE     /recipes/:id(.:format)                                                                   recipes#destroy
 #                     bean_bean_reviews POST       /beans/:bean_id/bean_reviews(.:format)                                                   bean_reviews#create
+#                      bean_bean_review DELETE     /beans/:bean_id/bean_reviews/:id(.:format)                                               bean_reviews#destroy
 #                                 beans GET        /beans(.:format)                                                                         beans#index
 #                                       POST       /beans(.:format)                                                                         beans#create
 #                              new_bean GET        /beans/new(.:format)                                                                     beans#new
@@ -163,7 +157,7 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in' => 'users/sessions#new_guest'
   end
   resources :products, only: %i[new create index show update] do
-    resources :reviews, only: %i[create]
+    resources :reviews, only: %i[create destroy]
   end
   resources :likes, only: %i[create destroy index]
   resources :review_likes, only: %i[create destroy]
@@ -173,9 +167,8 @@ Rails.application.routes.draw do
   resources :rooms, only: %i[show create index]
   resources :messages, only: %i[create]
   resources :reports, only: %i[create]
-  resources :recipes
   resources :beans do
-    resources :bean_reviews, only: %i[create]
+    resources :bean_reviews, only: %i[create destroy]
   end
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
