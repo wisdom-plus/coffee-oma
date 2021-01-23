@@ -10,7 +10,7 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
   body#wrapper
-    =render partial: 'share/sidebar'
+    =render partial: 'shared/sidebar'
     .pusher
       .ui.main.fixed.teal.inverted.menu
         .ui.container
@@ -62,4 +62,4 @@ html
               font style= "vertical-align: inherit;" = notice if notice
               font style= "vertical-align: inherit;" = alert if alert
         = yield
-    =render partial: 'share/footer'
+    =render partial: 'shared/footer'

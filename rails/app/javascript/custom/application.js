@@ -26,7 +26,7 @@ $(document).on('turbolinks:load', function () {
       $('#img-prev').attr({ src: image });
     };
   });
-  if ($('.page_next').length) {
+  if ($('.page_next').length && $('.scroll').length) {
     var InfiniteScroll = require('infinite-scroll');
     var infScroll = new InfiniteScroll('.scroll', {
       path: ".page_next",

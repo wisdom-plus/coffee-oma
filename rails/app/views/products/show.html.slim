@@ -55,7 +55,7 @@
                 - unless @product.itemurl.empty?
                   = link_to "商品を詳しく見る","#{@product.itemurl}",class: " circular ui red button"
                 #like_button
-                  = render partial:'share/like',locals: {like: @like, product: @product}
+                  = render partial:'shared/like',locals: {like: @like, product: @product}
     .row
       .column
         table.ui.celled.table
@@ -89,10 +89,11 @@
               |ユーザーの詳細
             div class="review_like_button_#{review.id} inline"
               - if signed_in?
-                =render partial:'share/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
+                =render partial:'shared/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
             div class= "report_button_#{review.id} inline"
               -if signed_in?
-                = render partial: "share/report", locals: {review: review}
+                = render partial: "shared/report", locals: {review: review}
+= paginate @reviews
 .ui.section.divider
 - if signed_in?
   .ui.middle.aligned.center.aligned.grid
