@@ -18,16 +18,16 @@ class ProductsController < ApplicationController
   def index
     @q = Product.ransack(params[:q])
     @products = if params[:tag_name]
-                  Product.tag_search(params[:tag_name]).page(params[:page]).per(9)
+                  Product.tag_search(params[:tag_name]).page(params[:page]).per(INDEX_DISPALY_NUM)
                 else
-                  @q.result(distinct: true).page(params[:page]).per(9)
+                  @q.result(distinct: true).page(params[:page]).per(INDEX_DISPALY_NUM)
                 end
   end
 
   def show
     @product = Product.find(params[:id])
     @review = Review.new
-    @reviews = Review.where('product_id = ?', @product.id).includes(:user).page(params[:page]).per(5)
+    @reviews = Review.where('product_id = ?', @product.id).includes(:user).page(params[:page]).per(SHOW_DISPLAY_NUM)
     @like = Like.find_by(user_id: current_user.id, product_id: params[:id]) if current_user
 
     return if @product.reviews.average(:rate).nil?
