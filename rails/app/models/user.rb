@@ -97,6 +97,14 @@ class User < ApplicationRecord
     review_like&.destroy
   end
 
+  def create_review(review_params)
+    reviews.create(review_params)
+  end
+
+  def create_bean_review(review_params)
+    bean_reviews.create(review_params)
+  end
+
   def create_notification_follow(current_user)
     temp = Notification.where(['visitor_id = ? and visited_id = ? and action = ?', current_user.id, id, 'follow'])
     return if temp.present?
