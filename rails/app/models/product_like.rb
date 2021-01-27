@@ -13,9 +13,6 @@
 #
 #  index_likes_on_user_id  (user_id)
 #
-class Like < ApplicationRecord
-  belongs_to :user
-  belongs_to :product
-  validates :user_id, :product_id, presence: true
-  counter_culture :product
+class Product_like < Like
+
 end
