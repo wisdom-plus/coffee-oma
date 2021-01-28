@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   INDEX_DISPALY_NUM = 9
   SHOW_DISPLAY_NUM = 5
 
-
   def after_sign_in_path_for(_resource)
     products_path
   end

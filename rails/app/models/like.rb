@@ -15,7 +15,8 @@
 #
 class Like < ApplicationRecord
   belongs_to :user
-  belongs_to :product
+  belongs_to :product, optional: true
+  belongs_to :bean, optional: true
   validates :user_id, :product_id, presence: true
   counter_culture :product
 end

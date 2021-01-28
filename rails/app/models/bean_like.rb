@@ -13,6 +13,5 @@
 #
 #  index_likes_on_user_id  (user_id)
 #
-class Bean_like < Like
-
+class Beanlike < Like
 end
