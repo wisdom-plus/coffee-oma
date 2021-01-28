@@ -13,6 +13,5 @@
 #
 #  index_likes_on_user_id  (user_id)
 #
-class Product_like < Like
-
+class Productlike < Like
 end
