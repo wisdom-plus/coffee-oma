@@ -13,5 +13,7 @@
 #
 #  index_likes_on_user_id  (user_id)
 #
-class Productlike < Like
+class ProductLike < Like
+  belongs_to :product, optional: true, foreign_key: 'liked_id', inverse_of: :product
+  belongs_to :user
 end
