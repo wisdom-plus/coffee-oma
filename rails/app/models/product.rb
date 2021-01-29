@@ -17,6 +17,12 @@
 class Product < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :product_likes,
+           class_name: 'Like',
+           foreign_key: 'liked_id',
+           dependent: :destroy,
+           inverse_of: :like
+
   mount_uploader :imageurl, ImageurlUploader
   acts_as_taggable
 
