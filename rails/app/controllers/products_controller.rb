@@ -28,8 +28,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @review = Review.new
     @reviews = Review.where('product_id = ?', @product.id).includes(:user).page(params[:page]).per(SHOW_DISPLAY_NUM)
-    @like = Like.find_by(user_id: current_user.id, product_id: params[:id]) if current_user
-
+    @like = ProductLike.find_by(user_id: current_user.id, liked_id: params[:id]) if current_user
     return if @product.reviews.average(:rate).nil?
 
     gon.rate_average = @product.rate_average

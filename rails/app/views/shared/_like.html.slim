@@ -1,9 +1,9 @@
 - if signed_in?
   - if like.nil?
-    = link_to likes_path(product_id: product.id), method: :post, class:"circular ui green button", remote: true do
+    = link_to likes_path(liked_id: liked.id,type: liked.class), method: :post, class:"circular ui green button", remote: true do
       i.heart.icon
       | お気に入り登録
   - else
-    = link_to like_path(like.id), method: :delete, class:"circular ui green button", remote: true do
+    = link_to like_path(like.id, type: like.type), method: :delete, class:"circular ui green button", remote: true do
       i.heart.icon
       | お気に入り登録中
