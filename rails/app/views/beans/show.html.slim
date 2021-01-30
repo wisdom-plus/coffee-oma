@@ -45,6 +45,8 @@
                     =link_to '商品ページを見に行く', "#{@bean.url}", class: "circular ui red button"
                   - else
                     .circular.ui.button URLがありません
+                  #like_button
+                    = render partial:'shared/like',locals: {like: @like, liked: @bean}
       .row
         .column
           table.ui.celled.table
