@@ -32,7 +32,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :bean_reviews, dependent: :destroy
   has_many :reports, dependent: :destroy
-  has_many :likes,dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :bean_likes, dependent: :destroy
   has_many :product_likes, dependent: :destroy
   has_many :review_likes, dependent: :destroy
