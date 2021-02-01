@@ -10,6 +10,7 @@
 #  likes_count  :integer          default(0), not null
 #  name         :string(255)      not null
 #  purification :integer          default("不明"), not null
+#  review_count :integer          default(0), not null
 #  roast        :integer          default("焙煎度不明"), not null
 #  url          :text(65535)
 #  created_at   :datetime         not null
