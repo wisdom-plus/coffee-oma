@@ -1,6 +1,6 @@
 class BeanReviewsController < ApplicationController
   def create
-    @bean_review = current_user.bean_reviews.create(bean_review_params)
+    @bean_review = current_user.create_bean_review(bean_review_params)
     @recipe = @bean_review.build_recipe(recipe_params)
     if @recipe.save
       flash[:notice] = '登録に成功しました'

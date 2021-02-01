@@ -24,5 +24,13 @@ class BeanReview < ApplicationRecord
   has_one :recipe, dependent: :destroy
   belongs_to :bean
   belongs_to :user
-  validates :title, :content, :acidity, :bitter, :flavor, :rich, :sweet, presence: true
+  validates :title,
+            :content,
+            :acidity,
+            :bitter,
+            :flavor,
+            :rich,
+            :sweet,
+            presence: true
+  counter_culture :bean, column_name: 'review_count'
 end

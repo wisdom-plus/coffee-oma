@@ -18,7 +18,7 @@ class BeansController < ApplicationController
 
   def show
     @bean = Bean.find(params[:id])
-    @bean_reviews = BeanReview.where('bean_id= ?', @bean.id).includes([:user], [:recipe]).page(params[:page]).per(5)
+    @bean_reviews = BeanReview.where('bean_id= ?', @bean.id).includes([:user], [:recipe]).page(params[:page]).per(SHOW_DISPLAY_NUM)
     @bean_review = BeanReview.new
     @recipe = Recipe.new
     return if @bean_reviews.empty?
@@ -28,7 +28,7 @@ class BeansController < ApplicationController
 
   def index
     @q = Bean.ransack(params[:q])
-    @beans = @q.result(distinct: true).page(params[:page]).per(9)
+    @beans = @q.result(distinct: true).page(params[:page]).per(INDEX_DISPALY_NUM)
   end
 
   private

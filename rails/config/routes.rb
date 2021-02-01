@@ -19,6 +19,24 @@
 #                                       PATCH      /admin/admin_users/:id(.:format)                                                         admin/admin_users#update
 #                                       PUT        /admin/admin_users/:id(.:format)                                                         admin/admin_users#update
 #                                       DELETE     /admin/admin_users/:id(.:format)                                                         admin/admin_users#destroy
+#       batch_action_admin_bean_reviews POST       /admin/bean_reviews/batch_action(.:format)                                               admin/bean_reviews#batch_action
+#                    admin_bean_reviews GET        /admin/bean_reviews(.:format)                                                            admin/bean_reviews#index
+#                                       POST       /admin/bean_reviews(.:format)                                                            admin/bean_reviews#create
+#                 new_admin_bean_review GET        /admin/bean_reviews/new(.:format)                                                        admin/bean_reviews#new
+#                edit_admin_bean_review GET        /admin/bean_reviews/:id/edit(.:format)                                                   admin/bean_reviews#edit
+#                     admin_bean_review GET        /admin/bean_reviews/:id(.:format)                                                        admin/bean_reviews#show
+#                                       PATCH      /admin/bean_reviews/:id(.:format)                                                        admin/bean_reviews#update
+#                                       PUT        /admin/bean_reviews/:id(.:format)                                                        admin/bean_reviews#update
+#                                       DELETE     /admin/bean_reviews/:id(.:format)                                                        admin/bean_reviews#destroy
+#              batch_action_admin_beans POST       /admin/beans/batch_action(.:format)                                                      admin/beans#batch_action
+#                           admin_beans GET        /admin/beans(.:format)                                                                   admin/beans#index
+#                                       POST       /admin/beans(.:format)                                                                   admin/beans#create
+#                        new_admin_bean GET        /admin/beans/new(.:format)                                                               admin/beans#new
+#                       edit_admin_bean GET        /admin/beans/:id/edit(.:format)                                                          admin/beans#edit
+#                            admin_bean GET        /admin/beans/:id(.:format)                                                               admin/beans#show
+#                                       PATCH      /admin/beans/:id(.:format)                                                               admin/beans#update
+#                                       PUT        /admin/beans/:id(.:format)                                                               admin/beans#update
+#                                       DELETE     /admin/beans/:id(.:format)                                                               admin/beans#destroy
 #                       admin_dashboard GET        /admin/dashboard(.:format)                                                               admin/dashboard#index
 #           batch_action_admin_products POST       /admin/products/batch_action(.:format)                                                   admin/products#batch_action
 #                        admin_products GET        /admin/products(.:format)                                                                admin/products#index
@@ -29,6 +47,15 @@
 #                                       PATCH      /admin/products/:id(.:format)                                                            admin/products#update
 #                                       PUT        /admin/products/:id(.:format)                                                            admin/products#update
 #                                       DELETE     /admin/products/:id(.:format)                                                            admin/products#destroy
+#            batch_action_admin_recipes POST       /admin/recipes/batch_action(.:format)                                                    admin/recipes#batch_action
+#                         admin_recipes GET        /admin/recipes(.:format)                                                                 admin/recipes#index
+#                                       POST       /admin/recipes(.:format)                                                                 admin/recipes#create
+#                      new_admin_recipe GET        /admin/recipes/new(.:format)                                                             admin/recipes#new
+#                     edit_admin_recipe GET        /admin/recipes/:id/edit(.:format)                                                        admin/recipes#edit
+#                          admin_recipe GET        /admin/recipes/:id(.:format)                                                             admin/recipes#show
+#                                       PATCH      /admin/recipes/:id(.:format)                                                             admin/recipes#update
+#                                       PUT        /admin/recipes/:id(.:format)                                                             admin/recipes#update
+#                                       DELETE     /admin/recipes/:id(.:format)                                                             admin/recipes#destroy
 #            batch_action_admin_reviews POST       /admin/reviews/batch_action(.:format)                                                    admin/reviews#batch_action
 #                         admin_reviews GET        /admin/reviews(.:format)                                                                 admin/reviews#index
 #                                       POST       /admin/reviews(.:format)                                                                 admin/reviews#create

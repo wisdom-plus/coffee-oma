@@ -55,7 +55,7 @@
                 - unless @product.itemurl.empty?
                   = link_to "商品を詳しく見る","#{@product.itemurl}",class: " circular ui red button"
                 #like_button
-                  = render partial:'shared/like',locals: {like: @like, product: @product}
+                  = render partial:'shared/like',locals: {like: @like, liked: @product}
     .row
       .column
         table.ui.celled.table

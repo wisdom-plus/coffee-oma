@@ -33,8 +33,9 @@ class User < ApplicationRecord
   has_many :bean_reviews, dependent: :destroy
   has_many :reports, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :bean_likes, dependent: :destroy
+  has_many :product_likes, dependent: :destroy
   has_many :review_likes, dependent: :destroy
-  has_many :bean_reviews, dependent: :destroy
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy, inverse_of: 'user'
@@ -79,12 +80,21 @@ class User < ApplicationRecord
     relationships.find_by(follow_id: other_user.id)
   end
 
-  def create_like(like_product_id)
-    likes.find_or_create_by(product_id: like_product_id)
+  def create_product_like(like_id)
+    product_likes.find_or_create_by(liked_id: like_id)
   end
 
-  def destroy_like(like_id)
-    like = likes.find_by(id: like_id)
+  def destroy_product_like(like_id)
+    like = product_likes.find_by(id: like_id)
+    like&.destroy
+  end
+
+  def create_bean_like(like_id)
+    bean_likes.find_or_create_by(liked_id: like_id)
+  end
+
+  def destroy_bean_like(like_id)
+    like = bean_likes.find_by(id: like_id)
     like&.destroy
   end
 
@@ -95,6 +105,14 @@ class User < ApplicationRecord
   def destroy_review_like(reviewlike_id)
     review_like = review_likes.find_by(id: reviewlike_id)
     review_like&.destroy
+  end
+
+  def create_review(review_params)
+    reviews.create(review_params)
+  end
+
+  def create_bean_review(review_params)
+    bean_reviews.create(review_params)
   end
 
   def create_notification_follow(current_user)

@@ -2,6 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  INDEX_DISPALY_NUM = 9
+  SHOW_DISPLAY_NUM = 5
+
   def after_sign_in_path_for(_resource)
     products_path
   end
