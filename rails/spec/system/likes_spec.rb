@@ -5,12 +5,14 @@ RSpec.describe 'Likes', type: :system do
   let(:user1) { create(:user, username: 'test1', email: 'test1@example.com') }
   let(:product) { create(:product) }
   let(:product1) { create(:product, itemname: 'コーヒー豆の種類', likes_count: 2) }
-  let(:like) { create(:like, user: user, product: product) }
+  let(:bean) { create(:bean, user: user) }
+  let(:product_like) { create(:like, user: user, liked_id: product.id, type: 'ProductLike') }
+  let(:bean_like) { create(:like, user: user, liked_id: bean.id, type: 'BeanLike') }
 
   describe 'index' do
     before do
       user1
-      like
+      product_like
       product1
       visit likes_path
     end
@@ -30,10 +32,16 @@ RSpec.describe 'Likes', type: :system do
     context 'when login' do
       before do
         login(user, user.email, user.password)
-        visit product_path(product.id)
       end
 
-      it 'click like button' do
+      it 'click like button(product)' do
+        visit product_path(product.id)
+        click_on 'お気に入り登録'
+        expect(page).to have_link 'お気に入り登録中'
+      end
+
+      it 'click like button(bean)' do
+        visit bean_path(bean.id)
         click_on 'お気に入り登録'
         expect(page).to have_link 'お気に入り登録中'
       end
@@ -54,19 +62,26 @@ RSpec.describe 'Likes', type: :system do
     context 'when login' do
       before do
         login(user, user.email, user.password)
-        like
-        visit product_path(product.id)
+        product_like
+        bean_like
       end
 
-      it 'click like destroy button' do
+      it 'click like destroy button(product)' do
+        visit product_path(product.id)
         click_on 'お気に入り登録中'
+        expect(page).to have_link 'お気に入り登録'
+      end
+
+      it 'click like destroy button(bean)' do
+        visit bean_path(bean.id)
+        click_on 'お気に入り登録'
         expect(page).to have_link 'お気に入り登録'
       end
     end
 
     context 'when not login' do
       before do
-        like
+        product_like
         visit product_path(product.id)
       end
 

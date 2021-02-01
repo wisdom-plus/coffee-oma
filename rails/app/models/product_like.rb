@@ -13,6 +13,8 @@
 #
 #  index_likes_on_user_id  (user_id)
 #
-class Like < ApplicationRecord
+class ProductLike < Like
+  belongs_to :product, optional: true, foreign_key: 'liked_id', inverse_of: :product_likes
   belongs_to :user
+  counter_culture :product, column_name: 'likes_count'
 end
