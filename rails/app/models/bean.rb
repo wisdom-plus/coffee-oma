@@ -1,5 +1,4 @@
 # == Schema Information
-# Schema version: 20201228080513
 #
 # Table name: beans
 #
@@ -8,6 +7,7 @@
 #  country      :string(255)      not null
 #  description  :text(65535)
 #  image        :string(255)
+#  likes_count  :integer          default(0), not null
 #  name         :string(255)      not null
 #  purification :integer          default("不明"), not null
 #  roast        :integer          default("焙煎度不明"), not null
@@ -41,7 +41,7 @@ class Bean < ApplicationRecord
            class_name: 'Like',
            foreign_key: 'liked_id',
            dependent: :destroy,
-           inverse_of: :like
+           inverse_of: :bean
 
   def evaluations
     %w[acidity bitter sweet rich flavor].map do |e|
