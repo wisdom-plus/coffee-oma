@@ -21,7 +21,7 @@ class Product < ApplicationRecord
            class_name: 'Like',
            foreign_key: 'liked_id',
            dependent: :destroy,
-           inverse_of: :like
+           inverse_of: :product
 
   mount_uploader :imageurl, ImageurlUploader
   acts_as_taggable
