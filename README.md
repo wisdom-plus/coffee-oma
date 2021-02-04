@@ -24,7 +24,8 @@
 
 
 # ER図
-![DB](https://user-images.githubusercontent.com/48266893/100460240-36937700-310a-11eb-8cd0-4a8aa7b1ea76.png)
+![DB](https://user-images.githubusercontent.com/48266893/106903759-be66b480-673d-11eb-8fc9-19df78d57f38.png)
+
 
 ## 機能一覧
   - ユーザ機能
