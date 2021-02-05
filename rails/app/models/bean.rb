@@ -37,9 +37,7 @@ class Bean < ApplicationRecord
 
   belongs_to :user
   has_many :bean_reviews, dependent: :destroy
-  has_many :likes, dependent: :destroy
   has_many :bean_likes,
-           class_name: 'Like',
            foreign_key: 'liked_id',
            dependent: :destroy,
            inverse_of: :bean

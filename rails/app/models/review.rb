@@ -20,7 +20,11 @@
 class Review < ApplicationRecord
   belongs_to :product
   belongs_to :user
-  has_many :review_likes, dependent: :destroy
+  has_many :product_review_likes,
+            foreign_key: 'liked_id',
+            dependent: :destroy,
+            inverse_of: :review
+
   has_many :notifications, dependent: :destroy
   has_many :reports, dependent: :destroy
   counter_culture :product
@@ -32,7 +36,7 @@ class Review < ApplicationRecord
   }, presence: true
 
   def like_record(liker_id)
-    review_likes.find_by(user_id: liker_id)
+    product_review_likes.find_by(user_id: liker_id)
   end
 
   def create_notification_like(current_user)
