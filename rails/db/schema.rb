@@ -157,15 +157,6 @@ ActiveRecord::Schema.define(version: 2021_02_01_071659) do
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
-  create_table "review_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "review_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["review_id"], name: "index_review_likes_on_review_id"
-    t.index ["user_id"], name: "index_review_likes_on_user_id"
-  end
-
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "product_id"
