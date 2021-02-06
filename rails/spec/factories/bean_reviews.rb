@@ -2,18 +2,19 @@
 #
 # Table name: bean_reviews
 #
-#  id         :bigint           not null, primary key
-#  acidity    :integer          default(0)
-#  bitter     :integer          default(0)
-#  content    :text(65535)      not null
-#  flavor     :integer          default(0)
-#  rich       :integer          default(0)
-#  sweet      :integer          default(0)
-#  title      :string(255)      not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  bean_id    :bigint
-#  user_id    :bigint
+#  id                :bigint           not null, primary key
+#  acidity           :integer          default(0)
+#  bitter            :integer          default(0)
+#  content           :text(65535)      not null
+#  flavor            :integer          default(0)
+#  reviewlikes_count :integer          default(0), not null
+#  rich              :integer          default(0)
+#  sweet             :integer          default(0)
+#  title             :string(255)      not null
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  bean_id           :bigint
+#  user_id           :bigint
 #
 # Indexes
 #

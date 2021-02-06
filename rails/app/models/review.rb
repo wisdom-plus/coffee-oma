@@ -21,9 +21,9 @@ class Review < ApplicationRecord
   belongs_to :product
   belongs_to :user
   has_many :product_review_likes,
-            foreign_key: 'liked_id',
-            dependent: :destroy,
-            inverse_of: :review
+           foreign_key: 'liked_id',
+           dependent: :destroy,
+           inverse_of: :review
 
   has_many :notifications, dependent: :destroy
   has_many :reports, dependent: :destroy
