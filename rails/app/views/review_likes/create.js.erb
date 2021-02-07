@@ -1,1 +1,1 @@
-$('.review_like_button_<%=@review_like.review.id%>').html("<%= j(render partial: 'shared/review_like', locals: {review_like: @review_like, review: @review}) %>");
+$('.review_like_button_<%=@review_like.liked_id%>').html("<%= j(render partial: 'shared/review_like', locals: {review_like: @review_like, review: @review}) %>");
