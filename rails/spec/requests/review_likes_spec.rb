@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe 'ReviewLikes', type: :request do
   let(:user) { create(:user) }
   let(:product) { create(:product) }
-  let(:bean) { create(:bean, user: user)}
+  let(:bean) { create(:bean, user: user) }
   let(:review) { create(:review, user: user, product: product) }
-  let(:bean_review) { create(:bean_review, user: user, bean: bean)}
+  let(:bean_review) { create(:bean_review, user: user, bean: bean) }
   let(:product_review_like) { create(:like, user: user, liked_id: review.id, type: 'ProductReviewLike') }
   let(:bean_review_like) { create(:like, user: user, liked_id: bean_review.id, type: 'BeanReviewLike') }
 
@@ -53,7 +53,7 @@ RSpec.describe 'ReviewLikes', type: :request do
 
     it 'destroy like success(product)' do
       expect do
-        delete review_like_path(product_review_like.id,type: 'ProductReviewLike'), xhr: true
+        delete review_like_path(product_review_like.id, type: 'ProductReviewLike'), xhr: true
       end.to change(ProductReviewLike, :count).by(-1)
     end
 
@@ -64,7 +64,7 @@ RSpec.describe 'ReviewLikes', type: :request do
 
     it 'destroy like success(bean)' do
       expect do
-        delete review_like_path(bean_review_like.id,type: 'BeanReviewLike'), xhr: true
+        delete review_like_path(bean_review_like.id, type: 'BeanReviewLike'), xhr: true
       end.to change(BeanReviewLike, :count).by(-1)
     end
   end
