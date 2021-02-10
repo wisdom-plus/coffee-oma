@@ -194,6 +194,7 @@ Rails.application.routes.draw do
   resources :rooms, only: %i[show create index]
   resources :messages, only: %i[create]
   resources :reports, only: %i[create]
+  resources :histories, only: %i[index]
   resources :beans do
     resources :bean_reviews, only: %i[create destroy]
   end
