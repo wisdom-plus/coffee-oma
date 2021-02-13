@@ -126,6 +126,17 @@ class User < ApplicationRecord
     bean_reviews.create(review_params)
   end
 
+
+  def create_history(params)
+    h = if params[:controller] == 'products'
+          histories.find_or_create_by(product_id: params[:id])
+        elsif params[:controller] == 'beans'
+          histories.find_or_create_by(bean_id: params[:id])
+        end
+    h.update(updated_at: Time.zone.now)
+  end
+
+
   def create_notification_follow(current_user)
     temp = Notification.where(['visitor_id = ? and visited_id = ? and action = ?', current_user.id, id, 'follow'])
     return if temp.present?

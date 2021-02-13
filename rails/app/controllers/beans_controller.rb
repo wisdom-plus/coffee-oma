@@ -21,6 +21,7 @@ class BeansController < ApplicationController
     @bean_reviews = BeanReview.where('bean_id= ?', @bean.id).includes([:user], [:recipe]).page(params[:page]).per(SHOW_DISPLAY_NUM)
     @bean_review = BeanReview.new
     @recipe = Recipe.new
+    current_user.create_history(history_params)
     return if @bean_reviews.empty?
 
     gon.evaluation = @bean.evaluations
@@ -35,5 +36,9 @@ class BeansController < ApplicationController
 
     def bean_params
       params.require(:bean).permit(:area, :country, :name, :purification, :roast, :url, :description, :image)
+    end
+
+    def history_params
+      params.permit(:controller, :id)
     end
 end
