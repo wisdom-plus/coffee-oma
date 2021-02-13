@@ -133,6 +133,7 @@
 #                                  room GET        /rooms/:id(.:format)                                                                     rooms#show
 #                              messages POST       /messages(.:format)                                                                      messages#create
 #                               reports POST       /reports(.:format)                                                                       reports#create
+#                             histories GET        /histories(.:format)                                                                     histories#index
 #                     bean_bean_reviews POST       /beans/:bean_id/bean_reviews(.:format)                                                   bean_reviews#create
 #                      bean_bean_review DELETE     /beans/:bean_id/bean_reviews/:id(.:format)                                               bean_reviews#destroy
 #                                 beans GET        /beans(.:format)                                                                         beans#index

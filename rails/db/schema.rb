@@ -82,10 +82,12 @@ ActiveRecord::Schema.define(version: 2021_02_10_115127) do
 
   create_table "histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "show_id", null: false
-    t.string "controller_type", null: false
+    t.bigint "bean_id"
+    t.bigint "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["bean_id"], name: "index_histories_on_bean_id"
+    t.index ["product_id"], name: "index_histories_on_product_id"
     t.index ["user_id"], name: "index_histories_on_user_id"
   end
 
