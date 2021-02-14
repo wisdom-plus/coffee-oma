@@ -78,12 +78,20 @@
         - @like.each do |like|
           .ui.segment
             .ui.items
-              a.item href= product_path(like.product.id)
-                .ui.tiny.circular.image
-                  img src= like.product.imageurl
-                .content
-                  h3.header
-                    =like.product.itemname
+              - if like.type == 'ProductLike'
+                a.item href= product_path(like.product.id)
+                  .ui.tiny.circular.image
+                    img src= like.product.imageurl
+                  .content
+                    h3.header
+                      =like.product.itemname
+              - elsif like.type == 'BeanLike'
+                a.item href= bean_path(like.bean.id)
+                  .ui.tiny.circular.image
+                    img src= like.bean.image
+                  .content
+                    h3.header
+                      =like.bean.name
     .ui.bottom.attached.tab.segment data-tab= "third"
       - if @user.followings.empty?
         h4 まだフォローはしていません
