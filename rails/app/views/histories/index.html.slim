@@ -1,2 +1,33 @@
-h1 Histories#index
-p Find me in app/views/histories/index.html.slim
+.ui.grid
+  .column
+    .ui.breadcrumb
+      =link_to 'Home', root_path, class: 'section'
+      i.right.chevron.icon.devider
+      .active.section 履歴
+.ui.middle.aligned.center.aligned.grid.vertical.stripe
+  .column
+    h1#title 閲覧履歴
+
+- if @histories.present?
+  .ui.segment.scroll#sidebar
+    .ui.right.very.close.rail
+      .ui.segment.sticky
+        a href="#"
+          i.chevron.circle.up.icon Top
+    - @histories.each do |history|
+      .ui.segment
+        .item
+          - if history.product_id
+            a.item href= product_path(history.product.id)
+              .ui.tiny.circular.image
+                img src= history.product.imageurl
+              .content
+                h3.header
+                  =history.product.itemname
+          - elsif history.bean_id
+            a.item href= bean_path(history.bean.id)
+              .ui.tiny.circular.image
+                img src= history.bean.image
+              .content
+                h3.header
+                  =history.bean.name

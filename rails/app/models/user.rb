@@ -127,7 +127,7 @@ class User < ApplicationRecord
   end
 
 
-  def create_history(params)
+  def create_or_update_history(params)
     h = if params[:controller] == 'products'
           histories.find_or_create_by(product_id: params[:id])
         elsif params[:controller] == 'beans'
@@ -135,6 +135,8 @@ class User < ApplicationRecord
         end
     h.update(updated_at: Time.zone.now)
   end
+
+
 
 
   def create_notification_follow(current_user)
