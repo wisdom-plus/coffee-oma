@@ -17,6 +17,6 @@
 #
 FactoryBot.define do
   factory :history do
-    
+    user
   end
 end
