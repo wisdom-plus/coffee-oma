@@ -31,6 +31,8 @@
           .herader =product.itemname
           .meta
             span Brand:  #{product.shopname}
+          .description
+            =simple_format(h(product.itemcaption.truncate(50)))
         .extra.content
           i.yen.sign.icon =product.itemprice
   = paginate @products

@@ -8,26 +8,41 @@
   .column
     h1#title 閲覧履歴
 
-- if @histories.present?
-  .ui.segment.scroll#sidebar
-    .ui.right.very.close.rail
-      .ui.segment.sticky
-        a href="#"
-          i.chevron.circle.up.icon Top
+
+.ui.segment.scroll#sidebar
+  .ui.right.very.close.rail
+    .ui.segment.sticky
+      a href="#"
+        i.chevron.circle.up.icon Top
+  - if @histories.present?
     - @histories.each do |history|
       .ui.segment
         .item
           - if history.product_id
-            a.item href= product_path(history.product.id)
-              .ui.tiny.circular.image
+            a.ui.item.grid href= product_path(history.product.id)
+              .ui.tiny.circular.image.four.wide.column
                 img src= history.product.imageurl
-              .content
-                h3.header
+              .content.ten.wide.column
+                h2.header
                   =history.product.itemname
+                .meta
+                  span.mr-1rem Brand:  #{history.product.shopname}
+                  span #{time_ago_in_words(history.updated_at)}前
+                .description
+                  =simple_format(h(history.product.itemcaption.truncate(50)))
+
           - elsif history.bean_id
-            a.item href= bean_path(history.bean.id)
-              .ui.tiny.circular.image
+            a.ui.item.grid href= bean_path(history.bean.id)
+              .ui.tiny.circular.image.four.wide.column
                 img src= history.bean.image
-              .content
-                h3.header
+              .content.ten.wide.column
+                h2.header
                   =history.bean.name
+                .meta
+                  span.mr-1rem Area:  #{history.bean.country}
+                  span.mr-1rem Roast:  #{history.bean.roast}
+                  span #{time_ago_in_words(history.updated_at)}前
+                .description
+                  =simple_format(h(history.bean.description.truncate(50)))
+
+.segment
