@@ -33,7 +33,7 @@
             span Area:  #{bean.country}
             span Roast:  #{bean.roast}
           .description
-            =bean.description
+            =simple_format(h(bean.description.truncate(30)))
         .extra.content
   = paginate @beans
   .segment
