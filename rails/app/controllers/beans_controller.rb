@@ -21,7 +21,7 @@ class BeansController < ApplicationController
     @bean_reviews = BeanReview.where('bean_id= ?', @bean.id).includes([:user], [:recipe]).page(params[:page]).per(SHOW_DISPLAY_NUM)
     @bean_review = BeanReview.new
     @recipe = Recipe.new
-    current_user.create_or_update_history(history_params)
+    current_user.create_or_update_history(history_params) if signed_in?
     return if @bean_reviews.empty?
 
     gon.evaluation = @bean.evaluations
