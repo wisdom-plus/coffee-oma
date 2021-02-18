@@ -65,7 +65,7 @@ Layout/LineLength:
     - "config/initializers/**"
 
 Metrics/AbcSize:
-  Max: 25
+  Max: 28
   Exclude:
     - "lib/tasks/dev.rake"
 

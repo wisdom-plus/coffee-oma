@@ -1,11 +1,11 @@
-  require 'rails_helper'
+require 'rails_helper'
 
 RSpec.describe 'History', type: :system do
-  let(:user) { create(:user)}
-  let(:product) { create(:product)}
-  let(:bean) { create(:bean, user: user)}
-  let(:history1) { create(:history, product: product, user: user)}
-  let(:history2) { create(:history, bean: bean, user: user)}
+  let(:user) { create(:user) }
+  let(:product) { create(:product) }
+  let(:bean) { create(:bean, user: user) }
+  let(:history1) { create(:history, product: product, user: user) }
+  let(:history2) { create(:history, bean: bean, user: user) }
 
   describe 'index' do
     before do
@@ -42,13 +42,13 @@ RSpec.describe 'History', type: :system do
 
     it 'create history(product)' do
       expect do
-      visit product_path(product.id)
+        visit product_path(product.id)
       end.to change(History, :count).by 1
     end
 
     it 'create history(bean)' do
       expect do
-      visit bean_path(bean.id)
+        visit bean_path(bean.id)
       end.to change(History, :count).by 1
     end
 
@@ -56,7 +56,7 @@ RSpec.describe 'History', type: :system do
       visit product_path(product.id)
       visit bean_path(bean.id)
       visit histories_path
-      bean_history =all('.spec-item')[0]
+      bean_history = all('.spec-item')[0]
       product_history = all('.spec-item')[1]
       expect(bean_history[:href]).to eq bean_path(bean.id)
       expect(product_history[:href]).to eq product_path(product.id)

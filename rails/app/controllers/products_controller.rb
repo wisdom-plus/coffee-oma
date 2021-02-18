@@ -28,8 +28,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @review = Review.new
     @reviews = Review.where('product_id = ?', @product.id).includes(:user, :product_review_likes).page(params[:page]).per(SHOW_DISPLAY_NUM)
-    @like = ProductLike.find_by(user_id: current_user.id, liked_id: params[:id]) if current_user
-    current_user.create_or_update_history(history_params) if signed_in?
+    if signed_in?
+      @like = current_user.product_likes.find_by(liked_id: params[:id])
+      current_user.create_or_update_history(history_params)
+    end
     return if @product.reviews.average(:rate).nil?
 
     gon.rate_average = @product.rate_average
@@ -56,5 +58,4 @@ class ProductsController < ApplicationController
     def history_params
       params.permit(:controller, :id)
     end
-
 end
