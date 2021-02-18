@@ -1,4 +1,6 @@
 class BeanReviewsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @bean_review = current_user.create_bean_review(bean_review_params)
     @recipe = @bean_review.build_recipe(recipe_params)

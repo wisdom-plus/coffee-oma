@@ -36,6 +36,7 @@ class Bean < ApplicationRecord
   mount_uploader :image, ImageurlUploader
 
   belongs_to :user
+  has_many :histories, dependent: :destroy
   has_many :bean_reviews, dependent: :destroy
   has_many :bean_likes,
            foreign_key: 'liked_id',
