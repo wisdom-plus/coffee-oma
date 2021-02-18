@@ -48,11 +48,8 @@ RSpec.describe 'Likes', type: :system do
     end
 
     context 'when not login' do
-      before do
-        visit product_path(product.id)
-      end
-
       it 'not render like button' do
+        visit product_path(product.id)
         expect(page).to have_no_link 'お気に入り登録'
       end
     end

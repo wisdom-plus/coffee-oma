@@ -15,4 +15,6 @@
 #
 class Like < ApplicationRecord
   belongs_to :user
+
+  scope :find_product_or_bean, -> { where("type IN ('ProductLike','BeanLike')").order(created_at: :DESC) }
 end

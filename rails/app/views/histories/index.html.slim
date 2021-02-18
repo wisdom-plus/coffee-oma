@@ -1,0 +1,48 @@
+.ui.grid
+  .column
+    .ui.breadcrumb
+      =link_to 'Home', root_path, class: 'section'
+      i.right.chevron.icon.devider
+      .active.section 履歴
+.ui.middle.aligned.center.aligned.grid.vertical.stripe
+  .column
+    h1#title 閲覧履歴
+
+
+.ui.segment.scroll#sidebar
+  .ui.right.very.close.rail
+    .ui.segment.sticky
+      a href="#"
+        i.chevron.circle.up.icon Top
+  - if @histories.present?
+    - @histories.each do |history|
+      .ui.segment
+        .item
+          - if history.product_id
+            a.ui.item.grid.spec-item href= product_path(history.product.id)
+              .ui.tiny.circular.image.four.wide.column
+                img src= history.product.imageurl
+              .content.ten.wide.column
+                h2.header
+                  =history.product.itemname
+                .meta
+                  span.mr-1rem Brand:  #{history.product.shopname}
+                  span #{time_ago_in_words(history.updated_at)}前
+                .description
+                  =simple_format(h(history.product.itemcaption.truncate(50)))
+
+          - elsif history.bean_id
+            a.ui.item.grid.spec-item href= bean_path(history.bean.id)
+              .ui.tiny.circular.image.four.wide.column
+                img src= history.bean.image
+              .content.ten.wide.column
+                h2.header
+                  =history.bean.name
+                .meta
+                  span.mr-1rem Area:  #{history.bean.country}
+                  span.mr-1rem Roast:  #{history.bean.roast}
+                  span #{time_ago_in_words(history.updated_at)}前
+                .description
+                  =simple_format(h(history.bean.description.truncate(50)))
+
+.segment

@@ -1,4 +1,6 @@
 class ReportsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @report = current_user.reports.find_or_create_by(review_id: params[:review_id])
     @report.save
