@@ -24,7 +24,7 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
-class User < ApplicationRecord
+class User < ApplicationRecord # rubocop:disable Metrics/ClassLength has_manyをまとめて書くことできないかを探す メソッドを減らす
   has_many :participant1_rooms, class_name: 'Room', foreign_key: 'participant1_id', dependent: :destroy, inverse_of: 'participant1'
   has_many :participant2_rooms, class_name: 'Room', foreign_key: 'participant2_id', dependent: :destroy, inverse_of: 'participant2'
   has_many :messages, dependent: :destroy
@@ -126,7 +126,6 @@ class User < ApplicationRecord
     bean_reviews.create(review_params)
   end
 
-
   def create_or_update_history(params)
     h = if params[:controller] == 'products'
           histories.find_or_create_by(product_id: params[:id])
@@ -135,9 +134,6 @@ class User < ApplicationRecord
         end
     h.update(updated_at: Time.zone.now)
   end
-
-
-
 
   def create_notification_follow(current_user)
     temp = Notification.where(['visitor_id = ? and visited_id = ? and action = ?', current_user.id, id, 'follow'])
