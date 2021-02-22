@@ -151,6 +151,11 @@ GEM
     crass (1.0.6)
     database_cleaner (1.8.5)
     debug_inspector (0.0.3)
+    delayed_job (4.1.9)
+      activesupport (>= 3.0, < 6.2)
+    delayed_job_active_record (4.1.5)
+      activerecord (>= 3.0, < 6.2)
+      delayed_job (>= 3.0, < 5)
     devise (4.7.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -489,6 +494,7 @@ DEPENDENCIES
   carrierwave
   counter_culture (~> 2.0)
   database_cleaner
+  delayed_job_active_record
   devise
   devise-i18n
   devise-i18n-views
