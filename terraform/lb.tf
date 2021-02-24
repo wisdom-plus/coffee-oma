@@ -158,28 +158,6 @@ resource "aws_lb_target_group" "portfolio-target-group-http" { #ターゲット�
   depends_on = [aws_lb.portfolio-lb]
 }
 
-resource "aws_lb_target_group" "portfolio-target-group-https" { #ターゲットグループの定義
-  name                 = "portfolio-https"
-  target_type          = "ip"
-  vpc_id               = aws_vpc.portfolio-vpc.id
-  port                 = 443
-  protocol             = "HTTPS"
-  deregistration_delay = 300
-
-  health_check {
-    path                = "/"
-    healthy_threshold   = 5
-    unhealthy_threshold = 2
-    timeout             = 5
-    interval            = 300
-    matcher             = 200
-    port                = "traffic-port"
-    protocol            = "HTTPS"
-  }
-
-  depends_on = [aws_lb.portfolio-lb]
-}
-
 
 resource "aws_lb_listener_rule" "portfolio-listener-rule-http" { #リスナールールの定義
   listener_arn = aws_lb_listener.http.arn
@@ -197,19 +175,4 @@ resource "aws_lb_listener_rule" "portfolio-listener-rule-http" { #リスナー�
   }
 }
 
-resource "aws_lb_listener_rule" "portfolio-listener-rule-https" { #リスナールールの定義
-  listener_arn = aws_lb_listener.https.arn
-  priority     = 100
-
-  action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.portfolio-target-group-https.arn
-  }
-
-  condition {
-    path_pattern {
-      values = ["/*"]
-    }
-  }
-}
 
