@@ -1,1 +1,3 @@
-Devise::Async.backend = :delayed_job
+Devise::Async.setup do |config|
+  config.enabled = true
+end
