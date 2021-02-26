@@ -159,8 +159,8 @@ resource "aws_lb_target_group" "portfolio-target-group-http" { #ターゲット�
 }
 
 
-resource "aws_lb_listener_rule" "portfolio-listener-rule-http" { #リスナールールの定義
-  listener_arn = aws_lb_listener.http.arn
+resource "aws_lb_listener_rule" "portfolio-listener-rule-https" { #リスナールールの定義
+  listener_arn = aws_lb_listener.https.arn
   priority     = 99
 
   action {
@@ -174,5 +174,4 @@ resource "aws_lb_listener_rule" "portfolio-listener-rule-http" { #リスナー�
     }
   }
 }
-
 

@@ -18,7 +18,7 @@ default: &default
 
 development:
   <<: *default
-  database: coffee_development
+  database: coffee_oma_development
   host: db
 
 # Warning: The database defined as "test" will be erased and
@@ -26,7 +26,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: coffee_test
+  database: coffee_oma_test
   host: db
 
 # As with config/credentials.yml, you never want to store sensitive information,
@@ -50,8 +50,8 @@ test:
 #
 production:
   <<: *default
-  database: coffee_production
+  database: coffee_oma_production
   username: root
-  password: <%= ENV['COFFEE_DATABASE_PASSWORD'] %>
+  password: <%= ENV['coffee_oma_DATABASE_PASSWORD'] %>
   host: <%= ENV['RDS_HOSTNAME'] %>
   port: <%= ENV['RDS_PORT'] %>
