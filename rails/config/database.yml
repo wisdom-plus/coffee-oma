@@ -52,6 +52,6 @@ production:
   <<: *default
   database: coffee_oma_production
   username: root
-  password: <%= ENV['coffee_oma_DATABASE_PASSWORD'] %>
+  password: <%= ENV['COFFEE_DATABASE_PASSWORD'] %>
   host: <%= ENV['RDS_HOSTNAME'] %>
   port: <%= ENV['RDS_PORT'] %>

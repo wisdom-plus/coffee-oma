@@ -41,7 +41,7 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
   config.action_cable.url = 'wss://coffee-oma.com/cable'
-  config.action_cable.allowed_request_origins = ['http://coffee-oma.com', /http:\/\/coffee-oma.*/]
+  config.action_cable.allowed_request_origins = ['https://coffee-oma.com', /https:\/\/coffee-oma.*/]
   config.action_cable.disable_request_forgery_protection = true
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
@@ -110,6 +110,6 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.action_mailer.default_url_options = { host: 'coffee-oma.com' }
+  config.action_mailer.default_url_options = { host: 'coffee-oma.com', protocol: 'https' }
   ActionMailer::Base.delivery_method = :ses
 end

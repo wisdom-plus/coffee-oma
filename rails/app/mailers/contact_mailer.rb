@@ -1,5 +1,5 @@
 class ContactMailer < ApplicationMailer
-  default from: 'system@example.com'
+  default from: 'noreply@coffee-oma.com'
 
   def contact_mail
     @contact = params[:contact]
