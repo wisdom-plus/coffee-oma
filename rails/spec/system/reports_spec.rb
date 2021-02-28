@@ -31,7 +31,9 @@ RSpec.describe 'Reports', type: :system, js: true do
         page.accept_confirm do
           click_link nil, href: reports_path(review_id: review.id)
         end
-        visit root_path
+        perform_enqueued_jobs do
+          DeleteReviewJob.perform_later(review.id)
+        end
       end.to change(Review, :count).by(-1)
     end
   end
