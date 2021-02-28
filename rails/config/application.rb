@@ -44,6 +44,5 @@ module CoffeeOma
                        model_specs: false
     end
     config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag }
-    config.active_job.queue_adapter = :delayed_job
   end
 end
