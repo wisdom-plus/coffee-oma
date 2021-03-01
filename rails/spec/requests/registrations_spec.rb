@@ -52,11 +52,6 @@ RSpec.describe 'Registrations', type: :request do
       expect(response).to have_http_status(:found)
     end
 
-    it 'send mail' do
-      post user_registration_path, params: { user: user_params }
-      expect(ActionMailer::Base.deliveries.size).to eq 1
-    end
-
     it 'user created' do
       expect do
         post user_registration_path, params: { user: user_params }

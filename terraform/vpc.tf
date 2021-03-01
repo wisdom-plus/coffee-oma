@@ -128,6 +128,7 @@ resource "aws_vpc_endpoint_route_table_association" "private_s3" {
 
 data "aws_vpc_endpoint_service" "s3" {
   service = "s3"
+  service_type = "Gateway"
 }
 
 resource "aws_vpc_endpoint" "dkr" {

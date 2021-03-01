@@ -49,7 +49,7 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength has_manyを
   mount_uploader :icon, IconUploader
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable, :timeoutable
+         :recoverable, :rememberable, :validatable, :confirmable, :timeoutable, :async
 
   def update_without_current_password(params, *options)
     params.delete(:current_password)
