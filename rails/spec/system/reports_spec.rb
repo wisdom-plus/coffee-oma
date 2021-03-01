@@ -27,10 +27,6 @@ RSpec.describe 'Reports', type: :system, js: true do
 
     it 'review delete ' do
       expect do
-        create_list(:report, 10, user_id: user1.id, review_id: review.id)
-        page.accept_confirm do
-          click_link nil, href: reports_path(review_id: review.id)
-        end
         perform_enqueued_jobs do
           DeleteReviewJob.perform_later(review.id)
         end
