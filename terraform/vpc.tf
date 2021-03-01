@@ -80,29 +80,6 @@ resource "aws_route_table_association" "private-table-association-2" { #プラ�
   route_table_id = aws_route_table.private-route-table-2.id
 }
 
-resource "aws_eip" "portfolio-EIP-1" { #EIPの定義
-  vpc        = true
-  depends_on = [aws_internet_gateway.portfolio-gateway]
-}
-
-resource "aws_eip" "portfolio-EIP-2" { #EIPの定義
-  vpc        = true
-  depends_on = [aws_internet_gateway.portfolio-gateway]
-}
-
-
-resource "aws_nat_gateway" "portfolio-nat-gateway-1" { #NATゲートウェイの定義
-  allocation_id = aws_eip.portfolio-EIP-1.id
-  subnet_id     = aws_subnet.portfolio-public-subnet-1.id
-  depends_on    = [aws_internet_gateway.portfolio-gateway]
-}
-
-resource "aws_nat_gateway" "portfolio-nat-gateway-2" { #NATゲートウェイの定義
-  allocation_id = aws_eip.portfolio-EIP-2.id
-  subnet_id     = aws_subnet.portfolio-public-subnet-2.id
-  depends_on    = [aws_internet_gateway.portfolio-gateway]
-}
-
 resource "aws_route" "private-route-1" { #プラベートのルートの定義
   route_table_id         = aws_route_table.private-route-table-1.id
   nat_gateway_id         = aws_nat_gateway.portfolio-nat-gateway-1.id
@@ -143,6 +120,20 @@ resource "aws_vpc_endpoint" "dkr" {
 
 data "aws_vpc_endpoint_service" "dkr" {
   service = "ecr.dkr"
+}
+
+resource "aws_vpc_endpoint" "ecr-api" {
+  vpc_id                  = aws_vpc.portfolio-vpc.id
+  service_name = data.aws_vpc_endpoint_service.ecr-api.service_name
+  vpc_endpoint_type = "Interface"
+
+  security_group_ids  = [module.http_sg.security_group_id, module.https_sg.security_group_id]
+  subnet_ids          = [aws_subnet.portfolio-private-subnet-1.id]
+  private_dns_enabled = true
+}
+
+data "aws_vpc_endpoint_service" "ecr-api" {
+  service = "ecr.api"
 }
 resource "aws_vpc_endpoint" "logs" {
   vpc_id            = aws_vpc.portfolio-vpc.id
