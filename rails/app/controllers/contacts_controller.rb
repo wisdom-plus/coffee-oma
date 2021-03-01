@@ -6,8 +6,8 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      ContactMailer.contact_mail(@contact).deliver
-      ContactMailer.reply_mail(@contact).deliver
+      ContactMailer.with(contact: @contact).delay.contact_mail
+      ContactMailer.with(contact: @contact).delay.reply_mail
       redirect_to root_path, notice: 'お問い合わせメールが送信されました'
     else
       flash.now[:alert] = 'お問い合わせメールの送信し失敗しました'
