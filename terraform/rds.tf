@@ -33,8 +33,8 @@ resource "aws_db_instance" "portfolio-db" { #DBインスタンスの定義
   max_allocated_storage      = 100
   storage_type               = "gp2"
   storage_encrypted          = true
-  username                   = "root"
-  password                   = "VeryStrongPassword!"
+  username                   = var.rds_user_name
+  password                   = var.rds_password
   publicly_accessible        = false
   backup_window              = "09:10-09:40"
   backup_retention_period    = 3

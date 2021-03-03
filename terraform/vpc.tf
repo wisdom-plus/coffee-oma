@@ -104,7 +104,7 @@ resource "aws_vpc_endpoint_route_table_association" "private_s3" {
 }
 
 data "aws_vpc_endpoint_service" "s3" {
-  service = "s3"
+  service      = "s3"
   service_type = "Gateway"
 }
 
@@ -123,8 +123,8 @@ data "aws_vpc_endpoint_service" "dkr" {
 }
 
 resource "aws_vpc_endpoint" "ecr-api" {
-  vpc_id                  = aws_vpc.portfolio-vpc.id
-  service_name = data.aws_vpc_endpoint_service.ecr-api.service_name
+  vpc_id            = aws_vpc.portfolio-vpc.id
+  service_name      = data.aws_vpc_endpoint_service.ecr-api.service_name
   vpc_endpoint_type = "Interface"
 
   security_group_ids  = [module.http_sg.security_group_id, module.https_sg.security_group_id]
