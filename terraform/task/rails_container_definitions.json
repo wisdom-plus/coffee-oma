@@ -1,7 +1,7 @@
 [
   {
     "name": "rails",
-    "image": "860542255954.dkr.ecr.ap-northeast-1.amazonaws.com/portfolio-rails:latest",
+    "image": "${rails_image}",
     "essential": true,
     "entrypoint": ["entrypoint.sh"],
     "command": ["pumactl", "start"],
@@ -12,7 +12,7 @@
       },
       {
         "name": "ENV_FILE",
-        "value": "VEhPUl9TSUxFTkNFX0RFUFJFQ0FUSU9OID0gdHJ1ZQpNWV9NQUlMQURSRVNTID0g4oCZdG9tb3JvbjMyNkBvdXRsb29rLmpw4oCZClJFQ0FQVENIQV9QVUJMSUNfS0VZID0gNkxkM0F0SVpBQUFBQUxfSDV3YTcwYnBibnhrRW1xUllZSFRpSE5MNgpSRUNBUFRDSEFfUFJJVkFURV9LRVkgPSA2TGQzQXRJWkFBQUFBQzVWckpQLVFhaTFxellTTUhZaUZkbzVsbTRZClJEU19IT1NUTkFNRSA9IHBvcnRmb2xpby1kYi5jcjV6Y2FxaHhqeHouYXAtbm9ydGhlYXN0LTEucmRzLmFtYXpvbmF3cy5jb20KQ09GRkVFX0RBVEFCQVNFX1BBU1NXT1JEID0gVmVyeVN0cm9uZ1Bhc3N3b3JkIQpSRFNfUE9SVCA9IDMzMDYKUkFJTFNfTUFTVEVSX0tFWSA9IGZjNzU4NzVjNzFjMzNjYmViY2M1MjFjNjhkNGYyOWI4CkFXU19TTVRQX0FDQ0VTU19LRVlfSUQgPSBBS0lBNFFYQ1FZTkpKN0gyREdPUApBV1NfU01UUF9TRUNSRVRfQUNDRVNTX0tFWSA9IHcvVFpWUk9Rbzl2ZnVzUTFtRC9YYzVGUU44dlpGbXVhaml3a2UvTTYKQVdTX1MzX0FDQ0VTU19LRVlfSUQgPSBBS0lBNFFYQ1FZTkpQNjNXSkdYNQpBV1NfUzNfU0VDUkVUX0FDQ0VTU19LRVkgPSBOUU9pOW96YmMwVHAyT3MrbEpVU3NMKytVQ2Z0bkhra1lQUWNBWFZUClJFRElTX1VSTCA9IHJlZGlzOi8vcG9ydGZvbGlvLXJlcGxpY2F0aW9uLWdyb3VwLmhvdndoeS5uZy4wMDAxLmFwbmUxLmNhY2hlLmFtYXpvbmF3cy5jb206NjM3OQo="
+        "value": "${env_file}"
       }
     ],
     "logConfiguration": {
@@ -40,7 +40,7 @@
   },
   {
     "name": "nginx",
-    "image": "860542255954.dkr.ecr.ap-northeast-1.amazonaws.com/portfolio-nginx:latest",
+    "image": "${nginx_image}",
     "essential": true,
     "logConfiguration": {
       "logDriver": "awslogs",
