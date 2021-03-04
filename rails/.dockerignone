@@ -1,3 +1,5 @@
 /node_modules
 /vender/bundlels
 /log/*
+.hadolint.yaml
+yarn.error.log
