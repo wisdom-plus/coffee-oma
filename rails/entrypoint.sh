@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
-echo "$ENV_FILE" | base64 --decode >.env
+echo "$ENV_FILE" | base64 -d >.env
 
 bundle exec rails assets:precompile RAILS_ENV=production
 
