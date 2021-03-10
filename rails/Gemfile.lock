@@ -183,6 +183,8 @@ GEM
     factory_bot_rails (6.0.0)
       factory_bot (~> 6.0.0)
       railties (>= 5.0.0)
+    faker (2.16.0)
+      i18n (>= 1.6, < 2)
     ffi (1.13.1)
     fog-aws (3.6.7)
       fog-core (~> 2.1)
@@ -204,6 +206,8 @@ GEM
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
+    gimei (0.5.1)
+      romaji
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     gon (6.3.2)
@@ -358,6 +362,8 @@ GEM
     reverse_markdown (2.0.0)
       nokogiri
     rexml (3.2.4)
+    romaji (0.2.4)
+      rake (>= 0.8.0)
     rspec-core (3.9.2)
       rspec-support (~> 3.9.3)
     rspec-expectations (3.9.2)
@@ -509,7 +515,9 @@ DEPENDENCIES
   devise-i18n-views
   dotenv-rails
   factory_bot_rails
+  faker
   fog-aws
+  gimei
   gon
   html2slim
   jbuilder (~> 2.7)
