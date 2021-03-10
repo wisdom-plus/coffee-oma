@@ -3,7 +3,7 @@ services:
   web:
     build: .
     volumes:
-      - .:/coffee:delegated
+      - .:/coffee-oma:delegated
     ports:
       - "3000:3000"
     tty: true
