@@ -11,6 +11,7 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
   User.create!(email: Faker::Internet.email,
               password: Faker::Internet.password,
               username: Faker::Internet.username,
-              confirmed_at: Time.zone.now
+              confirmed_at: Time.zone.now,
+              icon: File.open("./public/icon-#{n}.jpg")
   )
 end
