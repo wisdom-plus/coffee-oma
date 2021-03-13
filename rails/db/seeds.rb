@@ -204,3 +204,40 @@ Bean.create!(
   user: User.find(7)
 )
 
+10.times do |n|
+  Relationship.create!(
+    user: User.find(n+1),
+    follow: User.find(n +2)
+  )
+  Relationship.create!(
+    user: User.find(n +2),
+    follow: User.find(n + 1)
+  )
+  if n != 0 && n % 2 == 0
+    Relationship.create!(
+      user: User.find(n+1),
+      follow: User.find(1)
+    )
+  end
+end
+
+10.times do |n|
+  ProductLike.create!(
+    user: User.find(n +1),
+    liked_id: n +1
+  )
+  ProductLike.create!(
+    user: User.find(n +2),
+    liked_id: n +1
+  )
+  if n < 4
+    BeanLike.create!(
+      user: User.find(n +1),
+      liked_id: n + 1
+    )
+    BeanLike.create!(
+      user: User.find(n+2),
+      liked_id: n+1
+    )
+  end
+end
