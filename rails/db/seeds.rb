@@ -434,3 +434,9 @@ BeanReview.create!(
   因みに私は個性強い味の方が好きなので物足りないです。"
 )
 
+9.times do |n|
+  Report.create!(
+    user: User.find(n + 1),
+    review: Review.find(1)
+  )
+end
