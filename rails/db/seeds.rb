@@ -165,7 +165,7 @@ Bean.create!(
   area:"キアンバ",
   country:"ケニア",
   description: "偶然買ったコーヒー豆ですが、おいしかったのでシェアさせていただきます。
-  どこで買ったのかを忘れてしまったのでまたどこかで出会いたいです
+  どこで買ったのかを忘れてしまったのですがまたどこかで出会いたいです
   比較的焙煎が効いた味ですごく美味しいです",
   image: File.open("./public/seed/bean-02.jpg"),
   name: Faker::Coffee.unique.blend_name,
@@ -283,4 +283,154 @@ Review.create!(
   rate: 4
 )
 
+Review.create!(
+  user: User.find(11),
+  product: Product.find(10),
+  title: "美味しく作れお掃除簡単",
+  content: "すぐ作れるのと掃除が簡単で美味しい！
+  キャンプにも持って行く予定です。",
+  rate: 5
+)
+Review.create!(
+  user: User.find(1),
+  product: Product.find(5),
+  title: "コンパクトでお買い得",
+  content: "コーヒーを挽くのも力も要らず、ゴリゴリどころかジョリジョリスリスリ挽けます。
+  コンパクトだし持ち歩きにハンドルもバンドに収納できます。
+  １人分位なら家でも毎日挽いても苦ではないです。",
+  rate: 4
+)
+Review.create!(
+  user: User.find(12),
+  product: Product.find(6),
+  title: "取りにくい",
+  content: "一度に2，3枚出たときに、フィルターが元にキチンと収まらない（形が少し崩れて）。",
+  rate: 3
+)
+Review.create!(
+  user: User.find(8),
+  product: Product.find(3),
+  title: "ドリップが安定する",
+  content: "ウェーブドリッパーは、他のレビューにあるように、確かにドリップのブレが無いように感じます。
+  常に安定したドリップになります。
+  デメリットは、メリットの逆でドリップに変化をつけづらいことと、ペーパーコストが少し高いことでしょうか。",
+  rate: 5
+)
+Review.create!(
+  user: User.find(4),
+  product: Product.find(9),
+  title: "取り扱い要注意です",
+  content: "残念ながら数回使ってサーバーが割れてしまいました。
+  耐熱ガラスにしては薄手の為、使い始めの時に割れそうだなーと少し不安に思っていましたが、
+  現実となりました。 取り扱い要注意です！",
+  rate: 1
+)
+BeanReview.create!(
+  user: User.find(1),
+  bean: Bean.find(1),
+  acidity: 4,
+  bitter: 3,
+  flavor: 4,
+  rich: 4,
+  sweet: 3,
+  title: "ミディアムで",
+  content:"豆の硬さは柔らか目。飲んだ瞬間直ぐに苦みに似た渋みが来ます！。
+  その後それが段々と抜けて行き　ラストに上品な酸味が来ます！
+  特徴のあるコーヒーは癖になりますよね！"
+)
+BeanReview.create!(
+  user: User.find(2),
+  bean: Bean.find(1),
+  acidity: 5,
+  bitter: 5,
+  flavor: 5,
+  rich: 5,
+  sweet: 5,
+  title: "味も香りも気に入っています",
+  content:"味も香りも気に入っています。"
+)
+
+
+BeanReview.create!(
+  user: User.find(4),
+  bean: Bean.find(2),
+  acidity: 3,
+  bitter: 2,
+  flavor: 4,
+  rich: 5,
+  sweet: 3,
+  title: "コクも酸味も香りもバランス良く 一日に何杯も飲んでしまいそうです",
+  content:"コクも酸味も香りもバランス良く
+  一日に何杯も飲んでしまいそうです"
+)
+
+BeanReview.create!(
+  user: User.find(9),
+  bean: Bean.find(2),
+  acidity: 3,
+  bitter: 1,
+  flavor: 3,
+  rich: 3,
+  sweet: 3,
+  title: "バランスが良いです。",
+  content:"酸味と、コクのバランスが良くて、！リピートしてます"
+)
+
+BeanReview.create!(
+  user: User.find(2),
+  bean: Bean.find(3),
+  acidity: 2,
+  bitter: 4,
+  flavor: 4,
+  rich: 3,
+  sweet: 2,
+  title: "凄く飲みやすい",
+  content:"酸味が苦手なのでマンデリン等飲む事が多いのですが、これはスッキリと軽く飲みやすいです。
+  酸味も主張しません。
+  次回も注文しようと思います"
+)
+
+BeanReview.create!(
+  user: User.find(10),
+  bean: Bean.find(5),
+  acidity: 4,
+  bitter: 5,
+  flavor: 3,
+  rich: 3,
+  sweet: 2,
+  title: "とにかくこのガテマラを続けて飲んでいます",
+  content:"とにかくこのガテマラを続けて飲んでいます。
+  私の大好きな彼女のお気に入りでもあるので、
+  販売中止になんかしないでくださいね。
+
+  これからもよろしくお願いします。"
+)
+
+
+BeanReview.create!(
+  user: User.find(1),
+  bean: Bean.find(5),
+  acidity: 4,
+  bitter: 3,
+  flavor: 3,
+  rich: 2,
+  sweet: 4,
+  title: "やっぱりガテマラ　最高！！",
+  content:"やっぱりガテマラ　最高！！"
+)
+
+BeanReview.create!(
+  user: User.find(11),
+  bean: Bean.find(4),
+  acidity: 3,
+  bitter: 3,
+  flavor: 3,
+  rich: 3,
+  sweet: 3,
+  title: "酸味・苦味のバランスが良くクセが無い。",
+  content:"クリアな飲み口で豆本来の味も感じる。
+  「普通のコーヒーが飲みたい」人にはオススメ。
+  温度が下がっても酸味の主張はそこまで出てこない。
+  因みに私は個性強い味の方が好きなので物足りないです。"
+)
 
