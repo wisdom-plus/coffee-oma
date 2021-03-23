@@ -241,3 +241,46 @@ end
     )
   end
 end
+
+Review.create!(
+  user: User.find(1),
+  product: Product.find(1),
+  title: "最高のドリッパーです",
+  content: "簡単においしいコーヒーを淹れることができるドリッパーです",
+  rate: 5
+)
+
+Review.create!(
+  user: User.find(2),
+  product: Product.find(1),
+  title: "すぐに壊れてしまいました",
+  content: "２回使っただけなのに壊れてしまいました。",
+  rate: 1
+)
+
+Review.create!(
+  user: User.find(10),
+  product: Product.find(1),
+  title: "初心者用のドリッパーです",
+  content: "初心者用のドリッパーです。
+  上級者から初心者でも使える万能なドリッパーです",
+  rate: 4
+)
+Review.create!(
+  user: User.find(9),
+  product: Product.find(2),
+  title: "退屈なドリッパー",
+  content: "粉をいれて湯をいれたらコーヒーの完成です
+  簡単で悪く言えば、退屈なドリッパーです",
+  rate: 2
+)
+
+Review.create!(
+  user: User.find(3),
+  product: Product.find(2),
+  title: "簡単にコーヒーが淹れれます",
+  content: "粉とお湯をいれるだけで、いつでも同じ味のコーヒーを淹れることができます。",
+  rate: 4
+)
+
+
