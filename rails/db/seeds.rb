@@ -165,7 +165,7 @@ Bean.create!(
   area:"キアンバ",
   country:"ケニア",
   description: "偶然買ったコーヒー豆ですが、おいしかったのでシェアさせていただきます。
-  どこで買ったのかを忘れてしまったのでまたどこかで出会いたいです
+  どこで買ったのかを忘れてしまったのですがまたどこかで出会いたいです
   比較的焙煎が効いた味ですごく美味しいです",
   image: File.open("./public/seed/bean-02.jpg"),
   name: Faker::Coffee.unique.blend_name,
@@ -204,6 +204,271 @@ Bean.create!(
   user: User.find(7)
 )
 
+Review.create!(
+  user: User.find(1),
+  product: Product.find(1),
+  title: "最高のドリッパーです",
+  content: "簡単においしいコーヒーを淹れることができるドリッパーです",
+  rate: 5
+)
+
+Review.create!(
+  user: User.find(2),
+  product: Product.find(1),
+  title: "すぐに壊れてしまいました",
+  content: "２回使っただけなのに壊れてしまいました。",
+  rate: 1
+)
+
+Review.create!(
+  user: User.find(10),
+  product: Product.find(1),
+  title: "初心者用のドリッパーです",
+  content: "初心者用のドリッパーです。
+  上級者から初心者でも使える万能なドリッパーです",
+  rate: 4
+)
+Review.create!(
+  user: User.find(9),
+  product: Product.find(2),
+  title: "退屈なドリッパー",
+  content: "粉をいれて湯をいれたらコーヒーの完成です
+  簡単で悪く言えば、退屈なドリッパーです",
+  rate: 2
+)
+
+Review.create!(
+  user: User.find(3),
+  product: Product.find(2),
+  title: "簡単にコーヒーが淹れれます",
+  content: "粉とお湯をいれるだけで、いつでも同じ味のコーヒーを淹れることができます。",
+  rate: 4
+)
+
+Review.create!(
+  user: User.find(11),
+  product: Product.find(10),
+  title: "美味しく作れお掃除簡単",
+  content: "すぐ作れるのと掃除が簡単で美味しい！
+  キャンプにも持って行く予定です。",
+  rate: 5
+)
+Review.create!(
+  user: User.find(1),
+  product: Product.find(5),
+  title: "コンパクトでお買い得",
+  content: "コーヒーを挽くのも力も要らず、ゴリゴリどころかジョリジョリスリスリ挽けます。
+  コンパクトだし持ち歩きにハンドルもバンドに収納できます。
+  １人分位なら家でも毎日挽いても苦ではないです。",
+  rate: 4
+)
+Review.create!(
+  user: User.find(12),
+  product: Product.find(6),
+  title: "取りにくい",
+  content: "一度に2，3枚出たときに、フィルターが元にキチンと収まらない（形が少し崩れて）。",
+  rate: 3
+)
+Review.create!(
+  user: User.find(8),
+  product: Product.find(3),
+  title: "ドリップが安定する",
+  content: "ウェーブドリッパーは、他のレビューにあるように、確かにドリップのブレが無いように感じます。
+  常に安定したドリップになります。
+  デメリットは、メリットの逆でドリップに変化をつけづらいことと、ペーパーコストが少し高いことでしょうか。",
+  rate: 5
+)
+Review.create!(
+  user: User.find(4),
+  product: Product.find(9),
+  title: "取り扱い要注意です",
+  content: "残念ながら数回使ってサーバーが割れてしまいました。
+  耐熱ガラスにしては薄手の為、使い始めの時に割れそうだなーと少し不安に思っていましたが、
+  現実となりました。 取り扱い要注意です！",
+  rate: 1
+)
+
+Review.create!(
+  user: User.find(1),
+  product: Product.find(7),
+  title: "快適な使用感",
+  content: "豆を挽いてる間にこちらに湯を移し、温度を下げて、毎日コーヒーを淹れています。
+  細口で自分の加減で入れれるので、悩んで購入した甲斐がありました！",
+  rate: 5
+)
+Review.create!(
+  user: User.find(12),
+  product: Product.find(8),
+  title: "これこそもとめていたスケール",
+  content: "物凄く使いやすい。今まで安いスケールを20個近く試してきましたが、精度や拭きやすさ、強度で満足いくものはありませんでした。
+  こちらの商品は見た目、拭きやすさ、精度に満足している上に、充電式で乾電池不要なのも◎。
+  一台購入後、追加で2台購入しました。",
+  rate: 5
+)
+Review.create!(
+  user: User.find(4),
+  product: Product.find(4),
+  title: "LED表示が思ったほど明るくない",
+  content: "液晶がLEDで視認性がよく見やすいと思い少し割高ですが購入しました。
+  ですが視認性はあまりよくないです。少し本体との取付に個体差によるズレがあるみたいで気になる方には気になると思います。",
+  rate: 2
+)
+BeanReview.create!(
+  user: User.find(1),
+  bean: Bean.find(1),
+  acidity: 4,
+  bitter: 3,
+  flavor: 4,
+  rich: 4,
+  sweet: 3,
+  title: "ミディアムで",
+  content:"豆の硬さは柔らか目。飲んだ瞬間直ぐに苦みに似た渋みが来ます！。
+  その後それが段々と抜けて行き　ラストに上品な酸味が来ます！
+  特徴のあるコーヒーは癖になりますよね！"
+)
+BeanReview.create!(
+  user: User.find(2),
+  bean: Bean.find(1),
+  acidity: 5,
+  bitter: 5,
+  flavor: 5,
+  rich: 5,
+  sweet: 5,
+  title: "味も香りも気に入っています",
+  content:"味も香りも気に入っています。"
+)
+BeanReview.create!(
+  user: User.find(12),
+  bean: Bean.find(1),
+  acidity: 3,
+  bitter: 3,
+  flavor: 3,
+  rich: 4,
+  sweet: 4,
+  title: "コーヒーを始めたばかりの初心者ですが、 癖も少なく大変おいしかったです。 宅配で受け取る時からいい香",
+  content:"コーヒーを始めたばかりの初心者ですが、
+  癖も少なく大変おいしかったです。
+  宅配で受け取る時からいい香りが漂ってたまりません。"
+)
+BeanReview.create!(
+  user: User.find(10),
+  bean: Bean.find(1),
+  acidity:4 ,
+  bitter: 3,
+  flavor: 3,
+  rich: 5,
+  sweet: 5,
+  title: "色々飲んでみてはじめてわかりました。ブラジルのコーヒーはとてもバランスの取れた飲みやすいものなんです ",
+  content:"バランスの良い風味でした。ストレート以外にも、オリジナルブレンドのベースとして重宝してます。"
+)
+
+
+BeanReview.create!(
+  user: User.find(4),
+  bean: Bean.find(2),
+  acidity: 3,
+  bitter: 2,
+  flavor: 4,
+  rich: 5,
+  sweet: 3,
+  title: "コクも酸味も香りもバランス良く 一日に何杯も飲んでしまいそうです",
+  content:"コクも酸味も香りもバランス良く
+  一日に何杯も飲んでしまいそうです"
+)
+
+BeanReview.create!(
+  user: User.find(9),
+  bean: Bean.find(2),
+  acidity: 3,
+  bitter: 1,
+  flavor: 3,
+  rich: 3,
+  sweet: 3,
+  title: "バランスが良いです。",
+  content:"酸味と、コクのバランスが良くて、！リピートしてます"
+)
+
+BeanReview.create!(
+  user: User.find(2),
+  bean: Bean.find(3),
+  acidity: 2,
+  bitter: 4,
+  flavor: 4,
+  rich: 3,
+  sweet: 2,
+  title: "凄く飲みやすい",
+  content:"酸味が苦手なのでマンデリン等飲む事が多いのですが、これはスッキリと軽く飲みやすいです。
+  酸味も主張しません。
+  次回も注文しようと思います"
+)
+
+BeanReview.create!(
+  user: User.find(10),
+  bean: Bean.find(5),
+  acidity: 4,
+  bitter: 5,
+  flavor: 3,
+  rich: 3,
+  sweet: 2,
+  title: "とにかくこのガテマラを続けて飲んでいます",
+  content:"とにかくこのガテマラを続けて飲んでいます。
+  私の大好きな彼女のお気に入りでもあるので、
+  販売中止になんかしないでくださいね。
+
+  これからもよろしくお願いします。"
+)
+
+
+BeanReview.create!(
+  user: User.find(1),
+  bean: Bean.find(5),
+  acidity: 4,
+  bitter: 3,
+  flavor: 3,
+  rich: 2,
+  sweet: 4,
+  title: "やっぱりガテマラ　最高！！",
+  content:"やっぱりガテマラ　最高！！"
+)
+
+BeanReview.create!(
+  user: User.find(11),
+  bean: Bean.find(4),
+  acidity: 3,
+  bitter: 3,
+  flavor: 3,
+  rich: 3,
+  sweet: 3,
+  title: "酸味・苦味のバランスが良くクセが無い。",
+  content:"クリアな飲み口で豆本来の味も感じる。
+  「普通のコーヒーが飲みたい」人にはオススメ。
+  温度が下がっても酸味の主張はそこまで出てこない。
+  因みに私は個性強い味の方が好きなので物足りないです。"
+)
+
+BeanReview.create!(
+  user: User.find(4),
+  bean: Bean.find(4),
+  acidity: 3,
+  bitter: 3,
+  flavor: 3,
+  rich: 3,
+  sweet: 3,
+  title: "くせがなく飲みやすい。この値段で、この味、コ・ス・パがいいね。",
+  content:"くせがなく飲みやすい。この値段で、この味、コ・ス・パがいいね。"
+)
+9.times do |n|
+  u = User.find(n + 1)
+  Report.create!(
+    user: u,
+    review: Review.find(1)
+  )
+  Report.create!(
+    user: u,
+    review: Review.find(2)
+  )
+end
+
 10.times do |n|
   Relationship.create!(
     user: User.find(n+1),
@@ -219,9 +484,6 @@ Bean.create!(
       follow: User.find(1)
     )
   end
-end
-
-10.times do |n|
   ProductLike.create!(
     user: User.find(n +1),
     liked_id: n +1
@@ -239,5 +501,21 @@ end
       user: User.find(n+2),
       liked_id: n+1
     )
+    ProductReviewLike.create!(
+      user: User.find(n +3),
+      liked_id: 1
+    )
+    BeanReviewLike.create!(
+      user: User.find(n+3),
+      liked_id: 1
+    )
   end
+  ProductReviewLike.create!(
+    user: User.find(n +1),
+    liked_id: n +1
+  )
+  BeanReviewLike.create!(
+    user: User.find(n + 1),
+    liked_id: n + 1
+  )
 end
