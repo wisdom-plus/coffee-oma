@@ -204,44 +204,6 @@ Bean.create!(
   user: User.find(7)
 )
 
-10.times do |n|
-  Relationship.create!(
-    user: User.find(n+1),
-    follow: User.find(n +2)
-  )
-  Relationship.create!(
-    user: User.find(n +2),
-    follow: User.find(n + 1)
-  )
-  if n != 0 && n % 2 == 0
-    Relationship.create!(
-      user: User.find(n+1),
-      follow: User.find(1)
-    )
-  end
-end
-
-10.times do |n|
-  ProductLike.create!(
-    user: User.find(n +1),
-    liked_id: n +1
-  )
-  ProductLike.create!(
-    user: User.find(n +2),
-    liked_id: n +1
-  )
-  if n < 4
-    BeanLike.create!(
-      user: User.find(n +1),
-      liked_id: n + 1
-    )
-    BeanLike.create!(
-      user: User.find(n+2),
-      liked_id: n+1
-    )
-  end
-end
-
 Review.create!(
   user: User.find(1),
   product: Product.find(1),
@@ -325,6 +287,32 @@ Review.create!(
   現実となりました。 取り扱い要注意です！",
   rate: 1
 )
+
+Review.create!(
+  user: User.find(1),
+  product: Product.find(7),
+  title: "快適な使用感",
+  content: "豆を挽いてる間にこちらに湯を移し、温度を下げて、毎日コーヒーを淹れています。
+  細口で自分の加減で入れれるので、悩んで購入した甲斐がありました！",
+  rate: 5
+)
+Review.create!(
+  user: User.find(12),
+  product: Product.find(8),
+  title: "これこそもとめていたスケール",
+  content: "物凄く使いやすい。今まで安いスケールを20個近く試してきましたが、精度や拭きやすさ、強度で満足いくものはありませんでした。
+  こちらの商品は見た目、拭きやすさ、精度に満足している上に、充電式で乾電池不要なのも◎。
+  一台購入後、追加で2台購入しました。",
+  rate: 5
+)
+Review.create!(
+  user: User.find(4),
+  product: Product.find(4),
+  title: "LED表示が思ったほど明るくない",
+  content: "液晶がLEDで視認性がよく見やすいと思い少し割高ですが購入しました。
+  ですが視認性はあまりよくないです。少し本体との取付に個体差によるズレがあるみたいで気になる方には気になると思います。",
+  rate: 2
+)
 BeanReview.create!(
   user: User.find(1),
   bean: Bean.find(1),
@@ -348,6 +336,30 @@ BeanReview.create!(
   sweet: 5,
   title: "味も香りも気に入っています",
   content:"味も香りも気に入っています。"
+)
+BeanReview.create!(
+  user: User.find(12),
+  bean: Bean.find(1),
+  acidity: 3,
+  bitter: 3,
+  flavor: 3,
+  rich: 4,
+  sweet: 4,
+  title: "コーヒーを始めたばかりの初心者ですが、 癖も少なく大変おいしかったです。 宅配で受け取る時からいい香",
+  content:"コーヒーを始めたばかりの初心者ですが、
+  癖も少なく大変おいしかったです。
+  宅配で受け取る時からいい香りが漂ってたまりません。"
+)
+BeanReview.create!(
+  user: User.find(10),
+  bean: Bean.find(1),
+  acidity:4 ,
+  bitter: 3,
+  flavor: 3,
+  rich: 5,
+  sweet: 5,
+  title: "色々飲んでみてはじめてわかりました。ブラジルのコーヒーはとてもバランスの取れた飲みやすいものなんです ",
+  content:"バランスの良い風味でした。ストレート以外にも、オリジナルブレンドのベースとして重宝してます。"
 )
 
 
@@ -434,9 +446,68 @@ BeanReview.create!(
   因みに私は個性強い味の方が好きなので物足りないです。"
 )
 
+BeanReview.create!(
+  user: User.find(4),
+  bean: Bean.find(4),
+  acidity: 3,
+  bitter: 3,
+  flavor: 3,
+  rich: 3,
+  sweet: 3,
+  title: "くせがなく飲みやすい。この値段で、この味、コ・ス・パがいいね。",
+  content:"くせがなく飲みやすい。この値段で、この味、コ・ス・パがいいね。"
+)
 9.times do |n|
+  u = User.find(n + 1)
   Report.create!(
-    user: User.find(n + 1),
+    user: u,
     review: Review.find(1)
+  )
+  Report.create!(
+    user: u,
+    review: Review.find(2)
+  )
+end
+
+10.times do |n|
+  Relationship.create!(
+    user: User.find(n+1),
+    follow: User.find(n +2)
+  )
+  Relationship.create!(
+    user: User.find(n +2),
+    follow: User.find(n + 1)
+  )
+  if n != 0 && n % 2 == 0
+    Relationship.create!(
+      user: User.find(n+1),
+      follow: User.find(1)
+    )
+  end
+  ProductLike.create!(
+    user: User.find(n +1),
+    liked_id: n +1
+  )
+  ProductLike.create!(
+    user: User.find(n +2),
+    liked_id: n +1
+  )
+  if n < 4
+    BeanLike.create!(
+      user: User.find(n +1),
+      liked_id: n + 1
+    )
+    BeanLike.create!(
+      user: User.find(n+2),
+      liked_id: n+1
+    )
+  end
+  ProductReviewLike.create!(
+    user: User.find(n +1),
+    liked_id: n +1
+  )
+  BeanReviewLike.create!(
+    user: User.find(n + 1),
+    liked_id: n + 1
   )
 end
