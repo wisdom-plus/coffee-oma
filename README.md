@@ -3,7 +3,7 @@
 コーヒーに関する器具や、豆などの評価や感想を投稿しシェアするwebアプリケーションです。
 
 ### [リンク]:https://coffee-oma.com
-![coffee-oma-logo](https://user-images.githubusercontent.com/48266893/112325399-0003ec80-8cf7-11eb-96bb-29b962308205.png)
+![coffee-oma-logo](https://user-images.githubusercontent.com/48266893/112326442-deefcb80-8cf7-11eb-9432-cc83ade690de.png)
 
 
 
