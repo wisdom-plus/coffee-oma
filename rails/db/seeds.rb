@@ -501,6 +501,14 @@ end
       user: User.find(n+2),
       liked_id: n+1
     )
+    ProductReviewLike.create!(
+      user: User.find(n +3),
+      liked_id: 1
+    )
+    BeanReviewLike.create!(
+      user: User.find(n+3),
+      liked_id: 1
+    )
   end
   ProductReviewLike.create!(
     user: User.find(n +1),
