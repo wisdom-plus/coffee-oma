@@ -80,17 +80,7 @@ resource "aws_route_table_association" "private-table-association-2" { #プラ�
   route_table_id = aws_route_table.private-route-table-2.id
 }
 
-resource "aws_route" "private-route-1" { #プラベートのルートの定義
-  route_table_id         = aws_route_table.private-route-table-1.id
-  nat_gateway_id         = aws_nat_gateway.portfolio-nat-gateway-1.id
-  destination_cidr_block = "0.0.0.0/0"
-}
 
-resource "aws_route" "private-route-2" { #プラベートのルートの定義
-  route_table_id         = aws_route_table.private-route-table-2.id
-  nat_gateway_id         = aws_nat_gateway.portfolio-nat-gateway-2.id
-  destination_cidr_block = "0.0.0.0/0"
-}
 
 resource "aws_vpc_endpoint" "s3" {
   vpc_id            = aws_vpc.portfolio-vpc.id
