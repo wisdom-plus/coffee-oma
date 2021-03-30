@@ -53,6 +53,7 @@ gem 'ransack'
 gem 'recaptcha'
 gem 'rename'
 gem 'semantic-ui-sass', '~> 2.4', '>= 2.4.2.0'
+gem 'sitemap_generator'
 gem 'slim'
 gem 'slim-rails'
 
