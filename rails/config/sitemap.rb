@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "https://coffee-oma.com"
+SitemapGenerator::Sitemap.default_host = 'https://coffee-oma.com'
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
@@ -25,11 +25,11 @@ SitemapGenerator::Sitemap.create do
   #     add article_path(article), :lastmod => article.updated_at
   #   end
   Product.all.each do |product|
-    add product_path(product), :lastmod => product.updated_at
+    add product_path(product), lastmod: product.updated_at
   end
   Bean.all.each do |bean|
-    add bean_path(bean), :lastmod => bean.updated_at
+    add bean_path(bean), lastmod: bean.updated_at
   end
-  add prodcuts_path, changefreq: 'daily', priority: 0.9
+  add products_path, changefreq: 'daily', priority: 0.9
   add beans_path, changefreq: 'daily', priority: 0.8
 end
