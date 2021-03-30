@@ -82,17 +82,9 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength has_manyを
     relationships.find_by(follow_id: other_user.id)
   end
 
-  def create_product_like(product_id)
-    product_likes.find_or_create_by(liked_id: product_id)
-  end
-
   def destroy_product_like(product_id)
     like = product_likes.find_by(id: product_id)
     like&.destroy
-  end
-
-  def create_bean_like(bean_id)
-    bean_likes.find_or_create_by(liked_id: bean_id)
   end
 
   def destroy_bean_like(bean_id)
@@ -100,17 +92,9 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength has_manyを
     like&.destroy
   end
 
-  def create_product_review_like(review_id)
-    product_review_likes.find_or_create_by(liked_id: review_id)
-  end
-
   def destroy_product_review_like(review_like_id)
     review_like = product_review_likes.find_by(id: review_like_id)
     review_like&.destroy
-  end
-
-  def create_bean_review_like(review_id)
-    bean_review_likes.find_or_create_by(liked_id: review_id)
   end
 
   def destroy_bean_review_like(review_like_id)
@@ -125,9 +109,10 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength has_manyを
   def create_bean_review(review_params)
     bean_reviews.create(review_params)
   end
-  #product_like,bean_like,product_review_like,bean_review_likeを作成するメソッド
-  #引数は対象のidとtypeの名前をstringで受け取る
-  def create_like(like_model_names,liked_id)
+
+  # product_like,bean_like,product_review_like,bean_review_likeを作成するメソッド
+  # 引数は対象のidとtypeの名前をstringで受け取る
+  def create_like(like_model_names, liked_id)
     case like_model_names
     when 'Product'
       product_likes.find_or_create_by(liked_id: liked_id)
