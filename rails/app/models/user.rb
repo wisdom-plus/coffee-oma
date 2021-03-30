@@ -125,6 +125,20 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength has_manyを
   def create_bean_review(review_params)
     bean_reviews.create(review_params)
   end
+  #product_like,bean_like,product_review_like,bean_review_likeを作成するメソッド
+  #引数は対象のidとtypeの名前をstringで受け取る
+  def create_like(like_model_names,liked_id)
+    case like_model_names
+    when 'Product'
+      product_likes.find_or_create_by(liked_id: liked_id)
+    when 'Bean'
+      bean_likes.find_or_create_by(liked_id: liked_id)
+    when 'Review'
+      product_review_likes.find_or_create_by(liked_id: liked_id)
+    when 'BeanReview'
+      bean_review_likes.find_or_create_by(liked_id: liked_id)
+    end
+  end
 
   def create_or_update_history(params)
     h = if params[:controller] == 'products'
