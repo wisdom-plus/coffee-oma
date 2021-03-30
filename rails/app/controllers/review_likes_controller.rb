@@ -3,11 +3,11 @@ class ReviewLikesController < ApplicationController
 
   def create
     if params[:type] == 'Review'
-      @review_like = current_user.create_like(params[:type],params[:review_id])
+      @review_like = current_user.create_like(params[:type], params[:review_id])
       @review = Review.find(params[:review_id])
       @review.create_notification_like(current_user)
     elsif params[:type] == 'BeanReview'
-      @review_like = current_user.create_like(params[:type],params[:review_id])
+      @review_like = current_user.create_like(params[:type], params[:review_id])
       @review = BeanReview.find(params[:review_id])
     end
     render 'create.js.erb'

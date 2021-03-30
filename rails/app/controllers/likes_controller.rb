@@ -7,9 +7,9 @@ class LikesController < ApplicationController
 
   def create
     if params[:type] == 'Product'
-      @like = current_user.create_like(params[:type],params[:liked_id])
+      @like = current_user.create_like(params[:type], params[:liked_id])
     elsif params[:type] == 'Bean'
-      @like = current_user.create_like(params[:type],params[:liked_id])
+      @like = current_user.create_like(params[:type], params[:liked_id])
     end
     render 'create.js.erb'
   end
