@@ -62,7 +62,7 @@ node_modules/
 /public/packs
 /public/packs-test
 /public/assets
-
+/public/sitemap.xml.gz
 
 # Ignore yarn files
 /yarn-error.log
