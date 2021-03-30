@@ -6,7 +6,7 @@
 # Example:
 #
 set :output, 'log/crontab.log'
-set :environment, :development
+set :environment, :production
 
 every 1.day, at: '6:00 am' do
   rake '-s sitemap:refresh'
