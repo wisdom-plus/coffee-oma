@@ -46,14 +46,17 @@ gem 'gimei'
 gem 'gon'
 gem 'html2slim'
 gem 'kaminari'
+gem 'meta-tags'
 gem 'pry-rails'
 gem 'rails-i18n'
 gem 'ransack'
 gem 'recaptcha'
 gem 'rename'
 gem 'semantic-ui-sass', '~> 2.4', '>= 2.4.2.0'
+gem 'sitemap_generator'
 gem 'slim'
 gem 'slim-rails'
+gem 'whenever', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
