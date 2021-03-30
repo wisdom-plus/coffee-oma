@@ -1,20 +1,18 @@
 module ApplicationHelper
-  def default_meta_tags
+  def default_meta_tags # rubocop:disable Metrics/MethodLength
     {
-      site: 'coffee-oma',
       title: 'coffee-oma',
       reverse: true,
       charset: 'utf-8',
       separator: '|',
       description: 'coffee-omaはコーヒーに関するアイテムや豆を、レビューし評価するwebサイトです。',
-      keywords:'coffee,coffee-bean,review',
+      keywords: 'coffee,coffee-bean,review',
       canonical: request.original_url,
-      noindex: ! Rails.env.production?,
+      noindex: !Rails.env.production?,
       icon: [
-        {herf: image_tag('/favicon.icon')}
+        { herf: image_tag('/favicon.icon') }
       ],
       og: {
-        site_name: 'coffee-oma',
         title: 'coffee-oma',
         description: 'coffee-omaはコーヒーに関するアイテムや豆を、レビューし評価するwebサイトです。',
         type: 'website',
