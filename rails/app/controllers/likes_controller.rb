@@ -16,10 +16,10 @@ class LikesController < ApplicationController
 
   def destroy
     if params[:type] == 'ProductLike'
-      like = current_user.destroy_product_like(params[:id])
+      like = current_user.destroy_like(params[:type], params[:id])
       @liked = Product.find_by(id: like.liked_id)
     elsif params[:type] == 'BeanLike'
-      like = current_user.destroy_bean_like(params[:id])
+      like = current_user.destroy_like(params[:type], params[:id])
       @liked = Bean.find_by(id: like.liked_id)
     end
     render 'destroy.js.erb'
