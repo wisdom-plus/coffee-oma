@@ -24,7 +24,7 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
-class User < ApplicationRecord # rubocop:disable Metrics/ClassLength has_manyをまとめて書くことできないかを探す メソッドを減らす
+class User < ApplicationRecord
   has_many :participant1_rooms, class_name: 'Room', foreign_key: 'participant1_id', dependent: :destroy, inverse_of: 'participant1'
   has_many :participant2_rooms, class_name: 'Room', foreign_key: 'participant2_id', dependent: :destroy, inverse_of: 'participant2'
   has_many :messages, dependent: :destroy
@@ -82,26 +82,6 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength has_manyを
     relationships.find_by(follow_id: other_user.id)
   end
 
-  def destroy_product_like(product_id)
-    like = product_likes.find_by(id: product_id)
-    like&.destroy
-  end
-
-  def destroy_bean_like(bean_id)
-    like = bean_likes.find_by(id: bean_id)
-    like&.destroy
-  end
-
-  def destroy_product_review_like(review_like_id)
-    review_like = product_review_likes.find_by(id: review_like_id)
-    review_like&.destroy
-  end
-
-  def destroy_bean_review_like(review_like_id)
-    review_like = bean_review_likes.find_by(id: review_like_id)
-    review_like&.destroy
-  end
-
   def create_review(review_params)
     reviews.create(review_params)
   end
@@ -123,6 +103,22 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength has_manyを
     when 'BeanReview'
       bean_review_likes.find_or_create_by(liked_id: liked_id)
     end
+  end
+
+  # product_like,bean_like,product_review_like,bean_review_likeを削除するメソッド
+  # 引数は対象のidとtypeの名前をstringで受け取る
+  def destroy_like(like_model_names, liked_id)
+    like =  case like_model_names
+            when 'ProductLike'
+              product_likes.find_by(id: liked_id)
+            when 'BeanLike'
+              bean_likes.find_by(id: liked_id)
+            when 'ProductReviewLike'
+              product_review_likes.find_by(id: liked_id)
+            when 'BeanReviewLike'
+              bean_review_likes.find_by(id: liked_id)
+            end
+    like&.destroy unless like.nil?
   end
 
   def create_or_update_history(params)
