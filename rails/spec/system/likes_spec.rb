@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Likes', type: :system do
+RSpec.describe 'Likes', type: :system, js: true do
   let(:user) { create(:user) }
   let(:user1) { create(:user, username: 'test1', email: 'test1@example.com') }
   let(:product) { create(:product) }
