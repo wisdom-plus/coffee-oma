@@ -58,7 +58,7 @@ jobs:
           command: bundle exec bin/webpack
       - run:
           name: Decode ENV file
-          command: echo $ENV_FILE | base64 --decode > .env
+          command: echo $ENV_FILE | base64 -d > .env
       - run:
           name: rubocop
           command: bundle exec rubocop

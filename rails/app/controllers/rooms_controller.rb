@@ -26,9 +26,8 @@ class RoomsController < ApplicationController
 
     def check_including
       room = Room.find(params[:id])
-      if room.participant1_id == current_user.id || room.participant2_id == current_user.id
-      else
-        redirect_to root_path, flash: { alret: '参加できませんでした' }
-      end
+      return if room.participant1_id == current_user.id || room.participant2_id == current_user.id
+
+      redirect_to root_path, flash: { alret: '参加できませんでした' }
     end
 end
