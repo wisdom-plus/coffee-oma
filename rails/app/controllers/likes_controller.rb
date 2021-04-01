@@ -6,19 +6,21 @@ class LikesController < ApplicationController
   end
 
   def create
-    if params[:type] == 'Product'
+    case params[:type]
+    when 'Product'
       @like = current_user.create_like(params[:type], params[:liked_id])
-    elsif params[:type] == 'Bean'
+    when 'Bean'
       @like = current_user.create_like(params[:type], params[:liked_id])
     end
     render 'create.js.erb'
   end
 
   def destroy
-    if params[:type] == 'ProductLike'
+    case params[:type]
+    when 'ProductLike'
       like = current_user.destroy_like(params[:type], params[:id])
       @liked = Product.find_by(id: like.liked_id)
-    elsif params[:type] == 'BeanLike'
+    when 'BeanLike'
       like = current_user.destroy_like(params[:type], params[:id])
       @liked = Bean.find_by(id: like.liked_id)
     end

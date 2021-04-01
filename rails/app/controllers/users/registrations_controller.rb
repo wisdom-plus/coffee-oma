@@ -4,18 +4,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   before_action :user_exist?, only: [:show]
-  before_action :check_guest, only: %i[destroy update]
-  prepend_before_action :check_captcha, only: [:create]
-  prepend_before_action :customize_sign_up_params, only: [:create]
+  before_action :check_guest, only: %i[destroy update] # rubocop:disable Rails/LexicallyScopedActionFilter スーパークラスのメソッドを指定している
+  prepend_before_action :check_captcha, only: [:create] # rubocop:disable Rails/LexicallyScopedActionFilter
+  prepend_before_action :customize_sign_up_params, only: [:create] # rubocop:disable Rails/LexicallyScopedActionFilter
   # GET /resource/sign_up
   # def new
   #   super
   # end
 
   # POST /resource
-  def create
-    super
-  end
+  # def create
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit
@@ -23,14 +23,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  def update
-    super
-  end
+  # def update
+  #   super
+  # end
 
   # DELETE /resource
-  def destroy
-    super
-  end
+  # def destroy
+  #   super
+  # end
 
   def show
     @user = User.includes(relationships: [:follow]).find(params[:id])
