@@ -6,9 +6,10 @@ class ReportsController < ApplicationController
     @review = Review.find(params[:review_id])
     if @review.reports.size > 10
       DeleteReviewJob.perform_later(params[:review_id])
-      redirect_to product_path(@review.product_id)
-    else
-      render 'create.js.erb'
+    end
+    respond_to do |format|
+      format.js
+      format.html { redirect_to product_path(@review.product_id) }
     end
   end
 end

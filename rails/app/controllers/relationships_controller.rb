@@ -5,12 +5,18 @@ class RelationshipsController < ApplicationController
     @user = User.find(params[:follow_id])
     @follow = current_user.follow(@user)
     @user.create_notification_follow(current_user)
-    render 'create.js.erb'
+    respond_to do |format|
+      format.js
+      format.html { redirect_to user_registration_path(@user) }
+    end
   end
 
   def destroy
     @user = User.find(params[:follow_id])
     @follow = current_user.unfollow(@user)
-    render 'destroy.js.erb'
+    respond_to do |format|
+      format.js
+      format.html { redirect_to user_registration_path(@user) }
+    end
   end
 end

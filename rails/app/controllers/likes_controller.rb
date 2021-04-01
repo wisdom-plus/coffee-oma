@@ -14,6 +14,7 @@ class LikesController < ApplicationController
     end
     respond_to do |format|
       format.js
+      format.html { redirect_to root_path }
     end
   end
 
@@ -28,6 +29,7 @@ class LikesController < ApplicationController
     end
     respond_to do |format|
       format.js
+      format.html { redirect_to root_path }
     end
   end
 end
