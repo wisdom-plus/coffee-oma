@@ -124,6 +124,9 @@ RSpec/MultipleExpectations:
 RSpec/NestedGroups:
   Max: 5
 
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
+
 Style/BlockComments:
   Exclude:
     - "spec/spec_helper.rb"
