@@ -31,7 +31,10 @@ jobs:
     steps:
       - checkout:
           path: ~/coffee
-
+      - restore_cache:
+          keys:
+            - rails-gem-{{ checksum "Gemfile.lock"}}
+            - rails-gem-
       - run:
           name: bundleをインストール
           command: bundle check || bundle install --jobs=4
@@ -39,7 +42,10 @@ jobs:
           key: rails-gem-{{ checksum "Gemfile.lock"}}
           paths:
             - vendor/bundle
-
+      - restore_cache:
+          keys:
+            - rails-yarn-{{ checksum "yarn.lock"}}
+            - rails-yarn-
       - run:
           name: yarnを追加
           command: yarn install
@@ -52,7 +58,7 @@ jobs:
           command: bundle exec bin/webpack
       - run:
           name: Decode ENV file
-          command: echo $ENV_FILE | base64 --decode > .env
+          command: echo $ENV_FILE | base64 -d > .env
       - run:
           name: rubocop
           command: bundle exec rubocop
