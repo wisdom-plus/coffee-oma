@@ -11,7 +11,9 @@ class ReviewLikesController < ApplicationController
       @review_like = current_user.create_like(params[:type], params[:review_id])
       @review = BeanReview.find(params[:review_id])
     end
-    render 'create.js.erb'
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy
@@ -23,6 +25,8 @@ class ReviewLikesController < ApplicationController
       review_like = current_user.destroy_like(params[:type], params[:id])
       @review = BeanReview.find_by(id: review_like.liked_id)
     end
-    render 'destroy.js.erb'
+    respond_to do |format|
+      format.js
+    end
   end
 end

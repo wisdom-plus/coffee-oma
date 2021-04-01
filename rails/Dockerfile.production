@@ -1,4 +1,4 @@
-FROM ruby:2.7.1-alpine
+FROM ruby:2.7.2-alpine
 ENV APP_HOME /usr/src/coffee-oma
 WORKDIR ${APP_HOME}
 COPY Gemfile Gemfile.lock package.json yarn.lock ./
