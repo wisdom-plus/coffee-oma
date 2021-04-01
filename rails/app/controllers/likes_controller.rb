@@ -12,7 +12,9 @@ class LikesController < ApplicationController
     when 'Bean'
       @like = current_user.create_like(params[:type], params[:liked_id])
     end
-    render 'create.js.erb'
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy
@@ -24,6 +26,8 @@ class LikesController < ApplicationController
       like = current_user.destroy_like(params[:type], params[:id])
       @liked = Bean.find_by(id: like.liked_id)
     end
-    render 'destroy.js.erb'
+    respond_to do |format|
+      format.js
+    end
   end
 end
