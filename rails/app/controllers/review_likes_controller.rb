@@ -2,11 +2,12 @@ class ReviewLikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    if params[:type] == 'Review'
+    case params[:type]
+    when 'Review'
       @review_like = current_user.create_like(params[:type], params[:review_id])
       @review = Review.find(params[:review_id])
       @review.create_notification_like(current_user)
-    elsif params[:type] == 'BeanReview'
+    when 'BeanReview'
       @review_like = current_user.create_like(params[:type], params[:review_id])
       @review = BeanReview.find(params[:review_id])
     end
@@ -14,10 +15,11 @@ class ReviewLikesController < ApplicationController
   end
 
   def destroy
-    if params[:type] == 'ProductReviewLike'
+    case params[:type]
+    when 'ProductReviewLike'
       review_like = current_user.destroy_like(params[:type], params[:id])
       @review = Review.find_by(id: review_like.liked_id)
-    elsif params[:type] == 'BeanReviewLike'
+    when 'BeanReviewLike'
       review_like = current_user.destroy_like(params[:type], params[:id])
       @review = BeanReview.find_by(id: review_like.liked_id)
     end
