@@ -43,7 +43,7 @@ crumb :message do |room|
 end
 
 crumb :contact do
-  link 'お問い合わせ', new_contacts_path
+  link 'お問い合わせ', new_contact_path
   parent :root
 end
 
