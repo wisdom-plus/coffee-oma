@@ -1,9 +1,7 @@
 .ui.grid
   .column
-    .ui.breadcrumb
-      =link_to 'Home', root_path, class: 'section'
-      i.right.chevron.icon.devider
-      .active.section メッセージ一覧
+    - breadcrumb :room
+    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
 .ui.middle.aligned.center.aligned.grid
   .column
     h1#title メッセージ一覧

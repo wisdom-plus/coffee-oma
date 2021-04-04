@@ -1,9 +1,7 @@
 .ui.grid
   .column
-    .ui.breadcrumb
-      =link_to 'Home', root_path, class: 'section'
-      i.right.chevron.icon.devider
-      .active.section 確認メール
+    - breadcrumb :confirmation
+    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
 .ui.middle.aligned.center.aligned.grid
   .column style= "width: 543px"
     h2#title 確認メールを再送する
