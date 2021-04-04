@@ -1,9 +1,7 @@
 .ui.grid
   .column
-    .ui.breadcrumb
-      =link_to 'Home', root_path, class: 'section'
-      i.right.chevron.icon.devider
-      .active.section お問い合わせ
+    - breadcrumb :contact
+    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
 .ui.middle.aligned.center.aligned.grid
   .column style= "width: 543px"
     h1#title お問い合わせ

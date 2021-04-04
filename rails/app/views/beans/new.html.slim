@@ -1,9 +1,7 @@
 .ui.grid
   .column
-    .ui.breadcrumb
-      =link_to 'Home', root_path, class: 'section'
-      i.right.chevron.icon.devider
-      .active.section コーヒー豆を登録
+    - breadcrumb :bean_new
+    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
 .ui.middle.aligned.center.aligned.grid.vertical.stripe
   .column style= "width: 640px"
     h1#title コーヒー豆を登録する
