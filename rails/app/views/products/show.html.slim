@@ -1,11 +1,7 @@
 .ui.grid
   .column
-    .ui.breadcrumb
-      =link_to 'Home', root_path, class: 'section'
-      i.right.chevron.icon.devider
-      =link_to '一覧', products_path, class: 'section'
-      i.right.chevron.icon.devider
-      .active.section 詳細
+    - breadcrumb :product_show, @product
+    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
 .ui.middle.aligned.center.aligned.grid
   .column
     h1#title アイテムの詳細
