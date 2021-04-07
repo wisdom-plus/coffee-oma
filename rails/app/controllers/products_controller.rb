@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create update]
 
   def new
-    @product = Product.new
+    @product = Product.new(tag_list: 'コーヒー')
   end
 
   def create
@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @tag = @product.tag_list
     @review = Review.new
     @reviews = Review.where('product_id = ?', @product.id).includes(:user, :product_review_likes).page(params[:page]).per(SHOW_DISPLAY_NUM)
     if signed_in?
@@ -51,8 +52,14 @@ class ProductsController < ApplicationController
 
     def product_params
       params.require(:product).permit(
-        :itemname, :itemprice, :shopname, :imageurl, :itemurl, :itemcaption
-      ).merge(tag_list: params[:product][:tag_list].split(' '))
+        :itemname,
+        :itemprice,
+        :shopname,
+        :imageurl,
+        :itemurl,
+        :itemcaption,
+        :tag_list
+      )
     end
 
     def history_params
