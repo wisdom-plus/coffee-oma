@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
 
   def update
     product = Product.find(params[:id])
-    product.tag_list_add(params[:tag_list])
+    product.tag_list.add(params[:tag_list],parse: true)
     if product.save
       redirect_to product_path(params[:id])
     else
