@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
   def index
     @q = Product.ransack(params[:q])
     @products = if params[:tag_name]
-                  Product.tag_search(params[:tag_name]).page(params[:page]).per(INDEX_DISPALY_NUM)
+                  Product.tagged_with(params[:tag_name]).page(params[:page]).per(INDEX_DISPALY_NUM)
                 else
                   @q.result(distinct: true).page(params[:page]).per(INDEX_DISPALY_NUM)
                 end

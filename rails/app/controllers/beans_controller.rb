@@ -35,7 +35,7 @@ class BeansController < ApplicationController
   private
 
     def bean_params
-      params.require(:bean).permit(:area, :country, :name, :purification, :roast, :url, :description, :image)
+      params.require(:bean).permit(:area, :country, :name, :purification, :roast, :url, :description, :image, :tag_list)
     end
 
     def history_params
