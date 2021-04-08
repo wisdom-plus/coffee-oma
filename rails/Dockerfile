@@ -14,6 +14,7 @@ RUN apk  --no-cache add linux-headers\
                         mysql-client \
                         mysql-dev \
                         git \
+                        less \
                         yarn &&\
     apk add --virtual build-dependencies --no-cache build-base curl-dev &&\
     bundle install -j4 &&\

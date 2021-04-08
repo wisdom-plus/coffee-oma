@@ -35,9 +35,9 @@
               td.center.aligned タグ
               td.center.aligned
                 .ui.accordion.field
-                  - @tag.each do |tag|
+                  - @tags.each do |tag|
                     .ui.teal.tag.label#a_opacity
-                      =link_to tag, products_path(tag_name: tag)
+                      =link_to "#{tag} (#{tag.taggings_count})", products_path(tag_name: tag.name)
                   - if signed_in?
                     .mini.compact.ui.right.floated.button.title#accordion タグを編集
                     .content.field
