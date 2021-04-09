@@ -4,7 +4,7 @@ td.center.aligned
     - if target.class == Product
       - tags.each do |tag|
         .ui.teal.tag.label#a_opacity
-          =link_to "#{tag} (#{tag.taggings_count})",products_path(tag_name: tag.name)
+          =link_to "#{tag} (#{tag.taggings_count})",products_path(tag_name: tag.name), class: 'tag_link'
     - elsif target.class == Bean
       - tags.each do |tag|
         .ui.teal.tag.label#a_opacity
