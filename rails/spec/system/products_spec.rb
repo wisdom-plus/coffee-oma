@@ -101,10 +101,10 @@ RSpec.describe 'Products', type: :system do
       end
 
       it 'edit tag_list' do
-        fill_in 'tag_list', with: 'コーヒー豆'
+        fill_in 'tag_list', with: 'coffee'
         click_on '登録'
         visit product_path(product.id)
-        expect(page).to have_content 'コーヒー豆'
+        expect(page).to have_content 'coffee'
       end
 
       it 'redirect index(tag)' do
