@@ -20,6 +20,8 @@ pickle-email-*.html
 !/tmp/pids/
 !/tmp/sockets/
 !/tmp/.keep
+/tmp/pids/puma.pid
+/tmp/pids/server.pid
 
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
