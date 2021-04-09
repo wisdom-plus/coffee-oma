@@ -28,7 +28,8 @@
               tr
                 td.center.aligned 精製方法
                 td.center.aligned #{@bean.purification}
-              = render partial: 'shared/tag_form', locals: {tags: @tags, target: @bean}
+              tr#tag_form
+                = render partial: 'shared/tag_form', locals: {tags: @tags, target: @bean}
               tr
                 td.center.aligned 評価
                 - unless @bean_reviews.empty?

@@ -4,21 +4,16 @@ class TagsController < ApplicationController
   def update
     case params[:type]
     when 'Product'
-      product = Product.find(params[:id])
-      product.tag_list.add(params[:tag_list],parse: true)
-      if product.save
-        redirect_to product_path(params[:id])
-      else
-        render product_path(params[:id])
-      end
+      @target = Product.find(params[:id])
     when 'Bean'
-      bean = Bean.find(params[:id])
-      bean.tag_list.add(params[:tag_list],parse: true)
-      if bean.save
-        refirect_to bean_path(params[:id])
-      else
-        render bean_path(params[:id])
-      end
+      @target= Bean.find(params[:id])
+    end
+    @target.tag_list.add(params[:tag_list], parse: true)
+    @target.save
+    @tags = @target.tag_counts_on(:tags)
+    respond_to do |format|
+      format.js
+      format.html { redirect_to root_path}
     end
   end
 end
