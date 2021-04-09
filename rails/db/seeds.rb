@@ -159,7 +159,8 @@ Bean.create!(
   purification: "ナチェラル",
   roast: "ミディアム",
   url:"https://www.amazon.co.jp/TOKYO-COFFEE-%E6%9D%B1%E4%BA%AC%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC-%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8B%E3%83%83%E3%82%AF%E3%83%96%E3%83%AC%E3%83%B3%E3%83%89-%E8%87%AA%E5%AE%B6%E7%84%99%E7%85%8E%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC/dp/B01AABXQ36/ref=sr_1_2_sspa?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&dchild=1&keywords=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E8%B1%86&qid=1615536696&sr=8-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyNjdHRTVFTVc0NUJEJmVuY3J5cHRlZElkPUExMDQ2NjU1MlkzVDBKVk8yODJUTiZlbmNyeXB0ZWRBZElkPUFVVlpST0o5Wk5HNTImd2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl",
-  user: User.find(1)
+  user: User.find(1),
+  tag_list: ['コーヒー豆','ブラジル','ブレンド']
 )
 Bean.create!(
   area:"キアンバ",
@@ -171,7 +172,8 @@ Bean.create!(
   name: Faker::Coffee.unique.blend_name,
   purification: "ナチェラル",
   roast: "焙煎度不明",
-  user:User.find(1)
+  user:User.find(1),
+  tag_list: ['コーヒー豆',' ケニア','ナチェラル']
 )
 Bean.create!(
   area:"セラード",
@@ -182,7 +184,8 @@ Bean.create!(
   name: "Little Nap original blend",
   purification: "ナチェラル",
   roast: "フルシティ",
-  user: User.find(9)
+  user: User.find(9),
+  tag_list: ['コーヒー豆','ブラジル','ブレンド','フルシティ']
 )
 Bean.create!(
   country:"ブラジル　エチオピア",
@@ -191,7 +194,8 @@ Bean.create!(
   name: "Mocha blend",
   purification: "ウォッシュド",
   roast: "ハイ",
-  user:User.find(4)
+  user:User.find(4),
+  tag_list: ['コーヒー豆','ブラジル','ブレンド','エチオピア']
 )
 Bean.create!(
   area:"アンティグア",
@@ -201,7 +205,8 @@ Bean.create!(
   name: "ALL ARABICA coffee",
   purification: "ナチェラル",
   roast: "シティ",
-  user: User.find(7)
+  user: User.find(7),
+  tag_list: ['コーヒー豆','グァテマラ','シティ','ナチェラル']
 )
 
 Review.create!(
