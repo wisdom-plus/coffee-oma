@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Tags", type: :system, js: true do
+RSpec.describe 'Tags', type: :system, js: true do
   let(:user) { create(:user) }
   let(:product) { create(:product) }
-  let(:bean) { create(:bean, user: user)}
+  let(:bean) { create(:bean, user: user) }
 
   describe 'update' do
     context 'when login' do
