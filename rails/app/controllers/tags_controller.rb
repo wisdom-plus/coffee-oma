@@ -6,14 +6,14 @@ class TagsController < ApplicationController
     when 'Product'
       @target = Product.find(params[:id])
     when 'Bean'
-      @target= Bean.find(params[:id])
+      @target = Bean.find(params[:id])
     end
     @target.tag_list.add(params[:tag_list], parse: true)
     @target.save
     @tags = @target.tag_counts_on(:tags)
     respond_to do |format|
       format.js
-      format.html { redirect_to root_path}
+      format.html { redirect_to root_path }
     end
   end
 end
