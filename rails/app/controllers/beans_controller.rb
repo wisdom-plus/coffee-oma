@@ -34,10 +34,10 @@ class BeansController < ApplicationController
   def index
     @q = Bean.ransack(params[:q])
     @beans = if params[:tag_name]
-                  Bean.tagged_with(params[:tag_name]).page(params[:page]).per(INDEX_DISPALY_NUM)
-                else
-                  @q.result(distinct: true).page(params[:page]).per(INDEX_DISPALY_NUM)
-                end
+               Bean.tagged_with(params[:tag_name]).page(params[:page]).per(INDEX_DISPALY_NUM)
+             else
+               @q.result(distinct: true).page(params[:page]).per(INDEX_DISPALY_NUM)
+             end
   end
 
   private

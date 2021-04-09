@@ -31,7 +31,8 @@
               - else
                 td.center.aligned
                   |評価はまだありません
-            = render partial: 'shared/tag_form',locals: {tags: @tags, target: @product}
+            tr#tag_form
+              = render partial: 'shared/tag_form',locals: {tags: @tags, target: @product}
             tr
               td.cen colspan=3
                 - unless @product.itemurl.empty?
