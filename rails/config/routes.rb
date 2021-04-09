@@ -192,7 +192,7 @@ Rails.application.routes.draw do
     get 'users/:id/show' => 'users/registrations#show'
     post 'users/guest_sign_in' => 'users/sessions#new_guest'
   end
-  resources :products, only: %i[new create index show update] do
+  resources :products, only: %i[new create index show] do
     resources :reviews, only: %i[create destroy]
   end
   resources :likes, only: %i[create destroy index]

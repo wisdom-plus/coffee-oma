@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create update]
+  before_action :authenticate_user!, only: %i[new create]
 
   def new
     @product = Product.new(tag_list: 'コーヒー')
@@ -36,16 +36,6 @@ class ProductsController < ApplicationController
     return if @product.reviews.average(:rate).nil?
 
     gon.rate_average = @product.rate_average
-  end
-
-  def update
-    product = Product.find(params[:id])
-    product.tag_list.add(params[:tag_list],parse: true)
-    if product.save
-      redirect_to product_path(params[:id])
-    else
-      render product_path(params[:id])
-    end
   end
 
   private
