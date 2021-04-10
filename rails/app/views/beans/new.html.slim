@@ -35,6 +35,10 @@
           .extra.content
             = f.label "商品のURL"
             = f.url_field :url, autofocus: true, placeholder: "url"
+          extra.content
+            =f.label :tag_list
+            =f.text_field :tag_list, value: @bean.tag_list.join(' '),autofocus: true, placeholder: 'tag-name'
+            .ui.pointing.label 単語を半角スペースで区切ると複数のタグを登録できます。
         table.ui.celled.table
           thead
             tr

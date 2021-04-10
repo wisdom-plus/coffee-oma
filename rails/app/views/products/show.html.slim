@@ -31,21 +31,8 @@
               - else
                 td.center.aligned
                   |評価はまだありません
-            tr
-              td.center.aligned タグ
-              td.center.aligned
-                .ui.accordion.field
-                  - @product.tag_list.each do |tag|
-                    .ui.teal.tag.label#a_opacity
-                      =link_to tag, products_path(tag_name: tag)
-                  - if signed_in?
-                    .mini.compact.ui.right.floated.button.title#accordion タグを編集
-                    .content.field
-                      =form_with  url: product_path(@product.id), method: :put, local: true ,class: "ui mini form tag_form" do |f|
-                        .inline.field
-                          =f.text_field :tag_list, autofocus: true, placeholder: 'タグを追加登録'
-                          =f.submit '登録', class: "compact ui teal button"
-                        .ui.pointing.label.margin 単語を半角スペースで区切ると複数のタグを登録できます。
+            tr#tag_form
+              = render partial: 'shared/tag_form',locals: {tags: @tags, target: @product}
             tr
               td.cen colspan=3
                 - unless @product.itemurl.empty?

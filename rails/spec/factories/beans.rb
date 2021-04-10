@@ -31,5 +31,6 @@ FactoryBot.define do
     purification { 'ナチェラル' }
     roast { 'シティ' }
     url { 'https://example.com' }
+    tag_list { 'コーヒー豆' }
   end
 end
