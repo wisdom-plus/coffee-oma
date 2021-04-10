@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create update]
+  before_action :authenticate_user!, only: %i[new create]
 
   def new
-    @product = Product.new
+    @product = Product.new(tag_list: 'コーヒー')
   end
 
   def create
@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
   def index
     @q = Product.ransack(params[:q])
     @products = if params[:tag_name]
-                  Product.tag_search(params[:tag_name]).page(params[:page]).per(INDEX_DISPALY_NUM)
+                  Product.tagged_with(params[:tag_name]).page(params[:page]).per(INDEX_DISPALY_NUM)
                 else
                   @q.result(distinct: true).page(params[:page]).per(INDEX_DISPALY_NUM)
                 end
@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @tags = @product.tag_counts_on(:tags)
     @review = Review.new
     @reviews = Review.where('product_id = ?', @product.id).includes(:user, :product_review_likes).page(params[:page]).per(SHOW_DISPLAY_NUM)
     if signed_in?
@@ -37,22 +38,18 @@ class ProductsController < ApplicationController
     gon.rate_average = @product.rate_average
   end
 
-  def update
-    product = Product.find(params[:id])
-    product.tag_list_add(params[:tag_list])
-    if product.save
-      redirect_to product_path(params[:id])
-    else
-      render product_path(params[:id])
-    end
-  end
-
   private
 
     def product_params
       params.require(:product).permit(
-        :itemname, :itemprice, :shopname, :imageurl, :itemurl, :itemcaption
-      ).merge(tag_list: params[:product][:tag_list].split(' '))
+        :itemname,
+        :itemprice,
+        :shopname,
+        :imageurl,
+        :itemurl,
+        :itemcaption,
+        :tag_list
+      )
     end
 
     def history_params

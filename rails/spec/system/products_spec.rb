@@ -88,10 +88,6 @@ RSpec.describe 'Products', type: :system do
         visit product_path(product.id)
       end
 
-      it 'render page' do
-        expect(page).to have_current_path product_path(product.id)
-      end
-
       it 'product displayed' do
         expect(page).to have_content 'コーヒーの器具の名前'
       end
@@ -100,15 +96,8 @@ RSpec.describe 'Products', type: :system do
         expect(page).to have_css '.ui.teal.tag.label'
       end
 
-      it 'edit tag_list' do
-        fill_in 'tag_list', with: 'コーヒー豆'
-        click_on '登録'
-        visit product_path(product.id)
-        expect(page).to have_content 'コーヒー豆'
-      end
-
       it 'redirect index(tag)' do
-        click_on 'コーヒー'
+        click_on 'コーヒー (1)'
         expect(page).to have_current_path products_path, ignore_query: true
       end
     end

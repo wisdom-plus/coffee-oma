@@ -31,9 +31,9 @@ class Bean < ApplicationRecord
                 フレンチ: 6,
                 イタリアン: 7 }
   enum purification: { 不明: 0, ナチェラル: 1, ウォッシュド: 2, ハニー: 3, スマトラ式: 4 }
-
   validates :name, :country, :roast, presence: true
   mount_uploader :image, ImageurlUploader
+  acts_as_taggable
 
   belongs_to :user
   has_many :histories, dependent: :destroy

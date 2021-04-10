@@ -70,5 +70,14 @@ RSpec.describe 'Beans', type: :system do
     it 'displayed bean' do
       expect(page).to have_content bean.name
     end
+
+    it 'display tag' do
+      expect(page).to have_css '.ui.teal.tag.label'
+    end
+
+    it 'redirect index(tag)' do
+      click_on 'コーヒー豆 (1)'
+      expect(page).to have_current_path beans_path, ignore_query: true
+    end
   end
 end
