@@ -558,6 +558,7 @@ DEPENDENCIES
   letter_opener_web
   listen (~> 3.2)
   meta-tags
+  mini_magick
   mysql2 (>= 0.4.4)
   pry-rails
   puma (~> 4.1)
