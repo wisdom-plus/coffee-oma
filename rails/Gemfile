@@ -48,6 +48,7 @@ gem 'gretel'
 gem 'html2slim'
 gem 'kaminari'
 gem 'meta-tags'
+gem 'mini_magick'
 gem 'pry-rails'
 gem 'rails-i18n'
 gem 'ransack'
@@ -58,7 +59,6 @@ gem 'sitemap_generator'
 gem 'slim'
 gem 'slim-rails'
 gem 'whenever', require: false
-gem 'mini_magick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
