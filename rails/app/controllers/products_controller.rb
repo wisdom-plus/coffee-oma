@@ -6,8 +6,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = Product.new(product_params)
-    if product.save
+    @product = Product.new(product_params)
+    if @product.save
       redirect_to products_path, notice: 'アイテムを登録しました'
     else
       flash.now[:alert] = 'アイテムの登録に失敗しました'
@@ -41,15 +41,7 @@ class ProductsController < ApplicationController
   private
 
     def product_params
-      params.require(:product).permit(
-        :itemname,
-        :itemprice,
-        :shopname,
-        :imageurl,
-        :itemurl,
-        :itemcaption,
-        :tag_list
-      )
+      params.require(:product).permit(:itemname,:itemprice,:shopname,:imageurl,:itemurl,:itemcaption,:tag_list)
     end
 
     def history_params

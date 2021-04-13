@@ -24,7 +24,7 @@
     - @products.each do |product|
       a.ui.fluid.link.card.post href= product_path(product.id) data-turbolinks="false"
         .image
-          img src="#{product.imageurl.url}"
+          = image_tag src="#{product.imageurl.url}"
         .content
           .herader =product.itemname
           .meta
