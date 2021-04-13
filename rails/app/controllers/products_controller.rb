@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
   private
 
     def product_params
-      params.require(:product).permit(:itemname,:itemprice,:shopname,:imageurl,:itemurl,:itemcaption,:tag_list)
+      params.require(:product).permit(:itemname, :itemprice, :shopname, :imageurl, :itemurl, :itemcaption, :tag_list)
     end
 
     def history_params
