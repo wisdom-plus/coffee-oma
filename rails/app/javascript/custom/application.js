@@ -96,7 +96,7 @@ $(document).on("turbolinks:load", function () {
       label: "ui teal label",
     },
     apiSettings: {
-      url: "",
+      url: "//localhost:3000/api/v1/tags",
       cache: false,
     },
   });

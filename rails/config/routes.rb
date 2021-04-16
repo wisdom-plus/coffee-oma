@@ -116,8 +116,6 @@
 #                                          POST       /products(.:format)                                                                               products#create
 #                              new_product GET        /products/new(.:format)                                                                           products#new
 #                                  product GET        /products/:id(.:format)                                                                           products#show
-#                                          PATCH      /products/:id(.:format)                                                                           products#update
-#                                          PUT        /products/:id(.:format)                                                                           products#update
 #                                    likes GET        /likes(.:format)                                                                                  likes#index
 #                                          POST       /likes(.:format)                                                                                  likes#create
 #                                     like DELETE     /likes/:id(.:format)                                                                              likes#destroy
@@ -146,6 +144,7 @@
 #                                          PATCH      /beans/:id(.:format)                                                                              beans#update
 #                                          PUT        /beans/:id(.:format)                                                                              beans#update
 #                                          DELETE     /beans/:id(.:format)                                                                              beans#destroy
+#                              api_vi_tags GET        /api/vi/tags(.:format)                                                                            api/vi/tags#index {:format=>/json/}
 #                        letter_opener_web            /letter_opener                                                                                    LetterOpenerWeb::Engine
 #            rails_postmark_inbound_emails POST       /rails/action_mailbox/postmark/inbound_emails(.:format)                                           action_mailbox/ingresses/postmark/inbound_emails#create
 #               rails_relay_inbound_emails POST       /rails/action_mailbox/relay/inbound_emails(.:format)                                              action_mailbox/ingresses/relay/inbound_emails#create
@@ -210,7 +209,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api, { format: 'json'} do
-    namespace :vi do
+    namespace :v1 do
       resources :tags, only: %i[index]
     end
   end
