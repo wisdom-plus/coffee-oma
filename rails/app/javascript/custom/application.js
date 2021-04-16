@@ -15,17 +15,6 @@ $(document).on("turbolinks:load", function () {
     context: "#sidebar",
   });
   $(".ui.dropdown").dropdown();
-  $("#tag_form").dropdown({
-    allowAdditions: true,
-    className: {
-      label: "ui teal label",
-    },
-  });
-  $("#tag_form").keydown(function (e) {
-    if (e.key === "Enter") {
-      return false;
-    }
-  });
   $(".file-form").on("change", function () {
     $("#dimmer").dimmer("hide");
     $("#dimmer-product").dimmer("hide");
@@ -101,4 +90,19 @@ $(document).on("turbolinks:load", function () {
       },
     });
   }
+  $("#tag_form").dropdown({
+    allowAdditions: true,
+    className: {
+      label: "ui teal label",
+    },
+    apiSettings: {
+      url: "",
+      cache: false,
+    },
+  });
+  $("#tag_form").keydown(function (e) {
+    if (e.key === "Enter") {
+      return false;
+    }
+  });
 });
