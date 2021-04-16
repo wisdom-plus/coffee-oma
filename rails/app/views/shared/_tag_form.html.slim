@@ -13,7 +13,7 @@ td.center.aligned
       .mini.compact.ui.right.floated.button.title#accordion タグを編集
       .content.field
         =form_with  url: tag_path(target.id, type: target.class), method: :patch,class: "ui mini form tag_form" do |f|
-          .inline.field
-            =f.text_field :tag_list, autofocus: true, placeholder: 'タグを追加登録'
-            =f.submit '登録', class: "compact ui teal button"
-          .ui.pointing.label.margin 単語を半角スペースで区切ると複数のタグを登録できます。
+          .ui.fluid.multiple.search.selection.dropdown#tag_form
+            =f.hidden_field :tag_list
+            .default.text タグを登録する
+          =f.submit '登録', class: "compact ui teal button"

@@ -28,7 +28,7 @@
               tr
                 td.center.aligned 精製方法
                 td.center.aligned #{@bean.purification}
-              tr#tag_form
+              tr#tag_area
                 = render partial: 'shared/tag_form', locals: {tags: @tags, target: @bean}
               tr
                 td.center.aligned 評価
