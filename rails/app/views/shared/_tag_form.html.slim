@@ -14,6 +14,6 @@ td.center.aligned
       .content.field
         =form_with  url: tag_path(target.id, type: target.class), method: :patch,class: "ui mini form tag_form" do |f|
           .ui.fluid.multiple.search.selection.dropdown#tag_form
-            =f.hidden_field :tag_list
+            =f.hidden_field :tag_list,value: target.tag_list.join(',')
             .default.text タグを登録する
           =f.submit '登録', class: "compact ui teal button"
