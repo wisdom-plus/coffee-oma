@@ -92,12 +92,17 @@ $(document).on("turbolinks:load", function () {
   }
   $("#tag_form").dropdown({
     allowAdditions: true,
+    saveRemoteData: false,
     className: {
       label: "ui teal label",
+    },
+    onChange: (value, text, $choice) => {
+      var keyword = value;
     },
     apiSettings: {
       url: "//localhost:3000/api/v1/tags",
       cache: false,
+      data: { keyword: keyword },
     },
   });
   $("#tag_form").keydown(function (e) {

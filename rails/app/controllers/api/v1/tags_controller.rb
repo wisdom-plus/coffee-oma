@@ -1,6 +1,6 @@
 class Api::V1::TagsController < ApplicationController
 
   def index
-    @tags = Tag.all
+    @tags = Tag.tag_search(params[:keyword])
   end
 end
