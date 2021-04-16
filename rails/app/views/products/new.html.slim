@@ -37,7 +37,7 @@
           .extra.content
             =f.label :tag_list
             .ui.fluid.multiple.search.selection.dropdown#tag_form
-                =f.hidden_field :tag_list, value: @product.tag_list.join(' ')
+                =f.hidden_field :tag_list, value: @product.tag_list.split(" ")
                 .default.text tag
         table.ui.celled.table
           thead
