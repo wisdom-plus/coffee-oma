@@ -18,7 +18,7 @@ RSpec.describe 'Products', type: :system do
           fill_in 'shop-name', with: 'コーヒーのメーカー'
           fill_in 'item-price', with: '1000'
           fill_in 'item-caption', with: 'アイテムの説明文が入ります'
-          fill_in 'tag-name', with: 'コーヒー,豆'
+          find('#product_tag_list', visible: false).set('コーヒー,豆')
           click_on 'submit'
         end.to change(Product, :count).by 1
       end
@@ -28,7 +28,7 @@ RSpec.describe 'Products', type: :system do
         fill_in 'shop-name', with: 'コーヒーのメーカー'
         fill_in 'item-price', with: '1000'
         fill_in 'item-caption', with: 'アイテムの説明文が入ります'
-        fill_in 'tag-name', with: 'コーヒー,豆'
+        find('#product_tag_list', visible: false).set('コーヒー,豆')
         click_on 'submit'
         expect(page).to have_current_path products_path, ignore_query: true
       end

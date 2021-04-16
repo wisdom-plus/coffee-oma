@@ -14,7 +14,7 @@ RSpec.describe 'Tags', type: :system, js: true do
       it 'update tag_list(product)' do
         visit product_path(product.id)
         find('#accordion').click
-        fill_in 'tag_list', with: 'coffee'
+        find('input.search').set('coffee')
         click_on '登録'
         expect(page).to have_link 'coffee (1)'
       end
@@ -22,7 +22,7 @@ RSpec.describe 'Tags', type: :system, js: true do
       it 'update tag_list(bean)' do
         visit bean_path(bean.id)
         first('#accordion').click
-        fill_in 'tag_list', with: 'bean'
+        find('input.search').set('bean')
         click_on '登録'
         expect(page).to have_link 'bean (1)'
       end
