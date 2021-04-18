@@ -92,22 +92,21 @@ $(document).on("turbolinks:load", function () {
   }
   $("#tag_form").dropdown({
     allowAdditions: true,
+    forceSelection: false,
     saveRemoteData: false,
+    hideAdditions: false,
+    allowTab: false,
+    showOnFocus: false,
+    prepareHTML: false,
     className: {
       label: "ui teal label",
     },
-    onChange: (value, text, $choice) => {
-      var keyword = value;
-    },
     apiSettings: {
-      url: "//localhost:3000/api/v1/tags",
+      url: "//localhost:3000/api/v1/tags?keyword={query}",
       cache: false,
-      data: { keyword: keyword },
     },
-  });
-  $("#tag_form").keydown(function (e) {
-    if (e.key === "Enter") {
-      return false;
-    }
+    message: {
+      addResult: "{term} (0)",
+    },
   });
 });
