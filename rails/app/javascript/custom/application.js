@@ -101,12 +101,16 @@ $(document).on("turbolinks:load", function () {
     className: {
       label: "ui teal label",
     },
+    onAdd: () => {
+      $(".menu").empty();
+    },
     apiSettings: {
       url: "//localhost:3000/api/v1/tags?keyword={query}",
       cache: false,
     },
     message: {
       addResult: "{term} (0)",
+      noResults: "登録されてません",
     },
   });
 });
