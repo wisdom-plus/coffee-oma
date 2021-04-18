@@ -208,7 +208,7 @@ Rails.application.routes.draw do
     resources :bean_reviews, only: %i[create destroy]
   end
 
-  namespace :api, { format: 'json'} do
+  namespace :api, { format: 'json' } do
     namespace :v1 do
       resources :tags, only: %i[index]
     end
