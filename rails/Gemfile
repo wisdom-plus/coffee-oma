@@ -66,6 +66,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
+  gem 'launchy'
   gem 'letter_opener_web'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
@@ -75,6 +76,7 @@ group :development, :test do
   gem 'rubocop-rspec'
   gem 'selenium-webdriver'
   gem 'spring-commands-rspec'
+  gem 'webmock'
 end
 
 group :development do

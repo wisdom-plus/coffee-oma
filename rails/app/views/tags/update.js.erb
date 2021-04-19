@@ -1,2 +1,13 @@
-$('#tag_form').html("<%= j(render partial: 'shared/tag_form', locals: {tags: @tags, target: @target}) %>");
+$('#tag_area').html("<%= j(render partial: 'shared/tag_form', locals: {tags: @tags, target: @target}) %>");
 $(".ui.accordion").accordion();
+  $("#tag_form").dropdown({
+    allowAdditions: true,
+    className: {
+      label: "ui teal label",
+    },
+  });
+  $("#tag_form").keydown(function (e) {
+    if (e.key === "Enter") {
+      return false;
+    }
+  });

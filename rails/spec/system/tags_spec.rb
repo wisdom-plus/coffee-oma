@@ -13,17 +13,17 @@ RSpec.describe 'Tags', type: :system, js: true do
 
       it 'update tag_list(product)' do
         visit product_path(product.id)
-        find('#accordion').click
-        fill_in 'tag_list', with: 'coffee'
-        click_on '登録'
+        first('#accordion').click
+        page.execute_script "$('#spec_tag_form').val('コーヒー,coffee');"
+        click_on '更新'
         expect(page).to have_link 'coffee (1)'
       end
 
       it 'update tag_list(bean)' do
         visit bean_path(bean.id)
         first('#accordion').click
-        fill_in 'tag_list', with: 'bean'
-        click_on '登録'
+        page.execute_script "$('#spec_tag_form').val('コーヒー豆,bean');"
+        click_button '更新'
         expect(page).to have_link 'bean (1)'
       end
     end

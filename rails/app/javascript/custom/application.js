@@ -90,4 +90,33 @@ $(document).on("turbolinks:load", function () {
       },
     });
   }
+  $("#tag_form").dropdown({
+    allowAdditions: true,
+    forceSelection: false,
+    saveRemoteData: false,
+    hideAdditions: false,
+    allowTab: false,
+    showOnFocus: false,
+    prepareHTML: false,
+    className: {
+      label: "ui teal label",
+    },
+    onAdd: () => {
+      $(".menu").empty();
+    },
+    apiSettings: {
+      url: gon.tag_form_url,
+      cache: false,
+    },
+    message: {
+      addResult: "{term} (0)",
+      noResults: "登録されてません",
+    },
+  });
+  $("#tag_form").keyup(function (e) {
+    var form_value = $("input.search").val();
+    if (form_value == "") {
+      $(".menu").empty();
+    }
+  });
 });

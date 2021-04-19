@@ -21,6 +21,7 @@ RSpec.describe 'Beans', type: :system do
           select 'イタリアン', from: 'bean_roast'
           select 'ナチェラル', from: 'bean_purification'
           fill_in 'url', with: 'https://example.com'
+          find('#bean_tag_list', visible: false).set('コーヒー,豆')
           fill_in 'bean_description', with: 'これはテストです'
           click_on 'submit'
         end.to change(Bean, :count).by 1
@@ -34,6 +35,7 @@ RSpec.describe 'Beans', type: :system do
           select 'イタリアン', from: 'bean_roast'
           select 'ナチェラル', from: 'bean_purification'
           fill_in 'url', with: 'https://example.com'
+          find('#bean_tag_list', visible: false).set('コーヒー,豆')
           fill_in 'bean_description', with: 'これはテストです'
           click_on 'submit'
         end.to change(Bean, :count).by 0
