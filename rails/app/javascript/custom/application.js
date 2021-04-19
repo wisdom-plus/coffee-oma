@@ -105,7 +105,7 @@ $(document).on("turbolinks:load", function () {
       $(".menu").empty();
     },
     apiSettings: {
-      url: "//localhost:3000/api/v1/tags?keyword={query}",
+      url: gon.tag_form_url,
       cache: false,
     },
     message: {
