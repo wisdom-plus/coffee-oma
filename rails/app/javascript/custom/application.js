@@ -26,6 +26,7 @@ $(document).on("turbolinks:load", function () {
       $("#img-prev").attr({ src: image });
     };
   });
+  // 無限スクロールのscript
   if ($(".page_next").length && $(".scroll").length) {
     var InfiniteScroll = require("infinite-scroll");
     var infScroll = new InfiniteScroll(".scroll", {
@@ -40,6 +41,7 @@ $(document).on("turbolinks:load", function () {
       $(".ui.sticky").sticky("refresh");
     });
   }
+  // レート星のscript
   $("#rating").rating({
     maxRating: 5,
     onRate: function (rating) {
@@ -65,6 +67,7 @@ $(document).on("turbolinks:load", function () {
       readOnly: true,
     });
   }
+  // チャートの表示
   if ($("#chart").length) {
     var ctx = document.getElementById("chart").getContext("2d");
     var myChart = new Chart(ctx, {
@@ -90,6 +93,7 @@ $(document).on("turbolinks:load", function () {
       },
     });
   }
+  // タグフォームのscript
   $("#tag_form").dropdown({
     allowAdditions: true,
     forceSelection: false,
