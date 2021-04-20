@@ -3,13 +3,13 @@
 # Table name: bean_reviews
 #
 #  id                :bigint           not null, primary key
-#  acidity           :integer          default(0)
-#  bitter            :integer          default(0)
+#  acidity           :integer
+#  bitter            :integer
 #  content           :text(65535)      not null
-#  flavor            :integer          default(0)
+#  flavor            :integer
 #  reviewlikes_count :integer          default(0), not null
-#  rich              :integer          default(0)
-#  sweet             :integer          default(0)
+#  rich              :integer
+#  sweet             :integer
 #  title             :string(255)      not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
@@ -31,12 +31,17 @@ class BeanReview < ApplicationRecord
            inverse_of: :bean_review
   validates :title,
             :content,
-            :acidity,
+            presence: true
+
+  validates :acidity,
             :bitter,
             :flavor,
             :rich,
             :sweet,
-            presence: true
+            numericality: {
+              greater_than_or_equal_to: 1,
+              less_than_or_equal_to: 5
+            }
   counter_culture :bean, column_name: 'review_count'
 
   def like_record(liker_id)

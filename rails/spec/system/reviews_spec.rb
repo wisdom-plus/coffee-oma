@@ -14,8 +14,8 @@ RSpec.describe 'Reviews', type: :system do
 
       context 'success' do
         before do
-          fill_in 'タイトル',	with: 'レビューのタイトル'
-          fill_in 'レビュー内容',	with: 'レビューの内容'
+          fill_in 'title',	with: 'レビューのタイトル'
+          fill_in 'content',	with: 'レビューの内容'
           find('#review_rate', visible: false).set('1')
           click_button '  submit  '
         end
@@ -32,24 +32,24 @@ RSpec.describe 'Reviews', type: :system do
 
       context 'failure' do
         it 'has blank title' do
-          fill_in 'タイトル',	with: ''
-          fill_in 'レビュー内容',	with: 'レビューの内容'
+          fill_in 'title',	with: ''
+          fill_in 'content',	with: 'レビューの内容'
           find('#review_rate', visible: false).set('1')
           click_button '  submit  '
           expect(page).to have_content 'レビューの登録に失敗しました'
         end
 
         it 'has blank content' do
-          fill_in 'タイトル',	with: 'レビューのタイトル'
-          fill_in 'レビュー内容',	with: ''
+          fill_in 'title',	with: 'レビューのタイトル'
+          fill_in 'content',	with: ''
           find('#review_rate', visible: false).set('1')
           click_button '  submit  '
           expect(page).to have_content 'レビューの登録に失敗しました'
         end
 
         it 'has blank rate' do
-          fill_in 'タイトル',	with: 'レビューのタイトル'
-          fill_in 'レビュー内容',	with: 'レビューの内容'
+          fill_in 'title',	with: 'レビューのタイトル'
+          fill_in 'content',	with: 'レビューの内容'
           click_button '  submit  '
           expect(page).to have_content 'レビューの登録に失敗しました'
         end

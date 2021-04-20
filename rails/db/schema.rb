@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 2021_02_22_115206) do
   end
 
   create_table "bean_reviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "acidity", default: 0
-    t.integer "sweet", default: 0
-    t.integer "rich", default: 0
-    t.integer "bitter", default: 0
-    t.integer "flavor", default: 0
+    t.integer "acidity"
+    t.integer "sweet"
+    t.integer "rich"
+    t.integer "bitter"
+    t.integer "flavor"
     t.bigint "bean_id"
     t.bigint "user_id"
     t.string "title", null: false

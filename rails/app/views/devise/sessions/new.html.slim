@@ -11,13 +11,13 @@
         br
         .ui.left.icon.input
           i.mail.icon
-          = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail address"
+          = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail address", id: 'email'
       .field
         = f.label :password
         br
         .ui.left.icon.input
           i.lock.icon
-          = f.password_field :password, autocomplete: "current-password",placeholder: "Password"
+          = f.password_field :password, autocomplete: "current-password",placeholder: "Password", id: 'login_password'
       - if devise_mapping.rememberable?
       .field.ui.checkbox
         = f.check_box :remember_me
