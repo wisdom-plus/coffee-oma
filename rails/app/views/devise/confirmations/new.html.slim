@@ -11,9 +11,10 @@
         br
         .ui.left.icon.input
           i.mail.icon
-          = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+          = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),id: 'email'
       .actions
         = f.submit "確認メールを送る", class: "ui teal button"
+      .ui.error.message
     .ui.message.text-left
       .container= render "devise/shared/links"
 

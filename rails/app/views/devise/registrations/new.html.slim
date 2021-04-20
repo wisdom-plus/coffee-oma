@@ -11,13 +11,13 @@
         br
         .ui.left.icon.input
           i.user.icon
-          = f.text_field :username, autofocus: true, autocomplete: "name", placeholder: "user-name"
+          = f.text_field :username, autofocus: true, autocomplete: "name", placeholder: "user-name",id: 'username'
       .field
         = f.label :email
         br
         .ui.left.icon.input
           i.mail.icon
-          = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail address"
+          = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail address",id: 'email'
       .field
         = f.label :password
         - if @minimum_password_length
@@ -29,17 +29,18 @@
         br
         .ui.left.icon.input
           i.lock.icon
-          = f.password_field :password, autocomplete: "new-password",placeholder: "Password"
+          = f.password_field :password, autocomplete: "new-password",placeholder: "Password", id:'password'
       .field
         = f.label :password_confirmation
         br
         .ui.left.icon.input
           i.lock.icon
-          = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "Confirmation password"
+          = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "Confirmation password", id: 'password_confirmation'
       .field
         = recaptcha_tags
       .field
         = f.submit "Sign up", class: "ui fluid teal submit button"
+      .ui.error.message
     .ui.message.text-left
       .container= render "devise/shared/links"
     .segment
