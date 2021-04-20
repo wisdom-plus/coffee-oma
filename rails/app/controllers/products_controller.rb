@@ -33,9 +33,6 @@ class ProductsController < ApplicationController
       @like = current_user.product_likes.find_by(liked_id: params[:id])
       current_user.create_or_update_history(history_params)
     end
-    return if @product.reviews.average(:rate).nil?
-
-    gon.rate_average = @product.rate_average
   end
 
   private

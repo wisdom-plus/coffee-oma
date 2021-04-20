@@ -22,7 +22,7 @@
         a href="#"
           i.chevron.circle.up.icon Top
     - @products.each do |product|
-      a.ui.fluid.link.card.post href= product_path(product.id) data-turbolinks="false"
+      a.ui.fluid.link.card.post href= product_path(product.id)
         .image
           = image_tag src="#{product.imageurl.url}"
         .content
