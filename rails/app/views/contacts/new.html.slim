@@ -11,15 +11,15 @@
         br
         .ui.left.icon.input
           i.user.icon
-          = f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "お名前"
+          = f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "お名前", id: 'name'
       .field
         = f.label :email
         br
         .ui.left.icon.input
           i.mail.icon
-          = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレス"
+          = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレス", id: 'email'
       .field
         =f.label :content
-        =f.text_area :content, autofocus: true, placeholder: "\uF044 問合せ内容", class: "editicon"
+        =f.text_area :content, autofocus: true, placeholder: "\uF044 問合せ内容", class: "editicon", id: 'content'
       .field
         = f.submit "送信", class: "ui fluid teal submit button"

@@ -84,16 +84,21 @@
       h1.content レビューの投稿
       =form_with model: @review, url: product_reviews_path(@product.id), class: "ui equal width form column", id: "review_form", method: :post,local: true do |f|
         .fields
-          =f.label :title, "タイトル",class: "four wide field"
-          =f.text_field :title, placeholder: "title", class: "ten wide field"
+          =f.label :title,class: "four wide field"
+          .ten.wide.field
+            =f.label :title,class: 'display_none'
+            =f.text_field :title, placeholder: "title",id: "title"
         .fields
           =f.label :rate, class: "four wide field"
           .ten.wide.field
             .ui.star.rating#rating
-          =f.hidden_field(:rate)
+            =f.label :rate,class: 'display_none'
+            =f.hidden_field(:rate)
         .fields
           =f.label :content, "レビュー内容", class: "four wide field"
-          =f.text_area :content, placeholder: "レビューの内容",class: "ten wide field"
+          .ten.wide.field
+            =f.text_area :content, placeholder: "レビューの内容",id: "content"
+        .ui.error.message
         .field
           = f.submit '  submit  ', class: "large ui center floated positive button"
 - else

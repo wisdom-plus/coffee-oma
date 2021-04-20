@@ -6,15 +6,24 @@ ja:
         itemname: "商品名"
         catchcopy: "キャッチコピー"
         itemprice: "商品価格"
-        itemcaption: "説明文"
+        itemcaption: "商品の説明"
         itemurl: "商品ページURL"
-        imageurl: "画像URL"
-        shopname: "販売店"
+        imageurl: "画像のURL"
+        shopname: "メーカー名"
         created_at: "作成日"
         updated_at: "更新日"
         tag_list: "タグ"
+        title: "タイトル"
       bean:
         tag_list: "タグ"
+        url: "商品のURL"
+        country: "生産国"
+        area: "地域"
+        name: "商品名"
+        roast: "焙煎度"
+        purification: "精製方法"
+        description: "商品の説明"
+        title: 'タイトル'
       review:
         user: "投稿者"
         product: "商品"
@@ -23,6 +32,15 @@ ja:
         created_at: "作成日"
         updated_at: "更新日"
         rate: "評価"
+      bean_review:
+        title: 'タイトル'
+        content: '投稿本文'
+        rate: '評価'
+        acidity: "酸味"
+        bitter: "苦味"
+        sweet: "甘み"
+        rich: "コク"
+        flavor: "風味"
       contact:
         name: "お名前"
         email: "メールアドレス"

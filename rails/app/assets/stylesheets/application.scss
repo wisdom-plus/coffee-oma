@@ -256,6 +256,9 @@ h1.ui.header{
 .content.field.active {
   margin-top: 1.2em;
 }
+.display_none{
+  display: none !important;
+}
 @media only screen and (max-width: 700px) {
   .inverted.menu .right.menu.toc {
     display: block;
