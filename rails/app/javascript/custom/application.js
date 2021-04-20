@@ -70,6 +70,7 @@ $(document).on("turbolinks:load", function () {
   }
   // チャートの表示
   if ($("#chart").length) {
+    let evaluations = $("#chart").data("evaluations");
     var ctx = document.getElementById("chart").getContext("2d");
     var myChart = new Chart(ctx, {
       type: "radar",
@@ -78,7 +79,7 @@ $(document).on("turbolinks:load", function () {
         datasets: [
           {
             label: "",
-            data: gon.evaluation,
+            data: evaluations,
             backgroundColor: "rgba(123,85,68,0.6)",
           },
         ],

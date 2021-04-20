@@ -26,9 +26,6 @@ class BeansController < ApplicationController
       @like = current_user.bean_likes.find_by(liked_id: params[:id])
       current_user.create_or_update_history(history_params)
     end
-    return if @bean_reviews.empty?
-
-    gon.evaluation = @bean.evaluations
   end
 
   def index
