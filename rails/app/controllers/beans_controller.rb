@@ -22,10 +22,10 @@ class BeansController < ApplicationController
     @bean_reviews = BeanReview.where('bean_id= ?', @bean.id).includes([:user], [:recipe]).page(params[:page]).per(SHOW_DISPLAY_NUM)
     @bean_review = BeanReview.new
     @recipe = Recipe.new
-    if signed_in?
-      @like = current_user.bean_likes.find_by(liked_id: params[:id])
-      current_user.create_or_update_history(history_params)
-    end
+    return unless signed_in?
+
+    @like = current_user.bean_likes.find_by(liked_id: params[:id])
+    current_user.create_or_update_history(history_params)
   end
 
   def index
