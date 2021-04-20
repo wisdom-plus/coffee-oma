@@ -3,13 +3,13 @@
 # Table name: bean_reviews
 #
 #  id                :bigint           not null, primary key
-#  acidity           :integer          default(0)
-#  bitter            :integer          default(0)
+#  acidity           :integer
+#  bitter            :integer
 #  content           :text(65535)      not null
-#  flavor            :integer          default(0)
+#  flavor            :integer
 #  reviewlikes_count :integer          default(0), not null
-#  rich              :integer          default(0)
-#  sweet             :integer          default(0)
+#  rich              :integer
+#  sweet             :integer
 #  title             :string(255)      not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null

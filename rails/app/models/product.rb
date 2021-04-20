@@ -27,6 +27,7 @@ class Product < ApplicationRecord
 
   validates :itemname, :itemprice, :shopname, :itemcaption, presence: true
 
+
   def rate_average
     (reviews.average(:rate) * 2).floor / 2.to_f
   end

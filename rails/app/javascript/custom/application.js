@@ -48,7 +48,7 @@ $(document).on("turbolinks:load", function () {
       $("#review_rate").val(rating);
     },
   });
-  $(".formrating").rating({
+  $(".form_rating").rating({
     maxRating: 5,
     onRate: function (rating) {
       var form = $(this).data("taste");
@@ -139,8 +139,14 @@ $(document).on("turbolinks:load", function () {
       tag: ["empty", "minCount[1]"],
       description: "empty",
       content: "empty",
-      review_rate: ["empty"],
+      review_rate: "empty",
       title: "empty",
+      country: "empty",
+      bean_review_acidity: "empty",
+      bean_review_bitter: "empty",
+      bean_review_sweet: "empty",
+      bean_review_rich: "empty",
+      bean_review_flavor: "empty",
     },
   });
 });
