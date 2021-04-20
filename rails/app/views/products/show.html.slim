@@ -96,7 +96,8 @@
             =f.hidden_field(:rate)
         .fields
           =f.label :content, "レビュー内容", class: "four wide field"
-          =f.text_area :content, placeholder: "レビューの内容",class: "ten wide field",id: "content"
+          .ten.wide.field
+            =f.text_area :content, placeholder: "レビューの内容",id: "content"
         .ui.error.message
         .field
           = f.submit '  submit  ', class: "large ui center floated positive button"

@@ -14,39 +14,44 @@
               i.icons
                 i.ui.large.camera.icon
                 i.ui.bottom.right.corner.add.icon
-            .ui.dimmer
+            .ui.dimmer.field
               = f.label :image do
                 .ui.teal.button
                   |画像を追加する
                 = f.file_field :image, autofocus: true, class: "file-form"
           .content
-            .header
-              =f.label "商品名"
-              = f.text_field :name, autofocus: true, placeholder: "name"
+            .header.field
+              =f.label :name
+              = f.text_field :name, autofocus: true, placeholder: "name",id: 'name'
             .meta
-              =f.label "生産国"
-              = f.text_field :country, autofocus: true, placeholder: "country"
-              =f.label "地域"
-              = f.text_field :area, autofocus: true, placeholder: "area"
-              = f.label "焙煎度"
-              = f.select :roast, Bean.roasts.keys.map{|k| [k, k]},include_blank: "選択してください", selected: "選択してください"
-              = f.label "精製方法"
-              = f.select :purification,Bean.purifications.keys.map{|k| [k, k]},include_blank: "選択してください", selected: "選択してください"
-          .extra.content
-            = f.label "商品のURL"
-            = f.url_field :url, autofocus: true, placeholder: "url"
-          extra.content
+              .field
+                = f.label :country
+                = f.text_field :country, autofocus: true, placeholder: "country",id: 'country'
+              .field
+                = f.label :area
+                = f.text_field :area, autofocus: true, placeholder: "area"
+              .field
+                = f.label :roast
+                = f.select :roast, Bean.roasts.keys.map{|k| [k, k]},include_blank: "選択してください", selected: "選択してください",id: 'roast'
+              .field
+                = f.label :purification
+                = f.select :purification,Bean.purifications.keys.map{|k| [k, k]},include_blank: "選択してください", selected: "選択してください",id: 'purification'
+          .extra.content.field
+            = f.label :url
+            = f.url_field :url, autofocus: true, placeholder: "url",id: 'url'
+          extra.content.field
             =f.label :tag_list
             .ui.fluid.multiple.search.selection.dropdown#tag_form
-                =f.hidden_field :tag_list, value: @bean.tag_list.join(' ')
+                =f.hidden_field :tag_list, value: @bean.tag_list.split(' '), id: 'tag'
                 .default.text tag
-        table.ui.celled.table
+        table.ui.celled.table.field
           thead
             tr
-              th 商品の説明文
+              th = f.label :description
           tbody
             tr
               td
-                = f.text_area :description, autofocus: true , placeholder: "decription"
+                = f.text_area :description, autofocus: true , placeholder: "decription", id: 'description'
+        .ui.error.message
         =f.submit 'submit', class: "ui teal submit button"
 .grid
