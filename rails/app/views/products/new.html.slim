@@ -14,38 +14,39 @@
               i.icons
                 i.ui.large.camera.icon
                 i.ui.bottom.right.corner.add.icon
-            .ui.dimmer
+            .ui.dimmer.field
               = f.label :imageurl do
                 .ui.teal.button
                   |画像を追加する
                 = f.file_field :imageurl, autofocus: true, class: "file-form"
           .content
-            .header
-              =f.label "商品の名前"
-              = f.text_field :itemname, autofocus: true, placeholder: "item-name"
-            .meta
-              =f.label "メーカーの名前"
-              = f.text_field :shopname, autofocus: true, placeholder: "shop-name"
-          .extra.content
-            =f.label "商品の値段"
+            .header.field
+              = f.label :itemname
+              = f.text_field :itemname, autofocus: true, placeholder: "item-name",id: 'name'
+            .meta.field
+              = f.label :shopname
+              = f.text_field :shopname, autofocus: true, placeholder: "shop-name", id: 'shopname'
+          .extra.content.field
+            = f.label :itemprice
             .ui.left.icon.input
               i.yen.icon
-              = f.number_field :itemprice, autofocus: true, placeholder: "item-price", min: 0
-          .extra.content
-            = f.label "商品のURL"
-            = f.url_field :itemurl, autofocus: true, placeholder: "item-url"
-          .extra.content
-            =f.label :tag_list
+              = f.number_field :itemprice, autofocus: true, placeholder: "item-price", min: 0, id: 'price'
+          .extra.content.field
+            = f.label :itemurl
+            = f.url_field :itemurl, autofocus: true, placeholder: "item-url", id: 'url'
+          .extra.content.field
+            = f.label :tag_list
             .ui.fluid.multiple.search.selection.dropdown#tag_form
-                =f.hidden_field :tag_list, value: @product.tag_list.split(" ")
+                = f.hidden_field :tag_list, value: @product.tag_list.split(" "), id: 'tag'
                 .default.text tag
-        table.ui.celled.table
+        table.ui.celled.table.field
           thead
             tr
-              th 商品の説明文
+              th = f.label :itemcaption
           tbody
             tr
               td
-                = f.text_area :itemcaption, autofocus: true , placeholder: "item-caption"
+                = f.text_area :itemcaption, autofocus: true , placeholder: "item-caption",id: 'description'
+        .ui.error.message
         =f.submit 'submit', class: "ui teal submit button"
 .grid
