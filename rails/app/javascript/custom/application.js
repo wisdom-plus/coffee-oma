@@ -125,6 +125,7 @@ $(document).on("turbolinks:load", function () {
       }
     });
   }
+  //  フォームのvalidation設定
   $(".ui.form").form({
     fields: {
       username: "empty",
@@ -147,6 +148,15 @@ $(document).on("turbolinks:load", function () {
       bean_review_sweet: "empty",
       bean_review_rich: "empty",
       bean_review_flavor: "empty",
+    },
+    prompt: {
+      empty: "{name}が入力されていません。",
+      emali: "{name}は有効なメールアドレスではありません。",
+      url: "{name}は有効なURLではありません。",
+      match: "{name}が{ruleValue}は一致しません。",
+      minLength: "{name}は少なくとも{ruleValue}文字以上でなければなりません。",
+      minCount: "{name}は最低でも{ruleValue}の選択肢を持たなければなりません。",
+      number: "{name}は数字で入力してください。",
     },
   });
 });
