@@ -132,6 +132,15 @@ $(document).on("turbolinks:load", function () {
       password_confirmation: "empty",
       email: ["empty", "email"],
       login_password: "empty",
+      name: "empty",
+      shopname: "empty",
+      price: ["minLength[1]", "empty", "number"],
+      url: "url",
+      tag: ["empty", "minCount[1]"],
+      description: "empty",
+      content: "empty",
+      review_rate: ["empty"],
+      title: "empty",
     },
   });
 });

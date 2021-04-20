@@ -6,13 +6,14 @@ ja:
         itemname: "商品名"
         catchcopy: "キャッチコピー"
         itemprice: "商品価格"
-        itemcaption: "説明文"
+        itemcaption: "商品の説明"
         itemurl: "商品ページURL"
-        imageurl: "画像URL"
-        shopname: "販売店"
+        imageurl: "画像のURL"
+        shopname: "メーカー名"
         created_at: "作成日"
         updated_at: "更新日"
         tag_list: "タグ"
+        title: "タイトル"
       bean:
         tag_list: "タグ"
       review:
