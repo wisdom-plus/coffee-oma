@@ -57,12 +57,13 @@ $(document).on("turbolinks:load", function () {
   });
   $(".read").rating("disable");
   if ($("#star").length) {
+    let rate_averge = $("#star").data("rating");
     $("#star").raty({
       size: 36,
       starOff: "/star-off.png",
       starOn: "/star-on.png",
       starHalf: "/star-half.png",
-      score: gon.rate_average,
+      score: rate_averge,
       half: true,
       readOnly: true,
     });

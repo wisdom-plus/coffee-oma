@@ -26,7 +26,7 @@
             tr
               td.center.aligned 評価
               - unless @product.reviews.average(:rate).nil?
-                td.center.aligned#star
+                td.center.aligned#star data-rating = @product.rate_average
                   =@product.reviews.average(:rate).floor(1)
               - else
                 td.center.aligned
