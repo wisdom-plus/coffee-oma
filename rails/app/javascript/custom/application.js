@@ -110,7 +110,7 @@ $(document).on("turbolinks:load", function () {
         $(".menu").empty();
       },
       apiSettings: {
-        url: gon.tag_form_url,
+        url: gon.global.tag_form_url,
         cache: false,
       },
       message: {

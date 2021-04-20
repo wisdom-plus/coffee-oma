@@ -1,6 +1,5 @@
 class BeansController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  before_action :send_env, only: %i[new show]
 
   def new
     @bean = Bean.new(tag_list: 'コーヒー')
