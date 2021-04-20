@@ -11,8 +11,9 @@
         br
         .ui.left.icon.input
           i.mail.icon
-          = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail address"
+          = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail address", id:'email'
       .field
         = f.submit "パスワードをリセットする", class: "ui fluid teal submit button"
+      .ui.error.message
     .ui.message.text-left
       .container= render "devise/shared/links"

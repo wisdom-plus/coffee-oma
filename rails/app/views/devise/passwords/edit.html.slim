@@ -18,15 +18,16 @@
         br
         .ui.left.icon.input
           i.lock.icon
-          = f.password_field :password, autofocus: true, autocomplete: "new-password"
+          = f.password_field :password, autofocus: true, autocomplete: "new-password", id: 'password'
       .field
         = f.label :password_confirmation
         br
         .ui.left.icon.input
           i.lock.icon
-          = f.password_field :password_confirmation, autocomplete: "new-password"
+          = f.password_field :password_confirmation, autocomplete: "new-password", id: 'password_confirmation'
       .field
         = f.submit "パスワードをリセットする", class: "ui fluid teal submit button"
+      .ui.error.message
     .ui.message.text-left
       .container= render "devise/shared/links"
 
