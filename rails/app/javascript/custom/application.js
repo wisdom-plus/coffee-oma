@@ -57,18 +57,20 @@ $(document).on("turbolinks:load", function () {
   });
   $(".read").rating("disable");
   if ($("#star").length) {
+    let rate_averge = $("#star").data("rating");
     $("#star").raty({
       size: 36,
       starOff: "/star-off.png",
       starOn: "/star-on.png",
       starHalf: "/star-half.png",
-      score: gon.rate_average,
+      score: rate_averge,
       half: true,
       readOnly: true,
     });
   }
   // チャートの表示
   if ($("#chart").length) {
+    let evaluations = $("#chart").data("evaluations");
     var ctx = document.getElementById("chart").getContext("2d");
     var myChart = new Chart(ctx, {
       type: "radar",
@@ -77,7 +79,7 @@ $(document).on("turbolinks:load", function () {
         datasets: [
           {
             label: "",
-            data: gon.evaluation,
+            data: evaluations,
             backgroundColor: "rgba(123,85,68,0.6)",
           },
         ],
@@ -110,7 +112,7 @@ $(document).on("turbolinks:load", function () {
         $(".menu").empty();
       },
       apiSettings: {
-        url: gon.tag_form_url,
+        url: gon.global.tag_form_url,
         cache: false,
       },
       message: {
