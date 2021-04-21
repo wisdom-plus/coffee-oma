@@ -22,14 +22,4 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_up, keys: %i[username icon profile])
       devise_parameter_sanitizer.permit(:account_update, keys: %i[username icon profile])
     end
-
-  private
-
-    def send_env
-      gon.tag_form_url = if Rails.env.production?
-                           ENV['TAG_URL']
-                         else
-                           ENV['TAG_LOCAL_URL']
-                         end
-    end
 end

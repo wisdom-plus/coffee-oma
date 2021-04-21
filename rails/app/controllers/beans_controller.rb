@@ -1,6 +1,5 @@
 class BeansController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  before_action :send_env, only: %i[new show]
 
   def new
     @bean = Bean.new(tag_list: 'コーヒー')
@@ -23,13 +22,10 @@ class BeansController < ApplicationController
     @bean_reviews = BeanReview.where('bean_id= ?', @bean.id).includes([:user], [:recipe]).page(params[:page]).per(SHOW_DISPLAY_NUM)
     @bean_review = BeanReview.new
     @recipe = Recipe.new
-    if signed_in?
-      @like = current_user.bean_likes.find_by(liked_id: params[:id])
-      current_user.create_or_update_history(history_params)
-    end
-    return if @bean_reviews.empty?
+    return unless signed_in?
 
-    gon.evaluation = @bean.evaluations
+    @like = current_user.bean_likes.find_by(liked_id: params[:id])
+    current_user.create_or_update_history(history_params)
   end
 
   def index
