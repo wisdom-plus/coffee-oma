@@ -1,0 +1,36 @@
+version: '3'
+
+service:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABE: db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data2:/var/lib/mysql:delegated
+    command: --default-authentication-plugin=mysql_native_password
+  backend:
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend/:coffee-oma/backend:delegated
+    ports:
+      - "3001:3001"
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db
+  frontend:
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/user/src/app;delegated
+    ports:
+      - '3000:3000'
+volumes:
+  mysql-data2:
+    derver:local
