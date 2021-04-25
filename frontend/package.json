@@ -10,9 +10,14 @@
     "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
+    "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.3",
     "typescript": "^4.2.3",
     "web-vitals": "^1.1.1"
   },
@@ -52,6 +57,8 @@
   },
   "devDependencies": {
     "@types/prettier": "^2.2.3",
+    "@types/react-router": "^5.1.13",
+    "@types/react-router-dom": "^5.1.7",
     "@types/stylelint": "^9.10.1",
     "@types/testing-library__jest-dom": "^5.9.5",
     "@types/testing-library__user-event": "^4.2.0",
