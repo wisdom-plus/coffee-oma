@@ -1,6 +1,6 @@
 FROM ruby:2.7.2-alpine
 
-WORKDIR /coffee-oam
+WORKDIR /coffee-oma
 
 COPY Gemfile Gemfile.lock  ./
 
@@ -18,6 +18,7 @@ RUN apk  --no-cache add linux-headers\
                         imagemagick \
                         yarn &&\
     apk add --virtual build-dependencies --no-cache build-base curl-dev &&\
+    gem install bundler -v 2.2.14 &&\
     bundle install -j4 &&\
     apk del build-dependencies
 

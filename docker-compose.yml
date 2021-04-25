@@ -1,11 +1,10 @@
 version: '3'
-
-service:
-  db:
+services:
+  database:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABE: db
+      MYSQL_DATABE: database
     ports:
       - "3306:3306"
     volumes:
@@ -16,13 +15,13 @@ service:
       context: ./backend/
       dockerfile: Dockerfile
     volumes:
-      - ./backend/:coffee-oma/backend:delegated
+      - ./backend/:/coffee-oma/backend:delegated
     ports:
       - "3001:3001"
     tty: true
     stdin_open: true
     depends_on:
-      - db
+      - database
   frontend:
     build:
       context: ./frontend/
@@ -31,6 +30,10 @@ service:
       - ./frontend:/user/src/app;delegated
     ports:
       - '3000:3000'
+    tty: true
+    stdin_open: true
+    depends_on:
+      - database
 volumes:
   mysql-data2:
-    derver:local
+    driver: local
