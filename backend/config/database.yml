@@ -15,14 +15,13 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: password
-  user: root
-  port: 3306
 
 
 development:
   <<: *default
   database: backend_development
   host: database
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -54,7 +53,7 @@ test:
 #
 production:
   <<: *default
-  database: coffee_oma_production
+  database: backend_production
   username: root
   password: <%= ENV['COFFEE_DATABASE_PASSWORD'] %>
   host: <%= ENV['RDS_HOSTNAME'] %>
