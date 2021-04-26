@@ -21,7 +21,7 @@ FactoryBot.define do
     shopname { 'コーヒーのお店' }
     itemurl { 'https://example.com' }
     itemcaption { 'itemの説明文が入ります' }
-    imageurl { Rack::Test::UploadedFile.new(Rails.root.join('spec/support/noimage.jpg')) }
+    imageurl { File.open('./spec/support/noimage.png') }
     tag_list { 'コーヒー' }
   end
 end

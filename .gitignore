@@ -1,2 +1,5 @@
 sessionmanager-bundle/*
 .hadolint.yaml
+.vscode
+frontend
+backend
