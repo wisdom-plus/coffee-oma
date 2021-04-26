@@ -61,25 +61,29 @@
       |ユーザーレビュー
 .ui.items
   - @bean_reviews.each do |review|
-    .ui.segment.review_item
-      h4.ui.header
-        img.ui.circular.image src= review.user.icon alt= "アイコン画像"
-        =review.user.username
-      .item
-        .content
-          h3.header = review.title
-          .meta
-            span.date #{time_ago_in_words(review.created_at)}前
-          .description
-            =simple_format(h(review.content))
-          .extra
-            - if review.recipe
-              = render partial: 'shared/recipe', locals: {review: review}
-            a.ui.teal.label href= "/users/#{review.user.id}/show"
-              |ユーザーの詳細
-            div class="review_like_button_#{review.id} inline"
-              - if signed_in?
-                =render partial:'shared/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
+    - unless signed_in? && current_user.reported_review?(review.id)
+      .ui.segment.review_item
+        h4.ui.header
+          img.ui.circular.image src= review.user.icon alt= "アイコン画像"
+          =review.user.username
+        .item
+          .content
+            h3.header = review.title
+            .meta
+              span.date #{time_ago_in_words(review.created_at)}前
+            .description
+              =simple_format(h(review.content))
+            .extra
+              - if review.recipe
+                = render partial: 'shared/recipe', locals: {review: review}
+              a.ui.teal.label href= "/users/#{review.user.id}/show"
+                |ユーザーの詳細
+              div class="review_like_button_#{review.id} inline"
+                - if signed_in?
+                  =render partial:'shared/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
+              div class= "report_button_#{review.id} inline"
+                  -if signed_in?
+                    = render partial: "shared/report", locals: {review: review}
 = paginate @bean_reviews
 .ui.section.divider
 - if signed_in?

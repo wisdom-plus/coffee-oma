@@ -25,6 +25,7 @@ class BeanReview < ApplicationRecord
   has_one :recipe, dependent: :destroy
   belongs_to :bean
   belongs_to :user
+  has_many :reports, dependent: :destroy, as: :review
   has_many :bean_review_likes,
            foreign_key: 'liked_id',
            dependent: :destroy,

@@ -1,4 +1,4 @@
-  - if current_user.reports.exists?(review_id: review.id)
+  - if current_user.reported_review?(review.id)
     .ui.grey.label
       i.red.flag.icon
         |通報しました
