@@ -177,10 +177,11 @@ ActiveRecord::Schema.define(version: 2021_02_22_115206) do
 
   create_table "reports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.string "review_type", null: false
     t.bigint "review_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["review_id"], name: "index_reports_on_review_id"
+    t.index ["review_type", "review_id"], name: "index_reports_on_review_type_and_review_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
@@ -263,6 +264,5 @@ ActiveRecord::Schema.define(version: 2021_02_22_115206) do
   add_foreign_key "recipes", "bean_reviews"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
-  add_foreign_key "reports", "reviews"
   add_foreign_key "reports", "users"
 end

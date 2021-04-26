@@ -26,7 +26,7 @@ class Review < ApplicationRecord
            inverse_of: :review
 
   has_many :notifications, dependent: :destroy
-  has_many :reports, dependent: :destroy
+  has_many :reports, dependent: :destroy, as: :review
   counter_culture :product
 
   validates :title, :content, :user_id, :product_id, presence: true

@@ -1,8 +1,7 @@
 class DeleteReviewJob < ApplicationJob
   queue_as :default
 
-  def perform(delete_review_id)
-    review = Review.find(delete_review_id)
+  def perform(review)
     review.destroy
   end
 end
