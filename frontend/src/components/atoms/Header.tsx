@@ -1,4 +1,5 @@
 import { VFC } from 'react';
+import { Header } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 const Title = styled.h1`
@@ -6,15 +7,16 @@ const Title = styled.h1`
   font-size: 5em !important;
 `;
 type Props = {
-  title?: boolean;
+  elementtype: string;
   content: string;
+  title?: boolean;
 };
 
-const H1herader: VFC<Props> = ({ title = false, content }) =>
+const H1herader: VFC<Props> = ({ elementtype, content, title = false }) =>
   title ? (
     <Title className="ui header">{content}</Title>
   ) : (
-    <h1 className="ui header">{content}</h1>
+    <Header as={elementtype}>{content}</Header>
   );
 
 export default H1herader;

@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import H1herader from 'components/atoms/H1herader';
+import Header from 'components/atoms/Header';
 
 const Icongridtextcontainer: FC = () => (
   <div className="ui text container">
-    <H1herader content="coffee-omaとは" />
+    <Header content="coffee-omaとは" elementtype="h1" />
     <p>コーヒーに関するすべてのアイテムの口コミ共有サービスです。</p>
   </div>
 );
