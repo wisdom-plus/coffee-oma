@@ -9,14 +9,22 @@ const Title = styled.h1`
 type Props = {
   elementtype: string;
   content: string;
+  textalign?: 'center';
   title?: boolean;
 };
 
-const H1herader: VFC<Props> = ({ elementtype, content, title = false }) =>
+const H1herader: VFC<Props> = ({
+  elementtype,
+  content,
+  textalign,
+  title = false,
+}) =>
   title ? (
     <Title className="ui header">{content}</Title>
   ) : (
-    <Header as={elementtype}>{content}</Header>
+    <Header as={elementtype} textAlign={textalign}>
+      {content}
+    </Header>
   );
 
 export default H1herader;
