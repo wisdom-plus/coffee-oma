@@ -30,19 +30,6 @@ class BeanReview < ApplicationRecord
            foreign_key: 'liked_id',
            dependent: :destroy,
            inverse_of: :bean_review
-  validates :title,
-            :content,
-            presence: true
-
-  validates :acidity,
-            :bitter,
-            :flavor,
-            :rich,
-            :sweet,
-            numericality: {
-              greater_than_or_equal_to: 1,
-              less_than_or_equal_to: 5
-            }
   counter_culture :bean, column_name: 'review_count'
 
   def like_record(liker_id)
