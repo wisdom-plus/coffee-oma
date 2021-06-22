@@ -14,11 +14,7 @@ class BeanReviewsController < ApplicationController
   private
 
     def bean_review_recipe_params
-      if (params[:amount] && params[:grinding] && params[:powdergram] && params[:temperature] && params[:time1] || params[:time2])
-        binding.pry
-        params.require(:bean_review).permit(:acidity, :bitter, :content, :flavor, :rich, :sweet, :title).merge(bean_id: params[:bean_id])
-      end
-      params.require(:bean_review).permit(:acidity, :bitter, :content, :flavor, :rich, :sweet, :title,:powdergram, :grinding, :temperature, :time, :amount, :time1, :time2).merge(bean_id: params[:bean_id])
+      params.require(:bean_review).permit(:acidity, :bitter, :content, :flavor, :rich, :sweet, :title, :powdergram, :grinding, :temperature, :time,
+                                          :amount, :time1, :time2).merge(bean_id: params[:bean_id])
     end
-
 end
