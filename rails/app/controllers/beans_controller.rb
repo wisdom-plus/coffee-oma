@@ -20,7 +20,7 @@ class BeansController < ApplicationController
     @bean = Bean.find(params[:id])
     @tags = @bean.tag_counts_on(:tags)
     @bean_reviews = BeanReview.where('bean_id= ?', @bean.id).includes([:user], [:recipe]).page(params[:page]).per(SHOW_DISPLAY_NUM)
-    @bean_review = BeanReviewForm.new
+    @bean_review = Form::BeanReviewForm.new
     return unless signed_in?
 
     @like = current_user.bean_likes.find_by(liked_id: params[:id])
