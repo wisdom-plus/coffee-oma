@@ -4,9 +4,8 @@ RSpec.describe 'BeanReviews', type: :request do
   let(:user) { create(:user) }
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }
-  let(:recipe) { create(:recipe, bean_review: bean_review)}
-  let(:bean_review_params) { attributes_for(:bean_review,amount: '220',grinding: '中細挽き',powdergram: '22',temperature: '95',time1: '2',time2: '30') }
-
+  let(:recipe) { create(:recipe, bean_review: bean_review) }
+  let(:bean_review_params) { attributes_for(:bean_review, amount: '220', grinding: '中細挽き', powdergram: '22', temperature: '95', time1: '2', time2: '30') }
 
   describe 'POST create' do
     before do
