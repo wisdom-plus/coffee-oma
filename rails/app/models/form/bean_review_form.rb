@@ -1,4 +1,4 @@
-class BeanReviewForm
+class Form::BeanReviewForm
   include ActiveModel::Model
   attr_accessor :title, :content, :acidity, :bitter, :flavor,
                 :rich, :sweet, :amount, :grinding,

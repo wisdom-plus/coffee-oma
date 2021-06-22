@@ -2,7 +2,7 @@ class BeanReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @bean_review = BeanReviewForm.new(bean_review_recipe_params)
+    @bean_review = Form::BeanReviewForm.new(bean_review_recipe_params)
     if @bean_review.save(current_user)
       flash[:notice] = 'レビューの登録に成功しました'
     else
