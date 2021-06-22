@@ -33,4 +33,15 @@ class Notification < ApplicationRecord
   belongs_to :visited, class_name: 'User', optional: true
 
   default_scope -> { order(created_at: :desc) }
+  scope :review_like_notifications, ->(current_user_id, user_id, id) {
+                                      where(['visitor_id = ? and visited_id = ? and review_id = ? and action = ? ',
+                                             current_user_id, user_id, id, 'like'])
+                                    }
+  scope :follow_notification, ->(current_user_id, id) { where(['visitor_id = ? and visited_id = ? and action = ?', current_user_id, id, 'follow']) }
+  scope :message_notification, ->(current_user_id, user_id, id) {
+                                 where(
+                                   ['visitor_id = ? and visited_id = ? and message_id = ? and action = ? ',
+                                    current_user_id, user_id, id, 'message']
+                                 )
+                               }
 end

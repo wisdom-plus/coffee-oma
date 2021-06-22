@@ -22,10 +22,6 @@
 #
 class Recipe < ApplicationRecord
   belongs_to :bean_review
-  validates :powdergram, :grinding, :temperature, :time, :amount, presence: true
-  validates :time, :temperature, :powdergram, :amount, numericality: {
-    greater_than_or_equal_to: 0
-  }
   attr_writer :time1, :time2
 
   enum grinding: { 極細挽き: 0, 細挽き: 1, 中細挽き: 2, 中挽き: 3, 中粗挽き: 4, 粗挽き: 5, 極粗挽き: 6 }
