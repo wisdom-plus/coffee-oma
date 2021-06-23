@@ -31,7 +31,6 @@ gem 'acts-as-taggable-on', '~>7.0'
 gem 'aws-sdk-rails', '~> 3'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.3.1'
-gem 'brakeman'
 gem 'carrierwave', '2.2.1'
 gem 'counter_culture', '~> 2.0'
 gem 'daemons'
@@ -90,6 +89,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet'
+  gem 'brakeman', require: false
   gem 'solargraph'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
