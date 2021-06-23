@@ -3,3 +3,4 @@
 /log/*
 .hadolint.yaml
 yarn-error.log
+brakeman
