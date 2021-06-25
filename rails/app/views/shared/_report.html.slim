@@ -3,5 +3,5 @@
       i.red.flag.icon
         |通報しました
   - else
-    = link_to reports_path(review_id: review.id), method: :post, class:"ui grey label",data: {confirm: "取り消すことはできません。よろしいですか？"}, remote: true do
+    = link_to reports_path(review_id: review.id,type: review.class), method: :post, class:"ui grey label",data: {confirm: "取り消すことはできません。よろしいですか？"}, remote: true do
       i.flag.outloine.icon
