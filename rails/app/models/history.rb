@@ -19,9 +19,4 @@ class History < ApplicationRecord
   belongs_to :user
   belongs_to :bean, optional: true, inverse_of: :histories
   belongs_to :product, optional: true, inverse_of: :histories
-
-
-  def related_history
-    includes(%i[bean product]).order(updated_at: :DESC)
-  end
 end
