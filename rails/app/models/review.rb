@@ -35,7 +35,7 @@ class Review < ApplicationRecord
     less_than_or_equal_to: 5
   }, presence: true
 
-  scope :associated_review, ->(associated_id) { where('product_id = ?', associated_id)}
+  scope :associated_review, ->(associated_id) { where('product_id = ?', associated_id) }
 
   def like_record(liker_id)
     product_review_likes.find_by(user_id: liker_id)
@@ -56,7 +56,7 @@ class Review < ApplicationRecord
     Review.all.includes([:product], [:user]).order('created_at DESC').limit(3)
   end
 
-  def self.show_review(product_id,page)
+  def self.show_review(product_id, page)
     Review.associated_review(product_id).includes(:user, :product_review_likes).page(page).per(SHOW_DISPLAY_NUM)
   end
 end
