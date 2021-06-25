@@ -1,1 +1,1 @@
-$('.report_button_<%=@report.review.id%>').html("<%= j(render partial: 'shared/report',locals: {review: @review}) %>");
+$('.report_button_<%=@review.id%>').html("<%= j(render partial: 'shared/report',locals: {review: @review}) %>");

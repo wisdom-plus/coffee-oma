@@ -13,6 +13,7 @@ class ReviewLikesController < ApplicationController
     end
     respond_to do |format|
       format.js
+      format.html { redirect_to product_path(@review)}
     end
   end
 
@@ -27,6 +28,7 @@ class ReviewLikesController < ApplicationController
     end
     respond_to do |format|
       format.js
+      format.html { redirect_to product_path(@review)}
     end
   end
 end
