@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @tags = @product.tag_counts_on(:tags)
     @review = Review.new
-    @reviews = Review.where('product_id = ?', @product.id).includes(:user, :product_review_likes).page(params[:page]).per(SHOW_DISPLAY_NUM)
+    @reviews = Review.show_review(@product.id,params[:page])
     return unless signed_in?
 
     @like = current_user.product_likes.find_by(liked_id: params[:id])
