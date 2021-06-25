@@ -49,4 +49,8 @@ class Review < ApplicationRecord
     end
     notification.save
   end
+
+  def self.latest_review
+    Review.all.includes([:product], [:user]).order('created_at DESC').limit(3)
+  end
 end
