@@ -30,4 +30,8 @@ class Product < ApplicationRecord
   def rate_average
     (reviews.average(:rate) * 2).floor / 2.to_f
   end
+
+  def self.like_top
+    Product.all.order('likes_count desc').limit(3)
+  end
 end
