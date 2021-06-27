@@ -3,23 +3,22 @@ class RoomsController < ApplicationController
   before_action :check_including, only: %i[show]
 
   def index
-    @rooms = Room.includes([:participant1], [:participant2]).where('participant1_id = ? or participant2_id = ?', current_user.id, current_user)
+    @rooms = Room.where_room(current_user)
   end
 
   def create
-    room = if current_user.id > params[:user_id].to_i
-             Room.new(participant1_id: params[:user_id], participant2_id: current_user.id)
-           else
-             Room.new(participant1_id: current_user.id, participant2_id: params[:user_id])
-           end
-    room.save
-    redirect_to room_path(room.id)
+    room = Room.room_new(current_user.id, params[:user_id])
+    if room.save
+      redirect_to room_path(room.id)
+    else
+      redirect_to root_path, flash: { alret: 'エラーが発生しました。' }
+    end
   end
 
   def show
     @room = Room.find(params[:id])
     @message = Message.new
-    @messages = Message.includes([:user]).where('room_id = ?', params[:id])
+    @messages = Message.room_message(params[:id])
   end
 
   private

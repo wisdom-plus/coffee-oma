@@ -32,4 +32,8 @@ class Message < ApplicationRecord
     notification = current_user.active_notifications.new(message_id: id, visited_id: room.another_user(current_user).id, action: 'message')
     notification.save
   end
+
+  def self.room_message(room_id)
+    Message.includes([:user]).where('room_id = ?', room_id)
+  end
 end
