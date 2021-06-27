@@ -61,7 +61,7 @@ jobs:
           command: echo $ENV_FILE | base64 -d > .env
       - run:
           name: rubocop
-          command: bundle exec rubocop　-p
+          command: bundle exec rubocop
       - run: mv ./config/database.yml.ci ./config/database.yml
       - run:
           name: データベースを作成
