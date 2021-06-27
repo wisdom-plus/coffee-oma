@@ -24,9 +24,9 @@ class Form::BeanReviewForm
 
     ActiveRecord::Base.transaction do
       @bean_review = BeanReview.create!(bean_review_params(current_user))
-      unless recipe_params_exists?
-        Recipe.create!(recipe_params(@bean_review))
-      end
+      return true if recipe_params_exists?
+
+      Recipe.create!(recipe_params(@bean_review))
     end
   end
 

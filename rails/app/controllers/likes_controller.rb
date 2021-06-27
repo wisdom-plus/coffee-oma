@@ -2,7 +2,7 @@ class LikesController < ApplicationController
   before_action :authenticate_user!, only: %i[create destroy]
 
   def index
-    @rankings = Product.all.order('likes_count desc').limit(INDEX_DISPALY_NUM)
+    @rankings = Product.ranking_index
   end
 
   def create
