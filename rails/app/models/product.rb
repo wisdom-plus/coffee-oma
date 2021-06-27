@@ -35,8 +35,8 @@ class Product < ApplicationRecord
     Product.all.order('likes_count desc').limit(3)
   end
 
-  def self.tag_result(_tag_name, _page)
-    Product.tagged_with(params[:tag_name]).page(params[:page]).per(INDEX_DISPALY_NUM)
+  def self.tag_result(tag_name, page)
+    Product.tagged_with(tag_name).page(page).per(INDEX_DISPALY_NUM)
   end
 
   def self.ranking_index

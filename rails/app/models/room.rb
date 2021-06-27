@@ -34,6 +34,10 @@ class Room < ApplicationRecord
     end
   end
 
+  def self.find_room(user1, user2)
+    find_by(participant1_id: user1.id, participant2_id: user2.id)
+  end
+
   def self.room_new(current_user_id, user_id)
     if current_user_id > user_id.to_i
       Room.new(participant1_id: user_id, participant2_id: current_user_id)
