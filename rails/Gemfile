@@ -68,6 +68,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'launchy'
   gem 'letter_opener_web'
+  gem 'parallel_tests'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
   gem 'rubocop', require: false

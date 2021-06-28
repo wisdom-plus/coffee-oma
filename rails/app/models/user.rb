@@ -82,6 +82,10 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength ファッ�
     relationships.find_by(follow_id: other_user.id)
   end
 
+  def find_user(user_id)
+    User.includes(relationships: [:follow]).find(user_id)
+  end
+
   def create_review(review_params)
     reviews.create(review_params)
   end
