@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    review = current_user.create_review(review_params)
+    review = current_user.reviews.create(review_params)
     if review.save
       redirect_to product_path(review.product_id), notice: 'レビューを登録しました'
     else

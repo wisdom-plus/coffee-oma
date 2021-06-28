@@ -39,7 +39,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @review = Review.user_review(@user)
     return unless signed_in? && @user != current_user
 
-    @room = Room.find_room(current_user,@user)
+    @room = Room.find_room(current_user, @user)
   end
 
   # GET /resource/cancel
