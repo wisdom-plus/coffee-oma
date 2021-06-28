@@ -4,11 +4,11 @@ class ReviewLikesController < ApplicationController
   def create
     case params[:type]
     when 'Review'
-      @review_like = current_user.product_review_likes.find_or_create_by(liked_id: params[:liked_id])
+      @review_like = current_user.product_review_likes.find_or_create_by(liked_id: params[:review_id])
       @review = Review.find(params[:review_id])
       @review.create_notification_like(current_user)
     when 'BeanReview'
-      @review_like = current_user.bean_review_likes.find_or_create_by(liked_id: params[:liked_id])
+      @review_like = current_user.bean_review_likes.find_or_create_by(liked_id: params[:review_id])
       @review = BeanReview.find(params[:review_id])
     end
     respond_to do |format|
