@@ -36,8 +36,7 @@ class Review < ApplicationRecord
   }, presence: true
 
   scope :associated_review, ->(associated_id) { where('product_id = ?', associated_id) }
-  scope :associated_user_review , ->(associated_user_id) {where('user_id = ?', associated_user_id)}
-
+  scope :associated_user_review, ->(associated_user_id) { where('user_id = ?', associated_user_id) }
 
   def like_record(liker_id)
     product_review_likes.find_by(user_id: liker_id)

@@ -82,16 +82,8 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength ファッ�
     relationships.find_by(follow_id: other_user.id)
   end
 
-  def find_user(user_id)
+  def self.find_user(user_id)
     User.includes(relationships: [:follow]).find(user_id)
-  end
-
-  def create_review(review_params)
-    reviews.create(review_params)
-  end
-
-  def create_bean_review(review_params)
-    bean_reviews.create(review_params)
   end
 
   # product_like,bean_like,product_review_like,bean_review_likeを作成するメソッド
