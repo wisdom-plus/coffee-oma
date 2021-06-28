@@ -30,4 +30,16 @@ class Product < ApplicationRecord
   def rate_average
     (reviews.average(:rate) * 2).floor / 2.to_f
   end
+
+  def self.like_top
+    Product.all.order('likes_count desc').limit(3)
+  end
+
+  def self.tag_result(tag_name, page)
+    Product.tagged_with(tag_name).page(page).per(INDEX_DISPALY_NUM)
+  end
+
+  def self.ranking_index
+    Product.all.order('likes_count desc').limit(INDEX_DISPALY_NUM)
+  end
 end
