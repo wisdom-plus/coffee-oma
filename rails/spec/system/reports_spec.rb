@@ -21,12 +21,12 @@ RSpec.describe 'Reports', type: :system, js: true do
       end
 
       it 'display button' do
-        expect(page).to have_link nil, href: reports_path(review_id: review.id)
+        expect(page).to have_link nil, href: reports_path(review_id: review.id, type: review.class)
       end
 
       it 'click report button' do
         page.accept_confirm do
-          click_link nil, href: reports_path(review_id: review.id)
+          click_link nil, href: reports_path(review_id: review.id, type: review.class)
         end
         expect(page).to have_content '通報しました'
       end
@@ -47,12 +47,12 @@ RSpec.describe 'Reports', type: :system, js: true do
       end
 
       it 'display button' do
-        expect(page).to have_link nil, href: reports_path(review_id: bean_review.id)
+        expect(page).to have_link nil, href: reports_path(review_id: bean_review.id, type: bean_review.class)
       end
 
       it 'click report button' do
         page.accept_confirm do
-          click_link nil, href: reports_path(review_id: bean_review.id)
+          click_link nil, href: reports_path(review_id: bean_review.id, type: bean_review.class)
         end
         expect(page).to have_content '通報しました'
       end

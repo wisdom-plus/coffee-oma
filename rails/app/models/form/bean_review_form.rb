@@ -27,6 +27,7 @@ class Form::BeanReviewForm
       unless recipe_params_exists?
         Recipe.create!(recipe_params(@bean_review))
       end
+      @bean_review
     end
   end
 
