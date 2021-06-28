@@ -35,7 +35,11 @@ class Room < ApplicationRecord
   end
 
   def self.find_room(user1, user2)
-    find_by(participant1_id: user1.id, participant2_id: user2.id)
+    if @user.id < current_user.id
+      Room.find_by(participant1_id: user1.id, participant2_id: user2.id)
+    else
+      Room.find_by(participant1_id: user2.id, participant2_id: user1.id)
+    end
   end
 
   def self.room_new(current_user_id, user_id)
