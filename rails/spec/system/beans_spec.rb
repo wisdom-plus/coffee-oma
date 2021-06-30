@@ -69,11 +69,8 @@ RSpec.describe 'Beans', type: :system do
       visit bean_path(bean.id)
     end
 
-    it 'displayed bean' do
+    it 'display test', :aggregate_failures do
       expect(page).to have_content bean.name
-    end
-
-    it 'display tag' do
       expect(page).to have_css '.ui.teal.tag.label'
     end
 
