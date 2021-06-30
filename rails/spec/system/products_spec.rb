@@ -88,11 +88,8 @@ RSpec.describe 'Products', type: :system do
         visit product_path(product.id)
       end
 
-      it 'product displayed' do
+      it 'display', :aggregate_failures do
         expect(page).to have_content 'コーヒーの器具の名前'
-      end
-
-      it 'display tag' do
         expect(page).to have_css '.ui.teal.tag.label'
       end
 
@@ -104,15 +101,9 @@ RSpec.describe 'Products', type: :system do
   end
 
   context 'when not login' do
-    it 'not displayed tag_form' do
+    it 'not displayed', :aggregate_failures do
       expect(page).to have_no_css '.tag_form'
-    end
-
-    it 'not displayed review_form' do
       expect(page).to have_no_css '#review_form'
-    end
-
-    it 'not displayed like_button' do
       expect(page).to have_no_css '#like_button'
     end
   end
