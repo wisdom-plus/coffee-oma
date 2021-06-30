@@ -320,8 +320,6 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.20.1)
-    parallel_tests (3.7.0)
-      parallel
     parser (3.0.0.0)
       ast (~> 2.4.1)
     popper_js (1.16.0)
@@ -574,7 +572,6 @@ DEPENDENCIES
   meta-tags
   mini_magick
   mysql2 (>= 0.4.4)
-  parallel_tests
   pry-rails
   puma (~> 4.1)
   rails (~> 6.1.3)

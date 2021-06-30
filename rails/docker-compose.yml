@@ -26,7 +26,6 @@ services:
     shm_size: 128m
     ports:
       - "4444:4444"
-      - "44442:4444"
 volumes:
   mysql-data:
     driver: local
