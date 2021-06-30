@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Products', type: :request do
-  let(:user) { create(:user) }
-  let(:product) { create(:product) }
-  let(:product_params) { attributes_for(:product) }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:product) { create(:product) }
+  let_it_be(:product_params) { attributes_for(:product) }
 
   describe 'GET /products' do
     it 'request success' do

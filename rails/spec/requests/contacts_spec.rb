@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Contacts', type: :request do
-  let(:contact) { create(:contact) }
-  let(:contact_params) { attributes_for(:contact) }
+  let_it_be(:contact) { create(:contact) }
+  let_it_be(:contact_params) { attributes_for(:contact) }
 
   describe 'GET /new' do
     it 'returns http success' do
