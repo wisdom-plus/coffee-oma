@@ -14,6 +14,7 @@
 #
 # Indexes
 #
+#  index_reviews_on_created_at  (created_at)
 #  index_reviews_on_product_id  (product_id)
 #  index_reviews_on_user_id     (user_id)
 #
