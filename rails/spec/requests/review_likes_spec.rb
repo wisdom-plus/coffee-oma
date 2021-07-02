@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'ReviewLikes', type: :request do
-  let(:user) { create(:user) }
-  let(:product) { create(:product) }
-  let(:bean) { create(:bean, user: user) }
-  let(:review) { create(:review, user: user, product: product) }
-  let(:bean_review) { create(:bean_review, user: user, bean: bean) }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:product) { create(:product) }
+  let_it_be(:bean) { create(:bean, user: user) }
+  let_it_be(:review) { create(:review, user: user, product: product) }
+  let_it_be(:bean_review) { create(:bean_review, user: user, bean: bean) }
   let(:product_review_like) { create(:like, user: user, liked_id: review.id, type: 'ProductReviewLike') }
   let(:bean_review_like) { create(:like, user: user, liked_id: bean_review.id, type: 'BeanReviewLike') }
 

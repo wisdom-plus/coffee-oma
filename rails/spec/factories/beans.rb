@@ -19,7 +19,8 @@
 #
 # Indexes
 #
-#  index_beans_on_user_id  (user_id)
+#  index_beans_on_likes_count  (likes_count)
+#  index_beans_on_user_id      (user_id)
 #
 FactoryBot.define do
   factory :bean do

@@ -1,5 +1,4 @@
 # == Schema Information
-# Schema version: 20210201071659
 #
 # Table name: likes
 #
@@ -12,7 +11,8 @@
 #
 # Indexes
 #
-#  index_likes_on_user_id  (user_id)
+#  index_likes_on_created_at  (created_at)
+#  index_likes_on_user_id     (user_id)
 #
 class ProductReviewLike < Like
   belongs_to :user

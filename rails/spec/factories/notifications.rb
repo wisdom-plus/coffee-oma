@@ -14,6 +14,8 @@
 #
 # Indexes
 #
+#  index_notifications_on_checked     (checked)
+#  index_notifications_on_created_at  (created_at)
 #  index_notifications_on_message_id  (message_id)
 #  index_notifications_on_review_id   (review_id)
 #  index_notifications_on_visited_id  (visited_id)
