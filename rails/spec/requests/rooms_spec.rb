@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Rooms', type: :request do
-  let(:user) { create(:user) }
-  let(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
   let(:room) { create(:room, participant1: user, participant2: user1) }
   let(:message) { create(:message, user: user, room: room) }
 

@@ -18,8 +18,9 @@
 #
 # Indexes
 #
-#  index_bean_reviews_on_bean_id  (bean_id)
-#  index_bean_reviews_on_user_id  (user_id)
+#  index_bean_reviews_on_bean_id     (bean_id)
+#  index_bean_reviews_on_created_at  (created_at)
+#  index_bean_reviews_on_user_id     (user_id)
 #
 FactoryBot.define do
   factory :bean_review do

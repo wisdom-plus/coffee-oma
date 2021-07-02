@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_115206) do
+ActiveRecord::Schema.define(version: 2021_07_02_031607) do
 
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_115206) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "reviewlikes_count", default: 0, null: false
     t.index ["bean_id"], name: "index_bean_reviews_on_bean_id"
+    t.index ["created_at"], name: "index_bean_reviews_on_created_at"
     t.index ["user_id"], name: "index_bean_reviews_on_user_id"
   end
 
@@ -69,6 +70,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_115206) do
     t.string "image"
     t.integer "likes_count", default: 0, null: false
     t.integer "review_count", default: 0, null: false
+    t.index ["likes_count"], name: "index_beans_on_likes_count"
     t.index ["user_id"], name: "index_beans_on_user_id"
   end
 
@@ -112,6 +114,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_115206) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "type"
     t.bigint "liked_id"
+    t.index ["created_at"], name: "index_likes_on_created_at"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -134,6 +137,8 @@ ActiveRecord::Schema.define(version: 2021_02_22_115206) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "message_id"
+    t.index ["checked"], name: "index_notifications_on_checked"
+    t.index ["created_at"], name: "index_notifications_on_created_at"
     t.index ["message_id"], name: "index_notifications_on_message_id"
     t.index ["review_id"], name: "index_notifications_on_review_id"
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
@@ -151,6 +156,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_115206) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "likes_count", default: 0, null: false
     t.integer "reviews_count", default: 0, null: false
+    t.index ["likes_count"], name: "index_products_on_likes_count"
   end
 
   create_table "recipes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -194,6 +200,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_115206) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "rate"
     t.integer "reviewlikes_count", default: 0, null: false
+    t.index ["created_at"], name: "index_reviews_on_created_at"
     t.index ["product_id"], name: "index_reviews_on_product_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

@@ -6,7 +6,9 @@ require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'capybara/rspec'
-require 'database_cleaner'
+require 'test_prof/recipes/rspec/let_it_be'
+require 'test_prof/recipes/logging'
+require 'test_prof/recipes/rspec/factory_default'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -53,7 +55,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = false
+  config.use_transactional_fixtures = true
 
   config.before(:each, type: :system) do
     driven_by :rack_test
@@ -93,16 +95,4 @@ RSpec.configure do |config|
   config.include LoginHelper
   config.include ActiveJob::TestHelper
   config.include ActiveSupport::Testing::TimeHelpers
-
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
-  end
-
-  config.before do
-    DatabaseCleaner.start
-  end
-
-  config.after do
-    DatabaseCleaner.clean
-  end
 end

@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Beans', type: :request do
-  let(:user) { create(:user) }
-  let(:bean) { create(:bean, user: user) }
-  let(:bean_params) { attributes_for(:bean) }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:bean) { create(:bean, user: user) }
+  let_it_be(:bean_params) { attributes_for(:bean) }
 
   describe 'GET /new' do
     context 'when login' do
