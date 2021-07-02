@@ -11,7 +11,8 @@
 #
 # Indexes
 #
-#  index_likes_on_user_id  (user_id)
+#  index_likes_on_created_at  (created_at)
+#  index_likes_on_user_id     (user_id)
 #
 FactoryBot.define do
   factory :like do

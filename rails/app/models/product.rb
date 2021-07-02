@@ -14,6 +14,10 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
+# Indexes
+#
+#  index_products_on_likes_count  (likes_count)
+#
 class Product < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :histories, dependent: :destroy

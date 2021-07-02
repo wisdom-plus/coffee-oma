@@ -14,6 +14,10 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
+# Indexes
+#
+#  index_products_on_likes_count  (likes_count)
+#
 FactoryBot.define do
   factory :product do
     itemname { 'コーヒーの器具の名前' }
