@@ -6,5 +6,8 @@ class NotificationsController < ApplicationController
     @notifications.where('checked = ?', false).each do |notification|
       notification.update(checked: true)
     end
+    @follow_notifications = @notifications.where('action = ?',"follow")
+    @like_notifications = @notifications.where('action = ?',"like")
+    @message_notifications = @notifications.where('action = ?', "message")
   end
 end
