@@ -44,7 +44,7 @@ class BeansController < ApplicationController
       params.permit(:controller, :id)
     end
 
-    def update_histroy(params)
+    def update_history(params)
       current_user.create_or_update_history(params)
     end
 end
