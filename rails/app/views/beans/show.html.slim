@@ -61,7 +61,7 @@
       |ユーザーレビュー
 .ui.items
   - @bean_reviews.each do |review|
-    - unless signed_in? && current_user.reported_review?(review.id)
+    - unless signed_in? && current_user.reports.exists?(review_id: review.id)
       .ui.segment.review_item
         h4.ui.header
           img.ui.circular.image src= review.user.icon alt= "アイコン画像"

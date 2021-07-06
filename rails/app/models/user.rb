@@ -104,10 +104,6 @@ class User < ApplicationRecord
     notification.save
   end
 
-  def reported_review?(review_id)
-    reports.exists?(review_id: review_id)
-  end
-
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.username = 'ゲストユーザー'
