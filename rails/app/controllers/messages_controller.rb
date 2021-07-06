@@ -1,12 +1,10 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-
+  after_action :message_notification
   def create
     @message = current_user.messages.new(message_params)
     return unless @message.save
 
-    @messages = Message.where('room_id = ?', params[:room_id])
-    @message.create_notification_message(current_user)
     ActionCable.server.broadcast("room_channel_#{@message.room_id}",
                                  { message: @message.message.gsub(/\r\n|\r|\n/, '<br>'),
                                    user_id: current_user.id,
@@ -18,5 +16,9 @@ class MessagesController < ApplicationController
 
     def message_params
       params.require(:message).permit(:message).merge(room_id: params[:room_id])
+    end
+
+    def message_notification
+      @message.create_notification_message(current_user) if @message.save
     end
 end
