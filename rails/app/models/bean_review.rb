@@ -33,13 +33,13 @@ class BeanReview < ApplicationRecord
            inverse_of: :bean_review
   counter_culture :bean, column_name: 'review_count'
 
-  scope :accociated_review, ->(associated_id) {where('bean_id= ?', associated_id)}
+  scope :accociated_review, ->(associated_id) { where('bean_id= ?', associated_id) }
 
   def like_record(liker_id)
     bean_review_likes.find_by(user_id: liker_id)
   end
 
-  def self.show_review(bean_id,page)
+  def self.show_review(bean_id, page)
     BeanReview.where('bean_id= ?', bean_id).includes([:user], [:recipe]).page(page).per(SHOW_DISPLAY_NUM)
   end
 end

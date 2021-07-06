@@ -11,9 +11,9 @@ class NotificationsController < ApplicationController
 
   private
 
-  def checked_notifications
-    @notifications.where('checked = ?', false).each do |notification|
-      notification.update(checked: true)
+    def checked_notifications
+      @notifications.where('checked = ?', false).each do |notification|
+        notification.update(checked: true)
+      end
     end
-  end
 end

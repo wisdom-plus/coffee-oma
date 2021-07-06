@@ -20,7 +20,7 @@ class BeansController < ApplicationController
   def show
     @bean = Bean.find(params[:id])
     @tags = @bean.tag_counts_on(:tags)
-    @bean_reviews = BeanReview.show_review(@bean.id,params[:page])
+    @bean_reviews = BeanReview.show_review(@bean.id, params[:page])
     @bean_review = Form::BeanReviewForm.new
     @like = current_user.bean_likes.find_by(liked_id: params[:id]) if signed_in?
   end
@@ -28,7 +28,7 @@ class BeansController < ApplicationController
   def index
     @q = Bean.ransack(params[:q])
     @beans = if params[:tag_name]
-               Bean.tag_result(params[:tag_name],params[:page])
+               Bean.tag_result(params[:tag_name], params[:page])
              else
                @q.result(distinct: true).page(params[:page]).per(INDEX_DISPALY_NUM)
              end
