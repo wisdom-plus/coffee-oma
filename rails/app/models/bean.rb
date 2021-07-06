@@ -49,4 +49,8 @@ class Bean < ApplicationRecord
       bean_reviews.average(e).to_s
     end
   end
+
+  def self.tag_result(tag_name, page)
+    Bean.tagged_with(tag_name).page(page).per(INDEX_DISPALY_NUM)
+  end
 end

@@ -20,23 +20,23 @@
           .ui.segment
             .ui.items
               .item
-                h3.ui.icon.header
-                  - if notification.action == "follow"
+                - if notification.action == "follow"
+                  h3.ui.icon.header
                     i.blue.users.icon.mt-10
-                  - elsif notification.action == "like"
-                    i.red.heart.icon.mt-10
-                  - else
-                    i.blue.mail.icon.mt-10
-                .ui.tiny.circular.image
+                  .ui.tiny.circular.image
                     img src = notification.visitor.icon.url
-                .content
-                  - if notification.action == "follow"
+                  .content
                     a.header href = "/users/#{notification.visitor.id}/show"
                       = notification.visitor.username
                       |さんにフォローされました
                     .meta
                       span.date #{time_ago_in_words(notification.created_at)}前
-                  - elsif notification.action == "like"
+                - elsif notification.action == "like"
+                  h3.ui.icon.header
+                    i.red.heart.icon.mt-10
+                  .ui.tiny.circular.image
+                      img src = notification.visitor.icon.url
+                  .content
                     a.header href = product_path(notification.review.product_id)
                       = notification.visitor.username
                       |さんがあなたのレビューにライクしました
@@ -44,69 +44,71 @@
                       span.date #{time_ago_in_words(notification.created_at)}前
                     .description
                       =simple_format(h(notification.review.content))
-                  - else
+                - else
+                  h3.ui.icon.header
+                    i.blue.mail.icon.mt-10
+                  .ui.tiny.circular.image
+                      img src = notification.visitor.icon.url
+                  .content
                     a.header href = room_path(notification.message.room_id)
                       = notification.visitor.username
                       |さんからメッセージが届きました
                     .meta
                       span.date #{time_ago_in_words(notification.created_at)}前
     .ui.bottom.attached.tab.segment data-tab= "second"
-      - if @notifications.empty?
+      - if @follow_notifications.empty?
         |通知はまだ届いていません
       - else
-        - @notifications.each do |notification|
-          - if notification.action == "follow"
-            .ui.segment
-              .ui.items
-                .item
-                  h3.ui.icon.header
-                    i.blue.users.icon.mt-10
-                  .ui.tiny.circular.image
-                    img src = notification.visitor.icon.url
-                  .content
-                    a.header href = "users/#{notification.visitor.id}/show"
-                      = notification.visitor.username
-                      |さんにフォローされました
-                    .meta
-                      span.date #{time_ago_in_words(notification.created_at)}前
+        - @follow_notifications.each do |notification|
+          .ui.segment
+            .ui.items
+              .item
+                h3.ui.icon.header
+                  i.blue.users.icon.mt-10
+                .ui.tiny.circular.image
+                  img src = notification.visitor.icon.url
+                .content
+                  a.header href = "users/#{notification.visitor.id}/show"
+                    = notification.visitor.username
+                    |さんにフォローされました
+                  .meta
+                    span.date #{time_ago_in_words(notification.created_at)}前
     .ui.bottom.attached.tab.segment data-tab= "third"
-      - if @notifications.empty?
+      - if @like_notifications.empty?
         |通知はまだ届いていません
       - else
-        - @notifications.each do |notification|
-          - if notification.action == "like"
-            .ui.segment
-              .ui.items
-                .item
-                  h3.ui.icon.header
-                    i.red.heart.icon.mt-10
-                  .ui.tiny.circular.image
-                    img src = notification.visitor.icon.url
-                  .content
-                    a.header href = product_path(notification.review.product_id)
-                      = notification.visitor.username
-                      |さんがあなたのレビューにライクしました
-                    .meta
-                      span.date #{time_ago_in_words(notification.created_at)}前
-                    .description
-                      =simple_format(h(notification.review.content))
+        - @like_notifications.each do |notification|
+          .ui.segment
+            .ui.items
+              .item
+                h3.ui.icon.header
+                  i.red.heart.icon.mt-10
+                .ui.tiny.circular.image
+                  img src = notification.visitor.icon.url
+                .content
+                  a.header href = product_path(notification.review.product_id)
+                    = notification.visitor.username
+                    |さんがあなたのレビューにライクしました
+                  .meta
+                    span.date #{time_ago_in_words(notification.created_at)}前
+                  .description
+                    =simple_format(h(notification.review.content))
     .ui.bottom.attached.tab.segment data-tab = "four"
-      - if @notifications.empty?
+      - if @message_notifications.empty?
         |通知はまだ届いていません
       - else
-        - @notifications.each do |notification|
-          - if notification.action == "message"
-            .ui.segment
-              .ui.items
-                .item
-                  h3.ui.icon.header
-                    i.blue.mail.icon.mt-10
-                  .ui.tiny.circular.image
-                    img src = notification.visitor.icon.url
-                  .content
-                    a.header href = room_path(notification.message.room_id)
-                      = notification.visitor.username
-                      |さんからメッセージが届きました
-                    .meta
-                      span.date #{time_ago_in_words(notification.created_at)}前
+        - @message_notifications.each do |notification|
+          .ui.segment
+            .ui.items
+              .item
+                h3.ui.icon.header
+                  i.blue.mail.icon.mt-10
+                .ui.tiny.circular.image
+                  img src = notification.visitor.icon.url
+                .content
+                  a.header href = room_path(notification.message.room_id)
+                    = notification.visitor.username
+                    |さんからメッセージが届きました
+                  .meta
+                    span.date #{time_ago_in_words(notification.created_at)}前
     .segment
