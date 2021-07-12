@@ -1,6 +1,7 @@
 FROM ruby:2.7.2-alpine AS base
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 ENV RAILS_ENV production
+ARG ENV_FILE
 WORKDIR /usr/src/coffee-oma
 COPY Gemfile Gemfile.lock package.json yarn.lock ./
 RUN apk  --no-cache add linux-headers\
@@ -22,7 +23,8 @@ RUN apk  --no-cache add linux-headers\
     rm -rf vendor/bundle/ruby/2.7.0/cache/*
 
 COPY . .
-RUN bundle exec rails assets:precompile
+RUN echo "$ENV_FILE" | base64 -d >.env &&\
+    bundle exec rails assets:precompile
 
 FROM ruby:2.7.2-alpine AS main
 ENV RAILS_ENV production
