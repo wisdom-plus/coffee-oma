@@ -112,5 +112,6 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.action_mailer.default_url_options = { host: 'coffee-oma.com', protocol: 'https' }
   ActionMailer::Base.delivery_method = :ses
+  config.action_mailer.delivery_method = :ses
   config.active_job.queue_adapter = :delayed_job
 end
