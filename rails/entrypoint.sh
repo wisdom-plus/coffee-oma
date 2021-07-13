@@ -9,4 +9,6 @@ bin/rails db:seed RAILS_ENV=production
 
 RAILS_ENV=production bin/delayed_job -n 2 start
 
+rake jobs:clear
+
 exec "$@"
