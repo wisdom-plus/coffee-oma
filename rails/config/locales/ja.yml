@@ -291,6 +291,9 @@ ja:
       name: "お名前"
       email: "メールアドレス"
       content: "お問い合わせ内容"
+  recaptcha:
+    errors:
+      verification_failed: 'reCAPTCHA認証に失敗しました。'
   faker:
     address:
       postcode: ["###-####"]

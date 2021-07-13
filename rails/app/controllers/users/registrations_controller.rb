@@ -89,11 +89,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     def check_captcha
+      return if !verify_recaptcha
+
       self.resource = resource_class.new sign_up_params
       resource.validate
-      return if verify_recaptcha(model: resource, message: 'reCAPTCHAのチェックをしてください')
+      set_minimum_password_length
 
-      respond_with_navigational(resource) { render :new }
+      respond_with_navigational(resource) do
+        flash.discard(:recaptcha_error)
+        render :new
+      end
     end
 
   protected
