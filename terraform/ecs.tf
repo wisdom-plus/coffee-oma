@@ -12,8 +12,8 @@ resource "aws_ecs_cluster" "portfolio-ecs" { #ECSクラスタの定義
 
 resource "aws_ecs_task_definition" "portfolio-ecs-task-rails" { #タスク定義
   family                   = "portfolio-service"
-  cpu                      = "512"
-  memory                   = "1024"
+  cpu                      = "2048"
+  memory                   = "4096"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   container_definitions    = data.template_file.rails_task.rendered
