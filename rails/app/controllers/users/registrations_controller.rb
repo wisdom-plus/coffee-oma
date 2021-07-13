@@ -87,7 +87,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       devise_parameter_sanitizer.permit :sign_up, keys: %i[username email password password_confirmation remember_me]
     end
 
-
   protected
 
     def update_resource(resource, params)
