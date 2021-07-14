@@ -147,6 +147,7 @@ resource "aws_vpc_endpoint" "email-smtp" {
 
   security_group_ids = [module.http_sg.security_group_id, module.https_sg.security_group_id, module.stmp_sg.security_group_id]
   subnet_ids         = [aws_subnet.portfolio-private-subnet-1.id]
+  private_dns_enabled = true
 }
 
 data "aws_vpc_endpoint_service" "email-smtp" {
