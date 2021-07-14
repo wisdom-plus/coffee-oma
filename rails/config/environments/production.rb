@@ -11,7 +11,7 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
@@ -75,7 +75,7 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   config.active_support.deprecation = :notify
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new
+  config.log_formatter = ActiveSupport::Logger::SimpleFormatter
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
@@ -110,7 +110,7 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.action_mailer.default_url_options = { host: 'coffee-oma.com' }
+  config.action_mailer.default_url_options = { host: 'coffee-oma.com', protocol: 'https' }
   config.action_mailer.delivery_method = :ses
   config.active_job.queue_adapter = :delayed_job
 end
