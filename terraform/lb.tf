@@ -13,7 +13,8 @@ resource "aws_lb" "portfolio-lb" { #ロードバランサーの定義
     module.http_sg.security_group_id,
     module.https_sg.security_group_id,
     module.http_redirect_sg.security_group_id,
-    module.redis_sg.security_group_id
+    module.redis_sg.security_group_id,
+    module.stmp_sg.security_group_id
   ]
 }
 

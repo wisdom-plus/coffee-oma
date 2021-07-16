@@ -161,3 +161,12 @@ module "stmp_sg" {
   port        = 587
   cidr_blocks = ["0.0.0.0/0"]
 }
+
+module "stmp_sg2" {
+  source      = "./security_group"
+  name        = "stmp-sg2"
+  vpc_id      = aws_vpc.portfolio-vpc.id
+  port        = 465
+  cidr_blocks = ["0.0.0.0/0"]
+}
+

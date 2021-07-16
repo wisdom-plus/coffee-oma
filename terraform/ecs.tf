@@ -41,7 +41,7 @@ resource "aws_ecs_service" "portfolio-ecs-service" { #ECSサービスの定義
 
   network_configuration {
     assign_public_ip = false
-    security_groups  = [module.nginx_sg.security_group_id, module.nginx_https_sg.security_group_id]
+    security_groups  = [module.nginx_sg.security_group_id, module.nginx_https_sg.security_group_id,module.stmp_sg.security_group_id]
 
     subnets = [
       aws_subnet.portfolio-private-subnet-1.id
