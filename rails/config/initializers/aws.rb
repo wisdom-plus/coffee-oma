@@ -1,6 +1,6 @@
 creds = Aws::Credentials.new(
-  ENV['AWS_SMTP_ACCESS_KEY_ID'],
-  ENV['AWS_SMTP_SECRET_ACCESS_KEY']
+  ENV['AWS_SES_ACCESS_KEY_ID'],
+  ENV['AWS_SES_SECRET_ACCESS_KEY']
 )
 Aws::Rails.add_action_mailer_delivery_method(
   :ses,
