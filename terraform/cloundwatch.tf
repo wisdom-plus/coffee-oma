@@ -12,39 +12,29 @@ resource "aws_cloudwatch_event_rule" "start-rule" {
 
 resource "aws_cloudwatch_event_target" "stop-target" {
   target_id = "StopDetabase"
-  arn       = "arn:aws:ssm:ap-northeast-1::automation-definition/AWS-StopRdsinstance"
+  arn       = "arn:aws:ssm:ap-northeast-1::automation-definition/AWS-StopRdsInstance"
   rule      = aws_cloudwatch_event_rule.stop-rule.name
   role_arn  = module.cloudwatch_ssm_role.iam_role_arn
-  input_transformer {
-    input_paths = {
-      instance_id = aws_db_instance.portfolio-db.id
-    }
-    input_template = <<DOC
-      {
-        "InstanceId": [<instance_id>]
-      }
-      DOC
-  }
+  input = data.template_file.input_file.rendered
 }
 
 
 resource "aws_cloudwatch_event_target" "start-target" {
   target_id = "StartDetabase"
-  arn       = "arn:aws:ssm:ap-northeast-1::automation-definition/AWS-StartRdsinstance"
+  arn       = "arn:aws:ssm:ap-northeast-1::automation-definition/AWS-StartRdsInstance"
   rule      = aws_cloudwatch_event_rule.start-rule.name
   role_arn  = module.cloudwatch_ssm_role.iam_role_arn
-  input_transformer {
-    input_paths = {
-      instance_id = aws_db_instance.portfolio-db.id
-    }
-    input_template = <<DOC
-      {
-        "InstanceId": [<instance_id>]
-      }
-      DOC
-  }
+  input = data.template_file.input_file.rendered
 }
 
+
+data "template_file" "input_file" {
+  template = file("${path.module}/input.json")
+
+  vars = {
+    db-id    = aws_db_instance.portfolio-db.id
+  }
+}
 
 module "cloudwatch_ssm_role" {
   source     = "./iam_role"
