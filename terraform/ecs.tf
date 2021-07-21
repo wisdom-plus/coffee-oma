@@ -12,8 +12,8 @@ resource "aws_ecs_cluster" "portfolio-ecs" { #ECSクラスタの定義
 
 resource "aws_ecs_task_definition" "portfolio-ecs-task-rails" { #タスク定義
   family                   = "portfolio-service"
-  cpu                      = "2048"
-  memory                   = "4096"
+  cpu                      = "512"
+  memory                   = "1024"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   container_definitions    = data.template_file.rails_task.rendered
@@ -24,7 +24,7 @@ data "template_file" "rails_task" {
   template = file("${path.module}/task/rails_container_definitions.json")
 
   vars = {
-    env_file = var.env_file,
+    env_file    = var.env_file,
     rails_image = var.rails_image,
     nginx_image = var.nginx_image
   }
@@ -41,7 +41,7 @@ resource "aws_ecs_service" "portfolio-ecs-service" { #ECSサービスの定義
 
   network_configuration {
     assign_public_ip = false
-    security_groups  = [module.nginx_sg.security_group_id, module.nginx_https_sg.security_group_id,module.stmp_sg.security_group_id]
+    security_groups  = [module.nginx_sg.security_group_id, module.nginx_https_sg.security_group_id, module.stmp_sg.security_group_id]
 
     subnets = [
       aws_subnet.portfolio-private-subnet-1.id
