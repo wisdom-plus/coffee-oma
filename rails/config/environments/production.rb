@@ -115,11 +115,11 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   config.active_job.queue_adapter = :delayed_job
   config.action_mailer.perform_caching = true
   ActionMailer::Base.smtp_settings = {
-      :address =>        "email-smtp.ap-northeast-1.amazonaws.com",
-      :port =>           587,
-      :domain =>         "coffee-oma.com",
-      :authentication => :login,
-      :user_name =>      ENV['AWS_SMTP_ACCESS_KEY_ID'],
-      :password =>       ENV['AWS_SMTP_SECRET_ACCESS_KEY'],
+    address: 'email-smtp.ap-northeast-1.amazonaws.com',
+    port: 587,
+    domain: 'coffee-oma.com',
+    authentication: :login,
+    user_name: ENV['AWS_SMTP_ACCESS_KEY_ID'],
+    password: ENV['AWS_SMTP_SECRET_ACCESS_KEY']
   }
 end
