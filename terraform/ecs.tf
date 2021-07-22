@@ -102,6 +102,6 @@ data "aws_iam_policy_document" "ecs_task_execution" { #ポリシードキュメ�
 module "ecs_task_execution_role" { #IAMロールの定義
   source     = "./iam_role"
   name       = "ecs-task-execution"
-  identifier = "ecs-tasks.amazonaws.com"
+  identifier = ["ecs-tasks.amazonaws.com"]
   policy     = data.aws_iam_policy_document.ecs_task_execution.json
 }

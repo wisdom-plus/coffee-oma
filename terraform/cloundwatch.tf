@@ -39,7 +39,7 @@ data "template_file" "input_file" {
 module "cloudwatch_ssm_role" {
   source     = "./iam_role"
   name       = "cloudwatch-ssm-role"
-  identifier = "events.amazonaws.com"
+  identifier = ["events.amazonaws.com","ssm.amazonaws.com","rds.amazonaws.com"]
   policy     = data.aws_iam_policy_document.allow_rds.json
 }
 
@@ -48,7 +48,8 @@ data "aws_iam_policy_document" "allow_rds" {
     effect = "Allow"
     actions = ["rds:StopDBInstance",
       "rds:StartDBInstance",
-    "rds:DescribeDBInstances"]
+    "rds:DescribeDBInstances",
+    "ssm:*"]
     resources = ["*"]
   }
 }
