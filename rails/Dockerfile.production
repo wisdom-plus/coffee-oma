@@ -10,6 +10,7 @@ RUN apk  --no-cache add linux-headers\
                         libc-dev\
                         nodejs\
                         tzdata\
+                        sudo \
                         mysql-client \
                         mysql-dev \
                         git \
@@ -39,6 +40,7 @@ RUN apk  --no-cache add linux-headers\
                         mysql-client \
                         mysql-dev \
                         git \
+                        sudo \
                         curl \
                         imagemagick \
                         openssl \
