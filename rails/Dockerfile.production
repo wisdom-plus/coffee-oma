@@ -27,6 +27,7 @@ RUN echo "$ENV_FILE" | base64 -d >.env &&\
     bundle exec rails assets:precompile
 
 FROM ruby:2.7.4-alpine AS main
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 ENV RAILS_ENV production
 WORKDIR /usr/src/coffee-oma
 RUN apk  --no-cache add linux-headers\
