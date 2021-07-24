@@ -1,7 +1,6 @@
 FROM ruby:3.0.2-alpine AS base
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 ENV RAILS_ENV production
-ENV HOME /usr/src/coffee-oma
 ARG ENV_FILE
 WORKDIR /usr/src/coffee-oma
 COPY Gemfile Gemfile.lock package.json yarn.lock ./
@@ -19,8 +18,8 @@ RUN apk  --no-cache add linux-headers\
                         yarn &&\
     apk add --virtual build-dependencies --no-cache build-base curl-dev libxml2-dev &&\
     bundle config set --local without 'test development' &&\
-    bundle install -j4&&\
-    find /usr/local/bundle -path '*/gems/*/ext/*/Makefile' -exec dirname {} \; | xargs -n1 -P$(nproc) -I{} make -C {} clean $$\
+    bundle install -j4 --deployment &&\
+    find "/usr/local/bundle -path '*/gems/*/ext/*/Makefile' -exec dirname {} \; | xargs -n1 -P$(nproc) -I{} make -C {} clean" $$\
     apk del --purge build-dependencies
 
 COPY . .
@@ -45,7 +44,7 @@ RUN apk  --no-cache add linux-headers\
                         openssl \
                         yarn
 COPY .  .
-COPY --from=base /usr/local/bundle /usr/local/bundle
+COPY --from=base /usr/src/coffee-oma/vendor/bundle  /usr/src/coffee-oma/vendor/bundle
 COPY --from=base /usr/src/coffee-oma/public/assets/ /usr/src/coffee-oma/public/assets/
 COPY --from=base /usr/src/coffee-oma/public/packs/ /usr/src/coffee-oma/public/packs/
 COPY entrypoint.sh /usr/bin/
