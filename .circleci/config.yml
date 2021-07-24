@@ -87,7 +87,10 @@ workflows:
   version: 2
   test-and-deploy:
     jobs:
-      - test
+      - test:
+          filters:
+            branches:
+              ignore: terraform
       - aws-ecr/build-and-push-image:
           name: rails-build-and-push-image
           requires:
