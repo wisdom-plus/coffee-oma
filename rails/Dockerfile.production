@@ -17,7 +17,7 @@ RUN apk  --no-cache add linux-headers\
                         imagemagick \
                         yarn &&\
     apk add --virtual build-dependencies --no-cache build-base curl-dev libxml2-dev &&\
-    gem install bundler --no-document --version '2.2.15' && \
+    gem install -n /usr/local/bin bundler --no-document --version 2.2.15 && \
     bundle config set --local without 'test development' &&\
     bundle install -j4&&\
     apk del --purge build-dependencies &&\
@@ -45,7 +45,7 @@ RUN apk  --no-cache add linux-headers\
                         openssl \
                         yarn &&\
                         chmod 777 /usr/local/bundle &&\
-                        gem install -n /usr/local/bundle bundler --no-document --version 2.2.15
+                        gem install -n /usr/local/bin bundler --no-document --version 2.2.15
 COPY .  .
 COPY --from=base /usr/local/bundle /usr/local/bundle
 COPY --from=base /usr/src/coffee-oma/public/assets/ /usr/src/coffee-oma/public/assets/
