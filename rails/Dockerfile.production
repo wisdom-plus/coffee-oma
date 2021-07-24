@@ -1,4 +1,4 @@
-FROM ruby:2.7.4-alpine AS base
+FROM ruby:2.7.4-alpine3.14 AS base
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 ENV RAILS_ENV production
 ARG ENV_FILE
@@ -26,7 +26,7 @@ COPY . .
 RUN echo "$ENV_FILE" | base64 -d >.env &&\
     bundle exec rails assets:precompile
 
-FROM ruby:2.7.4-alpine AS main
+FROM ruby:2.7.4-alpine3.14 AS main
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 ENV RAILS_ENV production
 WORKDIR /usr/src/coffee-oma
