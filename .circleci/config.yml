@@ -93,8 +93,6 @@ workflows:
               ignore: terraform
       - aws-ecr/build-and-push-image:
           name: rails-build-and-push-image
-          requires:
-            - test
           account-url: AWS_ECR_ACCOUNT_URL
           path: "./rails"
           repo: "portfolio-rails"
