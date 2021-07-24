@@ -2,6 +2,7 @@ FROM ruby:2.7.4-alpine AS base
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 ENV RAILS_ENV production
 ARG ENV_FILE
+USER root
 WORKDIR /usr/src/coffee-oma
 COPY Gemfile Gemfile.lock package.json yarn.lock ./
 RUN apk  --no-cache add linux-headers\
