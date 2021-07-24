@@ -1,6 +1,7 @@
 FROM ruby:3.0.2-alpine AS base
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 ENV RAILS_ENV production
+ENV HOME /usr/src/coffee-oma
 ARG ENV_FILE
 WORKDIR /usr/src/coffee-oma
 COPY Gemfile Gemfile.lock package.json yarn.lock ./
