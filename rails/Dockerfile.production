@@ -17,11 +17,10 @@ RUN apk  --no-cache add linux-headers\
                         imagemagick \
                         yarn &&\
     apk add --virtual build-dependencies --no-cache build-base curl-dev libxml2-dev &&\
-    gem update --system && \
     bundle config set --local without 'test development' &&\
     bundle install -j4&&\
-    apk del --purge build-dependencies &&\
-    rm -rf vendor/bundle/ruby/2.7.0/cache/*
+    find /usr/local/bundle -path '*/gems/*/ext/*/Makefile' -exec dirname {} \; | xargs -n1 -P$(nproc) -I{} make -C {} clean $$\
+    apk del --purge build-dependencies
 
 COPY . .
 RUN echo "$ENV_FILE" | base64 -d >.env &&\
@@ -43,9 +42,7 @@ RUN apk  --no-cache add linux-headers\
                         curl \
                         imagemagick \
                         openssl \
-                        yarn &&\
-                        chmod 777 /usr/local/bundle &&\
-                        gem update --system
+                        yarn
 COPY .  .
 COPY --from=base /usr/local/bundle /usr/local/bundle
 COPY --from=base /usr/src/coffee-oma/public/assets/ /usr/src/coffee-oma/public/assets/
