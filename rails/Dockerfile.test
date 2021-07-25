@@ -16,5 +16,4 @@ RUN apk  --no-cache add linux-headers\
                         curl \
                         imagemagick \
                         yarn &&\
-    apk add --virtual build-dependencies --no-cache build-base curl-dev libxml2-dev &&\
-    bundle config set --local without 'test development' deployment 'true'
+    apk add --virtual build-dependencies --no-cache build-base curl-dev libxml2-dev
