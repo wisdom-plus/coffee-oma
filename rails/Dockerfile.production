@@ -12,14 +12,14 @@ RUN apk  --no-cache add linux-headers\
                         tzdata\
                         mysql-client \
                         mysql-dev \
-                        sudo \
                         git \
                         curl \
                         imagemagick \
                         yarn &&\
     apk add --virtual build-dependencies --no-cache build-base curl-dev libxml2-dev &&\
+    RUN chmod -R 777 /root &&\
     bundle config set --local without 'test development' deployment 'true' &&\
-    sudo bundle install -j4 --deployment &&\
+    bundle install -j4 &&\
     find "/usr/local/bundle -path '*/gems/*/ext/*/Makefile' -exec dirname {} \; | xargs -n1 -P$(nproc) -I{} make -C {} clean" $$\
     apk del --purge build-dependencies
 
