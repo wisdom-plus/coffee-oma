@@ -105,6 +105,9 @@ workflows:
           requires:
             - rails-build-and-push-image
           aws-region: AWS_DEFAULT_REGION
+          filters:
+            branches:
+              ignore: terraform
           family: "portfolio-service"
           cluster-name: "portfolio-cluster"
           container-image-name-updates: "container=rails,tag=${CIRCLE_SHA1}"
