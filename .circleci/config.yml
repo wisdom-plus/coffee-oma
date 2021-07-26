@@ -85,11 +85,11 @@ workflows:
   version: 2
   test-and-deploy:
     jobs:
-      - test:
+      - test
+      - aws-ecr/build-and-push-image:
           filters:
             branches:
               only: master
-      - aws-ecr/build-and-push-image:
           name: rails-build-and-push-image
           account-url: AWS_ECR_ACCOUNT_URL
           path: "./rails"
@@ -99,6 +99,9 @@ workflows:
           dockerfile: Dockerfile.production
           extra-build-args: "--build-arg ENV_FILE=${ENV_FILE}"
       - aws-ecs/deploy-service-update:
+          filters:
+            branches:
+              only: master
           name: rails-deploy-service-update
           requires:
             - rails-build-and-push-image
