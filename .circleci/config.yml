@@ -87,7 +87,7 @@ workflows:
     jobs:
       - test:
           filters:
-            tags:
+            branches:
               only: master
       - aws-ecr/build-and-push-image:
           name: rails-build-and-push-image
@@ -100,9 +100,6 @@ workflows:
           tag: "${CIRCLE_SHA1}"
           dockerfile: Dockerfile.production
           extra-build-args: "--build-arg ENV_FILE=${ENV_FILE}"
-          remote-docker-layer-caching: false
-          remote-docker-version: 20.10.7
-          setup-remote-docker: true
       - aws-ecs/deploy-service-update:
           name: rails-deploy-service-update
           requires:
