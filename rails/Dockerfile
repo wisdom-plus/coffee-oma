@@ -1,4 +1,4 @@
-FROM ruby:2.7.2-alpine
+FROM ruby:2.7.4-alpine3.14
 
 WORKDIR /coffee-oma
 
