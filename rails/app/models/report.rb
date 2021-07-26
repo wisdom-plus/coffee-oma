@@ -24,6 +24,6 @@ class Report < ApplicationRecord
 
   def self.create_report(user, review)
     user.reports.find_or_create_by(review: review)
-    DeleteReviewJob.perform_later(review) if review.reports.size > 10
+    DeleteReviewJob.perform_later(review) if review.reports.size > 9
   end
 end

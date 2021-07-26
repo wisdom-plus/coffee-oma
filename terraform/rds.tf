@@ -27,7 +27,7 @@ resource "aws_db_subnet_group" "portfolio-db-subnet-group" { #DBサブネット�
 resource "aws_db_instance" "portfolio-db" { #DBインスタンスの定義
   identifier                 = "portfolio-db"
   engine                     = "mysql"
-  engine_version             = "8.0"
+  engine_version             = "8.0.23"
   instance_class             = "db.t3.small"
   allocated_storage          = 20
   max_allocated_storage      = 100

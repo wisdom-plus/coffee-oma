@@ -5,7 +5,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
   before_action :user_exist?, only: [:show]
   before_action :check_guest, only: %i[destroy update] # rubocop:disable Rails/LexicallyScopedActionFilter スーパークラスのメソッドを指定している
-  prepend_before_action :check_captcha, only: [:create] # rubocop:disable Rails/LexicallyScopedActionFilter
   prepend_before_action :customize_sign_up_params, only: [:create] # rubocop:disable Rails/LexicallyScopedActionFilter
   # GET /resource/sign_up
   # def new
@@ -86,14 +85,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     def customize_sign_up_params
       devise_parameter_sanitizer.permit :sign_up, keys: %i[username email password password_confirmation remember_me]
-    end
-
-    def check_captcha
-      self.resource = resource_class.new sign_up_params
-      resource.validate
-      return if verify_recaptcha(model: resource)
-
-      respond_with_navigational(resource) { render :new }
     end
 
   protected
