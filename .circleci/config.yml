@@ -33,7 +33,7 @@ jobs:
           path: ~/coffee
       - restore_cache:
           keys:
-            - rails-gem-{{ checksum "Gemfile.lock"}}
+            - rails-gem-v1-{{ checksum "Gemfile.lock"}}
       - run:
           name: bundleをインストール
           command: bundle check || bundle install --jobs=4
@@ -44,14 +44,13 @@ jobs:
       - restore_cache:
           keys:
             - rails-yarn-{{ checksum "yarn.lock"}}
-            - rails-yarn-
       - run:
           name: yarnを追加
           command: yarn install
       - save_cache:
           key: rails-yarn-{{ checksum "yarn.lock"}}
           paths:
-            - ~/.cache/yarn
+            - ~/coffee/rails/node_modules
       - run:
           name: webpackを追加
           command: bundle exec bin/webpack
@@ -86,7 +85,10 @@ workflows:
   version: 2
   test-and-deploy:
     jobs:
-      - test
+      - test:
+          filters:
+            tags:
+              only: master
       - aws-ecr/build-and-push-image:
           name: rails-build-and-push-image
           requires:
@@ -98,6 +100,9 @@ workflows:
           tag: "${CIRCLE_SHA1}"
           dockerfile: Dockerfile.production
           extra-build-args: "--build-arg ENV_FILE=${ENV_FILE}"
+          remote-docker-layer-caching: false
+          remote-docker-version: 20.10.7
+          setup-remote-docker: true
       - aws-ecs/deploy-service-update:
           name: rails-deploy-service-update
           requires:
