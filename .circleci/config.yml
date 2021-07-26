@@ -33,26 +33,24 @@ jobs:
           path: ~/coffee
       - restore_cache:
           keys:
-            - rails-gem-{{ checksum "Gemfile.lock"}}
-            - rails-gem-
+            - rails-gem-v1-{{ checksum "Gemfile.lock"}}
       - run:
           name: bundleをインストール
           command: bundle check || bundle install --jobs=4
       - save_cache:
-          key: rails-gem-{{ checksum "Gemfile.lock"}}
+          key: rails-gem-v1-{{ checksum "Gemfile.lock"}}
           paths:
-            - vendor/bundle
+            - /usr/local/bundle
       - restore_cache:
           keys:
             - rails-yarn-{{ checksum "yarn.lock"}}
-            - rails-yarn-
       - run:
           name: yarnを追加
           command: yarn install
       - save_cache:
           key: rails-yarn-{{ checksum "yarn.lock"}}
           paths:
-            - ~/.cache/yarn
+            - ~/coffee/rails/node_modules
       - run:
           name: webpackを追加
           command: bundle exec bin/webpack
@@ -89,12 +87,10 @@ workflows:
     jobs:
       - test
       - aws-ecr/build-and-push-image:
-          name: rails-build-and-push-image
-          requires:
-            - test
           filters:
             branches:
               only: master
+          name: rails-build-and-push-image
           account-url: AWS_ECR_ACCOUNT_URL
           path: "./rails"
           repo: "portfolio-rails"
@@ -103,12 +99,12 @@ workflows:
           dockerfile: Dockerfile.production
           extra-build-args: "--build-arg ENV_FILE=${ENV_FILE}"
       - aws-ecs/deploy-service-update:
-          name: rails-deploy-service-update
-          requires:
-            - rails-build-and-push-image
           filters:
             branches:
               only: master
+          name: rails-deploy-service-update
+          requires:
+            - rails-build-and-push-image
           aws-region: AWS_DEFAULT_REGION
           family: "portfolio-service"
           cluster-name: "portfolio-cluster"
