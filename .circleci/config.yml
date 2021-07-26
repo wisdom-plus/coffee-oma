@@ -34,14 +34,13 @@ jobs:
       - restore_cache:
           keys:
             - rails-gem-{{ checksum "Gemfile.lock"}}
-            - rails-gem-
       - run:
           name: bundleをインストール
           command: bundle check || bundle install --jobs=4
       - save_cache:
-          key: rails-gem-{{ checksum "Gemfile.lock"}}
+          key: rails-gem-v1-{{ checksum "Gemfile.lock"}}
           paths:
-            - vendor/bundle
+            - /usr/local/bundle
       - restore_cache:
           keys:
             - rails-yarn-{{ checksum "yarn.lock"}}
@@ -92,9 +91,6 @@ workflows:
           name: rails-build-and-push-image
           requires:
             - test
-          filters:
-            branches:
-              only: master
           account-url: AWS_ECR_ACCOUNT_URL
           path: "./rails"
           repo: "portfolio-rails"
@@ -106,9 +102,6 @@ workflows:
           name: rails-deploy-service-update
           requires:
             - rails-build-and-push-image
-          filters:
-            branches:
-              only: master
           aws-region: AWS_DEFAULT_REGION
           family: "portfolio-service"
           cluster-name: "portfolio-cluster"
