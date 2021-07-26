@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
-
+AdminUser.create!(email: "admin@example.com", password: ENV['ADMIN_PASSWORD'],password_confirmation: ENV['ADMIN_PASSWORD]']) if Rails.env.production?
 12.times do |n|
   name = Faker::Internet.unique.username
   email = Faker::Internet.unique.email

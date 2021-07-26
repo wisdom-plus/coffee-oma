@@ -122,4 +122,5 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
     user_name: ENV['AWS_SMTP_ACCESS_KEY_ID'],
     password: ENV['AWS_SMTP_SECRET_ACCESS_KEY']
   }
+  config.authentication_method = :authentication_admin_user!
 end
