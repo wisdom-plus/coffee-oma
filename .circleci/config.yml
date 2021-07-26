@@ -101,6 +101,7 @@ workflows:
           region: AWS_DEFAULT_REGION
           tag: "${CIRCLE_SHA1}"
           dockerfile: Dockerfile.production
+          extra-build-args: "--build-arg ENV_FILE=${ENV_FILE}"
       - aws-ecs/deploy-service-update:
           name: rails-deploy-service-update
           requires:
