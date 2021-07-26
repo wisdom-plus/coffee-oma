@@ -87,27 +87,28 @@ workflows:
   version: 2
   test-and-deploy:
     jobs:
-      - test:
-          filters:
-            branches:
-              ignore: terraform
+      - test
       - aws-ecr/build-and-push-image:
           name: rails-build-and-push-image
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
           account-url: AWS_ECR_ACCOUNT_URL
           path: "./rails"
           repo: "portfolio-rails"
           region: AWS_DEFAULT_REGION
           tag: "${CIRCLE_SHA1}"
           dockerfile: Dockerfile.production
-          extra-build-args: "--build-arg ENV_FILE=${ENV_FILE}"
       - aws-ecs/deploy-service-update:
           name: rails-deploy-service-update
           requires:
             - rails-build-and-push-image
-          aws-region: AWS_DEFAULT_REGION
           filters:
             branches:
-              ignore: terraform
+              only: master
+          aws-region: AWS_DEFAULT_REGION
           family: "portfolio-service"
           cluster-name: "portfolio-cluster"
           container-image-name-updates: "container=rails,tag=${CIRCLE_SHA1}"
