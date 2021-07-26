@@ -24,7 +24,7 @@ data "template_file" "rails_task" {
   template = file("${path.module}/task/rails_container_definitions.json")
 
   vars = {
-    env_file = var.env_file,
+    env_file    = var.env_file,
     rails_image = var.rails_image,
     nginx_image = var.nginx_image
   }
@@ -41,7 +41,7 @@ resource "aws_ecs_service" "portfolio-ecs-service" { #ECSサービスの定義
 
   network_configuration {
     assign_public_ip = false
-    security_groups  = [module.nginx_sg.security_group_id, module.nginx_https_sg.security_group_id]
+    security_groups  = [module.nginx_sg.security_group_id, module.nginx_https_sg.security_group_id, module.stmp_sg.security_group_id]
 
     subnets = [
       aws_subnet.portfolio-private-subnet-1.id
@@ -102,6 +102,6 @@ data "aws_iam_policy_document" "ecs_task_execution" { #ポリシードキュメ�
 module "ecs_task_execution_role" { #IAMロールの定義
   source     = "./iam_role"
   name       = "ecs-task-execution"
-  identifier = "ecs-tasks.amazonaws.com"
+  identifier = ["ecs-tasks.amazonaws.com"]
   policy     = data.aws_iam_policy_document.ecs_task_execution.json
 }
