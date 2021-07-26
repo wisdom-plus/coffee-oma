@@ -90,6 +90,8 @@ workflows:
           filters:
             branches:
               only: master
+          requires:
+            - test
           name: rails-build-and-push-image
           account-url: AWS_ECR_ACCOUNT_URL
           path: "./rails"
