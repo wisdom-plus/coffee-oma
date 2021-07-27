@@ -1080,6 +1080,11 @@ acorn@^6.4.1:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.4.1.tgz#531e58ba3f51b9dacb9a6646ca4debf5b14ca474"
   integrity sha512-ZVA9k326Nwrj3Cj9jlh3wGFutC2ZornPNARZwsNYqQYgN0EsV2d53w5RN/co65Ohn4sUAUtb1rSUAOD6XN9idA==
 
+active_admin_theme@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/active_admin_theme/-/active_admin_theme-1.1.2.tgz#4c20108cd0c25c6c26ab3b90713655375bf4372d"
+  integrity sha512-pIQaAKA5TQ/ASVypSc1uZZYWd4AvTUk1ROdB5kYopgaT0e67GVbRvLBYRLeuzfq1rfw5tR0iKxnmnJaXoTbK+A==
+
 aggregate-error@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/aggregate-error/-/aggregate-error-3.0.1.tgz#db2fe7246e536f40d9b5442a39e117d7dd6a24e0"
