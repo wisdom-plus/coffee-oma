@@ -98,8 +98,8 @@ workflows:
           repo: "portfolio-rails"
           region: AWS_DEFAULT_REGION
           tag: "${CIRCLE_SHA1}"
-          dockerfile: Dockerfile.production
           extra-build-args: "--build-arg ENV_FILE=${ENV_FILE}"
+          dockerfile: Dockerfile.production
       - aws-ecs/deploy-service-update:
           filters:
             branches:
