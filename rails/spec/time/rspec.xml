@@ -1,41 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="3" skipped="0" failures="1" errors="0" time="13.573312" timestamp="2021-08-11T01:45:46+00:00" hostname="f954986a69c0">
+<testsuite name="rspec" tests="8" skipped="0" failures="0" errors="0" time="15.392978" timestamp="2021-08-11T06:18:20+00:00" hostname="f954986a69c0">
 <properties>
-<property name="seed" value="50459"/>
+<property name="seed" value="17494"/>
 </properties>
-<testcase classname="spec.requests.news_spec" name="News GET /news request success" file="./spec/requests/news_spec.rb" time="13.436514"></testcase>
-<testcase classname="spec.requests.news_spec" name="News GET /news/new request success" file="./spec/requests/news_spec.rb" time="0.091208"></testcase>
-<testcase classname="spec.requests.news_spec" name="News GET /news/:id request success" file="./spec/requests/news_spec.rb" time="0.039962"><failure message="Mysql2::Error: Table &apos;coffee_oma_test.action_text_rich_texts&apos; doesn&apos;t exist" type="ActiveRecord::StatementInvalid">Failure/Error: let(:news) { create(:news)}
-
-ActiveRecord::StatementInvalid:
-  Mysql2::Error: Table &apos;coffee_oma_test.action_text_rich_texts&apos; doesn&apos;t exist
-/usr/local/bundle/gems/mysql2-0.5.3/lib/mysql2/client.rb:131:in `_query&apos;
-/usr/local/bundle/gems/mysql2-0.5.3/lib/mysql2/client.rb:131:in `block in query&apos;
-/usr/local/bundle/gems/mysql2-0.5.3/lib/mysql2/client.rb:130:in `handle_interrupt&apos;
-/usr/local/bundle/gems/mysql2-0.5.3/lib/mysql2/client.rb:130:in `query&apos;
-/usr/local/bundle/gems/actiontext-6.1.3.1/lib/action_text/attribute.rb:30:in `content&apos;
-/usr/local/bundle/gems/actiontext-6.1.3.1/lib/action_text/attribute.rb:38:in `content=&apos;
-/usr/local/bundle/gems/factory_bot-6.1.0/lib/factory_bot/attribute_assigner.rb:16:in `public_send&apos;
-/usr/local/bundle/gems/factory_bot-6.1.0/lib/factory_bot/attribute_assigner.rb:16:in `block (2 levels) in object&apos;
-/usr/local/bundle/gems/factory_bot-6.1.0/lib/factory_bot/attribute_assigner.rb:15:in `each&apos;
-/usr/local/bundle/gems/factory_bot-6.1.0/lib/factory_bot/attribute_assigner.rb:15:in `block in object&apos;
-/usr/local/bundle/gems/factory_bot-6.1.0/lib/factory_bot/attribute_assigner.rb:14:in `tap&apos;
-/usr/local/bundle/gems/factory_bot-6.1.0/lib/factory_bot/attribute_assigner.rb:14:in `object&apos;
-/usr/local/bundle/gems/factory_bot-6.1.0/lib/factory_bot/evaluation.rb:13:in `object&apos;
-/usr/local/bundle/gems/factory_bot-6.1.0/lib/factory_bot/strategy/create.rb:9:in `result&apos;
-/usr/local/bundle/gems/factory_bot-6.1.0/lib/factory_bot/factory.rb:43:in `run&apos;
-/usr/local/bundle/gems/factory_bot-6.1.0/lib/factory_bot/factory_runner.rb:29:in `block in run&apos;
-/usr/local/bundle/gems/factory_bot-6.1.0/lib/factory_bot/factory_runner.rb:28:in `run&apos;
-/usr/local/bundle/gems/factory_bot-6.1.0/lib/factory_bot/strategy_syntax_method_registrar.rb:28:in `block in define_singular_strategy_method&apos;
-./spec/requests/news_spec.rb:4:in `block (2 levels) in &lt;main&gt;&apos;
-./spec/requests/news_spec.rb:29:in `block (3 levels) in &lt;main&gt;&apos;
-/usr/local/bundle/gems/bootsnap-1.7.3/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:59:in `load&apos;
-/usr/local/bundle/gems/bootsnap-1.7.3/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:59:in `load&apos;
-/usr/local/bundle/gems/spring-commands-rspec-1.0.4/lib/spring/commands/rspec.rb:18:in `call&apos;
--e:1:in `&lt;main&gt;&apos;
-------------------
---- Caused by: ---
-Mysql2::Error:
-  Table &apos;coffee_oma_test.action_text_rich_texts&apos; doesn&apos;t exist
-  /usr/local/bundle/gems/mysql2-0.5.3/lib/mysql2/client.rb:131:in `_query&apos;</failure></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news request success" file="./spec/requests/news_spec.rb" time="14.818108"></testcase>
+<testcase classname="spec.requests.news_spec" name="News POST /news requests success" file="./spec/requests/news_spec.rb" time="0.145753"></testcase>
+<testcase classname="spec.requests.news_spec" name="News POST /news created news" file="./spec/requests/news_spec.rb" time="0.044950"></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news/new request success" file="./spec/requests/news_spec.rb" time="0.082415"></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news/:id/edit request success" file="./spec/requests/news_spec.rb" time="0.101130"></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news/:id request success" file="./spec/requests/news_spec.rb" time="0.100442"></testcase>
+<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id request success" file="./spec/requests/news_spec.rb" time="0.046394"></testcase>
+<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id destroy news" file="./spec/requests/news_spec.rb" time="0.044386"></testcase>
 </testsuite>

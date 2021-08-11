@@ -1,25 +1,52 @@
 class NewsController < ApplicationController
 
-def index
-end
+  def index
+    @news_all = News.all
+  end
 
-def new
-end
+  def new
+    @news = News.new
+  end
 
-def create
-end
+  def create
+    @news = News.new(news_params)
+    if @news.save
+      redirect_to root_path, notice: '登録が完了しました。'
+    else
+      flash[:alert] = "登録に失敗しました。"
+      render :new
+    end
+  end
 
-def show
-end
+  def show
+    @news =News.find(params[:id])
+  end
 
-def edit
-end
+  def edit
+    @news = News.find(params[:id])
+  end
 
-def update
-end
+  def update
+    @news = News.find(params[id])
+    if @news.update(news_params)
+      redirect_to root_path, notice: "更新が成功しました。"
+    else
+      render :edit
+    end
+  end
 
-def destroy
-end
+  def destroy
+    @news = News.find(params[:id])
+    if @news.destroy
+      redirect_to root_path,notice: "削除に成功しました。"
+    else
+      redirect_to root_path,alert: "削除に失敗しました。"
+    end
+  end
 
+  private
 
+    def news_params
+      params.require(:news).permit(:content,:active,:publicshed_at)
+    end
 end
