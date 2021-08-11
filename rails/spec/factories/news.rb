@@ -20,6 +20,7 @@
 #
 FactoryBot.define do
   factory :news do
-    
+    active {true}
+    content {"運営からのお知らせ"}
   end
 end
