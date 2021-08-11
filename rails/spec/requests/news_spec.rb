@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'News', type: :request do
   let(:admin) { create(:admin_user) }
-  let(:news) { create(:news) }
+  let(:news) { create(:news, user: admin) }
   let(:news_params) { attributes_for(:news) }
-  let(:update_news_params) { attributes_for(:news, content: '<p>公式のお知らせ</p>') }
+  let(:update_news_params) { attributes_for(:news, title: 'version upのお知らせ', content: '<p>version1.1での変更点</p>') }
 
   describe 'GET /news' do
     it 'request success' do
@@ -71,7 +71,7 @@ RSpec.describe 'News', type: :request do
 
     it 'updated news' do
       put news_path(news.id), params: { news: update_news_params }
-      expect(news.reload.content.body.to_s).to eq "<div class=\"trix-content\">\n  <p>公式のお知らせ</p>\n</div>\n"
+      expect(news.reload.content.body.to_s).to eq "<div class=\"trix-content\">\n  <p>version1.1での変更点</p>\n</div>\n"
     end
   end
 

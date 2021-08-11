@@ -167,10 +167,11 @@ ActiveRecord::Schema.define(version: 2021_08_11_020644) do
   end
 
   create_table "news", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title", null: false
     t.text "content"
     t.boolean "active", default: false
     t.datetime "publicshed_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_news_on_user_id"

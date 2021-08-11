@@ -48,6 +48,6 @@ class NewsController < ApplicationController
   private
 
     def news_params
-      params.require(:news).permit(:content, :active, :publicshed_at)
+      params.require(:news).permit(:title, :content, :active, :publicshed_at)
     end
 end
