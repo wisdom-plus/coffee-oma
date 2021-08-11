@@ -134,6 +134,14 @@
 #                                histories GET        /histories(.:format)                                                                              histories#index
 #                                      tag PATCH      /tags/:id(.:format)                                                                               tags#update
 #                                          PUT        /tags/:id(.:format)                                                                               tags#update
+#                               news_index GET        /news(.:format)                                                                                   news#index
+#                                          POST       /news(.:format)                                                                                   news#create
+#                                 new_news GET        /news/new(.:format)                                                                               news#new
+#                                edit_news GET        /news/:id/edit(.:format)                                                                          news#edit
+#                                     news GET        /news/:id(.:format)                                                                               news#show
+#                                          PATCH      /news/:id(.:format)                                                                               news#update
+#                                          PUT        /news/:id(.:format)                                                                               news#update
+#                                          DELETE     /news/:id(.:format)
 #                        bean_bean_reviews POST       /beans/:bean_id/bean_reviews(.:format)                                                            bean_reviews#create
 #                         bean_bean_review DELETE     /beans/:bean_id/bean_reviews/:id(.:format)                                                        bean_reviews#destroy
 #                                    beans GET        /beans(.:format)                                                                                  beans#index
@@ -204,6 +212,7 @@ Rails.application.routes.draw do
   resources :reports, only: %i[create]
   resources :histories, only: %i[index]
   resources :tags, only: %i[update]
+  resources :news
   resources :beans do
     resources :bean_reviews, only: %i[create destroy]
   end
