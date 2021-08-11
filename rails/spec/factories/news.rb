@@ -6,9 +6,10 @@
 #  active        :boolean          default(FALSE)
 #  content       :text(65535)
 #  publicshed_at :datetime         not null
+#  title         :string(255)      not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  user_id       :bigint
+#  user_id       :bigint           not null
 #
 # Indexes
 #
@@ -21,6 +22,7 @@
 FactoryBot.define do
   factory :news do
     active { true }
+    title { '公式からのお知らせ' }
     content { '<p>Hello world</p>' }
   end
 end
