@@ -20,7 +20,7 @@
 #
 FactoryBot.define do
   factory :news do
-    active {true}
-    content {"<p>Hello world</p>"}
+    active { true }
+    content { '<p>Hello world</p>' }
   end
 end
