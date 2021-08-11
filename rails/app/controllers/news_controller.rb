@@ -1,4 +1,6 @@
 class NewsController < ApplicationController
+  before_action :authenticate_admin_user!, only: %i[new create edit update destroy]
+
   def index
     @news_all = News.all
   end
@@ -8,7 +10,7 @@ class NewsController < ApplicationController
   end
 
   def create
-    @news = News.new(news_params)
+    @news = current_admin_user.news.create(news_params)
     if @news.save
       redirect_to root_path, notice: '登録が完了しました。'
     else
