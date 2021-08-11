@@ -1,5 +1,4 @@
 class NewsController < ApplicationController
-
   def index
     @news_all = News.all
   end
@@ -13,13 +12,13 @@ class NewsController < ApplicationController
     if @news.save
       redirect_to root_path, notice: '登録が完了しました。'
     else
-      flash[:alert] = "登録に失敗しました。"
+      flash[:alert] = '登録に失敗しました。'
       render :new
     end
   end
 
   def show
-    @news =News.find(params[:id])
+    @news = News.find(params[:id])
   end
 
   def edit
@@ -27,9 +26,9 @@ class NewsController < ApplicationController
   end
 
   def update
-    @news = News.find(params[id])
+    @news = News.find(params[:id])
     if @news.update(news_params)
-      redirect_to root_path, notice: "更新が成功しました。"
+      redirect_to root_path, notice: '更新が成功しました。'
     else
       render :edit
     end
@@ -38,15 +37,15 @@ class NewsController < ApplicationController
   def destroy
     @news = News.find(params[:id])
     if @news.destroy
-      redirect_to root_path,notice: "削除に成功しました。"
+      redirect_to root_path, notice: '削除に成功しました。'
     else
-      redirect_to root_path,alert: "削除に失敗しました。"
+      redirect_to root_path, alert: '削除に失敗しました。'
     end
   end
 
   private
 
     def news_params
-      params.require(:news).permit(:content,:active,:publicshed_at)
+      params.require(:news).permit(:content, :active, :publicshed_at)
     end
 end
