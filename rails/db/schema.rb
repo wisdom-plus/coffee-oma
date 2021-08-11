@@ -167,7 +167,7 @@ ActiveRecord::Schema.define(version: 2021_08_11_020644) do
   end
 
   create_table "news", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.text "content", null: false
+    t.text "content"
     t.boolean "active", default: false
     t.datetime "publicshed_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.bigint "user_id"

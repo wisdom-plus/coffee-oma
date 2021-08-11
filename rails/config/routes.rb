@@ -141,7 +141,7 @@
 #                                     news GET        /news/:id(.:format)                                                                               news#show
 #                                          PATCH      /news/:id(.:format)                                                                               news#update
 #                                          PUT        /news/:id(.:format)                                                                               news#update
-#                                          DELETE     /news/:id(.:format)
+#                                          DELETE     /news/:id(.:format)                                                                               news#destroy
 #                        bean_bean_reviews POST       /beans/:bean_id/bean_reviews(.:format)                                                            bean_reviews#create
 #                         bean_bean_review DELETE     /beans/:bean_id/bean_reviews/:id(.:format)                                                        bean_reviews#destroy
 #                                    beans GET        /beans(.:format)                                                                                  beans#index

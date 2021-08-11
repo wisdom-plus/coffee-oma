@@ -4,7 +4,7 @@
 #
 #  id            :bigint           not null, primary key
 #  active        :boolean          default(FALSE)
-#  content       :text(65535)      not null
+#  content       :text(65535)
 #  publicshed_at :datetime         not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
