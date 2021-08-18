@@ -12,7 +12,7 @@
     .ui.segment.sticky
       a href="#"
         i.chevron.circle.up.icon Top
-  - if @histories.present?
+  - if @news_all.present?
     - @news_all.each do |news|
       .ui.segment
         .item
@@ -22,6 +22,5 @@
                 =news.title
               .meta
                 span #{time_ago_in_words(news.updated_at)}前
-              .description
 
 .segment

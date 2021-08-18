@@ -1,0 +1,14 @@
+.ui.grid
+  .column
+    - breadcrumb :news
+    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
+
+.ui.middle.aligned.center.aligned.grid
+  .eleven.wide.column
+    .ui.segment
+      h2.aligned.center.content
+        = @news.title
+      .ui.divider
+      p.date.text-right ="[#{l(@news.created_at, format: :news_short)}更新]"
+      .text-left.mt-3rem
+        == @news.content

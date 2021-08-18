@@ -19,6 +19,10 @@
   text-align: left;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .form-centered {
   display: inline-block;
 }
@@ -146,10 +150,6 @@ body,
   margin-top: 7px;
 }
 
-.mb-12 {
-  margin-bottom: 12px;
-}
-
 .inline {
   display: inline;
   margin: 0em 0.14285714em;
@@ -174,10 +174,6 @@ body,
 
 .room_meta_l {
   margin: auto 0 10px 5px;
-}
-
-.mb-20 {
-  margin-bottom: 20px;
 }
 
 .ui.active.inverted.dimmer {
@@ -224,6 +220,14 @@ h1.ui.header{
   font-size: 3rem;
 }
 
+.mb-12 {
+  margin-bottom: 12px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
 .mr-1rem{
   margin-right: 1rem !important;
 }
@@ -234,6 +238,10 @@ h1.ui.header{
 
 .m-3rem{
   margin: 3rem 0em !important;
+}
+
+.mt-3rem {
+  margin-top: 3rem !important;
 }
 
 .titlecenter{
