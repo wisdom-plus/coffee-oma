@@ -6,23 +6,17 @@
   .column
     h1#title お知らせ作成
 
-
 =form_with model: @news, class: "ui equal width form column", id: "news_form", method: :post,local: true do |f|
   .fields
-    .ten.wide.field
-      =f.label :title,class: "four wide field"
+    .twelve.wide.field
       =f.text_field :title, placeholder: "title",id: "title"
   .fields
-    .ten.wide.field
-      =f.label :content, "お知らせ内容"
+    .six.wide.field
       =f.rich_text_area :content, placeholder: "内容",id: "content"
+    .six.wide.field
+      .ui.segment
+        .text-left
+          テスト
   .ui.error.message
   .field
     = f.submit 'submit', class: "large ui center floated positive button"
-.eleven.wide.column
-  .ui.segment
-    h2.aligned.center.content
-      てスト
-    .ui.divider
-    .text-left.mt-3rem
-      テスト
