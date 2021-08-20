@@ -267,6 +267,9 @@ h1.ui.header{
 .display_none{
   display: none !important;
 }
+.preview_form{
+  min-height: 40em;
+}
 @media only screen and (max-width: 700px) {
   .inverted.menu .right.menu.toc {
     display: block;
