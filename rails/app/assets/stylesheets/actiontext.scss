@@ -37,3 +37,16 @@
 trix-editor {
   min-height: 40em;
 }
+
+.trix-button--icon-code {
+  display: none;
+}
+.trix-button--icon-quote {
+  display: none;
+}
+.trix-button--icon-italic {
+  display: none;
+}
+.trix-button-group--history-tools {
+  display: none !important;
+}
