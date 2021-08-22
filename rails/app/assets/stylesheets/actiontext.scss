@@ -47,6 +47,15 @@ trix-editor {
 .trix-button--icon-italic {
   display: none;
 }
-.trix-button-group--history-tools {
-  display: none !important;
+.trix-content h1{
+  font-size:2em;
+}
+.trix-content h2{
+  font-size: 1.5em;
+}
+.trix-content h3{
+  font-size:1.2em;
+}
+.trix-content p {
+  font-size: 1.1em;
 }

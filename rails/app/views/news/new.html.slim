@@ -6,17 +6,16 @@
   .column
     h1#title お知らせ作成
 
-=form_with model: @news, class: "ui equal width form column", id: "news_form", method: :post,local: true do |f|
-  .fields
-    .twelve.wide.field
-      =f.text_field :title, placeholder: "title",id: "title"
-  .fields
-    .six.wide.field
-      =f.rich_text_area :content, placeholder: "内容",id: "content"
-    .six.wide.field
-      .ui.segment.preview_form.mt-3rem
-        .text-left
-          テスト
-  .ui.error.message
-  .field
-    = f.submit 'submit', class: "large ui center floated positive button"
+.ui.middle.aligned.center.aligned.grid
+  .eleven.wide.column
+    =form_with model: @news, class: "ui equal width form", id: "news_form", method: :post,local: true do |f|
+      .field
+        =f.text_field :title, placeholder: "title",id: "news_title"
+      .field.text-left
+        = f.label :publicshed_at, "公開予定時間",class: "inline_label"
+        = f.date_select :publicshed_at ,{use_two_digit_numbers: true},{class: "date-select-form"}
+      .field.text-left
+        =f.rich_text_area :content, placeholder: "内容",id: "content"
+      .ui.error.message
+      .field.text-center
+        = f.submit 'submit', class: "large ui positive button"

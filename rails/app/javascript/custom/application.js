@@ -161,7 +161,9 @@ $(document).on("turbolinks:load", function () {
       number: "{name}は数字で入力してください。",
     },
   });
-  //　Action textを変更
+  // プレビュー機能の作成
+
+  // Action textを変更
   var Trix = require("trix");
   require("@rails/actiontext");
   Trix.config.blockAttributes.default = {
@@ -179,10 +181,10 @@ $(document).on("turbolinks:load", function () {
     var buttonHTML3 =
       '<button class="trix-button" type="button" data-trix-attribute="heading3">h3</button>';
     event.target.toolbarElement
-      .querySelector(".trix-button-group")
-      .insertAdjacentHTML("beforeend", buttonHTML);
+      .querySelector(".trix-button--icon-heading-1")
+      .insertAdjacentHTML("afterend", buttonHTML3);
     event.target.toolbarElement
-      .querySelector(".trix-button-group")
-      .insertAdjacentHTML("beforeend", buttonHTML3);
+      .querySelector(".trix-button--icon-heading-1")
+      .insertAdjacentHTML("afterend", buttonHTML);
   });
 });

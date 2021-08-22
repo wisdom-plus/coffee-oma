@@ -9,6 +9,6 @@
       h2.aligned.center.content
         = @news.title
       .ui.divider
-      p.date.text-right ="[#{l(@news.created_at, format: :news_short)}更新]"
+      p.date.text-right ="[#{l(@news.publicshed_at, format: :news_short)}更新]"
       .text-left.mt-3rem
         == @news.content

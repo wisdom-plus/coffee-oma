@@ -23,6 +23,10 @@
   text-align: right;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .form-centered {
   display: inline-block;
 }
@@ -190,10 +194,6 @@ body,
   padding: 0.6em 1em;
 }
 
-.ui.segment.mt-3rem {
-  margin-top: 3rem;
-}
-
 #title {
   margin-bottom: 1rem;
 }
@@ -244,6 +244,10 @@ h1.ui.header{
   margin-top: 3rem !important;
 }
 
+.mt-25rem {
+  margin-top: 2.5rem !important;
+}
+
 .titlecenter{
   justify-content: center;
 }
@@ -264,11 +268,23 @@ h1.ui.header{
 .content.field.active {
   margin-top: 1.2em;
 }
+
 .display_none{
   display: none !important;
 }
+
 .preview_form{
   min-height: 40em;
+}
+
+.date-select-form{
+  display: inline-block !important;
+  width: auto !important;
+}
+
+.inline_label {
+  display: inline-block !important;
+  padding-right: 2rem;
 }
 @media only screen and (max-width: 700px) {
   .inverted.menu .right.menu.toc {
