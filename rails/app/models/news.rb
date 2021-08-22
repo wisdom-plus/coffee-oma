@@ -22,4 +22,13 @@
 class News < ApplicationRecord
   has_rich_text :content
   belongs_to :user, class_name: 'AdminUser', optional: true
+
+
+  def activate
+    update(active: true)
+  end
+
+  def publicshed?
+    publicshed_at < Time.current
+  end
 end
