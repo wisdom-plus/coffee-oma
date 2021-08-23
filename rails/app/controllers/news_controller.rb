@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
   before_action :authenticate_admin_user!, only: %i[new create edit update destroy]
-  before_action :is_active?, only: %i[show]
+  before_action :active?, only: %i[show]
 
   def index
     @news_all = News.all
@@ -20,8 +20,7 @@ class NewsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def edit
     @news = News.find(params[:id])
@@ -51,7 +50,7 @@ class NewsController < ApplicationController
       params.require(:news).permit(:title, :content, :active, :publicshed_at)
     end
 
-    def is_active?
+    def active?
       @news = News.find(params[:id])
       if @news.publicshed?
         @news.activate unless @news.active
