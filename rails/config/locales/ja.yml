@@ -282,6 +282,7 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
       news_short: "%m月%d日 %H:00"
+      top_news_short: "%Y.%m.%d"
       date: "%H:%M"
     pm: 午後
   views:

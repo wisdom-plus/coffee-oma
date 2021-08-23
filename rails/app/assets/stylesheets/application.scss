@@ -15,6 +15,14 @@
  */
 @import "semantic-ui";
 
+.back-main-color {
+  background-color: #00B5AD !important
+}
+
+.white-color-text {
+  color: #FFFFFF !important
+}
+
 .text-left {
   text-align: left;
 }
@@ -285,6 +293,10 @@ h1.ui.header{
 .inline_label {
   display: inline-block !important;
   padding-right: 2rem;
+}
+
+.news_segment {
+  min-height: 240px
 }
 @media only screen and (max-width: 700px) {
   .inverted.menu .right.menu.toc {

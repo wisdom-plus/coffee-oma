@@ -54,8 +54,7 @@ class NewsController < ApplicationController
     def is_active?
       @news = News.find(params[:id])
       if @news.publicshed?
-        @news.activate
-        @news.save
+        @news.activate unless @news.active
       else
         redirect_to root_path, alert: '公開させておりません。'
       end
