@@ -31,4 +31,8 @@ class News < ApplicationRecord
   def publicshed?
     publicshed_at < Time.current
   end
+
+  def self.latest_news
+    News.where(['publicshed_at < ?', Time.current]).order('publicshed_at DESC').limit(5)
+  end
 end
