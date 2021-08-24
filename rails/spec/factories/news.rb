@@ -24,5 +24,6 @@ FactoryBot.define do
     active { true }
     title { '公式からのお知らせ' }
     content { '<p>Hello world</p>' }
+    publicshed_at {Time.current}
   end
 end
