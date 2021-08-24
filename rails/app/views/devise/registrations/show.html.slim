@@ -7,7 +7,7 @@
   h1.header
     =@user.username
   .segment.mb-12
-    - if signed_in?
+    - if user_signed_in?
       .segment.mb-12#follow_button
         =render partial: 'shared/follow', locals: {user: @user, follow: @follow}
     .ui.label
@@ -22,7 +22,7 @@
       i.users.icon
         = @user.followers.count
         |フォロワー
-    - if signed_in?
+    - if user_signed_in?
       - if @room.nil?
         = link_to rooms_path(user_id: @user.id), method: :post, class: "ui label spec-messge" do
           i.mail.icon
