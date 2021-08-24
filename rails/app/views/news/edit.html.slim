@@ -8,6 +8,9 @@
     = form_with model: @news, class: "ui segment form", id: "edit_form", method: :put, local: true do |f|
       .field
         h3=f.text_field :title , placeholder: "title",id: "title",class: "aligned center content"
+        .field.text-left
+          = f.label :publicshed_at, "公開予定時間",class: "inline_label"
+          = f.date_select :publicshed_at ,{use_two_digit_numbers: true},{class: "date-select-form"}
         .ui.divider
         .text-left.mt-3rem
           =f.rich_text_area :content, placeholder: "内容",id: "content"
