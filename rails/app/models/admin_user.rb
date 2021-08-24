@@ -21,4 +21,6 @@ class AdminUser < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
+
+  has_many :news, foreign_key: 'user_id', dependent: :destroy, inverse_of: 'user'
 end

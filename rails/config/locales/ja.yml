@@ -281,6 +281,8 @@ ja:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
+      news_short: "%m月%d日 %H:00"
+      top_news_short: "%Y.%m.%d"
       date: "%H:%M"
     pm: 午後
   views:

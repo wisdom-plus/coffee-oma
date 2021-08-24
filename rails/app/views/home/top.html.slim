@@ -36,6 +36,20 @@
           |チャット機能
           .sub.header
             |口コミを投稿したユーザーに使用感を直接聞ける。
+
+.ui.center.aligned.grid
+  .nine.wide.column
+    h3.ui.top.attached.header.back-main-color.white-color-text
+      |運営からのお知らせ
+    .ui.attached.segment.news_segment
+      - @news.each do |news|
+        h4.ui.dividing.left.aligned.header
+          p.inline_label
+            =l(news.publicshed_at, format: :top_news_short)
+          a href= news_path(news.id)
+            |#{news.title}
+
+
 .ui.vertical.stripe.center.aligned.segment.grid.m-3rem
   h2.ui.header
     |お気に入りアイテムランキング

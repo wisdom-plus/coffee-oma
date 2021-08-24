@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  after_action  -> { update_history(history_params) }, only: %i[show], if: :signed_in?
+  after_action  -> { update_history(history_params) }, only: %i[show], if: :user_signed_in?
 
   def new
     @product = Product.new(tag_list: 'コーヒー')
@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
     @tags = @product.tag_counts_on(:tags)
     @review = Review.new
     @reviews = Review.show_review(@product.id, params[:page])
-    @like = current_user.product_likes.find_by(liked_id: params[:id]) if signed_in?
+    @like = current_user.product_likes.find_by(liked_id: params[:id]) if user_signed_in?
   end
 
   private

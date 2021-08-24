@@ -1,6 +1,6 @@
 class BeansController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  after_action  -> { update_history(history_params) }, only: %i[show], if: :signed_in?
+  after_action  -> { update_history(history_params) }, only: %i[show], if: :user_signed_in?
 
   def new
     @bean = Bean.new(tag_list: 'コーヒー')
@@ -22,7 +22,7 @@ class BeansController < ApplicationController
     @tags = @bean.tag_counts_on(:tags)
     @bean_reviews = BeanReview.show_review(@bean.id, params[:page])
     @bean_review = Form::BeanReviewForm.new
-    @like = current_user.bean_likes.find_by(liked_id: params[:id]) if signed_in?
+    @like = current_user.bean_likes.find_by(liked_id: params[:id]) if user_signed_in?
   end
 
   def index
