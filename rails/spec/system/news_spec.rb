@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'News', type: :system do
   let(:admin) { create(:admin_user) }
   let(:news) { create(:news, user: admin) }
-  let(:news1) { create(:news, user: admin, title: '訂正のお知らせ', content: "<h4>good bye</h4>") }
+  let(:news1) { create(:news, user: admin, title: '訂正のお知らせ', content: '<h4>good bye</h4>') }
 
   describe 'index' do
     before do
@@ -59,7 +59,7 @@ RSpec.describe 'News', type: :system do
     end
   end
 
-  describe 'edit',js: true do
+  describe 'edit', js: true do
     context 'when login' do
       before do
         admin_login(admin)
