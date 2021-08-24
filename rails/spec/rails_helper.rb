@@ -93,6 +93,7 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include LoginHelper
+  config.include ActionTextHelper, type: :system
   config.include ActiveJob::TestHelper
   config.include ActiveSupport::Testing::TimeHelpers
 end

@@ -1,4 +1,4 @@
-- if signed_in?
+- if user_signed_in?
   - if like.nil?
     = link_to likes_path(liked_id: liked.id,type: liked.class), method: :post, class:"circular ui green button", remote: true do
       i.heart.icon
