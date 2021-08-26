@@ -1,4 +1,3 @@
-
 .ui.inverted.vertical.masthead.center.aligned.segment#backimage
   .ui.text.container
     h1.ui.header.top-title
@@ -8,91 +7,92 @@
     .ui.huge.primary.button
       |coffee-omaを始める
       i.right.arrow.icon
-.ui.vertical.stripe.center.aligned.segment.grid.m-3rem
-  .ui.text.container
-    h1.ui.header
-      |coffee-omaとは
-    p
-      |コーヒーに関するすべてのアイテムの口コミ共有サービスです。
-  .row
-    .five.wide.column
-      h2.ui.icon.header
-        i.coffee.icon
-        .content
-          |実際の口コミ
-          .sub.header
-            |購入者,使用者による口コミで失敗しないアイテム選びをサポート
-    .five.wide.column
-      h2.ui.icon.header
-        i.search.icon
-        .content
-          |検索機能
-          .sub.header
-            |気になるアイテム、口コミ、最新ランキングなどが検索可能。
-    .five.wide.column
-      h2.ui.icon.header
-        i.comment.alternate.icon
-        .content
-          |チャット機能
-          .sub.header
-            |口コミを投稿したユーザーに使用感を直接聞ける。
+.ui.container
+  .ui.vertical.stripe.center.aligned.segment.grid.m-3rem
+    .ui.text.container
+      h1.ui.header
+        |coffee-omaとは
+      p
+        |コーヒーに関するすべてのアイテムの口コミ共有サービスです。
+    .row
+      .five.wide.column
+        h2.ui.icon.header
+          i.coffee.icon
+          .content
+            |実際の口コミ
+            .sub.header
+              |購入者,使用者による口コミで失敗しないアイテム選びをサポート
+      .five.wide.column
+        h2.ui.icon.header
+          i.search.icon
+          .content
+            |検索機能
+            .sub.header
+              |気になるアイテム、口コミ、最新ランキングなどが検索可能。
+      .five.wide.column
+        h2.ui.icon.header
+          i.comment.alternate.icon
+          .content
+            |チャット機能
+            .sub.header
+              |口コミを投稿したユーザーに使用感を直接聞ける。
 
-.ui.center.aligned.grid
-  .nine.wide.column
-    h3.ui.top.attached.header.back-main-color.white-color-text
-      |運営からのお知らせ
-    .ui.attached.segment.news_segment
-      - @news.each do |news|
-        h4.ui.dividing.left.aligned.header
-          p.inline_label
-            =l(news.publicshed_at, format: :top_news_short)
-          a href= news_path(news.id)
-            |#{news.title}
+  .ui.center.aligned.grid
+    .nine.wide.column
+      h3.ui.top.attached.header.back-main-color.white-color-text
+        |運営からのお知らせ
+      .ui.attached.segment.news_segment
+        - @news.each do |news|
+          h4.ui.dividing.left.aligned.header
+            p.inline_label
+              =l(news.publicshed_at, format: :top_news_short)
+            a href= news_path(news.id)
+              |#{news.title}
 
 
-.ui.vertical.stripe.center.aligned.segment.grid.m-3rem
-  h2.ui.header
-    |お気に入りアイテムランキング
-  .ui.three.stackable.cards
-    - @rankings.each do |rank|
-      a.ui.fluid.link.card.post href= product_path(rank.id) data-turbolinks="false"
-        .image
-          img src="#{rank.imageurl.url}"
-        .content
-          .herader =rank.itemname
-          .meta
-            span Brand:  #{rank.shopname}
-        .extra.content
-          i.heart.icon =rank.likes_count
-  =link_to likes_path,class: "ui teal huge button" do
-    i.signal.icon
-    |ランキングを詳しくみる
+  .ui.vertical.stripe.center.aligned.segment.grid.m-3rem
+    h2.ui.header
+      |お気に入りアイテムランキング
+    .ui.three.stackable.cards
+      - @rankings.each do |rank|
+        a.ui.fluid.link.card.post href= product_path(rank.id) data-turbolinks="false"
+          .image
+            img src="#{rank.imageurl.url}"
+          .content
+            .herader =rank.itemname
+            .meta
+              span Brand:  #{rank.shopname}
+          .extra.content
+            i.heart.icon =rank.likes_count
+    =link_to likes_path,class: "ui teal huge button" do
+      i.signal.icon
+      |ランキングを詳しくみる
 
-.ui.vertical.stripe.segment.grid.m-3rem.titlecenter
-  h2.ui.header
-    |最新の口コミ
-  - @reviews.each do |review|
-    .ui.segment.top_review
-      .balloon_l.top
-        .ui.grid
-          .topfaceicon.three.wide.center.aligned.column
-            img.ui.centered.circular.image src = review.user.icon.url
-            .ui.header = review.user.username
-          .says.eight.wide.column
-            .content
-              h3.header =review.title
-              .meta.review_meta
-                span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
-                span.date #{time_ago_in_words(review.created_at)}前
-              .description
-                =simple_format(h(review.content))
-          a.item.five.wide.column href= product_path(review.product.id)
-            .ui.tiny.circular.image
-              img src= review.product.imageurl
-            .content
-                p.header
-                  =review.product.itemname
-  =link_to products_path,class: "ui teal huge button" do
-    i.search.icon
-    |アイテムを詳しくみる
+  .ui.vertical.stripe.segment.grid.m-3rem.titlecenter
+    h2.ui.header
+      |最新の口コミ
+    - @reviews.each do |review|
+      .ui.segment.top_review
+        .balloon_l.top
+          .ui.grid
+            .topfaceicon.three.wide.center.aligned.column
+              img.ui.centered.circular.image src = review.user.icon.url
+              .ui.header = review.user.username
+            .says.eight.wide.column
+              .content
+                h3.header =review.title
+                .meta.review_meta
+                  span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
+                  span.date #{time_ago_in_words(review.created_at)}前
+                .description
+                  =simple_format(h(review.content))
+            a.item.five.wide.column href= product_path(review.product.id)
+              .ui.tiny.circular.image
+                img src= review.product.imageurl
+              .content
+                  p.header
+                    =review.product.itemname
+    =link_to products_path,class: "ui teal huge button" do
+      i.search.icon
+      |アイテムを詳しくみる
 

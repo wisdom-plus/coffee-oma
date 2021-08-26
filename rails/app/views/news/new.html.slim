@@ -1,21 +1,22 @@
-.ui.grid
-  .column
-    - breadcrumb :news
-    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
-.ui.middle.aligned.center.aligned.grid.vertical.stripe
-  .column
-    h1#title お知らせ作成
+.ui.container
+  .ui.grid
+    .column
+      - breadcrumb :news
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
+  .ui.middle.aligned.center.aligned.grid.vertical.stripe
+    .column
+      h1#title お知らせ作成
 
-.ui.middle.aligned.center.aligned.grid
-  .eleven.wide.column
-    =form_with model: @news, class: "ui equal width form", id: "news_form", method: :post,local: true do |f|
-      .field
-        =f.text_field :title, placeholder: "title",id: "news_title"
-      .field.text-left
-        = f.label :publicshed_at, "公開予定時間",class: "inline_label"
-        = f.date_select :publicshed_at ,{use_two_digit_numbers: true},{class: "date-select-form"}
-      .field.text-left
-        =f.rich_text_area :content, placeholder: "内容",id: "content"
-      .ui.error.message
-      .field.text-center
-        = f.submit 'submit', class: "large ui positive button"
+  .ui.middle.aligned.center.aligned.grid
+    .eleven.wide.column
+      =form_with model: @news, class: "ui equal width form", id: "news_form", method: :post,local: true do |f|
+        .field
+          =f.text_field :title, placeholder: "title",id: "news_title"
+        .field.text-left
+          = f.label :publicshed_at, "公開予定時間",class: "inline_label"
+          = f.date_select :publicshed_at ,{use_two_digit_numbers: true},{class: "date-select-form"}
+        .field.text-left
+          =f.rich_text_area :content, placeholder: "内容",id: "content"
+        .ui.error.message
+        .field.text-center
+          = f.submit 'submit', class: "large ui positive button"
