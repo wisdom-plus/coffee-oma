@@ -1,138 +1,139 @@
-.ui.grid
-  .column
-    - breadcrumb :bean_show, @bean
-    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
-.ui.middle.aligned.center.aligned.grid
-  .column
-    h1#title コーヒー豆の詳細
-.ui.vertical.stripe.segment
-    .ui.middle.aligned.stackable.grid.conteiner
-      .row
-        .six.wide.left.floated.column
-          =image_tag "#{@bean.image}", class: "ui large bordered rounded image"
-        .ten.wide.column
-          table.ui.celled.table
-            thead
-              tr
-                th.center.aligned colspan=3  #{@bean.name}
-            tbody
-              tr
-                td.center.aligned 生産国
-                td.center.aligned #{@bean.country}
-              tr
-                td.center.aligned 地域
-                td.center.aligned #{@bean.area}
-              tr
-                td.center.aligned 焙煎
-                td.center.aligned #{@bean.roast}
-              tr
-                td.center.aligned 精製方法
-                td.center.aligned #{@bean.purification}
-              tr#tag_area
-                = render partial: 'shared/tag_form', locals: {tags: @tags, target: @bean}
-              tr
-                td.center.aligned 評価
-                - unless @bean_reviews.empty?
-                  td.center.aligned.chart-container style = "position: relative; width: 400px; height: 150px;"
-                    canvas#chart data-evaluations = @bean.evaluations
-                - else
-                  td.center.aligned まだ評価がありません
-              tr
-                td.cen colspan=3
-                  - unless @bean.url.blank?
-                    =link_to '商品ページを見に行く', "#{@bean.url}", class: "circular ui red button"
-                  - else
-                    .circular.ui.button URLがありません
-                  #like_button
-                    = render partial:'shared/like',locals: {like: @like, liked: @bean}
-      .row
-        .column
-          table.ui.celled.table
-            thead
-              tr
-                th 商品の説明文
-            tbody
-              tr
-                td
-                  = simple_format(h(@bean.description))
-.ui.dividing.header
-  font style="vertical-align: inherit;"
-    font style="vertical-align: inherit;"
-      |ユーザーレビュー
-.ui.items
-  - @bean_reviews.each do |review|
-    - unless user_signed_in? && current_user.reports.exists?(review_id: review.id)
-      .ui.segment.review_item
-        h4.ui.header
-          img.ui.circular.image src= review.user.icon alt= "アイコン画像"
-          =review.user.username
-        .item
-          .content
-            h3.header = review.title
-            .meta
-              span.date #{time_ago_in_words(review.created_at)}前
-            .description
-              =simple_format(h(review.content))
-            .extra
-              - if review.recipe
-                = render partial: 'shared/recipe', locals: {review: review}
-              a.ui.teal.label href= "/users/#{review.user.id}/show"
-                |ユーザーの詳細
-              div class="review_like_button_#{review.id} inline"
-                - if user_signed_in?
-                  =render partial:'shared/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
-              div class= "report_button_#{review.id} inline"
-                  -if user_signed_in?
-                    = render partial: "shared/report", locals: {review: review}
-= paginate @bean_reviews
-.ui.section.divider
-- if user_signed_in?
+.ui.container
+  .ui.grid
+    .column
+      - breadcrumb :bean_show, @bean
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
   .ui.middle.aligned.center.aligned.grid
-    .column.mb-12
-      h1.content レビューの投稿
-      =form_with model: @bean_review, url: bean_bean_reviews_path(@bean.id), class: "ui equal width form column", id: "bean_review_form", method: :post,local: true do |f|
-        .fields
-          = f.label :title, class: "four wide field"
-          .ten.wide.field
-            = f.label :title, class: 'display_none'
-            = f.text_field :title, placeholder: "title",id: 'title'
-        .fields
-          .four.wide.field
-            p
-            |　評価
-          .two.wide.inline.field
-            = f.label :acidity
-            .ui.star.rating.form_rating data-taste="acidity"
-            = f.hidden_field(:acidity)
-          .two.wide.inline.field
-            = f.label :bitter
-            .ui.star.rating.form_rating data-taste="bitter"
-            = f.hidden_field(:bitter)
-          .two.wide.inline.field
-            = f.label :sweet
-            .ui.star.rating.form_rating data-taste="sweet"
-            = f.hidden_field(:sweet)
-          .two.wide.inline.field
-            = f.label :rich
-            .ui.star.rating.form_rating data-taste="rich"
-            = f.hidden_field(:rich)
-          .two.wide.inline.field
-            = f.label :flavor
-            .ui.star.rating.form_rating data-taste="flavor"
-            = f.hidden_field(:flavor)
-        .fields
-          = f.label :content, class: "four wide field"
-          .ten.wide.field
-            = f.label :content , class: 'display_none'
-            = f.text_area :content, placeholder: "content", id: 'content'
-        .fields.ui.accordion
-          .four.wide.field.title#accordion
-            i.dropdown.icon
-            font style="vertical-align: inherit;"
+    .column
+      h1#title コーヒー豆の詳細
+  .ui.vertical.stripe.segment
+      .ui.middle.aligned.stackable.grid.conteiner
+        .row
+          .six.wide.left.floated.column
+            =image_tag "#{@bean.image}", class: "ui large bordered rounded image"
+          .ten.wide.column
+            table.ui.celled.table
+              thead
+                tr
+                  th.center.aligned colspan=3  #{@bean.name}
+              tbody
+                tr
+                  td.center.aligned 生産国
+                  td.center.aligned #{@bean.country}
+                tr
+                  td.center.aligned 地域
+                  td.center.aligned #{@bean.area}
+                tr
+                  td.center.aligned 焙煎
+                  td.center.aligned #{@bean.roast}
+                tr
+                  td.center.aligned 精製方法
+                  td.center.aligned #{@bean.purification}
+                tr#tag_area
+                  = render partial: 'shared/tag_form', locals: {tags: @tags, target: @bean}
+                tr
+                  td.center.aligned 評価
+                  - unless @bean_reviews.empty?
+                    td.center.aligned.chart-container style = "position: relative; width: 400px; height: 150px;"
+                      canvas#chart data-evaluations = @bean.evaluations
+                  - else
+                    td.center.aligned まだ評価がありません
+                tr
+                  td.cen colspan=3
+                    - unless @bean.url.blank?
+                      =link_to '商品ページを見に行く', "#{@bean.url}", class: "circular ui red button"
+                    - else
+                      .circular.ui.button URLがありません
+                    #like_button
+                      = render partial:'shared/like',locals: {like: @like, liked: @bean}
+        .row
+          .column
+            table.ui.celled.table
+              thead
+                tr
+                  th 商品の説明文
+              tbody
+                tr
+                  td
+                    = simple_format(h(@bean.description))
+  .ui.dividing.header
+    font style="vertical-align: inherit;"
+      font style="vertical-align: inherit;"
+        |ユーザーレビュー
+  .ui.items
+    - @bean_reviews.each do |review|
+      - unless user_signed_in? && current_user.reports.exists?(review_id: review.id)
+        .ui.segment.review_item
+          h4.ui.header
+            img.ui.circular.image src= review.user.icon alt= "アイコン画像"
+            =review.user.username
+          .item
+            .content
+              h3.header = review.title
+              .meta
+                span.date #{time_ago_in_words(review.created_at)}前
+              .description
+                =simple_format(h(review.content))
+              .extra
+                - if review.recipe
+                  = render partial: 'shared/recipe', locals: {review: review}
+                a.ui.teal.label href= "/users/#{review.user.id}/show"
+                  |ユーザーの詳細
+                div class="review_like_button_#{review.id} inline"
+                  - if user_signed_in?
+                    =render partial:'shared/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
+                div class= "report_button_#{review.id} inline"
+                    -if user_signed_in?
+                      = render partial: "shared/report", locals: {review: review}
+  = paginate @bean_reviews
+  .ui.section.divider
+  - if user_signed_in?
+    .ui.middle.aligned.center.aligned.grid
+      .column.mb-12
+        h1.content レビューの投稿
+        =form_with model: @bean_review, url: bean_bean_reviews_path(@bean.id), class: "ui equal width form column", id: "bean_review_form", method: :post,local: true do |f|
+          .fields
+            = f.label :title, class: "four wide field"
+            .ten.wide.field
+              = f.label :title, class: 'display_none'
+              = f.text_field :title, placeholder: "title",id: 'title'
+          .fields
+            .four.wide.field
+              p
+              |　評価
+            .two.wide.inline.field
+              = f.label :acidity
+              .ui.star.rating.form_rating data-taste="acidity"
+              = f.hidden_field(:acidity)
+            .two.wide.inline.field
+              = f.label :bitter
+              .ui.star.rating.form_rating data-taste="bitter"
+              = f.hidden_field(:bitter)
+            .two.wide.inline.field
+              = f.label :sweet
+              .ui.star.rating.form_rating data-taste="sweet"
+              = f.hidden_field(:sweet)
+            .two.wide.inline.field
+              = f.label :rich
+              .ui.star.rating.form_rating data-taste="rich"
+              = f.hidden_field(:rich)
+            .two.wide.inline.field
+              = f.label :flavor
+              .ui.star.rating.form_rating data-taste="flavor"
+              = f.hidden_field(:flavor)
+          .fields
+            = f.label :content, class: "four wide field"
+            .ten.wide.field
+              = f.label :content , class: 'display_none'
+              = f.text_area :content, placeholder: "content", id: 'content'
+          .fields.ui.accordion
+            .four.wide.field.title#accordion
+              i.dropdown.icon
               font style="vertical-align: inherit;"
-                |抽出レシピを登録する
-          .eleven.wide.field.inline.field
-            = render partial: "shared/recipe_form", locals: {f: f}
-        .ui.error.message
-        .field
-          = f.submit "submit" , class: "large ui center floated positive button"
+                font style="vertical-align: inherit;"
+                  |抽出レシピを登録する
+            .eleven.wide.field.inline.field
+              = render partial: "shared/recipe_form", locals: {f: f}
+          .ui.error.message
+          .field
+            = f.submit "submit" , class: "large ui center floated positive button"

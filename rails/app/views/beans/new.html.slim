@@ -1,57 +1,58 @@
-.ui.grid
-  .column
-    - breadcrumb :bean_new
-    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
-.ui.middle.aligned.center.aligned.grid.vertical.stripe
-  .column style= "width: 640px"
-    h1#title コーヒー豆を登録する
-    .content.field
-      =form_with model: @bean, url: beans_path ,local: true,class: "ui mini form" do |f|
-        .ui.centered.card.field.text-left#newcard
-          .image#dimmer-product
-            img#img-prev src="/noimage.jpg"
-            .ui.bottom.right.attached.label#dimmer-button
-              i.icons
-                i.ui.large.camera.icon
-                i.ui.bottom.right.corner.add.icon
-            .ui.dimmer.field
-              = f.label :image do
-                .ui.teal.button
-                  |画像を追加する
-                = f.file_field :image, autofocus: true, class: "file-form"
-          .content
-            .header.field
-              =f.label :name
-              = f.text_field :name, autofocus: true, placeholder: "name",id: 'name'
-            .meta
-              .field
-                = f.label :country
-                = f.text_field :country, autofocus: true, placeholder: "country",id: 'country'
-              .field
-                = f.label :area
-                = f.text_field :area, autofocus: true, placeholder: "area"
-              .field
-                = f.label :roast
-                = f.select :roast, Bean.roasts.keys.map{|k| [k, k]},include_blank: "選択してください", selected: "選択してください",id: 'roast'
-              .field
-                = f.label :purification
-                = f.select :purification,Bean.purifications.keys.map{|k| [k, k]},include_blank: "選択してください", selected: "選択してください",id: 'purification'
-          .extra.content.field
-            = f.label :url
-            = f.url_field :url, autofocus: true, placeholder: "url",id: 'url'
-          extra.content.field
-            =f.label :tag_list
-            .ui.fluid.multiple.search.selection.dropdown#tag_form
-                =f.hidden_field :tag_list, value: @bean.tag_list.split(' '), id: 'tag'
-                .default.text tag
-        table.ui.celled.table.field
-          thead
-            tr
-              th = f.label :description
-          tbody
-            tr
-              td
-                = f.text_area :description, autofocus: true , placeholder: "decription", id: 'description'
-        .ui.error.message
-        =f.submit 'submit', class: "ui teal submit button"
-.grid
+.ui.container
+  .ui.grid
+    .column
+      - breadcrumb :bean_new
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
+  .ui.middle.aligned.center.aligned.grid.vertical.stripe
+    .column style= "width: 640px"
+      h1#title コーヒー豆を登録する
+      .content.field
+        =form_with model: @bean, url: beans_path ,local: true,class: "ui mini form" do |f|
+          .ui.centered.card.field.text-left#newcard
+            .image#dimmer-product
+              img#img-prev src="/noimage.jpg"
+              .ui.bottom.right.attached.label#dimmer-button
+                i.icons
+                  i.ui.large.camera.icon
+                  i.ui.bottom.right.corner.add.icon
+              .ui.dimmer.field
+                = f.label :image do
+                  .ui.teal.button
+                    |画像を追加する
+                  = f.file_field :image, autofocus: true, class: "file-form"
+            .content
+              .header.field
+                =f.label :name
+                = f.text_field :name, autofocus: true, placeholder: "name",id: 'name'
+              .meta
+                .field
+                  = f.label :country
+                  = f.text_field :country, autofocus: true, placeholder: "country",id: 'country'
+                .field
+                  = f.label :area
+                  = f.text_field :area, autofocus: true, placeholder: "area"
+                .field
+                  = f.label :roast
+                  = f.select :roast, Bean.roasts.keys.map{|k| [k, k]},include_blank: "選択してください", selected: "選択してください",id: 'roast'
+                .field
+                  = f.label :purification
+                  = f.select :purification,Bean.purifications.keys.map{|k| [k, k]},include_blank: "選択してください", selected: "選択してください",id: 'purification'
+            .extra.content.field
+              = f.label :url
+              = f.url_field :url, autofocus: true, placeholder: "url",id: 'url'
+            extra.content.field
+              =f.label :tag_list
+              .ui.fluid.multiple.search.selection.dropdown#tag_form
+                  =f.hidden_field :tag_list, value: @bean.tag_list.split(' '), id: 'tag'
+                  .default.text tag
+          table.ui.celled.table.field
+            thead
+              tr
+                th = f.label :description
+            tbody
+              tr
+                td
+                  = f.text_area :description, autofocus: true , placeholder: "decription", id: 'description'
+          .ui.error.message
+          =f.submit 'submit', class: "ui teal submit button"
+  .grid
