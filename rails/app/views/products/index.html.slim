@@ -25,7 +25,7 @@
       - @products.each do |product|
         a.ui.fluid.link.card.post href= product_path(product.id)
           .image
-            = image_tag src="#{product.imageurl.url}"
+            = image_tag 'square-image.png',class: 'lazyload' ,data: {src: "#{product.imageurl.url}"}
           .content
             .herader =product.itemname
             .meta

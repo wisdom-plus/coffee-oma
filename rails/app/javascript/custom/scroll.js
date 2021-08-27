@@ -13,5 +13,12 @@ $(document).on("turbolinks:load", function () {
     infScroll.on("request", function (path) {
       $(".ui.sticky").sticky("refresh");
     });
+    infScroll.on("append", function () {
+      $("img.lazyload").visibility({
+        type: "image",
+        transition: "scale in",
+        duration: 1000,
+      });
+    });
   }
 });

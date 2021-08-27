@@ -10,7 +10,7 @@
     .ui.middle.aligned.stackable.grid.conteiner
       .row
         .six.wide.left.floated.column
-          =image_tag "#{@product.imageurl}", class: "ui large bordered rounded image"
+          =image_tag 'square-image.png', class: "ui large bordered rounded image lazyload",data: {src:"#{@product.imageurl}" }
         .ten.wide.column
           table.ui.celled.table
             thead
@@ -59,7 +59,7 @@
       - unless user_signed_in? && current_user.reports.exists?(review_id: review.id)
         .ui.segment.review_item
           h4.ui.header
-            img.ui.circular.image src=review.user.icon alt="アイコン画像"
+            =image_tag 'square-image.png', class:"ui circular image lazyload",data: {src:"#{review.user.icon}"}
             =review.user.username
           .item
             .content

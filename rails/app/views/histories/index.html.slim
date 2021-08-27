@@ -20,7 +20,7 @@
             - if history.product_id
               a.ui.item.grid.spec-item href= product_path(history.product.id)
                 .ui.tiny.image.four.wide.column
-                  img src= history.product.imageurl
+                  =image_tag "square-image.png" ,class: "lazyload",data: {src: "#{history.product.imageurl}"}
                 .content.ten.wide.column
                   h2.header
                     =history.product.itemname
