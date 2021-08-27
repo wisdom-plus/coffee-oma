@@ -25,7 +25,7 @@
       - @beans.each do |bean|
         a.ui.fluid.link.card.post href= bean_path(bean.id)
           .image
-            = image_tag src="#{bean.image.url}"
+            = image_tag 'square-image.png',class: 'lazyload' ,data: {src:"#{bean.image.url}"}
           .content
             .herader =bean.name
             .meta

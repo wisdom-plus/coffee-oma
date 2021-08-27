@@ -9,9 +9,9 @@
     - @rankings.each.with_index(1) do |rank, i|
       a.ui.fluid.link.card.post href= product_path(rank.id) data-turbolinks="false"
         .ui.image
-          img src="#{rank.imageurl.url}"
-            .ui.teal.top.left.attached.label
-              |##{i}
+          =image_tag "square-image.png" ,class: "lazyload",data: {src:"#{rank.imageurl.url}"}
+          .ui.teal.top.left.attached.label
+            |#{i}
         .content
           .herader =rank.itemname
           .meta

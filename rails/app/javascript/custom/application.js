@@ -6,6 +6,7 @@ $(document).on("turbolinks:load", function () {
   $(".sidebar.icon").on("click", function () {
     $(".ui.sidebar").sidebar("toggle");
   });
+
   $(".menu .item").tab();
   $("#dimmer-button").on("click", function () {
     $("#dimmer").dimmer("toggle");
@@ -15,4 +16,9 @@ $(document).on("turbolinks:load", function () {
     context: "#sidebar",
   });
   $(".ui.dropdown").dropdown();
+  $("img.lazyload").visibility({
+    type: "image",
+    transition: "scale in",
+    duration: 1000,
+  });
 });
