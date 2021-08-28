@@ -24,6 +24,10 @@
           = f.check_box :remember_me
           = f.label :remember_me
         .field
-          = f.submit "Log in", class: "ui fluid teal submit button"
+          =f.button type: "submit",class: "ui teal fluid animated fade button" do
+            .visible.content
+              |Log in
+            .hidden.content
+              |ログイン
       .ui.message.text-left
         .container= render "devise/shared/links"

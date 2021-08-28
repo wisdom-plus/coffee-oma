@@ -101,26 +101,27 @@
             .four.wide.field
               p
               |　評価
-            .two.wide.inline.field
-              = f.label :acidity
-              .ui.star.rating.form_rating data-taste="acidity"
-              = f.hidden_field(:acidity)
-            .two.wide.inline.field
-              = f.label :bitter
-              .ui.star.rating.form_rating data-taste="bitter"
-              = f.hidden_field(:bitter)
-            .two.wide.inline.field
-              = f.label :sweet
-              .ui.star.rating.form_rating data-taste="sweet"
-              = f.hidden_field(:sweet)
-            .two.wide.inline.field
-              = f.label :rich
-              .ui.star.rating.form_rating data-taste="rich"
-              = f.hidden_field(:rich)
-            .two.wide.inline.field
-              = f.label :flavor
-              .ui.star.rating.form_rating data-taste="flavor"
-              = f.hidden_field(:flavor)
+            .ten.wide.field
+              .two.wide.inline.field
+                = f.label :acidity
+                .ui.star.rating.form_rating data-taste="acidity"
+                = f.hidden_field(:acidity)
+              .two.wide.inline.field
+                = f.label :bitter
+                .ui.star.rating.form_rating data-taste="bitter"
+                = f.hidden_field(:bitter)
+              .two.wide.inline.field
+                = f.label :sweet
+                .ui.star.rating.form_rating data-taste="sweet"
+                = f.hidden_field(:sweet)
+              .two.wide.inline.field
+                = f.label :rich
+                .ui.star.rating.form_rating data-taste="rich"
+                = f.hidden_field(:rich)
+              .two.wide.inline.field
+                = f.label :flavor
+                .ui.star.rating.form_rating data-taste="flavor"
+                = f.hidden_field(:flavor)
           .fields
             = f.label :content, class: "four wide field"
             .ten.wide.field
@@ -136,4 +137,8 @@
               = render partial: "shared/recipe_form", locals: {f: f}
           .ui.error.message
           .field
-            = f.submit "submit" , class: "large ui center floated positive button"
+            =f.button type: "submit",class: "large ui center floated positive animated fade button" do
+              .visible.content
+                |submit
+              .hidden.content
+                |投稿

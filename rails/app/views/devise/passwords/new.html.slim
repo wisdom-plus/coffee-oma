@@ -15,6 +15,11 @@
             = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail address", id:'email'
         .field
           = f.submit "パスワードをリセットする", class: "ui fluid teal submit button"
+          =f.button type: "submit",class: "ui teal animated fade button" do
+            .visible.content
+              |Send Mail
+            .hidden.content
+              |リセットメールを送る
         .ui.error.message
       .ui.message.text-left
         .container= render "devise/shared/links"

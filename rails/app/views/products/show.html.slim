@@ -102,6 +102,10 @@
               =f.text_area :content, placeholder: "レビューの内容",id: "content"
           .ui.error.message
           .field
-            = f.submit '  submit  ', class: "large ui center floated positive button"
+            =f.button type: "submit",class: "large ui center floated positive animated fade button" do
+              .visible.content
+                |submit
+              .hidden.content
+                |投稿
   - else
     .segment

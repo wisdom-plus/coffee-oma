@@ -14,7 +14,11 @@
             i.mail.icon
             = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),id: 'email'
         .actions
-          = f.submit "確認メールを送る", class: "ui teal button"
+          =f.button type: "submit",class: "ui teal animated fade button" do
+            .visible.content
+              |Send Mail
+            .hidden.content
+              |確認メールを送る
         .ui.error.message
       .ui.message.text-left
         .container= render "devise/shared/links"
