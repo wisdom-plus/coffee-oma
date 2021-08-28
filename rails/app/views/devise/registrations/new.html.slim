@@ -38,7 +38,11 @@
             i.lock.icon
             = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "Confirmation password", id: 'password_confirmation'
         .field
-          = f.submit "Sign up", class: "ui fluid teal submit button"
+          =f.button type: "submit",class: "ui teal fluid animated fade button" do
+            .visible.content
+              |Sign up
+            .hidden.content
+              |登録
         .ui.error.message
       .ui.message.text-left
         .container= render "devise/shared/links"

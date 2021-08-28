@@ -54,5 +54,9 @@
                 td
                   = f.text_area :description, autofocus: true , placeholder: "decription", id: 'description'
           .ui.error.message
-          =f.submit 'submit', class: "ui teal submit button"
+          =f.button type: "submit",class: "ui teal animated fade button" do
+            .visible.content
+              |submit
+            .hidden.content
+              |登録
   .grid

@@ -4,9 +4,12 @@
       |Coffee-oma
     h3
       |コーヒーアイテムのレビューサイト
-    .ui.huge.primary.button
-      |Coffee-omaを始める
-      i.right.arrow.icon
+    .ui.huge.primary.animated.fade.button
+      .visible.content
+        |Coffee-omaを始める
+        i.right.arrow.icon
+      .hidden.content
+        |Let`s Start!
 
 .ui.container
   .ui.vertical.stripe.center.aligned.segment.grid.m-3rem
@@ -64,9 +67,12 @@
               span Brand:  #{rank.shopname}
           .extra.content
             i.heart.icon =rank.likes_count
-    =link_to likes_path,class: "ui teal huge button" do
-      i.signal.icon
-      |ランキングを詳しくみる
+    =link_to likes_path,class: "ui teal huge animated fade button" do
+      .visible.content
+        i.signal.icon
+        |ランキングを詳しくみる
+      .hidden.content
+        |Let`s Start!
 
   .ui.vertical.stripe.segment.grid.m-3rem.titlecenter
     h2.ui.header
@@ -92,7 +98,10 @@
               .content
                   p.header
                     =review.product.itemname
-    =link_to products_path,class: "ui teal huge button" do
-      i.search.icon
-      |アイテムを詳しくみる
+    =link_to products_path,class: "ui teal huge animated fade button" do
+      .visible.content
+        i.search.icon
+        |アイテムを詳しくみる
+      .hidden.content
+        |Let`s Start!
 
