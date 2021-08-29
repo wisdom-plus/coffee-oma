@@ -20,7 +20,8 @@
               tr
                 td.center.aligned  価格
                 td.center.aligned
-                  i.yen.icon #{@product.itemprice.to_s(:delimited)}
+                  i.yen.icon.m-0
+                  .inline_yen #{@product.itemprice.to_s(:delimited)}
               tr
                 td.center.aligned ブランド
                 td.center.aligned #{@product.shopname}
