@@ -217,6 +217,19 @@ body.pushable {
 html,
 body {
   height: auto;
+  font-family: 'Noto Serif JP', serif;
+}
+h1,h2,h3,h4,h5 {
+  font-family: 'Noto Serif JP', serif;
+}
+.ui.header {
+  font-family: 'Noto Serif JP', serif;
+}
+.ui.button {
+  font-family: 'Noto Serif JP', serif;
+}
+.ui.text.container {
+  font-family: 'Noto Serif JP', serif;
 }
 
 h1.ui.header.top-title{
@@ -260,6 +273,9 @@ h1.ui.header{
   margin-top: 2.5rem !important;
 }
 
+.m-0 {
+  margin: 0 !important;
+}
 .titlecenter{
   justify-content: center;
 }
@@ -299,6 +315,9 @@ h1.ui.header{
   padding-right: 2rem;
 }
 
+.inline_yen {
+  display: inline
+}
 .news_segment {
   min-height: 240px
 }
