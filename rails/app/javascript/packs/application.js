@@ -19,3 +19,4 @@ require("custom/form");
 require("custom/chart");
 require("custom/rating");
 require("custom/scroll");
+require("custom/modal");
