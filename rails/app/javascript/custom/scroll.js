@@ -13,11 +13,22 @@ $(document).on("turbolinks:load", function () {
     infScroll.on("request", function (path) {
       $(".ui.sticky").sticky("refresh");
     });
-    infScroll.on("append", function () {
-      $("img.lazyload").visibility({
-        type: "image",
-        transition: "scale in",
-        duration: 1000,
+    infScroll.on("append", function (items) {
+      console.log(items);
+      $("a.post.scale").transition({
+        animation: "scale in",
+        duration: 800,
+        interval: 300,
+        onComplete: function () {
+          $("img.lazyload-post", this).visibility({
+            type: "image",
+            transition: "scale in",
+            duration: 1000,
+          });
+          $(this).removeClass("scale");
+          $(".placeholder").remove();
+          $(".display_none").removeClass("display_none");
+        },
       });
     });
   }

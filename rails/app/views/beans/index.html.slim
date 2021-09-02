@@ -23,16 +23,26 @@
           a href="#"
             i.chevron.circle.up.icon Top
       - @beans.each do |bean|
-        a.ui.fluid.link.card.post href= bean_path(bean.id)
+        a.ui.fluid.link.card.post.scale href= bean_path(bean.id)
           .image
-            = image_tag 'square-image.png',class: 'lazyload' ,data: {src:"#{bean.image.url}"}
+            = image_tag 'square-image.png',class: 'lazyload-post' ,data: {src:"#{bean.image.url}"}
           .content
-            .herader =bean.name
-            .meta
+            .ui.placeholder
+              .header
+                .long.line
+              .paragraph
+                .line
+                .line
+                .line
+                .line
+            .herader.display_none =bean.name
+            .meta.display_none
               span Area:  #{bean.country}
               span Roast:  #{bean.roast}
-            .description
+            .description.display_none
               =simple_format(h(bean.description.truncate(30)))
           .extra.content
+            .ui.placeholder
+              .short.line
     = paginate @beans
     .segment

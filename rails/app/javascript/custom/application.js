@@ -20,5 +20,21 @@ $(document).on("turbolinks:load", function () {
     type: "image",
     transition: "scale in",
     duration: 1000,
+    once: false,
+  });
+  $("a.post.scale").transition({
+    animation: "scale in",
+    duration: 800,
+    interval: 300,
+    onComplete: function () {
+      $("img.lazyload-post", this).visibility({
+        type: "image",
+        transition: "scale in",
+        duration: 1000,
+      });
+      $(this).removeClass("scale");
+      $(".placeholder").remove();
+      $(".display_none").removeClass("display_none");
+    },
   });
 });

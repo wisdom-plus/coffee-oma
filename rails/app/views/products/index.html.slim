@@ -23,17 +23,27 @@
           a href="#"
             i.chevron.circle.up.icon Top
       - @products.each do |product|
-        a.ui.fluid.link.card.post href= product_path(product.id)
+        a.ui.fluid.link.card.post.scale href= product_path(product.id)
           .image
-            = image_tag 'square-image.png',class: 'lazyload' ,data: {src: "#{product.imageurl.url}"}
+            = image_tag 'square-image.png',class: 'lazyload-post' ,data: {src: "#{product.imageurl.url}"}
           .content
-            .herader =product.itemname
-            .meta
+            .ui.placeholder
+              .header
+                .long.line
+              .paragraph
+                .line
+                .line
+                .line
+                .line
+            .herader.display_none =product.itemname
+            .meta.display_none
               span Brand:  #{product.shopname}
-            .description
+            .description.display_none
               =simple_format(h(product.itemcaption.truncate(50)))
           .extra.content
-            i.yen.icon.m-0
-            .inline_yen #{product.itemprice.to_s(:delimited)}
+            .ui.placeholder
+              .short.line
+            i.yen.icon.m-0.display_none
+            .inline_yen.display_none #{product.itemprice.to_s(:delimited)}
     = paginate @products
     .segment
