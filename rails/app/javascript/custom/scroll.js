@@ -10,20 +10,19 @@ $(document).on("turbolinks:load", function () {
       status: ".page-load-status",
       hideNav: ".pagination",
     });
-    infScroll.on("request", function (path) {
+    infScroll.on("request", function () {
       $(".ui.sticky").sticky("refresh");
     });
-    infScroll.on("append", function (items) {
-      console.log(items);
+    infScroll.on("append", function () {
       $("a.post.scale").transition({
         animation: "scale in",
         duration: 800,
-        interval: 300,
+        interval: 200,
         onComplete: function () {
           $("img.lazyload-post", this).visibility({
             type: "image",
             transition: "scale in",
-            duration: 1000,
+            duration: 800,
           });
           $(this).removeClass("scale");
           $(".placeholder").remove();

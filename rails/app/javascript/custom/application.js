@@ -25,12 +25,12 @@ $(document).on("turbolinks:load", function () {
   $("a.post.scale").transition({
     animation: "scale in",
     duration: 800,
-    interval: 300,
+    interval: 200,
     onComplete: function () {
       $("img.lazyload-post", this).visibility({
         type: "image",
         transition: "scale in",
-        duration: 1000,
+        duration: 800,
       });
       $(this).removeClass("scale");
       $(".placeholder").remove();
