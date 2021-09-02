@@ -14,7 +14,7 @@ html
     link href="https://fonts.googleapis.com/css?family=Vollkorn rel="stylesheet"
   body#wrapper
     =render partial: 'shared/sidebar'
-    .pusher
+    .pusher#back-image
       .ui.main.fixed.teal.inverted.menu
         .ui.container
           =link_to root_path , class: "item", id: "logopadding" do
@@ -58,8 +58,8 @@ html
           .right.menu.toc
             a.item
                 i.sidebar.icon
-      .ui.container.top-padding
-        - if notice || alert
+      - if notice || alert
+        .ui.container.top-padding
           .ui.message.flash-message
             i.close.icon
             .ui.center.aligned.header#message
