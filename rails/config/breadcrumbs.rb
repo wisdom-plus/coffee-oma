@@ -90,8 +90,19 @@ end
 crumb :news do
   link 'お知らせ', news_index_path
 end
-# If you want to split your breadcrumbs configuration over multiple files, you
-# can create a folder named `config/breadcrumbs` and put your configuration
-# files there. All *.rb files (e.g. `frontend.rb` or `products.rb`) in that
-# folder are loaded and reloaded automatically when you change them, just like
-# this file (`config/breadcrumbs.rb`).
+
+crumb :notification do
+  link '通知', notifications_path
+end
+
+crumb :ranking do
+  link 'ランキング', likes_path
+end
+
+crumb :policy do
+  link '利用規約', policy_path
+end
+
+crumb :private do
+  link 'プライベートポリシー', private_policy_path
+end
