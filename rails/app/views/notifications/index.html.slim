@@ -1,10 +1,8 @@
 .ui.container
   .ui.grid
     .column
-      .ui.breadcrumb
-        =link_to 'Home', root_path, class: 'section'
-        i.right.chevron.icon.devider
-        .active.section 通知
+      - breadcrumb :notification
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
   .ui.centered.grid.margin-zero
     .twelve.wide.column
       h1#title 通知

@@ -1,4 +1,8 @@
-.ui.container.top-padding
+.ui.container
+  .ui.grid
+    .column
+      - breadcrumb :policy
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
   .ui.middle.aligned.center.aligned.grid
     .eleven.wide.column
       h1.content 利用規約
