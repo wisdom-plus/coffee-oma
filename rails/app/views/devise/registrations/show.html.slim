@@ -2,7 +2,7 @@
   .ui.grid
     .column
       - breadcrumb :profile, @user
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
   .ui.center.aligned.container
     =image_tag "square-image.png" , class: "ui centered small circular image lazyload",data:{src: "#{@user.icon.url}"}
     h1.header
