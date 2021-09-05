@@ -20,3 +20,4 @@ require("custom/chart");
 require("custom/rating");
 require("custom/scroll");
 require("custom/modal");
+require("custom/anime");

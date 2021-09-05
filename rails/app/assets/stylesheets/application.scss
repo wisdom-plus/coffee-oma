@@ -280,6 +280,7 @@ h1.ui.header{
 .p-0 {
   padding: 0 !important;
 }
+
 .titlecenter{
   justify-content: center;
 }
@@ -325,6 +326,11 @@ h1.ui.header{
 .news_segment {
   min-height: 240px
 }
+
+.load-dimmer {
+  background-color: rgba(0,0,0,1) !important;
+}
+
 @media only screen and (max-width: 700px) {
   .inverted.menu .right.menu.toc {
     display: block;
