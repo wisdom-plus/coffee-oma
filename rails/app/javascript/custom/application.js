@@ -35,6 +35,7 @@ $(document).on("turbolinks:load", function () {
       $(this).removeClass("scale");
       $(".placeholder").remove();
       $(".display_none").removeClass("display_none");
+      $("img.lazyload").visibility("refresh");
     },
   });
   Turbolinks.setProgressBarDelay(100);

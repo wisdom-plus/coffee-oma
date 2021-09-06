@@ -331,6 +331,10 @@ h1.ui.header{
   background-color: rgba(0,0,0,1) !important;
 }
 
+.turbolinks-progress-bar {
+  height: 6px;
+}
+
 @media only screen and (max-width: 700px) {
   .inverted.menu .right.menu.toc {
     display: block;
