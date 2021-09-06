@@ -39,6 +39,7 @@ RSpec.describe 'News', type: :system do
         visit new_news_path
       end
 
+      エラーが派生後日対応予定
       it 'create news' do
         expect do
           fill_in 'news_title', with: '運営からのお知らせ'
