@@ -1,0 +1,43 @@
+.ui.main.fixed.teal.inverted.menu
+  .ui.container
+    =link_to root_path , class: "item", id: "logopadding" do
+      =image_tag("/coffeeoma-logo.png", class: "ui tinysmall image")
+    .ui.floating.dropdown.item
+      i.search.icon
+      font style= "vertical-align: inherit;" アイテム一覧
+      i.dropdown.icon
+      .menu
+        a.item href = products_path
+          font style= "vertical-align: inherit;" アイテム一覧
+        a.item href = beans_path
+          font style= "vertical-align: inherit;" コーヒー豆一覧
+    a.item href = likes_path
+      i.signal.icon
+      font style= "vertical-align: inherit;" ランキング
+    .right.menu.hide
+      - if user_signed_in?
+        .item.ui.floating.dropdown
+          i.user.icon
+          font style= "vertical-align: inherit;" ユーザー
+          i.dropdown.icon
+          .menu
+            = link_to 'プロフィール',"/users/#{current_user.id}/show", class: "item"
+            = link_to 'ユーザーを編集', edit_user_registration_path, class:"item"
+            = link_to '閲覧履歴',histories_path, class:"item"
+            = link_to 'メッセージ一覧', rooms_path, class: "item"
+            = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "item spec-logout"
+        - if unchecked_notifications?
+          = link_to notifications_path, class: "ui item new_notification" do
+            i.icons
+              i.bell.outline.icon
+              i.bottom.right.corner.red.circle.icon
+        - else
+          =link_to notifications_path, class: "ui item" do
+            i.bell.outline.icon
+      - else
+          = link_to "ゲストログイン", users_guest_sign_in_path, method: :post,class: "item"
+          = link_to "ログイン",user_session_path,class: "item"
+          = link_to "新規登録", new_user_registration_path, class: "item"
+    .right.menu.toc
+      a.item
+          i.sidebar.icon

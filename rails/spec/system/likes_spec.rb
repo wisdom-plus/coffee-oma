@@ -11,20 +11,20 @@ RSpec.describe 'Likes', type: :system, js: true do
 
   describe 'index' do
     before do
-      user1
-      product_like
+      product
       product1
       visit likes_path
     end
 
     it 'render product' do
       expect(page).to have_link nil, href: product_path(product.id)
+      expect(page).to have_link nil, href: product_path(product1.id)
     end
 
     it 'render ranking' do
-      ranking = first('div.ui.three.stackable.cards.segment.mt-3rem a')
-      ranking.click
-      expect(page).to have_current_path product_path(product1.id), ignore_query: true
+      sleep 1
+      first('div.ui.three.stackable.cards.segment.mt-3rem a').click
+      expect(page).to have_current_path product_path(product1.id)
     end
   end
 

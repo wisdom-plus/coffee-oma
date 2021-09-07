@@ -1,37 +1,48 @@
-.ui.grid
-  .column
-    - breadcrumb :bean
-    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
-.ui.middle.aligned.center.aligned.grid.vertical.stripe
-  .column
-    h1#title コーヒー豆の一覧
-    h3
-      |　なければ
-      =link_to "こちらから登録", new_bean_path
-    = search_form_for @q ,class: "ui mini form"do |f|
-      .eight.wide.field.form-centered
-        .ui.action.input
-          = f.search_field :name_cont, placeholder: "search"
-          = button_tag type: 'submit', class: "ui icon teal button" do
-            i.search.icon
+.ui.container
+  .ui.grid
+    .column
+      - breadcrumb :bean
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  .ui.middle.aligned.center.aligned.grid.vertical.stripe
+    .column
+      h1#title コーヒー豆の一覧
+      h3
+        |　なければ
+        =link_to "こちらから登録", new_bean_path
+      = search_form_for @q ,class: "ui mini form"do |f|
+        .eight.wide.field.form-centered
+          .ui.action.input
+            = f.search_field :name_cont, placeholder: "search"
+            = button_tag type: 'submit', class: "ui icon teal button" do
+              i.search.icon
 
-- if @beans.present?
-  .ui.three.stackable.cards.segment.scroll#sidebar
-    .ui.right.very.close.rail
-      .ui.segment.sticky
-        a href="#"
-          i.chevron.circle.up.icon Top
-    - @beans.each do |bean|
-      a.ui.fluid.link.card.post href= bean_path(bean.id)
-        .image
-          = image_tag src="#{bean.image.url}"
-        .content
-          .herader =bean.name
-          .meta
-            span Area:  #{bean.country}
-            span Roast:  #{bean.roast}
-          .description
-            =simple_format(h(bean.description.truncate(30)))
-        .extra.content
-  = paginate @beans
-  .segment
+  - if @beans.present?
+    .ui.three.stackable.cards.segment.scroll#sidebar
+      .ui.right.very.close.rail
+        .ui.segment.sticky
+          a href="#"
+            i.chevron.circle.up.icon Top
+      - @beans.each do |bean|
+        a.ui.fluid.link.card.post.scale href= bean_path(bean.id)
+          .image
+            = image_tag 'square-image.png',class: 'lazyload-post' ,data: {src:"#{bean.image.url}"}
+          .content
+            .ui.placeholder
+              .header
+                .long.line
+              .paragraph
+                .line
+                .line
+                .line
+                .line
+            .herader.display_none =bean.name
+            .meta.display_none
+              span Area:  #{bean.country}
+              span Roast:  #{bean.roast}
+            .description.display_none
+              =simple_format(h(bean.description.truncate(30)))
+          .extra.content
+            .ui.placeholder
+              .short.line
+    = paginate @beans
+    .segment

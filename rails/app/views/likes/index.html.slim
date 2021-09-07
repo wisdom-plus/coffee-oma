@@ -1,19 +1,36 @@
-.ui.middle.aligned.center.aligned.grid.vertical.stripe
-  .text.column
-    h1.content 人気ランキング
-    p
-      |全アイテムのお気に入り数をランキング順に表示しています。
+.ui.container
+  .ui.grid
+    .column
+      - breadcrumb :ranking
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  .ui.middle.aligned.center.aligned.grid.vertical.stripe
+    .text.column
+      h1.content 人気ランキング
+      p
+        |全アイテムのお気に入り数をランキング順に表示しています。
 
-.ui.three.stackable.cards.segment.mt-3rem
-  - @rankings.each.with_index(1) do |rank, i|
-    a.ui.fluid.link.card.post href= product_path(rank.id) data-turbolinks="false"
-      .ui.image
-        img src="#{rank.imageurl.url}"
+  .ui.three.stackable.cards.segment.mt-3rem
+    - @rankings.each.with_index(1) do |rank, i|
+      a.ui.fluid.link.card.post.scale href= product_path(rank.id) data-turbolinks="false"
+        .ui.image
+          =image_tag "square-image.png" ,class: "lazyload-post",data: {src:"#{rank.imageurl.url}"}
           .ui.teal.top.left.attached.label
-            |##{i}
-      .content
-        .herader =rank.itemname
-        .meta
-          span Brand:  #{rank.shopname}
-      .extra.content
-        i.yen.sign.icon =rank.itemprice
+            |#{i}
+        .content
+          .ui.placeholder
+            .header
+              .long.line
+            .paragraph
+              .line
+              .line
+              .line
+              .line
+          .herader.display_none =rank.itemname
+          .meta.display_none
+            span Brand:  #{rank.shopname}
+        .extra.content
+          .ui.placeholder
+              .short.line
+          i.yen.icon.m-0.display_none
+            .inline_yen.display_none #{rank.itemprice.to_s(:delimited)}
+  .segment

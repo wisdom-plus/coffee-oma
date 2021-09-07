@@ -1,28 +1,33 @@
-.ui.grid
-  .column
-    - breadcrumb :session
-    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
-.ui.middle.aligned.center.aligned.grid
-  .column style= "width: 543px"
-    h1#title ログイン
-    = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user ui form text-left', local: true do |f|
-      .field
-        = f.label :email
-        br
-        .ui.left.icon.input
-          i.mail.icon
-          = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail address", id: 'email'
-      .field
-        = f.label :password
-        br
-        .ui.left.icon.input
-          i.lock.icon
-          = f.password_field :password, autocomplete: "current-password",placeholder: "Password", id: 'login_password'
-      - if devise_mapping.rememberable?
-      .field.ui.checkbox
-        = f.check_box :remember_me
-        = f.label :remember_me
-      .field
-        = f.submit "Log in", class: "ui fluid teal submit button"
-    .ui.message.text-left
-      .container= render "devise/shared/links"
+.ui.container
+  .ui.grid
+    .column
+      - breadcrumb :session
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  .ui.middle.aligned.center.aligned.grid
+    .column style= "width: 543px"
+      h1#title ログイン
+      = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user ui form text-left', local: true do |f|
+        .field
+          = f.label :email
+          br
+          .ui.left.icon.input
+            i.mail.icon
+            = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail address", id: 'email'
+        .field
+          = f.label :password
+          br
+          .ui.left.icon.input
+            i.lock.icon
+            = f.password_field :password, autocomplete: "current-password",placeholder: "Password", id: 'login_password'
+        - if devise_mapping.rememberable?
+        .field.ui.checkbox
+          = f.check_box :remember_me
+          = f.label :remember_me
+        .field
+          =f.button type: "submit",class: "ui teal fluid animated fade button" do
+            .visible.content
+              |Log in
+            .hidden.content
+              |ログイン
+      .ui.message.text-left
+        .container= render "devise/shared/links"

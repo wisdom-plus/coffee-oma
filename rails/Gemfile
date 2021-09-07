@@ -65,6 +65,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'launchy'
+  gem 'pry-rails'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
   gem 'rubocop', require: false
@@ -87,7 +88,6 @@ group :development do
   gem 'brakeman', require: false
   gem 'bullet'
   gem 'letter_opener_web'
-  gem 'pry-rails'
   gem 'solargraph'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

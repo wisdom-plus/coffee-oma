@@ -1,37 +1,49 @@
-.ui.grid
-  .column
-    - breadcrumb :product
-    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
-.ui.middle.aligned.center.aligned.grid.vertical.stripe
-  .column
-    h1#title アイテムの一覧
-    h3
-      | なければ
-      = link_to 'こちらから登録', new_product_path
-    = search_form_for @q ,class: "ui mini form"do |f|
-      .eight.wide.field.form-centered
-        .ui.action.input
-          = f.search_field :itemname_cont, placeholder: "search"
-          = button_tag type: 'submit', class: "ui icon teal button" do
-            i.search.icon
+.ui.container
+  .ui.grid
+    .column
+      - breadcrumb :product
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  .ui.middle.aligned.center.aligned.grid.vertical.stripe
+    .column
+      h1#title アイテムの一覧
+      h3
+        | なければ
+        = link_to 'こちらから登録', new_product_path
+      = search_form_for @q ,class: "ui mini form"do |f|
+        .eight.wide.field.form-centered
+          .ui.action.input
+            = f.search_field :itemname_cont, placeholder: "search"
+            = button_tag type: 'submit', class: "ui icon teal button" do
+              i.search.icon
 
-- if @products.present?
-  .ui.three.stackable.cards.segment.scroll#sidebar
-    .ui.right.very.close.rail
-      .ui.segment.sticky
-        a href="#"
-          i.chevron.circle.up.icon Top
-    - @products.each do |product|
-      a.ui.fluid.link.card.post href= product_path(product.id)
-        .image
-          = image_tag src="#{product.imageurl.url}"
-        .content
-          .herader =product.itemname
-          .meta
-            span Brand:  #{product.shopname}
-          .description
-            =simple_format(h(product.itemcaption.truncate(50)))
-        .extra.content
-          i.yen.sign.icon =product.itemprice
-  = paginate @products
-  .segment
+  - if @products.present?
+    .ui.three.stackable.cards.segment.scroll#sidebar
+      .ui.right.very.close.rail
+        .ui.segment.sticky
+          a href="#"
+            i.chevron.circle.up.icon Top
+      - @products.each do |product|
+        a.ui.fluid.link.card.post.scale href= product_path(product.id)
+          .image
+            = image_tag 'square-image.png',class: 'lazyload-post' ,data: {src: "#{product.imageurl.url}"}
+          .content
+            .ui.placeholder
+              .header
+                .long.line
+              .paragraph
+                .line
+                .line
+                .line
+                .line
+            .herader.display_none =product.itemname
+            .meta.display_none
+              span Brand:  #{product.shopname}
+            .description.display_none
+              =simple_format(h(product.itemcaption.truncate(50)))
+          .extra.content
+            .ui.placeholder
+              .short.line
+            i.yen.icon.m-0.display_none
+            .inline_yen.display_none #{product.itemprice.to_s(:delimited)}
+    = paginate @products
+    .segment

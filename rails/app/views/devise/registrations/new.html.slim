@@ -1,44 +1,49 @@
-.ui.grid
-  .column
-    - breadcrumb :sign_in
-    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
-.ui.middle.aligned.center.aligned.grid
-  .column style= "width: 543px"
-    h1#title 新規登録
-    = form_with model: @user, url: user_registration_path,id: "new_user", class: "new_user ui form text-left", local: true do |f|
-      .field
-        = f.label :username
-        br
-        .ui.left.icon.input
-          i.user.icon
-          = f.text_field :username, autofocus: true, autocomplete: "name", placeholder: "user-name",id: 'username'
-      .field
-        = f.label :email
-        br
-        .ui.left.icon.input
-          i.mail.icon
-          = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail address",id: 'email'
-      .field
-        = f.label :password
-        - if @minimum_password_length
-          .ui.pointing.below.label
-            font style= "vertical-align: inherit;"
-              | パスワードは
-              = @minimum_password_length
-              | 文字以上にしてください
-        br
-        .ui.left.icon.input
-          i.lock.icon
-          = f.password_field :password, autocomplete: "new-password",placeholder: "Password", id:'password'
-      .field
-        = f.label :password_confirmation
-        br
-        .ui.left.icon.input
-          i.lock.icon
-          = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "Confirmation password", id: 'password_confirmation'
-      .field
-        = f.submit "Sign up", class: "ui fluid teal submit button"
-      .ui.error.message
-    .ui.message.text-left
-      .container= render "devise/shared/links"
-    .segment
+.ui.container
+  .ui.grid
+    .column
+      - breadcrumb :sign_in
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  .ui.middle.aligned.center.aligned.grid
+    .column style= "width: 543px"
+      h1#title 新規登録
+      = form_with model: @user, url: user_registration_path,id: "new_user", class: "new_user ui form text-left", local: true do |f|
+        .field
+          = f.label :username
+          br
+          .ui.left.icon.input
+            i.user.icon
+            = f.text_field :username, autofocus: true, autocomplete: "name", placeholder: "user-name",id: 'username'
+        .field
+          = f.label :email
+          br
+          .ui.left.icon.input
+            i.mail.icon
+            = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail address",id: 'email'
+        .field
+          = f.label :password
+          - if @minimum_password_length
+            .ui.pointing.below.label
+              font style= "vertical-align: inherit;"
+                | パスワードは
+                = @minimum_password_length
+                | 文字以上にしてください
+          br
+          .ui.left.icon.input
+            i.lock.icon
+            = f.password_field :password, autocomplete: "new-password",placeholder: "Password", id:'password'
+        .field
+          = f.label :password_confirmation
+          br
+          .ui.left.icon.input
+            i.lock.icon
+            = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "Confirmation password", id: 'password_confirmation'
+        .field
+          =f.button type: "submit",class: "ui teal fluid animated fade button" do
+            .visible.content
+              |Sign up
+            .hidden.content
+              |登録
+        .ui.error.message
+      .ui.message.text-left
+        .container= render "devise/shared/links"
+      .segment

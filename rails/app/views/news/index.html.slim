@@ -1,27 +1,28 @@
-.ui.grid
-  .column
-    - breadcrumb :news
-    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
-.ui.middle.aligned.center.aligned.grid.vertical.stripe
-  .column
-    h1#title お知らせ一覧
+.ui.container
+  .ui.grid
+    .column
+      - breadcrumb :news
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  .ui.middle.aligned.center.aligned.grid.vertical.stripe
+    .column
+      h1#title お知らせ一覧
 
 
-.ui.segment.scroll#sidebar
-  .ui.right.very.close.rail
-    .ui.segment.sticky
-      a href="#"
-        i.chevron.circle.up.icon Top
-  - if @news_all.present?
-    - @news_all.each do |news|
-      - if news.publicshed?
-        .ui.segment
-          .item
-            a.ui.item.grid.spec-item href= news_path(news.id)
-              .content.ten.wide.column
-                h2.header
-                  =news.title
-                .meta
-                  span #{time_ago_in_words(news.updated_at)}前
+  .ui.segment.scroll#sidebar
+    .ui.right.very.close.rail
+      .ui.segment.sticky
+        a href="#"
+          i.chevron.circle.up.icon Top
+    - if @news_all.present?
+      - @news_all.each do |news|
+        - if news.publicshed?
+          .ui.segment
+            .item
+              a.ui.item.grid.spec-item href= news_path(news.id)
+                .content.ten.wide.column
+                  h2.header
+                    =news.title
+                  .meta
+                    span #{time_ago_in_words(news.updated_at)}前
 
-.segment
+  .segment
