@@ -24,7 +24,7 @@ RSpec.describe 'Likes', type: :system, js: true do
     it 'render ranking' do
       ranking = first('div.ui.three.stackable.cards.segment.mt-3rem a')
       ranking.click
-      expect(page).to have_current_path product_path(product1.id), ignore_query: true
+      expect(page).to have_current_path product_path(product1.id)
     end
   end
 
