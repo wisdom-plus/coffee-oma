@@ -1,106 +1,112 @@
-.ui.grid
-  .column
-    - breadcrumb :product_show, @product
-    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
-.ui.middle.aligned.center.aligned.grid
-  .column
-    h1#title アイテムの詳細
-.ui.vertical.stripe.segment
-  .ui.middle.aligned.stackable.grid.conteiner
-    .row
-      .six.wide.left.floated.column
-        =image_tag "#{@product.imageurl}", class: "ui large bordered rounded image"
-      .ten.wide.column
-        table.ui.celled.table
-          thead
-            tr
-              th.center.aligned colspan=3  #{@product.itemname}
-          tbody
-            tr
-              td.center.aligned  価格
-              td.center.aligned
-                i.yen.icon #{@product.itemprice.to_s(:delimited)}
-            tr
-              td.center.aligned ブランド
-              td.center.aligned #{@product.shopname}
-            tr
-              td.center.aligned 評価
-              - unless @product.reviews.average(:rate).nil?
-                td.center.aligned#star data-rating = @product.rate_average
-                  =@product.reviews.average(:rate).floor(1)
-              - else
-                td.center.aligned
-                  |評価はまだありません
-            tr#tag_area
-              = render partial: 'shared/tag_form',locals: {tags: @tags, target: @product}
-            tr
-              td.cen colspan=3
-                - unless @product.itemurl.empty?
-                  = link_to "商品を詳しく見る","#{@product.itemurl}",class: " circular ui red button"
-                #like_button
-                  = render partial:'shared/like',locals: {like: @like, liked: @product}
-    .row
-      .column
-        table.ui.celled.table
-          thead
-            tr
-              th 商品の説明文
-          tbody
-            tr
-              td
-                = simple_format(h(@product.itemcaption))
-.ui.dividing.header
-  font style="vertical-align: inherit;"
-    font style="vertical-align: inherit;"
-      |ユーザーレビュー
-.ui.items
-  -@reviews.each do |review|
-    - unless user_signed_in? && current_user.reports.exists?(review_id: review.id)
-      .ui.segment.review_item
-        h4.ui.header
-          img.ui.circular.image src=review.user.icon alt="アイコン画像"
-          =review.user.username
-        .item
-          .content
-            h3.header =review.title
-            .meta.review_meta
-              span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
-              span.date #{time_ago_in_words(review.created_at)}前
-            .description
-              =simple_format(h(review.content))
-            .extra
-              a.ui.teal.label href= "/users/#{review.user.id}/show"
-                |ユーザーの詳細
-              div class="review_like_button_#{review.id} inline"
-                - if user_signed_in?
-                  =render partial:'shared/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
-              div class= "report_button_#{review.id} inline"
-                -if user_signed_in?
-                  = render partial: "shared/report", locals: {review: review}
-= paginate @reviews
-.ui.section.divider
-- if user_signed_in?
+.ui.container
+  .ui.grid
+    .column
+      - breadcrumb :product_show, @product
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
   .ui.middle.aligned.center.aligned.grid
-    .column.mb-12
-      h1.content レビューの投稿
-      =form_with model: @review, url: product_reviews_path(@product.id), class: "ui equal width form column", id: "review_form", method: :post,local: true do |f|
-        .fields
-          =f.label :title,class: "four wide field"
-          .ten.wide.field
-            =f.label :title,class: 'display_none'
-            =f.text_field :title, placeholder: "title",id: "title"
-        .fields
-          =f.label :rate, class: "four wide field"
-          .ten.wide.field
-            .ui.star.rating#rating
-            =f.label :rate,class: 'display_none'
-            =f.hidden_field(:rate)
-        .fields
-          =f.label :content, "レビュー内容", class: "four wide field"
-          .ten.wide.field
-            =f.text_area :content, placeholder: "レビューの内容",id: "content"
-        .ui.error.message
-        .field
-          = f.submit '  submit  ', class: "large ui center floated positive button"
-- else
-  .segment
+    .column
+      h1#title アイテムの詳細
+  .ui.vertical.stripe.segment
+    .ui.middle.aligned.stackable.grid.conteiner
+      .row
+        .six.wide.left.floated.column
+          =image_tag 'square-image.png', class: "ui large bordered rounded image lazyload",data: {src:"#{@product.imageurl}" }
+        .ten.wide.column
+          table.ui.celled.table
+            thead
+              tr
+                th.center.aligned colspan=3  #{@product.itemname}
+            tbody
+              tr
+                td.center.aligned  価格
+                td.center.aligned
+                  i.yen.icon.m-0
+                  .inline_yen #{@product.itemprice.to_s(:delimited)}
+              tr
+                td.center.aligned ブランド
+                td.center.aligned #{@product.shopname}
+              tr
+                td.center.aligned 評価
+                - unless @product.reviews.average(:rate).nil?
+                  td.center.aligned#star data-rating = @product.rate_average
+                    =@product.reviews.average(:rate).floor(1)
+                - else
+                  td.center.aligned
+                    |評価はまだありません
+              tr#tag_area
+                = render partial: 'shared/tag_form',locals: {tags: @tags, target: @product}
+              tr
+                td.cen colspan=3
+                  - unless @product.itemurl.empty?
+                    = link_to "商品を詳しく見る","#{@product.itemurl}",class: " circular ui red button"
+                  #like_button
+                    = render partial:'shared/like',locals: {like: @like, liked: @product}
+      .row
+        .column
+          table.ui.celled.table
+            thead
+              tr
+                th 商品の説明文
+            tbody
+              tr
+                td
+                  = simple_format(h(@product.itemcaption))
+  .ui.dividing.header
+    font style="vertical-align: inherit;"
+      font style="vertical-align: inherit;"
+        |ユーザーレビュー
+  .ui.items
+    -@reviews.each do |review|
+      - unless user_signed_in? && current_user.reports.exists?(review_id: review.id)
+        .ui.segment.review_item
+          h4.ui.header
+            =image_tag 'square-image.png', class:"ui circular image lazyload",data: {src:"#{review.user.icon}"}
+            =review.user.username
+          .item
+            .content
+              h3.header =review.title
+              .meta.review_meta
+                span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
+                span.date #{time_ago_in_words(review.created_at)}前
+              .description
+                =simple_format(h(review.content))
+              .extra
+                a.ui.teal.label href= "/users/#{review.user.id}/show"
+                  |ユーザーの詳細
+                div class="review_like_button_#{review.id} inline"
+                  - if user_signed_in?
+                    =render partial:'shared/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
+                div class= "report_button_#{review.id} inline"
+                  -if user_signed_in?
+                    = render partial: "shared/report", locals: {review: review}
+  = paginate @reviews
+  .ui.section.divider
+  - if user_signed_in?
+    .ui.middle.aligned.center.aligned.grid
+      .column.mb-12
+        h1.content レビューの投稿
+        =form_with model: @review, url: product_reviews_path(@product.id), class: "ui equal width form column", id: "review_form", method: :post,local: true do |f|
+          .fields
+            =f.label :title,class: "four wide field"
+            .ten.wide.field
+              =f.label :title,class: 'display_none'
+              =f.text_field :title, placeholder: "title",id: "title"
+          .fields
+            =f.label :rate, class: "four wide field"
+            .ten.wide.field
+              .ui.star.rating#rating
+              =f.label :rate,class: 'display_none'
+              =f.hidden_field(:rate)
+          .fields
+            =f.label :content, "レビュー内容", class: "four wide field"
+            .ten.wide.field
+              =f.text_area :content, placeholder: "レビューの内容",id: "content"
+          .ui.error.message
+          .field
+            =f.button type: "submit",class: "large ui center floated positive animated fade button" do
+              .visible.content
+                |submit
+              .hidden.content
+                |投稿
+  - else
+    .segment

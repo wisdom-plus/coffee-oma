@@ -17,7 +17,7 @@ RSpec.describe 'Reviews', type: :system do
           fill_in 'title',	with: 'レビューのタイトル'
           fill_in 'content',	with: 'レビューの内容'
           find('#review_rate', visible: false).set('1')
-          click_button '  submit  '
+          click_button 'submit'
         end
 
         it 'redirect product page' do
@@ -35,7 +35,7 @@ RSpec.describe 'Reviews', type: :system do
           fill_in 'title',	with: ''
           fill_in 'content',	with: 'レビューの内容'
           find('#review_rate', visible: false).set('1')
-          click_button '  submit  '
+          click_button 'submit'
           expect(page).to have_content 'レビューの登録に失敗しました'
         end
 
@@ -43,14 +43,14 @@ RSpec.describe 'Reviews', type: :system do
           fill_in 'title',	with: 'レビューのタイトル'
           fill_in 'content',	with: ''
           find('#review_rate', visible: false).set('1')
-          click_button '  submit  '
+          click_button 'submit'
           expect(page).to have_content 'レビューの登録に失敗しました'
         end
 
         it 'has blank rate' do
           fill_in 'title',	with: 'レビューのタイトル'
           fill_in 'content',	with: 'レビューの内容'
-          click_button '  submit  '
+          click_button 'submit'
           expect(page).to have_content 'レビューの登録に失敗しました'
         end
       end

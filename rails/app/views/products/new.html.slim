@@ -1,52 +1,57 @@
-.ui.grid
-  .column
-    - breadcrumb :product_new
-    = breadcrumbs separator: " > " ,class: 'ui breadcrumb', fragment_class: 'section', current_class: 'active'
-.ui.middle.aligned.center.aligned.grid.vertical.stripe
-  .column style= "width: 640px"
-    h1#title アイテムを登録する
-    .ui.content.field
-      =form_with model: @product, url: products_path ,local: true,class: "ui mini form" do |f|
-        .ui.centered.card.field.text-left#newcard
-          .image#dimmer-product
-            img#img-prev src="/noimage.jpg"
-            .ui.bottom.right.attached.label#dimmer-button
-              i.icons
-                i.ui.large.camera.icon
-                i.ui.bottom.right.corner.add.icon
-            .ui.dimmer.field
-              = f.label :imageurl do
-                .ui.teal.button
-                  |画像を追加する
-                = f.file_field :imageurl, autofocus: true, class: "file-form"
-          .content
-            .header.field
-              = f.label :itemname
-              = f.text_field :itemname, autofocus: true, placeholder: "item-name",id: 'name'
-            .meta.field
-              = f.label :shopname
-              = f.text_field :shopname, autofocus: true, placeholder: "shop-name", id: 'shopname'
-          .extra.content.field
-            = f.label :itemprice
-            .ui.left.icon.input
-              i.yen.icon
-              = f.number_field :itemprice, autofocus: true, placeholder: "item-price", min: 0, id: 'price'
-          .extra.content.field
-            = f.label :itemurl
-            = f.url_field :itemurl, autofocus: true, placeholder: "item-url", id: 'url'
-          .extra.content.field
-            = f.label :tag_list
-            .ui.fluid.multiple.search.selection.dropdown#tag_form
-                = f.hidden_field :tag_list, value: @product.tag_list.split(" "), id: 'tag'
-                .default.text tag
-        table.ui.celled.table.field
-          thead
-            tr
-              th = f.label :itemcaption
-          tbody
-            tr
-              td
-                = f.text_area :itemcaption, autofocus: true , placeholder: "item-caption",id: 'description'
-        .ui.error.message
-        =f.submit 'submit', class: "ui teal submit button"
-.grid
+.ui.container
+  .ui.grid
+    .column
+      - breadcrumb :product_new
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  .ui.middle.aligned.center.aligned.grid.vertical.stripe
+    .column style= "width: 640px"
+      h1#title アイテムを登録する
+      .ui.content.field
+        =form_with model: @product, url: products_path ,local: true,class: "ui mini form" do |f|
+          .ui.centered.card.field.text-left#newcard
+            .image#dimmer-product
+              img#img-prev src="/noimage.jpg"
+              .ui.bottom.right.attached.label#dimmer-button
+                i.icons
+                  i.ui.large.camera.icon
+                  i.ui.bottom.right.corner.add.icon
+              .ui.dimmer.field
+                = f.label :imageurl do
+                  .ui.teal.button
+                    |画像を追加する
+                  = f.file_field :imageurl, autofocus: true, class: "file-form"
+            .content
+              .header.field
+                = f.label :itemname
+                = f.text_field :itemname, autofocus: true, placeholder: "item-name",id: 'name'
+              .meta.field
+                = f.label :shopname
+                = f.text_field :shopname, autofocus: true, placeholder: "shop-name", id: 'shopname'
+            .extra.content.field
+              = f.label :itemprice
+              .ui.left.icon.input
+                i.yen.icon
+                = f.number_field :itemprice, autofocus: true, placeholder: "item-price", min: 0, id: 'price'
+            .extra.content.field
+              = f.label :itemurl
+              = f.url_field :itemurl, autofocus: true, placeholder: "item-url", id: 'url'
+            .extra.content.field
+              = f.label :tag_list
+              .ui.fluid.multiple.search.selection.dropdown#tag_form
+                  = f.hidden_field :tag_list, value: @product.tag_list.split(" "), id: 'tag'
+                  .default.text tag
+          table.ui.celled.table.field
+            thead
+              tr
+                th = f.label :itemcaption
+            tbody
+              tr
+                td
+                  = f.text_area :itemcaption, autofocus: true , placeholder: "item-caption",id: 'description'
+          .ui.error.message
+          =f.button type: "submit",class: "ui teal animated fade button" do
+            .visible.content
+              |submit
+            .hidden.content
+              |登録
+  .grid
