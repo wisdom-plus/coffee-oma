@@ -16,6 +16,12 @@ resource "aws_cloudwatch_event_rule" "start-resource-rule" {
   schedule_expression = var.resource_scheduled
 }
 
+resource "aws_cloudwatch_event_rule" "stop-resource-rule" {
+  name                = "stop-resource-rule"
+  description          = "夜10時にサーバーを停止する"
+  schedule_expression = var.scheduled_suspending.stop_schedule
+}
+
 resource "aws_cloudwatch_event_target" "stop-target" {
   target_id = "StopDetabase"
   arn       = "arn:aws:ssm:ap-northeast-1::automation-definition/AWS-StopRdsInstance"
@@ -57,7 +63,7 @@ resource "aws_cloudwatch_event_target" "start-resource-target" {
 resource "aws_cloudwatch_event_target" "destroy-resource-target" {
   target_id = "destroy-resource-rule"
   arn = aws_ecs_cluster.terraform-cluster.arn
-  rule = aws_cloudwatch_event_rule.stop-rule.name
+  rule = aws_cloudwatch_event_rule.stop-resource-rule.name
   role_arn = module.cloudwatch_resource_role.iam_role_arn
   input = file("destroy-task.json")
 
