@@ -2,7 +2,7 @@
   "containerOverrides": [
     {
       "name": "terraform-task",
-      "command": ["entrypoint-start"]
+      "command": ["entrypoint-create.sh"]
     }
   ]
 }

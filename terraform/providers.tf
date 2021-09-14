@@ -12,8 +12,6 @@ terraform {
     key = "terraform.tfstate"
     encrypt = true
     region = "ap-northeast-1"
-    access_key = "AKIA4QXCQYNJIHXMI65G"
-    secret_key = "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"
   }
 }
 

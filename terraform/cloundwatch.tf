@@ -53,6 +53,26 @@ resource "aws_cloudwatch_event_target" "start-resource-target" {
   }
 }
 
+
+resource "aws_cloudwatch_event_target" "destroy-resource-target" {
+  target_id = "destroy-resource-rule"
+  arn = aws_ecs_cluster.terraform-cluster.arn
+  rule = aws_cloudwatch_event_rule.stop-rule.name
+  role_arn = module.cloudwatch_resource_role.iam_role_arn
+  input = file("destroy-task.json")
+
+  ecs_target {
+    launch_type = "FARGATE"
+    task_count = 1
+    task_definition_arn = aws_ecs_task_definition.terraform-task.arn
+    platform_version = "1.4.0"
+    network_configuration {
+      subnets = [aws_subnet.portfolio-private-subnet-1.id]
+      security_groups = [module.nginx_sg.security_group_id, module.nginx_https_sg.security_group_id]
+      assign_public_ip =  false
+    }
+  }
+}
 data "template_file" "input_file" {
   template = file("${path.module}/input.json")
 
