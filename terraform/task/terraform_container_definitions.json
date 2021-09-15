@@ -1,7 +1,7 @@
 [
   {
     "name": "terraform",
-    "image": "terraform-task",
+    "image": "860542255954.dkr.ecr.ap-northeast-1.amazonaws.com/terraform-task:latest",
     "essential": true,
     "environment": [
       {
