@@ -11,5 +11,5 @@ data "aws_subnet" "portfolio-private-subnet-2" {
 }
 
 data "aws_route_table" "private-route-table-1" {
-  id = "rtb-0f68daccdc6abcf06"
+  subnet_id = "subnet-0947a9f50da0ef4ac"
 }
