@@ -1,7 +1,7 @@
 [
   {
     "name": "terraform",
-    "image": "860542255954.dkr.ecr.ap-northeast-1.amazonaws.com/terraform-task:latest",
+    "image": "860542255954.dkr.ecr.ap-northeast-1.amazonaws.com/portfolio-terraform",
     "essential": true,
     "environment": [
       {
@@ -21,6 +21,10 @@
       {
         "protocol": "tcp",
         "containerPort": 80
+      },
+      {
+        "protocol": "tcp",
+        "containerPort": 443
       }
     ]
   }
