@@ -5,3 +5,4 @@ COPY . .
 COPY entrypoint-create.sh entrypoint-destroy.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint-create.sh && \
     chmod +x /usr/bin/entrypoint-destroy.sh
+ENTRYPOINT [ "/bin/ash" ]
