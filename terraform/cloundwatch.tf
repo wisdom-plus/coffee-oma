@@ -52,9 +52,9 @@ resource "aws_cloudwatch_event_target" "start-resource-target" {
     task_definition_arn = aws_ecs_task_definition.terraform-task.arn
     platform_version = "1.4.0"
     network_configuration {
-      subnets = [aws_subnet.portfolio-private-subnet-1.id]
+      subnets = [aws_subnet.portfolio-public-subnet-1.id]
       security_groups = [module.nginx_sg.security_group_id, module.nginx_https_sg.security_group_id]
-      assign_public_ip =  false
+      assign_public_ip =  true
     }
   }
 }
@@ -73,9 +73,9 @@ resource "aws_cloudwatch_event_target" "destroy-resource-target" {
     task_definition_arn = aws_ecs_task_definition.terraform-task.arn
     platform_version = "1.4.0"
     network_configuration {
-      subnets = [aws_subnet.portfolio-private-subnet-1.id]
+      subnets = [aws_subnet.portfolio-public-subnet-1.id]
       security_groups = [module.nginx_sg.security_group_id, module.nginx_https_sg.security_group_id]
-      assign_public_ip =  false
+      assign_public_ip =  true
     }
   }
 }
@@ -108,14 +108,19 @@ data "aws_iam_policy_document" "allow_rds" {
 module "cloudwatch_resource_role" {
   source = "./iam_role"
   name = "cloudwatch-resource-role"
-  identifier = ["events.amazonaws.com","ssm.amazonaws.com"]
+  identifier = ["events.amazonaws.com","ssm.amazonaws.com","ecs.amazonaws.com", "ecs-tasks.amazonaws.com",]
   policy     = data.aws_iam_policy_document.allow_resource.json
 }
 
 data "aws_iam_policy_document" "allow_resource" {
+  source_json = data.aws_iam_policy.ecs_task_event_role_policy.policy
     statement {
     effect = "Allow"
     actions = ["ssm:*"]
     resources = ["*"]
   }
+}
+
+data "aws_iam_policy" "ecs_task_event_role_policy" {
+  arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceEventsRole"
 }
