@@ -6,8 +6,20 @@ resource "aws_cloudwatch_event_rule" "stop-rule" {
 
 resource "aws_cloudwatch_event_rule" "start-rule" {
   name                = "start-rule"
-  description          = "朝９時にサーバーを開始する"
+  description          = "朝10時にサーバーを開始する"
   schedule_expression = var.scheduled_suspending.start_schedule
+}
+
+resource "aws_cloudwatch_event_rule" "start-resource-rule" {
+  name = "start-resource-rule"
+  description = "朝９時にリソースを起動させる"
+  schedule_expression = var.resource_scheduled
+}
+
+resource "aws_cloudwatch_event_rule" "stop-resource-rule" {
+  name                = "stop-resource-rule"
+  description          = "夜10時にサーバーを停止する"
+  schedule_expression = var.scheduled_suspending.stop_schedule
 }
 
 resource "aws_cloudwatch_event_target" "stop-target" {
@@ -27,7 +39,46 @@ resource "aws_cloudwatch_event_target" "start-target" {
   input = data.template_file.input_file.rendered
 }
 
+resource "aws_cloudwatch_event_target" "start-resource-target" {
+  target_id = "start-resource-rule"
+  arn = aws_ecs_cluster.terraform-cluster.arn
+  rule = aws_cloudwatch_event_rule.start-resource-rule.name
+  role_arn = module.cloudwatch_resource_role.iam_role_arn
+  input = file("create-task.json")
 
+  ecs_target {
+    launch_type = "FARGATE"
+    task_count = 1
+    task_definition_arn = aws_ecs_task_definition.terraform-task.arn
+    platform_version = "1.4.0"
+    network_configuration {
+      subnets = [aws_subnet.portfolio-public-subnet-1.id]
+      security_groups = [module.nginx_sg.security_group_id, module.nginx_https_sg.security_group_id]
+      assign_public_ip =  true
+    }
+  }
+}
+
+
+resource "aws_cloudwatch_event_target" "destroy-resource-target" {
+  target_id = "destroy-resource-rule"
+  arn = aws_ecs_cluster.terraform-cluster.arn
+  rule = aws_cloudwatch_event_rule.stop-resource-rule.name
+  role_arn = module.cloudwatch_resource_role.iam_role_arn
+  input = file("destroy-task.json")
+
+  ecs_target {
+    launch_type = "FARGATE"
+    task_count = 1
+    task_definition_arn = aws_ecs_task_definition.terraform-task.arn
+    platform_version = "1.4.0"
+    network_configuration {
+      subnets = [aws_subnet.portfolio-public-subnet-1.id]
+      security_groups = [module.nginx_sg.security_group_id, module.nginx_https_sg.security_group_id]
+      assign_public_ip =  true
+    }
+  }
+}
 data "template_file" "input_file" {
   template = file("${path.module}/input.json")
 
@@ -52,4 +103,24 @@ data "aws_iam_policy_document" "allow_rds" {
     "ssm:*"]
     resources = ["*"]
   }
+}
+
+module "cloudwatch_resource_role" {
+  source = "./iam_role"
+  name = "cloudwatch-resource-role"
+  identifier = ["events.amazonaws.com","ssm.amazonaws.com","ecs.amazonaws.com", "ecs-tasks.amazonaws.com",]
+  policy     = data.aws_iam_policy_document.allow_resource.json
+}
+
+data "aws_iam_policy_document" "allow_resource" {
+  source_json = data.aws_iam_policy.ecs_task_event_role_policy.policy
+    statement {
+    effect = "Allow"
+    actions = ["ssm:*"]
+    resources = ["*"]
+  }
+}
+
+data "aws_iam_policy" "ecs_task_event_role_policy" {
+  arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceEventsRole"
 }

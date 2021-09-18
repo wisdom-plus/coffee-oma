@@ -1,0 +1,8 @@
+{
+  "containerOverrides": [
+    {
+      "name": "terraform-task",
+      "command": ["entrypoint-destroy.sh"]
+    }
+  ]
+}

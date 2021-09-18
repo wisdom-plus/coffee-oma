@@ -6,9 +6,19 @@ resource "aws_ecr_repository" "nginx" {
   name = "portfolio-nginx"
 }
 
+resource "aws_ecr_repository" "terraform" {
+  name = "portfolio-terraform"
+}
+
 resource "aws_ecs_cluster" "portfolio-ecs" { #ECSクラスタの定義
   name = "portfolio-cluster"
 }
+
+
+resource "aws_ecs_cluster" "terraform-cluster" {
+  name = "terraform"
+}
+
 
 resource "aws_ecs_task_definition" "portfolio-ecs-task-rails" { #タスク定義
   family                   = "portfolio-service"
@@ -20,13 +30,29 @@ resource "aws_ecs_task_definition" "portfolio-ecs-task-rails" { #タスク定義
   execution_role_arn       = module.ecs_task_execution_role.iam_role_arn
 }
 
+resource "aws_ecs_task_definition" "terraform-task" { #タスク定義
+  family                   = "terraform-task"
+  cpu                      = "256"
+  memory                   = "512"
+  network_mode             = "awsvpc"
+  requires_compatibilities = ["FARGATE"]
+  container_definitions    = data.template_file.terraform_task_definitions.rendered
+  execution_role_arn       = module.ecs_task_execution_role.iam_role_arn
+}
+
 data "template_file" "rails_task" {
-  template = file("${path.module}/task/rails_container_definitions.json")
+  template = file("${path.module}/task/terraform_container_definitions.json")
 
   vars = {
-    env_file    = var.env_file,
-    rails_image = var.rails_image,
-    nginx_image = var.nginx_image
+    tfvar_file = var.tfvar_file
+  }
+}
+
+data "template_file" "terraform_task_definitions" {
+  template = file("${path.module}/task/terraform_container_definitions.json")
+
+  vars = {
+    tfvar_file = var.tfvar_file
   }
 }
 
@@ -85,6 +111,11 @@ resource "aws_cloudwatch_log_group" "for_ecs_nginx" { #cloudwatch logの定義
   retention_in_days = 30
 }
 
+resource "aws_cloudwatch_log_group" "for_ecs_terraform" { #cloudwatch logの定義
+  name              = "/ecs/terraform"
+  retention_in_days = 7
+}
+
 data "aws_iam_policy" "ecs_task_execution_role_policy" { #ポリシーの参照
   arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
@@ -102,6 +133,6 @@ data "aws_iam_policy_document" "ecs_task_execution" { #ポリシードキュメ�
 module "ecs_task_execution_role" { #IAMロールの定義
   source     = "./iam_role"
   name       = "ecs-task-execution"
-  identifier = ["ecs-tasks.amazonaws.com"]
+  identifier = ["ecs-tasks.amazonaws.com","ecs.amazonaws.com","events.amazonaws.com"]
   policy     = data.aws_iam_policy_document.ecs_task_execution.json
 }

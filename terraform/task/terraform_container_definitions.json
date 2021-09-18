@@ -1,0 +1,31 @@
+[
+  {
+    "name": "terraform",
+    "image": "860542255954.dkr.ecr.ap-northeast-1.amazonaws.com/portfolio-terraform",
+    "essential": true,
+    "environment": [
+      {
+        "name": "TFVAR_FILE",
+        "value": "${tfvar_file}"
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-region": "ap-northeast-1",
+        "awslogs-stream-prefix": "terraform",
+        "awslogs-group": "/ecs/terraform"
+      }
+    },
+    "portMappings": [
+      {
+        "protocol": "tcp",
+        "containerPort": 80
+      },
+      {
+        "protocol": "tcp",
+        "containerPort": 443
+      }
+    ]
+  }
+]
