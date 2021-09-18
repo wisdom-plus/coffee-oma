@@ -19,7 +19,7 @@ resource "aws_cloudwatch_event_rule" "start-resource-rule" {
 resource "aws_cloudwatch_event_rule" "stop-resource-rule" {
   name                = "stop-resource-rule"
   description          = "夜10時にサーバーを停止する"
-  schedule_expression = var.scheduled_suspending.stop_schedule
+  schedule_expression = var.resource_destroy_scheduled
 }
 
 resource "aws_cloudwatch_event_target" "stop-target" {

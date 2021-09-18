@@ -32,6 +32,7 @@ variable "scheduled_suspending" {
 }
 
 variable "resource_scheduled" {}
+variable "resource_destroy_scheduled" {}
 
 variable "resource_id" {
   type        = string
