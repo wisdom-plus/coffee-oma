@@ -61,8 +61,7 @@
 
 
 # ER図
-![DB](https://user-images.githubusercontent.com/48266893/112306445-2750be80-8ce3-11eb-9680-7699a0091188.png)
+![DB](https://user-images.githubusercontent.com/48266893/135635840-a01ace88-b00b-4ba3-be28-d35fe1566f2f.png)
 
 # クラウドアーキテクチャー
-![ポートフォリオクラウドアーキテクチャー](https://user-images.githubusercontent.com/48266893/112306305-05efd280-8ce3-11eb-8de1-6c3f666bb928.PNG)
-
+![ポートフォリオクラウドアーキテクチャー](https://user-images.githubusercontent.com/48266893/135717678-44db6833-6216-42ab-bccd-aa98c4b22f9e.PNG)
