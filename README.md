@@ -16,7 +16,7 @@
   - CircleCIを利用し、CI/CDパイプラインを構築している
   - Terraformを使い、インフラをコード化している
 - ### バックエンド面
-  - action_mailer,active_job,active_cableを利用しているところ
+  - action_mailer,active_job,active_cable,action_textを利用しているところ
   - DRY,KISS,YAGNIの原則を意識したコード
   - シンプルなUIになるようにしているところ
 - ### その他
@@ -39,6 +39,7 @@
   - コーヒーの抽出レシピの投稿機能(豆のレビューに紐付け)
   - タグ機能(acts-as-taggable-on)
   - 管理者機能(activeadmin)
+  - 運営からのお知らせ機能(Action text)
   - reCAPTCHA
   - 履歴機能
   - チャート機能
@@ -46,9 +47,9 @@
   - セキュリティー脆弱性性的分析ツール(Brakeman)
 
 # 使用している技術一覧
-  - Ruby 2.7.1
-  - rails 6.0.3
-  - AWS(VPC,ECR,ECS,RDS,Elasticache,ALB,VPCEndpoint,ACM, Route53,S3,SES,CloudWatch)
+  - Ruby 2.7.4
+  - rails 6.1.3
+  - AWS(VPC,ECR,ECS,RDS,Elasticache,ALB,VPCEndpoint,ACM, Route53,S3,SES,CloudWatch,CloudWatchEvent)
   - mysql 8.0
   - CircleCI 2.1
   - Docker 20.10.5, docker-compose 1.28.5
