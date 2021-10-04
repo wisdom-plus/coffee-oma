@@ -1,11 +1,11 @@
 
-![CIbuild](https://img.shields.io/cirrus/github/tomoron/coffee-oma?style=plastic)
+![CIbuild](https://img.shields.io/circleci/build/github/tomoron/coffee-oma/master?style=plastic&token=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)
 # Coffee-oma
+Coffee-omaはコーヒーに関する器具や、豆などの評価や感想を投稿しシェアするwebアプリケーションです。
 コーヒー用品やコーヒー豆の評価や使い方などを集めたサイトがあるといいなと思い開発しました。
 
-Coffee-omaはコーヒーに関する器具や、豆などの評価や感想を投稿しシェアするwebアプリケーションです。
-
-### [リンク]:https://coffee-oma.com　　(AWS節約のため平日１０時〜２２時だけ稼働中)
+### [リンク]:https://coffee-oma.com　
+(AWS節約のため平日１０時〜２２時だけ稼働中)
 ![coffee-oma-logo](https://user-images.githubusercontent.com/48266893/112326442-deefcb80-8cf7-11eb-9432-cc83ade690de.png)
 
 
@@ -23,7 +23,7 @@ Coffee-omaはコーヒーに関する器具や、豆などの評価や感想を�
   - DRY,KISS,YAGNIの原則を意識したコード
 - ###　フロントエンド面
   - シンプルなUIになるようにしているところ
-  - アニメーションを追加し、
+  - アニメーションを追加し、UXを意識している
 - ### その他
   - チーム開発を意識し、Github flowに従った開発手法を取り入れている点。
 
