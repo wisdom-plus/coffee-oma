@@ -1,5 +1,5 @@
 
-![CIbuild](https://img.shields.io/circleci/build/github/tomoron/coffee-oma/master?style=plastic&token=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)
+[![CircleCI](https://circleci.com/gh/tomoron/coffee-oma/tree/master.svg?style=svg&circle-token=b57eb7c3d1df44c2e42ade91fa43d36ec6790cd7)](https://circleci.com/gh/tomoron/coffee-oma/tree/master)
 # Coffee-oma
 Coffee-omaはコーヒーに関する器具や、豆などの評価や感想を投稿しシェアするwebアプリケーションです。
 コーヒー用品やコーヒー豆の評価や使い方などを集めたサイトがあるといいなと思い開発しました。
