@@ -26,7 +26,7 @@ class BeansController < ApplicationController
   end
 
   def index
-    @q = Bean.ransack(params[:q])
+    @q = Bean.keywords_search(params[:q])
     @beans = if params[:tag_name]
                Bean.tag_result(params[:tag_name], params[:page])
              else

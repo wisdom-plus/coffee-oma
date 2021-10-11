@@ -23,6 +23,9 @@ class News < ApplicationRecord
   has_rich_text :content
   belongs_to :user, class_name: 'AdminUser', optional: true
 
+  scope :public_list, -> { where(['publicshed_at < ?', Time.current]) }
+  scope :latest, ->(column_name) { order("#{column_name} DESC").limit(5) }
+
   def activate
     update(active: true)
   end
@@ -32,6 +35,6 @@ class News < ApplicationRecord
   end
 
   def self.latest_news
-    News.where(['publicshed_at < ?', Time.current]).order('publicshed_at DESC').limit(5)
+    News.public_list.latest('publicshed_at')
   end
 end

@@ -44,6 +44,8 @@ class Bean < ApplicationRecord
            dependent: :destroy,
            inverse_of: :bean
 
+  scope :keywords_search, ->(keywords) { ransack(keywords) }
+
   def evaluations
     %w[acidity bitter sweet rich flavor].map do |e|
       bean_reviews.average(e).to_s
