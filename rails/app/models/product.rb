@@ -31,12 +31,15 @@ class Product < ApplicationRecord
 
   validates :itemname, :itemprice, :shopname, :itemcaption, presence: true
 
+  scope :keywords_search, ->(keywords) {ransack(keywords) }
+  scope :sort_by_likes_count, -> {order('likes_count desc')}
+
   def rate_average
     (reviews.average(:rate) * 2).floor / 2.to_f
   end
 
   def self.like_top
-    Product.all.order('likes_count desc').limit(3)
+    Product.all.sort_by_likes_count.limit(3)
   end
 
   def self.tag_result(tag_name, page)

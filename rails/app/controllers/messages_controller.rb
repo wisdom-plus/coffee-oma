@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
   after_action :message_notification
+
   def create
     @message = current_user.messages.new(message_params)
     return unless @message.save
