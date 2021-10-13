@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
   before_action :check_including, only: %i[show]
 
   def index
-    @rooms = Room.where_room(current_user)
+    @rooms = Room.join_room_list(current_user)
   end
 
   def create
@@ -25,8 +25,8 @@ class RoomsController < ApplicationController
 
     def check_including
       room = Room.find(params[:id])
-      return if room.participant1_id == current_user.id || room.participant2_id == current_user.id
+      return if room.is_join?(current_user.id)
 
-      redirect_to root_path, flash: { alret: '参加できませんでした' }
+      redirect_to root_path, flash: { alert: '参加しているルームではないので、参加できませんでした' }
     end
 end

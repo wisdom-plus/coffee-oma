@@ -20,6 +20,8 @@ class Room < ApplicationRecord
   belongs_to :participant2, class_name: 'User', optional: true
   validate :check_participant
 
+  scope :room_list, ->(user_id) {where('participant1_id = ? or participant2_id = ?', user_id, user_id)}
+
   def check_participant
     return unless participant1_id > participant2_id
 
@@ -50,7 +52,11 @@ class Room < ApplicationRecord
     end
   end
 
-  def self.where_room(current_user)
-    Room.includes([:participant1], [:participant2]).where('participant1_id = ? or participant2_id = ?', current_user.id, current_user)
+  def self.join_room_list(current_user)
+    Room.includes([:participant1], [:participant2]).room_list(current_user.id)
+  end
+
+  def is_join?(user_id)
+    self.participant1_id == user_id || self.participant2_id == user_id
   end
 end
