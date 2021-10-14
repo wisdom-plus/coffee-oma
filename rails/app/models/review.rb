@@ -57,7 +57,7 @@ class Review < ApplicationRecord
   end
 
   def self.latest_review
-    Review.all.includes([:product], [:user]).sort_by_created_at.limit(3)
+    Review.all.includes([:product], [:user]).sort_by_created_at.limit(TOP_DISPALY_NUM)
   end
 
   def self.show_review(product_id, page)

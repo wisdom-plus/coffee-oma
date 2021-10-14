@@ -28,12 +28,11 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @tags = @product.tag_counts_on(:tags)
+    @rate = @product.rate_average
+    @rate_average = @product.rate_average_num
     @review = Review.new
     @reviews = Review.show_review(@product.id, params[:page])
     @like = current_user.product_likes.find_by(liked_id: params[:id]) if user_signed_in?
-
-    binding.pry
-
   end
 
   private

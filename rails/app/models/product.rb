@@ -35,11 +35,19 @@ class Product < ApplicationRecord
   scope :sort_by_likes_count, -> {order('likes_count desc')}
 
   def rate_average
-    (reviews.average(:rate) * 2).floor / 2.to_f
+    if reviews.average(:rate)
+      (reviews.average(:rate) * 2).floor / 2.to_f
+    end
+  end
+
+  def rate_average_num
+    if reviews.average(:rate)
+      reviews.average(:rate).floor(1)
+    end
   end
 
   def self.like_top
-    Product.all.sort_by_likes_count.limit(3)
+    Product.all.sort_by_likes_count.limit(TOP_DISPALY_NUM)
   end
 
   def self.tag_result(tag_name, page)
@@ -47,6 +55,6 @@ class Product < ApplicationRecord
   end
 
   def self.ranking_index
-    Product.all.order('likes_count desc').limit(INDEX_DISPALY_NUM)
+    Product.all.sort_by_likes_count.limit(INDEX_DISPALY_NUM)
   end
 end
