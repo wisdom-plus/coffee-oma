@@ -1,6 +1,6 @@
 class BeansController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  after_action  -> {CreateHistoryJob.perform_now(current_user.id,history_params)}, only: %i[show], if: :user_signed_in?
+  after_action  -> { CreateHistoryJob.perform_now(current_user.id, history_params) }, only: %i[show], if: :user_signed_in?
 
   def new
     @bean = Bean.new(tag_list: 'コーヒー')
@@ -43,5 +43,4 @@ class BeansController < ApplicationController
     def history_params
       params.permit(:controller, :id)
     end
-
 end

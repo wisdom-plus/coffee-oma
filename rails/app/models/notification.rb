@@ -46,14 +46,13 @@ class Notification < ApplicationRecord
                                     current_user_id, user_id, id, 'message']
                                  )
                                }
-  scope :action_follow, -> { where('action = ?', 'follow')}
-  scope :action_message, -> { where('action = ?', 'message')}
-  scope :action_like, -> { where('action = ?', 'like')}
-  scope :checked_false, -> { where('checked = ?', false)}
-
+  scope :action_follow, -> { where('action = ?', 'follow') }
+  scope :action_message, -> { where('action = ?', 'message') }
+  scope :action_like, -> { where('action = ?', 'like') }
+  scope :checked_false, -> { where('checked = ?', false) }
 
   def self.checked_notifications(user_id)
     user = User.find(user_id)
-    user.passive_notifications.checked_false.update_all(checked: true)
+    user.passive_notifications.checked_false.update(checked: true)
   end
 end

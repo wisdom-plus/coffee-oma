@@ -25,7 +25,7 @@ class RoomsController < ApplicationController
 
     def check_including
       room = Room.find(params[:id])
-      return if room.is_join?(current_user.id)
+      return if room.join?(current_user.id)
 
       redirect_to root_path, flash: { alert: '参加しているルームではないので、参加できませんでした' }
     end

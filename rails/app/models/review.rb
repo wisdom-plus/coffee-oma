@@ -36,10 +36,10 @@ class Review < ApplicationRecord
     less_than_or_equal_to: 5
   }, presence: true
 
-  scope :find_reviews, -> (review_id) {find_by(id: review_id)}
+  scope :find_reviews, ->(review_id) { find_by(id: review_id) }
   scope :associated_review, ->(associated_id) { where('product_id = ?', associated_id) }
   scope :associated_user_review, ->(associated_user_id) { where('user_id = ?', associated_user_id) }
-  scope :sort_by_created_at, -> {order('created_at DESC')}
+  scope :sort_by_created_at, -> { order('created_at DESC') }
 
   def like_record(liker_id)
     product_review_likes.find_by(user_id: liker_id)

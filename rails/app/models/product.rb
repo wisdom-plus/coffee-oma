@@ -31,19 +31,17 @@ class Product < ApplicationRecord
 
   validates :itemname, :itemprice, :shopname, :itemcaption, presence: true
 
-  scope :keywords_search, ->(keywords) {ransack(keywords) }
-  scope :sort_by_likes_count, -> {order('likes_count desc')}
+  scope :keywords_search, ->(keywords) { ransack(keywords) }
+  scope :sort_by_likes_count, -> { order('likes_count desc') }
 
   def rate_average
-    if reviews.average(:rate)
-      (reviews.average(:rate) * 2).floor / 2.to_f
-    end
+    return unless reviews.average(:rate)
+
+    (reviews.average(:rate) * 2).floor / 2.to_f
   end
 
   def rate_average_num
-    if reviews.average(:rate)
-      reviews.average(:rate).floor(1)
-    end
+    reviews.average(:rate)&.floor(1)
   end
 
   def self.like_top

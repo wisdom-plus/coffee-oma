@@ -34,8 +34,8 @@ class BeanReview < ApplicationRecord
   counter_culture :bean, column_name: 'review_count'
 
   scope :accociated_review, ->(associated_id) { where('bean_id= ?', associated_id) }
-  scope :find_reviews, -> (review_id) {find_by(id: review_id)}
-  scope :like_record, -> (liker_id) {bean_review_likes.find_by(user_id: liker_id)}
+  scope :find_reviews, ->(review_id) { find_by(id: review_id) }
+  scope :like_record, ->(liker_id) { bean_review_likes.find_by(user_id: liker_id) }
 
   def like_record(liker_id)
     bean_review_likes.find_by(user_id: liker_id)

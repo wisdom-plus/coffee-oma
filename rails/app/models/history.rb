@@ -20,5 +20,5 @@ class History < ApplicationRecord
   belongs_to :bean, optional: true, inverse_of: :histories
   belongs_to :product, optional: true, inverse_of: :histories
 
-  scope :sort_by_updated, -> {order(updated_at: :DESC)}
+  scope :sort_by_updated, -> { order(updated_at: :DESC) }
 end
