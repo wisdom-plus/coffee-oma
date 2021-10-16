@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  after_action  -> { update_history(history_params) }, only: %i[show], if: :user_signed_in?
+  after_action  -> { CreateHistoryJob.perform_now(current_user.id, history_params) }, only: %i[show], if: :user_signed_in?
 
   def new
     @product = Product.new(tag_list: 'コーヒー')
@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @q = Product.ransack(params[:q])
+    @q = Product.keywords_search(params[:q])
     @products = if params[:tag_name]
                   Product.tag_result(params[:tag_name], params[:page])
                 else
@@ -28,6 +28,8 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @tags = @product.tag_counts_on(:tags)
+    @rate = @product.rate_average
+    @rate_average = @product.rate_average_num
     @review = Review.new
     @reviews = Review.show_review(@product.id, params[:page])
     @like = current_user.product_likes.find_by(liked_id: params[:id]) if user_signed_in?
@@ -41,9 +43,5 @@ class ProductsController < ApplicationController
 
     def history_params
       params.permit(:controller, :id)
-    end
-
-    def update_history(_params)
-      current_user.create_or_update_history(history_params)
     end
 end

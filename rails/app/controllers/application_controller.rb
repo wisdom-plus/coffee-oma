@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :unchecked_notifications?, if: :user_signed_in?
 
   INDEX_DISPALY_NUM = 9
   SHOW_DISPLAY_NUM = 5
@@ -14,6 +15,10 @@ class ApplicationController < ActionController::Base
     proxy = Warden::Proxy.new({}, Warden::Manager.new({})).tap { |i| i.set_user(user, scope: :user) }
     renderer = self.renderer.new('warden' => proxy)
     renderer.render(*args)
+  end
+
+  def unchecked_notifications?
+    @checked = current_user.passive_notifications.find_by(checked: false).present?
   end
 
   protected

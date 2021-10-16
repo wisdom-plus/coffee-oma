@@ -1,6 +1,7 @@
 class NewsController < ApplicationController
   before_action :authenticate_admin_user!, only: %i[new create edit update destroy]
   before_action :active?, only: %i[show]
+  before_action :find_news, only: %i[edit update destroy]
 
   def index
     @news_all = News.all
@@ -22,12 +23,9 @@ class NewsController < ApplicationController
 
   def show; end
 
-  def edit
-    @news = News.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @news = News.find(params[:id])
     if @news.update(news_params)
       redirect_to root_path, notice: '更新が成功しました。'
     else
@@ -36,7 +34,6 @@ class NewsController < ApplicationController
   end
 
   def destroy
-    @news = News.find(params[:id])
     if @news.destroy
       redirect_to root_path, notice: '削除に成功しました。'
     else
@@ -57,5 +54,9 @@ class NewsController < ApplicationController
       else
         redirect_to root_path, alert: '公開させておりません。'
       end
+    end
+
+    def find_news
+      @news = News.find(params[:id])
     end
 end

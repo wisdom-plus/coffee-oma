@@ -8,7 +8,7 @@
     = link_to '閲覧履歴',histories_path, class:"item"
     = link_to 'メッセージ一覧', rooms_path, class: "item"
     = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "item"
-    - if unchecked_notifications?
+    - if @checked
       = link_to notifications_path, class: "ui item new_notification" do
         i.icons
           i.bell.outline.icon

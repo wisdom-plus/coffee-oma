@@ -25,6 +25,8 @@ class Message < ApplicationRecord
   has_many :notifications, dependent: :destroy
   validates :message, presence: true
 
+  scope :associated_message, ->(room_id) { where('room_id = ?', room_id) }
+
   def create_notification_message(current_user)
     temp = Notification.message_notification(current_user.id, room.another_user(current_user).id, id)
     return if temp.present?
@@ -34,6 +36,6 @@ class Message < ApplicationRecord
   end
 
   def self.room_message(room_id)
-    Message.includes([:user]).where('room_id = ?', room_id)
+    Message.includes([:user]).associated_message(room_id)
   end
 end
