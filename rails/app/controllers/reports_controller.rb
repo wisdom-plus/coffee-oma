@@ -3,9 +3,9 @@ class ReportsController < ApplicationController
 
   def create
     @review = if params[:type] == 'Review'
-                Review.find_revews(params[:review_id])
+                Review.find_reviews(params[:review_id])
               else
-                BeanReview.find_review(params[:review_id])
+                BeanReview.find_reviews(params[:review_id])
               end
     Report.create_report(current_user, @review)
     respond_to do |format|
