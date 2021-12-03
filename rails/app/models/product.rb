@@ -47,6 +47,7 @@ class Product < ApplicationRecord
     if reviews_count.zero?
       return 0
     end
+
     (rate_sum.to_f / reviews_count).floor(1)
   end
 
