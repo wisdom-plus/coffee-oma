@@ -35,14 +35,14 @@ class Product < ApplicationRecord
   scope :keywords_search, ->(keywords) { ransack(keywords) }
   scope :sort_by_likes_count, -> { order('likes_count desc') }
 
-  def rate_average
-    return unless reviews.average(:rate)
+  def rate_average_num
+    return unless reviews_count
 
-    (reviews.average(:rate) * 2).floor / 2.to_f
+    (self.rate_average * 2).floor / 2.to_f
   end
 
-  def rate_average_num
-    reviews.average(:rate)&.floor(1)
+  def rate_average
+    (rate_sum.to_f / reviews_count).floor(1)
   end
 
   def self.like_top
