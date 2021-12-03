@@ -36,12 +36,17 @@ class Product < ApplicationRecord
   scope :sort_by_likes_count, -> { order('likes_count desc') }
 
   def rate_average_num
-    return if reviews_count == 0
+    if reviews_count.zero?
+      return 0
+    end
 
     (rate_average * 2).floor / 2.to_f
   end
 
   def rate_average
+    if reviews_count.zero?
+      return 0
+    end
     (rate_sum.to_f / reviews_count).floor(1)
   end
 
