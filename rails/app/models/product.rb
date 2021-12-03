@@ -38,7 +38,7 @@ class Product < ApplicationRecord
   def rate_average_num
     return unless reviews_count
 
-    (self.rate_average * 2).floor / 2.to_f
+    (rate_average * 2).floor / 2.to_f
   end
 
   def rate_average

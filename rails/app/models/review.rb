@@ -29,7 +29,7 @@ class Review < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :reports, dependent: :destroy, as: :review
   counter_culture :product
-  counter_culture :product,column_name: 'rate_sum',delta_column: 'rate'
+  counter_culture :product, column_name: 'rate_sum', delta_column: 'rate'
 
   validates :title, :content, :user_id, :product_id, presence: true
   validates :rate, numericality: {
