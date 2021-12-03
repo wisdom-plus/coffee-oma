@@ -68,7 +68,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
-  gem 'rubocop', require: false
+  gem 'rubocop', '~> 1.23', require: false
   gem 'rubocop-performance'
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec'
