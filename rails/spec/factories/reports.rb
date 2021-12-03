@@ -20,5 +20,7 @@
 #
 FactoryBot.define do
   factory :report do
+    user
+    review
   end
 end

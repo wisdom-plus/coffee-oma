@@ -9,6 +9,7 @@
 #  itemprice     :integer
 #  itemurl       :text(65535)
 #  likes_count   :integer          default(0), not null
+#  rate_sum      :integer          default(0), not null
 #  reviews_count :integer          default(0), not null
 #  shopname      :string(255)
 #  created_at    :datetime         not null
@@ -34,14 +35,20 @@ class Product < ApplicationRecord
   scope :keywords_search, ->(keywords) { ransack(keywords) }
   scope :sort_by_likes_count, -> { order('likes_count desc') }
 
-  def rate_average
-    return unless reviews.average(:rate)
+  def rate_average_num
+    if reviews_count.zero?
+      return 0
+    end
 
-    (reviews.average(:rate) * 2).floor / 2.to_f
+    (rate_average * 2).floor / 2.to_f
   end
 
-  def rate_average_num
-    reviews.average(:rate)&.floor(1)
+  def rate_average
+    if reviews_count.zero?
+      return 0
+    end
+
+    (rate_sum.to_f / reviews_count).floor(1)
   end
 
   def self.like_top

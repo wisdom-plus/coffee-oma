@@ -9,6 +9,7 @@
 #  itemprice     :integer
 #  itemurl       :text(65535)
 #  likes_count   :integer          default(0), not null
+#  rate_sum      :integer          default(0), not null
 #  reviews_count :integer          default(0), not null
 #  shopname      :string(255)
 #  created_at    :datetime         not null

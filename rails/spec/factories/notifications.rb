@@ -30,5 +30,6 @@
 #
 FactoryBot.define do
   factory :notification do
+    association :visited, factory: :user
   end
 end
