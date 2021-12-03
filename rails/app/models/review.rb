@@ -38,8 +38,8 @@ class Review < ApplicationRecord
   }, presence: true
 
   scope :find_reviews, ->(review_id) { find_by(id: review_id) }
-  scope :associated_review, ->(associated_id) { where('product_id = ?', associated_id) }
-  scope :associated_user_review, ->(associated_user_id) { where('user_id = ?', associated_user_id) }
+  scope :associated_review, ->(associated_id) { where(product_id: associated_id) }
+  scope :associated_user_review, ->(associated_user_id) { where(user_id: associated_user_id) }
   scope :sort_by_created_at, -> { order('created_at DESC') }
 
   def like_record(liker_id)
