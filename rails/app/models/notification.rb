@@ -34,22 +34,24 @@ class Notification < ApplicationRecord
   belongs_to :visitor, class_name: 'User', optional: true
   belongs_to :visited, class_name: 'User', optional: true
 
-  default_scope -> { order(created_at: :desc) }
+  scope :history_order, -> { order(created_at: :desc) }
   scope :review_like_notifications, ->(current_user_id, user_id, id) {
                                       where(['visitor_id = ? and visited_id = ? and review_id = ? and action = ? ',
-                                             current_user_id, user_id, id, 'like'])
+                                             current_user_id, user_id, id, 'like']).history_order
                                     }
-  scope :follow_notification, ->(current_user_id, id) { where(['visitor_id = ? and visited_id = ? and action = ?', current_user_id, id, 'follow']) }
+  scope :follow_notification, ->(current_user_id, id) {
+                                where(['visitor_id = ? and visited_id = ? and action = ?', current_user_id, id, 'follow']).history_order
+                              }
   scope :message_notification, ->(current_user_id, user_id, id) {
                                  where(
                                    ['visitor_id = ? and visited_id = ? and message_id = ? and action = ? ',
                                     current_user_id, user_id, id, 'message']
-                                 )
+                                 ).history_order
                                }
-  scope :action_follow, -> { where(action: 'follow') }
-  scope :action_message, -> { where(action: 'message') }
-  scope :action_like, -> { where(action: 'like') }
-  scope :checked_false, -> { where(checked: false) }
+  scope :action_follow, -> { where(action: 'follow').history_order }
+  scope :action_message, -> { where(action: 'message').history_order }
+  scope :action_like, -> { where(action: 'like').history_order }
+  scope :checked_false, -> { where(checked: false).history_order }
 
   def self.checked_notifications(user_id)
     user = User.find(user_id)

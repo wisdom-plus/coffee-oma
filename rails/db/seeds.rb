@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 AdminUser.create!(email: "admin@example.com", password: ENV['ADMIN_PASSWORD'],password_confirmation: ENV['ADMIN_PASSWORD]']) if Rails.env.production?
 12.times do |n|
@@ -150,6 +151,125 @@ Product.create!(
   shopname: "エアロプレス",
   tag_list: ["コーヒー" ,"エアロプレス" ,"エアロプレスGO"]
 )
+Product.create!(
+  imageurl:File.open("./public/seed/product-11.jpg"),
+  itemcaption: "贅沢なくつろぎの時間を演出するオリーブウッド
+  ぬくもりのあるオリーブウッドのハンドルは使うほどに手になじみます。
+  V60計量スプーン付き",
+  itemname: "ドリップポット ウッドネック オリーブウッド DPW-1-OV",
+  itemprice: 3960,
+  itemurl: "https://www.tonya.co.jp/shop/g/g39458/",
+  shopname: "HARIO",
+  tag_list: ["コーヒー" ,"HARIO" ,"ドリップポット","ネルドリップ"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-12.jpg"),
+  itemcaption: "珈琲粉と水だけでアイス珈琲が作れます。
+  粉全体が湿るように少量ずつ水を注ぎ、「の」の字を描くようにドリップします。水を注ぎ終えたら、冷蔵庫で8時間程抽出してできあがりです。",
+  itemname: "水出し珈琲ポットミニ 600ml　MCPN-7CBR",
+  itemprice: 997,
+  itemurl: "https://www.tonya.co.jp/shop/g/g39476/",
+  shopname: "HARIO",
+  tag_list: ["コーヒー" ,"HARIO" ,"水出しコーヒー"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-13.jpg"),
+  itemcaption: "●イタリア100年の伝統。
+  ●1919年から今日に渡り、100年以上も調理器具を作り続けてきたビアレッティはイタリアの老舗ブランドです。
+  ●定番ともいえる直火式エスプレッソメーカー「モカエキスプレス」は、伝統的な美しいフォルムをそのままに、人間工学に基づいた新しいハンドルを採用するなど、今でも細部へのこだわりと進化を続けています。
+
+  ●ビアレッティのアイコンともいえる「モカエキスプレス」
+  ●1933年に発売されてからほとんど形を変えず、世界中で愛されています。
+  ●形が変わらないのは変える必要がないから。おいししエスプレッソを入れる道具として完成された形です。
+
+  ●モカエキスプレスで簡単にエスプレッソを淹れることができます。
+  ●出来立てのエスプレッソにミルクを入れて本格的なカフェラテやカプチーノに。お湯で割れば好みの濃さのアメリカンにもなります。
+  ●アレンジができるのもモカエキスプレスならではの特徴です。
+  ●お好きな時間、お好きな場所でエスプレッソをお楽しみいただけます。",
+  itemname: "ビアレッティ モカエキスプレス 0001162/AP",
+  itemprice: 3173,
+  itemurl: "https://www.amazon.co.jp/BIALETTI-%E3%83%93%E3%82%A2%E3%83%AC%E3%83%83%E3%83%86%E3%82%A3-06799-%E3%83%A2%E3%82%AB%E3%82%A8%E3%82%AD%E3%82%B9%E3%83%97%E3%83%AC%E3%82%B9-3%E3%82%AB%E3%83%83%E3%83%97/dp/B0000AN3QI/ref=sr_1_7?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&keywords=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%2B%E5%99%A8%E5%85%B7&qid=1638594643&sr=8-7&th=1",
+  shopname: "BIALETTI",
+  tag_list: ["コーヒー" ,"BIALETTI" ,"水出しコーヒー","マキネッタ","モカエキスプレス"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-14.jpg"),
+  itemcaption: "水出しアイスコーヒー専用ストレーナー付き
+  フィルターは300メッシュ (目の細かい)のポリエステルを使用。水洗いしてくり返し使える
+  サーバーは耐久性に優れる素材を使用。軽量で、落としても割れない
+  注いだ量が分かりやすい目盛り付き
+  液だれしにくい注ぎ口形状",
+  itemname: "珈琲考具 コーヒーサーバー 水出しフィルター付き ",
+  itemprice: 2200,
+  itemurl: "https://www.amazon.co.jp/%E4%B8%8B%E6%9D%91%E4%BC%81%E8%B2%A9-%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC-%E5%89%B2%E3%82%8C%E3%81%AB%E3%81%8F%E3%81%84%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC-%E6%B0%B4%E5%87%BA%E3%81%97%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC%E4%BB%98%E3%81%8D-42922/dp/B08R849PX9/ref=sr_1_78?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&keywords=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%2B%E5%99%A8%E5%85%B7&qid=1638595316&sr=8-78&th=1",
+  shopname: "下村企販",
+  tag_list: ["コーヒー" ,"下村企販" ,"水出しコーヒー","コーヒーサーバー","樹脂製"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-15.jpg"),
+  itemcaption: "ドリップ時に発生するガスを外に逃がす! 壁のないドリッパー
+  ガスの抜けが良いので、お湯が均一にコーヒー粉を通り雑味を出さない
+  香りをダイレクトに抽出できて、豆のもつ旨みを最大限に引き出す
+  コーヒーサーバーやカップに直接セットして使用できる
+  1~2杯用・2~4杯用・4~6杯用のフィルターに使用できる
+  ワイヤーフレームのすき間からドリップした量が確認でき、淹れすぎを防げる",
+  itemname: "珈琲考具 ワンドリッパー",
+  itemprice: 1980,
+  itemurl: "https://www.amazon.co.jp/%E4%B8%8B%E6%9D%91%E4%BC%81%E8%B2%A9-%E7%8F%88%E7%90%B2%E8%80%83%E5%85%B7-%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC-%E3%83%AF%E3%83%B3%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC-42158/dp/B07ZRZZCRF/ref=pd_vtp_21/355-5607422-3177714?pd_rd_w=EfClA&pf_rd_p=949e26f5-c2ef-4c96-bfde-49d7614d0317&pf_rd_r=A73PYSP81BPBM0B6HN4Z&pd_rd_r=fb2d6e4e-7295-4c99-a7ca-235883a96d87&pd_rd_wg=mk0wP&pd_rd_i=B07ZRZZCRF&th=1",
+  shopname: "下村企販",
+  tag_list: ["コーヒー" ,"下村企販" ,"アウトドア","コーヒードリッパー","ステンレス"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-16.jpg"),
+  itemcaption: "美味しいコーヒーの為に
+  美味しいコーヒーを淹れるためには、コーヒー豆、粉の計量が大切
+
+  日本製の銅メジャーカップで海外でも人気",
+  itemname: "カリタ コーヒーメジャー 銅 10g",
+  itemprice: 500,
+  itemurl: "https://www.amazon.co.jp/%E3%82%AB%E3%83%AA%E3%82%BF-%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%A1%E3%82%B8%E3%83%A3%E3%83%BC-%E9%8A%85-10g-44001/dp/B000HA9M6Q/ref=pd_vtp_54/355-5607422-3177714?pd_rd_w=8ZzLu&pf_rd_p=949e26f5-c2ef-4c96-bfde-49d7614d0317&pf_rd_r=TGG1B1K6RAX8JKQCFK8S&pd_rd_r=8affae14-78a8-4c7f-95a9-b26d381dd526&pd_rd_wg=Vo79W&pd_rd_i=B000HA9M6Q&th=1",
+  shopname: "カリタ",
+  tag_list: ["コーヒー" ,"カリタ" ,"銅製","コーヒーメジャー"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-17.jpg"),
+  itemcaption: "フレンチプレスは、最もコーヒー豆の成分を抽出するのに適した92℃~96℃のお湯の温度を目安に、ゆっくりと豆の膨らみを確かめるようにお湯を注ぐことで、コーヒー豆の旨みや香り、おいしさに必要な豆の油分(コーヒーオイル)を余すことなく抽出します。
+  コーヒー豆本来の味が最大限に引き出された豊かな味わいのコーヒーをお楽しみください。",
+  itemname: "BODUM ボダム CHAMBORD シャンボール フレンチプレス 350ml シルバー ",
+  itemprice: 4025,
+  itemurl: "https://www.amazon.co.jp/%E3%80%90%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91-%E3%83%9C%E3%83%80%E3%83%A0-CHAMBORD-%E3%83%95%E3%83%AC%E3%83%B3%E3%83%81%E3%83%97%E3%83%AC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC-1923-16J/dp/B0051OOM68/ref=sr_1_41?keywords=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC&pd_rd_r=955e7adf-a13f-4b22-aafe-4e7cf5be397c&pd_rd_w=BmVEm&pd_rd_wg=bygyc&pf_rd_p=4c715b9a-8add-4447-8dd3-50bc5addefdb&pf_rd_r=6QK8D2RN7CSVDDYQ4VHE&qid=1638597608&sr=8-41&th=1",
+  shopname: "ボダム",
+  tag_list: ["コーヒー" ,"ボダム" ,"フレンチプレス","コーヒーメーカー"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-18.jpg"),
+  itemcaption: "リブをさらに短くして誰でもしっかりコーヒーの風味を抽出できるようにしたMDKシリーズ。
+  環境ホルモンの出ない（ビスフェノールフリー）素材を採用し、安全性が高く、クラックの入りにく耐久性のあるフィルターとなりました。",
+  itemname: "KONO式 コーノ 珈琲サイフォン 名門フィルター クリア 透明 2人用 (MDK型)",
+  itemprice: 1798,
+  itemurl: "https://www.amazon.co.jp/KONO%E5%BC%8F-%E7%8F%88%E7%90%B2%E3%82%B5%E3%82%A4%E3%83%95%E3%82%A9%E3%83%B3-%E5%90%8D%E9%96%80%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC-MDK%E5%9E%8B-MDK-21/dp/B08GZ3XN7B/ref=sr_1_8?keywords=KONO&qid=1638598649&s=home&search-type=ss&sr=1-8",
+  shopname: "KONO",
+  tag_list: ["コーヒー" ,"KONO" ,"名門ドリッパー","コーヒードリッパー","2人用"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-19.jpg"),
+  itemcaption: "当工房でお薦めするのは円錐形のフィルターです。 底が平らなフィルターより抽出をスムーズにコントロールできます。",
+  itemname: "コーノ式ペーパー 1～2人用 100枚入り",
+  itemprice: 898,
+  itemurl: "https://www.amazon.co.jp/%EF%BC%AB%EF%BC%AF%EF%BC%AE%EF%BC%AF-%E3%82%B3%E3%83%BC%E3%83%8E%E5%BC%8F%E3%83%9A%E3%83%BC%E3%83%91%E3%83%BC-1%EF%BD%9E2%E4%BA%BA%E7%94%A8-100%E6%9E%9A%E5%85%A5%E3%82%8A/dp/B006QQWA7S/ref=pb_allspark_dp_sims_pao_desktop_session_based_2/355-5607422-3177714?pd_rd_w=cAOdr&pf_rd_p=2562f525-4075-4561-9863-48d7a49161bd&pf_rd_r=NDY5DS9AN96PYT6PR6Q2&pd_rd_r=08525c10-f4df-4015-bd33-2b9aba965155&pd_rd_wg=PX5ox&pd_rd_i=B006QQWA7S&psc=1",
+  shopname: "KONO",
+  tag_list: ["コーヒー" ,"KONO" ,"名門ドリッパー","ペーパー","1~2人用"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-20.jpg"),
+  itemcaption: "より気軽に、ストレスなくコーヒーを楽しんで欲しい」という思いのもと作られました。
+  抽出する速度や挽きの粗さで、フレンチプレスやネルドリップやペーパードリップのようなテイストが ドリップできます。",
+  itemname: "MT.FUJI DRIPPER/富士山ドリッパー",
+  itemprice: 3630,
+  itemurl: "https://www.amazon.co.jp/%E3%82%A4%E3%83%AB%E3%82%AB%E3%83%8A-Ilcana-ILB-001-MT-FUJI-%E5%AF%8C%E5%A3%AB%E5%B1%B1%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC/dp/B072X1VGWK/ref=sr_1_140?keywords=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC&pd_rd_r=955e7adf-a13f-4b22-aafe-4e7cf5be397c&pd_rd_w=BmVEm&pd_rd_wg=bygyc&pf_rd_p=4c715b9a-8add-4447-8dd3-50bc5addefdb&pf_rd_r=6QK8D2RN7CSVDDYQ4VHE&qid=1638598452&sr=8-140&th=1",
+  shopname: "イルカナ",
+  tag_list: ["コーヒー" ,"イルカナ","コーヒードリッパー","富士山ドリッパー"]
+)
 Bean.create!(
   area:"スルミナス",
   country:"ブラジル",
@@ -207,6 +327,78 @@ Bean.create!(
   roast: "シティ",
   user: User.find(7),
   tag_list: ['コーヒー豆','グァテマラ','シティ','ナチェラル']
+)
+Bean.create!(
+  country:"コロンビア",
+  description: "収穫量が少ない希少な超大型豆。酸味はまろやかで香ばしいほろ苦さ",
+  image: File.open("./public/seed/bean-06.jpg"),
+  name: "珈琲問屋",
+  purification: "ナチェラル",
+  roast: "フルシティ",
+  user: User.find(3),
+  tag_list: ['コーヒー豆','コロンビア','フルシティ','ナチェラル',"マラゴジッペ"]
+)
+Bean.create!(
+  country:"エチオピア",
+  description: "エチオピア西部ウォレガ地方の産出品であるモカレケンプティは、野性的な栽培をされているため、独特の風味をもっています。エチオピアの非水洗式精製コーヒーは品質に多少のブレが生じがちですが、本品は品質的には安定している地域です。
+  モカ特有の果実ような芳醇な香りで甘く、フルーティーなアロマを感じます。とても柔らかな酸味をもち、上品で甘美な味わいが堪能出来る逸品です。",
+  image: File.open("./public/seed/bean-07.jpg"),
+  name: "珈琲問屋",
+  purification: "ナチェラル",
+  roast: "ミディアム",
+  user: User.find(10),
+  tag_list: ['コーヒー豆','エチオピア','ミディアム','ナチェラル',"モカレケンプディ"]
+)
+Bean.create!(
+  area: 'コナ',
+  country:"ハワイ",
+  description: "【特徴】
+  甘い香りと柔らかな酸味をもつミディアムボディー。ワイン風味のなかにスパイシーな風味が見事に調和されています。",
+  image: File.open("./public/seed/bean-08.jpg"),
+  name: "珈琲問屋",
+  purification: "ナチェラル",
+  roast: "フルシティ",
+  user: User.find(8),
+  tag_list: ['コーヒー豆','ハワイ','フルシティ','ナチェラル',"コナ"]
+)
+Bean.create!(
+  country:"キューバ",
+  description: "酸味とコクのバランスがとれブレンドのベースにも適する良質なコーヒー。
+  産地：キューバ",
+  image: File.open("./public/seed/bean-09.jpg"),
+  name: "珈琲問屋",
+  purification: "ナチェラル",
+  roast: "フレンチ",
+  user: User.find(6),
+  tag_list: ['コーヒー豆','キューバ','フレンチ','ナチェラル']
+)
+
+Bean.create!(
+  country:"ペルー　ルワンダ　ウェストジャバ",
+  description: "ウェストジャバ、ルワンダ、ペルー。環境保全を考えたサステナブルなコーヒー栽培に挑戦する、3つの産地のコーヒーをブレンドし、すべての人にコーヒーの未来を約束するという想いが込められたコーヒー。北米では、“長い冒険”“壮大な旅”を意味する「オデッセイ ブレンド」という名称で親しまれています。
+
+  タンジェリンゼストやマジパン（砂糖とアーモンドを挽いて練りあわせたお菓子）を思わせる風味が特徴のコーヒーです。チョコレートのようななめらかな口あたりで、後味にはちみつの甘みを感じさせます。シトラス感ある酸味とはちみつのような甘みのバランスがとれた爽やかな味わいを、秋の高く澄んだ空と一緒に楽しむのもこの季節だけの特別な時間です。
+  --公式ウェブサイトより",
+  image: File.open("./public/seed/bean-10.jpg"),
+  name: "STARBUCKS COFFEE",
+  purification: "ナチェラル",
+  roast: "ミディアム",
+  user: User.find(1),
+  tag_list: ['コーヒー豆','ミディアム','ナチェラル','ペルー','ブレンド']
+)
+Bean.create!(
+  country:"タンザニア",
+  description: "さっぱりとした味わいのコーヒー。キリッとした表情が楽しめる。
+  さっぱりとしていて、飲みやすめだが、後味にかけてショートな印象が残念。焙煎が中途半端な浅い味を感じる。
+  酸味はあるが、そこまで強くはない。リンゴの酸味。苦さはほぼない。
+
+  さっぱりとしているので、夕方から夜に飲むようなコーヒーというよりは、朝1番に飲みたくなるような味わい。キリッと1日を迎えたくなる。",
+  image: File.open("./public/seed/bean-11.jpg"),
+  name: "ドトール",
+  purification: "ナチェラル",
+  roast: "シティ",
+  user: User.find(6),
+  tag_list: ['コーヒー豆','タンザニア','不明','ナチェラル','キリマンジェロ']
 )
 
 Review.create!(
@@ -317,6 +509,219 @@ Review.create!(
   content: "液晶がLEDで視認性がよく見やすいと思い少し割高ですが購入しました。
   ですが視認性はあまりよくないです。少し本体との取付に個体差によるズレがあるみたいで気になる方には気になると思います。",
   rate: 2
+)
+Review.create!(
+  user: User.find(7),
+  product: Product.find(11),
+  title: "手間を惜しんでも使いたい...",
+  content: "まず、ネルドリップを始めたらフィルター使えなくなります...
+  砂糖と塩の味の違いが分かれば分かるくらい劇的に味、香りが変わります。
+
+  使い勝手で言うと、ネルは毎回持ち手から外して洗い、水に浸けて保存する(ネルに着いた成分が空気に触れて酸化するのを防ぐため)のですが、外すのに少し難儀し、持ち手の金属部分が少し変形してしまいます。
+
+  まあ、美味しいコーヒーが淹れられるので使い辛さなんて屁の河童ですけどね！
+  これを読む人がいるとしたらネルドリップに興味があるのでしょう...",
+  rate: 4
+)
+Review.create!(
+  user: User.find(8),
+  product: Product.find(11),
+  title: "ネック部分のガタつきがＮＧ",
+  content: "オリーブネック部分が固定されずガタつき不安定で危ないと感じました。
+  丸っこい玉に紐を通すだけですので当然かと。
+  オリーブのウッド自体もフィットしないので不安定要素の一つです。",
+  rate: 1
+)
+Review.create!(
+  user: User.find(9),
+  product: Product.find(12),
+  title: "豆の消費量は凄いが",
+  content: "これで作った水出しコーヒーは外したことがありません
+  今までにシティーローストで８種類くらいの豆を使って作りましたが、
+  みんなちゃんと味が出ていて美味い！！
+
+  ただ、豆をふんだんに使うのでハマると豆がみるみるなくなっていきます笑",
+  rate: 5
+)
+Review.create!(
+  user: User.find(10),
+  product: Product.find(12),
+  title: "極細メッシュ！",
+  content: "水だしコーヒーポットですが、水出しアイスティーや水出し煎茶にも
+  使用したくて探して、探してこれに辿り着きました。
+  極細メッシュでかなり細かい茶葉も絶対に逃さない！という
+  意気込みを感じる作りになっています",
+  rate: 4
+)
+
+Review.create!(
+  user: User.find(1),
+  product: Product.find(13),
+  title: "最高！もう外でカフェラテは飲めない！",
+  content: "もっと早く買っておけば良かったた！！！
+  高いマシーン買うより経済的です！
+  もう外でカフェラテを飲む事はないですね！
+  大満足！",
+  rate: 5
+)
+
+Review.create!(
+  user: User.find(2),
+  product: Product.find(13),
+  title: "ハンドドリップより準備と片付けが面倒",
+  content: "洗浄についてですが私の場合は豆を変えるタイミングで洗剤を使用しています。
+  腐敗したコーヒー臭は香りを損ねますし、ある程度使っていれば洗剤で洗っても金属臭さは特に感じません。
+  濡れたままだとカビが生えるそうですが、いちいち水気を拭いているとハンドドリップより片付けが面倒です。",
+  rate: 2
+)
+
+Review.create!(
+  user: User.find(3),
+  product: Product.find(13),
+  title: "簡単、美味しい。",
+  content: "カプチーノ、ラテマッキアート、ミルクたっぷりにして1日に何杯も淹れます。夫婦2人で3カップ用。3分で淹れられるので、来客時はすぐに淹れなおせば良し。4カップ、6カップ用と迷いましたが、3カップ用で充分でした。",
+  rate: 5
+)
+
+Review.create!(
+  user: User.find(4),
+  product: Product.find(14),
+  title: "緑茶の水出しと、陶器のドリッパー用に便利です",
+  content: "樹脂製だから安っぽいのかなと思っていましたが、
+  青緑がかったアンティークガラスのような色合いがほんのり感じられて、
+  パッと見は安っぽい感じはありません。",
+  rate: 5
+)
+
+Review.create!(
+  user: User.find(5),
+  product: Product.find(14),
+  title: "なかなか気に入りました",
+  content: "軽い！
+  ずっとIwakiの水出しコーヒー用の奴を使ってたんですが今年もそろそろと思ったら上手く出来ない。水滴は落ちなくなる事が増えた。一度全ての粉に水分補給させてから毎回失敗なしでしたがそれも駄目。
+  縦に長いのも地味に邪魔でこちらを購入。
+  軽いし乱雑に扱ってもいいし最高。味はああいう水出しと比べてどうなのかわかりませんがきちんと濃く出るので問題ないです。蓋がちょい固いのと注ぎ口が完全に開いてるのでラップ必須なのがだるい。",
+  rate: 4
+)
+Review.create!(
+  user: User.find(6),
+  product: Product.find(14),
+  title: "割り切って使えばOK",
+  content: "短い期間にガラス製のコーヒーサーバーを2度割ってしまったので、この際割れないのを買っちゃえとこちらを購入しました。
+  樹脂製なので、ガラスのような高級感は当然ありません。でも割れる恐怖から解放され、洗いも気軽に洗えるようになりました。こっちの方が私の性分に合っているようです。
+  このように割り切って使えばまったく問題ない商品だと思います。",
+  rate: 4
+)
+Review.create!(
+  user: User.find(7),
+  product: Product.find(15),
+  title: "見た目",
+  content: "見た目は　おしゃれだが　使い勝手良くない　落ちるのが早いので　コクも香りも深くない　自分は三つ穴が　いいかな　でも嗜好なので　好き好きです　その日の気分で　使い分けてます",
+  rate: 2
+)
+Review.create!(
+  user: User.find(8),
+  product: Product.find(15),
+  title: "よく考えられたもの",
+  content: "普段使いのドリッパーが割れたため、探して見たところとても気になったので購入。単純な構造だけど美しい、でも味はどうかな…なんて考えてましたがまったく問題はありませんでした。骨組みだけなので洗った感はでませんがよく考えられたものだと感心してます",
+  rate: 5
+)
+Review.create!(
+  user: User.find(9),
+  product: Product.find(16),
+  title: "カッコイイ",
+  content: "そりゃまぁ機能だけならプラ製のものでも良いわけですが、コイツがいると気分が上がりますね。
+  コーヒーを飲む、だけでなく、淹れる作業も楽しくしてくれます。
+  使っているうちに傷んだようになりますがそれもまた味わいですね。",
+  rate: 5
+)
+Review.create!(
+  user: User.find(10),
+  product: Product.find(16),
+  title: "かっこいいから購入",
+  content: "コーヒーにはまりだし、普通の大きなスプーンで豆をはかりに乗せていたら、コーヒー通には見えないと家族に言われ
+  そこで探したらいい物発見したので購入しました。
+  一杯やく一人前の10ｇ位だと言う事で、はかりを使う手間も省けて、コーヒー通に一歩近づけたかなと思う",
+  rate: 5
+)
+Review.create!(
+  user: User.find(11),
+  product: Product.find(17),
+  title: " ドリップより好き",
+  content: "最近ドリップだと美味しく感じないことが多かったので、プレスコーヒ―試してみたくて購入。
+  お湯入れて４分放置でOKなので、雑な私でも安定した味が出せました。
+  個人的にはドリップより好きです。
+  お湯は2回に分けて注ぐという説明を多く見ますが、私は１回派です。
+  好みの問題だと思うので、好きな回数探すのが良いと思います。",
+  rate: 4
+)
+Review.create!(
+  user: User.find(12),
+  product: Product.find(17),
+  title: "ガラス部分の耐久性に問題",
+  content: "10回ほど使用したでしょうか。
+  本体ガラスビーカーの下部にヒビが入ってしまっていました。
+  金属のフレームの下あたりを中心に十字のヒビなのですが、フレームから外してもいないし、落としたりぶつけた記憶もありません。
+  ビーカー部分だけ交換するか、廃棄するか考えますが、耐久性には問題あると思います。",
+  rate: 1
+)
+
+Review.create!(
+  user: User.find(1),
+  product: Product.find(18),
+  title: "5つ星のうち5.0 珈琲の旨味が増し増し",
+  content: "動画サイトでレビューを見かけ購入してみました。
+  淹れ方やテクニックもあるのでしょうが、明らかに、普段使用しているコーヒーメーカーで淹れたモノより一味も二味も美味しいと感じました。
+  比べるのが失礼かな…とにかく美味しく点てられます。",
+  rate: 5
+)
+Review.create!(
+  user: User.find(2),
+  product: Product.find(18),
+  title: "味の変化にビックリ！！",
+  content: "ドリッパーでこんなに味が変わることに驚きでした。
+  しっかりとしたボディー感のなかに、後味スッキリで、バランスの良い抽出ができます。
+  同じ豆で、カリタ・メリタと試してみましたが、ＫＯＮＯ式ドリッパーの味にはまりました！
+  ユーチューバーが勧めるだけのことはありますね。",
+  rate: 5
+)
+Review.create!(
+  user: User.find(3),
+  product: Product.find(19),
+  title: "使えなくはないけど",
+  content: "このコーノのフィルター無しにはいい味が出せないと思ってるので買ってるのですが…
+  梱包時に太い輪ゴムでギュッとやるのやめて。ペーパーの形が崩れるから。笑
+  使えなくはないけどね〜",
+  rate: 4
+)
+Review.create!(
+  user: User.find(4),
+  product: Product.find(19),
+  title: "美味しく珈琲がたてられます。",
+  content: "美味しい珈琲が飲めますが、コーノ式は技術が必要なので最初はうまく行かないかもしれません。豆は中びきで使うと良いですよ。",
+  rate: 4
+)
+Review.create!(
+  user: User.find(5),
+  product: Product.find(20),
+  title: "汚れがほとんど付かない",
+  content: "フィルターとの接触がほとんどないので、汚れがつきません。
+  水滴もつかないので、扱いが簡単になります。
+
+  おすすめです。",
+  rate: 5
+)
+
+Review.create!(
+  user: User.find(6),
+  product: Product.find(20),
+  title: "おいしいコーヒーが飲める",
+  content: "陶器のドリッパーと違い、空気の逃げ道があるからか、蒸らす際にボコっと
+  空気が上がってこないことに最初は戸惑いました。
+  しかし、キント―のステンレスフィルターと違い、粉を捨てるのが圧倒的に楽になりました。
+  味はステンレスフィルターの方が好みですが、掃除のことを考えるとケメックスの見た目を壊さず
+  よい品に出会えたと思っています。",
+  rate: 4
 )
 BeanReview.create!(
   user: User.find(1),
@@ -462,6 +867,158 @@ BeanReview.create!(
   title: "くせがなく飲みやすい。この値段で、この味、コ・ス・パがいいね。",
   content:"くせがなく飲みやすい。この値段で、この味、コ・ス・パがいいね。"
 )
+
+BeanReview.create!(
+  user: User.find(5),
+  bean: Bean.find(8),
+  acidity: 2,
+  bitter: 3,
+  flavor: 4,
+  rich: 4,
+  sweet: 5,
+  title: "今さら私ごときが評価しなくても、ひたすらうまい！！",
+  content:"これといった欠点がなく、バランスが取れ、フクイクとした香りとコク、マイルドな酸味といい、飲み終わるまで満足感に浸れました。これで、もっと安かったら・・いやあ高価なのもわかります！"
+)
+
+BeanReview.create!(
+  user: User.find(6),
+  bean: Bean.find(6),
+  acidity: 4,
+  bitter: 3,
+  flavor: 4,
+  rich: 3,
+  sweet: 3,
+  title: "バランスがいい味です",
+  content:"お湯を注ぐと　よく膨らむ豆。初めて買いましたが　モカ系　アフリカ系と違い　バランスがよく気に入りました！！　今度は　普通のコロンビアと　飲み比べしたいと思います！"
+)
+
+BeanReview.create!(
+  user: User.find(7),
+  bean: Bean.find(6),
+  acidity: 1,
+  bitter: 4,
+  flavor: 4,
+  rich: 3,
+  sweet: 3,
+  title: "来客の時、ちょっと自慢できる大粒の豆です。",
+  content:"香りよりコクを基点としたような、あっさり系でまろやかな優しい味です。最近苦みに目覚めたので？今度はシティローストを試してみたいと思っています。
+  友人が大福をお土産に持ってきたので、コロンビアマラゴジッペで頂きました。かなり合います！"
+)
+
+BeanReview.create!(
+  user: User.find(1),
+  bean: Bean.find(6),
+  acidity: 2,
+  bitter: 3,
+  flavor: 3,
+  rich: 3,
+  sweet: 3,
+  title: "。夏の暑い日に、エアコンがかかった部屋でゆっくりと飲みたいそんな味です",
+  content:"さっぱりとしつつも、エイジドスマトラを思わせるようなシダー感や炙ったマシュマロのような味わいが感じられる。
+  フレーバーはシダー、炙ったマシュマロのような甘さ、後味に感じられる多少の華やかさにドライアプリコット。
+  強い苦さや嫌な酸味はなく、飲みにくさはない。深さもなく、中煎りのバランスのとれた味わい。後味に乾燥したハーブを口の中にいれてるような渋さがややある。"
+)
+
+BeanReview.create!(
+  user: User.find(12),
+  bean: Bean.find(8),
+  acidity: 3,
+  bitter: 3,
+  flavor: 3,
+  rich: 3,
+  sweet: 3,
+  title: "そこそこの美味しさです",
+  content:"悪くはないが、すごくよくはないかな。華やかさのあるシトラスからはじまり、ブラウンシュガーのような甘みが後味に感じられる。ただ後半にドライさを感じられる。
+  シトラス感が、(ややレモンティーに近い)紅茶のような味わいにしてくれる。
+  ドライさを感じられる点やどことなくコクが足りないなというところなど、少し残念。おすすめしたいほどではないです"
+)
+
+BeanReview.create!(
+  user: User.find(1),
+  bean: Bean.find(7),
+  acidity: 3,
+  bitter: 3,
+  flavor: 3,
+  rich: 3,
+  sweet: 3,
+  title: "フレーバーの柔らかさと、後味のバランスを絶妙の美味しさの豆です",
+  content: "さっぱりとしていて、柔らかい味わいのブレンド。焙煎はやや浅めな、軽めな味。
+  フレーバーには柔らかいシトラスがある。後味にかけて、ココアのようなコクが訪れる。
+  全体的に軽く、優しい味わい。万人受けとまではいかないが、一定数、このコーヒーが好きな人はいるはず。
+  酸味は強すぎず、適度で、コクも重すぎず、軽めな部類だが適度。後味にかけて甘さとコクのバランスが良く、心地よい。ただ若干ドライさを感じられる面もあり。
+  "
+)
+
+BeanReview.create!(
+  user: User.find(11),
+  bean: Bean.find(9),
+  acidity: 4,
+  bitter: 3,
+  flavor: 2,
+  rich: 2,
+  sweet: 2,
+  title: "入れ方の問題かも",
+  content:"リッチなコクの楽しめるコーヒーというより、酸味のあるさっぱりとしたコーヒーになっていた。
+  前回の感想にはチョコレートのフレーバーと書かれていたが、どちらかというと、レモンのフレーバーで、酸味が優位。全体的に軽く、酸味も個人的には質は良くない。
+
+  普段置き用のコーヒーとしては、値段的にも悪くないが、非常に美味しいという印象とは結構離れた。"
+)
+BeanReview.create!(
+  user: User.find(5),
+  bean: Bean.find(9),
+  acidity: 2,
+  bitter: 2,
+  flavor: 2,
+  rich: 3,
+  sweet: 4,
+  title: "ゆったりとしたお昼に飲みたい一杯です",
+  content:"そして大事な味！美味しい！コクもあり、後味に甘さが残るリッチな味わい。嫌な酸味や苦味、雑味は全くなく、風味はチョコレート。コーヒーの味がしっかりしているコーヒーです。
+  いつの時間でも飲みたい味だけど、特に午後のカフェタイム、ママ友との集まりで出して、チョコレートやケーキと一緒に飲みたい一杯です！！
+  "
+)
+BeanReview.create!(
+  user: User.find(3),
+  bean: Bean.find(10),
+  acidity: 2,
+  bitter: 1,
+  flavor: 4,
+  rich: 3,
+  sweet: 5,
+  title: "苦味はほどんどなくチュコレートのような甘みがあるコーヒーです",
+  content:"通常のアイスコーヒーよりも柔らかく優しい味わいになり、飲み口が軽く、それでも後味の甘さがやさしく感じられる。
+  チョコレートの甘さの飲み口で、後味にかけては蜂蜜のような甘さを伴った味わいへと変化する。飲みやすい。"
+)
+
+BeanReview.create!(
+  user: User.find(1),
+  bean: Bean.find(10),
+  acidity: 3,
+  bitter: 3,
+  flavor: 4,
+  rich: 3,
+  sweet: 4,
+  title: "軽やかな口当たりながら、はちみつを舐めてるような長い後味の余韻を楽しめる一杯",
+  content:"コーヒーの印象はさっぱり。色で表すと淡いがキレイな黄色。清々しい。
+  天気の良い朝、庭に出ている机で飲みたいコーヒー。
+  公式の説明に「シトラス感ある酸味とはちみつのような甘みのバランスがとれた爽やかな味わいを、秋の高く澄んだ空と一緒に楽しむのもこの季節だけの特別な時間です」とあり、夏の終わり、秋の始まりの非常に透き通った空を眺めながら飲みたいコーヒーという印象をすごく受ける。"
+)
+
+BeanReview.create!(
+  user: User.find(12),
+  bean: Bean.find(11),
+  acidity: 4,
+  bitter: 2,
+  flavor: 2,
+  rich: 2,
+  sweet: 4,
+  title: "さっぱりとしているが、どちらかというと酸っぱめなアイスコーヒー。",
+  content:"プレスでアイスコーヒーを抽出
+  メイヤーレモンのような柔らかい甘さを持つレモンのフレーバーを感じられる。
+  コクはそこまでなく、コーヒー全体的に軽め。後味はさっぱりで、後味の余韻が気持ちいい。
+  春の温かい時期に飲みたくなるような淡めな印象のアイスコーヒー。印象派の絵画を観てるよう。
+  牛乳を少し足して飲んでもよき。"
+)
+
 9.times do |n|
   u = User.find(n + 1)
   Report.create!(
@@ -524,3 +1081,4 @@ end
     liked_id: n + 1
   )
 end
+
