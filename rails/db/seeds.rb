@@ -150,6 +150,125 @@ Product.create!(
   shopname: "エアロプレス",
   tag_list: ["コーヒー" ,"エアロプレス" ,"エアロプレスGO"]
 )
+Product.create!(
+  imageurl:File.open("./public/seed/product-11.jpg"),
+  itemcaption: "贅沢なくつろぎの時間を演出するオリーブウッド
+  ぬくもりのあるオリーブウッドのハンドルは使うほどに手になじみます。
+  V60計量スプーン付き",
+  itemname: "ドリップポット ウッドネック オリーブウッド DPW-1-OV",
+  itemprice: 3960,
+  itemurl: "https://www.tonya.co.jp/shop/g/g39458/",
+  shopname: "HARIO",
+  tag_list: ["コーヒー" ,"HARIO" ,"ドリップポット","ネルドリップ"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-12.jpg"),
+  itemcaption: "珈琲粉と水だけでアイス珈琲が作れます。
+  粉全体が湿るように少量ずつ水を注ぎ、「の」の字を描くようにドリップします。水を注ぎ終えたら、冷蔵庫で8時間程抽出してできあがりです。",
+  itemname: "水出し珈琲ポットミニ 600ml　MCPN-7CBR",
+  itemprice: 997,
+  itemurl: "https://www.tonya.co.jp/shop/g/g39476/",
+  shopname: "HARIO",
+  tag_list: ["コーヒー" ,"HARIO" ,"水出しコーヒー"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-13.jpg"),
+  itemcaption: "●イタリア100年の伝統。
+  ●1919年から今日に渡り、100年以上も調理器具を作り続けてきたビアレッティはイタリアの老舗ブランドです。
+  ●定番ともいえる直火式エスプレッソメーカー「モカエキスプレス」は、伝統的な美しいフォルムをそのままに、人間工学に基づいた新しいハンドルを採用するなど、今でも細部へのこだわりと進化を続けています。
+
+  ●ビアレッティのアイコンともいえる「モカエキスプレス」
+  ●1933年に発売されてからほとんど形を変えず、世界中で愛されています。
+  ●形が変わらないのは変える必要がないから。おいししエスプレッソを入れる道具として完成された形です。
+
+  ●モカエキスプレスで簡単にエスプレッソを淹れることができます。
+  ●出来立てのエスプレッソにミルクを入れて本格的なカフェラテやカプチーノに。お湯で割れば好みの濃さのアメリカンにもなります。
+  ●アレンジができるのもモカエキスプレスならではの特徴です。
+  ●お好きな時間、お好きな場所でエスプレッソをお楽しみいただけます。",
+  itemname: "ビアレッティ モカエキスプレス 0001162/AP",
+  itemprice: 3173,
+  itemurl: "https://www.amazon.co.jp/BIALETTI-%E3%83%93%E3%82%A2%E3%83%AC%E3%83%83%E3%83%86%E3%82%A3-06799-%E3%83%A2%E3%82%AB%E3%82%A8%E3%82%AD%E3%82%B9%E3%83%97%E3%83%AC%E3%82%B9-3%E3%82%AB%E3%83%83%E3%83%97/dp/B0000AN3QI/ref=sr_1_7?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&keywords=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%2B%E5%99%A8%E5%85%B7&qid=1638594643&sr=8-7&th=1",
+  shopname: "BIALETTI",
+  tag_list: ["コーヒー" ,"BIALETTI" ,"水出しコーヒー","マキネッタ","モカエキスプレス"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-14.jpg"),
+  itemcaption: "水出しアイスコーヒー専用ストレーナー付き
+  フィルターは300メッシュ (目の細かい)のポリエステルを使用。水洗いしてくり返し使える
+  サーバーは耐久性に優れる素材を使用。軽量で、落としても割れない
+  注いだ量が分かりやすい目盛り付き
+  液だれしにくい注ぎ口形状",
+  itemname: "珈琲考具 コーヒーサーバー 水出しフィルター付き ",
+  itemprice: 2200,
+  itemurl: "https://www.amazon.co.jp/%E4%B8%8B%E6%9D%91%E4%BC%81%E8%B2%A9-%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC-%E5%89%B2%E3%82%8C%E3%81%AB%E3%81%8F%E3%81%84%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC-%E6%B0%B4%E5%87%BA%E3%81%97%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC%E4%BB%98%E3%81%8D-42922/dp/B08R849PX9/ref=sr_1_78?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&keywords=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%2B%E5%99%A8%E5%85%B7&qid=1638595316&sr=8-78&th=1",
+  shopname: "下村企販",
+  tag_list: ["コーヒー" ,"下村企販" ,"水出しコーヒー","コーヒーサーバー","樹脂製"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-15.jpg"),
+  itemcaption: "ドリップ時に発生するガスを外に逃がす! 壁のないドリッパー
+  ガスの抜けが良いので、お湯が均一にコーヒー粉を通り雑味を出さない
+  香りをダイレクトに抽出できて、豆のもつ旨みを最大限に引き出す
+  コーヒーサーバーやカップに直接セットして使用できる
+  1~2杯用・2~4杯用・4~6杯用のフィルターに使用できる
+  ワイヤーフレームのすき間からドリップした量が確認でき、淹れすぎを防げる",
+  itemname: "珈琲考具 ワンドリッパー",
+  itemprice: 1980,
+  itemurl: "https://www.amazon.co.jp/%E4%B8%8B%E6%9D%91%E4%BC%81%E8%B2%A9-%E7%8F%88%E7%90%B2%E8%80%83%E5%85%B7-%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC-%E3%83%AF%E3%83%B3%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC-42158/dp/B07ZRZZCRF/ref=pd_vtp_21/355-5607422-3177714?pd_rd_w=EfClA&pf_rd_p=949e26f5-c2ef-4c96-bfde-49d7614d0317&pf_rd_r=A73PYSP81BPBM0B6HN4Z&pd_rd_r=fb2d6e4e-7295-4c99-a7ca-235883a96d87&pd_rd_wg=mk0wP&pd_rd_i=B07ZRZZCRF&th=1",
+  shopname: "下村企販",
+  tag_list: ["コーヒー" ,"下村企販" ,"アウトドア","コーヒードリッパー","ステンレス"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-16.jpg"),
+  itemcaption: "美味しいコーヒーの為に
+  美味しいコーヒーを淹れるためには、コーヒー豆、粉の計量が大切
+
+  日本製の銅メジャーカップで海外でも人気",
+  itemname: "カリタ コーヒーメジャー 銅 10g",
+  itemprice: 500,
+  itemurl: "https://www.amazon.co.jp/%E3%82%AB%E3%83%AA%E3%82%BF-%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%A1%E3%82%B8%E3%83%A3%E3%83%BC-%E9%8A%85-10g-44001/dp/B000HA9M6Q/ref=pd_vtp_54/355-5607422-3177714?pd_rd_w=8ZzLu&pf_rd_p=949e26f5-c2ef-4c96-bfde-49d7614d0317&pf_rd_r=TGG1B1K6RAX8JKQCFK8S&pd_rd_r=8affae14-78a8-4c7f-95a9-b26d381dd526&pd_rd_wg=Vo79W&pd_rd_i=B000HA9M6Q&th=1",
+  shopname: "カリタ",
+  tag_list: ["コーヒー" ,"カリタ" ,"銅製","コーヒーメジャー"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-17.jpg"),
+  itemcaption: "フレンチプレスは、最もコーヒー豆の成分を抽出するのに適した92℃~96℃のお湯の温度を目安に、ゆっくりと豆の膨らみを確かめるようにお湯を注ぐことで、コーヒー豆の旨みや香り、おいしさに必要な豆の油分(コーヒーオイル)を余すことなく抽出します。
+  コーヒー豆本来の味が最大限に引き出された豊かな味わいのコーヒーをお楽しみください。",
+  itemname: "BODUM ボダム CHAMBORD シャンボール フレンチプレス 350ml シルバー ",
+  itemprice: 4025,
+  itemurl: "https://www.amazon.co.jp/%E3%80%90%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91-%E3%83%9C%E3%83%80%E3%83%A0-CHAMBORD-%E3%83%95%E3%83%AC%E3%83%B3%E3%83%81%E3%83%97%E3%83%AC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC-1923-16J/dp/B0051OOM68/ref=sr_1_41?keywords=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC&pd_rd_r=955e7adf-a13f-4b22-aafe-4e7cf5be397c&pd_rd_w=BmVEm&pd_rd_wg=bygyc&pf_rd_p=4c715b9a-8add-4447-8dd3-50bc5addefdb&pf_rd_r=6QK8D2RN7CSVDDYQ4VHE&qid=1638597608&sr=8-41&th=1",
+  shopname: "ボダム",
+  tag_list: ["コーヒー" ,"ボダム" ,"フレンチプレス","コーヒーメーカー"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-18.jpg"),
+  itemcaption: "リブをさらに短くして誰でもしっかりコーヒーの風味を抽出できるようにしたMDKシリーズ。
+  環境ホルモンの出ない（ビスフェノールフリー）素材を採用し、安全性が高く、クラックの入りにく耐久性のあるフィルターとなりました。",
+  itemname: "KONO式 コーノ 珈琲サイフォン 名門フィルター クリア 透明 2人用 (MDK型)",
+  itemprice: 1798,
+  itemurl: "https://www.amazon.co.jp/KONO%E5%BC%8F-%E7%8F%88%E7%90%B2%E3%82%B5%E3%82%A4%E3%83%95%E3%82%A9%E3%83%B3-%E5%90%8D%E9%96%80%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC-MDK%E5%9E%8B-MDK-21/dp/B08GZ3XN7B/ref=sr_1_8?keywords=KONO&qid=1638598649&s=home&search-type=ss&sr=1-8",
+  shopname: "KONO",
+  tag_list: ["コーヒー" ,"KONO" ,"名門ドリッパー","コーヒードリッパー","2人用"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-19.jpg"),
+  itemcaption: "当工房でお薦めするのは円錐形のフィルターです。 底が平らなフィルターより抽出をスムーズにコントロールできます。",
+  itemname: "コーノ式ペーパー 1～2人用 100枚入り",
+  itemprice: 898,
+  itemurl: "https://www.amazon.co.jp/%EF%BC%AB%EF%BC%AF%EF%BC%AE%EF%BC%AF-%E3%82%B3%E3%83%BC%E3%83%8E%E5%BC%8F%E3%83%9A%E3%83%BC%E3%83%91%E3%83%BC-1%EF%BD%9E2%E4%BA%BA%E7%94%A8-100%E6%9E%9A%E5%85%A5%E3%82%8A/dp/B006QQWA7S/ref=pb_allspark_dp_sims_pao_desktop_session_based_2/355-5607422-3177714?pd_rd_w=cAOdr&pf_rd_p=2562f525-4075-4561-9863-48d7a49161bd&pf_rd_r=NDY5DS9AN96PYT6PR6Q2&pd_rd_r=08525c10-f4df-4015-bd33-2b9aba965155&pd_rd_wg=PX5ox&pd_rd_i=B006QQWA7S&psc=1",
+  shopname: "KONO",
+  tag_list: ["コーヒー" ,"KONO" ,"名門ドリッパー","ペーパー","1~2人用"]
+)
+Product.create!(
+  imageurl:File.open("./public/seed/product-20.jpg"),
+  itemcaption: "より気軽に、ストレスなくコーヒーを楽しんで欲しい」という思いのもと作られました。
+  抽出する速度や挽きの粗さで、フレンチプレスやネルドリップやペーパードリップのようなテイストが ドリップできます。",
+  itemname: "MT.FUJI DRIPPER/富士山ドリッパー",
+  itemprice: 3630,
+  itemurl: "https://www.amazon.co.jp/%E3%82%A4%E3%83%AB%E3%82%AB%E3%83%8A-Ilcana-ILB-001-MT-FUJI-%E5%AF%8C%E5%A3%AB%E5%B1%B1%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC/dp/B072X1VGWK/ref=sr_1_140?keywords=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC&pd_rd_r=955e7adf-a13f-4b22-aafe-4e7cf5be397c&pd_rd_w=BmVEm&pd_rd_wg=bygyc&pf_rd_p=4c715b9a-8add-4447-8dd3-50bc5addefdb&pf_rd_r=6QK8D2RN7CSVDDYQ4VHE&qid=1638598452&sr=8-140&th=1",
+  shopname: "イルカナ",
+  tag_list: ["コーヒー" ,"イルカナ","コーヒードリッパー","富士山ドリッパー"]
+)
 Bean.create!(
   area:"スルミナス",
   country:"ブラジル",
