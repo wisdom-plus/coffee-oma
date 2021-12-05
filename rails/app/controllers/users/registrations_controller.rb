@@ -36,6 +36,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @follow = current_user.follow_user(@user) if user_signed_in?
     @like = @user.likes.find_product_or_bean
     @review = Review.user_review(@user)
+    @followers = @user.followers
+    @followings = @user.followings
     return unless user_signed_in? && @user != current_user
 
     @room = Room.find_room(current_user, @user)

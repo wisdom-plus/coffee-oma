@@ -13,15 +13,16 @@
         .eight.wide.field.form-centered
           .ui.action.input
             = f.search_field :itemname_cont, placeholder: "search"
-            = button_tag type: 'submit', class: "ui icon teal button" do
+            = button_tag type: 'submit', class: "ui icon teal button",id: 'search' do
               i.search.icon
 
   - if @products.present?
     .ui.three.stackable.cards.segment.scroll#sidebar
       .ui.right.very.close.rail
         .ui.segment.sticky
-          a href="#"
-            i.chevron.circle.up.icon Top
+          .ui.labeled.icon.teal.button#top-button
+            i.up.arrow.icon
+            | Top
       - @products.each do |product|
         a.ui.fluid.link.card.post.scale href= product_path(product.id)
           .image

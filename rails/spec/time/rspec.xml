@@ -1,63 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="6" skipped="1" failures="1" errors="0" time="110.902741" timestamp="2021-12-03T14:11:35+00:00" hostname="6b2c57a65a1a">
+<testsuite name="rspec" tests="11" skipped="0" failures="0" errors="0" time="54.948958" timestamp="2021-12-05T08:04:43+00:00" hostname="db450f1eea25">
 <properties>
-<property name="seed" value="58248"/>
+<property name="seed" value="54017"/>
 </properties>
-<testcase classname="spec.jobs.create_history_job_spec" name="CreateHistoryJob add some examples to (or delete) /coffee-oma/spec/jobs/create_history_job_spec.rb" file="./spec/jobs/create_history_job_spec.rb" time="0.000044"><skipped/></testcase>
-<testcase classname="spec.mailers.contact_mailer_spec" name="ContactMailer contact contact_mail send mail" file="./spec/mailers/contact_mailer_spec.rb" time="2.048033"></testcase>
-<testcase classname="spec.mailers.contact_mailer_spec" name="ContactMailer contact reply_mail send mail" file="./spec/mailers/contact_mailer_spec.rb" time="0.250439"></testcase>
-<testcase classname="spec.requests.bean_reviews_spec" name="BeanReviews POST create request success" file="./spec/requests/bean_reviews_spec.rb" time="1.591606"></testcase>
-<testcase classname="spec.requests.bean_reviews_spec" name="BeanReviews POST create review created " file="./spec/requests/bean_reviews_spec.rb" time="0.763687"></testcase>
-<testcase classname="spec.requests.beans_spec" name="Beans GET /new when login request success" file="./spec/requests/beans_spec.rb" time="97.775393"><failure message="[&quot;ok&quot;,{&quot;css&quot;:&quot;&quot;,&quot;map&quot;:null,&quot;warnings&quot;:[]}]" type="ActionView::Template::Error">Failure/Error: Unable to find (execjs) to read failed line
-
-ActionView::Template::Error:
-  [&quot;ok&quot;,{&quot;css&quot;:&quot;&quot;,&quot;map&quot;:null,&quot;warnings&quot;:[]}]
-(execjs):1
-/usr/local/bundle/gems/execjs-2.7.0/lib/execjs/external_runtime.rb:219:in `exec_runtime&apos;
-/usr/local/bundle/gems/execjs-2.7.0/lib/execjs/external_runtime.rb:39:in `exec&apos;
-/usr/local/bundle/gems/execjs-2.7.0/lib/execjs/external_runtime.rb:21:in `eval&apos;
-/usr/local/bundle/gems/execjs-2.7.0/lib/execjs/external_runtime.rb:46:in `call&apos;
-/usr/local/bundle/gems/autoprefixer-rails-10.2.4.0/lib/autoprefixer-rails/processor.rb:35:in `process&apos;
-/usr/local/bundle/gems/autoprefixer-rails-10.2.4.0/lib/autoprefixer-rails/sprockets.rb:22:in `run&apos;
-/usr/local/bundle/gems/autoprefixer-rails-10.2.4.0/lib/autoprefixer-rails/sprockets.rb:16:in `call&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/processor_utils.rb:84:in `call_processor&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/processor_utils.rb:66:in `block in call_processors&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/processor_utils.rb:65:in `reverse_each&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/processor_utils.rb:65:in `call_processors&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/loader.rb:182:in `load_from_unloaded&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/loader.rb:59:in `block in load&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/loader.rb:43:in `load&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/cached_environment.rb:44:in `load&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/bundle.rb:32:in `block in call&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/bundle.rb:31:in `call&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/processor_utils.rb:84:in `call_processor&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/processor_utils.rb:66:in `block in call_processors&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/processor_utils.rb:65:in `reverse_each&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/processor_utils.rb:65:in `call_processors&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/loader.rb:182:in `load_from_unloaded&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/loader.rb:59:in `block in load&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/loader.rb:43:in `load&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/cached_environment.rb:44:in `load&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/base.rb:81:in `find_asset&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/base.rb:88:in `find_all_linked_assets&apos;
-/usr/local/bundle/gems/sprockets-4.0.2/lib/sprockets/manifest.rb:125:in `block (2 levels) in find&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:47:in `block in synchronize&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:47:in `synchronize&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:47:in `synchronize&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:19:in `execute&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:363:in `run_task&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `block (3 levels) in create_worker&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:335:in `loop&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:335:in `block (2 levels) in create_worker&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `catch&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block in create_worker&apos;
-------------------
---- Caused by: ---
-ExecJS::RuntimeError:
-  [&quot;ok&quot;,{&quot;css&quot;:&quot;&quot;,&quot;map&quot;:null,&quot;warnings&quot;:[]}]
-  (execjs):1</failure></testcase>
+<testcase classname="spec.system.products_spec" name="Products new when login create product" file="./spec/system/products_spec.rb" time="49.007520"></testcase>
+<testcase classname="spec.system.products_spec" name="Products new when login redirect index(product)" file="./spec/system/products_spec.rb" time="0.700519"></testcase>
+<testcase classname="spec.system.products_spec" name="Products new when not login redirect sign_in" file="./spec/system/products_spec.rb" time="0.124533"></testcase>
+<testcase classname="spec.system.products_spec" name="Products index displayed product" file="./spec/system/products_spec.rb" time="0.613484"></testcase>
+<testcase classname="spec.system.products_spec" name="Products index redirect show" file="./spec/system/products_spec.rb" time="0.826599"></testcase>
+<testcase classname="spec.system.products_spec" name="Products index search product" file="./spec/system/products_spec.rb" time="0.615995"></testcase>
+<testcase classname="spec.system.products_spec" name="Products index not search product1" file="./spec/system/products_spec.rb" time="0.622932"></testcase>
+<testcase classname="spec.system.products_spec" name="Products index search product tag" file="./spec/system/products_spec.rb" time="0.668046"></testcase>
+<testcase classname="spec.system.products_spec" name="Products show when login display" file="./spec/system/products_spec.rb" time="0.836713"></testcase>
+<testcase classname="spec.system.products_spec" name="Products show when login redirect index(tag)" file="./spec/system/products_spec.rb" time="0.879632"></testcase>
+<testcase classname="spec.system.products_spec" name="Products when not login not displayed" file="./spec/system/products_spec.rb" time="0.004666"></testcase>
 </testsuite>
