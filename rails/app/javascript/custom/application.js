@@ -1,4 +1,7 @@
 $(document).on("turbolinks:load", function () {
+  $("#top-button").click(function () {
+    window.scroll({ top: 0, behavior: "smooth" });
+  });
   $(".close").click(function () {
     $(".flash-message").closest(".flash-message").transition("fade");
   });

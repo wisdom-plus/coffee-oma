@@ -20,8 +20,9 @@
     .ui.three.stackable.cards.segment.scroll#sidebar
       .ui.right.very.close.rail
         .ui.segment.sticky
-          a href="#"
-            i.chevron.circle.up.icon Top
+          .ui.labeled.icon.teal.button#top-button
+            i.up.arrow.icon
+            | Top
       - @products.each do |product|
         a.ui.fluid.link.card.post.scale href= product_path(product.id)
           .image
