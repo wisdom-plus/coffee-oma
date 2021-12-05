@@ -92,10 +92,10 @@
                       h3.header
                         =like.bean.name
       .ui.bottom.attached.tab.segment data-tab= "third"
-        - if @user.followings.empty?
+        - if @followings.empty?
           h4 まだフォローはしていません
         - else
-          - @user.followings.each do |user|
+          - @followings.each do |user|
             .ui.segment
               .ui.items
                 .item
@@ -107,10 +107,10 @@
                     .description
                       =simple_format(h(user.profile))
       .ui.bottom.attached.tab.segment data-tab= "four"
-        - if @user.followers.empty?
+        - if @followers.empty?
           h4 まだフォロワーはいません
         - else
-          - @user.followers.each do |user|
+          - @followers.each do |user|
             .ui.segment
               .ui.items
                 .item
