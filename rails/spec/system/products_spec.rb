@@ -61,13 +61,13 @@ RSpec.describe 'Products', type: :system do
 
     it 'search product' do
       fill_in 'search',	with: 'コーヒー'
-      find('.ui.icon.teal.button').click
+      find('#search').click
       expect(page).to have_content 'コーヒーの器具の名前'
     end
 
     it 'not search product1' do
       fill_in 'search',	with: 'コーヒー'
-      find('.ui.icon.teal.button').click
+      find('#search').click
       expect(page).to have_no_content '器具の名前が入ります'
     end
 

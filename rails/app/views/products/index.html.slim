@@ -13,7 +13,7 @@
         .eight.wide.field.form-centered
           .ui.action.input
             = f.search_field :itemname_cont, placeholder: "search"
-            = button_tag type: 'submit', class: "ui icon teal button" do
+            = button_tag type: 'submit', class: "ui icon teal button",id: 'search' do
               i.search.icon
 
   - if @products.present?
