@@ -41,10 +41,12 @@ resource "aws_ecs_task_definition" "terraform-task" { #タスク定義
 }
 
 data "template_file" "rails_task" {
-  template = file("${path.module}/task/terraform_container_definitions.json")
+  template = file("${path.module}/task/rails_container_definitions.json")
 
   vars = {
-    tfvar_file = var.tfvar_file
+    env_file    = var.env_file,
+    rails_image = var.rails_image,
+    nginx_image = var.nginx_image
   }
 }
 
