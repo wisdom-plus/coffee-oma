@@ -248,7 +248,15 @@ h1.ui.header.top-title{
 h1.ui.header{
   font-size: 3rem;
 }
-
+.ui.vertical.stripe h2{
+  font-size: 2rem;
+}
+.ui.vertical.stripe p {
+  font-size: 1.2em;
+}
+.row.icon-header {
+  margin: 1.33em 0;
+}
 .mb-12 {
   margin-bottom: 12px;
 }
