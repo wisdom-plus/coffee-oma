@@ -9,12 +9,10 @@
       h3
         |　なければ
         =link_to "こちらから登録", new_bean_path
-      = search_form_for @q ,class: "ui mini form"do |f|
-        .eight.wide.field.form-centered
-          .ui.action.input
-            = f.search_field :name_cont, placeholder: "search"
-            = button_tag type: 'submit', class: "ui icon teal button" do
-              i.search.icon
+      = search_form_for @q ,class: "ui mini form" do |f|
+        .inline.field.form-centered
+          = f.search_field :name_cont, placeholder: "search",class: 'mr-0 width-40'
+          = f.submit class: "ui icon teal button",id: 'search' do
 
   - if @beans.present?
     .ui.three.stackable.cards.segment.scroll#sidebar
