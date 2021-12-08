@@ -288,6 +288,10 @@ h1.ui.header.home_icon{
   margin: 4em 0em !important;
 }
 
+.p-4em{
+  padding: 4em 0em !important;
+}
+
 .mt-3rem {
   margin-top: 3rem !important;
 }
@@ -362,6 +366,9 @@ h1.ui.header.home_icon{
 }
 .six.wide.column > .ui.big.image{
   max-width: 150%;
+}
+#top_image_grid {
+  background-color: #FFFFFF
 }
 
 @media only screen and (max-width: 700px) {
