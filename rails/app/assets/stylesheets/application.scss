@@ -387,3 +387,8 @@ h1.ui.header.home_icon{
     display: none;
   }
 }
+@media only screen and (min-width: 992px) {
+  .top_review_min{
+    min-width: 360px;
+  }
+}

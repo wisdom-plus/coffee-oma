@@ -17,9 +17,6 @@ class ProductsController < ApplicationController
   end
 
   def index
-
-
-
     @q = Product.keywords_search(params[:q])
     @products = if params[:tag_name]
                   Product.tag_result(params[:tag_name], params[:page])
