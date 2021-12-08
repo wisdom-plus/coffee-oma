@@ -4,32 +4,39 @@
       |Coffee-oma
     h3
       |コーヒーアイテムのレビューサイト
-    .ui.huge.primary.animated.fade.button
+    =link_to products_path,class: "ui huge primary animated fade button" do
       .visible.content
         |Coffee-omaを始める
         i.right.arrow.icon
       .hidden.content
         |Let`s Start!
 
+.ui.vertical.stripe.segment.m-4em
+  .ui.middle.aligned.stackable.grid.container
+    .ten.wide.column
+      h2.ui.header
+        | 珈琲とは
+      p
+        | 生きてゆくのにどうしても必要では無いけれど、知れば知るほど、
+        br
+        | 広く、深く、目を開かせ、人生を豊かにする。珈琲はそういう、素敵なものの中のひとつです
+      h2.ui.header.mt-3rem
+        | これは適当です
+      p
+        | ここに文章が入ります
+      br
+        | ここに文章が入ります
+    .six.wide.right.floated.column
+      =image_tag 'coffee-image1' ,class: 'ui big bordered rounded image'
+
 .ui.container
-  .ui.vertical.stripe.segment
-    .ui.middle.aligned.stackable.grid.container
-      .ten.wide.column
-        h2.ui.header
-          | 珈琲とは
-        p
-          | 生きてゆくのにどうしても必要では無いけれど、知れば知るほど、
-          br
-          | 広く、深く、目を開かせ、人生を豊かにする。珈琲はそういう、素敵なものの中のひとつです
-      .six.wide.right.floated.column
-        =image_tag 'coffee-image' ,class: 'ui huge bordered rounded image'
   .ui.vertical.stripe.center.aligned.segment.grid.m-3rem
     .ui.text.container
-      h1.ui.header
+      h1.ui.header.home_icon
         |Coffee-omaとは
       p
         |コーヒーに関するすべてのアイテムの口コミ共有サービスです。
-    .row.icon-header
+    .row.m-3rem
       .five.wide.column
         h2.ui.icon.header
           i.coffee.icon

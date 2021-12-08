@@ -248,6 +248,9 @@ h1.ui.header.top-title{
 h1.ui.header{
   font-size: 3rem;
 }
+h1.ui.header.home_icon{
+  font-size: 4rem;
+}
 .ui.vertical.stripe h2{
   font-size: 2rem;
 }
@@ -255,7 +258,7 @@ h1.ui.header{
   font-size: 1.2em;
 }
 .row.icon-header {
-  margin: 1.33em 0;
+  margin: 2em 0;
 }
 .mb-12 {
   margin-bottom: 12px;
@@ -273,8 +276,16 @@ h1.ui.header{
   margin-bottom: 1rem !important;
 }
 
+.m-2em {
+  margin: 2em 0;
+}
+
 .m-3rem{
   margin: 3rem 0em !important;
+}
+
+.m-4em{
+  margin: 4em 0em !important;
 }
 
 .mt-3rem {
@@ -348,6 +359,9 @@ h1.ui.header{
 }
 .bean_review_rate_form {
   margin: 0.5em 0 !important;
+}
+.six.wide.column > .ui.big.image{
+  max-width: 150%;
 }
 
 @media only screen and (max-width: 700px) {
