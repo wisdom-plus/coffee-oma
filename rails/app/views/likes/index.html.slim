@@ -33,4 +33,8 @@
               .short.line
           i.yen.icon.m-0.display_none
             .inline_yen.display_none #{rank.itemprice.to_s(:delimited)}
+      .ui.popup data-id=i
+        .header
+          | 評価
+        .poprating id="rate-#{i}" data-rating= rank.rate_average_num
   .segment
