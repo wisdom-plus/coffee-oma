@@ -381,7 +381,7 @@ h1.ui.header.home_icon{
   background-color: #FFFFFF
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
   .inverted.menu .right.menu.toc {
     display: block;
   }
@@ -390,7 +390,13 @@ h1.ui.header.home_icon{
     display: none;
   }
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 1024px) {
+  #back-image {
+    background-position: center;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
   .top_review_min{
     min-width: 360px;
   }
