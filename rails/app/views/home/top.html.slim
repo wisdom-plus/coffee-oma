@@ -88,7 +88,8 @@
             .meta
               span Brand:  #{rank.shopname}
           .extra.content
-            i.heart.red.icon =rank.likes_count
+            i.heart.red.icon
+            | #{rank.likes_count}
     =link_to likes_path,class: "ui teal huge animated fade button" do
       .visible.content
         i.signal.icon
@@ -114,7 +115,7 @@
                   span.date #{time_ago_in_words(review.created_at)}前
                 .description
                   =simple_format(h(review.content))
-            a.item.five.wide.column href= product_path(review.product.id)
+            a.item.five.wide.column.pl-5em href= product_path(review.product.id)
               .ui.medium.image
                 =image_tag 'square-image.png', class: "lazyload",data: {src: "#{review.product.imageurl}"}
               .content
