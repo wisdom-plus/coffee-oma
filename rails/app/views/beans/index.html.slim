@@ -16,7 +16,7 @@
 
   - if @beans.present?
     .ui.three.stackable.cards.segment.scroll#sidebar
-      .ui.right.very.close.rail
+      .ui.right.close.rail
         .ui.sticky
           .ui.labeled.icon.teal.button#top-button
             i.up.arrow.icon
@@ -43,5 +43,9 @@
           .extra.content
             .ui.placeholder
               .short.line
+            i.comment.icon.display_none
+            | #{bean.review_count} reviews
+            i.heart.red.icon.display_none.ml-1rem
+            | #{bean.likes_count} likes
     = paginate @beans
     .segment

@@ -16,7 +16,7 @@
 
   - if @products.present?
     .ui.three.stackable.cards.segment.scroll#sidebar
-      .ui.right.very.close.rail
+      .ui.right.close.rail
         .ui.sticky
           .ui.labeled.icon.teal.button#top-button
             i.up.arrow.icon
@@ -42,7 +42,11 @@
           .extra.content
             .ui.placeholder
               .short.line
-            i.yen.icon.m-0.display_none
-            .inline_yen.display_none #{product.itemprice.to_s(:delimited)}
+            i.yen.icon.m-0.display_none #{product.itemprice.to_s(:delimited)}
+            .right.floated.display_none
+              i.heart.red.icon
+              | #{product.likes_count} likes
+              i.comment.icon.ml-1rem
+              | #{product.reviews_count} reviews
     = paginate @products
     .segment
