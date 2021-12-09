@@ -33,6 +33,9 @@
               .short.line
           i.yen.icon.m-0.display_none
             .inline_yen.display_none #{rank.itemprice.to_s(:delimited)}
+          .right.floated.display_none
+            i.heart.red.icon
+            | #{rank.likes_count}
       .ui.popup data-id=i
         .header
           | 評価
