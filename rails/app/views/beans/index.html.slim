@@ -39,11 +39,11 @@
               span Area:  #{bean.country}
               span Roast:  #{bean.roast}
             .description.display_none
-              =simple_format(h(bean.description.truncate(30)))
+              =simple_format(h(bean.description.truncate(50)))
           .extra.content
             .ui.placeholder
               .short.line
-            i.comment.icon.display_none
+            i.comment.teal.icon.display_none
             | #{bean.review_count} reviews
             i.heart.red.icon.display_none.ml-1rem
             | #{bean.likes_count} likes

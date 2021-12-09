@@ -34,7 +34,9 @@
           i.yen.icon.m-0.display_none
             .inline_yen.display_none #{rank.itemprice.to_s(:delimited)}
           .right.floated.display_none
-            i.heart.red.icon
+            i.comment.teal.icon
+            | #{rank.reviews_count} reviews
+            i.heart.red.icon.ml-1rem
             | #{rank.likes_count} likes
       .ui.popup data-id=i
         .header

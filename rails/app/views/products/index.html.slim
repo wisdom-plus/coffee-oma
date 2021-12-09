@@ -44,9 +44,9 @@
               .short.line
             i.yen.icon.m-0.display_none #{product.itemprice.to_s(:delimited)}
             .right.floated.display_none
-              i.heart.red.icon
-              | #{product.likes_count} likes
-              i.comment.icon.ml-1rem
+              i.comment.teal.icon
               | #{product.reviews_count} reviews
+              i.heart.red.icon.ml-1rem
+              | #{product.likes_count} likes
     = paginate @products
     .segment
