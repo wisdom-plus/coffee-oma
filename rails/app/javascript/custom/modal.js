@@ -10,7 +10,6 @@ $(document).on("turbolinks:load", function () {
     const changeurl = $("#report-modal-link")
       .attr("href")
       .replace(newurl, `review_id=${id}&type=${reviewclass}`);
-    console.log(url);
     $("#report-modal-link").attr("href", changeurl);
     $(".report-modal").modal("show");
   });
