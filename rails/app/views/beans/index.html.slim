@@ -9,17 +9,15 @@
       h3
         |　なければ
         =link_to "こちらから登録", new_bean_path
-      = search_form_for @q ,class: "ui mini form"do |f|
-        .eight.wide.field.form-centered
-          .ui.action.input
-            = f.search_field :name_cont, placeholder: "search"
-            = button_tag type: 'submit', class: "ui icon teal button" do
-              i.search.icon
+      = search_form_for @q ,class: "ui mini form" do |f|
+        .inline.field.form-centered
+          = f.search_field :name_cont, placeholder: "search",class: 'mr-0 width-40'
+          = f.submit class: "ui icon teal button",id: 'search' do
 
   - if @beans.present?
     .ui.three.stackable.cards.segment.scroll#sidebar
-      .ui.right.very.close.rail
-        .ui.segment.sticky
+      .ui.right.close.rail
+        .ui.sticky
           .ui.labeled.icon.teal.button#top-button
             i.up.arrow.icon
             | Top
@@ -41,9 +39,13 @@
               span Area:  #{bean.country}
               span Roast:  #{bean.roast}
             .description.display_none
-              =simple_format(h(bean.description.truncate(30)))
+              =simple_format(h(bean.description.truncate(50)))
           .extra.content
             .ui.placeholder
               .short.line
+            i.comment.teal.icon.display_none
+            | #{bean.review_count} reviews
+            i.heart.red.icon.display_none.ml-1rem
+            | #{bean.likes_count} likes
     = paginate @beans
     .segment

@@ -9,17 +9,15 @@
       h3
         | なければ
         = link_to 'こちらから登録', new_product_path
-      = search_form_for @q ,class: "ui mini form"do |f|
-        .eight.wide.field.form-centered
-          .ui.action.input
-            = f.search_field :itemname_cont, placeholder: "search"
-            = button_tag type: 'submit', class: "ui icon teal button",id: 'search' do
-              i.search.icon
+      = search_form_for @q ,class: "ui mini form" do |f|
+        .inline.field.form-centered
+          = f.search_field :itemname_cont, placeholder: "search",class: 'mr-0 width-40'
+          = f.submit class: "ui icon teal button",id: 'search' do
 
   - if @products.present?
     .ui.three.stackable.cards.segment.scroll#sidebar
-      .ui.right.very.close.rail
-        .ui.segment.sticky
+      .ui.right.close.rail
+        .ui.sticky
           .ui.labeled.icon.teal.button#top-button
             i.up.arrow.icon
             | Top
@@ -44,7 +42,11 @@
           .extra.content
             .ui.placeholder
               .short.line
-            i.yen.icon.m-0.display_none
-            .inline_yen.display_none #{product.itemprice.to_s(:delimited)}
+            i.yen.icon.m-0.display_none #{product.itemprice.to_s(:delimited)}
+            .right.floated.display_none
+              i.comment.teal.icon
+              | #{product.reviews_count} reviews
+              i.heart.red.icon.ml-1rem
+              | #{product.likes_count} likes
     = paginate @products
     .segment

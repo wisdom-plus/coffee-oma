@@ -62,7 +62,7 @@ class Review < ApplicationRecord
   end
 
   def self.show_review(product_id, page)
-    Review.associated_review(product_id).includes(:user, :product_review_likes).page(page).per(SHOW_DISPLAY_NUM)
+    Review.associated_review(product_id).includes(:user).page(page).per(SHOW_DISPLAY_NUM)
   end
 
   def self.user_review(user_id)

@@ -4,21 +4,43 @@
       |Coffee-oma
     h3
       |コーヒーアイテムのレビューサイト
-    .ui.huge.primary.animated.fade.button
+    =link_to products_path,class: "ui huge primary animated fade button" do
       .visible.content
         |Coffee-omaを始める
         i.right.arrow.icon
       .hidden.content
         |Let`s Start!
 
+.ui.vertical.stripe.segment.p-4em#top_image_grid
+  .ui.middle.aligned.stackable.grid.container
+    .ten.wide.column
+      h2.ui.header
+        | 珈琲とは
+      p
+        | 生きてゆくのにどうしても必要では無いけれど、知れば知るほど、
+        br
+        | 広く、深く、目を開かせ、人生を豊かにする。
+        br
+        | 珈琲はそういう、素敵なものの中のひとつです
+      h2.ui.header.mt-3rem
+        | あなたの”最高のコーヒー体験”を見つける
+      p
+        |見た目はどれも同じ褐色のコーヒーでも、それぞれまったく違う風味や味わいの個性を持っています。
+        br
+        | コーヒーの楽しみ方はさまざまです。よりおいしいく、より楽しくコーヒーを飲みたい。
+        br
+        | そんな想いがこのサイトを動かしています。
+    .six.wide.right.floated.column
+      =image_tag 'coffee-image' ,class: 'ui big bordered rounded image'
+
 .ui.container
   .ui.vertical.stripe.center.aligned.segment.grid.m-3rem
     .ui.text.container
-      h1.ui.header
+      h1.ui.header.home_icon
         |Coffee-omaとは
       p
         |コーヒーに関するすべてのアイテムの口コミ共有サービスです。
-    .row
+    .row.m-3rem
       .five.wide.column
         h2.ui.icon.header
           i.coffee.icon
@@ -66,7 +88,8 @@
             .meta
               span Brand:  #{rank.shopname}
           .extra.content
-            i.heart.icon =rank.likes_count
+            i.heart.red.icon
+            | #{rank.likes_count}
     =link_to likes_path,class: "ui teal huge animated fade button" do
       .visible.content
         i.signal.icon
@@ -84,7 +107,7 @@
             .topfaceicon.three.wide.center.aligned.column
               =image_tag "square-image.png",class:"ui centered circular image lazyload" ,data:{src:"#{review.user.icon.url}"}
               .ui.header = review.user.username
-            .says.eight.wide.column
+            .says.eight.wide.column.top_review_min
               .content
                 h3.header =review.title
                 .meta.review_meta
@@ -92,7 +115,7 @@
                   span.date #{time_ago_in_words(review.created_at)}前
                 .description
                   =simple_format(h(review.content))
-            a.item.five.wide.column href= product_path(review.product.id)
+            a.item.five.wide.column.pl-5em href= product_path(review.product.id)
               .ui.medium.image
                 =image_tag 'square-image.png', class: "lazyload",data: {src: "#{review.product.imageurl}"}
               .content

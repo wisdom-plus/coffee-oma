@@ -128,6 +128,10 @@ body,
   width: 640px;
 }
 
+#recipe_card {
+  width: 100%;
+}
+
 .ui.smallmedium.image {
   width: 200px;
   height: auto;
@@ -244,7 +248,18 @@ h1.ui.header.top-title{
 h1.ui.header{
   font-size: 3rem;
 }
-
+h1.ui.header.home_icon{
+  font-size: 4rem;
+}
+.ui.vertical.stripe h2{
+  font-size: 2rem;
+}
+.ui.vertical.stripe p {
+  font-size: 1.2em;
+}
+.row.icon-header {
+  margin: 2em 0;
+}
 .mb-12 {
   margin-bottom: 12px;
 }
@@ -256,13 +271,32 @@ h1.ui.header{
 .mr-1rem{
   margin-right: 1rem !important;
 }
+.ml-1rem{
+  margin-left: 1rem !important;
+}
 
 .mb-1rem{
   margin-bottom: 1rem !important;
 }
 
+.m-2em {
+  margin: 2em 0;
+}
+
+.pl-5em {
+  padding-left: 5em !important;
+}
+
 .m-3rem{
   margin: 3rem 0em !important;
+}
+
+.m-4em{
+  margin: 4em 0em !important;
+}
+
+.p-4em{
+  padding: 4em 0em !important;
 }
 
 .mt-3rem {
@@ -276,9 +310,16 @@ h1.ui.header{
 .m-0 {
   margin: 0 !important;
 }
+.mr-0{
+  margin-right: 0 !important;
+}
 
 .p-0 {
   padding: 0 !important;
+}
+
+.width-40{
+  width: 40% !important;
 }
 
 .titlecenter{
@@ -334,13 +375,36 @@ h1.ui.header{
 .turbolinks-progress-bar {
   height: 6px;
 }
+.bean_review_rate_form {
+  margin: 0.5em 0 !important;
+}
+.six.wide.column > .ui.big.image{
+  max-width: 150%;
+}
+#top_image_grid {
+  background-color: #FFFFFF
+}
+span.date {
+  margin-left: 0.7em ;
+}
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
   .inverted.menu .right.menu.toc {
     display: block;
   }
 
   .inverted.menu .right.menu.hide {
     display: none;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  #back-image {
+    background-position: center;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .top_review_min{
+    min-width: 360px;
   }
 }

@@ -11,7 +11,7 @@
 
   .ui.three.stackable.cards.segment.mt-3rem
     - @rankings.each.with_index(1) do |rank, i|
-      a.ui.fluid.link.card.post.scale href= product_path(rank.id) data-turbolinks="false"
+      a.ui.fluid.link.card.post.scale href= product_path(rank.id)
         .ui.image
           =image_tag "square-image.png" ,class: "lazyload-post",data: {src:"#{rank.imageurl.url}"}
           .ui.teal.top.left.attached.label
@@ -33,4 +33,13 @@
               .short.line
           i.yen.icon.m-0.display_none
             .inline_yen.display_none #{rank.itemprice.to_s(:delimited)}
+          .right.floated.display_none
+            i.comment.teal.icon
+            | #{rank.reviews_count} reviews
+            i.heart.red.icon.ml-1rem
+            | #{rank.likes_count} likes
+      .ui.popup data-id=i
+        .header
+          | 評価
+        .poprating id="rate-#{i}" data-rating= rank.rate_average_num
   .segment

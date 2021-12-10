@@ -7,6 +7,7 @@ RSpec.describe 'Reports', type: :system, js: true do
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }
   let(:review) { create(:review, user: user, product: product) }
+  let(:review1) { create(:review, user: user1, product: product) }
   let(:report) { create(:report, user: user1, review: review) }
 
   context 'when login' do
@@ -17,18 +18,19 @@ RSpec.describe 'Reports', type: :system, js: true do
     context 'review' do
       before do
         review
+        review1
         visit product_path(product.id)
       end
 
       it 'display button' do
-        expect(page).to have_link nil, href: reports_path(review_id: review.id, type: review.class)
+        first('.report-modal-button').click
+        expect(page).to have_link 'レビューを削除する', href: reports_path(review_id: review.id, type: review.class)
       end
 
       it 'click report button' do
-        page.accept_confirm do
-          click_link nil, href: reports_path(review_id: review.id, type: review.class)
-        end
-        expect(page).to have_content '通報しました'
+        first('.report-modal-button').click
+        click_link 'レビューを削除する', href: reports_path(review_id: review.id, type: review.class)
+        expect(page).to have_content 'レビューを通報しました。'
       end
 
       it 'review delete ' do
@@ -47,14 +49,14 @@ RSpec.describe 'Reports', type: :system, js: true do
       end
 
       it 'display button' do
-        expect(page).to have_link nil, href: reports_path(review_id: bean_review.id, type: bean_review.class)
+        first('.report-modal-button').click
+        expect(page).to have_link 'レビューを削除する', href: reports_path(review_id: bean_review.id, type: bean_review.class)
       end
 
       it 'click report button' do
-        page.accept_confirm do
-          click_link nil, href: reports_path(review_id: bean_review.id, type: bean_review.class)
-        end
-        expect(page).to have_content '通報しました'
+        first('.report-modal-button').click
+        click_link nil, href: reports_path(review_id: bean_review.id, type: bean_review.class)
+        expect(page).to have_content 'レビューを通報しました。'
       end
 
       it 'review delete ' do

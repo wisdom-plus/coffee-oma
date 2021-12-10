@@ -95,12 +95,12 @@
             = f.label :title, class: "four wide field"
             .ten.wide.field
               = f.label :title, class: 'display_none'
-              = f.text_field :title, placeholder: "title",id: 'title'
+              = f.text_field :title, placeholder: "title"
           .fields
             .four.wide.field
               p
               |　評価
-            .ten.wide.field
+            .ten.wide.field.bean_review_rate_form
               .two.wide.inline.field
                 = f.label :acidity
                 .ui.star.rating.form_rating data-taste="acidity"
@@ -128,11 +128,12 @@
               = f.text_area :content, placeholder: "content", id: 'content'
           .fields.ui.accordion
             .four.wide.field.title#accordion
-              i.dropdown.icon
-              font style="vertical-align: inherit;"
+              .ui.teal.button
+                i.dropdown.icon
                 font style="vertical-align: inherit;"
-                  |抽出レシピを登録する
-            .eleven.wide.field.inline.field
+                  font style="vertical-align: inherit;"
+                    |抽出レシピを登録する
+            .ten.wide.field.inline.field
               = render partial: "shared/recipe_form", locals: {f: f}
           .ui.error.message
           .field
@@ -141,3 +142,13 @@
                 |submit
               .hidden.content
                 |投稿
+  - else
+    .segment
+.ui.small.modal.report-modal
+  i.close.icon
+  .content
+    .description
+      h3.header.text-center
+        |本当によろしいですか？
+  .actions.text-center
+    = link_to 'レビューを削除する',reports_path(review_id: '',type: ''), method: :post, class: 'ui negative button', id: 'report-modal-link'
