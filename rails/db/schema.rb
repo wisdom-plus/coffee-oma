@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_123353) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
     t.integer "likes_count", default: 0, null: false
-    t.integer "review_count", default: 0, null: false
+    t.integer "reviews_count", default: 0, null: false
     t.index ["likes_count"], name: "index_beans_on_likes_count"
     t.index ["user_id"], name: "index_beans_on_user_id"
   end
