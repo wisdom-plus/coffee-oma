@@ -121,6 +121,24 @@ resource "aws_lb_listener" "https" { #HTTPSリスナーの定義
   }
 }
 
+resource "aws_lb_listener" "https" {
+  load_balancer_arn = aws_lb.portfolio-lb.arn
+  port              = "443"
+  protocol          = "HTTPS"
+  certificate_arn   = aws_acm_certificate.portfolio-acm.arn
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+
+  default_action {
+    type = "fixed-response"
+
+    fixed_response {
+      content_type = "text/html"
+      message_body = "これは「HTTPS」です"
+      status_code  = "503"
+    }
+  }
+}
+
 resource "aws_lb_target_group" "portfolio-target-group-http" { #ターゲットグループの定義
   name                 = "portfolio-http"
   target_type          = "ip"
@@ -159,4 +177,3 @@ resource "aws_lb_listener_rule" "portfolio-listener-rule-https" { #リスナー�
     }
   }
 }
-
