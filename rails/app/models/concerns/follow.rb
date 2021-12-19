@@ -26,5 +26,4 @@ module Follow
   def follow_user(other_user)
     relationships.find_by(follow_id: other_user.id)
   end
-
 end
