@@ -26,6 +26,7 @@
 #
 class User < ApplicationRecord
   include Follow
+  include LikesHasMany
 
   has_many :participant1_rooms, class_name: 'Room', foreign_key: 'participant1_id', dependent: :destroy, inverse_of: 'participant1'
   has_many :participant2_rooms, class_name: 'Room', foreign_key: 'participant2_id', dependent: :destroy, inverse_of: 'participant2'
@@ -34,11 +35,6 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :bean_reviews, dependent: :destroy
   has_many :reports, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  has_many :bean_likes, dependent: :destroy
-  has_many :product_likes, dependent: :destroy
-  has_many :product_review_likes, dependent: :destroy
-  has_many :bean_review_likes, dependent: :destroy
   has_many :histories, dependent: :destroy
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy, inverse_of: 'visitor'
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy, inverse_of: 'visited'
