@@ -58,7 +58,7 @@ class User < ApplicationRecord
   end
 
   def self.find_user(user_id)
-    User.includes(relationships: [:follow]).find(user_id)
+    User.includes(relationships: :follow).find(user_id)
   end
 
   def create_or_update_history(params)
