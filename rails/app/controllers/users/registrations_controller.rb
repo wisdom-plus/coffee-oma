@@ -40,7 +40,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @followers = @user.followers
     @followings = @user.followings
 
-
     return unless user_signed_in? && @user != current_user
 
     @room = Room.find_room(current_user, @user)
@@ -94,8 +93,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     def like_include(likes)
       preloader = ActiveRecord::Associations::Preloader.new
-      preloader.preload(likes.select{ |i| i.type == 'BeanLike' }, :bean)
-      preloader.preload(likes.select{ |i| i.type == 'ProductLike' }, :product)
+      preloader.preload(likes.select { |i| i.type == 'BeanLike' }, :bean)
+      preloader.preload(likes.select { |i| i.type == 'ProductLike' }, :product)
     end
 
   protected
