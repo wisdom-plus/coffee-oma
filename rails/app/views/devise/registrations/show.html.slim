@@ -50,10 +50,10 @@
         a.item data-tab= "third" フォロー中
         a.item data-tab= "four" フォロワー
       .ui.bottom.attached.tab.segment.active data-tab= "first"
-        -if @review.empty?
+        -if @reviews.empty?
           h4 まだ投稿はありません
         - else
-          - @review.each do |review|
+          - @reviews.each do |review|
             .ui.segment
               h4.ui.header
                 img.ui.circular.image src=review.product.imageurl alt="アイテム画像"
@@ -68,10 +68,10 @@
                   .description
                     =simple_format(h(review.content))
       .ui.bottom.attached.tab.segment data-tab= "second"
-        - if @like.empty?
+        - if @likes.empty?
           h4 まだお気に入りはありません
         -else
-          - @like.each do |like|
+          - @likes.each do |like|
             .ui.segment
               .ui.items
                 - if like.type == 'ProductLike'
