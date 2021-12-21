@@ -22,7 +22,7 @@ class BeansController < ApplicationController
     @tags = @bean.tag_counts_on(:tags)
     @bean_reviews = BeanReview.show_review(@bean.id, params[:page])
     @bean_review = BeanReviewForm.new
-    @like = current_user.bean_likes.find_by(params[:id]) if user_signed_in?
+    @like = current_user.bean_likes.find_by(liked_id: params[:id]) if user_signed_in?
   end
 
   def index

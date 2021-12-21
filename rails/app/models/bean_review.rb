@@ -31,7 +31,7 @@ class BeanReview < ApplicationRecord
            foreign_key: 'liked_id',
            dependent: :destroy,
            inverse_of: :bean_review
-  counter_culture :bean, column_name: 'review_count'
+  counter_culture :bean, column_name: 'reviews_count'
 
   scope :accociated_review, ->(associated_id) { where('bean_id= ?', associated_id) }
   scope :find_reviews, ->(review_id) { find_by(id: review_id) }

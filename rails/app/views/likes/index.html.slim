@@ -39,7 +39,13 @@
             i.heart.red.icon.ml-1rem
             | #{rank.likes_count} likes
       .ui.popup data-id=i
-        .header
-          | 評価
-        .poprating id="rate-#{i}" data-rating= rank.rate_average_num
+        -if rank.rate_average_num.nil?
+          .header
+            | 評価がありません
+          .poprating
+        - else
+          .header
+            | 評価
+          .poprating id="rate-#{i}" data-rating= rank.rate_average_num
+
   .segment

@@ -121,6 +121,7 @@ resource "aws_lb_listener" "https" { #HTTPSリスナーの定義
   }
 }
 
+
 resource "aws_lb_target_group" "portfolio-target-group-http" { #ターゲットグループの定義
   name                 = "portfolio-http"
   target_type          = "ip"
@@ -160,3 +161,23 @@ resource "aws_lb_listener_rule" "portfolio-listener-rule-https" { #リスナー�
   }
 }
 
+resource "aws_lb_listener_rule" "portfolio-listener-rule-maintenance" { #503リスナールールの定義
+  listener_arn = aws_lb_listener.https.arn
+  priority     = 1
+
+  action {
+    type             = "fixed-response"
+    fixed_response {
+      content_type = "text/html"
+      message_body = file("${path.module}/503.html")
+      status_code  = "503"
+    }
+  }
+
+
+  condition {
+    path_pattern {
+      values = ["/*"]
+    }
+  }
+}
