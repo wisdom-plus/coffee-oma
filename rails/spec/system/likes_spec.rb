@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Likes', type: :system, js: true do
   let(:user) { create(:user) }
   let(:user1) { create(:user, username: 'test1', email: 'test1@example.com') }
-  let(:product) { create(:product,user: user) }
-  let(:product1) { create(:product, itemname: 'コーヒー豆の種類', likes_count: 2,user: user) }
+  let(:product) { create(:product, user: user) }
+  let(:product1) { create(:product, itemname: 'コーヒー豆の種類', likes_count: 2, user: user) }
   let(:bean) { create(:bean, user: user) }
   let(:product_like) { create(:like, user: user, liked_id: product.id, type: 'ProductLike') }
   let(:bean_like) { create(:like, user: user, liked_id: bean.id, type: 'BeanLike') }
