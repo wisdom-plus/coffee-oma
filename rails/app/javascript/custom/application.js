@@ -30,15 +30,10 @@ $(document).on("turbolinks:load", function () {
     duration: 800,
     interval: 200,
     onComplete: function () {
-      $("img.lazyload-post", this).visibility({
-        type: "image",
-        transition: "scale in",
-        duration: 800,
-      });
       $(this).removeClass("scale");
+      $(this).children(".reveal").addClass("active");
       $(".placeholder").remove();
       $(".display_none").removeClass("display_none");
-      $("img.lazyload").visibility("refresh");
     },
   });
   Turbolinks.setProgressBarDelay(100);

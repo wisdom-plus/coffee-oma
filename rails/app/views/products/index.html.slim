@@ -23,8 +23,9 @@
             | Top
       - @products.each do |product|
         a.ui.fluid.link.card.post.scale href= product_path(product.id)
-          .image
-            = image_tag 'square-image.png',class: 'lazyload-post' ,data: {src: "#{product.imageurl.url}"}
+          .ui.fade.reveal.image
+            = image_tag 'square-image.png',class: 'visible content'
+            = image_tag product.imageurl.url,class: 'hidden content'
           .content
             .ui.placeholder
               .header
