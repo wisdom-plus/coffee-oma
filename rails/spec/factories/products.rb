@@ -14,10 +14,16 @@
 #  shopname      :string(255)
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  user_id       :bigint           not null
 #
 # Indexes
 #
 #  index_products_on_likes_count  (likes_count)
+#  index_products_on_user_id      (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
 #
 FactoryBot.define do
   factory :product do
@@ -28,5 +34,6 @@ FactoryBot.define do
     itemcaption { 'itemの説明文が入ります' }
     imageurl { File.open('./spec/support/noimage.png') }
     tag_list { 'コーヒー' }
+    user
   end
 end

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Reviews', type: :request do
-  let_it_be(:product) { create(:product) }
   let_it_be(:user) { create(:user) }
+  let_it_be(:product) { create(:product,user: user) }
   let_it_be(:review) { create(:review, user: user, product: product) }
   let_it_be(:review_params) { attributes_for(:review, user_id: user.id, product_id: product.id) }
 

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Reports', type: :system, js: true do
   let(:user) { create(:user) }
   let(:user1) { create(:user, email: 'test2@example.com', username: 'test2') }
-  let(:product) { create(:product) }
+  let(:product) { create(:product,user: user) }
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }
   let(:review) { create(:review, user: user, product: product) }

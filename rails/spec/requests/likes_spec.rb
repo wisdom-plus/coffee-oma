@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Likes', type: :request do
   let_it_be(:user) { create(:user) }
-  let_it_be(:product) { create(:product) }
+  let_it_be(:product) { create(:product,user: user) }
   let_it_be(:bean) { create(:bean, user: user) }
   let(:product_like) { create(:like, user: user, liked_id: product.id, type: 'ProductLike') }
   let(:bean_like) { create(:like, user: user, liked_id: bean.id, type: 'BeanLike') }

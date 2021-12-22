@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_123353) do
+ActiveRecord::Schema.define(version: 2021_12_22_055653) do
 
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -206,7 +206,9 @@ ActiveRecord::Schema.define(version: 2021_12_03_123353) do
     t.integer "likes_count", default: 0, null: false
     t.integer "reviews_count", default: 0, null: false
     t.integer "rate_sum", default: 0, null: false
+    t.bigint "user_id", null: false
     t.index ["likes_count"], name: "index_products_on_likes_count"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "recipes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -321,6 +323,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_123353) do
   add_foreign_key "notifications", "reviews"
   add_foreign_key "notifications", "users", column: "visited_id"
   add_foreign_key "notifications", "users", column: "visitor_id"
+  add_foreign_key "products", "users"
   add_foreign_key "recipes", "bean_reviews"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
