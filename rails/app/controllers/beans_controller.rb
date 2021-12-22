@@ -9,10 +9,9 @@ class BeansController < ApplicationController
   def create
     @bean = current_user.beans.new(bean_params)
     if @bean.save
-      flash[:success] = '登録に成功しました'
-      redirect_to beans_path
+      redirect_to beans_path, notice: '登録に成功しました。'
     else
-      flash[:error] = '登録に失敗しました'
+      flash.now[:alert] = '登録に失敗しました'
       render :new
     end
   end
