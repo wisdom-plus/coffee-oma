@@ -24,7 +24,7 @@ class BeansController < ApplicationController
       @bean_review = BeanReviewForm.new
       @like = current_user.bean_likes.find_by(liked_id: params[:id]) if user_signed_in?
     else
-      redirect_to beans_path,alert: '存在しないページです。'
+      redirect_to beans_path, alert: '存在しないページです。'
     end
   end
 
