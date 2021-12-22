@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Products', type: :request do
   let_it_be(:user) { create(:user) }
-  let_it_be(:product) { create(:product) }
+  let_it_be(:product) { create(:product, user: user) }
   let_it_be(:product_params) { attributes_for(:product) }
 
   describe 'GET /products' do

@@ -35,7 +35,8 @@ Product.create!(
   itemprice: 1027,
   itemurl: "https://www.amazon.co.jp/HARIO-%E3%83%8F%E3%83%AA%E3%82%AA-%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC-%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%89%E3%83%AA%E3%83%83%E3%83%97-VDG-01B/dp/B002VUP2M8/ref=sr_1_20?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&dchild=1&keywords=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC&qid=1615521096&sr=8-20",
   shopname: "HARIO",
-  tag_list: ["コーヒー" ,"ドリッパー", "HARIO", "V60"]
+  tag_list: ["コーヒー" ,"ドリッパー", "HARIO", "V60"],
+  user_id: 1
 )
 
 Product.create!(
@@ -48,7 +49,8 @@ Product.create!(
   itemprice: 417,
   itemurl: "https://www.amazon.co.jp/Kalita-%E3%82%AB%E3%83%AA%E3%82%BF-%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%A1%E3%82%B8%E3%83%A3%E3%83%BC-1-2%E4%BA%BA%E7%94%A8-04001/dp/B001TM6FF2/ref=psdc_251688011_t4_B002VUP2M8",
   shopname: "Kalita",
-  tag_list: ["コーヒー" ,"カリタ" ,"ドリッパー"]
+  tag_list: ["コーヒー" ,"カリタ" ,"ドリッパー"],
+  user_id: 2
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-03.jpg"),
@@ -62,7 +64,8 @@ Product.create!(
   itemprice: 1650,
   itemurl: "https://www.amazon.co.jp/%E3%82%AB%E3%83%AA%E3%82%BF-%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC-%E3%82%B9%E3%83%86%E3%83%B3%E3%83%AC%E3%82%B9%E8%A3%BD-%E3%82%A6%E3%82%A7%E3%83%BC%E3%83%96%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-04021/dp/B004W5L1XY/ref=rtpb_17?pd_rd_w=j47TD&pf_rd_p=c221ae92-96f8-424c-884c-196b2fc439b0&pf_rd_r=DVH847KYHQYS2NKNT365&pd_rd_r=e086efea-4a5b-4832-bbfa-e860a0963f39&pd_rd_wg=VUQ1u&pd_rd_i=B004W5L1XY&psc=1",
   shopname: "Kalita",
-  tag_list: ["コーヒー", "カリタ", "ドリッパー", "ウェーブドリッパー"]
+  tag_list: ["コーヒー", "カリタ", "ドリッパー", "ウェーブドリッパー"],
+  user_id: 3
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-04.jpg"),
@@ -73,7 +76,8 @@ Product.create!(
   itemprice: 6682,
   itemurl: "https://www.amazon.co.jp/dp/B00TF7AJ64/ref=sspa_dk_detail_2?psc=1&pd_rd_i=B00TF7AJ64p13NParams&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyOVFMVUpEQTJYQ1FVJmVuY3J5cHRlZElkPUEwODUzNjE5RjUyRkg3VVRKMEwzJmVuY3J5cHRlZEFkSWQ9QTNMQlIyU1pXWUtKS1gmd2lkZ2V0TmFtZT1zcF9kZXRhaWwyJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==",
   shopname: "HARIO",
-  tag_list: ["コーヒー" ,"スケール", "HARIO", "V60"]
+  tag_list: ["コーヒー" ,"スケール", "HARIO", "V60"],
+  user_id: 4
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-05.jpg"),
@@ -85,7 +89,8 @@ Product.create!(
   itemprice: "2118",
   itemurl: "https://www.amazon.co.jp/HARIO-%E3%83%8F%E3%83%AA%E3%82%AA-%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%9F%E3%83%AB-%E3%82%BB%E3%83%A9%E3%83%9F%E3%83%83%E3%82%AF-MSS-1TB/dp/B001804CLY/ref=rtpb_1?pd_rd_w=zKV8Y&pf_rd_p=c221ae92-96f8-424c-884c-196b2fc439b0&pf_rd_r=GQEG37KEA87W4MKJRSVQ&pd_rd_r=1fc8179a-32ef-42f5-8b88-ec4c4161355f&pd_rd_wg=sPx9o&pd_rd_i=B001804CLY&psc=1",
   shopname: "HARIO",
-  tag_list: ["コーヒー", "コーヒーミル", "ハリオ", "HARIO", "ミル"]
+  tag_list: ["コーヒー", "コーヒーミル", "ハリオ", "HARIO", "ミル"],
+  user_id: 5
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-06.jpg"),
@@ -96,7 +101,8 @@ Product.create!(
   itemprice: 265,
   itemurl: "https://www.amazon.co.jp/%E3%82%AB%E3%83%AA%E3%82%BF-%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC-%E3%82%A6%E3%82%A7%E3%83%BC%E3%83%96%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-KWF-155-22211/dp/B077GNRRM7/ref=pd_rhf_dp_s_pd_crcd_3?pd_rd_w=OZm3y&pf_rd_p=c64ec15c-e5a8-4bbe-8e01-8e7767b5ef59&pf_rd_r=0ZBWYR3CA0FXXX78R49Y&pd_rd_r=7423904f-a731-4f7f-a4b7-7f7205329884&pd_rd_wg=lk4fH&pd_rd_i=B077GNRRM7&psc=1",
   shopname: "Kalita",
-  tag_list: ["コーヒー" ,"カリタ" ,"ウェーブ", "コーヒーフィルター", "ホワイト"]
+  tag_list: ["コーヒー" ,"カリタ" ,"ウェーブ", "コーヒーフィルター", "ホワイト"],
+  user_id: 6
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-07.jpg"),
@@ -111,7 +117,8 @@ Product.create!(
   itemprice: 5335,
   itemurl: "https://www.amazon.co.jp/dp/B076H5SW81/ref=sspa_dk_detail_6?psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzTEUzOEg1VTI3V1FWJmVuY3J5cHRlZElkPUEwMTkxOTk0Mk5ONDdLM0k2TVdZVSZlbmNyeXB0ZWRBZElkPUFKOTNSVkpSUDRQR0wmd2lkZ2V0TmFtZT1zcF9kZXRhaWwyJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==",
   shopname: "シービージャパン",
-  tag_list: ["コーヒー" ,"ドリップケトル", "シービージャパン", "ブラック"]
+  tag_list: ["コーヒー" ,"ドリップケトル", "シービージャパン", "ブラック"],
+  user_id: 7
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-08.jpg"),
@@ -124,7 +131,8 @@ Product.create!(
   itemprice: 5700,
   itemurl: "https://www.amazon.co.jp/dp/B07YCSF8VP/ref=sspa_dk_detail_4?psc=1&pd_rd_i=B07YCSF8VP&pd_rd_w=nBFKI&pf_rd_p=cc3bc4d9-2af6-4e19-b3b8-31051adadc9e&pd_rd_wg=0x2Pi&pf_rd_r=CWXRTAF3WZK32SYCA541&pd_rd_r=a5fcede2-5176-42a4-8530-6a85ca96866f&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzM1laOFNPWFUxOTlPJmVuY3J5cHRlZElkPUEwMDMxMDYzMzBXRUVPNjA1TDdYTSZlbmNyeXB0ZWRBZElkPUExWUpCSkNYQjY0SjZUJndpZGdldE5hbWU9c3BfZGV0YWlsJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==",
   shopname: "TIMEMORE",
-  tag_list: ["コーヒー", "コーヒースケール", "TIMEMORE","ホワイト", "ブラック"]
+  tag_list: ["コーヒー", "コーヒースケール", "TIMEMORE","ホワイト", "ブラック"],
+  user_id: 8
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-09.jpg"),
@@ -138,7 +146,8 @@ Product.create!(
   itemprice: 1545,
   itemurl: "https://www.amazon.co.jp/HARIO-%E3%83%8F%E3%83%AA%E3%82%AA-%E3%83%AC%E3%83%B3%E3%82%B8%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC-%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%89%E3%83%AA%E3%83%83%E3%83%97-XGS-60TB/dp/B000P4931S/ref=rtpb_1?pd_rd_w=e6U7t&pf_rd_p=c221ae92-96f8-424c-884c-196b2fc439b0&pf_rd_r=N9DBW7BD51BFJ7KCQEN0&pd_rd_r=f70fbe62-9f5e-4815-bf9c-d3deb8687589&pd_rd_wg=0k4zY&pd_rd_i=B000P4931S&psc=1",
   shopname: "HARIO",
-  tag_list: ["コーヒー", "サーバー", "ハリオ" ,"コーヒーサーバー" ,"V60"]
+  tag_list: ["コーヒー", "サーバー", "ハリオ" ,"コーヒーサーバー" ,"V60"],
+  user_id: 9
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-10.jpg"),
@@ -149,7 +158,8 @@ Product.create!(
   itemprice: 5940,
   itemurl: "https://www.amazon.co.jp/%E3%82%A8%E3%82%A2%E3%83%AD%E3%83%97%E3%83%AC%E3%82%B9-AEROPRESS-%E3%82%A8%E3%82%A2%E3%83%AD%E3%83%97%E3%83%AC%E3%82%B9%E3%82%B4%E3%83%BC/dp/B086LFKT6T/ref=sr_1_8?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&dchild=1&keywords=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC+%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0&qid=1615528194&sr=8-8",
   shopname: "エアロプレス",
-  tag_list: ["コーヒー" ,"エアロプレス" ,"エアロプレスGO"]
+  tag_list: ["コーヒー" ,"エアロプレス" ,"エアロプレスGO"],
+  user_id: 10
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-11.jpg"),
@@ -160,7 +170,8 @@ Product.create!(
   itemprice: 3960,
   itemurl: "https://www.tonya.co.jp/shop/g/g39458/",
   shopname: "HARIO",
-  tag_list: ["コーヒー" ,"HARIO" ,"ドリップポット","ネルドリップ"]
+  tag_list: ["コーヒー" ,"HARIO" ,"ドリップポット","ネルドリップ"],
+  user_id: 11
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-12.jpg"),
@@ -170,7 +181,8 @@ Product.create!(
   itemprice: 997,
   itemurl: "https://www.tonya.co.jp/shop/g/g39476/",
   shopname: "HARIO",
-  tag_list: ["コーヒー" ,"HARIO" ,"水出しコーヒー"]
+  tag_list: ["コーヒー" ,"HARIO" ,"水出しコーヒー"],
+  user_id: 12
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-13.jpg"),
@@ -190,7 +202,8 @@ Product.create!(
   itemprice: 3173,
   itemurl: "https://www.amazon.co.jp/BIALETTI-%E3%83%93%E3%82%A2%E3%83%AC%E3%83%83%E3%83%86%E3%82%A3-06799-%E3%83%A2%E3%82%AB%E3%82%A8%E3%82%AD%E3%82%B9%E3%83%97%E3%83%AC%E3%82%B9-3%E3%82%AB%E3%83%83%E3%83%97/dp/B0000AN3QI/ref=sr_1_7?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&keywords=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%2B%E5%99%A8%E5%85%B7&qid=1638594643&sr=8-7&th=1",
   shopname: "BIALETTI",
-  tag_list: ["コーヒー" ,"BIALETTI" ,"水出しコーヒー","マキネッタ","モカエキスプレス"]
+  tag_list: ["コーヒー" ,"BIALETTI" ,"水出しコーヒー","マキネッタ","モカエキスプレス"],
+  user_id: 1
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-14.jpg"),
@@ -203,7 +216,8 @@ Product.create!(
   itemprice: 2200,
   itemurl: "https://www.amazon.co.jp/%E4%B8%8B%E6%9D%91%E4%BC%81%E8%B2%A9-%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC-%E5%89%B2%E3%82%8C%E3%81%AB%E3%81%8F%E3%81%84%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC-%E6%B0%B4%E5%87%BA%E3%81%97%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC%E4%BB%98%E3%81%8D-42922/dp/B08R849PX9/ref=sr_1_78?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&keywords=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%2B%E5%99%A8%E5%85%B7&qid=1638595316&sr=8-78&th=1",
   shopname: "下村企販",
-  tag_list: ["コーヒー" ,"下村企販" ,"水出しコーヒー","コーヒーサーバー","樹脂製"]
+  tag_list: ["コーヒー" ,"下村企販" ,"水出しコーヒー","コーヒーサーバー","樹脂製"],
+  user_id: 1
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-15.jpg"),
@@ -217,7 +231,8 @@ Product.create!(
   itemprice: 1980,
   itemurl: "https://www.amazon.co.jp/%E4%B8%8B%E6%9D%91%E4%BC%81%E8%B2%A9-%E7%8F%88%E7%90%B2%E8%80%83%E5%85%B7-%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC-%E3%83%AF%E3%83%B3%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC-42158/dp/B07ZRZZCRF/ref=pd_vtp_21/355-5607422-3177714?pd_rd_w=EfClA&pf_rd_p=949e26f5-c2ef-4c96-bfde-49d7614d0317&pf_rd_r=A73PYSP81BPBM0B6HN4Z&pd_rd_r=fb2d6e4e-7295-4c99-a7ca-235883a96d87&pd_rd_wg=mk0wP&pd_rd_i=B07ZRZZCRF&th=1",
   shopname: "下村企販",
-  tag_list: ["コーヒー" ,"下村企販" ,"アウトドア","コーヒードリッパー","ステンレス"]
+  tag_list: ["コーヒー" ,"下村企販" ,"アウトドア","コーヒードリッパー","ステンレス"],
+  user_id: 2
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-16.jpg"),
@@ -229,7 +244,8 @@ Product.create!(
   itemprice: 500,
   itemurl: "https://www.amazon.co.jp/%E3%82%AB%E3%83%AA%E3%82%BF-%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%A1%E3%82%B8%E3%83%A3%E3%83%BC-%E9%8A%85-10g-44001/dp/B000HA9M6Q/ref=pd_vtp_54/355-5607422-3177714?pd_rd_w=8ZzLu&pf_rd_p=949e26f5-c2ef-4c96-bfde-49d7614d0317&pf_rd_r=TGG1B1K6RAX8JKQCFK8S&pd_rd_r=8affae14-78a8-4c7f-95a9-b26d381dd526&pd_rd_wg=Vo79W&pd_rd_i=B000HA9M6Q&th=1",
   shopname: "カリタ",
-  tag_list: ["コーヒー" ,"カリタ" ,"銅製","コーヒーメジャー"]
+  tag_list: ["コーヒー" ,"カリタ" ,"銅製","コーヒーメジャー"],
+  user_id: 4
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-17.jpg"),
@@ -239,7 +255,8 @@ Product.create!(
   itemprice: 4025,
   itemurl: "https://www.amazon.co.jp/%E3%80%90%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91-%E3%83%9C%E3%83%80%E3%83%A0-CHAMBORD-%E3%83%95%E3%83%AC%E3%83%B3%E3%83%81%E3%83%97%E3%83%AC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC-1923-16J/dp/B0051OOM68/ref=sr_1_41?keywords=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC&pd_rd_r=955e7adf-a13f-4b22-aafe-4e7cf5be397c&pd_rd_w=BmVEm&pd_rd_wg=bygyc&pf_rd_p=4c715b9a-8add-4447-8dd3-50bc5addefdb&pf_rd_r=6QK8D2RN7CSVDDYQ4VHE&qid=1638597608&sr=8-41&th=1",
   shopname: "ボダム",
-  tag_list: ["コーヒー" ,"ボダム" ,"フレンチプレス","コーヒーメーカー"]
+  tag_list: ["コーヒー" ,"ボダム" ,"フレンチプレス","コーヒーメーカー"],
+  user_id: 7
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-18.jpg"),
@@ -249,7 +266,8 @@ Product.create!(
   itemprice: 1798,
   itemurl: "https://www.amazon.co.jp/KONO%E5%BC%8F-%E7%8F%88%E7%90%B2%E3%82%B5%E3%82%A4%E3%83%95%E3%82%A9%E3%83%B3-%E5%90%8D%E9%96%80%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC-MDK%E5%9E%8B-MDK-21/dp/B08GZ3XN7B/ref=sr_1_8?keywords=KONO&qid=1638598649&s=home&search-type=ss&sr=1-8",
   shopname: "KONO",
-  tag_list: ["コーヒー" ,"KONO" ,"名門ドリッパー","コーヒードリッパー","2人用"]
+  tag_list: ["コーヒー" ,"KONO" ,"名門ドリッパー","コーヒードリッパー","2人用"],
+  user_id: 2
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-19.jpg"),
@@ -258,7 +276,8 @@ Product.create!(
   itemprice: 898,
   itemurl: "https://www.amazon.co.jp/%EF%BC%AB%EF%BC%AF%EF%BC%AE%EF%BC%AF-%E3%82%B3%E3%83%BC%E3%83%8E%E5%BC%8F%E3%83%9A%E3%83%BC%E3%83%91%E3%83%BC-1%EF%BD%9E2%E4%BA%BA%E7%94%A8-100%E6%9E%9A%E5%85%A5%E3%82%8A/dp/B006QQWA7S/ref=pb_allspark_dp_sims_pao_desktop_session_based_2/355-5607422-3177714?pd_rd_w=cAOdr&pf_rd_p=2562f525-4075-4561-9863-48d7a49161bd&pf_rd_r=NDY5DS9AN96PYT6PR6Q2&pd_rd_r=08525c10-f4df-4015-bd33-2b9aba965155&pd_rd_wg=PX5ox&pd_rd_i=B006QQWA7S&psc=1",
   shopname: "KONO",
-  tag_list: ["コーヒー" ,"KONO" ,"名門ドリッパー","ペーパー","1~2人用"]
+  tag_list: ["コーヒー" ,"KONO" ,"名門ドリッパー","ペーパー","1~2人用"],
+  user_id: 10
 )
 Product.create!(
   imageurl:File.open("./public/seed/product-20.jpg"),
@@ -268,7 +287,8 @@ Product.create!(
   itemprice: 3630,
   itemurl: "https://www.amazon.co.jp/%E3%82%A4%E3%83%AB%E3%82%AB%E3%83%8A-Ilcana-ILB-001-MT-FUJI-%E5%AF%8C%E5%A3%AB%E5%B1%B1%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC/dp/B072X1VGWK/ref=sr_1_140?keywords=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%89%E3%83%AA%E3%83%83%E3%83%91%E3%83%BC&pd_rd_r=955e7adf-a13f-4b22-aafe-4e7cf5be397c&pd_rd_w=BmVEm&pd_rd_wg=bygyc&pf_rd_p=4c715b9a-8add-4447-8dd3-50bc5addefdb&pf_rd_r=6QK8D2RN7CSVDDYQ4VHE&qid=1638598452&sr=8-140&th=1",
   shopname: "イルカナ",
-  tag_list: ["コーヒー" ,"イルカナ","コーヒードリッパー","富士山ドリッパー"]
+  tag_list: ["コーヒー" ,"イルカナ","コーヒードリッパー","富士山ドリッパー"],
+  user_id: 9
 )
 Bean.create!(
   area:"スルミナス",

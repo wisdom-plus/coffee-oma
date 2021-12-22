@@ -14,10 +14,16 @@
 #  shopname      :string(255)
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  user_id       :bigint           not null
 #
 # Indexes
 #
 #  index_products_on_likes_count  (likes_count)
+#  index_products_on_user_id      (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
 #
 class Product < ApplicationRecord
   has_many :reviews, dependent: :destroy
@@ -26,6 +32,7 @@ class Product < ApplicationRecord
            foreign_key: 'liked_id',
            dependent: :destroy,
            inverse_of: :product
+  belongs_to :user
 
   mount_uploader :imageurl, ImageurlUploader
   acts_as_taggable
