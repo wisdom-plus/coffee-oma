@@ -26,13 +26,17 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
-    @tags = @product.tag_counts_on(:tags)
-    @rate = @product.rate_average_num
-    @rate_average = @product.rate_average
-    @review = Review.new
-    @reviews = Review.show_review(@product.id, params[:page])
-    @like = current_user.product_likes.find_by(liked_id: params[:id]) if user_signed_in?
+    @product = Product.find_by(id: params[:id])
+    if @product
+      @tags = @product.tag_counts_on(:tags)
+      @rate = @product.rate_average_num
+      @rate_average = @product.rate_average
+      @review = Review.new
+      @reviews = Review.show_review(@product.id, params[:page])
+      @like = current_user.product_likes.find_by(liked_id: params[:id]) if user_signed_in?
+    else
+      redirect_to products_path, alert: '存在しないページです。'
+    end
   end
 
   private
