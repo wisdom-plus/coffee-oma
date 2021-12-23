@@ -46,10 +46,22 @@ RSpec.describe 'History', type: :system do
       end.to change(History, :count).by 1
     end
 
+    it 'not create history(product)' do
+      expect do
+        visit product_path(product.id + 1)
+      end.to change(History, :count).by 0
+    end
+
     it 'create history(bean)' do
       expect do
         visit bean_path(bean.id)
       end.to change(History, :count).by 1
+    end
+
+    it 'create history(bean)' do
+      expect do
+        visit bean_path(bean.id + 1)
+      end.to change(History, :count).by 0
     end
 
     it 'check the order of history' do
