@@ -2,8 +2,8 @@ $(document).on("turbolinks:load", function () {
   $("#top-button").click(function () {
     window.scroll({ top: 0, behavior: "smooth" });
   });
-  $(".close").click(function () {
-    $(".flash-message").closest(".flash-message").transition("fade");
+  $(".flash-message > .close").click(function () {
+    $(".flash-message").closest(".ui.container.top-padding").transition("fade");
   });
   $(".ui.accordion").accordion();
   $(".sidebar.icon").on("click", function () {
