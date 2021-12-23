@@ -84,6 +84,7 @@ RSpec.describe 'Beans', type: :system do
     it 'redirect index(bean not exists)' do
       visit bean_path(bean.id + 1)
       expect(page).to have_current_path beans_path, ignore_query: true
+      expect(page).to have_content '存在しないページです。'
     end
   end
 end

@@ -102,6 +102,7 @@ RSpec.describe 'Products', type: :system do
       it 'redirect index(product not exists)' do
         visit product_path(product.id + 1)
         expect(page).to have_current_path products_path, ignore_query: true
+        expect(page).to have_content '存在しないページです。'
       end
     end
   end
