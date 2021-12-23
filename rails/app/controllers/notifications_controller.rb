@@ -3,7 +3,7 @@ class NotificationsController < ApplicationController
   after_action -> { Notification.checked_notifications(current_user.id) }
 
   def index
-    @notifications = current_user.passive_notifications.includes([:visitor], [:review], [:message]).page(params[:page]).per(25).history_order
+    @notifications = current_user.passive_notifications.includes(:visitor, :review, :message).page(params[:page]).per(25).history_order
     @follow_notifications = @notifications.action_follow
     @like_notifications = @notifications.action_like
     @message_notifications = @notifications.action_message
