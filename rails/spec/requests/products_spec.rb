@@ -52,5 +52,10 @@ RSpec.describe 'Products', type: :request do
       get product_path(product.id)
       expect(response).to have_http_status(:ok)
     end
+
+    it 'request fail' do
+      get product_path(product.id + 1)
+      expect(response).to have_http_status(:found)
+    end
   end
 end
