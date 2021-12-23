@@ -24,7 +24,7 @@ class News < ApplicationRecord
   belongs_to :user, class_name: 'AdminUser', optional: true
 
   scope :public_list, -> { where(['publicshed_at < ?', Time.current]) }
-  scope :latest, ->{ order("publicshed_at DESC").limit(5) }
+  scope :latest, -> { order('publicshed_at DESC').limit(5) }
 
   def activate
     update(active: true)
