@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="7" skipped="0" failures="0" errors="0" time="17.654177" timestamp="2021-12-23T02:59:09+00:00" hostname="db450f1eea25">
+<testsuite name="rspec" tests="12" skipped="0" failures="0" errors="0" time="25.828444" timestamp="2021-12-23T03:08:36+00:00" hostname="db450f1eea25">
 <properties>
-<property name="seed" value="19837"/>
+<property name="seed" value="31432"/>
 </properties>
-<testcase classname="spec.requests.products_spec" name="Products GET /products request success" file="./spec/requests/products_spec.rb" time="16.615525"></testcase>
-<testcase classname="spec.requests.products_spec" name="Products GET /products request success(tag_name)" file="./spec/requests/products_spec.rb" time="0.126309"></testcase>
-<testcase classname="spec.requests.products_spec" name="Products GET /products/new request success" file="./spec/requests/products_spec.rb" time="0.141793"></testcase>
-<testcase classname="spec.requests.products_spec" name="Products POST /products request success" file="./spec/requests/products_spec.rb" time="0.053200"></testcase>
-<testcase classname="spec.requests.products_spec" name="Products POST /products created product" file="./spec/requests/products_spec.rb" time="0.052131"></testcase>
-<testcase classname="spec.requests.products_spec" name="Products GET /products/:id request success" file="./spec/requests/products_spec.rb" time="0.154578"></testcase>
-<testcase classname="spec.requests.products_spec" name="Products GET /products/:id request fail" file="./spec/requests/products_spec.rb" time="0.033785"></testcase>
+<testcase classname="spec.system.products_spec" name="Products new when login create product" file="./spec/system/products_spec.rb" time="17.337304"></testcase>
+<testcase classname="spec.system.products_spec" name="Products new when login redirect index(product)" file="./spec/system/products_spec.rb" time="0.702335"></testcase>
+<testcase classname="spec.system.products_spec" name="Products new when not login redirect sign_in" file="./spec/system/products_spec.rb" time="0.150362"></testcase>
+<testcase classname="spec.system.products_spec" name="Products index displayed product" file="./spec/system/products_spec.rb" time="0.652848"></testcase>
+<testcase classname="spec.system.products_spec" name="Products index redirect show" file="./spec/system/products_spec.rb" time="1.071312"></testcase>
+<testcase classname="spec.system.products_spec" name="Products index search product" file="./spec/system/products_spec.rb" time="1.124333"></testcase>
+<testcase classname="spec.system.products_spec" name="Products index not search product1" file="./spec/system/products_spec.rb" time="0.857058"></testcase>
+<testcase classname="spec.system.products_spec" name="Products index search product tag" file="./spec/system/products_spec.rb" time="0.905445"></testcase>
+<testcase classname="spec.system.products_spec" name="Products show when login display" file="./spec/system/products_spec.rb" time="1.177934"></testcase>
+<testcase classname="spec.system.products_spec" name="Products show when login redirect index(tag)" file="./spec/system/products_spec.rb" time="1.004462"></testcase>
+<testcase classname="spec.system.products_spec" name="Products show when login redirect index(product not exists)" file="./spec/system/products_spec.rb" time="0.828395"></testcase>
+<testcase classname="spec.system.products_spec" name="Products when not login not displayed" file="./spec/system/products_spec.rb" time="0.006408"></testcase>
 </testsuite>
