@@ -1,0 +1,37 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "721cc0f7e63d045b25bb57e18215cbe01a02b529bfda1f3fc5e543217c24d645",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/news/show.html.slim",
+      "line": 15,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "News.find_by(:id => params[:id]).content",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "NewsController",
+          "method": "show",
+          "line": 25,
+          "file": "app/controllers/news_controller.rb",
+          "rendered": {
+            "name": "news/show",
+            "file": "app/views/news/show.html.slim"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "news/show"
+      },
+      "user_input": null,
+      "confidence": "Medium",
+      "note": ""
+    }
+  ],
+  "updated": "2021-12-23 06:57:06 +0000",
+  "brakeman_version": "5.0.4"
+}

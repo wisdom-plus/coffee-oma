@@ -48,7 +48,7 @@ class NewsController < ApplicationController
     end
 
     def active?
-      @news = News.find(params[:id])
+      @news = News.find_by(id: params[:id])
       if @news.publicshed?
         @news.activate unless @news.active
       else
@@ -57,6 +57,6 @@ class NewsController < ApplicationController
     end
 
     def find_news
-      @news = News.find(params[:id])
+      @news = News.find_by(id: params[:id])
     end
 end
