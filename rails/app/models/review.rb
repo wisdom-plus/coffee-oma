@@ -42,8 +42,8 @@ class Review < ApplicationRecord
   scope :associated_user_review, ->(associated_user_id) { where(user_id: associated_user_id) }
   scope :sort_by_created_at, -> { order('created_at DESC') }
 
-  def like_record(liker_id)
-    product_review_likes.find_by(user_id: liker_id)
+  def like_record(like_id)
+    product_review_likes.find_by(user_id: like_id)
   end
 
   def create_notification_like(current_user)
