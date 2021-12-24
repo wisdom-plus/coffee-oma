@@ -98,11 +98,4 @@
   = paginate @bean_reviews
   .ui.section.divider
   = render partial: 'shared/bean_review_form', locals: {bean_review: @bean_review, bean: @bean}
-.ui.small.modal.report-modal
-  i.close.icon
-  .content
-    .description
-      h3.header.text-center
-        |本当によろしいですか？
-  .actions.text-center
-    = link_to 'レビューを削除する',reports_path(review_id: '',type: ''), method: :post, class: 'ui negative button', id: 'report-modal-link'
+=render partial: 'shared/report_modal'
