@@ -43,7 +43,7 @@ class BeanReviewForm
       {
         title: title, content: content, acidity: acidity,
         flavor: flavor, rich: rich, sweet: sweet,
-        bean_id: bean_id, user: user
+        bitter: bitter,bean_id: bean_id, user: user
       }
     end
 

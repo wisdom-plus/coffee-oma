@@ -70,7 +70,12 @@
             .content
               h3.header = review.title
               .meta
-                span.date #{time_ago_in_words(review.created_at)}前
+                span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.acidity}"
+                span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.sweet}"
+                span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rich}"
+                span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.bitter}"
+                span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.flavor}"
+                span #{time_ago_in_words(review.created_at)}前
               .description
                 =simple_format(h(review.content))
               .extra
