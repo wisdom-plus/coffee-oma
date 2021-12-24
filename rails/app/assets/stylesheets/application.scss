@@ -271,6 +271,11 @@ h1.ui.header.home_icon{
 .mr-1rem{
   margin-right: 1rem !important;
 }
+
+.mr-05em{
+  margin-right: 0.5em !important;
+}
+
 .ml-1rem{
   margin-left: 1rem !important;
 }
@@ -391,7 +396,9 @@ h1.ui.header.home_icon{
 span.date {
   margin-left: 0.7em ;
 }
-
+.ui.accordion.recipe_accordion {
+  max-width: 120%;
+}
 @media only screen and (max-width: 768px) {
   .inverted.menu .right.menu.toc {
     display: block;

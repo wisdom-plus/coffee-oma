@@ -70,12 +70,18 @@
             .content
               h3.header = review.title
               .meta
-                span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.acidity}"
-                span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.sweet}"
-                span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rich}"
-                span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.bitter}"
-                span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.flavor}"
                 span #{time_ago_in_words(review.created_at)}前
+              .meta.review_meta
+                span.mr-05em 酸味
+                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.acidity}"
+                span.mr-05em 苦味
+                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.bitter}"
+                span.mr-05em 甘み
+                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.sweet}"
+                span.mr-05em コク
+                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.rich}"
+                span.mr-05em 風味
+                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.flavor}"
               .description
                 =simple_format(h(review.content))
               .extra
@@ -104,7 +110,7 @@
           .fields
             .four.wide.field
               p
-              |　評価
+              | 評価
             .ten.wide.field.bean_review_rate_form
               .two.wide.inline.field
                 = f.label :acidity
@@ -131,7 +137,7 @@
             .ten.wide.field
               = f.label :content , class: 'display_none'
               = f.text_area :content, placeholder: "content", id: 'content'
-          .fields.ui.accordion
+          .fields.ui.accordion.recipe_accordion
             .four.wide.field.title#accordion
               .ui.teal.button
                 i.dropdown.icon
