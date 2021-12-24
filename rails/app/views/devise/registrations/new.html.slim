@@ -38,7 +38,7 @@
             i.lock.icon
             = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "Confirmation password", id: 'password_confirmation'
         .field
-          =f.button type: "submit",class: "ui teal fluid animated fade button" do
+          =f.button type: "submit",class: "ui teal fluid animated fade button", data: { disable_with: "送信中" }  do
             .visible.content
               |Sign up
             .hidden.content

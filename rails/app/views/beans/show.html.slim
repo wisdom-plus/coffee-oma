@@ -148,7 +148,7 @@
               = render partial: "shared/recipe_form", locals: {f: f}
           .ui.error.message
           .field
-            =f.button type: "submit",class: "large ui center floated positive animated fade button" do
+            =f.button type: "submit",class: "large ui center floated positive animated fade button", data: { disable_with: "送信中" }  do
               .visible.content
                 |submit
               .hidden.content

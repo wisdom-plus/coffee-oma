@@ -28,7 +28,7 @@
             = f.password_field :password_confirmation, autocomplete: "new-password", id: 'password_confirmation'
         .field
           = f.submit "パスワードをリセットする", class: "ui fluid teal submit button"
-          =f.button type: "submit",class: "ui teal animated fade button" do
+          =f.button type: "submit",class: "ui teal animated fade button", data: { disable_with: "送信中" }  do
             .visible.content
               |Reset Password
             .hidden.content

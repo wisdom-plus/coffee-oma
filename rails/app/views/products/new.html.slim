@@ -49,7 +49,7 @@
                 td
                   = f.text_area :itemcaption, autofocus: true , placeholder: "item-caption",id: 'description'
           .ui.error.message
-          =f.button type: "submit",class: "ui teal animated fade button" do
+          =f.button type: "submit",class: "ui teal animated fade button", data: { disable_with: "送信中" }  do
             .visible.content
               |submit
             .hidden.content

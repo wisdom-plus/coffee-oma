@@ -23,7 +23,7 @@
           =f.label :content
           =f.text_area :content, autofocus: true, placeholder: "\uF044 問合せ内容", class: "editicon", id: 'content'
         .field
-          =f.button type: "submit",class: "ui teal fluid animated fade button" do
+          =f.button type: "submit",class: "ui teal fluid animated fade button", data: { disable_with: "送信中" }  do
             .visible.content
               |send
             .hidden.content

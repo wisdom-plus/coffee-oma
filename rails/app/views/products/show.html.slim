@@ -87,13 +87,11 @@
           .fields
             =f.label :title,class: "four wide field"
             .ten.wide.field
-              =f.label :title,class: 'display_none'
               =f.text_field :title, placeholder: "title",id: "title"
           .fields
             =f.label :rate, class: "four wide field"
             .ten.wide.field
               .ui.star.rating#rating
-              =f.label :rate,class: 'display_none'
               =f.hidden_field(:rate)
           .fields
             =f.label :content, "レビュー内容", class: "four wide field"
@@ -101,7 +99,7 @@
               =f.text_area :content, placeholder: "レビューの内容",id: "content"
           .ui.error.message
           .field
-            =f.button type: "submit",class: "large ui center floated positive animated fade button" do
+            =f.button nil,type: 'submit',class: "large ui center floated positive animated fade button", data: { disable_with: "送信中" }  do
               .visible.content
                 |submit
               .hidden.content
