@@ -32,12 +32,14 @@ $(document).on("turbolinks:load", function () {
     onComplete: function () {
       $(this).removeClass("scale");
       $(this).children(".reveal").addClass("active");
-      $("img.lazyload-post", this).visibility({
-        type: "image",
-        transition: "scale in",
-        duration: 500,
-        once: false,
-      });
+      if ("img.lazyload-post") {
+        $("img.lazyload-post", this).visibility({
+          type: "image",
+          transition: "scale in",
+          duration: 500,
+          once: false,
+        });
+      }
       $(".placeholder").remove();
       $(".display_none").removeClass("display_none");
     },
