@@ -70,7 +70,18 @@
             .content
               h3.header = review.title
               .meta
-                span.date #{time_ago_in_words(review.created_at)}前
+                span #{time_ago_in_words(review.created_at)}前
+              .meta.review_meta
+                span.mr-05em 酸味
+                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.acidity}"
+                span.mr-05em 苦味
+                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.bitter}"
+                span.mr-05em 甘み
+                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.sweet}"
+                span.mr-05em コク
+                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.rich}"
+                span.mr-05em 風味
+                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.flavor}"
               .description
                 =simple_format(h(review.content))
               .extra
@@ -86,69 +97,5 @@
                       = render partial: "shared/report", locals: {review: review}
   = paginate @bean_reviews
   .ui.section.divider
-  - if user_signed_in?
-    .ui.middle.aligned.center.aligned.grid
-      .column.mb-12
-        h1.content レビューの投稿
-        =form_with model: @bean_review, url: bean_bean_reviews_path(@bean.id), class: "ui equal width form column", id: "bean_review_form", method: :post,local: true do |f|
-          .fields
-            = f.label :title, class: "four wide field"
-            .ten.wide.field
-              = f.label :title, class: 'display_none'
-              = f.text_field :title, placeholder: "title"
-          .fields
-            .four.wide.field
-              p
-              |　評価
-            .ten.wide.field.bean_review_rate_form
-              .two.wide.inline.field
-                = f.label :acidity
-                .ui.star.rating.form_rating data-taste="acidity"
-                = f.hidden_field(:acidity)
-              .two.wide.inline.field
-                = f.label :bitter
-                .ui.star.rating.form_rating data-taste="bitter"
-                = f.hidden_field(:bitter)
-              .two.wide.inline.field
-                = f.label :sweet
-                .ui.star.rating.form_rating data-taste="sweet"
-                = f.hidden_field(:sweet)
-              .two.wide.inline.field
-                = f.label :rich
-                .ui.star.rating.form_rating data-taste="rich"
-                = f.hidden_field(:rich)
-              .two.wide.inline.field
-                = f.label :flavor
-                .ui.star.rating.form_rating data-taste="flavor"
-                = f.hidden_field(:flavor)
-          .fields
-            = f.label :content, class: "four wide field"
-            .ten.wide.field
-              = f.label :content , class: 'display_none'
-              = f.text_area :content, placeholder: "content", id: 'content'
-          .fields.ui.accordion
-            .four.wide.field.title#accordion
-              .ui.teal.button
-                i.dropdown.icon
-                font style="vertical-align: inherit;"
-                  font style="vertical-align: inherit;"
-                    |抽出レシピを登録する
-            .ten.wide.field.inline.field
-              = render partial: "shared/recipe_form", locals: {f: f}
-          .ui.error.message
-          .field
-            =f.button type: "submit",class: "large ui center floated positive animated fade button" do
-              .visible.content
-                |submit
-              .hidden.content
-                |投稿
-  - else
-    .segment
-.ui.small.modal.report-modal
-  i.close.icon
-  .content
-    .description
-      h3.header.text-center
-        |本当によろしいですか？
-  .actions.text-center
-    = link_to 'レビューを削除する',reports_path(review_id: '',type: ''), method: :post, class: 'ui negative button', id: 'report-modal-link'
+  = render partial: 'shared/bean_review_form', locals: {bean_review: @bean_review, bean: @bean}
+=render partial: 'shared/report_modal'

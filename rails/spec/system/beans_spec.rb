@@ -70,13 +70,21 @@ RSpec.describe 'Beans', type: :system do
     end
 
     it 'display test', :aggregate_failures do
+      visit bean_path(bean.id)
       expect(page).to have_content bean.name
       expect(page).to have_css '.ui.teal.tag.label'
     end
 
     it 'redirect index(tag)' do
+      visit bean_path(bean.id)
       click_on 'コーヒー豆 (1)'
       expect(page).to have_current_path beans_path, ignore_query: true
+    end
+
+    it 'redirect index(bean not exists)' do
+      visit bean_path(bean.id + 1)
+      expect(page).to have_current_path beans_path, ignore_query: true
+      expect(page).to have_content '存在しないページです。'
     end
   end
 end

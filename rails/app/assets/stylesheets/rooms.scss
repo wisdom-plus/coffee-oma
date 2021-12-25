@@ -7,14 +7,13 @@
   margin: 30px 0;
   display:flex;
   justify-content: flex-start;
-  align-items: flex-start; /*縦位置を上揃え*/
-/*   align-items: center; */ /*縦位置を真ん中揃え*/
+  align-items: flex-start;
 }
 .balloon_r{
   justify-content:flex-end;
 }
 .faceicon img{
-  width: 60px; /*任意のサイズ*/
+  width: 60px;
   height: auto;
 }
 .balloon_r .faceicon{
@@ -27,29 +26,21 @@
   order:2 !important;
 }
 .says {
-  max-width:500px; /*最大幅は任意*/
+  max-width:500px;
   display: flex;
   flex-wrap: wrap;
   position: relative;
   padding: 17px 13px 15px 18px;
   border-radius: 12px;
-  background:#00B5AD;/*色は任意*/
+  background:#00B5AD;
   box-sizing:border-box;
   margin:0 !important;
   line-height:1.5;
-/*   align-items: center; */
 }
-// .says p{
-//   margin:8px 0 0 !important;
-// }
-// .says p:first-child{
-//   margin-top:0 !important;
-// }
 .says:after {
   content: "";
   position: absolute;
   border: 10px solid transparent;
-/*   margin-top:-3px;  */
 }
 .balloon_l .says:after {
   left: -26px;

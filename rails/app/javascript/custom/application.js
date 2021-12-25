@@ -2,8 +2,8 @@ $(document).on("turbolinks:load", function () {
   $("#top-button").click(function () {
     window.scroll({ top: 0, behavior: "smooth" });
   });
-  $(".close").click(function () {
-    $(".flash-message").closest(".flash-message").transition("fade");
+  $(".flash-message > .close").click(function () {
+    $(".flash-message").closest(".ui.container.top-padding").transition("fade");
   });
   $(".ui.accordion").accordion();
   $(".sidebar.icon").on("click", function () {
@@ -25,20 +25,23 @@ $(document).on("turbolinks:load", function () {
     duration: 1000,
     once: false,
   });
-  $("a.post.scale").transition({
+  $(".post.scale").transition({
     animation: "scale in",
     duration: 800,
     interval: 200,
     onComplete: function () {
-      $("img.lazyload-post", this).visibility({
-        type: "image",
-        transition: "scale in",
-        duration: 800,
-      });
       $(this).removeClass("scale");
+      $(this).find(".reveal").addClass("active");
+      if ("img.lazyload-post") {
+        $("img.lazyload-post", this).visibility({
+          type: "image",
+          transition: "scale in",
+          duration: 500,
+          once: false,
+        });
+      }
       $(".placeholder").remove();
       $(".display_none").removeClass("display_none");
-      $("img.lazyload").visibility("refresh");
     },
   });
   Turbolinks.setProgressBarDelay(100);

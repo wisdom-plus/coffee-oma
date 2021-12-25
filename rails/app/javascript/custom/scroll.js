@@ -14,17 +14,13 @@ $(document).on("turbolinks:load", function () {
       $(".ui.sticky").sticky("refresh");
     });
     infScroll.on("append", function () {
-      $("a.post.scale").transition({
+      $(".post.scale").transition({
         animation: "scale in",
         duration: 800,
         interval: 200,
         onComplete: function () {
-          $("img.lazyload-post", this).visibility({
-            type: "image",
-            transition: "scale in",
-            duration: 800,
-          });
           $(this).removeClass("scale");
+          $(this).find(".reveal").addClass("active");
           $(".placeholder").remove();
           $(".display_none").removeClass("display_none");
         },

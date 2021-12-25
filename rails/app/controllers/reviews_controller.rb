@@ -4,11 +4,11 @@ class ReviewsController < ApplicationController
   def create
     review = current_user.reviews.create(review_params)
     if review.save
-      redirect_to product_path(review.product_id), notice: 'レビューを登録しました'
+      flash[:notice] = 'レビューを登録しました'
     else
       flash[:alert] = 'レビューの登録に失敗しました'
-      redirect_back(fallback_location: root_path)
     end
+    redirect_to product_path(review.product_id)
   end
 
   private

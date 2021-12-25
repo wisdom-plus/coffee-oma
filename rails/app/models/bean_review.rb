@@ -33,15 +33,14 @@ class BeanReview < ApplicationRecord
            inverse_of: :bean_review
   counter_culture :bean, column_name: 'reviews_count'
 
-  scope :accociated_review, ->(associated_id) { where('bean_id= ?', associated_id) }
+  scope :accociated_review, ->(associated_id) { where(bean_id: associated_id) }
   scope :find_reviews, ->(review_id) { find_by(id: review_id) }
-  scope :like_record, ->(liker_id) { bean_review_likes.find_by(user_id: liker_id) }
 
   def like_record(liker_id)
     bean_review_likes.find_by(user_id: liker_id)
   end
 
-  def self.show_review(bean_id, page)
-    BeanReview.accociated_review(bean_id).includes([:user], [:recipe]).page(page).per(SHOW_DISPLAY_NUM)
+  def self.show_review(bean_id)
+    accociated_review(bean_id).includes([:user], [:recipe])
   end
 end

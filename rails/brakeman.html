@@ -187,12 +187,12 @@ p {
     <tr>
       <td>/coffee-oma</td>
       <td>6.1.3.1</td>
-      <td>5.0.4
+      <td>5.2.0
       <td>
-        2021-06-23 10:49:04 +0000<br><br>
-        8.1046781 seconds
+        2021-12-23 07:02:11 +0000<br><br>
+        8.8828621 seconds
       </td>
-      <td>BasicAuth, BasicAuthTimingAttack, CSRFTokenForgeryCVE, ContentTag, CookieSerialization, CreateWith, CrossSiteScripting, DefaultRoutes, Deserialize, DetailedExceptions, DigestDoS, DynamicFinders, EscapeFunction, Evaluation, Execute, FileAccess, FileDisclosure, FilterSkipping, ForgerySetting, HeaderDoS, I18nXSS, JRubyXML, JSONEncoding, JSONEntityEscape, JSONParsing, LinkTo, LinkToHref, MailTo, MassAssignment, MimeTypeDoS, ModelAttrAccessible, ModelAttributes, ModelSerialize, NestedAttributes, NestedAttributesBypass, NumberToCurrency, PageCachingCVE, PermitAttributes, QuoteTableName, Redirect, RegexDoS, Render, RenderDoS, RenderInline, ResponseSplitting, RouteDoS, SQL, SQLCVEs, SSLVerify, SafeBufferManipulation, SanitizeMethods, SelectTag, SelectVulnerability, Send, SendFile, SessionManipulation, SessionSettings, SimpleFormat, SingleQuotes, SkipBeforeFilter, SprocketsPathTraversal, StripTags, SymbolDoSCVE, TemplateInjection, TranslateBug, UnsafeReflection, UnsafeReflectionMethods, ValidationRegex, VerbConfusion, WithoutProtection, XMLDoS, YAMLParsing</td>
+      <td>BasicAuth, BasicAuthTimingAttack, CSRFTokenForgeryCVE, ContentTag, CookieSerialization, CreateWith, CrossSiteScripting, DefaultRoutes, Deserialize, DetailedExceptions, DigestDoS, DynamicFinders, EOLRails, EOLRuby, EscapeFunction, Evaluation, Execute, FileAccess, FileDisclosure, FilterSkipping, ForgerySetting, HeaderDoS, I18nXSS, JRubyXML, JSONEncoding, JSONEntityEscape, JSONParsing, LinkTo, LinkToHref, MailTo, MassAssignment, MimeTypeDoS, ModelAttrAccessible, ModelAttributes, ModelSerialize, NestedAttributes, NestedAttributesBypass, NumberToCurrency, PageCachingCVE, PermitAttributes, QuoteTableName, Redirect, RegexDoS, Render, RenderDoS, RenderInline, ResponseSplitting, RouteDoS, SQL, SQLCVEs, SSLVerify, SafeBufferManipulation, SanitizeMethods, SelectTag, SelectVulnerability, Send, SendFile, SessionManipulation, SessionSettings, SimpleFormat, SingleQuotes, SkipBeforeFilter, SprocketsPathTraversal, StripTags, SymbolDoSCVE, TemplateInjection, TranslateBug, UnsafeReflection, UnsafeReflectionMethods, ValidationRegex, VerbConfusion, WithoutProtection, XMLDoS, YAMLParsing</td>
     </tr>
   </tbody>
 </table>
@@ -216,7 +216,7 @@ p {
     </tr>
     <tr>
       <td>Templates</td>
-      <td>60</td>
+      <td>65</td>
     </tr>
     <tr>
       <td>Errors</td>
@@ -229,10 +229,90 @@ p {
   
     <tr>
       <td>Ignored Warnings</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
   
   </tbody>
 </table>
 <br>
+<div onClick="toggle('ignored_table');">  <h2>1 Ignored Warnings (click to see them)</h2 ></div>
+<div>
+  <table style="display:none" id="ignored_table">
+    <thead>
+      <tr>
+        <th>Confidence</th>
+        <th>File</th>
+        <th>Warning Type</th>
+        <th>Message</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr>
+        <td><span class='med-confidence'>Medium</span></td>
+        <td>app/views/news/show.html.slim</td>
+        <td><a rel="noreferrer" href="https://brakemanscanner.org/docs/warning_types/cross_site_scripting">Cross-Site Scripting</a></td>
+        <td><div class='warning_message' onClick="toggle('context1');toggle('message1');toggle('full_message1')" >Unescaped model attribute near line 15: <span class="code">News.find_by(:id =&gt; params[:id]).content</span><table id='context1' class='context' style='display:none'><caption>app/views/news/show.html.slim</caption>      <thead style='display:none'>
+        <tr>
+          <th>line number</th>
+          <th>line content</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class='context first'>
+          <td class='context_line'>
+            <pre class='context'>10</pre>
+          </td>
+          <td class='context'>
+            <pre class='context'>        h2.aligned.center.content</pre>
+          </td>
+        </tr>
+          <tr class='context alt'>
+            <td class='context_line'>
+              <pre class='context'>11</pre>
+            </td>
+            <td class='context'>
+              <pre class='context'>          = @news.title</pre>
+            </td>
+          </tr>
+          <tr class='context'>
+            <td class='context_line'>
+              <pre class='context'>12</pre>
+            </td>
+            <td class='context'>
+              <pre class='context'>        .ui.divider</pre>
+            </td>
+          </tr>
+          <tr class='context alt'>
+            <td class='context_line'>
+              <pre class='context'>13</pre>
+            </td>
+            <td class='context'>
+              <pre class='context'>        p.date.text-right =&quot;[#{l(@news.publicshed_at, format: :news_short)}更新]&quot;</pre>
+            </td>
+          </tr>
+          <tr class='context near_error'>
+            <td class='context_line'>
+              <pre class='context'>14</pre>
+            </td>
+            <td class='context'>
+              <pre class='context'>        .text-left.mt-3rem</pre>
+            </td>
+          </tr>
+          <tr class='context alt error'>
+            <td class='context_line'>
+              <pre class='context'>15</pre>
+            </td>
+            <td class='context'>
+              <pre class='context'>          == @news.content</pre>
+            </td>
+          </tr>
+</tbody></table></div></td>
+        <td></td>
+      </tr>
+    
+    </tbody>
+  </table>
+</div>
 </body></html>

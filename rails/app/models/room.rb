@@ -38,22 +38,22 @@ class Room < ApplicationRecord
 
   def self.find_room(user1, user2)
     if user1.id < user2.id
-      Room.find_by(participant1_id: user1.id, participant2_id: user2.id)
+      find_by(participant1_id: user1.id, participant2_id: user2.id)
     else
-      Room.find_by(participant1_id: user2.id, participant2_id: user1.id)
+      find_by(participant1_id: user2.id, participant2_id: user1.id)
     end
   end
 
   def self.room_new(current_user_id, user_id)
     if current_user_id > user_id.to_i
-      Room.new(participant1_id: user_id, participant2_id: current_user_id)
+      new(participant1_id: user_id, participant2_id: current_user_id)
     else
-      Room.new(participant1_id: current_user_id, participant2_id: user_id)
+      new(participant1_id: current_user_id, participant2_id: user_id)
     end
   end
 
   def self.join_room_list(current_user)
-    Room.includes([:participant1], [:participant2]).room_list(current_user.id)
+    Room.includes([:participant1], [:participant2], [:messages]).room_list(current_user.id)
   end
 
   def join?(user_id)

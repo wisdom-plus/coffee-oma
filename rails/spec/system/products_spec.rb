@@ -85,17 +85,24 @@ RSpec.describe 'Products', type: :system do
     context 'when login' do
       before do
         login(user, user.email, user.password)
-        visit product_path(product.id)
       end
 
       it 'display', :aggregate_failures do
+        visit product_path(product.id)
         expect(page).to have_content 'コーヒーの器具の名前'
         expect(page).to have_css '.ui.teal.tag.label'
       end
 
       it 'redirect index(tag)' do
+        visit product_path(product.id)
         click_on 'コーヒー (1)'
         expect(page).to have_current_path products_path, ignore_query: true
+      end
+
+      it 'redirect index(product not exists)' do
+        visit product_path(product.id + 1)
+        expect(page).to have_current_path products_path, ignore_query: true
+        expect(page).to have_content '存在しないページです。'
       end
     end
   end

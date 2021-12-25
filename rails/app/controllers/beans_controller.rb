@@ -1,6 +1,6 @@
 class BeansController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  after_action  -> { CreateHistoryJob.perform_now(current_user.id, history_params) }, only: %i[show], if: :user_signed_in?
+  after_action  -> { CreateHistoryJob.perform_now(current_user.id, history_params) }, only: %i[show], if: -> { user_signed_in? && @bean }
 
   def new
     @bean = Bean.new(tag_list: 'コーヒー')
@@ -9,20 +9,23 @@ class BeansController < ApplicationController
   def create
     @bean = current_user.beans.new(bean_params)
     if @bean.save
-      flash[:success] = '登録に成功しました'
-      redirect_to beans_path
+      redirect_to beans_path, notice: '登録に成功しました。'
     else
-      flash[:error] = '登録に失敗しました'
+      flash.now[:alert] = '登録に失敗しました'
       render :new
     end
   end
 
   def show
-    @bean = Bean.find(params[:id])
-    @tags = @bean.tag_counts_on(:tags)
-    @bean_reviews = BeanReview.show_review(@bean.id, params[:page])
-    @bean_review = BeanReviewForm.new
-    @like = current_user.bean_likes.find_by(liked_id: params[:id]) if user_signed_in?
+    @bean = Bean.find_by(id: params[:id])
+    if @bean
+      @tags = @bean.tag_counts_on(:tags)
+      @bean_reviews = BeanReview.show_review(@bean.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
+      @bean_review = BeanReviewForm.new
+      @like = current_user.bean_likes.find_by(liked_id: params[:id]) if user_signed_in?
+    else
+      redirect_to beans_path, alert: '存在しないページです。'
+    end
   end
 
   def index

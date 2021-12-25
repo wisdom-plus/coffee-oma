@@ -1,6 +1,5 @@
 class NewsController < ApplicationController
   before_action :authenticate_admin_user!, only: %i[new create edit update destroy]
-  before_action :active?, only: %i[show]
   before_action :find_news, only: %i[edit update destroy]
 
   def index
@@ -21,7 +20,14 @@ class NewsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @news = News.find_by(id: params[:id])
+    if @news.publicshed?
+      @news.activate unless @news.active
+    else
+      redirect_to root_path, alert: '公開させておりません。'
+    end
+  end
 
   def edit; end
 
@@ -47,16 +53,7 @@ class NewsController < ApplicationController
       params.require(:news).permit(:title, :content, :active, :publicshed_at)
     end
 
-    def active?
-      @news = News.find(params[:id])
-      if @news.publicshed?
-        @news.activate unless @news.active
-      else
-        redirect_to root_path, alert: '公開させておりません。'
-      end
-    end
-
     def find_news
-      @news = News.find(params[:id])
+      @news = News.find_by(id: params[:id])
     end
 end

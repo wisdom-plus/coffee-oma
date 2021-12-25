@@ -3,12 +3,12 @@ td.center.aligned
   .ui.accordion.field
     - if target.class == Product
       - tags.each do |tag|
-        .ui.teal.tag.label#a_opacity
+        .ui.teal.tag.label
           =link_to "#{tag} (#{tag.taggings_count})",products_path(tag_name: tag.name), class: 'tag_link'
     - elsif target.class == Bean
       - tags.each do |tag|
-        .ui.teal.tag.label#a_opacity
-          =link_to "#{tag} (#{tag.taggings_count})",beans_path(tag_name: tag.name)
+        .ui.teal.tag.label
+          =link_to "#{tag} (#{tag.taggings_count})",beans_path(tag_name: tag.name), class: 'tag_link'
     - if user_signed_in?
       .mini.compact.ui.right.floated.button.title#accordion タグを編集
       .content.field

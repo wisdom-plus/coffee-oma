@@ -6,9 +6,10 @@
   .ui.middle.aligned.center.aligned.grid.vertical.stripe
     .column
       h1#title アイテムの一覧
-      h3
-        | なければ
-        = link_to 'こちらから登録', new_product_path
+      - if user_signed_in?
+        h3
+          | なければ
+          = link_to 'こちらから登録', new_product_path
       = search_form_for @q ,class: "ui mini form" do |f|
         .inline.field.form-centered
           = f.search_field :itemname_cont, placeholder: "search",class: 'mr-0 width-40'
@@ -23,8 +24,9 @@
             | Top
       - @products.each do |product|
         a.ui.fluid.link.card.post.scale href= product_path(product.id)
-          .image
-            = image_tag 'square-image.png',class: 'lazyload-post' ,data: {src: "#{product.imageurl.url}"}
+          .ui.fade.reveal.image
+            = image_tag 'square-image.png',class: 'visible content'
+            = image_tag product.imageurl.url,class: 'hidden content'
           .content
             .ui.placeholder
               .header

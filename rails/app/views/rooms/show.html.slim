@@ -15,7 +15,7 @@
       .field
         = f.text_area :message, placeholder: "メッセージの内容"
       .field
-        =f.button type: "submit",class: "large ui teal animated fade button" do
+        =f.button type: "submit",class: "large ui teal animated fade button", data: { disable_with: "送信中" }  do
           .visible.content
             |Submit
           .hidden.content

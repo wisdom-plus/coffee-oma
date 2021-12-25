@@ -58,6 +58,11 @@ RSpec.describe 'Beans', type: :request do
       get bean_path(bean.id)
       expect(response).to have_http_status(:ok)
     end
+
+    it 'request fail' do
+      get bean_path(bean.id + 1)
+      expect(response).to have_http_status(:found)
+    end
   end
 
   describe 'GET /index' do

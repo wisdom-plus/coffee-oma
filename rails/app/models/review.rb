@@ -42,8 +42,8 @@ class Review < ApplicationRecord
   scope :associated_user_review, ->(associated_user_id) { where(user_id: associated_user_id) }
   scope :sort_by_created_at, -> { order('created_at DESC') }
 
-  def like_record(liker_id)
-    product_review_likes.find_by(user_id: liker_id)
+  def like_record(like_id)
+    product_review_likes.find_by(user_id: like_id)
   end
 
   def create_notification_like(current_user)
@@ -58,14 +58,14 @@ class Review < ApplicationRecord
   end
 
   def self.latest_review
-    Review.all.includes([:product], [:user]).sort_by_created_at.limit(TOP_DISPALY_NUM)
+    all.includes([:product], [:user]).sort_by_created_at.limit(TOP_DISPALY_NUM)
   end
 
   def self.show_review(product_id, page)
-    Review.associated_review(product_id).includes(:user).page(page).per(SHOW_DISPLAY_NUM)
+    associated_review(product_id).includes(:user).page(page).per(SHOW_DISPLAY_NUM)
   end
 
   def self.user_review(user_id)
-    Review.associated_user_review(user_id).includes(:product)
+    associated_user_review(user_id).includes(:product)
   end
 end

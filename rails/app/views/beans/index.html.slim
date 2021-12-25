@@ -6,9 +6,10 @@
   .ui.middle.aligned.center.aligned.grid.vertical.stripe
     .column
       h1#title コーヒー豆の一覧
-      h3
-        |　なければ
-        =link_to "こちらから登録", new_bean_path
+      - if user_signed_in?
+        h3
+          | なければ
+          =link_to "こちらから登録", new_bean_path
       = search_form_for @q ,class: "ui mini form" do |f|
         .inline.field.form-centered
           = f.search_field :name_cont, placeholder: "search",class: 'mr-0 width-40'
@@ -23,8 +24,9 @@
             | Top
       - @beans.each do |bean|
         a.ui.fluid.link.card.post.scale href= bean_path(bean.id)
-          .image
-            = image_tag 'square-image.png',class: 'lazyload-post' ,data: {src:"#{bean.image.url}"}
+          .ui.fade.reveal.image
+            = image_tag 'square-image.png',class: 'visible content'
+            = image_tag bean.image.url,class: 'hidden content'
           .content
             .ui.placeholder
               .header

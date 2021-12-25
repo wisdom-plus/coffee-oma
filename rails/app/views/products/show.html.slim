@@ -79,40 +79,5 @@
                     = render partial: "shared/report", locals: {review: review}
   = paginate @reviews
   .ui.section.divider
-  - if user_signed_in?
-    .ui.middle.aligned.center.aligned.grid
-      .column.mb-12
-        h1.content レビューの投稿
-        =form_with model: @review, url: product_reviews_path(@product.id), class: "ui equal width form column", id: "review_form", method: :post,local: true do |f|
-          .fields
-            =f.label :title,class: "four wide field"
-            .ten.wide.field
-              =f.label :title,class: 'display_none'
-              =f.text_field :title, placeholder: "title",id: "title"
-          .fields
-            =f.label :rate, class: "four wide field"
-            .ten.wide.field
-              .ui.star.rating#rating
-              =f.label :rate,class: 'display_none'
-              =f.hidden_field(:rate)
-          .fields
-            =f.label :content, "レビュー内容", class: "four wide field"
-            .ten.wide.field
-              =f.text_area :content, placeholder: "レビューの内容",id: "content"
-          .ui.error.message
-          .field
-            =f.button type: "submit",class: "large ui center floated positive animated fade button" do
-              .visible.content
-                |submit
-              .hidden.content
-                |投稿
-  - else
-    .segment
-.ui.small.modal.report-modal
-  i.close.icon
-  .content
-    .description
-      h3.header.text-center
-        |本当によろしいですか？
-  .actions.text-center
-    = link_to 'レビューを削除する',reports_path(review_id: '',type: ''), method: :post, class: 'ui negative button', id: 'report-modal-link'
+  = render partial: 'shared/product_review_form', locals: {review: @review,product: @product}
+=render partial: 'shared/report_modal'
