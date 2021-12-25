@@ -25,13 +25,13 @@ $(document).on("turbolinks:load", function () {
     duration: 1000,
     once: false,
   });
-  $("a.post.scale").transition({
+  $(".post.scale").transition({
     animation: "scale in",
     duration: 800,
     interval: 200,
     onComplete: function () {
       $(this).removeClass("scale");
-      $(this).children(".reveal").addClass("active");
+      $(this).find(".reveal").addClass("active");
       if ("img.lazyload-post") {
         $("img.lazyload-post", this).visibility({
           type: "image",
