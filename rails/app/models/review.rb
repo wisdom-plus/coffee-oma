@@ -58,14 +58,14 @@ class Review < ApplicationRecord
   end
 
   def self.latest_review
-    Review.all.includes([:product], [:user]).sort_by_created_at.limit(TOP_DISPALY_NUM)
+    all.includes([:product], [:user]).sort_by_created_at.limit(TOP_DISPALY_NUM)
   end
 
   def self.show_review(product_id, page)
-    Review.associated_review(product_id).includes(:user).page(page).per(SHOW_DISPLAY_NUM)
+    associated_review(product_id).includes(:user).page(page).per(SHOW_DISPLAY_NUM)
   end
 
   def self.user_review(user_id)
-    Review.associated_user_review(user_id).includes(:product)
+    associated_user_review(user_id).includes(:product)
   end
 end
