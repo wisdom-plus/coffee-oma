@@ -53,7 +53,7 @@ class Room < ApplicationRecord
   end
 
   def self.join_room_list(current_user)
-    Room.includes([:participant1], [:participant2],[:messages]).room_list(current_user.id)
+    Room.includes([:participant1], [:participant2], [:messages]).room_list(current_user.id)
   end
 
   def join?(user_id)
