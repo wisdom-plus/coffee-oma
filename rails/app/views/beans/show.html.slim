@@ -35,7 +35,7 @@
                   td.center.aligned 評価
                   - unless @bean_reviews.empty?
                     td.center.aligned.chart-container style = "position: relative; width: 400px; height: 150px;"
-                      canvas#chart data-evaluations = @bean.evaluations
+                      canvas#chart data-evaluations = @bean.bean_reviews.evaluations
                   - else
                     td.center.aligned まだ評価がありません
                 tr
