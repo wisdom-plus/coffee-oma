@@ -35,11 +35,13 @@ class BeanReview < ApplicationRecord
 
   scope :accociated_review, ->(associated_id) { where(bean_id: associated_id) }
   scope :find_reviews, ->(review_id) { find_by(id: review_id) }
-  scope :evaluations, ->{pluck("AVG(acidity) AS acidity_sum ,
+  scope :evaluations, -> {
+                        pluck("AVG(acidity) AS acidity_sum ,
                               AVG(bitter) AS bitter_sum,
                               AVG(sweet) AS sweet_sum,
                               AVG(rich) AS rich_sum,
-                              AVG(flavor) AS flavor_sum")[0].map(&:to_s)}
+                              AVG(flavor) AS flavor_sum")[0].map(&:to_s)
+                      }
 
   def like_record(liker_id)
     bean_review_likes.find_by(user_id: liker_id)
