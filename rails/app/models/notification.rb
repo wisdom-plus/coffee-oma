@@ -51,10 +51,10 @@ class Notification < ApplicationRecord
   scope :action_follow, -> { where(action: 'follow').history_order }
   scope :action_message, -> { where(action: 'message').history_order }
   scope :action_like, -> { where(action: 'like').history_order }
-  scope :checked_false, -> { where(checked: false).history_order }
+  scope :checked_false, -> { where(checked: false)}
 
   def self.checked_notifications(user_id)
     user = User.find(user_id)
-    user.passive_notifications.checked_false.update(checked: true)
+    user.passive_notifications.checked_false.update_all(checked: true)
   end
 end
