@@ -55,28 +55,27 @@
     | ユーザーレビュー
   .ui.items
     -@reviews.each do |review|
-      - unless user_signed_in? && current_user.reports.exists?(review_id: review.id)
-        .ui.segment.review_item
-          h4.ui.header
-            =image_tag 'square-image.png', class:"ui circular image lazyload",data: {src:"#{review.user.icon}"}
-            =review.user.username
-          .item
-            .content
-              h3.header =review.title
-              .meta.review_meta
-                span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
-                span.date #{time_ago_in_words(review.created_at)}前
-              .description
-                =simple_format(h(review.content))
-              .extra
-                a.ui.teal.label href= "/users/#{review.user.id}/show"
-                  |ユーザーの詳細
-                - if user_signed_in?
-                  div class="review_like_button_#{review.id} inline"
-                    =render partial:'shared/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
-                  div class= "report_button_#{review.id} inline"
-                    .ui.grey.label.button.report-modal-button data-reviewid="#{review.id}" data-class= "#{review.class}"
-                      i.flag.outloine.icon
+      .ui.segment.review_item
+        h4.ui.header
+          =image_tag 'square-image.png', class:"ui circular image lazyload",data: {src:"#{review.user.icon}"}
+          =review.user.username
+        .item
+          .content
+            h3.header =review.title
+            .meta.review_meta
+              span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
+              span.date #{time_ago_in_words(review.created_at)}前
+            .description
+              =simple_format(h(review.content))
+            .extra
+              a.ui.teal.label href= "/users/#{review.user.id}/show"
+                |ユーザーの詳細
+              - if user_signed_in?
+                div class="review_like_button_#{review.id} inline"
+                  =render partial:'shared/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
+                div class= "report_button_#{review.id} inline"
+                  .ui.grey.label.button.report-modal-button data-reviewid="#{review.id}" data-class= "#{review.class}"
+                    i.flag.outloine.icon
 
   = paginate @reviews
   .ui.section.divider

@@ -50,4 +50,17 @@ class BeanReview < ApplicationRecord
   def self.show_review(bean_id)
     accociated_review(bean_id).includes([:user], [:recipe])
   end
+
+  def self.review_not_report(bean_id)
+    eager_load(:reports).where(bean_id: bean_id).where(reports: {user_id: nil})
+  end
+
+  def self.others_reported_review(bean_id,user_id)
+    eager_load(:reports).where(bean_id: bean_id).where.not(reports: {user_id: user_id})
+  end
+
+  def self.review_exclude_report(bean_id,user_id)
+    review_not_report(bean_id).or(others_reported_review(bean_id,user_id))
+  end
+
 end
