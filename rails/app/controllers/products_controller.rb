@@ -32,8 +32,11 @@ class ProductsController < ApplicationController
       @rate = @product.rate_average_num
       @rate_average = @product.rate_average
       @review = Review.new
-      @reviews = Review.show_review(@product.id, params[:page])
+      @reviews = Review.show_review(@product.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
       @like = current_user.product_likes.find_by(liked_id: params[:id]) if user_signed_in?
+
+
+
     else
       redirect_to products_path, alert: '存在しないページです。'
     end

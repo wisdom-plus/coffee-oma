@@ -4,8 +4,8 @@ class NotificationsController < ApplicationController
 
   def index
     @notifications = current_user.passive_notifications.includes(:visitor, :review, :message).page(params[:page]).per(25).history_order
-    @follow_notifications = @notifications.action_follow
-    @like_notifications = @notifications.action_like
-    @message_notifications = @notifications.action_message
+    @follow_notifications = @notifications.action_filter('follow')
+    @like_notifications = @notifications.action_filter('like')
+    @message_notifications = @notifications.action_filter('message')
   end
 end

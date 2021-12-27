@@ -38,7 +38,7 @@ class Review < ApplicationRecord
   }, presence: true
 
   scope :find_reviews, ->(review_id) { find_by(id: review_id) }
-  scope :associated_review, ->(associated_id) { where(product_id: associated_id) }
+  scope :associated_review, ->(associated_id) { includes(:user).where(product_id: associated_id) }
   scope :associated_user_review, ->(associated_user_id) { where(user_id: associated_user_id) }
   scope :sort_by_created_at, -> { order('created_at DESC') }
 
@@ -61,8 +61,8 @@ class Review < ApplicationRecord
     all.includes([:product], [:user]).sort_by_created_at.limit(TOP_DISPALY_NUM)
   end
 
-  def self.show_review(product_id, page)
-    associated_review(product_id).includes(:user).page(page).per(SHOW_DISPLAY_NUM)
+  def self.show_review(product_id)
+    associated_review(product_id)
   end
 
   def self.user_review(user_id)
