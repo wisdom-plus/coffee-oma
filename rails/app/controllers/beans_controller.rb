@@ -24,7 +24,7 @@ class BeansController < ApplicationController
       @bean_review = BeanReviewForm.new
       if user_signed_in?
         @like = current_user.bean_likes.find_by(liked_id: params[:id])
-        @bean_reviews = BeanReview.includes(:user,:recipe).review_exclude_report(@bean.id,current_user.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
+        @bean_reviews = BeanReview.includes(:user, :recipe).review_exclude_report(@bean.id, current_user.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
       end
     else
       redirect_to beans_path, alert: '存在しないページです。'

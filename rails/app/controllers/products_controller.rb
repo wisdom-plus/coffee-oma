@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
       @review = Review.new
       @reviews = Review.show_review(@product.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
       if user_signed_in?
-        @reviews = Review.includes(:user).review_exclude_report(@product.id,current_user.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
+        @reviews = Review.includes(:user).review_exclude_report(@product.id, current_user.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
         @like = current_user.product_likes.find_by(liked_id: params[:id])
       end
     else

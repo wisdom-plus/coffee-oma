@@ -49,7 +49,7 @@ class Notification < ApplicationRecord
                                  ).history_order
                                }
   scope :checked_false, -> { where(checked: false) }
-  scope :action_filter, -> (action){ select{|n| n.action === action}}
+  scope :action_filter, ->(action) { select { |n| n.action == action } }
 
   def self.checked_notifications(user_id)
     user = User.find(user_id)

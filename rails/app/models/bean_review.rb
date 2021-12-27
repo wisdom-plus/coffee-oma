@@ -52,15 +52,14 @@ class BeanReview < ApplicationRecord
   end
 
   def self.review_not_report(bean_id)
-    eager_load(:reports).where(bean_id: bean_id).where(reports: {user_id: nil})
+    eager_load(:reports).where(bean_id: bean_id).where(reports: { user_id: nil })
   end
 
-  def self.others_reported_review(bean_id,user_id)
-    eager_load(:reports).where(bean_id: bean_id).where.not(reports: {user_id: user_id})
+  def self.others_reported_review(bean_id, user_id)
+    eager_load(:reports).where(bean_id: bean_id).where.not(reports: { user_id: user_id })
   end
 
-  def self.review_exclude_report(bean_id,user_id)
-    review_not_report(bean_id).or(others_reported_review(bean_id,user_id))
+  def self.review_exclude_report(bean_id, user_id)
+    review_not_report(bean_id).or(others_reported_review(bean_id, user_id))
   end
-
 end

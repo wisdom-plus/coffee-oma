@@ -66,18 +66,18 @@ class Review < ApplicationRecord
   end
 
   def self.review_not_report(product_id)
-    eager_load(:reports).where(product_id: product_id).where(reports: {user_id: nil})
+    eager_load(:reports).where(product_id: product_id).where(reports: { user_id: nil })
   end
 
   def self.user_review(user_id)
     associated_user_review(user_id).includes(:product)
   end
 
-  def self.others_reported_review(product_id,user_id)
-    eager_load(:reports).where(product_id: product_id).where.not(reports: {user_id: user_id})
+  def self.others_reported_review(product_id, user_id)
+    eager_load(:reports).where(product_id: product_id).where.not(reports: { user_id: user_id })
   end
 
-  def self.review_exclude_report(product_id,user_id)
-    review_not_report(product_id).or(others_reported_review(product_id,user_id))
+  def self.review_exclude_report(product_id, user_id)
+    review_not_report(product_id).or(others_reported_review(product_id, user_id))
   end
 end
