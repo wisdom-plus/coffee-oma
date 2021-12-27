@@ -76,7 +76,9 @@
                     =render partial:'shared/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
                 div class= "report_button_#{review.id} inline"
                   -if user_signed_in?
-                    = render partial: "shared/report", locals: {review: review}
+                    .ui.grey.label.button.report-modal-button data-reviewid="#{review.id}" data-class= "#{review.class}"
+                      i.flag.outloine.icon
+
   = paginate @reviews
   .ui.section.divider
   = render partial: 'shared/product_review_form', locals: {review: @review,product: @product}
