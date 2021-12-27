@@ -89,13 +89,13 @@
                   = render partial: 'shared/recipe', locals: {review: review}
                 a.ui.teal.label href= "/users/#{review.user.id}/show"
                   |ユーザーの詳細
-                div class="review_like_button_#{review.id} inline"
-                  - if user_signed_in?
+                - if user_signed_in?
+                  div class="review_like_button_#{review.id} inline"
                     =render partial:'shared/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
-                div class= "report_button_#{review.id} inline"
-                    -if user_signed_in?
-                      .ui.grey.label.button.report-modal-button data-reviewid="#{review.id}" data-class= "#{review.class}"
-                        i.flag.outloine.icon
+                  div class= "report_button_#{review.id} inline"
+                    .ui.grey.label.button.report-modal-button data-reviewid="#{review.id}" data-class= "#{review.class}"
+                      i.flag.outloine.icon
+
   = paginate @bean_reviews
   .ui.section.divider
   = render partial: 'shared/bean_review_form', locals: {bean_review: @bean_review, bean: @bean}
