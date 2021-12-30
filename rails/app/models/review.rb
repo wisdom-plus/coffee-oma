@@ -41,7 +41,7 @@ class Review < ApplicationRecord
   scope :associated_review, ->(associated_id) { where(product_id: associated_id) }
   scope :associated_user_review, ->(associated_user_id) { where(user_id: associated_user_id) }
   scope :sort_by_created_at, -> { order('created_at DESC') }
-  scope :exclude_reviews, ->(product_id, user_id) { ReviewsQuery.new.call(product_id, user_id) }
+  scope :exclude_reviews, ->(product_id, user_id) { ExcludeReportedReviewsQuery.new.call(product_id, user_id) }
 
   def like_record(like_id)
     product_review_likes.find_by(user_id: like_id)

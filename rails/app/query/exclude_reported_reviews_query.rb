@@ -1,6 +1,6 @@
-class ReviewsQuery < Query
+class ExcludeReportedReviewsQuery < Query
   def initialize(relation = Review.all)
-    super
+    super(relation)
     @relation = relation
   end
 

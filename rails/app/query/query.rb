@@ -1,4 +1,8 @@
 class Query
+  def initialize(relation)
+    @relation = relation
+  end
+
   def call
     raise NotImplementedError
   end
