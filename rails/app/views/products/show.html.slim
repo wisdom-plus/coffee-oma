@@ -27,9 +27,9 @@
                 td.center.aligned #{@product.shopname}
               tr
                 td.center.aligned 評価
-                - unless @rate_average.nil?
-                  td.center.aligned#star data-rating = @rate
-                    = @rate_average
+                - unless @product.rate_average.nil?
+                  td.center.aligned#star data-rating = @product.rate_average.num
+                    = @product.rate_average
                 - else
                   td.center.aligned
                     |評価はまだありません
