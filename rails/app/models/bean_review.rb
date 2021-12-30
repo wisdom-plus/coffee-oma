@@ -42,6 +42,7 @@ class BeanReview < ApplicationRecord
                               AVG(rich) AS rich_sum,
                               AVG(flavor) AS flavor_sum")[0].map(&:to_s)
                       }
+  scope :exclude_reviews, ->(bean_id, user_id) { ExcludeReportedBeanReviewsQuery.new.call(bean_id, user_id) }
 
   def like_record(liker_id)
     bean_review_likes.find_by(user_id: liker_id)
