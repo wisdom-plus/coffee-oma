@@ -88,8 +88,7 @@ class User < ApplicationRecord
     end
   end
 
-  def create_review_like_active_notifications(id,user_id)
-    active_notifications.new(review_id: id, visited_id: user_id, action: 'like')
+  def create_review_like_active_notifications(review_id, user_id)
+    active_notifications.new(review_id: review_id, visited_id: user_id, action: 'like')
   end
-
 end

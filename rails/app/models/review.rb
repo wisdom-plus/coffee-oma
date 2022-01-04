@@ -49,7 +49,7 @@ class Review < ApplicationRecord
 
   def create_notification_like(current_user)
     temp = Notification.review_like_notifications(current_user.id, user_id, id)
-    notification = current_user.create_review_like_active_notifications(id,user_id)
+    notification = current_user.create_review_like_active_notifications(id, user_id)
     return if temp.present?
 
     notification.save
@@ -68,11 +68,10 @@ class Review < ApplicationRecord
   end
 
   def self.unreported_reviews(product_id)
-    eager_load(:reports).where(product_id: product_id,reports: {id: nil})
+    eager_load(:reports).where(product_id: product_id, reports: { id: nil })
   end
 
   def self.reviews_reported_other(product_id, user_id)
     eager_load(:reports).where(product_id: product_id).where.not(reports: { user_id: user_id })
   end
-
 end

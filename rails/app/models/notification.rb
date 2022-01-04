@@ -34,7 +34,7 @@ class Notification < ApplicationRecord
   belongs_to :visitor, class_name: 'User', optional: true
   belongs_to :visited, class_name: 'User', optional: true
 
-  before_save  :check_some_user?
+  before_save :check_some_user?
 
   scope :history_order, -> { order(created_at: :desc) }
 
@@ -55,13 +55,13 @@ class Notification < ApplicationRecord
     user.passive_notifications.checked_false.update_all(checked: true) # rubocop:disable Rails/SkipsModelValidations
   end
 
-  def self.review_like_notifications(current_user_id,user_id,id)
-    where(['visitor_id = ? and visited_id = ? and review_id = ? and action = ? ',current_user_id, user_id, id, 'like'])
+  def self.review_like_notifications(current_user_id, user_id, review_id)
+    where(['visitor_id = ? and visited_id = ? and review_id = ? and action = ? ', current_user_id, user_id, review_id, 'like'])
   end
 
   def check_some_user?
-    if visitor_id == visited_id
-      self.checked = true
-    end
+    return unless visitor_id == visited_id
+
+    self.checked = true
   end
 end

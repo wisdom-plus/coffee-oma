@@ -59,5 +59,4 @@ class BeanReview < ApplicationRecord
   def self.reviews_reported_other(bean_id, user_id)
     eager_load(:reports).where(bean_id: bean_id).where.not(reports: { user_id: user_id })
   end
-
 end
