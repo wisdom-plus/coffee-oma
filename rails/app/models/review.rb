@@ -71,7 +71,7 @@ class Review < ApplicationRecord
   end
 
   def self.unreported_reviews(product_id)
-    eager_load(:reports).where(product_id: product_id).where(reports: { user_id: nil })
+    eager_load(:reports).where(product_id: product_id,reports: {id: nil})
   end
 
   def self.reviews_reported_other(product_id, user_id)
