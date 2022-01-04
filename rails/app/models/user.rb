@@ -87,4 +87,9 @@ class User < ApplicationRecord
       user.confirmed_at = Time.zone.now
     end
   end
+
+  def create_review_like_active_notifications(id,user_id)
+    active_notifications.new(review_id: id, visited_id: user_id, action: 'like')
+  end
+
 end

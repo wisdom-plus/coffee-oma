@@ -49,12 +49,9 @@ class Review < ApplicationRecord
 
   def create_notification_like(current_user)
     temp = Notification.review_like_notifications(current_user.id, user_id, id)
-    notification = current_user.active_notifications.new(review_id: id, visited_id: user_id, action: 'like')
+    notification = current_user.create_review_like_active_notifications(id,user_id)
     return if temp.present?
 
-    if notification.visitor_id == notification.visited_id
-      notification.checked = true
-    end
     notification.save
   end
 
