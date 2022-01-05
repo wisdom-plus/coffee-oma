@@ -36,7 +36,7 @@ class Notification < ApplicationRecord
 
   before_save :check_some_user?
 
-  scope :history_order, -> { order(created_at: :desc) }
+  scope :history_order, -> { order(updated_at: :desc) }
 
   scope :follow_notification, ->(current_user_id, id) {
                                 where(['visitor_id = ? and visited_id = ? and action = ?', current_user_id, id, 'follow']).history_order
