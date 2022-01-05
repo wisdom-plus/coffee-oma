@@ -98,7 +98,7 @@ class User < ApplicationRecord
     active_notifications.new(visited_id: follower_id, action: 'follow')
   end
 
-  def create_message_active_notificatin(message_id,user_id)
+  def create_message_active_notificatin(message_id, user_id)
     active_notifications.new(message_id: message_id, visited_id: user_id, action: 'message')
   end
 end
