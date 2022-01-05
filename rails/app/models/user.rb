@@ -74,10 +74,12 @@ class User < ApplicationRecord
 
   def create_notification_follow(current_user)
     temp = Notification.follow_notification(current_user.id, id)
-    return if temp.present?
-
-    notification = current_user.active_notifications.new(visited_id: id, action: 'follow')
-    notification.save
+    if temp.present?
+      temp.update(checked: false)
+    else
+      notification = current_user.create_follow_active_notification(id)
+      notification.save
+    end
   end
 
   def self.guest
@@ -88,7 +90,15 @@ class User < ApplicationRecord
     end
   end
 
-  def create_review_like_active_notifications(review_id, user_id)
+  def create_review_like_active_notification(review_id, user_id)
     active_notifications.new(review_id: review_id, visited_id: user_id, action: 'like')
+  end
+
+  def create_follow_active_notification(follower_id)
+    active_notifications.new(visited_id: follower_id, action: 'follow')
+  end
+
+  def create_message_active_notificatin(message_id,user_id)
+    active_notifications.new(message_id: message_id, visited_id: user_id, action: 'message')
   end
 end

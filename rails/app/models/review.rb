@@ -48,11 +48,11 @@ class Review < ApplicationRecord
   end
 
   def create_notification_like(current_user)
-    temp = Notification.review_like_notifications(current_user.id, user_id, id)
+    temp = Notification.review_like_notification(current_user.id, user_id, id)
     if temp.present?
       temp.update(checked: false)
     else
-      notification = current_user.create_review_like_active_notifications(id, user_id)
+      notification = current_user.create_review_like_active_notification(id, user_id)
       notification.save
     end
   end
