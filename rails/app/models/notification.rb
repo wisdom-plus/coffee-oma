@@ -37,16 +37,6 @@ class Notification < ApplicationRecord
   before_save :check_some_user?
 
   scope :history_order, -> { order(updated_at: :desc) }
-
-  scope :follow_notification, ->(current_user_id, id) {
-                                where(['visitor_id = ? and visited_id = ? and action = ?', current_user_id, id, 'follow']).history_order
-                              }
-  scope :message_notification, ->(current_user_id, user_id, id) {
-                                 where(
-                                   ['visitor_id = ? and visited_id = ? and message_id = ? and action = ? ',
-                                    current_user_id, user_id, id, 'message']
-                                 ).history_order
-                               }
   scope :checked_false, -> { where(checked: false) }
   scope :action_filter, ->(action) { select { |n| n.action == action } }
 
@@ -56,7 +46,19 @@ class Notification < ApplicationRecord
   end
 
   def self.review_like_notifications(current_user_id, user_id, review_id)
-    where(['visitor_id = ? and visited_id = ? and review_id = ? and action = ? ', current_user_id, user_id, review_id, 'like'])
+    where(['visitor_id = ? and visited_id = ? and review_id = ? and action = ? ',
+           current_user_id, user_id, review_id, 'like'])
+  end
+
+  def self.follow_notifications(current_user_id, follower_id)
+    where(['visitor_id = ? and visited_id = ? and action = ?', current_user_id, follower_id, 'follow'])
+  end
+
+  def self.message_notifications(current_user_id, user_id, message_id)
+    where(
+      ['visitor_id = ? and visited_id = ? and message_id = ? and action = ? ',
+       current_user_id, user_id, message_id, 'message']
+    )
   end
 
   def check_some_user?
