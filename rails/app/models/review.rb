@@ -25,8 +25,6 @@ class Review < ApplicationRecord
            foreign_key: 'liked_id',
            dependent: :destroy,
            inverse_of: :review
-
-  has_many :notifications, dependent: :destroy
   has_many :reports, dependent: :destroy, as: :review
   counter_culture :product
   counter_culture :product, column_name: 'rate_sum', delta_column: 'rate'
@@ -45,16 +43,6 @@ class Review < ApplicationRecord
 
   def like_record(like_id)
     product_review_likes.find_by(user_id: like_id)
-  end
-
-  def create_notification_like(current_user)
-    temp = Notification.review_like_notification(current_user.id, user_id, id)
-    if temp.present?
-      temp.update(checked: false)
-    else
-      notification = current_user.create_review_like_active_notification(id, user_id)
-      notification.save
-    end
   end
 
   def self.latest_review

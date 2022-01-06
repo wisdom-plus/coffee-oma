@@ -16,6 +16,12 @@
 #
 class Like < ApplicationRecord
   belongs_to :user
+  has_many :notifications, dependent: :destroy
 
   scope :find_product_or_bean, ->(user_id) { where(["user_id = ? and type IN ('ProductLike','BeanLike')", user_id]).order(created_at: :DESC) }
+
+  def create_notification_like(current_user)
+    notification = current_user.create_like_active_notification(id, user_id)
+    notification.save
+  end
 end

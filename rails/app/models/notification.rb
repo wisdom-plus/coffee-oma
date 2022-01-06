@@ -30,7 +30,7 @@
 #
 class Notification < ApplicationRecord
   belongs_to :message, optional: true
-  belongs_to :review, optional: true
+  belongs_to :like, optional: true
   belongs_to :visitor, class_name: 'User', optional: true
   belongs_to :visited, class_name: 'User', optional: true
 
@@ -45,9 +45,9 @@ class Notification < ApplicationRecord
     user.passive_notifications.checked_false.update_all(checked: true) # rubocop:disable Rails/SkipsModelValidations
   end
 
-  def self.review_like_notification(current_user_id, user_id, review_id)
-    where(['visitor_id = ? and visited_id = ? and review_id = ? and action = ? ',
-           current_user_id, user_id, review_id, 'like'])
+  def self.like_notification(current_user_id, user_id, like_id)
+    where(['visitor_id = ? and visited_id = ? and like_id = ? and action = ? ',
+           current_user_id, user_id, like_id, 'like'])
   end
 
   def self.follow_notification(current_user_id, follower_id)
