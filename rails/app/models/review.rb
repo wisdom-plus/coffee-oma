@@ -26,6 +26,7 @@ class Review < ApplicationRecord
            dependent: :destroy,
            inverse_of: :review
   has_many :reports, dependent: :destroy, as: :review
+
   counter_culture :product
   counter_culture :product, column_name: 'rate_sum', delta_column: 'rate'
 

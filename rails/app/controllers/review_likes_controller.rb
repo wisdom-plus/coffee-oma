@@ -6,11 +6,11 @@ class ReviewLikesController < ApplicationController
     when 'Review'
       @review_like = current_user.product_review_likes.find_or_create_by(liked_id: params[:review_id])
       @review = Review.find(params[:review_id])
-      @review.create_notification_like(current_user)
     when 'BeanReview'
       @review_like = current_user.bean_review_likes.find_or_create_by(liked_id: params[:review_id])
       @review = BeanReview.find(params[:review_id])
     end
+    @review_like.create_notification(current_user,@review.user_id)
     respond_to do |format|
       format.js
       format.html { redirect_to product_path(@review) }
