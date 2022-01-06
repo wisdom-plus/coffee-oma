@@ -90,7 +90,7 @@ class User < ApplicationRecord
     end
   end
 
-  def create_like_active_notification(like_id, user_id,action)
+  def create_like_active_notification(like_id, user_id, action)
     active_notifications.new(like_id: like_id, visited_id: user_id, action: action)
   end
 
