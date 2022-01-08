@@ -16,9 +16,10 @@ class ApplicationController < ActionController::Base
     renderer = self.renderer.new('warden' => proxy)
     renderer.render(*args)
   end
+  private
 
   def unchecked_notifications?
-    @checked = current_user.passive_notifications.find_by(checked: false).present?
+    @chekced= current_user.passive_notifications.exists?(checked: false)
   end
 
   protected
