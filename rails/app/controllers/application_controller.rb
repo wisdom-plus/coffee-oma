@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   private
 
     def unchecked_notifications?
-      @chekced = current_user.passive_notifications.exists?(checked: false)
+      @checked = current_user.passive_notifications.exists?(checked: false)
     end
 
   protected
