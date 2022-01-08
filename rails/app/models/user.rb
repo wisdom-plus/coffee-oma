@@ -77,7 +77,7 @@ class User < ApplicationRecord
     if temp.present?
       temp.update(checked: false)
     else
-      notification = current_user.create_follow_active_notification(id)
+      notification = current_user.create_follow_notification(id)
       notification.save
     end
   end
@@ -90,15 +90,15 @@ class User < ApplicationRecord
     end
   end
 
-  def create_like_active_notification(like_id, user_id, action)
+  def create_like_notification(like_id, user_id, action)
     active_notifications.new(like_id: like_id, visited_id: user_id, action: action)
   end
 
-  def create_follow_active_notification(follower_id)
+  def create_follow_notification(follower_id)
     active_notifications.new(visited_id: follower_id, action: 'follow')
   end
 
-  def create_message_active_notificatin(message_id, user_id)
+  def create_message_notificatin(message_id, user_id)
     active_notifications.new(message_id: message_id, visited_id: user_id, action: 'message')
   end
 end

@@ -45,20 +45,8 @@ class Notification < ApplicationRecord
     user.passive_notifications.checked_false.update_all(checked: true) # rubocop:disable Rails/SkipsModelValidations
   end
 
-  def self.like_notification(current_user_id, user_id, like_id)
-    where(['visitor_id = ? and visited_id = ? and like_id = ? and action = ? ',
-           current_user_id, user_id, like_id, 'like'])
-  end
-
   def self.follow_notification(current_user_id, follower_id)
     where(['visitor_id = ? and visited_id = ? and action = ?', current_user_id, follower_id, 'follow'])
-  end
-
-  def self.message_notification(current_user_id, user_id, message_id)
-    where(
-      ['visitor_id = ? and visited_id = ? and message_id = ? and action = ? ',
-       current_user_id, user_id, message_id, 'message']
-    )
   end
 
   def check_some_user?

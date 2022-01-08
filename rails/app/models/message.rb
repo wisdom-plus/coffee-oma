@@ -28,7 +28,7 @@ class Message < ApplicationRecord
   scope :associated_message, ->(room_id) { where(room_id: room_id) }
 
   def create_notification_message(current_user)
-    notification = current_user.create_message_active_notificatin(id, room.another_user(current_user).id)
+    notification = current_user.create_message_notificatin(id, room.another_user(current_user).id)
     notification.save
   end
 
