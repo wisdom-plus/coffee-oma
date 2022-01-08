@@ -31,10 +31,10 @@ class ProductsController < ApplicationController
     @tags = @product.tag_counts_on(:tags)
     @review = Review.new
     @reviews = Review.show_review(@product.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
-    if user_signed_in?
-      @reviews = Review.exclude_reviews(@product.id, current_user.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
-      @like = current_user.product_likes.find_by(liked_id: params[:id])
-    end
+    return unless user_signed_in?
+
+    @reviews = Review.exclude_reviews(@product.id, current_user.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
+    @like = current_user.product_likes.find_by(liked_id: params[:id])
   end
 
   private
@@ -48,8 +48,8 @@ class ProductsController < ApplicationController
     end
 
     def product_exists?
-      unless Product.exists?(id:params[:id])
-        redirect_to products_path, alert: '存在しないページです。'
-      end
+      return if Product.exists?(id: params[:id])
+
+      redirect_to products_path, alert: '存在しないページです。'
     end
 end

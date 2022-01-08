@@ -32,7 +32,7 @@ class Like < ApplicationRecord
   end
 
   def self.like_includes(user_id)
-    likes = self.find_product_and_bean(user_id)
+    likes = find_product_and_bean(user_id)
     product_and_bean_likes_includes(likes)
     likes
   end

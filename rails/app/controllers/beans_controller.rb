@@ -1,6 +1,6 @@
 class BeansController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  before_action :bean_exists?,only: %i[show]
+  before_action :bean_exists?, only: %i[show]
   after_action  -> { CreateHistoryJob.perform_now(current_user.id, history_params) }, only: %i[show], if: -> { user_signed_in? && @bean }
 
   def new
@@ -22,10 +22,10 @@ class BeansController < ApplicationController
     @tags = @bean.tag_counts_on(:tags)
     @bean_reviews = BeanReview.show_review(@bean.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
     @bean_review = BeanReviewForm.new
-    if user_signed_in?
-      @like = current_user.bean_likes.find_by(liked_id: params[:id])
-      @bean_reviews = BeanReview.exclude_reviews(@bean.id, current_user.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
-    end
+    return unless user_signed_in?
+
+    @like = current_user.bean_likes.find_by(liked_id: params[:id])
+    @bean_reviews = BeanReview.exclude_reviews(@bean.id, current_user.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
   end
 
   def index
@@ -48,8 +48,8 @@ class BeansController < ApplicationController
     end
 
     def bean_exists?
-      unless Bean.exists?(id: params[:id])
-        redirect_to beans_path, alert: '存在しないページです。'
-      end
+      return if Bean.exists?(id: params[:id])
+
+      redirect_to beans_path, alert: '存在しないページです。'
     end
 end
