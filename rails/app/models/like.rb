@@ -31,7 +31,7 @@ class Like < ApplicationRecord
     preloader.preload(likes.select { |i| i.type == 'ProductLike' }, :product)
   end
 
-  def self.like_include(user_id)
+  def self.like_includes(user_id)
     likes = self.find_product_and_bean(user_id)
     product_and_bean_likes_includes(likes)
     likes

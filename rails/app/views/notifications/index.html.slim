@@ -20,7 +20,8 @@
             .ui.segment
               .ui.items
                 .item
-                  - if notification.action == "follow"
+                  - case notification.action
+                  - when 'follow'
                     h3.ui.icon.header
                       i.blue.users.icon.mt-10
                     .ui.tiny.circular.image
@@ -31,7 +32,7 @@
                         |さんにフォローされました
                       .meta
                         span.date #{time_ago_in_words(notification.created_at)}前
-                  - elsif notification.action == "ProductReviewLike"
+                  - when "ProductReviewLike"
                     h3.ui.icon.header
                       i.red.heart.icon.mt-10
                     .ui.tiny.circular.image
@@ -44,7 +45,7 @@
                         span.date #{time_ago_in_words(notification.created_at)}前
                       .description
                         =simple_format(h(notification.like.review.content))
-                  - elsif notification.action == "BeanReviewLike"
+                  - when "BeanReviewLike"
                     h3.ui.icon.header
                       i.red.heart.icon.mt-10
                     .ui.tiny.circular.image
@@ -57,7 +58,7 @@
                         span.date #{time_ago_in_words(notification.created_at)}前
                       .description
                         =simple_format(h(notification.like.bean_review.content))
-                  - else
+                  - when 'message'
                     h3.ui.icon.header
                       i.blue.mail.icon.mt-10
                     .ui.tiny.circular.image

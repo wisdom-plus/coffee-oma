@@ -34,7 +34,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def show
     @user = User.find_user(params[:id])
     @follow = current_user.follow_user(@user) if user_signed_in?
-    @likes = Like.like_include(@user.id)
+    @likes = Like.like_includes(@user.id)
     @reviews = Review.user_review(@user)
     @followers = @user.followers
     @followings = @user.followings
