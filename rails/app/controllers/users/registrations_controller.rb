@@ -34,8 +34,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def show
     @user = User.find_user(params[:id])
     @follow = current_user.follow_user(@user) if user_signed_in?
-    @likes = Like.find_product_or_bean(@user.id)
-    like_include(@likes)
+    @likes = Like.like_includes(@user.id)
     @reviews = Review.user_review(@user)
     @followers = @user.followers
     @followings = @user.followings
@@ -89,12 +88,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     def customize_sign_up_params
       devise_parameter_sanitizer.permit :sign_up, keys: %i[username email password password_confirmation remember_me]
-    end
-
-    def like_include(likes)
-      preloader = ActiveRecord::Associations::Preloader.new
-      preloader.preload(likes.select { |i| i.type == 'BeanLike' }, :bean)
-      preloader.preload(likes.select { |i| i.type == 'ProductLike' }, :product)
     end
 
   protected

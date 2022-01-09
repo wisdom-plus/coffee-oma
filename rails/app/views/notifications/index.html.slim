@@ -9,8 +9,9 @@
       .ui.top.attached.four.tabular.menu
         a.active.item data-tab = "first" すべて
         a.item data-tab = "second" フォロー
-        a.item data-tab = "third" ライク
-        a.item data-tab = "four" メッセージ
+        a.item data-tab = "third" アイテムレビューライク
+        a.item data-tab = "four" コーヒー豆レビューライク
+        a.item data-tab = "five" メッセージ
       .ui.bottom.attached.tab.segment.active data-tab= "first"
         - if @notifications.empty?
           |通知はまだ届いていません
@@ -19,7 +20,8 @@
             .ui.segment
               .ui.items
                 .item
-                  - if notification.action == "follow"
+                  - case notification.action
+                  - when 'follow'
                     h3.ui.icon.header
                       i.blue.users.icon.mt-10
                     .ui.tiny.circular.image
@@ -30,20 +32,33 @@
                         |さんにフォローされました
                       .meta
                         span.date #{time_ago_in_words(notification.created_at)}前
-                  - elsif notification.action == "like"
+                  - when "ProductReviewLike"
                     h3.ui.icon.header
                       i.red.heart.icon.mt-10
                     .ui.tiny.circular.image
                         img src = notification.visitor.icon.url
                     .content
-                      a.header href = product_path(notification.review.product_id)
+                      a.header href = product_path(notification.like.liked_id)
                         = notification.visitor.username
                         |さんがあなたのレビューにライクしました
                       .meta
                         span.date #{time_ago_in_words(notification.created_at)}前
                       .description
-                        =simple_format(h(notification.review.content))
-                  - else
+                        =simple_format(h(notification.like.review.content))
+                  - when "BeanReviewLike"
+                    h3.ui.icon.header
+                      i.red.heart.icon.mt-10
+                    .ui.tiny.circular.image
+                        img src = notification.visitor.icon.url
+                    .content
+                      a.header href = bean_path(notification.like.liked_id)
+                        = notification.visitor.username
+                        |さんがあなたのレビューにライクしました
+                      .meta
+                        span.date #{time_ago_in_words(notification.created_at)}前
+                      .description
+                        =simple_format(h(notification.like.bean_review.content))
+                  - when 'message'
                     h3.ui.icon.header
                       i.blue.mail.icon.mt-10
                     .ui.tiny.circular.image
@@ -73,10 +88,10 @@
                     .meta
                       span.date #{time_ago_in_words(notification.created_at)}前
       .ui.bottom.attached.tab.segment data-tab= "third"
-        - if @like_notifications.empty?
+        - if @product_review_like_notifications.empty?
           |通知はまだ届いていません
         - else
-          - @like_notifications.each do |notification|
+          - @product_review_like_notifications.each do |notification|
             .ui.segment
               .ui.items
                 .item
@@ -85,14 +100,34 @@
                   .ui.tiny.circular.image
                     img src = notification.visitor.icon.url
                   .content
-                    a.header href = product_path(notification.review.product_id)
+                    a.header href = product_path(notification.like.liked_id)
                       = notification.visitor.username
                       |さんがあなたのレビューにライクしました
                     .meta
                       span.date #{time_ago_in_words(notification.created_at)}前
                     .description
-                      =simple_format(h(notification.review.content))
-      .ui.bottom.attached.tab.segment data-tab = "four"
+                      =simple_format(h(notification.like.review.content))
+      .ui.bottom.attached.tab.segment data-tab= "four"
+        - if @bean_review_like_notifications.empty?
+          |通知はまだ届いていません
+        - else
+          - @bean_review_like_notifications.each do |notification|
+            .ui.segment
+              .ui.items
+                .item
+                  h3.ui.icon.header
+                    i.red.heart.icon.mt-10
+                  .ui.tiny.circular.image
+                    img src = notification.visitor.icon.url
+                  .content
+                    a.header href = bean_path(notification.like.liked_id)
+                      = notification.visitor.username
+                      |さんがあなたのレビューにライクしました
+                    .meta
+                      span.date #{time_ago_in_words(notification.created_at)}前
+                    .description
+                      =simple_format(h(notification.like.bean_review.content))
+      .ui.bottom.attached.tab.segment data-tab = "five"
         - if @message_notifications.empty?
           |通知はまだ届いていません
         - else

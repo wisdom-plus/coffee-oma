@@ -6,7 +6,6 @@
         .fields
           = f.label :title, class: "four wide field"
           .ten.wide.field
-            = f.label :title, class: 'display_none'
             = f.text_field :title, placeholder: "title"
         .fields
           .four.wide.field
@@ -36,7 +35,6 @@
         .fields
           = f.label :content, class: "four wide field"
           .ten.wide.field
-            = f.label :content , class: 'display_none'
             = f.text_area :content, placeholder: "content", id: 'content'
         .fields.ui.accordion.recipe_accordion
           .four.wide.field.title#accordion

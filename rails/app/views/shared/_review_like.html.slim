@@ -1,8 +1,8 @@
-  - if review_like.nil?
-    = link_to review_likes_path(review_id: review.id,type: review.class), method: :post, class:"ui grey label create_button", remote: true do
-      i.heart.outline.icon
-      | #{review.reviewlikes_count}
-  - else
-    = link_to review_like_path(review_like.id, type: review_like.type), method: :delete, class:"ui red label destroy_button", remote: true do
-      i.heart.icon
-      | #{review.reviewlikes_count}
+- if review_like.nil?
+  = link_to review_likes_path(review_id: review.id,type: review.class), method: :post, class:"ui grey label create_button", remote: true do
+    i.heart.outline.icon
+    | #{review.reviewlikes_count}
+- else
+  = link_to review_like_path(review_like.id, type: review_like.type), method: :delete, class:"ui red label destroy_button", remote: true do
+    i.heart.icon
+    | #{review.reviewlikes_count}

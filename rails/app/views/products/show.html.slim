@@ -27,9 +27,9 @@
                 td.center.aligned #{@product.shopname}
               tr
                 td.center.aligned 評価
-                - unless @rate_average.nil?
-                  td.center.aligned#star data-rating = @rate
-                    = @rate_average
+                - unless @product.rate_average.zero?
+                  td.center.aligned#star data-rating = @product.rate_average_num
+                    = @product.rate_average
                 - else
                   td.center.aligned
                     |評価はまだありません
@@ -54,8 +54,8 @@
     i.edit.icon
     | ユーザーレビュー
   .ui.items
-    -@reviews.each do |review|
-      - unless user_signed_in? && current_user.reports.exists?(review_id: review.id)
+    - if @reviews.exists?
+      - @reviews.each do |review|
         .ui.segment.review_item
           h4.ui.header
             =image_tag 'square-image.png', class:"ui circular image lazyload",data: {src:"#{review.user.icon}"}
@@ -71,12 +71,17 @@
               .extra
                 a.ui.teal.label href= "/users/#{review.user.id}/show"
                   |ユーザーの詳細
-                div class="review_like_button_#{review.id} inline"
-                  - if user_signed_in?
+                - if user_signed_in?
+                  div class="review_like_button_#{review.id} inline"
                     =render partial:'shared/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
-                div class= "report_button_#{review.id} inline"
-                  -if user_signed_in?
-                    = render partial: "shared/report", locals: {review: review}
+                  div class= "report_button_#{review.id} inline"
+                    .ui.grey.label.button.report-modal-button data-reviewid="#{review.id}" data-class= "#{review.class}"
+                      i.flag.outloine.icon
+    - else
+      .ui.placeholder.segment
+        .ui.icon.header
+          i.coffee.icon
+          | このアイテムに寄せられたレビューはまだありません。
   = paginate @reviews
   .ui.section.divider
   = render partial: 'shared/product_review_form', locals: {review: @review,product: @product}

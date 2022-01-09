@@ -17,9 +17,11 @@ class ApplicationController < ActionController::Base
     renderer.render(*args)
   end
 
-  def unchecked_notifications?
-    @checked = current_user.passive_notifications.find_by(checked: false).present?
-  end
+  private
+
+    def unchecked_notifications?
+      @checked = current_user.passive_notifications.exists?(checked: false)
+    end
 
   protected
 
