@@ -22,7 +22,8 @@
                   td.center.aligned #{@bean.country}
                 tr
                   td.center.aligned 地域
-                  td.center.aligned #{@bean.area}
+                  td.center.aligned
+                    = @bean.area.empty? ? "不明" : @bean.area
                 tr
                   td.center.aligned 焙煎
                   td.center.aligned #{@bean.roast}
@@ -60,41 +61,46 @@
     i.edit.icon
     | ユーザーレビュー
   .ui.items
-    - @bean_reviews.each do |review|
-      .ui.segment.review_item
-        h4.ui.header
-          =image_tag 'square-image.png', class:"ui circular image lazyload",data: {src: "#{review.user.icon}"}
-          =review.user.username
-        .item
-          .content
-            h3.header = review.title
-            .meta
-              span #{time_ago_in_words(review.created_at)}前
-            .meta.review_meta
-              span.mr-05em 酸味
-              span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.acidity}"
-              span.mr-05em 苦味
-              span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.bitter}"
-              span.mr-05em 甘み
-              span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.sweet}"
-              span.mr-05em コク
-              span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.rich}"
-              span.mr-05em 風味
-              span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.flavor}"
-            .description
-              =simple_format(h(review.content))
-            .extra
-              - if review.recipe
-                = render partial: 'shared/recipe', locals: {review: review}
-              a.ui.teal.label href= "/users/#{review.user.id}/show"
-                |ユーザーの詳細
-              - if user_signed_in?
-                div class="review_like_button_#{review.id} inline"
-                  =render partial:'shared/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
-                div class= "report_button_#{review.id} inline"
-                  .ui.grey.label.button.report-modal-button data-reviewid="#{review.id}" data-class= "#{review.class}"
-                    i.flag.outloine.icon
-
+    - if @bean_reviews.exists?
+      - @bean_reviews.each do |review|
+        .ui.segment.review_item
+          h4.ui.header
+            =image_tag 'square-image.png', class:"ui circular image lazyload",data: {src: "#{review.user.icon}"}
+            =review.user.username
+          .item
+            .content
+              h3.header = review.title
+              .meta
+                span #{time_ago_in_words(review.created_at)}前
+              .meta.review_meta
+                span.mr-05em 酸味
+                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.acidity}"
+                span.mr-05em 苦味
+                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.bitter}"
+                span.mr-05em 甘み
+                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.sweet}"
+                span.mr-05em コク
+                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.rich}"
+                span.mr-05em 風味
+                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.flavor}"
+              .description
+                =simple_format(h(review.content))
+              .extra
+                - if review.recipe
+                  = render partial: 'shared/recipe', locals: {review: review}
+                a.ui.teal.label href= "/users/#{review.user.id}/show"
+                  |ユーザーの詳細
+                - if user_signed_in?
+                  div class="review_like_button_#{review.id} inline"
+                    =render partial:'shared/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
+                  div class= "report_button_#{review.id} inline"
+                    .ui.grey.label.button.report-modal-button data-reviewid="#{review.id}" data-class= "#{review.class}"
+                      i.flag.outloine.icon
+    - else
+      .ui.placeholder.segment
+        .ui.icon.header
+          i.coffee.icon
+          | このコーヒー豆に寄せられたレビューはまだありません。
   = paginate @bean_reviews
   .ui.section.divider
   = render partial: 'shared/bean_review_form', locals: {bean_review: @bean_review, bean: @bean}

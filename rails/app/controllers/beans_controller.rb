@@ -26,6 +26,8 @@ class BeansController < ApplicationController
 
     @like = current_user.bean_likes.find_by(liked_id: params[:id])
     @bean_reviews = BeanReview.exclude_reviews(@bean.id, current_user.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
+
+
   end
 
   def index
