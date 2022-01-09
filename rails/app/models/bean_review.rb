@@ -42,7 +42,7 @@ class BeanReview < ApplicationRecord
                               AVG(rich) AS rich_sum,
                               AVG(flavor) AS flavor_sum")[0].map(&:to_s)
                       }
-  scope :exclude_reviews, ->(bean_id, user_id) { ExcludeReportedBeanReviewsQuery.new.call(bean_id, user_id) }
+  scope :exclude_reviews, ->(bean_id, user_id) { ExcludeReportedBeanReviewsQuery.call(bean_id, user_id) }
 
   def like_record(liker_id)
     bean_review_likes.find_by(user_id: liker_id)
@@ -52,11 +52,4 @@ class BeanReview < ApplicationRecord
     accociated_review(bean_id).includes([:user], [:recipe])
   end
 
-  def self.unreported_reviews(bean_id)
-    eager_load(:reports).where(bean_id: bean_id).where(reports: { user_id: nil })
-  end
-
-  def self.reviews_reported_other(bean_id, user_id)
-    eager_load(:reports).where(bean_id: bean_id).where.not(reports: { user_id: user_id })
-  end
 end

@@ -1,4 +1,8 @@
 class Query
+  class << self
+    delegate :call, to: :new
+  end
+
   def initialize(relation)
     @relation = relation
   end
