@@ -10,11 +10,11 @@ class ExcludeReportedBeanReviewsQuery < Query
 
   private
 
-  def unreported_reviews(bean_id)
-    @relation.includes(:user, :recipe).eager_load(:reports).where(bean_id: bean_id).where(reports: { user_id: nil })
-  end
+    def unreported_reviews(bean_id)
+      @relation.includes(:user, :recipe).eager_load(:reports).where(bean_id: bean_id).where(reports: { user_id: nil })
+    end
 
-  def reviews_reported_other(bean_id, user_id)
-    @relation.eager_load(:reports).where(bean_id: bean_id).where.not(reports: { user_id: user_id })
-  end
+    def reviews_reported_other(bean_id, user_id)
+      @relation.eager_load(:reports).where(bean_id: bean_id).where.not(reports: { user_id: user_id })
+    end
 end

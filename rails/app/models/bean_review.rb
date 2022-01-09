@@ -51,5 +51,4 @@ class BeanReview < ApplicationRecord
   def self.show_review(bean_id)
     accociated_review(bean_id).includes([:user], [:recipe])
   end
-
 end
