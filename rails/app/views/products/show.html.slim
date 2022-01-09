@@ -27,7 +27,7 @@
                 td.center.aligned #{@product.shopname}
               tr
                 td.center.aligned 評価
-                - unless @product.rate_average.nil?
+                - unless @product.rate_average.zero?
                   td.center.aligned#star data-rating = @product.rate_average_num
                     = @product.rate_average
                 - else
