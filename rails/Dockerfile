@@ -2,6 +2,13 @@ FROM ruby:2.7.4-alpine3.12
 
 WORKDIR /coffee-oma
 
+ARG USER_ID="10000"
+ARG GROUP_ID="10001"
+ARG USER_NAME="rails"
+
+RUN addgroup -S -g "${GROUP_ID}" "${USER_NAME}" && \
+  adduser -u "${USER_ID}" -G "${USER_NAME}" -D "${USER_NAME}"
+
 COPY Gemfile Gemfile.lock package.json yarn.lock ./
 
 RUN apk  --no-cache add linux-headers\
