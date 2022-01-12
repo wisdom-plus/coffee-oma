@@ -92,7 +92,7 @@
                   |ユーザーの詳細
                 - if user_signed_in?
                   div class="review_like_button_#{review.id} inline"
-                    =render partial:'shared/review_like', locals: {review_like: review.like_record(current_user.id), review: review}
+                    =render partial:'shared/review_like', locals: {review_like: @review_likes.select_id(review.id), review: review}
                   div class= "report_button_#{review.id} inline"
                     .ui.grey.label.button.report-modal-button data-reviewid="#{review.id}" data-class= "#{review.class}"
                       i.flag.outloine.icon

@@ -35,6 +35,7 @@ class ProductsController < ApplicationController
 
     @reviews = Review.exclude_reviews(@product.id, current_user.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
     @like = current_user.product_likes.find_by(liked_id: params[:id])
+    @review_likes = current_user.where_review_likes(@reviews, 'review')
   end
 
   private

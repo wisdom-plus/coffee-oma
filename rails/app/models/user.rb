@@ -101,4 +101,15 @@ class User < ApplicationRecord
   def create_message_notificatin(message_id, user_id)
     active_notifications.new(message_id: message_id, visited_id: user_id, action: 'message')
   end
+
+  def where_review_likes(reviews, like_type)
+    case like_type
+    when 'review'
+      product_review_likes.where(liked_id: reviews.map(&:id))
+    when 'bean_review'
+      bean_review_likes.where(liked_id: reviews.map(&:id))
+    else
+      []
+    end
+  end
 end
