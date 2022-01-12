@@ -19,8 +19,7 @@ class ProductReviewLike < Like
   belongs_to :review, foreign_key: 'liked_id', inverse_of: :product_review_likes
   counter_culture :review, column_name: 'reviewlikes_count'
 
-
   def self.select_id(review_id)
-    select {|n| n.liked_id == review_id}[0]
+    find { |n| n.liked_id == review_id }
   end
 end
