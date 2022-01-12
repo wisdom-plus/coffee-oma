@@ -105,8 +105,10 @@ class User < ApplicationRecord
   def where_review_likes(reviews,like_type)
     if like_type == 'review'
       product_review_likes.where(liked_id: reviews.map(&:id))
-    else
+    elsif like_type == 'bean_review'
       bean_review_likes.where(liked_id: reviews.map(&:id))
+    else
+      []
     end
   end
 end
