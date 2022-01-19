@@ -5,7 +5,7 @@
 Coffee-omaはコーヒーに関する器具や、豆などの評価や感想を投稿しシェアするwebアプリケーションです。
 コーヒー用品やコーヒー豆の評価や使い方などを集めたサイトがあるといいなと思い開発しました。
 
-### [リンク]:https://coffee-oma.com　
+### [Coffee-oma]:(https://coffee-oma.com　)
 (AWS節約のため平日１０時〜２２時だけ稼働中)
 ![coffee-oma-logo](https://user-images.githubusercontent.com/48266893/112326442-deefcb80-8cf7-11eb-9432-cc83ade690de.png)
 
@@ -22,7 +22,8 @@ Coffee-omaはコーヒーに関する器具や、豆などの評価や感想を�
 - ### バックエンド面
   - action_mailer,active_job,active_cable,action_textなどRailsの標準搭載されている機能を利用しているところ
   - DRY,KISS,YAGNIの原則を意識したコード
-- ###　フロントエンド面
+  - N+1が起こらないようにデータの取得に気をつけているところ
+- ### フロントエンド面
   - シンプルなUIになるようにしているところ
   - アニメーションを追加し、UXを意識している
 - ### その他
@@ -48,9 +49,9 @@ Coffee-omaはコーヒーに関する器具や、豆などの評価や感想を�
   - 運営からのお知らせ機能(Action text)
   - reCAPTCHA
   - 履歴機能
-  - チャート機能
+  - チャート機能(chart.js)
   - レート星機能
-  - セキュリティー脆弱性性的分析ツール(Brakeman)
+  - セキュリティ脆弱性性的分析ツール(Brakeman)
 
 # 使用している技術一覧
   - Ruby 2.7.4
