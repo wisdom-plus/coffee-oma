@@ -1,5 +1,7 @@
 $(document).one("turbolinks:load", function () {
-  if ($("#top-image").length) {
+  const Cookies = require("js-cookie");
+  const flag = Cookies.get("animation-flag");
+  if ($("#top-image").length && flag == undefined) {
     $(".ui.page.dimmer").dimmer("show", {
       onShow: setTimeout(function () {
         $(".ui.page.dimmer").dimmer("hide");
@@ -51,5 +53,6 @@ $(document).one("turbolinks:load", function () {
         easing: "easeOutExpo",
         delay: 1000,
       });
+    Cookies.set("animation-flag", "true", { expires: 7 });
   }
 });
