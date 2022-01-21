@@ -1,7 +1,7 @@
 class HistoryCleanJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
-    # Do something later
+  def perform
+    puts 'OK'
   end
 end
