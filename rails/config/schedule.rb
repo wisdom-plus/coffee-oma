@@ -6,8 +6,9 @@
 # Example:
 #
 set :output, 'log/crontab.log'
-set :job_template,"ash -l -c ':job'"
+set :environment, :development
+set :job_template, "ash -l -c ':job'"
 
-every 1.hour do
+every 15.minutes do
   runner 'HistoryCleanJob.perform_now'
 end
