@@ -6,14 +6,9 @@
 # Example:
 #
 set :output, 'log/crontab.log'
-set :environment, :production
+set :environment, :development
+set :job_template, "ash -l -c ':job'"
 
-every 1.day, at: '6:00 am' do
-  rake '-s sitemap:refresh'
+every '0 0 1 * *' do
+  runner 'HistoryCleanJob.perform_now'
 end
-#
-# every 4.days do
-#   runner "AnotherModel.prune_old_records"
-# end
-
-# Learn more: http://github.com/javan/whenever
