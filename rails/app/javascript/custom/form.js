@@ -6,6 +6,7 @@ $(document).on("turbolinks:load", function () {
       password: ["minLength[6]", "empty", "match[password_confirmation]"],
       password_confirmation: "empty",
       email: ["empty", "email"],
+      policy: "checked",
       login_password: "empty",
       name: "empty",
       shopname: "empty",
@@ -25,12 +26,13 @@ $(document).on("turbolinks:load", function () {
     },
     prompt: {
       empty: "{name}が入力されていません。",
-      emali: "{name}は有効なメールアドレスではありません。",
+      email: "{name}は有効なメールアドレスではありません。",
       url: "{name}は有効なURLではありません。",
       match: "{name}が{ruleValue}は一致しません。",
       minLength: "{name}は少なくとも{ruleValue}文字以上でなければなりません。",
       minCount: "{name}は最低でも{ruleValue}の選択肢を持たなければなりません。",
       number: "{name}は数字で入力してください。",
+      checked: "利用規約とプライベートポリシーに同意する必要があります。",
     },
   });
 
