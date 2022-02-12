@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="17" skipped="0" failures="0" errors="0" time="56.258794" timestamp="2022-02-12T12:18:10+00:00" hostname="29019f70cf23">
+<testsuite name="rspec" tests="17" skipped="0" failures="0" errors="0" time="85.580614" timestamp="2022-02-12T12:30:14+00:00" hostname="29019f70cf23">
 <properties>
-<property name="seed" value="25947"/>
+<property name="seed" value="47111"/>
 </properties>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when success displayed message" file="./spec/system/registrations_spec.rb" time="22.592994"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail name empty" file="./spec/system/registrations_spec.rb" time="1.140291"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail email empty" file="./spec/system/registrations_spec.rb" time="1.126478"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail checkbox empty" file="./spec/system/registrations_spec.rb" time="1.038505"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail password is short" file="./spec/system/registrations_spec.rb" time="1.176625"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail confirmation password is incorrect" file="./spec/system/registrations_spec.rb" time="1.049544"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations delete /users delete seccess" file="./spec/system/registrations_spec.rb" time="3.395013"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success displayed icon " file="./spec/system/registrations_spec.rb" time="1.590305"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change username" file="./spec/system/registrations_spec.rb" time="3.372960"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change email" file="./spec/system/registrations_spec.rb" time="2.974908"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change password" file="./spec/system/registrations_spec.rb" time="3.287167"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change username" file="./spec/system/registrations_spec.rb" time="2.664326"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change email" file="./spec/system/registrations_spec.rb" time="3.474627"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change password" file="./spec/system/registrations_spec.rb" time="3.415522"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when login displayed icon " file="./spec/system/registrations_spec.rb" time="1.613695"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when login have link edit" file="./spec/system/registrations_spec.rb" time="1.714252"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when not login not have link edit" file="./spec/system/registrations_spec.rb" time="0.617082"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when success displayed message" file="./spec/system/registrations_spec.rb" time="51.010114"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail name empty" file="./spec/system/registrations_spec.rb" time="1.403246"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail email empty" file="./spec/system/registrations_spec.rb" time="1.329870"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail checkbox empty" file="./spec/system/registrations_spec.rb" time="1.286378"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail password is short" file="./spec/system/registrations_spec.rb" time="1.217213"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail confirmation password is incorrect" file="./spec/system/registrations_spec.rb" time="1.220659"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations delete /users delete seccess" file="./spec/system/registrations_spec.rb" time="3.765641"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success displayed icon " file="./spec/system/registrations_spec.rb" time="2.133460"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change username" file="./spec/system/registrations_spec.rb" time="3.198726"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change email" file="./spec/system/registrations_spec.rb" time="3.117681"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change password" file="./spec/system/registrations_spec.rb" time="3.235779"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change username" file="./spec/system/registrations_spec.rb" time="2.836445"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change email" file="./spec/system/registrations_spec.rb" time="2.450357"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change password" file="./spec/system/registrations_spec.rb" time="2.894223"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when login displayed icon " file="./spec/system/registrations_spec.rb" time="2.026834"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when login have link edit" file="./spec/system/registrations_spec.rb" time="1.813513"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when not login not have link edit" file="./spec/system/registrations_spec.rb" time="0.624297"></testcase>
 </testsuite>

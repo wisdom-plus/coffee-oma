@@ -77,7 +77,7 @@ RSpec.describe 'Registrations', type: :system,js: true do
         find(".spec-policy").click
         click_button 'Sign up'
         expect(page).to have_current_path new_user_registration_path
-        # expect(page).to have_content 'パスワードは少なくとも6文字以上でなければなりません。'
+        expect(page).to have_content 'パスワードが一致しません。'
       end
     end
   end

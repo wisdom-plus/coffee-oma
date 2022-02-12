@@ -28,7 +28,7 @@ $(document).on("turbolinks:load", function () {
       empty: "{name}が入力されていません。",
       email: "{name}は有効なメールアドレスではありません。",
       url: "{name}は有効なURLではありません。",
-      match: "{name}が{ruleValue}は一致しません。",
+      match: "{name}が一致しません。",
       minLength: "{name}は少なくとも{ruleValue}文字以上でなければなりません。",
       minCount: "{name}は最低でも{ruleValue}の選択肢を持たなければなりません。",
       number: "{name}は数字で入力してください。",
