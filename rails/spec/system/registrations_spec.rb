@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Registrations', type: :system,js: true do
+RSpec.describe 'Registrations', type: :system, js: true do
   let(:user) { create(:user) }
   let(:user1) { create(:user, email: 'test1@example.com', username: 'test1') }
 
@@ -12,7 +12,7 @@ RSpec.describe 'Registrations', type: :system,js: true do
         fill_in 'E-mail address', with: 'test@example.com'
         fill_in 'Password', with: 'password'
         fill_in 'Confirmation password', with: 'password'
-        find(".spec-policy").click
+        find('.spec-policy').click
         click_button 'Sign up'
       end
 
@@ -31,7 +31,7 @@ RSpec.describe 'Registrations', type: :system,js: true do
         fill_in 'E-mail address', with: 'test@example.com'
         fill_in 'Password', with: 'password'
         fill_in 'Confirmation password', with: 'password'
-        find(".spec-policy").click
+        find('.spec-policy').click
         click_button 'Sign up'
         expect(page).to have_current_path new_user_registration_path
         expect(page).to have_content 'ユーザー名が入力されていません。'
@@ -42,7 +42,7 @@ RSpec.describe 'Registrations', type: :system,js: true do
         fill_in 'E-mail address', with: ''
         fill_in 'Password', with: 'password'
         fill_in 'Confirmation password', with: 'password'
-        find(".spec-policy").click
+        find('.spec-policy').click
         click_button 'Sign up'
         expect(page).to have_current_path new_user_registration_path
         expect(page).to have_content 'Eメールが入力されていません。'
@@ -63,7 +63,7 @@ RSpec.describe 'Registrations', type: :system,js: true do
         fill_in 'E-mail address', with: 'test@example.com'
         fill_in 'Password', with: 'test'
         fill_in 'Confirmation password', with: 'test'
-        find(".spec-policy").click
+        find('.spec-policy').click
         click_button 'Sign up'
         expect(page).to have_current_path new_user_registration_path
         expect(page).to have_content 'パスワードは少なくとも6文字以上でなければなりません。'
@@ -74,7 +74,7 @@ RSpec.describe 'Registrations', type: :system,js: true do
         fill_in 'E-mail address', with: 'test@example.com'
         fill_in 'Password', with: 'kajshdjduidj'
         fill_in 'Confirmation password', with: 'password'
-        find(".spec-policy").click
+        find('.spec-policy').click
         click_button 'Sign up'
         expect(page).to have_current_path new_user_registration_path
         expect(page).to have_content 'パスワードが一致しません。'
