@@ -39,9 +39,9 @@
             = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "Confirmation password", id: 'password_confirmation'
         .inline.field
           .ui.checkbox.mb-1rem
-            = label_tag :policy,id: 'spec-policy'
+            = label_tag :policy
               = link_to '利用規約',policy_path
-              | と
+              span.spec-policy と
               = link_to 'プライベートポリシー', private_policy_path
               | に同意しました
             = check_box_tag :policy

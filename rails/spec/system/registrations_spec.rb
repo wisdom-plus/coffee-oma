@@ -12,7 +12,7 @@ RSpec.describe 'Registrations', type: :system,js: true do
         fill_in 'E-mail address', with: 'test@example.com'
         fill_in 'Password', with: 'password'
         fill_in 'Confirmation password', with: 'password'
-        find("label#spec-policy").click
+        find(".spec-policy").click
         click_button 'Sign up'
       end
 

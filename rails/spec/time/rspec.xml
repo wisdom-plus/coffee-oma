@@ -1,77 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="14" skipped="0" failures="1" errors="0" time="51.837143" timestamp="2022-02-12T11:39:51+00:00" hostname="29019f70cf23">
+<testsuite name="rspec" tests="14" skipped="0" failures="0" errors="0" time="50.476105" timestamp="2022-02-12T12:04:48+00:00" hostname="29019f70cf23">
 <properties>
-<property name="seed" value="13802"/>
+<property name="seed" value="62356"/>
 </properties>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when success displayed message" file="./spec/system/registrations_spec.rb" time="24.070898"><failure message="stale element reference: element is not attached to the page document
-  (Session info: headless chrome=92.0.4515.159)" type="Selenium::WebDriver::Error::StaleElementReferenceError">Failure/Error: click_button &apos;Sign up&apos;
-
-Selenium::WebDriver::Error::StaleElementReferenceError:
-  stale element reference: element is not attached to the page document
-    (Session info: headless chrome=92.0.4515.159)
-
-
-[Screenshot Image]: /coffee-oma/tmp/screenshots/failures_r_spec_example_groups_registrations_sign_up_when_success_displayed_message_852.png
-
-
-
-#0 0x558177426a63 &lt;unknown&gt;
-#1 0x55817719b458 &lt;unknown&gt;
-#2 0x55817719e2dc &lt;unknown&gt;
-#3 0x55817719e0d6 &lt;unknown&gt;
-#4 0x55817719e39c &lt;unknown&gt;
-#5 0x5581771d275f &lt;unknown&gt;
-#6 0x5581771c5b22 &lt;unknown&gt;
-#7 0x5581771ee0e2 &lt;unknown&gt;
-#8 0x5581771c59a3 &lt;unknown&gt;
-#9 0x5581771ee1ee &lt;unknown&gt;
-#10 0x55817720123c &lt;unknown&gt;
-#11 0x5581771edfd3 &lt;unknown&gt;
-#12 0x5581771c4514 &lt;unknown&gt;
-#13 0x5581771c5505 &lt;unknown&gt;
-#14 0x558177452e2e &lt;unknown&gt;
-#15 0x558177468886 &lt;unknown&gt;
-#16 0x558177453d75 &lt;unknown&gt;
-#17 0x558177469d94 &lt;unknown&gt;
-#18 0x55817744a8eb &lt;unknown&gt;
-#19 0x558177484cd8 &lt;unknown&gt;
-#20 0x558177484e58 &lt;unknown&gt;
-#21 0x55817749edfd &lt;unknown&gt;
-#22 0x7f5297bbe609 start_thread
-/usr/local/bundle/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/response.rb:72:in `assert_ok&apos;
-/usr/local/bundle/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/response.rb:34:in `initialize&apos;
-/usr/local/bundle/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/http/common.rb:88:in `new&apos;
-/usr/local/bundle/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/http/common.rb:88:in `create_response&apos;
-/usr/local/bundle/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/http/default.rb:114:in `request&apos;
-/usr/local/bundle/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/http/common.rb:64:in `call&apos;
-/usr/local/bundle/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/bridge.rb:167:in `execute&apos;
-/usr/local/bundle/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/w3c/bridge.rb:567:in `execute&apos;
-/usr/local/bundle/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/w3c/bridge.rb:371:in `click_element&apos;
-/usr/local/bundle/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/common/element.rb:74:in `click&apos;
-/usr/local/bundle/gems/capybara-3.35.3/lib/capybara/selenium/node.rb:105:in `click&apos;
-/usr/local/bundle/gems/capybara-3.35.3/lib/capybara/selenium/extensions/file_input_click_emulation.rb:6:in `click&apos;
-/usr/local/bundle/gems/capybara-3.35.3/lib/capybara/selenium/nodes/chrome_node.rb:40:in `click&apos;
-/usr/local/bundle/gems/capybara-3.35.3/lib/capybara/node/element.rb:172:in `block in click&apos;
-/usr/local/bundle/gems/capybara-3.35.3/lib/capybara/node/element.rb:597:in `block in perform_click_action&apos;
-/usr/local/bundle/gems/capybara-3.35.3/lib/capybara/node/base.rb:83:in `synchronize&apos;
-/usr/local/bundle/gems/capybara-3.35.3/lib/capybara/node/element.rb:597:in `perform_click_action&apos;
-/usr/local/bundle/gems/capybara-3.35.3/lib/capybara/node/element.rb:171:in `click&apos;
-/usr/local/bundle/gems/capybara-3.35.3/lib/capybara/node/actions.rb:58:in `click_button&apos;
-/usr/local/bundle/gems/capybara-3.35.3/lib/capybara/session.rb:762:in `click_button&apos;
-/usr/local/bundle/gems/capybara-3.35.3/lib/capybara/dsl.rb:53:in `call&apos;
-/usr/local/bundle/gems/capybara-3.35.3/lib/capybara/dsl.rb:53:in `click_button&apos;
-./spec/system/registrations_spec.rb:16:in `block (4 levels) in &lt;top (required)&gt;&apos;</failure></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail password is short" file="./spec/system/registrations_spec.rb" time="1.102323"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail confirmation password is incorrect" file="./spec/system/registrations_spec.rb" time="1.253433"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations delete /users delete seccess" file="./spec/system/registrations_spec.rb" time="4.177945"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success displayed icon " file="./spec/system/registrations_spec.rb" time="1.616082"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change username" file="./spec/system/registrations_spec.rb" time="2.853861"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change email" file="./spec/system/registrations_spec.rb" time="2.806960"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change password" file="./spec/system/registrations_spec.rb" time="3.043082"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change username" file="./spec/system/registrations_spec.rb" time="2.256026"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change email" file="./spec/system/registrations_spec.rb" time="2.248561"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change password" file="./spec/system/registrations_spec.rb" time="2.613984"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when login displayed icon " file="./spec/system/registrations_spec.rb" time="1.624925"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when login have link edit" file="./spec/system/registrations_spec.rb" time="1.649041"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when not login not have link edit" file="./spec/system/registrations_spec.rb" time="0.507671"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when success displayed message" file="./spec/system/registrations_spec.rb" time="22.463160"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail password is short" file="./spec/system/registrations_spec.rb" time="1.093664"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail confirmation password is incorrect" file="./spec/system/registrations_spec.rb" time="1.067326"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations delete /users delete seccess" file="./spec/system/registrations_spec.rb" time="3.369889"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success displayed icon " file="./spec/system/registrations_spec.rb" time="1.702786"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change username" file="./spec/system/registrations_spec.rb" time="2.986865"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change email" file="./spec/system/registrations_spec.rb" time="2.927884"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change password" file="./spec/system/registrations_spec.rb" time="3.089407"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change username" file="./spec/system/registrations_spec.rb" time="2.466179"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change email" file="./spec/system/registrations_spec.rb" time="2.336535"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change password" file="./spec/system/registrations_spec.rb" time="2.796946"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when login displayed icon " file="./spec/system/registrations_spec.rb" time="1.772971"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when login have link edit" file="./spec/system/registrations_spec.rb" time="1.830685"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when not login not have link edit" file="./spec/system/registrations_spec.rb" time="0.557789"></testcase>
 </testsuite>
