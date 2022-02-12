@@ -26,13 +26,47 @@ RSpec.describe 'Registrations', type: :system,js: true do
         visit new_user_registration_path
       end
 
+      it 'name empty' do
+        fill_in 'user-name', with: ''
+        fill_in 'E-mail address', with: 'test@example.com'
+        fill_in 'Password', with: 'password'
+        fill_in 'Confirmation password', with: 'password'
+        find(".spec-policy").click
+        click_button 'Sign up'
+        expect(page).to have_current_path new_user_registration_path
+        expect(page).to have_content 'ユーザー名が入力されていません。'
+      end
+
+      it 'email empty' do
+        fill_in 'user-name', with: 'test1'
+        fill_in 'E-mail address', with: ''
+        fill_in 'Password', with: 'password'
+        fill_in 'Confirmation password', with: 'password'
+        find(".spec-policy").click
+        click_button 'Sign up'
+        expect(page).to have_current_path new_user_registration_path
+        expect(page).to have_content 'Eメールが入力されていません。'
+      end
+
+      it 'checkbox empty' do
+        fill_in 'user-name', with: 'test1'
+        fill_in 'E-mail address', with: 'test@example.com'
+        fill_in 'Password', with: 'password'
+        fill_in 'Confirmation password', with: 'password'
+        click_button 'Sign up'
+        expect(page).to have_current_path new_user_registration_path
+        expect(page).to have_content '利用規約とプライベートポリシーに同意する必要があります。'
+      end
+
       it 'password is short' do
         fill_in 'user-name', with: 'test1'
         fill_in 'E-mail address', with: 'test@example.com'
         fill_in 'Password', with: 'test'
         fill_in 'Confirmation password', with: 'test'
+        find(".spec-policy").click
         click_button 'Sign up'
         expect(page).to have_current_path new_user_registration_path
+        expect(page).to have_content 'パスワードは少なくとも6文字以上でなければなりません。'
       end
 
       it 'confirmation password is incorrect' do
@@ -40,8 +74,10 @@ RSpec.describe 'Registrations', type: :system,js: true do
         fill_in 'E-mail address', with: 'test@example.com'
         fill_in 'Password', with: 'kajshdjduidj'
         fill_in 'Confirmation password', with: 'password'
+        find(".spec-policy").click
         click_button 'Sign up'
         expect(page).to have_current_path new_user_registration_path
+        # expect(page).to have_content 'パスワードは少なくとも6文字以上でなければなりません。'
       end
     end
   end
