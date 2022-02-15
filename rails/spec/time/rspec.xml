@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="2" skipped="0" failures="0" errors="0" time="0.795451" timestamp="2022-02-15T11:00:31+00:00" hostname="29019f70cf23">
+<testsuite name="rspec" tests="2" skipped="0" failures="0" errors="0" time="0.904073" timestamp="2022-02-15T12:05:50+00:00" hostname="29019f70cf23">
 <properties>
-<property name="seed" value="12800"/>
+<property name="seed" value="29799"/>
 </properties>
-<testcase classname="spec.jobs.delete_review_job_spec" name="delete_review perform_later enqueue job" file="./spec/jobs/delete_review_job_spec.rb" time="0.446621"></testcase>
-<testcase classname="spec.jobs.delete_review_job_spec" name="delete_review perform_later delete review" file="./spec/jobs/delete_review_job_spec.rb" time="0.344874"></testcase>
+<testcase classname="spec.jobs.history_clean_job_spec" name="history_clean perfore_later enqueue job" file="./spec/jobs/history_clean_job_spec.rb" time="0.070448"></testcase>
+<testcase classname="spec.jobs.history_clean_job_spec" name="history_clean perfore_later history delete" file="./spec/jobs/history_clean_job_spec.rb" time="0.823740"></testcase>
 </testsuite>

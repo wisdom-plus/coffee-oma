@@ -1,0 +1,25 @@
+require 'rails_helper'
+
+RSpec.describe 'history_clean' do
+  let(:user) { create(:user) }
+  let(:product) { create(:product, user: user) }
+  let(:history) { create(:history, product: product, user: user ) }
+
+
+  describe 'perfore_later' do
+    it 'enqueue job' do
+      ActiveJob::Base.queue_adapter = :test
+      HistoryCleanJob.perform_later
+      expect(HistoryCleanJob).to have_been_enqueued
+    end
+
+    it 'history delete' do
+      ActiveJob::Base.queue_adapter = :test
+      histories = create_list(:history,20,product: product,user: user,updated_at: 2.week.ago)
+      history
+      expect do
+        HistoryCleanJob.perform_now
+      end.to change(History, :count).by -20
+    end
+  end
+end
