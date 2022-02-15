@@ -41,9 +41,11 @@ RSpec.describe 'History', type: :system do
     end
 
     it 'create history(product)' do
-      expect do
-        visit product_path(product.id)
-      end.to change(History, :count).by 1
+      perform_enqueued_jobs do
+        expect do
+          visit product_path(product.id)
+        end.to change(History, :count).by 1
+      end
     end
 
     it 'not create history(product)' do
@@ -53,9 +55,11 @@ RSpec.describe 'History', type: :system do
     end
 
     it 'create history(bean)' do
-      expect do
-        visit bean_path(bean.id)
-      end.to change(History, :count).by 1
+      perform_enqueued_jobs do
+        expect do
+          visit bean_path(bean.id)
+        end.to change(History, :count).by 1
+      end
     end
 
     it 'not create history(bean)' do
@@ -65,13 +69,15 @@ RSpec.describe 'History', type: :system do
     end
 
     it 'check the order of history' do
-      visit product_path(product.id)
-      visit bean_path(bean.id)
-      visit histories_path
-      bean_history = all('.spec-item')[0]
-      product_history = all('.spec-item')[1]
-      expect(bean_history[:href]).to eq bean_path(bean.id)
-      expect(product_history[:href]).to eq product_path(product.id)
+      perform_enqueued_jobs do
+        visit product_path(product.id)
+        visit bean_path(bean.id)
+        visit histories_path
+        bean_history = all('.spec-item')[0]
+        product_history = all('.spec-item')[1]
+        expect(bean_history[:href]).to eq bean_path(bean.id)
+        expect(product_history[:href]).to eq product_path(product.id)
+      end
     end
   end
 end

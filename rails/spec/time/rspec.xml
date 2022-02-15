@@ -1,29 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="7" skipped="0" failures="3" errors="0" time="24.081691" timestamp="2022-02-15T12:22:09+00:00" hostname="29019f70cf23">
+<testsuite name="rspec" tests="7" skipped="0" failures="0" errors="0" time="27.606054" timestamp="2022-02-15T12:37:28+00:00" hostname="29019f70cf23">
 <properties>
-<property name="seed" value="5813"/>
+<property name="seed" value="56671"/>
 </properties>
-<testcase classname="spec.system.history_spec" name="History index when login render history" file="./spec/system/history_spec.rb" time="17.384273"></testcase>
-<testcase classname="spec.system.history_spec" name="History index when not login redirect sign_in" file="./spec/system/history_spec.rb" time="0.725116"></testcase>
-<testcase classname="spec.system.history_spec" name="History create create history(product)" file="./spec/system/history_spec.rb" time="1.128700"><failure message="expected `History.count` to have changed by 1, but was changed by 0" type="RSpec::Expectations::ExpectationNotMetError">Failure/Error:
-  expect do
-    visit product_path(product.id)
-  end.to change(History, :count).by 1
-
-  expected `History.count` to have changed by 1, but was changed by 0
-./spec/system/history_spec.rb:45:in `block (3 levels) in &lt;top (required)&gt;&apos;</failure></testcase>
-<testcase classname="spec.system.history_spec" name="History create not create history(product)" file="./spec/system/history_spec.rb" time="0.989566"></testcase>
-<testcase classname="spec.system.history_spec" name="History create create history(bean)" file="./spec/system/history_spec.rb" time="1.055845"><failure message="expected `History.count` to have changed by 1, but was changed by 0" type="RSpec::Expectations::ExpectationNotMetError">Failure/Error:
-  expect do
-    visit bean_path(bean.id)
-  end.to change(History, :count).by 1
-
-  expected `History.count` to have changed by 1, but was changed by 0
-./spec/system/history_spec.rb:57:in `block (3 levels) in &lt;top (required)&gt;&apos;</failure></testcase>
-<testcase classname="spec.system.history_spec" name="History create not create history(bean)" file="./spec/system/history_spec.rb" time="1.176564"></testcase>
-<testcase classname="spec.system.history_spec" name="History create check the order of history" file="./spec/system/history_spec.rb" time="1.615683"><failure message="undefined method `[]&apos; for nil:NilClass" type="NoMethodError">Failure/Error: expect(bean_history[:href]).to eq bean_path(bean.id)
-
-NoMethodError:
-  undefined method `[]&apos; for nil:NilClass
-./spec/system/history_spec.rb:74:in `block (3 levels) in &lt;top (required)&gt;&apos;</failure></testcase>
+<testcase classname="spec.system.history_spec" name="History index when login render history" file="./spec/system/history_spec.rb" time="19.296669"></testcase>
+<testcase classname="spec.system.history_spec" name="History index when not login redirect sign_in" file="./spec/system/history_spec.rb" time="0.837998"></testcase>
+<testcase classname="spec.system.history_spec" name="History create create history(product)" file="./spec/system/history_spec.rb" time="1.506724"></testcase>
+<testcase classname="spec.system.history_spec" name="History create not create history(product)" file="./spec/system/history_spec.rb" time="1.389010"></testcase>
+<testcase classname="spec.system.history_spec" name="History create create history(bean)" file="./spec/system/history_spec.rb" time="1.486558"></testcase>
+<testcase classname="spec.system.history_spec" name="History create not create history(bean)" file="./spec/system/history_spec.rb" time="1.344136"></testcase>
+<testcase classname="spec.system.history_spec" name="History create check the order of history" file="./spec/system/history_spec.rb" time="1.691073"></testcase>
 </testsuite>
