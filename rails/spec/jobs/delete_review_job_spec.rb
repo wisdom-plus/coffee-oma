@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'delete_review' do
+RSpec.describe 'delete_review', type: :job do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
   let(:review) { create(:review, user: user, product: product) }
@@ -17,7 +17,7 @@ RSpec.describe 'delete_review' do
       review
       expect do
         DeleteReviewJob.perform_now(review)
-      end.to change(Review, :count).by -1
+      end.to change(Review, :count).by(-1)
     end
   end
 end
