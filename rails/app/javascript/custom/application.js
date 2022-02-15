@@ -19,6 +19,7 @@ $(document).on("turbolinks:load", function () {
     context: "#sidebar",
   });
   $(".ui.dropdown").dropdown();
+  $(".ui.checkbox").checkbox();
   $("img.lazyload").visibility({
     type: "image",
     transition: "scale in",

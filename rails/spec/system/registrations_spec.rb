@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Registrations', type: :system do
+RSpec.describe 'Registrations', type: :system, js: true do
   let(:user) { create(:user) }
   let(:user1) { create(:user, email: 'test1@example.com', username: 'test1') }
 
@@ -12,6 +12,7 @@ RSpec.describe 'Registrations', type: :system do
         fill_in 'E-mail address', with: 'test@example.com'
         fill_in 'Password', with: 'password'
         fill_in 'Confirmation password', with: 'password'
+        find('.spec-policy').click
         click_button 'Sign up'
       end
 
@@ -25,13 +26,47 @@ RSpec.describe 'Registrations', type: :system do
         visit new_user_registration_path
       end
 
+      it 'name empty' do
+        fill_in 'user-name', with: ''
+        fill_in 'E-mail address', with: 'test@example.com'
+        fill_in 'Password', with: 'password'
+        fill_in 'Confirmation password', with: 'password'
+        find('.spec-policy').click
+        click_button 'Sign up'
+        expect(page).to have_current_path new_user_registration_path
+        expect(page).to have_content 'ユーザー名が入力されていません。'
+      end
+
+      it 'email empty' do
+        fill_in 'user-name', with: 'test1'
+        fill_in 'E-mail address', with: ''
+        fill_in 'Password', with: 'password'
+        fill_in 'Confirmation password', with: 'password'
+        find('.spec-policy').click
+        click_button 'Sign up'
+        expect(page).to have_current_path new_user_registration_path
+        expect(page).to have_content 'Eメールが入力されていません。'
+      end
+
+      it 'checkbox empty' do
+        fill_in 'user-name', with: 'test1'
+        fill_in 'E-mail address', with: 'test@example.com'
+        fill_in 'Password', with: 'password'
+        fill_in 'Confirmation password', with: 'password'
+        click_button 'Sign up'
+        expect(page).to have_current_path new_user_registration_path
+        expect(page).to have_content '利用規約とプライベートポリシーに同意する必要があります。'
+      end
+
       it 'password is short' do
         fill_in 'user-name', with: 'test1'
         fill_in 'E-mail address', with: 'test@example.com'
         fill_in 'Password', with: 'test'
         fill_in 'Confirmation password', with: 'test'
+        find('.spec-policy').click
         click_button 'Sign up'
-        expect(page).to have_current_path '/users'
+        expect(page).to have_current_path new_user_registration_path
+        expect(page).to have_content 'パスワードは少なくとも6文字以上でなければなりません。'
       end
 
       it 'confirmation password is incorrect' do
@@ -39,8 +74,10 @@ RSpec.describe 'Registrations', type: :system do
         fill_in 'E-mail address', with: 'test@example.com'
         fill_in 'Password', with: 'kajshdjduidj'
         fill_in 'Confirmation password', with: 'password'
+        find('.spec-policy').click
         click_button 'Sign up'
-        expect(page).to have_current_path '/users'
+        expect(page).to have_current_path new_user_registration_path
+        expect(page).to have_content 'パスワードが一致しません。'
       end
     end
   end
@@ -49,7 +86,9 @@ RSpec.describe 'Registrations', type: :system do
     it 'delete seccess' do
       login(user, user.email, user.password)
       visit edit_user_registration_path
-      click_on :delete_button
+      find('.delete-accordion').click
+      find('#modal-button').click
+      click_on 'delete_button'
       expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
     end
   end
@@ -81,6 +120,7 @@ RSpec.describe 'Registrations', type: :system do
         end
 
         it 'change password' do
+          find('.password-accordion').click
           fill_in 'spec-password', with: 'password1'
           fill_in 'spec-password-confirmation', with: 'password1'
           click_button 'Update'
@@ -104,6 +144,7 @@ RSpec.describe 'Registrations', type: :system do
         end
 
         it 'not change password' do
+          find('.password-accordion').click
           fill_in 'spec-password', with: 'password'
           fill_in 'spec-password-confirmation', with: 'password1'
           click_button 'Update'
