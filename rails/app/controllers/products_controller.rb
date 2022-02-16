@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
   before_action :product_exists?, only: %i[show]
-  after_action  -> { CreateHistoryJob.perform_now(current_user.id, history_params) }, only: %i[show], if: -> { user_signed_in? && @product }
+  after_action  -> { CreateHistoryJob.perform_later(current_user.id, history_params) }, only: %i[show], if: -> { user_signed_in? && @product }
 
   def new
     @product = Product.new(tag_list: 'コーヒー')

@@ -1,7 +1,7 @@
 class BeansController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
   before_action :bean_exists?, only: %i[show]
-  after_action  -> { CreateHistoryJob.perform_now(current_user.id, history_params) }, only: %i[show], if: -> { user_signed_in? && @bean }
+  after_action  -> { CreateHistoryJob.perform_later(current_user.id, history_params) }, only: %i[show], if: -> { user_signed_in? && @bean }
 
   def new
     @bean = Bean.new(tag_list: 'コーヒー')

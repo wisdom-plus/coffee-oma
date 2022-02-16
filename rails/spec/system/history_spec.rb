@@ -40,7 +40,13 @@ RSpec.describe 'History', type: :system do
       bean
     end
 
-    it 'create history(product)' do
+    around(:example, :perform_enqueued_jobs) do |example|
+      perform_enqueued_jobs do
+        example.run
+      end
+    end
+
+    it 'create history(product)', :perform_enqueued_jobs do
       expect do
         visit product_path(product.id)
       end.to change(History, :count).by 1
@@ -52,7 +58,7 @@ RSpec.describe 'History', type: :system do
       end.to change(History, :count).by 0
     end
 
-    it 'create history(bean)' do
+    it 'create history(bean)', :perform_enqueued_jobs do
       expect do
         visit bean_path(bean.id)
       end.to change(History, :count).by 1
@@ -64,7 +70,7 @@ RSpec.describe 'History', type: :system do
       end.to change(History, :count).by 0
     end
 
-    it 'check the order of history' do
+    it 'check the order of history', :perform_enqueued_jobs do
       visit product_path(product.id)
       visit bean_path(bean.id)
       visit histories_path
