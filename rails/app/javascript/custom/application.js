@@ -22,9 +22,11 @@ $(document).on("turbolinks:load", function () {
   $(".ui.checkbox").checkbox();
   $("#q_itemname_cont").focus(function () {
     $(".segment").dimmer("show");
+    this.style.border = "solid 2px #DE3F69";
   });
-  $("#q_itemname_cont").focusout(function () {
+  $("#q_itemname_cont").blur(function () {
     $(".segment").dimmer("hide");
+    this.style.border = "";
   });
   $("img.lazyload").visibility({
     type: "image",
