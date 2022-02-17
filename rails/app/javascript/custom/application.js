@@ -20,6 +20,12 @@ $(document).on("turbolinks:load", function () {
   });
   $(".ui.dropdown").dropdown();
   $(".ui.checkbox").checkbox();
+  $("#q_itemname_cont").focus(function () {
+    $(".segment").dimmer("show");
+  });
+  $("#q_itemname_cont").focusout(function () {
+    $(".segment").dimmer("hide");
+  });
   $("img.lazyload").visibility({
     type: "image",
     transition: "scale in",
