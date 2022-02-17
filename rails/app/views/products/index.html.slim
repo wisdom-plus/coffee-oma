@@ -10,10 +10,9 @@
         h3
           | なければ
           = link_to 'こちらから登録', new_product_path
-      = search_form_for @q ,class: "ui mini form" do |f|
-        .inline.field.form-centered
-          = f.search_field :itemname_cont, placeholder: "search",class: 'mr-0 width-40'
-          = f.submit class: "ui icon teal button",id: 'search' do
+      = search_form_for @q,url: products_path ,class: "ui action mini input width-40" do |f|
+        = f.search_field :itemname_cont, placeholder: "search"
+        = f.submit class: "ui teal button",id: 'search'
 
   - if @products.present?
     .ui.three.stackable.cards.segment.scroll#sidebar

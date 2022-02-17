@@ -11,23 +11,11 @@ $(document).on("turbolinks:load", function () {
   });
 
   $(".menu .item").tab();
-  $("#dimmer-button").on("click", function () {
-    $("#dimmer").dimmer("toggle");
-    $("#dimmer-product").dimmer("toggle");
-  });
   $(".sticky").sticky({
     context: "#sidebar",
   });
   $(".ui.dropdown").dropdown();
   $(".ui.checkbox").checkbox();
-  $("#q_itemname_cont").focus(function () {
-    $(".segment").dimmer("show");
-    this.style.border = "solid 2px #DE3F69";
-  });
-  $("#q_itemname_cont").blur(function () {
-    $(".segment").dimmer("hide");
-    this.style.border = "";
-  });
   $("img.lazyload").visibility({
     type: "image",
     transition: "scale in",
