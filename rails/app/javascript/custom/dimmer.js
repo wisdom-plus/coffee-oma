@@ -5,18 +5,24 @@ $(document).on("turbolinks:load", function () {
   });
   $("#q_itemname_cont").on("focus", function () {
     $("#sidebar").dimmer("show");
-    $(".ui.action.input").style.border = "solid 2px #DE3F69";
+    $(".ui.action.input").css(
+      "box-shadow",
+      "rgba(222, 63, 105, 0.7) 0px 0px 0px 2px"
+    );
   });
   $("#q_itemname_cont").on("blur", function () {
     $("#sidebar").dimmer("hide");
-    $(".ui.action.input").style.border = "";
+    $(".ui.action.input").css("box-shadow", "");
   });
   $("#q_name_cont").on("focus", function () {
     $("#sidebar").dimmer("show");
-    $(".ui.action.input").style.border = "solid 2px #DE3F69";
+    $(".ui.action.input").css(
+      "box-shadow",
+      "rgba(222, 63, 105, 0.7) 0px 0px 0px 2px"
+    );
   });
   $("#q_name_cont").on("blur", function () {
     $("#sidebar").dimmer("hide");
-    $(".ui.action.input").style.border = "";
+    $(".ui.action.input").css("box-shadow", "");
   });
 });
