@@ -11,10 +11,6 @@ $(document).on("turbolinks:load", function () {
   });
 
   $(".menu .item").tab();
-  $("#dimmer-button").on("click", function () {
-    $("#dimmer").dimmer("toggle");
-    $("#dimmer-product").dimmer("toggle");
-  });
   $(".sticky").sticky({
     context: "#sidebar",
   });
