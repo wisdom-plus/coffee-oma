@@ -1,6 +1,4 @@
 $(document).on("turbolinks:load", function () {
-  $().popup;
-
   if ($(".popup > .poprating").length) {
     $("a.ui.fluid.link.card.post.scale").popup({
       onShow: function () {
