@@ -41,3 +41,26 @@
     .right.menu.toc
       a.item
           i.sidebar.icon
+.ui.popup.middle.aligned.center.aligned.grid
+  .column
+  h1 ログイン
+  = form_with url: user_session_path,id: "login_popup_form",class: "ui form text-left", local: true do |f|
+    .field
+      = f.label :email
+      br
+      .ui.left.icon.input
+        i.mail.icon
+        = f.email_field :email,autofocus: true,autocomplete: "email",placeholder: "E-mail address",id: "login_popup_email_form"
+    .field
+      = f.label :password
+      br
+      .ui.left.icon.input
+        i.lock.icon
+        = f.password_field :password,autocomplete: "password",placeholder: "Password",id: "login_popup_password_form"
+    .field
+      = f.button type: "submit",class: "ui teadl fluid animated fade button", data: { disable_with: "送信中"}
+        .visible.content
+          | Login
+        .hidden.content
+          | ログイン
+
