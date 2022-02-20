@@ -1,4 +1,5 @@
 $(document).on("turbolinks:load", function () {
+  $("#login_button").popup({ popup: ".ui.popup.login_popup", hoverable: true });
   if ($(".popup > .poprating").length) {
     $("a.ui.fluid.link.card.post.scale").popup({
       onShow: function () {
