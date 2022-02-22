@@ -1,5 +1,14 @@
 $(document).on("turbolinks:load", function () {
-  $("#login_button").popup({ popup: ".ui.popup.login_popup", hoverable: true });
+  $("#login_button").popup({
+    on: "click",
+    popup: ".ui.popup.login_popup",
+  });
+  $("#login_button").on({
+    mouseenter: function () {
+      $("#login_button").click();
+    },
+  });
+
   if ($(".popup > .poprating").length) {
     $("a.ui.fluid.link.card.post.scale").popup({
       onShow: function () {
