@@ -22,3 +22,4 @@ require("custom/scroll");
 require("custom/modal");
 require("custom/anime");
 require("custom/dimmer");
+require("custom/popup");

@@ -9,7 +9,6 @@ $(document).on("turbolinks:load", function () {
   $(".sidebar.icon").on("click", function () {
     $(".ui.sidebar").sidebar("toggle");
   });
-
   $(".menu .item").tab();
   $(".sticky").sticky({
     context: "#sidebar",
