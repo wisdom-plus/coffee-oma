@@ -51,13 +51,13 @@
         br
         .ui.left.icon.input
           i.mail.icon
-          = f.email_field :email,autofocus: true,autocomplete: "email",placeholder: "E-mail address",id: "login_popup_email_form"
+          = f.email_field :email,autofocus: true,autocomplete: "email",placeholder: "E-mail",id: "login_popup_email_form"
       .field
         = f.label :password
         br
         .ui.left.icon.input
           i.lock.icon
-          = f.password_field :password,autocomplete: "password",placeholder: "Password",id: "login_popup_password_form"
+          = f.password_field :password,autocomplete: "password",placeholder: "password",id: "login_popup_password_form"
       .field.ui.checkbox
         = f.check_box :remember_me
         = f.label :remember_me
