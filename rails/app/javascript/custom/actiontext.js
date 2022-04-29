@@ -1,16 +1,17 @@
 $(document).on("turbolinks:load", function () {
   // Action textを変更
-  var Trix = require("trix");
-  require("@rails/actiontext");
-  Trix.config.blockAttributes.default = {
+  const Trix = require("trix");
+  Trix.default.config.blockAttributes.default = {
     tagName: "p",
+    breaakOnReturn: true,
   };
-  Trix.config.blockAttributes.heading2 = {
+  Trix.default.config.blockAttributes.heading2 = {
     tagName: "h2",
   };
-  Trix.config.blockAttributes.heading3 = {
+  Trix.default.config.blockAttributes.heading3 = {
     tagName: "h3",
   };
+
   addEventListener("trix-initialize", function (event) {
     var buttonHTML =
       '<button class="trix-button" type="button" data-trix-attribute="heading2">h2</button>';
