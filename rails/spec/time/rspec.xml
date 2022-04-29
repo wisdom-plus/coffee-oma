@@ -1,251 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="219" skipped="0" failures="2" errors="0" time="236.336317" timestamp="2022-04-28T12:33:40+00:00" hostname="e33328543b02">
+<testsuite name="rspec" tests="219" skipped="0" failures="1" errors="0" time="286.585461" timestamp="2022-04-29T11:25:47+00:00" hostname="e33328543b02">
 <properties>
-<property name="seed" value="25401"/>
+<property name="seed" value="14830"/>
 </properties>
-<testcase classname="spec.jobs.create_history_job_spec" name="create_history #perform_later enqueue job" file="./spec/jobs/create_history_job_spec.rb" time="0.417726"></testcase>
-<testcase classname="spec.jobs.create_history_job_spec" name="create_history #perform_later create history" file="./spec/jobs/create_history_job_spec.rb" time="0.291003"></testcase>
-<testcase classname="spec.jobs.delete_review_job_spec" name="delete_review perform_later enqueue job" file="./spec/jobs/delete_review_job_spec.rb" time="0.308266"></testcase>
-<testcase classname="spec.jobs.delete_review_job_spec" name="delete_review perform_later delete review" file="./spec/jobs/delete_review_job_spec.rb" time="0.386422"></testcase>
-<testcase classname="spec.jobs.history_clean_job_spec" name="history_clean perfore_later enqueue job" file="./spec/jobs/history_clean_job_spec.rb" time="0.010056"></testcase>
-<testcase classname="spec.jobs.history_clean_job_spec" name="history_clean perfore_later history delete" file="./spec/jobs/history_clean_job_spec.rb" time="0.568132"></testcase>
-<testcase classname="spec.mailers.contact_mailer_spec" name="ContactMailer contact contact_mail send mail" file="./spec/mailers/contact_mailer_spec.rb" time="0.072336"></testcase>
-<testcase classname="spec.mailers.contact_mailer_spec" name="ContactMailer contact reply_mail send mail" file="./spec/mailers/contact_mailer_spec.rb" time="0.048479"></testcase>
-<testcase classname="spec.requests.bean_reviews_spec" name="BeanReviews POST create request success" file="./spec/requests/bean_reviews_spec.rb" time="0.095089"></testcase>
-<testcase classname="spec.requests.bean_reviews_spec" name="BeanReviews POST create review created " file="./spec/requests/bean_reviews_spec.rb" time="0.048396"></testcase>
-<testcase classname="spec.requests.beans_spec" name="Beans GET /new when login request success" file="./spec/requests/beans_spec.rb" time="37.930327"></testcase>
-<testcase classname="spec.requests.beans_spec" name="Beans GET /new when not login request fail" file="./spec/requests/beans_spec.rb" time="0.056250"></testcase>
-<testcase classname="spec.requests.beans_spec" name="Beans GET /create when login request success" file="./spec/requests/beans_spec.rb" time="0.063651"></testcase>
-<testcase classname="spec.requests.beans_spec" name="Beans GET /create when login created bean" file="./spec/requests/beans_spec.rb" time="0.066836"></testcase>
-<testcase classname="spec.requests.beans_spec" name="Beans GET /create when not login request fail" file="./spec/requests/beans_spec.rb" time="0.067806"></testcase>
-<testcase classname="spec.requests.beans_spec" name="Beans GET /bean/:id request success" file="./spec/requests/beans_spec.rb" time="0.201935"></testcase>
-<testcase classname="spec.requests.beans_spec" name="Beans GET /bean/:id request fail" file="./spec/requests/beans_spec.rb" time="0.042365"></testcase>
-<testcase classname="spec.requests.beans_spec" name="Beans GET /index request success" file="./spec/requests/beans_spec.rb" time="0.126161"></testcase>
-<testcase classname="spec.requests.contacts_spec" name="Contacts GET /new returns http success" file="./spec/requests/contacts_spec.rb" time="0.114993"></testcase>
-<testcase classname="spec.requests.contacts_spec" name="Contacts POST /create returns http success" file="./spec/requests/contacts_spec.rb" time="0.071482"></testcase>
-<testcase classname="spec.requests.contacts_spec" name="Contacts POST /create created contact" file="./spec/requests/contacts_spec.rb" time="0.061087"></testcase>
-<testcase classname="spec.requests.histories_spec" name="Histories GET /index when login request success" file="./spec/requests/histories_spec.rb" time="0.153903"></testcase>
-<testcase classname="spec.requests.histories_spec" name="Histories GET /index when not login request fail" file="./spec/requests/histories_spec.rb" time="0.201657"></testcase>
-<testcase classname="spec.requests.likes_spec" name="Likes POST create request success" file="./spec/requests/likes_spec.rb" time="0.112287"></testcase>
-<testcase classname="spec.requests.likes_spec" name="Likes POST create created product_like success" file="./spec/requests/likes_spec.rb" time="0.059974"></testcase>
-<testcase classname="spec.requests.likes_spec" name="Likes POST create created bean_like success" file="./spec/requests/likes_spec.rb" time="0.266404"></testcase>
-<testcase classname="spec.requests.likes_spec" name="Likes DELETE destroy request success" file="./spec/requests/likes_spec.rb" time="0.079316"></testcase>
-<testcase classname="spec.requests.likes_spec" name="Likes DELETE destroy destroy product_like success" file="./spec/requests/likes_spec.rb" time="0.102080"></testcase>
-<testcase classname="spec.requests.likes_spec" name="Likes DELETE destroy destroy bean_like success" file="./spec/requests/likes_spec.rb" time="0.080307"></testcase>
-<testcase classname="spec.requests.likes_spec" name="Likes GET index request success" file="./spec/requests/likes_spec.rb" time="0.172996"></testcase>
-<testcase classname="spec.requests.messages_spec" name="Messages POST create request message" file="./spec/requests/messages_spec.rb" time="0.179293"></testcase>
-<testcase classname="spec.requests.messages_spec" name="Messages POST create created message" file="./spec/requests/messages_spec.rb" time="0.086691"></testcase>
-<testcase classname="spec.requests.news_spec" name="News GET /news request success" file="./spec/requests/news_spec.rb" time="0.165816"></testcase>
-<testcase classname="spec.requests.news_spec" name="News POST /news requests success" file="./spec/requests/news_spec.rb" time="0.182452"></testcase>
-<testcase classname="spec.requests.news_spec" name="News POST /news created news" file="./spec/requests/news_spec.rb" time="0.110607"></testcase>
-<testcase classname="spec.requests.news_spec" name="News GET /news/new request success" file="./spec/requests/news_spec.rb" time="0.131021"></testcase>
-<testcase classname="spec.requests.news_spec" name="News GET /news/:id/edit request success" file="./spec/requests/news_spec.rb" time="0.171396"></testcase>
-<testcase classname="spec.requests.news_spec" name="News GET /news/:id request success" file="./spec/requests/news_spec.rb" time="0.157799"></testcase>
-<testcase classname="spec.requests.news_spec" name="News PUT /news/:id request success" file="./spec/requests/news_spec.rb" time="0.131329"></testcase>
-<testcase classname="spec.requests.news_spec" name="News PUT /news/:id updated news" file="./spec/requests/news_spec.rb" time="0.266275"></testcase>
-<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id request success" file="./spec/requests/news_spec.rb" time="0.063992"></testcase>
-<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id destroy news" file="./spec/requests/news_spec.rb" time="0.160288"></testcase>
-<testcase classname="spec.requests.notifications_spec" name="Notifications GET /index request success" file="./spec/requests/notifications_spec.rb" time="0.176232"></testcase>
-<testcase classname="spec.requests.passwords_spec" name="Passwords GET users/password/new request seccess" file="./spec/requests/passwords_spec.rb" time="0.127999"></testcase>
-<testcase classname="spec.requests.passwords_spec" name="Passwords GET users/password/edit rquest seccess" file="./spec/requests/passwords_spec.rb" time="0.293395"></testcase>
-<testcase classname="spec.requests.passwords_spec" name="Passwords POST users/password request seccess" file="./spec/requests/passwords_spec.rb" time="0.149174"></testcase>
-<testcase classname="spec.requests.passwords_spec" name="Passwords PATCH users/password requests seccess" file="./spec/requests/passwords_spec.rb" time="0.119226"></testcase>
-<testcase classname="spec.requests.products_spec" name="Products GET /products request success" file="./spec/requests/products_spec.rb" time="0.236410"></testcase>
-<testcase classname="spec.requests.products_spec" name="Products GET /products request success(tag_name)" file="./spec/requests/products_spec.rb" time="0.165714"></testcase>
-<testcase classname="spec.requests.products_spec" name="Products GET /products/new request success" file="./spec/requests/products_spec.rb" time="0.139767"></testcase>
-<testcase classname="spec.requests.products_spec" name="Products POST /products request success" file="./spec/requests/products_spec.rb" time="0.082485"></testcase>
-<testcase classname="spec.requests.products_spec" name="Products POST /products created product" file="./spec/requests/products_spec.rb" time="0.090071"></testcase>
-<testcase classname="spec.requests.products_spec" name="Products GET /products/:id request success" file="./spec/requests/products_spec.rb" time="0.168184"></testcase>
-<testcase classname="spec.requests.products_spec" name="Products GET /products/:id request fail" file="./spec/requests/products_spec.rb" time="0.043767"></testcase>
-<testcase classname="spec.requests.recipe_spec" name="BeanReviews POST create request success" file="./spec/requests/recipe_spec.rb" time="0.061167"></testcase>
-<testcase classname="spec.requests.recipe_spec" name="BeanReviews POST create review created " file="./spec/requests/recipe_spec.rb" time="0.111394"></testcase>
-<testcase classname="spec.requests.registrations_spec" name="Registrations GET /users/sign_up request success" file="./spec/requests/registrations_spec.rb" time="0.221782"></testcase>
-<testcase classname="spec.requests.registrations_spec" name="Registrations GET /users/edit request success" file="./spec/requests/registrations_spec.rb" time="0.216709"></testcase>
-<testcase classname="spec.requests.registrations_spec" name="Registrations GET /users/:id/show request success(user)" file="./spec/requests/registrations_spec.rb" time="0.253952"></testcase>
-<testcase classname="spec.requests.registrations_spec" name="Registrations GET /users/:id/show request success(user1)" file="./spec/requests/registrations_spec.rb" time="0.461335"></testcase>
-<testcase classname="spec.requests.registrations_spec" name="Registrations POST /users request success" file="./spec/requests/registrations_spec.rb" time="0.154081"></testcase>
-<testcase classname="spec.requests.registrations_spec" name="Registrations POST /users user created" file="./spec/requests/registrations_spec.rb" time="0.122960"></testcase>
-<testcase classname="spec.requests.registrations_spec" name="Registrations DELETE /users requests success" file="./spec/requests/registrations_spec.rb" time="0.193946"></testcase>
-<testcase classname="spec.requests.registrations_spec" name="Registrations DELETE /users user delete" file="./spec/requests/registrations_spec.rb" time="0.181582"></testcase>
-<testcase classname="spec.requests.registrations_spec" name="Registrations PATCH /users request success" file="./spec/requests/registrations_spec.rb" time="0.063471"></testcase>
-<testcase classname="spec.requests.relationships_spec" name="Relationships POST create request success" file="./spec/requests/relationships_spec.rb" time="0.141098"></testcase>
-<testcase classname="spec.requests.relationships_spec" name="Relationships POST create created relationship" file="./spec/requests/relationships_spec.rb" time="0.154000"></testcase>
-<testcase classname="spec.requests.relationships_spec" name="Relationships DELETE destroy request success" file="./spec/requests/relationships_spec.rb" time="0.129337"></testcase>
-<testcase classname="spec.requests.relationships_spec" name="Relationships DELETE destroy destroy relationship" file="./spec/requests/relationships_spec.rb" time="0.088348"></testcase>
-<testcase classname="spec.requests.reports_spec" name="Reports GET /create request success(review)" file="./spec/requests/reports_spec.rb" time="0.204490"></testcase>
-<testcase classname="spec.requests.reports_spec" name="Reports GET /create request success(bean_review)" file="./spec/requests/reports_spec.rb" time="0.088607"></testcase>
-<testcase classname="spec.requests.reports_spec" name="Reports GET /create created report success(reivew)" file="./spec/requests/reports_spec.rb" time="0.133243"></testcase>
-<testcase classname="spec.requests.reports_spec" name="Reports GET /create created report success(bean_reivew)" file="./spec/requests/reports_spec.rb" time="0.101739"></testcase>
-<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes POST /create request success(product)" file="./spec/requests/review_likes_spec.rb" time="0.172055"></testcase>
-<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes POST /create created like success(product)" file="./spec/requests/review_likes_spec.rb" time="0.093905"></testcase>
-<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes POST /create request success(bean)" file="./spec/requests/review_likes_spec.rb" time="0.099450"></testcase>
-<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes POST /create created like success(bean)" file="./spec/requests/review_likes_spec.rb" time="0.098336"></testcase>
-<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes DETELE /destroy returns http success(prodcut)" file="./spec/requests/review_likes_spec.rb" time="0.091291"></testcase>
-<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes DETELE /destroy destroy like success(product)" file="./spec/requests/review_likes_spec.rb" time="0.267576"></testcase>
-<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes DETELE /destroy returns http success(bean)" file="./spec/requests/review_likes_spec.rb" time="0.115083"></testcase>
-<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes DETELE /destroy destroy like success(bean)" file="./spec/requests/review_likes_spec.rb" time="0.106301"></testcase>
-<testcase classname="spec.requests.reviews_spec" name="Reviews POST create request success" file="./spec/requests/reviews_spec.rb" time="0.088957"></testcase>
-<testcase classname="spec.requests.reviews_spec" name="Reviews POST create review created" file="./spec/requests/reviews_spec.rb" time="0.077750"></testcase>
-<testcase classname="spec.requests.rooms_spec" name="Rooms GET index request success" file="./spec/requests/rooms_spec.rb" time="0.236727"></testcase>
-<testcase classname="spec.requests.rooms_spec" name="Rooms GET show request success" file="./spec/requests/rooms_spec.rb" time="0.158357"></testcase>
-<testcase classname="spec.requests.rooms_spec" name="Rooms POST create request success" file="./spec/requests/rooms_spec.rb" time="0.056979"></testcase>
-<testcase classname="spec.requests.rooms_spec" name="Rooms POST create created room" file="./spec/requests/rooms_spec.rb" time="0.051326"></testcase>
-<testcase classname="spec.requests.sessions_spec" name="Sessions GET users/sign_in request success" file="./spec/requests/sessions_spec.rb" time="0.104606"></testcase>
-<testcase classname="spec.requests.sessions_spec" name="Sessions POST users/sign_in request success" file="./spec/requests/sessions_spec.rb" time="0.048237"></testcase>
-<testcase classname="spec.requests.sessions_spec" name="Sessions DELELTE users/sign_out requests success" file="./spec/requests/sessions_spec.rb" time="0.033554"></testcase>
-<testcase classname="spec.requests.tags_spec" name="Tags PATCH /tag request success(product)" file="./spec/requests/tags_spec.rb" time="0.104744"></testcase>
-<testcase classname="spec.requests.tags_spec" name="Tags PATCH /tag request success(bean)" file="./spec/requests/tags_spec.rb" time="0.043589"></testcase>
-<testcase classname="spec.system.bean_reviews_spec" name="BeanReviews create when login created success" file="./spec/system/bean_reviews_spec.rb" time="1.219185"></testcase>
-<testcase classname="spec.system.bean_reviews_spec" name="BeanReviews create when login not created success" file="./spec/system/bean_reviews_spec.rb" time="0.958847"></testcase>
-<testcase classname="spec.system.bean_reviews_spec" name="BeanReviews create when not login is not render review_form" file="./spec/system/bean_reviews_spec.rb" time="0.445491"></testcase>
-<testcase classname="spec.system.beans_spec" name="Beans new when login create bean" file="./spec/system/beans_spec.rb" time="0.747531"></testcase>
-<testcase classname="spec.system.beans_spec" name="Beans new when login not create bean" file="./spec/system/beans_spec.rb" time="0.608570"></testcase>
-<testcase classname="spec.system.beans_spec" name="Beans new when not login redirect sign_in" file="./spec/system/beans_spec.rb" time="0.146522"></testcase>
-<testcase classname="spec.system.beans_spec" name="Beans index displayed bean1" file="./spec/system/beans_spec.rb" time="0.575123"></testcase>
-<testcase classname="spec.system.beans_spec" name="Beans show display test" file="./spec/system/beans_spec.rb" time="0.562167"></testcase>
-<testcase classname="spec.system.beans_spec" name="Beans show redirect index(tag)" file="./spec/system/beans_spec.rb" time="0.613839"></testcase>
-<testcase classname="spec.system.beans_spec" name="Beans show redirect index(bean not exists)" file="./spec/system/beans_spec.rb" time="0.642351"></testcase>
-<testcase classname="spec.system.contacts_spec" name="Contacts new when to succeed created contact" file="./spec/system/contacts_spec.rb" time="0.329078"></testcase>
-<testcase classname="spec.system.contacts_spec" name="Contacts new when to succeed redirect root" file="./spec/system/contacts_spec.rb" time="0.308804"></testcase>
-<testcase classname="spec.system.contacts_spec" name="Contacts new when to fail is blank name" file="./spec/system/contacts_spec.rb" time="0.237915"></testcase>
-<testcase classname="spec.system.contacts_spec" name="Contacts new when to fail is blank email" file="./spec/system/contacts_spec.rb" time="0.235360"></testcase>
-<testcase classname="spec.system.contacts_spec" name="Contacts new when to fail is blank content" file="./spec/system/contacts_spec.rb" time="0.230346"></testcase>
-<testcase classname="spec.system.history_spec" name="History index when login render history" file="./spec/system/history_spec.rb" time="0.968169"></testcase>
-<testcase classname="spec.system.history_spec" name="History index when not login redirect sign_in" file="./spec/system/history_spec.rb" time="0.683600"></testcase>
-<testcase classname="spec.system.history_spec" name="History create create history(product)" file="./spec/system/history_spec.rb" time="1.068268"></testcase>
-<testcase classname="spec.system.history_spec" name="History create not create history(product)" file="./spec/system/history_spec.rb" time="0.894660"></testcase>
-<testcase classname="spec.system.history_spec" name="History create create history(bean)" file="./spec/system/history_spec.rb" time="0.916239"></testcase>
-<testcase classname="spec.system.history_spec" name="History create not create history(bean)" file="./spec/system/history_spec.rb" time="0.795256"></testcase>
-<testcase classname="spec.system.history_spec" name="History create check the order of history" file="./spec/system/history_spec.rb" time="1.246155"></testcase>
-<testcase classname="spec.system.likes_spec" name="Likes index render product" file="./spec/system/likes_spec.rb" time="1.850615"></testcase>
-<testcase classname="spec.system.likes_spec" name="Likes index render ranking" file="./spec/system/likes_spec.rb" time="2.036673"></testcase>
-<testcase classname="spec.system.likes_spec" name="Likes create when login click like button(product)" file="./spec/system/likes_spec.rb" time="2.040662"></testcase>
-<testcase classname="spec.system.likes_spec" name="Likes create when login click like button(bean)" file="./spec/system/likes_spec.rb" time="1.986415"></testcase>
-<testcase classname="spec.system.likes_spec" name="Likes create when not login not render like button" file="./spec/system/likes_spec.rb" time="0.575408"></testcase>
-<testcase classname="spec.system.likes_spec" name="Likes destroy when login click like destroy button(product)" file="./spec/system/likes_spec.rb" time="2.384789"></testcase>
-<testcase classname="spec.system.likes_spec" name="Likes destroy when login click like destroy button(bean)" file="./spec/system/likes_spec.rb" time="2.692617"></testcase>
-<testcase classname="spec.system.likes_spec" name="Likes destroy when not login not render button" file="./spec/system/likes_spec.rb" time="0.702214"></testcase>
-<testcase classname="spec.system.messages_spec" name="Messages create create message" file="./spec/system/messages_spec.rb" time="2.406379"></testcase>
-<testcase classname="spec.system.messages_spec" name="Messages create not create message" file="./spec/system/messages_spec.rb" time="1.965330"></testcase>
-<testcase classname="spec.system.news_spec" name="News index displayed news" file="./spec/system/news_spec.rb" time="0.178550"></testcase>
-<testcase classname="spec.system.news_spec" name="News show display news" file="./spec/system/news_spec.rb" time="0.141200"></testcase>
-<testcase classname="spec.system.news_spec" name="News new when login create news" file="./spec/system/news_spec.rb" time="4.156609"></testcase>
-<testcase classname="spec.system.news_spec" name="News new when not login redirect sign_in" file="./spec/system/news_spec.rb" time="0.314370"></testcase>
-<testcase classname="spec.system.news_spec" name="News edit when login edit news" file="./spec/system/news_spec.rb" time="3.378017"></testcase>
-<testcase classname="spec.system.news_spec" name="News edit when not login redirect sign_in" file="./spec/system/news_spec.rb" time="0.357884"></testcase>
-<testcase classname="spec.system.notifications_spec" name="Notifications index when login render page" file="./spec/system/notifications_spec.rb" time="1.179195"></testcase>
-<testcase classname="spec.system.notifications_spec" name="Notifications index when login render new_notification icon" file="./spec/system/notifications_spec.rb" time="0.790733"></testcase>
-<testcase classname="spec.system.notifications_spec" name="Notifications index when login not render new_notification icon" file="./spec/system/notifications_spec.rb" time="1.603623"></testcase>
-<testcase classname="spec.system.notifications_spec" name="Notifications index when not login not render page" file="./spec/system/notifications_spec.rb" time="0.187494"></testcase>
-<testcase classname="spec.system.notifications_spec" name="Notifications follow_notification render new_notification icon" file="./spec/system/notifications_spec.rb" time="0.541754"></testcase>
-<testcase classname="spec.system.notifications_spec" name="Notifications follow_notification create follow notification" file="./spec/system/notifications_spec.rb" time="0.613827"></testcase>
-<testcase classname="spec.system.notifications_spec" name="Notifications follow_notification not render new_notification icon" file="./spec/system/notifications_spec.rb" time="0.667419"></testcase>
-<testcase classname="spec.system.notifications_spec" name="Notifications like_notification render new_notification icon" file="./spec/system/notifications_spec.rb" time="0.671953"></testcase>
-<testcase classname="spec.system.notifications_spec" name="Notifications like_notification create like notification" file="./spec/system/notifications_spec.rb" time="0.901891"></testcase>
-<testcase classname="spec.system.notifications_spec" name="Notifications like_notification not render new_notification icon" file="./spec/system/notifications_spec.rb" time="1.093481"></testcase>
-<testcase classname="spec.system.notifications_spec" name="Notifications message_notification render new_notification icon" file="./spec/system/notifications_spec.rb" time="0.605822"></testcase>
-<testcase classname="spec.system.notifications_spec" name="Notifications message_notification create like notification" file="./spec/system/notifications_spec.rb" time="0.541027"></testcase>
-<testcase classname="spec.system.notifications_spec" name="Notifications message_notification not render new_notification icon" file="./spec/system/notifications_spec.rb" time="0.733626"></testcase>
-<testcase classname="spec.system.products_spec" name="Products new when login create product" file="./spec/system/products_spec.rb" time="0.859075"></testcase>
-<testcase classname="spec.system.products_spec" name="Products new when login redirect index(product)" file="./spec/system/products_spec.rb" time="0.753360"></testcase>
-<testcase classname="spec.system.products_spec" name="Products new when not login redirect sign_in" file="./spec/system/products_spec.rb" time="0.157955"></testcase>
-<testcase classname="spec.system.products_spec" name="Products index displayed product" file="./spec/system/products_spec.rb" time="0.672983"></testcase>
-<testcase classname="spec.system.products_spec" name="Products index redirect show" file="./spec/system/products_spec.rb" time="0.897054"></testcase>
-<testcase classname="spec.system.products_spec" name="Products index search product" file="./spec/system/products_spec.rb" time="0.731692"></testcase>
-<testcase classname="spec.system.products_spec" name="Products index not search product1" file="./spec/system/products_spec.rb" time="1.104519"></testcase>
-<testcase classname="spec.system.products_spec" name="Products index search product tag" file="./spec/system/products_spec.rb" time="0.970627"></testcase>
-<testcase classname="spec.system.products_spec" name="Products show when login display" file="./spec/system/products_spec.rb" time="0.973203"></testcase>
-<testcase classname="spec.system.products_spec" name="Products show when login redirect index(tag)" file="./spec/system/products_spec.rb" time="0.954008"></testcase>
-<testcase classname="spec.system.products_spec" name="Products show when login redirect index(product not exists)" file="./spec/system/products_spec.rb" time="0.760949"></testcase>
-<testcase classname="spec.system.products_spec" name="Products when not login not displayed" file="./spec/system/products_spec.rb" time="0.028053"></testcase>
-<testcase classname="spec.system.recipes_spec" name="Recipes create when login created success" file="./spec/system/recipes_spec.rb" time="1.071054"></testcase>
-<testcase classname="spec.system.recipes_spec" name="Recipes create when login not created success" file="./spec/system/recipes_spec.rb" time="0.933507"></testcase>
-<testcase classname="spec.system.recipes_spec" name="Recipes create when not login is not render review_form" file="./spec/system/recipes_spec.rb" time="0.677692"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when success displayed message" file="./spec/system/registrations_spec.rb" time="3.344692"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail name empty" file="./spec/system/registrations_spec.rb" time="1.575635"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail email empty" file="./spec/system/registrations_spec.rb" time="1.659295"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail checkbox empty" file="./spec/system/registrations_spec.rb" time="1.405350"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail password is short" file="./spec/system/registrations_spec.rb" time="1.532507"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail confirmation password is incorrect" file="./spec/system/registrations_spec.rb" time="2.602428"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations delete /users delete seccess" file="./spec/system/registrations_spec.rb" time="3.922359"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success displayed icon " file="./spec/system/registrations_spec.rb" time="1.965021"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change username" file="./spec/system/registrations_spec.rb" time="4.902840"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change email" file="./spec/system/registrations_spec.rb" time="4.755271"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change password" file="./spec/system/registrations_spec.rb" time="4.372089"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change username" file="./spec/system/registrations_spec.rb" time="2.715643"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change email" file="./spec/system/registrations_spec.rb" time="2.590287"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change password" file="./spec/system/registrations_spec.rb" time="2.686489"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when login displayed icon " file="./spec/system/registrations_spec.rb" time="1.660494"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when login have link edit" file="./spec/system/registrations_spec.rb" time="1.718369"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when not login not have link edit" file="./spec/system/registrations_spec.rb" time="0.506273"></testcase>
-<testcase classname="spec.system.relationships_spec" name="Relationships when login create created relationship" file="./spec/system/relationships_spec.rb" time="2.085245"></testcase>
-<testcase classname="spec.system.relationships_spec" name="Relationships when login create not render link" file="./spec/system/relationships_spec.rb" time="1.883775"></testcase>
-<testcase classname="spec.system.relationships_spec" name="Relationships when login destroy destroy relationship" file="./spec/system/relationships_spec.rb" time="1.873775"></testcase>
-<testcase classname="spec.system.relationships_spec" name="Relationships when login destroy not render link" file="./spec/system/relationships_spec.rb" time="2.271189"></testcase>
-<testcase classname="spec.system.relationships_spec" name="Relationships when not login is displayed follow button" file="./spec/system/relationships_spec.rb" time="0.811122"></testcase>
-<testcase classname="spec.system.reports_spec" name="Reports when login review display button" file="./spec/system/reports_spec.rb" time="5.291360"><failure message="expected to find link &quot;レビューを削除する&quot; with href &quot;/reports?review_id=97&amp;type=Review&quot; but there were no matches" type="RSpec::Expectations::ExpectationNotMetError">Failure/Error: expect(page).to have_link &apos;レビューを削除する&apos;, href: reports_path(review_id: review.id, type: review.class)
-  expected to find link &quot;レビューを削除する&quot; with href &quot;/reports?review_id=97&amp;type=Review&quot; but there were no matches
+<testcase classname="spec.jobs.create_history_job_spec" name="create_history #perform_later enqueue job" file="./spec/jobs/create_history_job_spec.rb" time="0.328381"></testcase>
+<testcase classname="spec.jobs.create_history_job_spec" name="create_history #perform_later create history" file="./spec/jobs/create_history_job_spec.rb" time="0.245289"></testcase>
+<testcase classname="spec.jobs.delete_review_job_spec" name="delete_review perform_later enqueue job" file="./spec/jobs/delete_review_job_spec.rb" time="0.307565"></testcase>
+<testcase classname="spec.jobs.delete_review_job_spec" name="delete_review perform_later delete review" file="./spec/jobs/delete_review_job_spec.rb" time="0.566883"></testcase>
+<testcase classname="spec.jobs.history_clean_job_spec" name="history_clean perfore_later enqueue job" file="./spec/jobs/history_clean_job_spec.rb" time="0.026057"></testcase>
+<testcase classname="spec.jobs.history_clean_job_spec" name="history_clean perfore_later history delete" file="./spec/jobs/history_clean_job_spec.rb" time="0.613948"></testcase>
+<testcase classname="spec.mailers.contact_mailer_spec" name="ContactMailer contact contact_mail send mail" file="./spec/mailers/contact_mailer_spec.rb" time="0.086553"></testcase>
+<testcase classname="spec.mailers.contact_mailer_spec" name="ContactMailer contact reply_mail send mail" file="./spec/mailers/contact_mailer_spec.rb" time="0.016068"></testcase>
+<testcase classname="spec.requests.bean_reviews_spec" name="BeanReviews POST create request success" file="./spec/requests/bean_reviews_spec.rb" time="0.099035"></testcase>
+<testcase classname="spec.requests.bean_reviews_spec" name="BeanReviews POST create review created " file="./spec/requests/bean_reviews_spec.rb" time="0.060402"></testcase>
+<testcase classname="spec.requests.beans_spec" name="Beans GET /new when login request success" file="./spec/requests/beans_spec.rb" time="44.401422"></testcase>
+<testcase classname="spec.requests.beans_spec" name="Beans GET /new when not login request fail" file="./spec/requests/beans_spec.rb" time="0.063171"></testcase>
+<testcase classname="spec.requests.beans_spec" name="Beans GET /create when login request success" file="./spec/requests/beans_spec.rb" time="0.082730"></testcase>
+<testcase classname="spec.requests.beans_spec" name="Beans GET /create when login created bean" file="./spec/requests/beans_spec.rb" time="0.092567"></testcase>
+<testcase classname="spec.requests.beans_spec" name="Beans GET /create when not login request fail" file="./spec/requests/beans_spec.rb" time="0.043206"></testcase>
+<testcase classname="spec.requests.beans_spec" name="Beans GET /bean/:id request success" file="./spec/requests/beans_spec.rb" time="0.192316"></testcase>
+<testcase classname="spec.requests.beans_spec" name="Beans GET /bean/:id request fail" file="./spec/requests/beans_spec.rb" time="0.049260"></testcase>
+<testcase classname="spec.requests.beans_spec" name="Beans GET /index request success" file="./spec/requests/beans_spec.rb" time="0.138780"></testcase>
+<testcase classname="spec.requests.contacts_spec" name="Contacts GET /new returns http success" file="./spec/requests/contacts_spec.rb" time="0.118828"></testcase>
+<testcase classname="spec.requests.contacts_spec" name="Contacts POST /create returns http success" file="./spec/requests/contacts_spec.rb" time="0.146812"></testcase>
+<testcase classname="spec.requests.contacts_spec" name="Contacts POST /create created contact" file="./spec/requests/contacts_spec.rb" time="0.079958"></testcase>
+<testcase classname="spec.requests.histories_spec" name="Histories GET /index when login request success" file="./spec/requests/histories_spec.rb" time="0.154529"></testcase>
+<testcase classname="spec.requests.histories_spec" name="Histories GET /index when not login request fail" file="./spec/requests/histories_spec.rb" time="0.050479"></testcase>
+<testcase classname="spec.requests.likes_spec" name="Likes POST create request success" file="./spec/requests/likes_spec.rb" time="0.136102"></testcase>
+<testcase classname="spec.requests.likes_spec" name="Likes POST create created product_like success" file="./spec/requests/likes_spec.rb" time="0.150840"></testcase>
+<testcase classname="spec.requests.likes_spec" name="Likes POST create created bean_like success" file="./spec/requests/likes_spec.rb" time="0.108367"></testcase>
+<testcase classname="spec.requests.likes_spec" name="Likes DELETE destroy request success" file="./spec/requests/likes_spec.rb" time="0.100937"></testcase>
+<testcase classname="spec.requests.likes_spec" name="Likes DELETE destroy destroy product_like success" file="./spec/requests/likes_spec.rb" time="0.087114"></testcase>
+<testcase classname="spec.requests.likes_spec" name="Likes DELETE destroy destroy bean_like success" file="./spec/requests/likes_spec.rb" time="0.095504"></testcase>
+<testcase classname="spec.requests.likes_spec" name="Likes GET index request success" file="./spec/requests/likes_spec.rb" time="0.319319"></testcase>
+<testcase classname="spec.requests.messages_spec" name="Messages POST create request message" file="./spec/requests/messages_spec.rb" time="0.137297"></testcase>
+<testcase classname="spec.requests.messages_spec" name="Messages POST create created message" file="./spec/requests/messages_spec.rb" time="0.087298"></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news request success" file="./spec/requests/news_spec.rb" time="0.160427"></testcase>
+<testcase classname="spec.requests.news_spec" name="News POST /news requests success" file="./spec/requests/news_spec.rb" time="0.353191"></testcase>
+<testcase classname="spec.requests.news_spec" name="News POST /news created news" file="./spec/requests/news_spec.rb" time="0.101556"></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news/new request success" file="./spec/requests/news_spec.rb" time="0.172102"></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news/:id/edit request success" file="./spec/requests/news_spec.rb" time="0.166687"></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news/:id request success" file="./spec/requests/news_spec.rb" time="0.167114"></testcase>
+<testcase classname="spec.requests.news_spec" name="News PUT /news/:id request success" file="./spec/requests/news_spec.rb" time="0.117741"></testcase>
+<testcase classname="spec.requests.news_spec" name="News PUT /news/:id updated news" file="./spec/requests/news_spec.rb" time="0.119818"></testcase>
+<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id request success" file="./spec/requests/news_spec.rb" time="0.087321"></testcase>
+<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id destroy news" file="./spec/requests/news_spec.rb" time="0.101501"></testcase>
+<testcase classname="spec.requests.notifications_spec" name="Notifications GET /index request success" file="./spec/requests/notifications_spec.rb" time="0.215752"></testcase>
+<testcase classname="spec.requests.passwords_spec" name="Passwords GET users/password/new request seccess" file="./spec/requests/passwords_spec.rb" time="0.128283"></testcase>
+<testcase classname="spec.requests.passwords_spec" name="Passwords GET users/password/edit rquest seccess" file="./spec/requests/passwords_spec.rb" time="0.284374"></testcase>
+<testcase classname="spec.requests.passwords_spec" name="Passwords POST users/password request seccess" file="./spec/requests/passwords_spec.rb" time="0.115950"></testcase>
+<testcase classname="spec.requests.passwords_spec" name="Passwords PATCH users/password requests seccess" file="./spec/requests/passwords_spec.rb" time="0.113701"></testcase>
+<testcase classname="spec.requests.products_spec" name="Products GET /products request success" file="./spec/requests/products_spec.rb" time="0.215537"></testcase>
+<testcase classname="spec.requests.products_spec" name="Products GET /products request success(tag_name)" file="./spec/requests/products_spec.rb" time="0.123845"></testcase>
+<testcase classname="spec.requests.products_spec" name="Products GET /products/new request success" file="./spec/requests/products_spec.rb" time="0.144937"></testcase>
+<testcase classname="spec.requests.products_spec" name="Products POST /products request success" file="./spec/requests/products_spec.rb" time="0.062449"></testcase>
+<testcase classname="spec.requests.products_spec" name="Products POST /products created product" file="./spec/requests/products_spec.rb" time="0.072388"></testcase>
+<testcase classname="spec.requests.products_spec" name="Products GET /products/:id request success" file="./spec/requests/products_spec.rb" time="0.165615"></testcase>
+<testcase classname="spec.requests.products_spec" name="Products GET /products/:id request fail" file="./spec/requests/products_spec.rb" time="0.039715"></testcase>
+<testcase classname="spec.requests.recipe_spec" name="BeanReviews POST create request success" file="./spec/requests/recipe_spec.rb" time="0.064972"></testcase>
+<testcase classname="spec.requests.recipe_spec" name="BeanReviews POST create review created " file="./spec/requests/recipe_spec.rb" time="0.224992"></testcase>
+<testcase classname="spec.requests.registrations_spec" name="Registrations GET /users/sign_up request success" file="./spec/requests/registrations_spec.rb" time="0.127067"></testcase>
+<testcase classname="spec.requests.registrations_spec" name="Registrations GET /users/edit request success" file="./spec/requests/registrations_spec.rb" time="0.188758"></testcase>
+<testcase classname="spec.requests.registrations_spec" name="Registrations GET /users/:id/show request success(user)" file="./spec/requests/registrations_spec.rb" time="0.207698"></testcase>
+<testcase classname="spec.requests.registrations_spec" name="Registrations GET /users/:id/show request success(user1)" file="./spec/requests/registrations_spec.rb" time="0.286205"></testcase>
+<testcase classname="spec.requests.registrations_spec" name="Registrations POST /users request success" file="./spec/requests/registrations_spec.rb" time="0.096129"></testcase>
+<testcase classname="spec.requests.registrations_spec" name="Registrations POST /users user created" file="./spec/requests/registrations_spec.rb" time="0.101414"></testcase>
+<testcase classname="spec.requests.registrations_spec" name="Registrations DELETE /users requests success" file="./spec/requests/registrations_spec.rb" time="0.150981"></testcase>
+<testcase classname="spec.requests.registrations_spec" name="Registrations DELETE /users user delete" file="./spec/requests/registrations_spec.rb" time="0.133059"></testcase>
+<testcase classname="spec.requests.registrations_spec" name="Registrations PATCH /users request success" file="./spec/requests/registrations_spec.rb" time="0.050336"></testcase>
+<testcase classname="spec.requests.relationships_spec" name="Relationships POST create request success" file="./spec/requests/relationships_spec.rb" time="0.105974"></testcase>
+<testcase classname="spec.requests.relationships_spec" name="Relationships POST create created relationship" file="./spec/requests/relationships_spec.rb" time="0.074822"></testcase>
+<testcase classname="spec.requests.relationships_spec" name="Relationships DELETE destroy request success" file="./spec/requests/relationships_spec.rb" time="0.121526"></testcase>
+<testcase classname="spec.requests.relationships_spec" name="Relationships DELETE destroy destroy relationship" file="./spec/requests/relationships_spec.rb" time="0.074417"></testcase>
+<testcase classname="spec.requests.reports_spec" name="Reports GET /create request success(review)" file="./spec/requests/reports_spec.rb" time="0.063655"></testcase>
+<testcase classname="spec.requests.reports_spec" name="Reports GET /create request success(bean_review)" file="./spec/requests/reports_spec.rb" time="0.053617"></testcase>
+<testcase classname="spec.requests.reports_spec" name="Reports GET /create created report success(reivew)" file="./spec/requests/reports_spec.rb" time="0.060612"></testcase>
+<testcase classname="spec.requests.reports_spec" name="Reports GET /create created report success(bean_reivew)" file="./spec/requests/reports_spec.rb" time="0.062424"></testcase>
+<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes POST /create request success(product)" file="./spec/requests/review_likes_spec.rb" time="0.112113"></testcase>
+<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes POST /create created like success(product)" file="./spec/requests/review_likes_spec.rb" time="0.072474"></testcase>
+<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes POST /create request success(bean)" file="./spec/requests/review_likes_spec.rb" time="0.066044"></testcase>
+<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes POST /create created like success(bean)" file="./spec/requests/review_likes_spec.rb" time="0.069192"></testcase>
+<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes DETELE /destroy returns http success(prodcut)" file="./spec/requests/review_likes_spec.rb" time="0.080871"></testcase>
+<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes DETELE /destroy destroy like success(product)" file="./spec/requests/review_likes_spec.rb" time="0.070186"></testcase>
+<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes DETELE /destroy returns http success(bean)" file="./spec/requests/review_likes_spec.rb" time="0.075316"></testcase>
+<testcase classname="spec.requests.review_likes_spec" name="ReviewLikes DETELE /destroy destroy like success(bean)" file="./spec/requests/review_likes_spec.rb" time="0.077787"></testcase>
+<testcase classname="spec.requests.reviews_spec" name="Reviews POST create request success" file="./spec/requests/reviews_spec.rb" time="0.068713"></testcase>
+<testcase classname="spec.requests.reviews_spec" name="Reviews POST create review created" file="./spec/requests/reviews_spec.rb" time="0.066690"></testcase>
+<testcase classname="spec.requests.rooms_spec" name="Rooms GET index request success" file="./spec/requests/rooms_spec.rb" time="0.191459"></testcase>
+<testcase classname="spec.requests.rooms_spec" name="Rooms GET show request success" file="./spec/requests/rooms_spec.rb" time="0.151692"></testcase>
+<testcase classname="spec.requests.rooms_spec" name="Rooms POST create request success" file="./spec/requests/rooms_spec.rb" time="0.045690"></testcase>
+<testcase classname="spec.requests.rooms_spec" name="Rooms POST create created room" file="./spec/requests/rooms_spec.rb" time="0.052431"></testcase>
+<testcase classname="spec.requests.sessions_spec" name="Sessions GET users/sign_in request success" file="./spec/requests/sessions_spec.rb" time="0.148058"></testcase>
+<testcase classname="spec.requests.sessions_spec" name="Sessions POST users/sign_in request success" file="./spec/requests/sessions_spec.rb" time="0.045898"></testcase>
+<testcase classname="spec.requests.sessions_spec" name="Sessions DELELTE users/sign_out requests success" file="./spec/requests/sessions_spec.rb" time="0.170476"></testcase>
+<testcase classname="spec.requests.tags_spec" name="Tags PATCH /tag request success(product)" file="./spec/requests/tags_spec.rb" time="0.051459"></testcase>
+<testcase classname="spec.requests.tags_spec" name="Tags PATCH /tag request success(bean)" file="./spec/requests/tags_spec.rb" time="0.074631"></testcase>
+<testcase classname="spec.system.bean_reviews_spec" name="BeanReviews create when login created success" file="./spec/system/bean_reviews_spec.rb" time="1.001252"></testcase>
+<testcase classname="spec.system.bean_reviews_spec" name="BeanReviews create when login not created success" file="./spec/system/bean_reviews_spec.rb" time="0.900216"></testcase>
+<testcase classname="spec.system.bean_reviews_spec" name="BeanReviews create when not login is not render review_form" file="./spec/system/bean_reviews_spec.rb" time="0.485152"></testcase>
+<testcase classname="spec.system.beans_spec" name="Beans new when login create bean" file="./spec/system/beans_spec.rb" time="0.654111"></testcase>
+<testcase classname="spec.system.beans_spec" name="Beans new when login not create bean" file="./spec/system/beans_spec.rb" time="0.875666"></testcase>
+<testcase classname="spec.system.beans_spec" name="Beans new when not login redirect sign_in" file="./spec/system/beans_spec.rb" time="0.193320"></testcase>
+<testcase classname="spec.system.beans_spec" name="Beans index displayed bean1" file="./spec/system/beans_spec.rb" time="0.657865"></testcase>
+<testcase classname="spec.system.beans_spec" name="Beans show display test" file="./spec/system/beans_spec.rb" time="0.744987"></testcase>
+<testcase classname="spec.system.beans_spec" name="Beans show redirect index(tag)" file="./spec/system/beans_spec.rb" time="1.050658"></testcase>
+<testcase classname="spec.system.beans_spec" name="Beans show redirect index(bean not exists)" file="./spec/system/beans_spec.rb" time="0.529422"></testcase>
+<testcase classname="spec.system.contacts_spec" name="Contacts new when to succeed created contact" file="./spec/system/contacts_spec.rb" time="0.485355"></testcase>
+<testcase classname="spec.system.contacts_spec" name="Contacts new when to succeed redirect root" file="./spec/system/contacts_spec.rb" time="0.317237"></testcase>
+<testcase classname="spec.system.contacts_spec" name="Contacts new when to fail is blank name" file="./spec/system/contacts_spec.rb" time="0.219535"></testcase>
+<testcase classname="spec.system.contacts_spec" name="Contacts new when to fail is blank email" file="./spec/system/contacts_spec.rb" time="0.215141"></testcase>
+<testcase classname="spec.system.contacts_spec" name="Contacts new when to fail is blank content" file="./spec/system/contacts_spec.rb" time="0.246622"></testcase>
+<testcase classname="spec.system.history_spec" name="History index when login render history" file="./spec/system/history_spec.rb" time="0.791314"></testcase>
+<testcase classname="spec.system.history_spec" name="History index when not login redirect sign_in" file="./spec/system/history_spec.rb" time="0.706431"></testcase>
+<testcase classname="spec.system.history_spec" name="History create create history(product)" file="./spec/system/history_spec.rb" time="1.091916"></testcase>
+<testcase classname="spec.system.history_spec" name="History create not create history(product)" file="./spec/system/history_spec.rb" time="1.144021"></testcase>
+<testcase classname="spec.system.history_spec" name="History create create history(bean)" file="./spec/system/history_spec.rb" time="1.509190"></testcase>
+<testcase classname="spec.system.history_spec" name="History create not create history(bean)" file="./spec/system/history_spec.rb" time="1.098146"></testcase>
+<testcase classname="spec.system.history_spec" name="History create check the order of history" file="./spec/system/history_spec.rb" time="1.580625"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes index render product" file="./spec/system/likes_spec.rb" time="2.567476"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes index render ranking" file="./spec/system/likes_spec.rb" time="2.176868"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes create when login click like button(product)" file="./spec/system/likes_spec.rb" time="2.467425"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes create when login click like button(bean)" file="./spec/system/likes_spec.rb" time="2.784871"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes create when not login not render like button" file="./spec/system/likes_spec.rb" time="0.953134"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes destroy when login click like destroy button(product)" file="./spec/system/likes_spec.rb" time="2.916067"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes destroy when login click like destroy button(bean)" file="./spec/system/likes_spec.rb" time="3.466972"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes destroy when not login not render button" file="./spec/system/likes_spec.rb" time="0.979776"></testcase>
+<testcase classname="spec.system.messages_spec" name="Messages create create message" file="./spec/system/messages_spec.rb" time="2.871169"></testcase>
+<testcase classname="spec.system.messages_spec" name="Messages create not create message" file="./spec/system/messages_spec.rb" time="4.155830"></testcase>
+<testcase classname="spec.system.news_spec" name="News index displayed news" file="./spec/system/news_spec.rb" time="0.224226"></testcase>
+<testcase classname="spec.system.news_spec" name="News show display news" file="./spec/system/news_spec.rb" time="0.262351"></testcase>
+<testcase classname="spec.system.news_spec" name="News new when login create news" file="./spec/system/news_spec.rb" time="6.049134"></testcase>
+<testcase classname="spec.system.news_spec" name="News new when not login redirect sign_in" file="./spec/system/news_spec.rb" time="0.763147"></testcase>
+<testcase classname="spec.system.news_spec" name="News edit when login edit news" file="./spec/system/news_spec.rb" time="4.755681"></testcase>
+<testcase classname="spec.system.news_spec" name="News edit when not login redirect sign_in" file="./spec/system/news_spec.rb" time="0.496891"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications index when login render page" file="./spec/system/notifications_spec.rb" time="1.185689"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications index when login render new_notification icon" file="./spec/system/notifications_spec.rb" time="1.068231"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications index when login not render new_notification icon" file="./spec/system/notifications_spec.rb" time="1.211956"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications index when not login not render page" file="./spec/system/notifications_spec.rb" time="0.248265"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications follow_notification render new_notification icon" file="./spec/system/notifications_spec.rb" time="0.616465"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications follow_notification create follow notification" file="./spec/system/notifications_spec.rb" time="0.756406"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications follow_notification not render new_notification icon" file="./spec/system/notifications_spec.rb" time="0.830043"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications like_notification render new_notification icon" file="./spec/system/notifications_spec.rb" time="0.952382"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications like_notification create like notification" file="./spec/system/notifications_spec.rb" time="0.932855"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications like_notification not render new_notification icon" file="./spec/system/notifications_spec.rb" time="1.015356"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications message_notification render new_notification icon" file="./spec/system/notifications_spec.rb" time="0.667077"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications message_notification create like notification" file="./spec/system/notifications_spec.rb" time="0.734038"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications message_notification not render new_notification icon" file="./spec/system/notifications_spec.rb" time="0.737932"></testcase>
+<testcase classname="spec.system.products_spec" name="Products new when login create product" file="./spec/system/products_spec.rb" time="0.867988"></testcase>
+<testcase classname="spec.system.products_spec" name="Products new when login redirect index(product)" file="./spec/system/products_spec.rb" time="0.823853"></testcase>
+<testcase classname="spec.system.products_spec" name="Products new when not login redirect sign_in" file="./spec/system/products_spec.rb" time="0.255839"></testcase>
+<testcase classname="spec.system.products_spec" name="Products index displayed product" file="./spec/system/products_spec.rb" time="0.689531"></testcase>
+<testcase classname="spec.system.products_spec" name="Products index redirect show" file="./spec/system/products_spec.rb" time="1.070017"></testcase>
+<testcase classname="spec.system.products_spec" name="Products index search product" file="./spec/system/products_spec.rb" time="0.819834"></testcase>
+<testcase classname="spec.system.products_spec" name="Products index not search product1" file="./spec/system/products_spec.rb" time="2.079511"></testcase>
+<testcase classname="spec.system.products_spec" name="Products index search product tag" file="./spec/system/products_spec.rb" time="1.173077"></testcase>
+<testcase classname="spec.system.products_spec" name="Products show when login display" file="./spec/system/products_spec.rb" time="1.515820"></testcase>
+<testcase classname="spec.system.products_spec" name="Products show when login redirect index(tag)" file="./spec/system/products_spec.rb" time="2.333973"></testcase>
+<testcase classname="spec.system.products_spec" name="Products show when login redirect index(product not exists)" file="./spec/system/products_spec.rb" time="1.273473"></testcase>
+<testcase classname="spec.system.products_spec" name="Products when not login not displayed" file="./spec/system/products_spec.rb" time="0.027038"></testcase>
+<testcase classname="spec.system.recipes_spec" name="Recipes create when login created success" file="./spec/system/recipes_spec.rb" time="1.487803"></testcase>
+<testcase classname="spec.system.recipes_spec" name="Recipes create when login not created success" file="./spec/system/recipes_spec.rb" time="1.472594"></testcase>
+<testcase classname="spec.system.recipes_spec" name="Recipes create when not login is not render review_form" file="./spec/system/recipes_spec.rb" time="1.003929"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when success displayed message" file="./spec/system/registrations_spec.rb" time="4.257809"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail name empty" file="./spec/system/registrations_spec.rb" time="1.940830"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail email empty" file="./spec/system/registrations_spec.rb" time="1.776477"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail checkbox empty" file="./spec/system/registrations_spec.rb" time="1.706694"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail password is short" file="./spec/system/registrations_spec.rb" time="2.026150"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail confirmation password is incorrect" file="./spec/system/registrations_spec.rb" time="2.193184"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations delete /users delete seccess" file="./spec/system/registrations_spec.rb" time="4.208535"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success displayed icon " file="./spec/system/registrations_spec.rb" time="2.628639"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change username" file="./spec/system/registrations_spec.rb" time="4.144681"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change email" file="./spec/system/registrations_spec.rb" time="4.159091"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change password" file="./spec/system/registrations_spec.rb" time="4.716115"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change username" file="./spec/system/registrations_spec.rb" time="3.224319"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change email" file="./spec/system/registrations_spec.rb" time="3.343532"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change password" file="./spec/system/registrations_spec.rb" time="3.300425"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when login displayed icon " file="./spec/system/registrations_spec.rb" time="1.918737"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when login have link edit" file="./spec/system/registrations_spec.rb" time="1.984591"></testcase>
+<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when not login not have link edit" file="./spec/system/registrations_spec.rb" time="1.187094"></testcase>
+<testcase classname="spec.system.relationships_spec" name="Relationships when login create created relationship" file="./spec/system/relationships_spec.rb" time="2.422875"></testcase>
+<testcase classname="spec.system.relationships_spec" name="Relationships when login create not render link" file="./spec/system/relationships_spec.rb" time="2.135954"></testcase>
+<testcase classname="spec.system.relationships_spec" name="Relationships when login destroy destroy relationship" file="./spec/system/relationships_spec.rb" time="2.435167"></testcase>
+<testcase classname="spec.system.relationships_spec" name="Relationships when login destroy not render link" file="./spec/system/relationships_spec.rb" time="1.953986"></testcase>
+<testcase classname="spec.system.relationships_spec" name="Relationships when not login is displayed follow button" file="./spec/system/relationships_spec.rb" time="0.794461"></testcase>
+<testcase classname="spec.system.reports_spec" name="Reports when login review display button" file="./spec/system/reports_spec.rb" time="3.062897"></testcase>
+<testcase classname="spec.system.reports_spec" name="Reports when login review click report button" file="./spec/system/reports_spec.rb" time="3.844342"></testcase>
+<testcase classname="spec.system.reports_spec" name="Reports when login review review delete " file="./spec/system/reports_spec.rb" time="2.575484"></testcase>
+<testcase classname="spec.system.reports_spec" name="Reports when login bean_review display button" file="./spec/system/reports_spec.rb" time="3.007225"></testcase>
+<testcase classname="spec.system.reports_spec" name="Reports when login bean_review click report button" file="./spec/system/reports_spec.rb" time="3.868764"></testcase>
+<testcase classname="spec.system.reports_spec" name="Reports when login bean_review review delete " file="./spec/system/reports_spec.rb" time="2.596071"></testcase>
+<testcase classname="spec.system.reports_spec" name="Reports when not login not display report button" file="./spec/system/reports_spec.rb" time="1.250685"></testcase>
+<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login create product_review_like display button" file="./spec/system/review_likes_spec.rb" time="2.935696"></testcase>
+<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login create product_review_like click like button" file="./spec/system/review_likes_spec.rb" time="3.490405"></testcase>
+<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login create bean_review_like display button" file="./spec/system/review_likes_spec.rb" time="3.124420"></testcase>
+<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login create bean_review_like click like button" file="./spec/system/review_likes_spec.rb" time="3.033433"></testcase>
+<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login destroy product_review_like reder button" file="./spec/system/review_likes_spec.rb" time="2.840057"></testcase>
+<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login destroy product_review_like click button" file="./spec/system/review_likes_spec.rb" time="3.139617"></testcase>
+<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login destroy bean_review_like reder button" file="./spec/system/review_likes_spec.rb" time="2.860343"></testcase>
+<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login destroy bean_review_like click button" file="./spec/system/review_likes_spec.rb" time="4.833409"></testcase>
+<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when not signed not render like button" file="./spec/system/review_likes_spec.rb" time="0.961358"></testcase>
+<testcase classname="spec.system.reviews_spec" name="Reviews create when login success redirect product page" file="./spec/system/reviews_spec.rb" time="1.629182"></testcase>
+<testcase classname="spec.system.reviews_spec" name="Reviews create when login success displayed review" file="./spec/system/reviews_spec.rb" time="1.627857"></testcase>
+<testcase classname="spec.system.reviews_spec" name="Reviews create when login failure has blank title" file="./spec/system/reviews_spec.rb" time="1.304827"></testcase>
+<testcase classname="spec.system.reviews_spec" name="Reviews create when login failure has blank content" file="./spec/system/reviews_spec.rb" time="1.218187"></testcase>
+<testcase classname="spec.system.reviews_spec" name="Reviews create when login failure has blank rate" file="./spec/system/reviews_spec.rb" time="1.225009"></testcase>
+<testcase classname="spec.system.reviews_spec" name="Reviews create when not login is not render review_form" file="./spec/system/reviews_spec.rb" time="0.460204"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when login index render page" file="./spec/system/rooms_spec.rb" time="0.882535"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when login show render page" file="./spec/system/rooms_spec.rb" time="0.923113"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when login show not included room" file="./spec/system/rooms_spec.rb" time="0.919575"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when login create created room" file="./spec/system/rooms_spec.rb" time="0.990736"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when not login not displayed message-label" file="./spec/system/rooms_spec.rb" time="0.279198"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when not login redirect sign_in page(index)" file="./spec/system/rooms_spec.rb" time="0.367030"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when not login redirect sign_in page(show)" file="./spec/system/rooms_spec.rb" time="0.332274"></testcase>
+<testcase classname="spec.system.sessions_spec" name="Sessions sign_in when success successfully login" file="./spec/system/sessions_spec.rb" time="0.479741"></testcase>
+<testcase classname="spec.system.sessions_spec" name="Sessions sign_in when fail is wrong passowrd" file="./spec/system/sessions_spec.rb" time="0.397720"></testcase>
+<testcase classname="spec.system.sessions_spec" name="Sessions sign_in when fail is wrong email" file="./spec/system/sessions_spec.rb" time="0.394933"></testcase>
+<testcase classname="spec.system.sessions_spec" name="Sessions sign_out is successfully sign_out" file="./spec/system/sessions_spec.rb" time="0.677082"></testcase>
+<testcase classname="spec.system.tags_spec" name="Tags update when login update tag_list(product)" file="./spec/system/tags_spec.rb" time="3.700187"></testcase>
+<testcase classname="spec.system.tags_spec" name="Tags update when login update all change tag_list(product)" file="./spec/system/tags_spec.rb" time="3.656284"></testcase>
+<testcase classname="spec.system.tags_spec" name="Tags update when login update empty tag_list(product)" file="./spec/system/tags_spec.rb" time="5.273834"><failure message="expected not to find visible css &quot;.tag_link&quot;, found 1 match: &quot;コーヒー (1)&quot;" type="RSpec::Expectations::ExpectationNotMetError">Failure/Error: expect(page).to have_no_css &apos;.tag_link&apos;
+  expected not to find visible css &quot;.tag_link&quot;, found 1 match: &quot;コーヒー (1)&quot;
 
 
-[Screenshot Image]: /coffee-oma/tmp/screenshots/failures_r_spec_example_groups_reports_2_when_login_review_display_button_564.png
+[Screenshot Image]: /coffee-oma/tmp/screenshots/failures_r_spec_example_groups_tags_2_update_when_login_update_empty_tag_list(product)_865.png
 
 
 
-./spec/system/reports_spec.rb:27:in `block (4 levels) in &lt;main&gt;&apos;</failure></testcase>
-<testcase classname="spec.system.reports_spec" name="Reports when login review click report button" file="./spec/system/reports_spec.rb" time="4.470464"><failure message="Unable to find link &quot;レビューを削除する&quot; with href &quot;/reports?review_id=99&amp;type=Review&quot;" type="Capybara::ElementNotFound">Failure/Error: click_link &apos;レビューを削除する&apos;, href: reports_path(review_id: review.id, type: review.class)
-
-Capybara::ElementNotFound:
-  Unable to find link &quot;レビューを削除する&quot; with href &quot;/reports?review_id=99&amp;type=Review&quot;
-
-
-[Screenshot Image]: /coffee-oma/tmp/screenshots/failures_r_spec_example_groups_reports_2_when_login_review_click_report_button_178.png
-
-
-
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/node/finders.rb:303:in `block in synced_resolve&apos;
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/node/base.rb:83:in `synchronize&apos;
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/node/finders.rb:292:in `synced_resolve&apos;
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/node/finders.rb:53:in `find&apos;
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/node/actions.rb:42:in `click_link&apos;
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/session.rb:772:in `click_link&apos;
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/dsl.rb:53:in `call&apos;
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/dsl.rb:53:in `click_link&apos;
-./spec/system/reports_spec.rb:32:in `block (4 levels) in &lt;main&gt;&apos;</failure></testcase>
-<testcase classname="spec.system.reports_spec" name="Reports when login review review delete " file="./spec/system/reports_spec.rb" time="2.381343"></testcase>
-<testcase classname="spec.system.reports_spec" name="Reports when login bean_review display button" file="./spec/system/reports_spec.rb" time="2.325703"></testcase>
-<testcase classname="spec.system.reports_spec" name="Reports when login bean_review click report button" file="./spec/system/reports_spec.rb" time="2.885110"></testcase>
-<testcase classname="spec.system.reports_spec" name="Reports when login bean_review review delete " file="./spec/system/reports_spec.rb" time="1.908782"></testcase>
-<testcase classname="spec.system.reports_spec" name="Reports when not login not display report button" file="./spec/system/reports_spec.rb" time="0.748989"></testcase>
-<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login create product_review_like display button" file="./spec/system/review_likes_spec.rb" time="2.136552"></testcase>
-<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login create product_review_like click like button" file="./spec/system/review_likes_spec.rb" time="2.133634"></testcase>
-<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login create bean_review_like display button" file="./spec/system/review_likes_spec.rb" time="2.697161"></testcase>
-<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login create bean_review_like click like button" file="./spec/system/review_likes_spec.rb" time="2.969346"></testcase>
-<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login destroy product_review_like reder button" file="./spec/system/review_likes_spec.rb" time="2.491348"></testcase>
-<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login destroy product_review_like click button" file="./spec/system/review_likes_spec.rb" time="2.563913"></testcase>
-<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login destroy bean_review_like reder button" file="./spec/system/review_likes_spec.rb" time="2.177166"></testcase>
-<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login destroy bean_review_like click button" file="./spec/system/review_likes_spec.rb" time="2.512440"></testcase>
-<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when not signed not render like button" file="./spec/system/review_likes_spec.rb" time="0.673733"></testcase>
-<testcase classname="spec.system.reviews_spec" name="Reviews create when login success redirect product page" file="./spec/system/reviews_spec.rb" time="0.789409"></testcase>
-<testcase classname="spec.system.reviews_spec" name="Reviews create when login success displayed review" file="./spec/system/reviews_spec.rb" time="0.836638"></testcase>
-<testcase classname="spec.system.reviews_spec" name="Reviews create when login failure has blank title" file="./spec/system/reviews_spec.rb" time="0.785080"></testcase>
-<testcase classname="spec.system.reviews_spec" name="Reviews create when login failure has blank content" file="./spec/system/reviews_spec.rb" time="0.811826"></testcase>
-<testcase classname="spec.system.reviews_spec" name="Reviews create when login failure has blank rate" file="./spec/system/reviews_spec.rb" time="0.895154"></testcase>
-<testcase classname="spec.system.reviews_spec" name="Reviews create when not login is not render review_form" file="./spec/system/reviews_spec.rb" time="0.480253"></testcase>
-<testcase classname="spec.system.rooms_spec" name="Rooms when login index render page" file="./spec/system/rooms_spec.rb" time="0.489280"></testcase>
-<testcase classname="spec.system.rooms_spec" name="Rooms when login show render page" file="./spec/system/rooms_spec.rb" time="0.499567"></testcase>
-<testcase classname="spec.system.rooms_spec" name="Rooms when login show not included room" file="./spec/system/rooms_spec.rb" time="0.572795"></testcase>
-<testcase classname="spec.system.rooms_spec" name="Rooms when login create created room" file="./spec/system/rooms_spec.rb" time="0.604879"></testcase>
-<testcase classname="spec.system.rooms_spec" name="Rooms when not login not displayed message-label" file="./spec/system/rooms_spec.rb" time="0.177934"></testcase>
-<testcase classname="spec.system.rooms_spec" name="Rooms when not login redirect sign_in page(index)" file="./spec/system/rooms_spec.rb" time="0.249204"></testcase>
-<testcase classname="spec.system.rooms_spec" name="Rooms when not login redirect sign_in page(show)" file="./spec/system/rooms_spec.rb" time="0.211389"></testcase>
-<testcase classname="spec.system.sessions_spec" name="Sessions sign_in when success successfully login" file="./spec/system/sessions_spec.rb" time="0.299557"></testcase>
-<testcase classname="spec.system.sessions_spec" name="Sessions sign_in when fail is wrong passowrd" file="./spec/system/sessions_spec.rb" time="0.270970"></testcase>
-<testcase classname="spec.system.sessions_spec" name="Sessions sign_in when fail is wrong email" file="./spec/system/sessions_spec.rb" time="0.309039"></testcase>
-<testcase classname="spec.system.sessions_spec" name="Sessions sign_out is successfully sign_out" file="./spec/system/sessions_spec.rb" time="0.433667"></testcase>
-<testcase classname="spec.system.tags_spec" name="Tags update when login update tag_list(product)" file="./spec/system/tags_spec.rb" time="2.351725"></testcase>
-<testcase classname="spec.system.tags_spec" name="Tags update when login update all change tag_list(product)" file="./spec/system/tags_spec.rb" time="2.406555"></testcase>
-<testcase classname="spec.system.tags_spec" name="Tags update when login update empty tag_list(product)" file="./spec/system/tags_spec.rb" time="2.438589"></testcase>
-<testcase classname="spec.system.tags_spec" name="Tags update when login update tag_list(bean)" file="./spec/system/tags_spec.rb" time="2.650487"></testcase>
-<testcase classname="spec.system.tags_spec" name="Tags update when login update all change tag_list(bean)" file="./spec/system/tags_spec.rb" time="2.778476"></testcase>
-<testcase classname="spec.system.tags_spec" name="Tags update when login update empty tag_list(bean)" file="./spec/system/tags_spec.rb" time="2.494972"></testcase>
+./spec/system/tags_spec.rb:39:in `block (4 levels) in &lt;main&gt;&apos;</failure></testcase>
+<testcase classname="spec.system.tags_spec" name="Tags update when login update tag_list(bean)" file="./spec/system/tags_spec.rb" time="3.601604"></testcase>
+<testcase classname="spec.system.tags_spec" name="Tags update when login update all change tag_list(bean)" file="./spec/system/tags_spec.rb" time="3.726579"></testcase>
+<testcase classname="spec.system.tags_spec" name="Tags update when login update empty tag_list(bean)" file="./spec/system/tags_spec.rb" time="2.855261"></testcase>
 </testsuite>
