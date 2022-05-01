@@ -31,6 +31,8 @@ jobs:
     steps:
       - checkout:
           path: ~/coffee
+      - setup_remote_docker:
+          docker_layer_caching: true
       - restore_cache:
           keys:
             - rails-gem-v1-{{ checksum "Gemfile.lock"}}
