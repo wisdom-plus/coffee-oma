@@ -16,7 +16,6 @@ AllCops:
     - "tmp/**/*"
     - "node_modules/**/*"
     - "lib/tasks/auto_annotate_models.rake"
-  NewCops: enable
 
 Rails:
   Enabled: true
