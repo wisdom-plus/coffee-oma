@@ -4,9 +4,9 @@ class BeanReviewsController < ApplicationController
   def create
     @bean_review = BeanReviewForm.new(bean_review_recipe_params)
     if @bean_review.save(current_user)
-      flash[:notice] = 'レビューの登録に成功しました'
+      flash[:notice] = t('.notice')
     else
-      flash[:alert] = 'レビューの登録に失敗しました'
+      flash[:alert] = t('.alert')
     end
     redirect_to bean_path(@bean_review.bean_id)
   end

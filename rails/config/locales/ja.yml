@@ -1,4 +1,8 @@
 ja:
+  bean_reviews:
+    create:
+      notice: 'レビューの登録に成功しました'
+      alert: 'レビューの登録に失敗しました'
   activerecord:
     attributes:
       product:
