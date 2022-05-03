@@ -33,7 +33,7 @@ RSpec.describe 'Reports', type: :system, js: true do
         expect(page).to have_content 'レビューを通報しました。'
       end
 
-      it 'review delete ' do
+      it 'review delete' do
         expect do
           perform_enqueued_jobs do
             DeleteReviewJob.perform_later(review)
@@ -59,7 +59,7 @@ RSpec.describe 'Reports', type: :system, js: true do
         expect(page).to have_content 'レビューを通報しました。'
       end
 
-      it 'review delete ' do
+      it 'review delete' do
         expect do
           perform_enqueued_jobs do
             DeleteReviewJob.perform_later(bean_review)

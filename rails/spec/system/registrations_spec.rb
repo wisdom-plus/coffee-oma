@@ -101,7 +101,7 @@ RSpec.describe 'Registrations', type: :system, js: true do
       end
 
       context 'when success' do
-        it 'displayed icon ' do
+        it 'displayed icon' do
           expect(page).to have_selector '#img-prev'
         end
 
@@ -160,7 +160,7 @@ RSpec.describe 'Registrations', type: :system, js: true do
         login(user, user.email, user.password)
       end
 
-      it 'displayed icon ' do
+      it 'displayed icon' do
         visit "/users/#{user.id}/show"
         expect(page).to have_selector 'img'
       end

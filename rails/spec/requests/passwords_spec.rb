@@ -15,7 +15,7 @@ RSpec.describe 'Passwords', type: :request do
       @raw, enc = Devise.token_generator.generate(User, :reset_password_token)
 
       user.reset_password_token   = enc
-      user.reset_password_sent_at = (Time.current - 4.hours)
+      user.reset_password_sent_at = (4.hours.ago)
       user.save(validate: false)
     end
 
@@ -37,7 +37,7 @@ RSpec.describe 'Passwords', type: :request do
       @raw, enc = Devise.token_generator.generate(User, :reset_password_token)
 
       user.reset_password_token   = enc
-      user.reset_password_sent_at = (Time.current - 4.hours)
+      user.reset_password_sent_at = (4.hours.ago)
       user.save(validate: false)
     end
 
