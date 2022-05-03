@@ -33,7 +33,7 @@ class NewsController < ApplicationController
 
   def update
     if @news.update(news_params)
-      redirect_to root_path, notice: '更新が成功しました。'
+      redirect_to root_path, notice: t('.notice')
     else
       render :edit
     end
@@ -41,9 +41,9 @@ class NewsController < ApplicationController
 
   def destroy
     if @news.destroy
-      redirect_to root_path, notice: '削除に成功しました。'
+      redirect_to root_path, notice: t('.notice')
     else
-      redirect_to root_path, alert: '削除に失敗しました。'
+      redirect_to root_path, alert: t('.alert')
     end
   end
 
