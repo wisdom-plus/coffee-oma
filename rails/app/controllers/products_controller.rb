@@ -51,6 +51,6 @@ class ProductsController < ApplicationController
     def product_exists?
       return if Product.exists?(id: params[:id])
 
-      redirect_to products_path, alert: '存在しないページです。'
+      redirect_to products_path, alert: t('.alert')
     end
 end

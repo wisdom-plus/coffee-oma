@@ -51,6 +51,6 @@ class BeansController < ApplicationController
     def bean_exists?
       return if Bean.exists?(id: params[:id])
 
-      redirect_to beans_path, alert: t('.exists')
+      redirect_to beans_path, alert: t('.alert')
     end
 end

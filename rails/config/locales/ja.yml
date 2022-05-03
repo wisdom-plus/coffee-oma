@@ -7,17 +7,33 @@ ja:
     create:
       notice: '登録に成功しました。'
       alert: '登録に失敗しました'
-      exists: '存在しないページです。'
+    bean_exists?:
+      alert: '存在しないページです。'
   contancts:
     create:
       notice: 'お問い合わせメールが送信されました'
       alert: 'お問い合わせメールの送信し失敗しました'
   news:
     create:
-      notice:
-      alert:
+      notice: '登録が完了しました。'
+      alert: '登録に失敗しました。'
     show:
-
+      alert: '公開させておりません。'
+    update:
+      notice: '更新が成功しました。'
+    destroy:
+      notice: '削除に成功しました。'
+      alert: '削除に失敗しました。'
+  products:
+    create:
+      notice: 'アイテムを登録しました'
+      alert: 'アイテムの登録に失敗しました'
+    product_existes?:
+      alert: '存在しないページです。'
+  users:
+    sessions:
+      new_guest:
+        notice: 'ゲストユーザーとしてログインしました。'
   activerecord:
     attributes:
       product:
