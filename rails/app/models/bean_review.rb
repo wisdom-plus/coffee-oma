@@ -13,8 +13,8 @@
 #  title             :string(255)      not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
-#  bean_id           :bigint
-#  user_id           :bigint
+#  bean_id           :integer
+#  user_id           :integer
 #
 # Indexes
 #

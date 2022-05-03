@@ -15,7 +15,7 @@
 #  url           :text(65535)
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  user_id       :bigint
+#  user_id       :integer
 #
 # Indexes
 #

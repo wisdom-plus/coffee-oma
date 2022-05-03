@@ -5,9 +5,9 @@
 #  id         :bigint           not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  bean_id    :bigint
-#  product_id :bigint
-#  user_id    :bigint
+#  bean_id    :integer
+#  product_id :integer
+#  user_id    :integer
 #
 # Indexes
 #
