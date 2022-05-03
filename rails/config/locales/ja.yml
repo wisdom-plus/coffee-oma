@@ -8,6 +8,16 @@ ja:
       notice: '登録に成功しました。'
       alert: '登録に失敗しました'
       exists: '存在しないページです。'
+  contancts:
+    create:
+      notice: 'お問い合わせメールが送信されました'
+      alert: 'お問い合わせメールの送信し失敗しました'
+  news:
+    create:
+      notice:
+      alert:
+    show:
+
   activerecord:
     attributes:
       product:

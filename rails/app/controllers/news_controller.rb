@@ -13,9 +13,9 @@ class NewsController < ApplicationController
   def create
     @news = current_admin_user.news.create(news_params)
     if @news.save
-      redirect_to root_path, notice: '登録が完了しました。'
+      redirect_to root_path, notice: t('.notice')
     else
-      flash[:alert] = '登録に失敗しました。'
+      flash[:alert] = t('.alert')
       render :new
     end
   end
@@ -25,7 +25,7 @@ class NewsController < ApplicationController
     if @news.publicshed?
       @news.activate unless @news.active
     else
-      redirect_to root_path, alert: '公開させておりません。'
+      redirect_to root_path, alert: t('.alert')
     end
   end
 

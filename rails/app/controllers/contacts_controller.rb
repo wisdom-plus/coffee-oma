@@ -8,9 +8,9 @@ class ContactsController < ApplicationController
     if @contact.save
       ContactMailer.with(contact: @contact).delay.contact_mail
       ContactMailer.with(contact: @contact).delay.reply_mail
-      redirect_to root_path, notice: 'お問い合わせメールが送信されました'
+      redirect_to root_path, notice: t('.notice')
     else
-      flash.now[:alert] = 'お問い合わせメールの送信し失敗しました'
+      flash.now[:alert] = t('.alert')
       render :new
     end
   end
