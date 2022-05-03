@@ -30,10 +30,31 @@ ja:
       alert: 'アイテムの登録に失敗しました'
     product_existes?:
       alert: '存在しないページです。'
+  reports:
+    create:
+      notice: 'レビューを通報しました。'
+      alert: 'レビューを通報しました。'
+  reviews:
+    create:
+      notice: 'レビューを登録しました'
+      alert: 'レビューの登録に失敗しました'
+  rooms:
+    create:
+      alert: 'エラーが発生しました。'
+    check_including?:
+      alert: '参加しているルームではないので、参加できませんでした'
+  tags:
+    update:
+      alert: '登録に失敗しました。'
   users:
     sessions:
       new_guest:
         notice: 'ゲストユーザーとしてログインしました。'
+    registrations:
+      user_exist?:
+        alert: 'ユーザーが存在しません'
+      check_guest:
+        alert: 'ゲストユーザーは変更・削除ができません。'
   activerecord:
     attributes:
       product:
