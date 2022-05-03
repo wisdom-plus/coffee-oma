@@ -55,6 +55,11 @@ ja:
         alert: 'ユーザーが存在しません'
       check_guest:
         alert: 'ゲストユーザーは変更・削除ができません。'
+  contact_mailer:
+    contact_mail:
+      subject:  'お問い合わせ通知'
+    reply_mail:
+      subject: 'お問い合わせありがとうございます'
   activerecord:
     attributes:
       product:
