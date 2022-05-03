@@ -14,7 +14,7 @@ class TagsController < ApplicationController
     @tags = @target.tag_counts_on(:tags)
     respond_to do |format|
       format.js
-      format.html { redirect_to root_path, alert: '登録に失敗しました。' }
+      format.html { redirect_to root_path, alert: t('.alert') }
     end
   end
 end
