@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_including, only: %i[show]
+  before_action :check_including?, only: %i[show]
 
   def index
     @rooms = Room.join_room_list(current_user)
@@ -11,7 +11,7 @@ class RoomsController < ApplicationController
     if room.save
       redirect_to room_path(room.id)
     else
-      redirect_to root_path, flash: { alret: 'エラーが発生しました。' }
+      redirect_to root_path, flash: { alert: t('.alert') }
     end
   end
 
@@ -23,10 +23,10 @@ class RoomsController < ApplicationController
 
   private
 
-    def check_including
+    def check_including?
       room = Room.find(params[:id])
       return if room.join?(current_user.id)
 
-      redirect_to root_path, flash: { alert: '参加しているルームではないので、参加できませんでした' }
+      redirect_to root_path, flash: { alert: t('.alert') }
     end
 end
