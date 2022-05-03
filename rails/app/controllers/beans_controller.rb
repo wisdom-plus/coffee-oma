@@ -10,9 +10,9 @@ class BeansController < ApplicationController
   def create
     @bean = current_user.beans.new(bean_params)
     if @bean.save
-      redirect_to beans_path, notice: '登録に成功しました。'
+      redirect_to beans_path, notice: t('.notice')
     else
-      flash.now[:alert] = '登録に失敗しました'
+      flash.now[:alert] = t('.alert')
       render :new
     end
   end
@@ -51,6 +51,6 @@ class BeansController < ApplicationController
     def bean_exists?
       return if Bean.exists?(id: params[:id])
 
-      redirect_to beans_path, alert: '存在しないページです。'
+      redirect_to beans_path, alert: t('.exists')
     end
 end
