@@ -9,7 +9,7 @@ ja:
       alert: '登録に失敗しました'
     bean_exists?:
       alert: '存在しないページです。'
-  contancts:
+  contacts:
     create:
       notice: 'お問い合わせメールが送信されました'
       alert: 'お問い合わせメールの送信し失敗しました'
