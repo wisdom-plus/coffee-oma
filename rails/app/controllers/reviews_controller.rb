@@ -4,9 +4,9 @@ class ReviewsController < ApplicationController
   def create
     review = current_user.reviews.create(review_params)
     if review.save
-      flash[:notice] = 'レビューを登録しました'
+      flash[:notice] = t('.notice')
     else
-      flash[:alert] = 'レビューの登録に失敗しました'
+      flash[:alert] = t('.alert')
     end
     redirect_to product_path(review.product_id)
   end

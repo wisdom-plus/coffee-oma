@@ -77,13 +77,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
     def user_exist?
-      redirect_to root_path, alert: 'ユーザーが存在しません' if User.find_by(id: params[:id]).nil?
+      redirect_to root_path, alert: t('.alert') if User.find_by(id: params[:id]).nil?
     end
 
     def check_guest
       return unless resource.email == 'guest@example.com'
 
-      redirect_to root_path, alert: 'ゲストユーザーは変更・削除ができません。'
+      redirect_to root_path, alert: t('.alert')
     end
 
     def customize_sign_up_params

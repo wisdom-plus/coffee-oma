@@ -10,9 +10,9 @@ class ProductsController < ApplicationController
   def create
     @product = current_user.products.new(product_params)
     if @product.save
-      redirect_to products_path, notice: 'アイテムを登録しました'
+      redirect_to products_path, notice: t('.notice')
     else
-      flash.now[:alert] = 'アイテムの登録に失敗しました'
+      flash.now[:alert] = t('.alert')
       render :new
     end
   end
@@ -51,6 +51,6 @@ class ProductsController < ApplicationController
     def product_exists?
       return if Product.exists?(id: params[:id])
 
-      redirect_to products_path, alert: '存在しないページです。'
+      redirect_to products_path, alert: t('.alert')
     end
 end

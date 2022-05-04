@@ -13,9 +13,9 @@ class NewsController < ApplicationController
   def create
     @news = current_admin_user.news.create(news_params)
     if @news.save
-      redirect_to root_path, notice: '登録が完了しました。'
+      redirect_to root_path, notice: t('.notice')
     else
-      flash[:alert] = '登録に失敗しました。'
+      flash[:alert] = t('.alert')
       render :new
     end
   end
@@ -25,7 +25,7 @@ class NewsController < ApplicationController
     if @news.publicshed?
       @news.activate unless @news.active
     else
-      redirect_to root_path, alert: '公開させておりません。'
+      redirect_to root_path, alert: t('.alert')
     end
   end
 
@@ -33,7 +33,7 @@ class NewsController < ApplicationController
 
   def update
     if @news.update(news_params)
-      redirect_to root_path, notice: '更新が成功しました。'
+      redirect_to root_path, notice: t('.notice')
     else
       render :edit
     end
@@ -41,9 +41,9 @@ class NewsController < ApplicationController
 
   def destroy
     if @news.destroy
-      redirect_to root_path, notice: '削除に成功しました。'
+      redirect_to root_path, notice: t('.notice')
     else
-      redirect_to root_path, alert: '削除に失敗しました。'
+      redirect_to root_path, alert: t('.alert')
     end
   end
 

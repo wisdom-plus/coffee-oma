@@ -11,9 +11,9 @@ class ReportsController < ApplicationController
     Report.create_report(current_user, @review)
     case params[:type]
     when 'Review'
-      redirect_to product_path(@review.product_id), notice: 'レビューを通報しました。'
+      redirect_to product_path(@review.product_id), notice: t('.notice')
     when 'BeanReview'
-      redirect_to bean_path(@review.bean_id), notice: 'レビューを通報しました。'
+      redirect_to bean_path(@review.bean_id), notice: t('.alert')
     end
   end
 end

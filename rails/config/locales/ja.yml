@@ -1,4 +1,65 @@
 ja:
+  bean_reviews:
+    create:
+      notice: 'レビューの登録に成功しました'
+      alert: 'レビューの登録に失敗しました'
+  beans:
+    create:
+      notice: '登録に成功しました。'
+      alert: '登録に失敗しました'
+    show:
+      alert: '存在しないページです。'
+  contacts:
+    create:
+      notice: 'お問い合わせメールが送信されました'
+      alert: 'お問い合わせメールの送信し失敗しました'
+  news:
+    create:
+      notice: '登録が完了しました。'
+      alert: '登録に失敗しました。'
+    show:
+      alert: '公開させておりません。'
+    update:
+      notice: '更新が成功しました。'
+    destroy:
+      notice: '削除に成功しました。'
+      alert: '削除に失敗しました。'
+  products:
+    create:
+      notice: 'アイテムを登録しました'
+      alert: 'アイテムの登録に失敗しました'
+    show:
+      alert: '存在しないページです。'
+  reports:
+    create:
+      notice: 'レビューを通報しました。'
+      alert: 'レビューを通報しました。'
+  reviews:
+    create:
+      notice: 'レビューを登録しました'
+      alert: 'レビューの登録に失敗しました'
+  rooms:
+    create:
+      alert: 'エラーが発生しました。'
+    check_including?:
+      alert: '参加しているルームではないので、参加できませんでした'
+  tags:
+    update:
+      alert: '登録に失敗しました。'
+  users:
+    sessions:
+      new_guest:
+        notice: 'ゲストユーザーとしてログインしました。'
+    registrations:
+      user_exist?:
+        alert: 'ユーザーが存在しません'
+      check_guest:
+        alert: 'ゲストユーザーは変更・削除ができません。'
+  contact_mailer:
+    contact_mail:
+      subject:  'お問い合わせ通知'
+    reply_mail:
+      subject: 'お問い合わせありがとうございます'
   activerecord:
     attributes:
       product:

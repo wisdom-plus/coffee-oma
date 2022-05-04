@@ -19,7 +19,7 @@ RSpec.describe 'BeanReviews', type: :request do
       expect(response).to have_http_status(:found)
     end
 
-    it 'review created ' do
+    it 'review created' do
       expect do
         post bean_bean_reviews_path(bean.id), params: { bean_review: bean_review_params }
       end.to change(BeanReview, :count).by 1
