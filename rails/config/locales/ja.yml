@@ -7,7 +7,7 @@ ja:
     create:
       notice: '登録に成功しました。'
       alert: '登録に失敗しました'
-    bean_exists?:
+    show:
       alert: '存在しないページです。'
   contacts:
     create:
@@ -28,7 +28,7 @@ ja:
     create:
       notice: 'アイテムを登録しました'
       alert: 'アイテムの登録に失敗しました'
-    product_existes?:
+    show:
       alert: '存在しないページです。'
   reports:
     create:
