@@ -8,9 +8,9 @@ ActiveAdmin.register Recipe do
   #
   # or
   #
-  # permit_params do
-  #   permitted = [:powdergram, :grinding, :temperature, :time, :amount, :bean_review_id]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+  permit_params do
+    permitted = [:powdergram, :grinding, :temperature, :time, :amount, :bean_review_id]
+    permitted << :other if params[:action] == 'create' && admin_user_signed_in?
+    permitted
+  end
 end
