@@ -8,9 +8,9 @@ ActiveAdmin.register BeanReview do
   #
   # or
   #
-  # permit_params do
-  #   permitted = [:acidity, :sweet, :rich, :bitter, :flavor, :bean_id, :user_id, :title, :content]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+  permit_params do
+    permitted = [:acidity, :sweet, :rich, :bitter, :flavor, :bean_id, :user_id, :title, :content]
+    permitted << :other if params[:action] == 'create' && admin_user_signed_in?
+    permitted
+  end
 end
