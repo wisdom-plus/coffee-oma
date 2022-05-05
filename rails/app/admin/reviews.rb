@@ -10,7 +10,7 @@ ActiveAdmin.register Review do
   #
   permit_params do
     permitted = %i[user_id product_id title content rate]
-    permitted << :other if params[:action] == 'create' && current_user.admin?
+    permitted << :other if params[:action] == 'create' && admin_user_signed_in?
     permitted
   end
 end
