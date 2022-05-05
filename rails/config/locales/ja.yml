@@ -126,11 +126,14 @@ ja:
     models:
       product: "商品"
       admin_user: "管理者"
-      review: "レビュー"
+      review: "商品レビュー"
       comment: "コメント"
       tag: "タグ"
       room: "ルーム"
       message: "メッセージ"
+      bean: 'コーヒー豆'
+      bean_review: 'コーヒー豆レビュー'
+      recipe: 'レシピ'
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
