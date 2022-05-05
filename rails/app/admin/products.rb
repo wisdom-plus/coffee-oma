@@ -10,8 +10,7 @@ ActiveAdmin.register Product do
   #
   permit_params do
     permitted = %i[itemname itemprice shopname catchcopy imageurl itemurl itemcaption tag_list]
-    permitted << :other if params[:action] == 'create' && current_user.admin?
-    permitted
+    permitted << :other if params[:action] == 'create' && admin_user_signed_in?
   end
 
   form do |f|
