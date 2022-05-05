@@ -35,7 +35,7 @@ ActiveAdmin.register User do
                    id
                    created_at
                    updated_at]
-    permitted << :other if params[:action] == 'create' && current_user.admin?
+    permitted << :other if params[:action] == 'create' && admin_user_signed_in?
     permitted
   end
 end
