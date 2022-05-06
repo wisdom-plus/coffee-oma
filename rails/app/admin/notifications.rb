@@ -9,10 +9,10 @@ ActiveAdmin.register Notification do
   #
   # or
   #
-  # permit_params do
-  #   permitted = [:visitor_id, :visited_id, :action, :checked, :message_id, :like_id]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-  
+  permit_params do
+    permitted = [:visitor_id, :visited_id, :action, :checked, :message_id, :like_id]
+    permitted << :other if params[:action] == 'create' && admin_user_signed_in?
+    permitted
+  end
+
 end
