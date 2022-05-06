@@ -1,5 +1,4 @@
 ActiveAdmin.register History do
-
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -10,9 +9,8 @@ ActiveAdmin.register History do
   # or
   #
   permit_params do
-    permitted = [:user_id, :bean_id, :product_id]
+    permitted = %i[user_id bean_id product_id]
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
     permitted
   end
-
 end
