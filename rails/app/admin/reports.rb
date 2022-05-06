@@ -9,10 +9,10 @@ ActiveAdmin.register Report do
   #
   # or
   #
-  # permit_params do
-  #   permitted = [:user_id, :review_type, :review_id]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-  
+  permit_params do
+    permitted = [:user_id, :review_type, :review_id]
+    permitted << :other if params[:action] == 'create' && admin_user_signed_in?
+    permitted
+  end
+
 end
