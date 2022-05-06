@@ -9,10 +9,10 @@ ActiveAdmin.register Room do
   #
   # or
   #
-  # permit_params do
-  #   permitted = [:participant1_id, :participant2_id]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-  
+  permit_params do
+    permitted = [:participant1_id, :participant2_id]
+    permitted << :other if params[:action] == 'create' && admin_user_signed_in?
+    permitted
+  end
+
 end
