@@ -9,10 +9,10 @@ ActiveAdmin.register History do
   #
   # or
   #
-  # permit_params do
-  #   permitted = [:user_id, :bean_id, :product_id]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-  
+  permit_params do
+    permitted = [:user_id, :bean_id, :product_id]
+    permitted << :other if params[:action] == 'create' && admin_user_signed_in?
+    permitted
+  end
+
 end
