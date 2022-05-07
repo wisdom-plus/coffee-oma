@@ -19,6 +19,27 @@ ActiveAdmin.register User do
   #
   # or
   #
+  index do
+    column :id
+    column :email
+    column :username
+    column :profile
+    column :icon
+    column 'レビュー件数' do |user|
+      user.reviews.count + user.bean_reviews.count
+    end
+    column 'フォロー数' do |user|
+      user.followings.count
+    end
+    column :reset_password_sent_at
+    column :remember_created_at
+    column :confirmed_at
+    column :confirmation_sent_at
+    column :unconfirmed_email
+    column :created_at
+    column :updated_at
+  end
+
   permit_params do
     permitted = %i[email
                    encrypted_password
