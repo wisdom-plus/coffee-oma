@@ -38,6 +38,37 @@ ActiveAdmin.register User do
     column :unconfirmed_email
     column :created_at
     column :updated_at
+    actions
+  end
+
+  show do |user|
+    attributes_table(*user.class.columns.collect { |column| column.name.to_sym })
+    panel 'フォロー' do
+      table_for user.followings do
+        column :id
+        column :username
+      end
+    end
+
+    panel 'レビュー' do
+      table_for user.reviews do
+        column :id
+        column :product_id
+        column :title
+        column :rate
+        column :content
+      end
+    end
+
+    panel 'BeanReview' do
+      table_for user.bean_reviews do
+        column :id
+        column :bean_id
+        column :title
+        column :content
+      end
+    end
+    active_admin_comments
   end
 
   permit_params do
