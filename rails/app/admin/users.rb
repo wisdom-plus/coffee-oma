@@ -60,7 +60,7 @@ ActiveAdmin.register User do
       end
     end
 
-    panel 'BeanReview' do
+    panel 'コーヒー豆レビュー' do
       table_for user.bean_reviews do
         column :id
         column :bean_id
