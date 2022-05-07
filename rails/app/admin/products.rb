@@ -13,6 +13,20 @@ ActiveAdmin.register Product do
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
   end
 
+  show do |product|
+    attributes_table(*product.class.columns.collect { |column| column.name.to_sym })
+    panel 'レビュー' do
+      table_for product.reviews do
+        column :id
+        column :user_id
+        column :title
+        column :rate
+        column :content
+      end
+    end
+    active_admin_comments
+  end
+
   form do |f|
     f.inputs 'Details', multipart: true do
       f.input :itemname
