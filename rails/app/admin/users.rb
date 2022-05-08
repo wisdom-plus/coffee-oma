@@ -67,9 +67,17 @@ ActiveAdmin.register User do
         column :content
       end
     end
+
+    panel 'お気に入り' do
+      table_for user.likes do
+        column :id
+        column :type
+        column :liked_id
+        column :created_at
+      end
+    end
     active_admin_comments
   end
-
   permit_params do
     permitted = %i[email
                    encrypted_password
