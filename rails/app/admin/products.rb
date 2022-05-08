@@ -28,6 +28,9 @@ ActiveAdmin.register Product do
     panel 'お気に入り' do
       table_for product.product_likes do
         column :id
+        column 'ユーザー名' do |product_like|
+          product_like.user.username
+        end
       end
     end
     active_admin_comments

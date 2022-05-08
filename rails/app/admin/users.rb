@@ -20,11 +20,10 @@ ActiveAdmin.register User do
   # or
   #
   index do
+    selectable_column
     column :id
     column :email
     column :username
-    column :profile
-    column :icon
     column 'レビュー件数' do |user|
       user.reviews.count + user.bean_reviews.count
     end
