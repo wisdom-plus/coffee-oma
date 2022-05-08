@@ -8,6 +8,23 @@ ActiveAdmin.register Bean do
   #
   # or
   #
+  index do
+    column :id
+    column :name
+    column :country
+    column :area
+    column :description
+    column :purification
+    column :roast
+    column :likes_count
+    column :reviews_count
+    column :created_at
+    column :updated_at
+    actions
+  end
+
+
+
   permit_params do
     permitted = %i[name roast url purification country area description user_id image]
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
