@@ -8,6 +8,48 @@ ActiveAdmin.register BeanReview do
   #
   # or
   #
+
+  index do
+    column :id
+    column :title
+    column :content
+    column :acidity
+    column :bitter
+    column :flavor
+    column :rich
+    column :sweet
+    column :reviewlikes_count
+    column :created_at
+    actions
+  end
+
+
+  show do |review|
+    attributes_table(*review.class.columns.collect { |column| column.name.to_sym })
+    panel 'お気に入り' do
+      table_for review.bean_review_likes do
+        column :id
+        column 'ユーザー名' do |like|
+          like.user.username
+        end
+        column :created_at
+      end
+    end
+
+    panel '商品' do
+      table_for review.bean do
+        column :id
+        column :name
+        column :country
+        column :area
+        column :purification
+        column :roast
+        column :description
+        column :created_at
+      end
+    end
+  end
+
   permit_params do
     permitted = %i[acidity sweet rich bitter flavor bean_id user_id title content]
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
