@@ -23,7 +23,18 @@ ActiveAdmin.register Bean do
     actions
   end
 
-
+  show do |bean|
+    attributes_table(*bean.class.columns.collect { |column| column.name.to_sym })
+    panel 'レビュー' do
+      table_for bean.bean_reviews do
+        column :id
+        column :user_id
+        column :title
+        column :content
+      end
+    end
+    active_admin_comments
+  end
 
   permit_params do
     permitted = %i[name roast url purification country area description user_id image]
