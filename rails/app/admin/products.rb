@@ -24,7 +24,28 @@ ActiveAdmin.register Product do
         column :content
       end
     end
+
+    panel 'お気に入り' do
+      table_for product.product_likes do
+        column :id
+      end
+    end
     active_admin_comments
+  end
+
+  index do
+    selectable_column
+    column :id
+    column :itemname
+    column :itemprice
+    column :shopname
+    column :itemcaption
+    column :rate_sum
+    column :likes_count
+    column :reviews_count
+    column :created_at
+    column :updated_at
+    actions
   end
 
   form do |f|
