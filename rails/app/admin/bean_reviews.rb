@@ -60,6 +60,7 @@ ActiveAdmin.register BeanReview do
         column :created_at
       end
     end
+    active_admin_comments
   end
 
   permit_params do

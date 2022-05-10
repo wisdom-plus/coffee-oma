@@ -18,6 +18,44 @@ ActiveAdmin.register History do
     column :updated_at
     actions
   end
+
+  show do |history|
+    attributes_table(*history.class.columns.collect { |column| column.name.to_sym })
+    panel 'ユーザー' do
+      table_for history.user do
+        column :id
+        column 'ユーザー名' do |user|
+          user.username
+        end
+        column :created_at
+      end
+    end
+    if (history.product.present?)
+      panel '商品' do
+        table_for history.product do
+          column :id
+          column :itemname
+          column :itemprice
+          column :shopname
+          column :itemcaption
+        end
+      end
+    else
+      panel 'コーヒー豆' do
+        table_for history.bean do
+          column :id
+          column :name
+          column :country
+          column :area
+          column :purification
+          column :roast
+          column :description
+          column :created_at
+        end
+      end
+    end
+    active_admin_comments
+  end
   permit_params do
     permitted = %i[user_id bean_id product_id]
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
