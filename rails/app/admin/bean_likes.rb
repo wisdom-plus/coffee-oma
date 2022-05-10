@@ -8,6 +8,7 @@ ActiveAdmin.register BeanLike do
   #
   # or
   #
+  menu parent: 'Like'
 
   show do |bean_like|
     attributes_table(*bean_like.class.columns.collect { |column| column.name.to_sym })

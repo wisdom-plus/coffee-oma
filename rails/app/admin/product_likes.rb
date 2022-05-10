@@ -8,6 +8,7 @@ ActiveAdmin.register ProductLike do
   #
   # or
   #
+  menu parent: 'Like'
 
   show do |product_like|
     attributes_table(*product_like.class.columns.collect { |column| column.name.to_sym })
