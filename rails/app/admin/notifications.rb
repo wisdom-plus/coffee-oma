@@ -21,6 +21,11 @@ ActiveAdmin.register Notification do
     actions
   end
 
+  show do |notification|
+    attributes_table(*notification.class.columns.collect { |column| column.name.to_sym })
+    active_admin_comments
+  end
+
   permit_params do
     permitted = %i[visitor_id visited_id action checked message_id like_id]
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
