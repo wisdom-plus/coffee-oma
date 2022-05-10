@@ -18,6 +18,44 @@ ActiveAdmin.register Report do
     actions
   end
 
+  show do |report|
+    attributes_table(*report.class.columns.collect { |column| column.name.to_sym })
+    panel 'ユーザー' do
+      table_for report.user do
+        column :id
+        column 'ユーザー名' do |user|
+          user.username
+        end
+        column :created_at
+      end
+    end
+
+    if report.review_type == 'Review'
+      panel '商品レビュー' do
+        table_for report.review.product do
+          column :id
+          column :itemname
+          column :itemprice
+          column :shopname
+          column :itemcaption
+        end
+      end
+    else
+      panel 'コーヒー豆レビュー' do
+        table_for report.review.bean do
+          column :id
+          column :name
+          column :country
+          column :area
+          column :purification
+          column :roast
+          column :description
+          column :created_at
+        end
+      end
+    end
+    active_admin_comments
+  end
 
   permit_params do
     permitted = %i[user_id review_type review_id]
