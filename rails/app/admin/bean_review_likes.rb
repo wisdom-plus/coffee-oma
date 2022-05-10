@@ -8,7 +8,7 @@ ActiveAdmin.register BeanReviewLike do
   #
   # or
   #
-  menu parent: 'Like'
+  menu parent: 'お気に入り'
 
   show do |bean_review_like|
     attributes_table(*bean_review_like.class.columns.collect { |column| column.name.to_sym })

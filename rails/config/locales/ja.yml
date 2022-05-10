@@ -130,6 +130,7 @@ ja:
       comment: "コメント"
       tag: "タグ"
       room: "ルーム"
+      like: "お気に入り"
       message: "メッセージ"
       bean: 'コーヒー豆'
       bean_review: 'コーヒー豆レビュー'
