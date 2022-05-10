@@ -8,6 +8,7 @@ ActiveAdmin.register Review do
   #
   # or
   #
+  menu parent: 'レビュー'
 
   index do
     column :id
