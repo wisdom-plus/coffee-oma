@@ -24,7 +24,6 @@ ActiveAdmin.register BeanReview do
     actions
   end
 
-
   show do |review|
     attributes_table(*review.class.columns.collect { |column| column.name.to_sym })
     panel 'お気に入り' do

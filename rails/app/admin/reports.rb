@@ -23,9 +23,7 @@ ActiveAdmin.register Report do
     panel 'ユーザー' do
       table_for report.user do
         column :id
-        column 'ユーザー名' do |user|
-          user.username
-        end
+        column 'ユーザー名', &:username
         column :created_at
       end
     end

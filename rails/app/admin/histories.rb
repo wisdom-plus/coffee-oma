@@ -24,13 +24,11 @@ ActiveAdmin.register History do
     panel 'ユーザー' do
       table_for history.user do
         column :id
-        column 'ユーザー名' do |user|
-          user.username
-        end
+        column 'ユーザー名', &:username
         column :created_at
       end
     end
-    if (history.product.present?)
+    if history.product.present?
       panel '商品' do
         table_for history.product do
           column :id
