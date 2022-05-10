@@ -8,6 +8,17 @@ ActiveAdmin.register Report do
   #
   # or
   #
+
+  index do
+    column :id
+    column :review_type
+    column :user_id
+    column :review_id
+    column :created_at
+    actions
+  end
+
+
   permit_params do
     permitted = %i[user_id review_type review_id]
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
