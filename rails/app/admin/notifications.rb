@@ -8,6 +8,19 @@ ActiveAdmin.register Notification do
   #
   # or
   #
+  index do
+    column :id
+    column :visited_id
+    column :visitor_id
+    column :action
+    column :checked
+    column :like_id
+    column :message_id
+    column :created_at
+    column :updated_at
+    actions
+  end
+
   permit_params do
     permitted = %i[visitor_id visited_id action checked message_id like_id]
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
