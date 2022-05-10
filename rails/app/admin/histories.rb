@@ -8,6 +8,16 @@ ActiveAdmin.register History do
   #
   # or
   #
+
+  index do
+    column :id
+    column :user_id
+    column :product_id
+    column :bean_id
+    column :created_at
+    column :updated_at
+    actions
+  end
   permit_params do
     permitted = %i[user_id bean_id product_id]
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
