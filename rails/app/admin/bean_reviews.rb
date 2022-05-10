@@ -48,6 +48,18 @@ ActiveAdmin.register BeanReview do
         column :created_at
       end
     end
+
+    panel 'レシピ' do
+      table_for review.recipe do
+        column :id
+        column :amount
+        column :grinding
+        column :powdergram
+        column :temprerature
+        column :time
+        column :created_at
+      end
+    end
   end
 
   permit_params do
