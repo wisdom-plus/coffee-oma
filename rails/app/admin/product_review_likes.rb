@@ -8,6 +8,18 @@ ActiveAdmin.register ProductReviewLike do
   #
   # or
   #
+
+  show do |product_review_like|
+    attributes_table(*product_review_like.class.columns.collect { |column| column.name.to_sym })
+    panel 'ユーザー' do
+      table_for product_review_like.user do
+        column :id
+        column :username
+        column :created_at
+      end
+    end
+    active_admin_comments
+  end
   permit_params do
     permitted = %i[user_id type liked_id]
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
