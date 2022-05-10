@@ -1,4 +1,4 @@
-ActiveAdmin.register Report do
+ActiveAdmin.register Report do # rubocop:disable Metrics/BlockLength
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -18,7 +18,7 @@ ActiveAdmin.register Report do
     actions
   end
 
-  show do |report|
+  show do |report| # rubocop:disable Metrics/BlockLength
     attributes_table(*report.class.columns.collect { |column| column.name.to_sym })
     panel 'ユーザー' do
       table_for report.user do

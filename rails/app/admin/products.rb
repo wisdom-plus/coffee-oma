@@ -1,4 +1,4 @@
-ActiveAdmin.register Product do
+ActiveAdmin.register Product do # rubocop:disable Metrics/BlockLength
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

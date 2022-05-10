@@ -1,4 +1,4 @@
-ActiveAdmin.register History do
+ActiveAdmin.register History do # rubocop:disable Metrics/BlockLength
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -19,7 +19,7 @@ ActiveAdmin.register History do
     actions
   end
 
-  show do |history|
+  show do |history| # rubocop:disable Metrics/BlockLength
     attributes_table(*history.class.columns.collect { |column| column.name.to_sym })
     panel 'ユーザー' do
       table_for history.user do

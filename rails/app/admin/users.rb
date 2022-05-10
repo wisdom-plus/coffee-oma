@@ -1,4 +1,4 @@
-ActiveAdmin.register User do
+ActiveAdmin.register User do # rubocop:disable Metrics/BlockLength
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -40,7 +40,7 @@ ActiveAdmin.register User do
     actions
   end
 
-  show do |user|
+  show do |user| # rubocop:disable Metrics/BlockLength
     attributes_table(*user.class.columns.collect { |column| column.name.to_sym })
     panel 'フォロー' do
       table_for user.followings do

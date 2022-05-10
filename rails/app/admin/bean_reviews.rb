@@ -1,4 +1,4 @@
-ActiveAdmin.register BeanReview do
+ActiveAdmin.register BeanReview do # rubocop:disable Metrics/BlockLength
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -24,7 +24,7 @@ ActiveAdmin.register BeanReview do
     actions
   end
 
-  show do |review|
+  show do |review| # rubocop:disable Metrics/BlockLength
     attributes_table(*review.class.columns.collect { |column| column.name.to_sym })
     panel 'お気に入り' do
       table_for review.bean_review_likes do
