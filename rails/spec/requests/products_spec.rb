@@ -40,6 +40,11 @@ RSpec.describe 'Products', type: :request do
       expect(response).to have_http_status(:found)
     end
 
+    it 'request fail' do
+      post products_path, params: { product: { name: '' } }
+      expect(response).to have_http_status(:ok)
+    end
+
     it 'created product' do
       expect do
         post products_path, params: { product: product_params }

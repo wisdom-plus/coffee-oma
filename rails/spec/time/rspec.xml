@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="19" skipped="0" failures="0" errors="0" time="57.599410" timestamp="2022-05-11T03:20:55+00:00" hostname="5eb22ff73b29">
+<testsuite name="rspec" tests="8" skipped="0" failures="0" errors="0" time="21.484744" timestamp="2022-05-11T03:32:32+00:00" hostname="5eb22ff73b29">
 <properties>
-<property name="seed" value="2283"/>
+<property name="seed" value="39413"/>
 </properties>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when success displayed message" file="./spec/system/registrations_spec.rb" time="23.067925"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail name empty" file="./spec/system/registrations_spec.rb" time="1.253829"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail email empty" file="./spec/system/registrations_spec.rb" time="1.194516"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail checkbox empty" file="./spec/system/registrations_spec.rb" time="1.135580"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail password is short" file="./spec/system/registrations_spec.rb" time="1.275685"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations sign_up when fail confirmation password is incorrect" file="./spec/system/registrations_spec.rb" time="1.279211"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations delete /users delete seccess" file="./spec/system/registrations_spec.rb" time="2.956376"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations delete /users when get login delete fail" file="./spec/system/registrations_spec.rb" time="2.955383"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success displayed icon" file="./spec/system/registrations_spec.rb" time="1.444695"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change username" file="./spec/system/registrations_spec.rb" time="2.899100"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change email" file="./spec/system/registrations_spec.rb" time="2.703729"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when success change password" file="./spec/system/registrations_spec.rb" time="3.019560"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change username" file="./spec/system/registrations_spec.rb" time="2.191735"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change email" file="./spec/system/registrations_spec.rb" time="2.022209"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail not change password" file="./spec/system/registrations_spec.rb" time="2.204530"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/edit when login when fail when get login delete fail" file="./spec/system/registrations_spec.rb" time="2.770854"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when login displayed icon" file="./spec/system/registrations_spec.rb" time="1.413662"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when login have link edit" file="./spec/system/registrations_spec.rb" time="1.393439"></testcase>
-<testcase classname="spec.system.registrations_spec" name="Registrations get /users/:id/show when not login not have link edit" file="./spec/system/registrations_spec.rb" time="0.405301"></testcase>
+<testcase classname="spec.requests.products_spec" name="Products GET /products request success" file="./spec/requests/products_spec.rb" time="20.479558"></testcase>
+<testcase classname="spec.requests.products_spec" name="Products GET /products request success(tag_name)" file="./spec/requests/products_spec.rb" time="0.107766"></testcase>
+<testcase classname="spec.requests.products_spec" name="Products GET /products/new request success" file="./spec/requests/products_spec.rb" time="0.134796"></testcase>
+<testcase classname="spec.requests.products_spec" name="Products POST /products request success" file="./spec/requests/products_spec.rb" time="0.062221"></testcase>
+<testcase classname="spec.requests.products_spec" name="Products POST /products request fail" file="./spec/requests/products_spec.rb" time="0.107082"></testcase>
+<testcase classname="spec.requests.products_spec" name="Products POST /products created product" file="./spec/requests/products_spec.rb" time="0.062005"></testcase>
+<testcase classname="spec.requests.products_spec" name="Products GET /products/:id request success" file="./spec/requests/products_spec.rb" time="0.167387"></testcase>
+<testcase classname="spec.requests.products_spec" name="Products GET /products/:id request fail" file="./spec/requests/products_spec.rb" time="0.039670"></testcase>
 </testsuite>
