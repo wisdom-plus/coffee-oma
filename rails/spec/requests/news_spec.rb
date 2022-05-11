@@ -79,7 +79,7 @@ RSpec.describe 'News', type: :request do
       expect(news.reload.content.body.to_s).to eq "<div class=\"trix-content\">\n  <p>version1.1での変更点</p>\n</div>\n"
     end
 
-    it 'updated news' do
+    it 'updated fail' do
       put news_path(news.id), params: { news: update_news_params.merge(title: nil) }
       expect(response).to have_http_status(:ok)
       expect(flash[:alert]).to eq '更新が失敗しました。'
