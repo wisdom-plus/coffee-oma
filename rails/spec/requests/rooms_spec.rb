@@ -44,6 +44,11 @@ RSpec.describe 'Rooms', type: :request do
       expect(response).to have_http_status(:found)
     end
 
+    it 'request fail' do
+      post rooms_path, params: { user_id: 'invalid' }
+      expect(response).to have_http_status(:found)
+    end
+
     it 'created room' do
       expect do
         post rooms_path, params: { user_id: user1.id }
