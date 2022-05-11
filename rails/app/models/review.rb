@@ -42,9 +42,10 @@ class Review < ApplicationRecord
   scope :sort_by_created_at, -> { order('created_at DESC') }
   scope :exclude_reviews, ->(product_id, user_id) { ExcludeReportedReviewsQuery.call(product_id, user_id) }
 
-  def like_record(like_id)
-    product_review_likes.find_by(user_id: like_id)
-  end
+  # 利用しているかもしれないので、削除しない
+  # def like_record(like_id)
+  #   product_review_likes.find_by(user_id: like_id)
+  # end
 
   def self.latest_review
     all.includes([:product], [:user]).sort_by_created_at.limit(TOP_DISPALY_NUM)

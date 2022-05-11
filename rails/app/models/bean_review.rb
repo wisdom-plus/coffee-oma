@@ -44,9 +44,10 @@ class BeanReview < ApplicationRecord
                       }
   scope :exclude_reviews, ->(bean_id, user_id) { ExcludeReportedBeanReviewsQuery.call(bean_id, user_id) }
 
-  def like_record(liker_id)
-    bean_review_likes.find_by(user_id: liker_id)
-  end
+  # 利用しているかもしれないので、削除しない
+  # def like_record(liker_id)
+  #   bean_review_likes.find_by(user_id: liker_id)
+  # end
 
   def self.show_review(bean_id)
     accociated_review(bean_id).includes([:user], [:recipe])
