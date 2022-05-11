@@ -28,6 +28,11 @@ RSpec.describe 'News', type: :request do
         post '/news', params: { news: news_params }
       end.to change(News, :count).by 1
     end
+
+    it 'created failed' do
+      post '/news', params: { news: news_params.merge(title: nil) }
+      expect(response).to have_http_status(:ok)
+    end
   end
 
   describe 'GET /news/new' do

@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="9" skipped="0" failures="1" errors="0" time="35.050376" timestamp="2022-05-11T12:16:07+00:00" hostname="5eb22ff73b29">
+<testsuite name="rspec" tests="11" skipped="0" failures="0" errors="0" time="22.035307" timestamp="2022-05-11T12:35:24+00:00" hostname="5eb22ff73b29">
 <properties>
-<property name="seed" value="65377"/>
+<property name="seed" value="16305"/>
 </properties>
-<testcase classname="spec.system.news_spec" name="News index displayed news" file="./spec/system/news_spec.rb" time="19.889555"></testcase>
-<testcase classname="spec.system.news_spec" name="News show display news" file="./spec/system/news_spec.rb" time="0.168590"></testcase>
-<testcase classname="spec.system.news_spec" name="News show display news1" file="./spec/system/news_spec.rb" time="0.183424"></testcase>
-<testcase classname="spec.system.news_spec" name="News show display fail" file="./spec/system/news_spec.rb" time="0.214510"></testcase>
-<testcase classname="spec.system.news_spec" name="News new when login create news" file="./spec/system/news_spec.rb" time="4.939588"></testcase>
-<testcase classname="spec.system.news_spec" name="News new when login save fail render new" file="./spec/system/news_spec.rb" time="4.964211"><failure message="expected &quot;/&quot; to equal &quot;/news/new&quot;" type="RSpec::Expectations::ExpectationNotMetError">Failure/Error: expect(page).to have_current_path new_news_path
-  expected &quot;/&quot; to equal &quot;/news/new&quot;
-
-
-[Screenshot Image]: /coffee-oma/tmp/screenshots/failures_r_spec_example_groups_news_new_when_login_save_fail_render_new_264.png
-
-
-
-./spec/system/news_spec.rb:77:in `block (4 levels) in &lt;top (required)&gt;&apos;</failure></testcase>
-<testcase classname="spec.system.news_spec" name="News new when not login redirect sign_in" file="./spec/system/news_spec.rb" time="0.274519"></testcase>
-<testcase classname="spec.system.news_spec" name="News edit when login edit news" file="./spec/system/news_spec.rb" time="4.052576"></testcase>
-<testcase classname="spec.system.news_spec" name="News edit when not login redirect sign_in" file="./spec/system/news_spec.rb" time="0.357991"></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news request success" file="./spec/requests/news_spec.rb" time="20.785654"></testcase>
+<testcase classname="spec.requests.news_spec" name="News POST /news requests success" file="./spec/requests/news_spec.rb" time="0.140284"></testcase>
+<testcase classname="spec.requests.news_spec" name="News POST /news created news" file="./spec/requests/news_spec.rb" time="0.066381"></testcase>
+<testcase classname="spec.requests.news_spec" name="News POST /news created failed" file="./spec/requests/news_spec.rb" time="0.141488"></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news/new request success" file="./spec/requests/news_spec.rb" time="0.118683"></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news/:id/edit request success" file="./spec/requests/news_spec.rb" time="0.129093"></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news/:id request success" file="./spec/requests/news_spec.rb" time="0.214066"></testcase>
+<testcase classname="spec.requests.news_spec" name="News PUT /news/:id request success" file="./spec/requests/news_spec.rb" time="0.105540"></testcase>
+<testcase classname="spec.requests.news_spec" name="News PUT /news/:id updated news" file="./spec/requests/news_spec.rb" time="0.141192"></testcase>
+<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id request success" file="./spec/requests/news_spec.rb" time="0.071593"></testcase>
+<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id destroy news" file="./spec/requests/news_spec.rb" time="0.089209"></testcase>
 </testsuite>
