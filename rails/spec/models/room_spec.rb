@@ -10,20 +10,20 @@ RSpec.describe Room, type: :model do
   describe 'class method' do
     it 'find_room(user,user1)' do
       room
-      r = Room.find_room(user,user1)
-      r1 = Room.find_room(user1,user)
+      r = Room.find_room(user, user1)
+      r1 = Room.find_room(user1, user)
       expect(r).to eq room
       expect(r1).to eq room
     end
 
     it 'room_new(user,user1)' do
-      r = Room.room_new(user.id,user1.id)
+      r = Room.room_new(user.id, user1.id)
       expect(r.participant1_id).to eq user.id
       expect(r.participant2_id).to eq user1.id
     end
 
     it 'room_new(user1,user2)' do
-      r = Room.room_new(user2.id,user.id)
+      r = Room.room_new(user2.id, user.id)
       expect(r.participant1_id).to eq user2.id
       expect(r.participant2_id).to eq user.id
     end
@@ -32,7 +32,7 @@ RSpec.describe Room, type: :model do
   describe 'instance method' do
     it 'another_user' do
       room
-      r = Room.find_room(user,user1)
+      r = Room.find_room(user, user1)
       expect(r.another_user(user)).to eq user1
       expect(r.another_user(user1)).to eq user
     end
