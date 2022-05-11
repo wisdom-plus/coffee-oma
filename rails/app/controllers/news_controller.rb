@@ -15,7 +15,7 @@ class NewsController < ApplicationController
     if @news.save
       redirect_to root_path, notice: t('.notice')
     else
-      flash[:alert] = t('.alert')
+      flash.now[:alert] = t('.alert')
       render :new
     end
   end
