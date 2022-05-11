@@ -23,9 +23,11 @@ RSpec.describe Room, type: :model do
     end
 
     it 'room_new(user1,user2)' do
+      user
+      user2
       r = Room.room_new(user2.id, user.id)
-      expect(r.participant1_id).to eq user2.id
-      expect(r.participant2_id).to eq user.id
+      expect(r.participant1_id).to eq user.id
+      expect(r.participant2_id).to eq user2.id
     end
   end
 
