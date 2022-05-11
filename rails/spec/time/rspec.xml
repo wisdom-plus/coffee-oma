@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="3" skipped="0" failures="1" errors="0" time="0.345937" timestamp="2022-05-11T08:43:02+00:00" hostname="5eb22ff73b29">
+<testsuite name="rspec" tests="2" skipped="0" failures="0" errors="0" time="0.055999" timestamp="2022-05-11T10:09:14+00:00" hostname="5eb22ff73b29">
 <properties>
-<property name="seed" value="1289"/>
+<property name="seed" value="39112"/>
 </properties>
-<testcase classname="spec.models.room_spec" name="Room class method find_room(user,user1)" file="./spec/models/room_spec.rb" time="0.144571"></testcase>
-<testcase classname="spec.models.room_spec" name="Room class method room_new(user,user1)" file="./spec/models/room_spec.rb" time="0.092553"><failure message="
-expected: 1123
-     got: 1122
-
-(compared using ==)
-" type="RSpec::Expectations::ExpectationNotMetError">Failure/Error: expect(r1.participant1_id).to eq user1.id
-
-  expected: 1123
-       got: 1122
-
-  (compared using ==)
-./spec/models/room_spec.rb:24:in `block (3 levels) in &lt;top (required)&gt;&apos;</failure></testcase>
-<testcase classname="spec.models.room_spec" name="Room instance method another_user" file="./spec/models/room_spec.rb" time="0.105961"></testcase>
+<testcase classname="spec.models.tag_spec" name="Tag scope tag_search" file="./spec/models/tag_spec.rb" time="0.035626"></testcase>
+<testcase classname="spec.models.tag_spec" name="Tag scope tag_search(nil)" file="./spec/models/tag_spec.rb" time="0.017675"></testcase>
 </testsuite>
