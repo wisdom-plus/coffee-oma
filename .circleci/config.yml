@@ -28,7 +28,6 @@ jobs:
           username: tomoron
           password: $DOCKERHUB_PASSWORD
     working_directory: ~/coffee/rails
-    parallelism: 2
     steps:
       - checkout:
           path: ~/coffee
