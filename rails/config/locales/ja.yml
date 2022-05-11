@@ -21,6 +21,7 @@ ja:
       alert: '公開させておりません。'
     update:
       notice: '更新が成功しました。'
+      alert: '更新が失敗しました。'
     destroy:
       notice: '削除に成功しました。'
       alert: '削除に失敗しました。'
