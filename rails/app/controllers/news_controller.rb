@@ -35,6 +35,7 @@ class NewsController < ApplicationController
     if @news.update(news_params)
       redirect_to root_path, notice: t('.notice')
     else
+      flash.now[:alert] = t('.alert')
       render :edit
     end
   end
