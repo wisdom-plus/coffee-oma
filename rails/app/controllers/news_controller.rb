@@ -40,7 +40,7 @@ class NewsController < ApplicationController
   end
 
   def destroy
-    if @news.destroy
+    if @news&.destroy
       redirect_to root_path, notice: t('.notice')
     else
       redirect_to root_path, alert: t('.alert')
