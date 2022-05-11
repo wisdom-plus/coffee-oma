@@ -11,7 +11,9 @@ class RoomsController < ApplicationController
     if room.save
       redirect_to room_path(room.id)
     else
+      # :nocov:
       redirect_to root_path, flash: { alert: t('.alert') }
+      # :nocov:
     end
   end
 

@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="5" skipped="0" failures="0" errors="0" time="20.592021" timestamp="2022-05-11T04:17:06+00:00" hostname="5eb22ff73b29">
+<testsuite name="rspec" tests="5" skipped="0" failures="1" errors="0" time="22.112565" timestamp="2022-05-11T04:53:49+00:00" hostname="5eb22ff73b29">
 <properties>
-<property name="seed" value="18610"/>
+<property name="seed" value="44633"/>
 </properties>
-<testcase classname="spec.requests.rooms_spec" name="Rooms GET index request success" file="./spec/requests/rooms_spec.rb" time="19.968495"></testcase>
-<testcase classname="spec.requests.rooms_spec" name="Rooms GET show request success" file="./spec/requests/rooms_spec.rb" time="0.142579"></testcase>
-<testcase classname="spec.requests.rooms_spec" name="Rooms POST create request success" file="./spec/requests/rooms_spec.rb" time="0.045809"></testcase>
-<testcase classname="spec.requests.rooms_spec" name="Rooms POST create request fail" file="./spec/requests/rooms_spec.rb" time="0.045912"></testcase>
-<testcase classname="spec.requests.rooms_spec" name="Rooms POST create created room" file="./spec/requests/rooms_spec.rb" time="0.047716"></testcase>
+<testcase classname="spec.requests.rooms_spec" name="Rooms GET index request success" file="./spec/requests/rooms_spec.rb" time="21.611933"></testcase>
+<testcase classname="spec.requests.rooms_spec" name="Rooms GET show request success" file="./spec/requests/rooms_spec.rb" time="0.157168"></testcase>
+<testcase classname="spec.requests.rooms_spec" name="Rooms POST create request success" file="./spec/requests/rooms_spec.rb" time="0.054472"></testcase>
+<testcase classname="spec.requests.rooms_spec" name="Rooms POST create request fail" file="./spec/requests/rooms_spec.rb" time="0.054188"><failure message="undefined method `&gt;&apos; for nil:NilClass" type="NoMethodError">Failure/Error: return unless participant1_id &gt; participant2_id
+
+NoMethodError:
+  undefined method `&gt;&apos; for nil:NilClass
+./app/models/room.rb:26:in `check_participant&apos;
+./app/controllers/rooms_controller.rb:11:in `create&apos;
+/usr/local/bundle/gems/actiontext-6.1.5/lib/action_text/rendering.rb:20:in `with_renderer&apos;
+/usr/local/bundle/gems/actiontext-6.1.5/lib/action_text/engine.rb:59:in `block (4 levels) in &lt;class:Engine&gt;&apos;
+/usr/local/bundle/gems/warden-1.2.9/lib/warden/manager.rb:36:in `block in call&apos;
+/usr/local/bundle/gems/warden-1.2.9/lib/warden/manager.rb:34:in `catch&apos;
+/usr/local/bundle/gems/warden-1.2.9/lib/warden/manager.rb:34:in `call&apos;
+/usr/local/bundle/gems/rack-2.2.3/lib/rack/tempfile_reaper.rb:15:in `call&apos;
+/usr/local/bundle/gems/rack-2.2.3/lib/rack/etag.rb:27:in `call&apos;
+/usr/local/bundle/gems/rack-2.2.3/lib/rack/conditional_get.rb:40:in `call&apos;
+/usr/local/bundle/gems/rack-2.2.3/lib/rack/head.rb:12:in `call&apos;
+/usr/local/bundle/gems/rack-2.2.3/lib/rack/session/abstract/id.rb:266:in `context&apos;
+/usr/local/bundle/gems/rack-2.2.3/lib/rack/session/abstract/id.rb:260:in `call&apos;
+/usr/local/bundle/gems/railties-6.1.5/lib/rails/rack/logger.rb:37:in `call_app&apos;
+/usr/local/bundle/gems/railties-6.1.5/lib/rails/rack/logger.rb:26:in `block in call&apos;
+/usr/local/bundle/gems/railties-6.1.5/lib/rails/rack/logger.rb:26:in `call&apos;
+/usr/local/bundle/gems/request_store-1.5.1/lib/request_store/middleware.rb:19:in `call&apos;
+/usr/local/bundle/gems/rack-2.2.3/lib/rack/method_override.rb:24:in `call&apos;
+/usr/local/bundle/gems/rack-2.2.3/lib/rack/runtime.rb:22:in `call&apos;
+/usr/local/bundle/gems/rack-2.2.3/lib/rack/sendfile.rb:110:in `call&apos;
+/usr/local/bundle/gems/railties-6.1.5/lib/rails/engine.rb:539:in `call&apos;
+/usr/local/bundle/gems/rack-test-1.1.0/lib/rack/mock_session.rb:29:in `request&apos;
+/usr/local/bundle/gems/rack-test-1.1.0/lib/rack/test.rb:266:in `process_request&apos;
+/usr/local/bundle/gems/rack-test-1.1.0/lib/rack/test.rb:119:in `request&apos;
+./spec/requests/rooms_spec.rb:48:in `block (3 levels) in &lt;top (required)&gt;&apos;</failure></testcase>
+<testcase classname="spec.requests.rooms_spec" name="Rooms POST create created room" file="./spec/requests/rooms_spec.rb" time="0.050074"></testcase>
 </testsuite>
