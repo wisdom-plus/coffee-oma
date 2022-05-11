@@ -4,7 +4,7 @@ RSpec.describe 'Relationships', type: :system, js: true do
   let(:user) { create(:user) }
   let(:user1) { create(:user, username: 'test1', email: 'test1@example.com') }
   let(:follow) { create(:relationship, user: user, follow: user1) }
-  let(:notification_follow) { create(:notification, visitor: user1, visited: user, action: 'follow') }
+  let(:notification_follow) { create(:notification, visitor: user, visited: user1, action: 'follow') }
 
   context 'when login' do
     before do
