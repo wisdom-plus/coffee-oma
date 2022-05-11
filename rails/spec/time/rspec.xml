@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="7" skipped="0" failures="0" errors="0" time="29.339247" timestamp="2022-05-11T06:57:50+00:00" hostname="5eb22ff73b29">
+<testsuite name="rspec" tests="4" skipped="0" failures="0" errors="0" time="0.391147" timestamp="2022-05-11T08:02:16+00:00" hostname="5eb22ff73b29">
 <properties>
-<property name="seed" value="46631"/>
+<property name="seed" value="54252"/>
 </properties>
-<testcase classname="spec.system.news_spec" name="News index displayed news" file="./spec/system/news_spec.rb" time="20.455106"></testcase>
-<testcase classname="spec.system.news_spec" name="News show display news" file="./spec/system/news_spec.rb" time="0.171269"></testcase>
-<testcase classname="spec.system.news_spec" name="News show display news1" file="./spec/system/news_spec.rb" time="0.173432"></testcase>
-<testcase classname="spec.system.news_spec" name="News new when login create news" file="./spec/system/news_spec.rb" time="4.302344"></testcase>
-<testcase classname="spec.system.news_spec" name="News new when not login redirect sign_in" file="./spec/system/news_spec.rb" time="0.293057"></testcase>
-<testcase classname="spec.system.news_spec" name="News edit when login edit news" file="./spec/system/news_spec.rb" time="3.657219"></testcase>
-<testcase classname="spec.system.news_spec" name="News edit when not login redirect sign_in" file="./spec/system/news_spec.rb" time="0.281420"></testcase>
+<testcase classname="spec.models.room_spec" name="Room class method find_room(user,user1)" file="./spec/models/room_spec.rb" time="0.117631"></testcase>
+<testcase classname="spec.models.room_spec" name="Room class method room_new(user,user1)" file="./spec/models/room_spec.rb" time="0.087317"></testcase>
+<testcase classname="spec.models.room_spec" name="Room class method room_new(user1,user2)" file="./spec/models/room_spec.rb" time="0.080448"></testcase>
+<testcase classname="spec.models.room_spec" name="Room instance method another_user" file="./spec/models/room_spec.rb" time="0.102827"></testcase>
 </testsuite>

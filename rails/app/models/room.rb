@@ -44,11 +44,11 @@ class Room < ApplicationRecord
     end
   end
 
-  def self.room_new(current_user_id, user_id)
-    if current_user_id > user_id.to_i
-      new(participant1_id: user_id, participant2_id: current_user_id)
+  def self.room_new(user_id, another_user_id)
+    if user_id > another_user_id
+      new(participant1_id: another_user_id, participant2_id: user_id)
     else
-      new(participant1_id: current_user_id, participant2_id: user_id)
+      new(participant1_id: user_id, participant2_id: another_user_id)
     end
   end
 
