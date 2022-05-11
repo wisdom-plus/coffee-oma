@@ -82,6 +82,9 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+      - store_artifacts:
+          path: ./coverage
+
 
 workflows:
   version: 2
