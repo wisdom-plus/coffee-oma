@@ -98,4 +98,5 @@ end
 
 group :test do
   gem 'test-prof', '~> 1.0'
+  gem 'simplecov', require: false
 end
