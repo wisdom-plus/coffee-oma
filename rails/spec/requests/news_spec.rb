@@ -90,6 +90,12 @@ RSpec.describe 'News', type: :request do
       expect(response).to have_http_status(:found)
     end
 
+    it 'request fail' do
+      delete news_path(news.id + 1)
+      expect(response).to have_http_status(:found)
+      expect(flash[:alert]).to eq '削除に失敗しました。'
+    end
+
     it 'destroy news' do
       news
       expect do
