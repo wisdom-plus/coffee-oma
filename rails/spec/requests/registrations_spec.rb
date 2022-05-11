@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Registrations', type: :request do
   let(:user) { create(:user) }
   let(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
+
   let_it_be(:user_params) { attributes_for(:user) }
   let_it_be(:user_update_params) { attributes_for(:user, username: 'test') }
 
