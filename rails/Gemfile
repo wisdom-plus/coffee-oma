@@ -97,5 +97,6 @@ group :development do
 end
 
 group :test do
+  gem 'simplecov', require: false
   gem 'test-prof', '~> 1.0'
 end
