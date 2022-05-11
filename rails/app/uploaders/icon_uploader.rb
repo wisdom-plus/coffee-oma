@@ -6,7 +6,9 @@ class IconUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   # storage :file
   if Rails.env.production?
+    # :nocov:
     storage :fog
+    # :nocov:
   else
     storage :file
   end
