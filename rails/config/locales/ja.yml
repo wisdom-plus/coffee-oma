@@ -51,9 +51,11 @@ ja:
       new_guest:
         notice: 'ゲストユーザーとしてログインしました。'
     registrations:
-      user_exist?:
+      show:
         alert: 'ユーザーが存在しません'
-      check_guest:
+      update:
+        alert: 'ゲストユーザーは変更・削除ができません。'
+      destroy:
         alert: 'ゲストユーザーは変更・削除ができません。'
   contact_mailer:
     contact_mail:
