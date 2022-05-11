@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # :nocov:
 class Users::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation/new

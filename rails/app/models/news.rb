@@ -23,7 +23,7 @@ class News < ApplicationRecord
   has_rich_text :content
   belongs_to :user, class_name: 'AdminUser', optional: true
 
-  validates :title,:publicshed_at, presence: true
+  validates :title, :publicshed_at, presence: true
 
   scope :public_list, -> { where(['publicshed_at < ?', Time.current]) }
   scope :latest, -> { order('publicshed_at DESC').limit(5) }

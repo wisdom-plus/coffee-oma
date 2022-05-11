@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # :nocov:
 class Users::PasswordsController < Devise::PasswordsController
   # GET /resource/password/new

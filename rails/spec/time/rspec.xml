@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="11" skipped="0" failures="0" errors="0" time="22.035307" timestamp="2022-05-11T12:35:24+00:00" hostname="5eb22ff73b29">
+<testsuite name="rspec" tests="13" skipped="0" failures="0" errors="0" time="21.858824" timestamp="2022-05-11T12:49:24+00:00" hostname="5eb22ff73b29">
 <properties>
-<property name="seed" value="16305"/>
+<property name="seed" value="8167"/>
 </properties>
-<testcase classname="spec.requests.news_spec" name="News GET /news request success" file="./spec/requests/news_spec.rb" time="20.785654"></testcase>
-<testcase classname="spec.requests.news_spec" name="News POST /news requests success" file="./spec/requests/news_spec.rb" time="0.140284"></testcase>
-<testcase classname="spec.requests.news_spec" name="News POST /news created news" file="./spec/requests/news_spec.rb" time="0.066381"></testcase>
-<testcase classname="spec.requests.news_spec" name="News POST /news created failed" file="./spec/requests/news_spec.rb" time="0.141488"></testcase>
-<testcase classname="spec.requests.news_spec" name="News GET /news/new request success" file="./spec/requests/news_spec.rb" time="0.118683"></testcase>
-<testcase classname="spec.requests.news_spec" name="News GET /news/:id/edit request success" file="./spec/requests/news_spec.rb" time="0.129093"></testcase>
-<testcase classname="spec.requests.news_spec" name="News GET /news/:id request success" file="./spec/requests/news_spec.rb" time="0.214066"></testcase>
-<testcase classname="spec.requests.news_spec" name="News PUT /news/:id request success" file="./spec/requests/news_spec.rb" time="0.105540"></testcase>
-<testcase classname="spec.requests.news_spec" name="News PUT /news/:id updated news" file="./spec/requests/news_spec.rb" time="0.141192"></testcase>
-<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id request success" file="./spec/requests/news_spec.rb" time="0.071593"></testcase>
-<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id destroy news" file="./spec/requests/news_spec.rb" time="0.089209"></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news request success" file="./spec/requests/news_spec.rb" time="20.448675"></testcase>
+<testcase classname="spec.requests.news_spec" name="News POST /news requests success" file="./spec/requests/news_spec.rb" time="0.139959"></testcase>
+<testcase classname="spec.requests.news_spec" name="News POST /news created news" file="./spec/requests/news_spec.rb" time="0.071168"></testcase>
+<testcase classname="spec.requests.news_spec" name="News POST /news created failed" file="./spec/requests/news_spec.rb" time="0.151695"></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news/new request success" file="./spec/requests/news_spec.rb" time="0.115145"></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news/:id/edit request success" file="./spec/requests/news_spec.rb" time="0.132861"></testcase>
+<testcase classname="spec.requests.news_spec" name="News GET /news/:id request success" file="./spec/requests/news_spec.rb" time="0.130194"></testcase>
+<testcase classname="spec.requests.news_spec" name="News PUT /news/:id request success" file="./spec/requests/news_spec.rb" time="0.103228"></testcase>
+<testcase classname="spec.requests.news_spec" name="News PUT /news/:id updated news" file="./spec/requests/news_spec.rb" time="0.116253"></testcase>
+<testcase classname="spec.requests.news_spec" name="News PUT /news/:id updated news" file="./spec/requests/news_spec.rb" time="0.206215"></testcase>
+<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id request success" file="./spec/requests/news_spec.rb" time="0.085923"></testcase>
+<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id request fail" file="./spec/requests/news_spec.rb" time="0.063999"></testcase>
+<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id destroy news" file="./spec/requests/news_spec.rb" time="0.085088"></testcase>
 </testsuite>

@@ -4,7 +4,7 @@ RSpec.describe 'News', type: :system do
   let(:admin) { create(:admin_user) }
   let(:news) { create(:news, user: admin) }
   let(:news1) { create(:news, user: admin, title: '訂正のお知らせ', content: '<h4>good bye</h4>', active: false) }
-  let(:news2) { create(:news, user: admin, title: '訂正のお知らせ', content: '<h4>good bye</h4>', active: false, publicshed_at: Time.current + 1.hour) }
+  let(:news2) { create(:news, user: admin, title: '訂正のお知らせ', content: '<h4>good bye</h4>', active: false, publicshed_at: 1.hour.from_now) }
 
   describe 'index' do
     before do

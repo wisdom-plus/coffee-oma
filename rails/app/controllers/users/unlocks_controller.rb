@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # :nocov:
 class Users::UnlocksController < Devise::UnlocksController
   # GET /resource/unlock/new
