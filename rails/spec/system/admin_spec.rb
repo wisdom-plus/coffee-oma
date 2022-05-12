@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-Rspec.describe 'Admin', type: :request do
+RSpec.describe 'Admin', type: :system do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
-  let(:bean_review) { create(:bean_review, user: user) }
+  let(:bean) { create(:bean, user: user) }
+  let(:bean_review) { create(:bean_review, bean: bean, user: user) }
 
   describe 'dashborad' do
     before do

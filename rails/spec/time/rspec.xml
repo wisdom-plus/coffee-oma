@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="13" skipped="0" failures="0" errors="0" time="21.858824" timestamp="2022-05-11T12:49:24+00:00" hostname="5eb22ff73b29">
+<testsuite name="rspec" tests="3" skipped="0" failures="0" errors="0" time="22.338597" timestamp="2022-05-12T05:30:43+00:00" hostname="5eb22ff73b29">
 <properties>
-<property name="seed" value="8167"/>
+<property name="seed" value="63559"/>
 </properties>
-<testcase classname="spec.requests.news_spec" name="News GET /news request success" file="./spec/requests/news_spec.rb" time="20.448675"></testcase>
-<testcase classname="spec.requests.news_spec" name="News POST /news requests success" file="./spec/requests/news_spec.rb" time="0.139959"></testcase>
-<testcase classname="spec.requests.news_spec" name="News POST /news created news" file="./spec/requests/news_spec.rb" time="0.071168"></testcase>
-<testcase classname="spec.requests.news_spec" name="News POST /news created failed" file="./spec/requests/news_spec.rb" time="0.151695"></testcase>
-<testcase classname="spec.requests.news_spec" name="News GET /news/new request success" file="./spec/requests/news_spec.rb" time="0.115145"></testcase>
-<testcase classname="spec.requests.news_spec" name="News GET /news/:id/edit request success" file="./spec/requests/news_spec.rb" time="0.132861"></testcase>
-<testcase classname="spec.requests.news_spec" name="News GET /news/:id request success" file="./spec/requests/news_spec.rb" time="0.130194"></testcase>
-<testcase classname="spec.requests.news_spec" name="News PUT /news/:id request success" file="./spec/requests/news_spec.rb" time="0.103228"></testcase>
-<testcase classname="spec.requests.news_spec" name="News PUT /news/:id updated news" file="./spec/requests/news_spec.rb" time="0.116253"></testcase>
-<testcase classname="spec.requests.news_spec" name="News PUT /news/:id updated news" file="./spec/requests/news_spec.rb" time="0.206215"></testcase>
-<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id request success" file="./spec/requests/news_spec.rb" time="0.085923"></testcase>
-<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id request fail" file="./spec/requests/news_spec.rb" time="0.063999"></testcase>
-<testcase classname="spec.requests.news_spec" name="News DELETE /news/:id destroy news" file="./spec/requests/news_spec.rb" time="0.085088"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin dashborad display dashborad" file="./spec/system/admin_spec.rb" time="20.594568"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed index" file="./spec/system/admin_spec.rb" time="0.880765"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed show" file="./spec/system/admin_spec.rb" time="0.860397"></testcase>
 </testsuite>
