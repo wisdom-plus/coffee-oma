@@ -1,10 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin', type: :system do
+RSpec.describe 'Admin', type: :system, js: true do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, bean: bean, user: user) }
+  let(:bean_review_like) { create(:like, user: user, liked_id: bean_review.id, type: 'BeanReviewLike') }
 
   describe 'dashborad' do
     before do
@@ -22,6 +23,7 @@ RSpec.describe 'Admin', type: :system do
     before do
       admin_login(admin)
       bean_review
+      bean_review_like
       visit admin_bean_reviews_path
     end
 
@@ -32,6 +34,7 @@ RSpec.describe 'Admin', type: :system do
     it 'displayed show' do
       visit admin_bean_review_path(bean_review.id)
       expect(page).to have_content bean_review.title
+      expect(page).to have_content user.username
     end
   end
 end
