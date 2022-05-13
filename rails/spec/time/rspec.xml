@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="7" skipped="0" failures="0" errors="0" time="25.653321" timestamp="2022-05-13T11:42:23+00:00" hostname="5eb22ff73b29">
+<testsuite name="rspec" tests="8" skipped="0" failures="1" errors="0" time="25.526385" timestamp="2022-05-13T13:58:19+00:00" hostname="5eb22ff73b29">
 <properties>
-<property name="seed" value="19199"/>
+<property name="seed" value="35767"/>
 </properties>
-<testcase classname="spec.system.admin_spec" name="Admin dashborad display dashborad" file="./spec/system/admin_spec.rb" time="21.023218"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed index" file="./spec/system/admin_spec.rb" time="0.729247"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed show" file="./spec/system/admin_spec.rb" time="0.904351"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review delete resource" file="./spec/system/admin_spec.rb" time="0.838344"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean displayed index" file="./spec/system/admin_spec.rb" time="0.552868"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean displayed show" file="./spec/system/admin_spec.rb" time="0.695218"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean delete resource" file="./spec/system/admin_spec.rb" time="0.905512"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin dashborad display dashborad" file="./spec/system/admin_spec.rb" time="20.428787"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed index" file="./spec/system/admin_spec.rb" time="0.859463"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed show" file="./spec/system/admin_spec.rb" time="0.838638"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean_review create resource" file="./spec/system/admin_spec.rb" time="0.583838"><failure message="Unable to find a browser command. If this is unexpected, Please rerun with environment variable LAUNCHY_DEBUG=true or the &apos;-d&apos; commandline option and file a bug at https://github.com/copiousfreetime/launchy/issues/new" type="Launchy::CommandNotFoundError">Failure/Error: save_and_open_page
+
+Launchy::CommandNotFoundError:
+  Unable to find a browser command. If this is unexpected, Please rerun with environment variable LAUNCHY_DEBUG=true or the &apos;-d&apos; commandline option and file a bug at https://github.com/copiousfreetime/launchy/issues/new
+/usr/local/bundle/gems/launchy-2.5.0/lib/launchy/applications/browser.rb:63:in `browser_cmdline&apos;
+/usr/local/bundle/gems/launchy-2.5.0/lib/launchy/applications/browser.rb:67:in `cmd_and_args&apos;
+/usr/local/bundle/gems/launchy-2.5.0/lib/launchy/applications/browser.rb:78:in `open&apos;
+/usr/local/bundle/gems/launchy-2.5.0/lib/launchy.rb:30:in `open&apos;
+/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/session.rb:875:in `open_file&apos;
+/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/session.rb:730:in `block in save_and_open_page&apos;
+/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/session.rb:730:in `tap&apos;
+/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/session.rb:730:in `save_and_open_page&apos;
+/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/dsl.rb:53:in `call&apos;
+/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/dsl.rb:53:in `save_and_open_page&apos;
+./spec/system/admin_spec.rb:42:in `block (3 levels) in &lt;top (required)&gt;&apos;</failure></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean_review delete resource" file="./spec/system/admin_spec.rb" time="0.829779"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean displayed index" file="./spec/system/admin_spec.rb" time="0.539302"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean displayed show" file="./spec/system/admin_spec.rb" time="0.646262"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean delete resource" file="./spec/system/admin_spec.rb" time="0.794732"></testcase>
 </testsuite>

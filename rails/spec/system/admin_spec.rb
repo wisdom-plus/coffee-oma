@@ -4,6 +4,7 @@ RSpec.describe 'Admin', type: :system do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
   let(:bean) { create(:bean, user: user) }
+  let(:bean_like) { create(:like, user: user, liked_id: bean.id, type: 'BeanLike') }
   let(:bean_review) { create(:bean_review, bean: bean, user: user) }
   let(:bean_review_like) { create(:like, user: user, liked_id: bean_review.id, type: 'BeanReviewLike') }
 
@@ -37,6 +38,22 @@ RSpec.describe 'Admin', type: :system do
       expect(page).to have_content user.username
     end
 
+    it 'create resource' do
+      expect do
+        new_admin_bean_review_path
+        select bean.name, from: 'Bean'
+        select user.username, from: 'User'
+        fill_in '酸味',with: 1
+        fill_in '苦味',with: 2
+        fill_in 'コク',with: 3
+        fill_in '風味',with: 4
+        fill_in '甘み',with: 5
+        fill_in 'タイトル', with: 'testタイトル'
+        fill_in '投稿本文', with: 'testコンテンツ'
+        click_on "コーヒー豆レビューを作成"
+      end.to change(BeanReview, :count).by 1
+    end
+
     it 'delete resource' do
       expect do
         visit admin_bean_review_path(bean_review.id)
@@ -49,6 +66,7 @@ RSpec.describe 'Admin', type: :system do
     before do
       admin_login(admin)
       bean
+      bean_like
       visit admin_beans_path
     end
 
