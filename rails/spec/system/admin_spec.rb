@@ -5,7 +5,6 @@ RSpec.describe 'Admin', type: :system do
   let(:user) { create(:user) }
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, bean: bean, user: user) }
-  let(:bean_review1) { create(:bean_review, bean: bean, user: user,title: 'admin test') }
   let(:bean_review_like) { create(:like, user: user, liked_id: bean_review.id, type: 'BeanReviewLike') }
 
   describe 'dashborad' do
@@ -24,7 +23,6 @@ RSpec.describe 'Admin', type: :system do
     before do
       admin_login(admin)
       bean_review
-      bean_review1
       bean_review_like
       visit admin_bean_reviews_path
     end
