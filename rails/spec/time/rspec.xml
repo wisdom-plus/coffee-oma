@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="6" skipped="0" failures="0" errors="0" time="25.193120" timestamp="2022-05-13T11:40:17+00:00" hostname="5eb22ff73b29">
+<testsuite name="rspec" tests="7" skipped="0" failures="0" errors="0" time="25.653321" timestamp="2022-05-13T11:42:23+00:00" hostname="5eb22ff73b29">
 <properties>
-<property name="seed" value="38793"/>
+<property name="seed" value="19199"/>
 </properties>
-<testcase classname="spec.system.admin_spec" name="Admin dashborad display dashborad" file="./spec/system/admin_spec.rb" time="20.998288"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed index" file="./spec/system/admin_spec.rb" time="0.852188"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed show" file="./spec/system/admin_spec.rb" time="0.964925"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review delete resource" file="./spec/system/admin_spec.rb" time="0.961669"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean displayed index" file="./spec/system/admin_spec.rb" time="0.568027"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean displayed show" file="./spec/system/admin_spec.rb" time="0.843337"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin dashborad display dashborad" file="./spec/system/admin_spec.rb" time="21.023218"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed index" file="./spec/system/admin_spec.rb" time="0.729247"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed show" file="./spec/system/admin_spec.rb" time="0.904351"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean_review delete resource" file="./spec/system/admin_spec.rb" time="0.838344"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean displayed index" file="./spec/system/admin_spec.rb" time="0.552868"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean displayed show" file="./spec/system/admin_spec.rb" time="0.695218"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean delete resource" file="./spec/system/admin_spec.rb" time="0.905512"></testcase>
 </testsuite>
