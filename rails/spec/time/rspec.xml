@@ -1,25 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="4" skipped="0" failures="1" errors="0" time="28.174400" timestamp="2022-05-12T07:23:14+00:00" hostname="5eb22ff73b29">
+<testsuite name="rspec" tests="6" skipped="0" failures="0" errors="0" time="25.193120" timestamp="2022-05-13T11:40:17+00:00" hostname="5eb22ff73b29">
 <properties>
-<property name="seed" value="8607"/>
+<property name="seed" value="38793"/>
 </properties>
-<testcase classname="spec.system.admin_spec" name="Admin dashborad display dashborad" file="./spec/system/admin_spec.rb" time="21.976543"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed index" file="./spec/system/admin_spec.rb" time="1.471066"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed show" file="./spec/system/admin_spec.rb" time="2.225170"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review delete resource" file="./spec/system/admin_spec.rb" time="2.498589"><failure message="expected `BeanReview.count` to have changed by -1, but was changed by 0" type="RSpec::Expectations::ExpectationNotMetError">Failure/Error:
-  expect do
-    visit admin_bean_review_path(bean_review.id)
-    page.accept_confirm do
-      click_on &apos;コーヒー豆レビュー を削除する&apos;
-    end
-  end.to change(BeanReview, :count).by(-1)
-
-  expected `BeanReview.count` to have changed by -1, but was changed by 0
-
-
-[Screenshot Image]: /coffee-oma/tmp/screenshots/failures_r_spec_example_groups_admin_bean_review_delete_resource_225.png
-
-
-
-./spec/system/admin_spec.rb:42:in `block (3 levels) in &lt;top (required)&gt;&apos;</failure></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin dashborad display dashborad" file="./spec/system/admin_spec.rb" time="20.998288"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed index" file="./spec/system/admin_spec.rb" time="0.852188"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed show" file="./spec/system/admin_spec.rb" time="0.964925"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean_review delete resource" file="./spec/system/admin_spec.rb" time="0.961669"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean displayed index" file="./spec/system/admin_spec.rb" time="0.568027"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean displayed show" file="./spec/system/admin_spec.rb" time="0.843337"></testcase>
 </testsuite>
