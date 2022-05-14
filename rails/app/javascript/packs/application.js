@@ -10,6 +10,7 @@ require("channels");
 require("semantic-ui-sass");
 require("infinite-scroll");
 require("jquery");
+require("jquery-ui");
 require("trix");
 require("@rails/actiontext");
 require("jquery-raty-js");
