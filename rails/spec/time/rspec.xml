@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="8" skipped="0" failures="1" errors="0" time="26.882041" timestamp="2022-05-14T11:01:56+00:00" hostname="5eb22ff73b29">
+<testsuite name="rspec" tests="1" skipped="0" failures="0" errors="0" time="0.445676" timestamp="2022-05-14T12:38:15+00:00" hostname="5eb22ff73b29">
 <properties>
-<property name="seed" value="1333"/>
+<property name="seed" value="25477"/>
 </properties>
-<testcase classname="spec.system.admin_spec" name="Admin dashborad display dashborad" file="./spec/system/admin_spec.rb" time="21.245837"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed index" file="./spec/system/admin_spec.rb" time="0.701405"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed show" file="./spec/system/admin_spec.rb" time="1.008824"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review create resource" file="./spec/system/admin_spec.rb" time="0.588807"><failure message="Unable to find link or button &quot;コーヒー豆レビューを作成&quot;" type="Capybara::ElementNotFound">Failure/Error: click_on &quot;コーヒー豆レビューを作成&quot;
-
-Capybara::ElementNotFound:
-  Unable to find link or button &quot;コーヒー豆レビューを作成&quot;
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/node/finders.rb:303:in `block in synced_resolve&apos;
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/node/base.rb:83:in `synchronize&apos;
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/node/finders.rb:292:in `synced_resolve&apos;
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/node/finders.rb:53:in `find&apos;
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/node/actions.rb:26:in `click_link_or_button&apos;
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/session.rb:772:in `click_on&apos;
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/dsl.rb:53:in `call&apos;
-/usr/local/bundle/gems/capybara-3.36.0/lib/capybara/dsl.rb:53:in `click_on&apos;
-./spec/system/admin_spec.rb:53:in `block (4 levels) in &lt;top (required)&gt;&apos;
-./spec/system/admin_spec.rb:42:in `block (3 levels) in &lt;top (required)&gt;&apos;</failure></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review delete resource" file="./spec/system/admin_spec.rb" time="1.000612"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean displayed index" file="./spec/system/admin_spec.rb" time="0.610414"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean displayed show" file="./spec/system/admin_spec.rb" time="0.777355"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean delete resource" file="./spec/system/admin_spec.rb" time="0.944049"></testcase>
+<testcase classname="spec.requests.admin_spec" name="Admin BeanReview resource created" file="./spec/requests/admin_spec.rb" time="0.115871"></testcase>
 </testsuite>
