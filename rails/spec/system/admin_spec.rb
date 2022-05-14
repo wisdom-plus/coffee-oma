@@ -43,14 +43,14 @@ RSpec.describe 'Admin', type: :system do
         new_admin_bean_review_path
         select bean.name, from: 'Bean'
         select user.username, from: 'User'
-        fill_in '酸味',with: 1
-        fill_in '苦味',with: 2
-        fill_in 'コク',with: 3
-        fill_in '風味',with: 4
-        fill_in '甘み',with: 5
+        fill_in '酸味', with: 1
+        fill_in '苦味', with: 2
+        fill_in 'コク', with: 3
+        fill_in '風味', with: 4
+        fill_in '甘み', with: 5
         fill_in 'タイトル', with: 'testタイトル'
         fill_in '投稿本文', with: 'testコンテンツ'
-        click_on "コーヒー豆レビューを作成"
+        click_on 'コーヒー豆レビューを作成'
       end.to change(BeanReview, :count).by 1
     end
 
