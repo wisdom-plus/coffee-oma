@@ -24,3 +24,8 @@ require("custom/modal");
 require("custom/anime");
 require("custom/dimmer");
 require("custom/popup");
+
+import $ from "jquery/dist/jquery.js";
+
+globalThis.jQuery = $;
+globalThis.$ = $;
