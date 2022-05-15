@@ -4,8 +4,12 @@ RSpec.describe 'Admin', type: :system do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
   let(:bean) { create(:bean, user: user) }
+  let(:product) { create(:product, user: user) }
+  let(:review) { create(:review, user: user, product: product) }
+  let(:product_like) { create(:like, user: user, liked_id: product.id, type: 'ProductLike') }
   let(:bean_like) { create(:like, user: user, liked_id: bean.id, type: 'BeanLike') }
   let(:bean_review) { create(:bean_review, bean: bean, user: user) }
+  let(:product_review_like) { create(:like, user: user, liked_id: review.id, type: 'ProductReviewLike') }
   let(:bean_review_like) { create(:like, user: user, liked_id: bean_review.id, type: 'BeanReviewLike') }
 
   describe 'dashborad' do
@@ -23,7 +27,6 @@ RSpec.describe 'Admin', type: :system do
   describe 'bean_review' do
     before do
       admin_login(admin)
-      bean_review
       bean_review_like
       visit admin_bean_reviews_path
     end
@@ -68,7 +71,6 @@ RSpec.describe 'Admin', type: :system do
   describe 'bean' do
     before do
       admin_login(admin)
-      bean
       bean_like
       visit admin_beans_path
     end
@@ -89,4 +91,31 @@ RSpec.describe 'Admin', type: :system do
       end.to change(Bean, :count).by(-1)
     end
   end
+
+  describe 'product' do
+    before do
+      admin_login(admin)
+      review
+      product_like
+      visit admin_products_path
+    end
+
+    it 'displayed index' do
+      expect(page).to have_content '商品'
+    end
+
+    it 'displayed show' do
+      visit admin_product_path(product.id)
+      expect(page).to have_content product.itemname
+    end
+
+    it 'delete resource' do
+      expect do
+        visit admin_product_path(product.id)
+        click_on '商品 を削除する'
+      end.to change(Product, :count).by(-1)
+    end
+  end
+
+
 end
