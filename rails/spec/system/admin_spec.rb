@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Admin', type: :system do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
+  let(:user1) { create(:user, username: 'test1', email: 'test1@example.com')}
   let(:bean) { create(:bean, user: user) }
   let(:product) { create(:product, user: user) }
   let(:review) { create(:review, user: user, product: product) }
@@ -11,6 +12,7 @@ RSpec.describe 'Admin', type: :system do
   let(:bean_review) { create(:bean_review, bean: bean, user: user) }
   let(:product_review_like) { create(:like, user: user, liked_id: review.id, type: 'ProductReviewLike') }
   let(:bean_review_like) { create(:like, user: user, liked_id: bean_review.id, type: 'BeanReviewLike') }
+  let(:follow) { create(:relationship, user: user, follow: user1)}
 
   describe 'dashborad' do
     before do
@@ -138,6 +140,31 @@ RSpec.describe 'Admin', type: :system do
         visit admin_review_path(review.id)
         click_on '商品レビュー を削除する'
       end.to change(Review, :count).by(-1)
+    end
+  end
+
+  describe 'relationship' do
+    before do
+      admin_login(admin)
+      follow
+      visit admin_relationships_path
+    end
+
+    it 'displayed index' do
+      expect(page).to have_content 'フォロー'
+    end
+
+    it 'displayed show' do
+      visit admin_relationship_path(follow.id)
+      expect(page).to have_content user1.username
+      expect(page).to have_content user.username
+    end
+
+    it 'delete resource' do
+      expect do
+        visit admin_relationship_path(follow.id)
+        click_on 'フォロー を削除する'
+      end.to change(Relationship, :count).by(-1)
     end
   end
 end
