@@ -5,7 +5,7 @@ RSpec.describe 'Admin review', type: :system do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
   let(:review) { create(:review, user: user, product: product) }
-  let(:product_reveiw_like) { create(:like, user: user, liked_id: review.id, type: 'ProductReviewLike') }
+  let(:product_review_like) { create(:like, user: user, liked_id: review.id, type: 'ProductReviewLike') }
 
   describe 'review' do
     before do

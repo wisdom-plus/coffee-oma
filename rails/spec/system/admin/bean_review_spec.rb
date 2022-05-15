@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Admin bean_review', type: :system do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
-  let(:bean) { create(:bean) }
+  let(:bean) { create(:bean,user: user) }
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }
   let(:bean_review_like) { create(:like, user: user, liked_id: bean_review.id, type: 'BeanReviewLike') }
 
