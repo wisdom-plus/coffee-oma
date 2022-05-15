@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="16" skipped="0" failures="0" errors="0" time="33.365615" timestamp="2022-05-15T12:02:32+00:00" hostname="5eb22ff73b29">
+<testsuite name="rspec" tests="19" skipped="0" failures="0" errors="0" time="35.001525" timestamp="2022-05-15T12:16:51+00:00" hostname="5eb22ff73b29">
 <properties>
-<property name="seed" value="60182"/>
+<property name="seed" value="15080"/>
 </properties>
-<testcase classname="spec.system.admin_spec" name="Admin dashborad display dashborad" file="./spec/system/admin_spec.rb" time="21.646070"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed index" file="./spec/system/admin_spec.rb" time="0.715872"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed show" file="./spec/system/admin_spec.rb" time="0.976192"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean_review delete resource" file="./spec/system/admin_spec.rb" time="0.879998"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean displayed index" file="./spec/system/admin_spec.rb" time="0.580214"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean displayed show" file="./spec/system/admin_spec.rb" time="0.722405"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin bean delete resource" file="./spec/system/admin_spec.rb" time="1.013449"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin product displayed index" file="./spec/system/admin_spec.rb" time="0.746831"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin product displayed show" file="./spec/system/admin_spec.rb" time="0.719864"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin product delete resource" file="./spec/system/admin_spec.rb" time="1.446679"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin review displayed index" file="./spec/system/admin_spec.rb" time="0.625234"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin review displayed" file="./spec/system/admin_spec.rb" time="0.744920"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin review delete resource" file="./spec/system/admin_spec.rb" time="0.905778"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin relationship displayed index" file="./spec/system/admin_spec.rb" time="0.428314"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin relationship displayed show" file="./spec/system/admin_spec.rb" time="0.520305"></testcase>
-<testcase classname="spec.system.admin_spec" name="Admin relationship delete resource" file="./spec/system/admin_spec.rb" time="0.685927"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin dashborad display dashborad" file="./spec/system/admin_spec.rb" time="21.715266"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed index" file="./spec/system/admin_spec.rb" time="0.705721"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean_review displayed show" file="./spec/system/admin_spec.rb" time="0.820741"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean_review delete resource" file="./spec/system/admin_spec.rb" time="0.879861"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean displayed index" file="./spec/system/admin_spec.rb" time="0.579683"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean displayed show" file="./spec/system/admin_spec.rb" time="0.785242"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin bean delete resource" file="./spec/system/admin_spec.rb" time="0.936018"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin product displayed index" file="./spec/system/admin_spec.rb" time="0.628398"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin product displayed show" file="./spec/system/admin_spec.rb" time="0.797614"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin product delete resource" file="./spec/system/admin_spec.rb" time="0.954273"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin review displayed index" file="./spec/system/admin_spec.rb" time="0.611501"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin review displayed" file="./spec/system/admin_spec.rb" time="0.837508"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin review delete resource" file="./spec/system/admin_spec.rb" time="0.996496"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin relationship displayed index" file="./spec/system/admin_spec.rb" time="0.440436"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin relationship displayed show" file="./spec/system/admin_spec.rb" time="0.523814"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin relationship delete resource" file="./spec/system/admin_spec.rb" time="0.643405"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin product_like displayed index" file="./spec/system/admin_spec.rb" time="0.557879"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin product_like displayed show" file="./spec/system/admin_spec.rb" time="0.725382"></testcase>
+<testcase classname="spec.system.admin_spec" name="Admin product_like delete resource" file="./spec/system/admin_spec.rb" time="0.842270"></testcase>
 </testsuite>

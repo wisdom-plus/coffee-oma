@@ -167,4 +167,28 @@ RSpec.describe 'Admin', type: :system do
       end.to change(Relationship, :count).by(-1)
     end
   end
+
+  describe 'product_like' do
+    before do
+      admin_login(admin)
+      product_like
+      visit admin_product_likes_path
+    end
+
+    it 'displayed index' do
+      expect(page).to have_content '商品お気に入り'
+    end
+
+    it 'displayed show' do
+      visit admin_product_like_path(product_like.id)
+      expect(page).to have_content user.username
+    end
+
+    it 'delete resource' do
+      expect do
+        visit admin_product_like_path(product_like.id)
+        click_on '商品お気に入り を削除する'
+      end.to change(ProductLike, :count).by(-1)
+    end
+  end
 end
