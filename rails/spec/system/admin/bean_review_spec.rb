@@ -15,9 +15,6 @@ RSpec.describe 'Admin bean_review', type: :system do
     end
 
     it 'displayed index' do
-
-      binding.pry
-
       expect(page).to have_content 'コーヒー豆レビュー'
     end
 
