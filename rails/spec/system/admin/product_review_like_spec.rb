@@ -7,7 +7,7 @@ RSpec.describe 'Admin product_review_like', type: :system do
   let(:review) { create(:review, user: user, product: product)}
   let(:product_review_like) { create(:like, user: user, liked_id: review.id, type: 'ProductReviewLike')}
 
-  describe 'bean_review_like' do
+  describe 'product_review_like' do
     before do
       admin_login(admin)
       product_review_like
