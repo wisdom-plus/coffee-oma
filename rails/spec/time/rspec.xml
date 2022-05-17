@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="4" skipped="0" failures="0" errors="0" time="23.738690" timestamp="2022-05-17T03:22:54+00:00" hostname="5eb22ff73b29">
+<testsuite name="rspec" tests="3" skipped="0" failures="0" errors="0" time="23.981756" timestamp="2022-05-17T05:53:11+00:00" hostname="5eb22ff73b29">
 <properties>
-<property name="seed" value="32362"/>
+<property name="seed" value="43382"/>
 </properties>
-<testcase classname="spec.system.admin.report_spec" name="Admin report report displayed index" file="./spec/system/admin/report_spec.rb" time="20.846018"></testcase>
-<testcase classname="spec.system.admin.report_spec" name="Admin report report displayed show(review)" file="./spec/system/admin/report_spec.rb" time="0.743345"></testcase>
-<testcase classname="spec.system.admin.report_spec" name="Admin report report displayed show(bean_review)" file="./spec/system/admin/report_spec.rb" time="1.188088"></testcase>
-<testcase classname="spec.system.admin.report_spec" name="Admin report report delete resource" file="./spec/system/admin/report_spec.rb" time="0.958349"></testcase>
+<testcase classname="spec.system.admin.user_spec" name="Admin user user displayed index" file="./spec/system/admin/user_spec.rb" time="21.626254"></testcase>
+<testcase classname="spec.system.admin.user_spec" name="Admin user user displayed show" file="./spec/system/admin/user_spec.rb" time="1.090195"></testcase>
+<testcase classname="spec.system.admin.user_spec" name="Admin user user delete resource" file="./spec/system/admin/user_spec.rb" time="1.262446"></testcase>
 </testsuite>
