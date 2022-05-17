@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="3" skipped="0" failures="0" errors="0" time="22.904159" timestamp="2022-05-17T02:07:27+00:00" hostname="5eb22ff73b29">
+<testsuite name="rspec" tests="4" skipped="0" failures="0" errors="0" time="27.854462" timestamp="2022-05-17T02:27:24+00:00" hostname="5eb22ff73b29">
 <properties>
-<property name="seed" value="2858"/>
+<property name="seed" value="32414"/>
 </properties>
-<testcase classname="spec.system.admin.product_review_like_spec" name="Admin product_review_like bean_review_like displayed index" file="./spec/system/admin/product_review_like_spec.rb" time="21.330081"></testcase>
-<testcase classname="spec.system.admin.product_review_like_spec" name="Admin product_review_like bean_review_like displayed show" file="./spec/system/admin/product_review_like_spec.rb" time="0.680369"></testcase>
-<testcase classname="spec.system.admin.product_review_like_spec" name="Admin product_review_like bean_review_like delete resource" file="./spec/system/admin/product_review_like_spec.rb" time="0.890925"></testcase>
+<testcase classname="spec.system.admin.history_spec" name="Admin history history displayed index" file="./spec/system/admin/history_spec.rb" time="24.577912"></testcase>
+<testcase classname="spec.system.admin.history_spec" name="Admin history history displayed show(product)" file="./spec/system/admin/history_spec.rb" time="1.247329"></testcase>
+<testcase classname="spec.system.admin.history_spec" name="Admin history history displayed show(bean)" file="./spec/system/admin/history_spec.rb" time="0.984844"></testcase>
+<testcase classname="spec.system.admin.history_spec" name="Admin history history delete resource" file="./spec/system/admin/history_spec.rb" time="1.041227"></testcase>
 </testsuite>
