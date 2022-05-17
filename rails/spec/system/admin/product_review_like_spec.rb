@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Admin product_review_like', type: :system do
-  let(:admin) { create(:admin_user)}
-  let(:user) { create(:user)}
-  let(:product) { create(:product, user: user)}
-  let(:review) { create(:review, user: user, product: product)}
-  let(:product_review_like) { create(:like, user: user, liked_id: review.id, type: 'ProductReviewLike')}
+  let(:admin) { create(:admin_user) }
+  let(:user) { create(:user) }
+  let(:product) { create(:product, user: user) }
+  let(:review) { create(:review, user: user, product: product) }
+  let(:product_review_like) { create(:like, user: user, liked_id: review.id, type: 'ProductReviewLike') }
 
   describe 'product_review_like' do
     before do

@@ -8,7 +8,7 @@ RSpec.describe 'Admin user', type: :system do
   let(:review) { create(:review, user: user, product: product) }
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }
-  let(:product_review_like) { create(:like, user: user, liked_id: review.id, type: 'ProductReviewLike')}
+  let(:product_review_like) { create(:like, user: user, liked_id: review.id, type: 'ProductReviewLike') }
   let(:bean_review_like) { create(:like, user: user, liked_id: bean_review.id, type: 'BeanReviewLike') }
 
   describe 'user' do

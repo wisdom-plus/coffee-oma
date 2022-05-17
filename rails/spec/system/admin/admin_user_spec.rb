@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe 'Admin admin_user', type: :system do
   let(:admin) { create(:admin_user) }
 
-
   describe 'admin user' do
     before do
       admin_login(admin)
@@ -22,7 +21,6 @@ RSpec.describe 'Admin admin_user', type: :system do
         fill_in 'admin_user_password_confirmation', with: 'adminpassword'
         click_on '管理者を作成'
       end.to change(AdminUser, :count).by(1)
-
     end
 
     it 'displayed show' do
