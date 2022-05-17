@@ -11,8 +11,6 @@ RSpec.describe 'Admin Notifications', type: :system do
     before do
       admin_login(admin)
       notification_follow
-      notification_like
-      notification_message
       visit admin_notifications_path
     end
 
