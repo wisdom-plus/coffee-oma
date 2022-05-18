@@ -54,8 +54,8 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the application controller.
-  # config.authentication_method = :authenticate_admin_user!
   config.authentication_method = :authenticate_admin_user!
+
   # == User Authorization
   #
   # Active Admin will automatically call an authorization
@@ -91,8 +91,8 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # (within the application controller) to return the currently logged in user.
-  # config.current_user_method = :current_admin_user
   config.current_user_method = :current_admin_user
+
   # == Logging Out
   #
   # Active Admin displays a logout link on each screen. These
@@ -294,7 +294,7 @@ ActiveAdmin.setup do |config|
   # config.include_default_association_filters = true
 
   # config.maximum_association_filter_arity = 256 # default value of :unlimited will change to 256 in a future version
-  # config.filter_columns_for_large_association, [
+  # config.filter_columns_for_large_association = [
   #    :display_name,
   #    :full_name,
   #    :name,
@@ -303,7 +303,7 @@ ActiveAdmin.setup do |config|
   #    :title,
   #    :email,
   #  ]
-  # config.filter_method_for_large_association, '_starts_with'
+  # config.filter_method_for_large_association = '_starts_with'
 
   # == Head
   #

@@ -4,6 +4,7 @@ RSpec.describe 'Relationships', type: :system, js: true do
   let(:user) { create(:user) }
   let(:user1) { create(:user, username: 'test1', email: 'test1@example.com') }
   let(:follow) { create(:relationship, user: user, follow: user1) }
+  let(:notification_follow) { create(:notification, visitor: user, visited: user1, action: 'follow') }
 
   context 'when login' do
     before do
@@ -12,6 +13,13 @@ RSpec.describe 'Relationships', type: :system, js: true do
 
     context 'create' do
       it 'created relationship' do
+        visit "/users/#{user1.id}/show"
+        click_link 'フォローする'
+        expect(page).to have_link 'フォロー解除'
+      end
+
+      it 'created relationship(notification exists)' do
+        notification_follow
         visit "/users/#{user1.id}/show"
         click_link 'フォローする'
         expect(page).to have_link 'フォロー解除'

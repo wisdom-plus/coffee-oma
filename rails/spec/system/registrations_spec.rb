@@ -91,16 +91,25 @@ RSpec.describe 'Registrations', type: :system, js: true do
       click_on 'delete_button'
       expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
     end
+
+    it 'when get login delete fail' do
+      gest_login
+      visit edit_user_registration_path
+      find('.delete-accordion').click
+      find('#modal-button').click
+      click_on 'delete_button'
+      expect(page).to have_content 'ゲストユーザーは変更・削除ができません。'
+    end
   end
 
   describe 'get /users/edit' do
     context 'when login' do
-      before do
-        login(user, user.email, user.password)
-        visit edit_user_registration_path
-      end
-
       context 'when success' do
+        before do
+          login(user, user.email, user.password)
+          visit edit_user_registration_path
+        end
+
         it 'displayed icon' do
           expect(page).to have_selector '#img-prev'
         end
@@ -130,6 +139,8 @@ RSpec.describe 'Registrations', type: :system, js: true do
 
       context 'when fail' do
         it 'not change username' do
+          login(user, user.email, user.password)
+          visit edit_user_registration_path
           fill_in 'spec-user-name', with: ''
           fill_in 'spec-E-mail address', with: user.email
           click_button 'Update'
@@ -137,6 +148,8 @@ RSpec.describe 'Registrations', type: :system, js: true do
         end
 
         it 'not change email' do
+          login(user, user.email, user.password)
+          visit edit_user_registration_path
           fill_in 'spec-user-name', with: 'test1'
           fill_in 'spec-E-mail address', with: ''
           click_button 'Update'
@@ -144,11 +157,22 @@ RSpec.describe 'Registrations', type: :system, js: true do
         end
 
         it 'not change password' do
+          login(user, user.email, user.password)
+          visit edit_user_registration_path
           find('.password-accordion').click
           fill_in 'spec-password', with: 'password'
           fill_in 'spec-password-confirmation', with: 'password1'
           click_button 'Update'
           expect(page).to have_current_path '/users'
+        end
+
+        it 'when get login delete fail' do
+          gest_login
+          visit edit_user_registration_path
+          fill_in 'spec-user-name', with: 'test'
+          fill_in 'spec-E-mail address', with: user.email
+          click_button 'Update'
+          expect(page).to have_content 'ゲストユーザーは変更・削除ができません。'
         end
       end
     end

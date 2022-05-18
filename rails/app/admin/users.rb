@@ -78,6 +78,18 @@ ActiveAdmin.register User do # rubocop:disable Metrics/BlockLength
     end
     active_admin_comments
   end
+
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :email
+      f.input :username
+      f.input :password
+      f.input :password_confirmation
+    end
+    f.actions
+  end
+
   permit_params do
     permitted = %i[email
                    encrypted_password
@@ -91,9 +103,8 @@ ActiveAdmin.register User do # rubocop:disable Metrics/BlockLength
                    username
                    profile
                    icon
-                   id
-                   created_at
-                   updated_at]
+                   password
+                   password_confirmation]
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
     permitted
   end

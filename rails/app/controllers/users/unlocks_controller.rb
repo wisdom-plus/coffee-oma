@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nocov:
 class Users::UnlocksController < Devise::UnlocksController
   # GET /resource/unlock/new
   # def new
@@ -28,3 +29,4 @@ class Users::UnlocksController < Devise::UnlocksController
   #   super(resource)
   # end
 end
+# :nocov:

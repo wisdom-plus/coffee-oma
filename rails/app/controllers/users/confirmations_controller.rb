@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nocov:
 class Users::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation/new
   # def new
@@ -28,3 +29,4 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   #   super(resource_name, resource)
   # end
 end
+# :nocov:

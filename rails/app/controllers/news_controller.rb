@@ -15,7 +15,7 @@ class NewsController < ApplicationController
     if @news.save
       redirect_to root_path, notice: t('.notice')
     else
-      flash[:alert] = t('.alert')
+      flash.now[:alert] = t('.alert')
       render :new
     end
   end
@@ -35,12 +35,13 @@ class NewsController < ApplicationController
     if @news.update(news_params)
       redirect_to root_path, notice: t('.notice')
     else
+      flash.now[:alert] = t('.alert')
       render :edit
     end
   end
 
   def destroy
-    if @news.destroy
+    if @news&.destroy
       redirect_to root_path, notice: t('.notice')
     else
       redirect_to root_path, alert: t('.alert')

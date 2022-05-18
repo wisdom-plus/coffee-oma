@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'News', type: :system do
   let(:admin) { create(:admin_user) }
   let(:news) { create(:news, user: admin) }
-  let(:news1) { create(:news, user: admin, title: '訂正のお知らせ', content: '<h4>good bye</h4>') }
+  let(:news1) { create(:news, user: admin, title: '訂正のお知らせ', content: '<h4>good bye</h4>', active: false) }
+  let(:news2) { create(:news, user: admin, title: '訂正のお知らせ', content: '<h4>good bye</h4>', active: false, publicshed_at: 1.hour.from_now) }
 
   describe 'index' do
     before do
@@ -23,12 +24,26 @@ RSpec.describe 'News', type: :system do
   describe 'show' do
     before do
       news
-      visit news_path(news.id)
+      news1
+      news2
     end
 
     it 'display news' do
+      visit news_path(news.id)
       expect(page).to have_content news.title
       expect(page).to have_content I18n.l(news.publicshed_at, format: :news_short)
+    end
+
+    it 'display news1' do
+      visit news_path(news1.id)
+      expect(page).to have_content news1.title
+      expect(page).to have_content I18n.l(news1.publicshed_at, format: :news_short)
+    end
+
+    it 'display fail' do
+      visit news_path(news2.id)
+      expect(page).to have_content '公開させておりません。'
+      expect(page).to have_current_path root_path
     end
   end
 
@@ -48,6 +63,8 @@ RSpec.describe 'News', type: :system do
           fill_in_rich_text_area 'content', with: '運営から新しい機能のお知らせ'
           click_on 'submit'
         end.to change(News, :count).by 1
+        expect(page).to have_content '登録が完了しました。'
+        expect(page).to have_current_path root_path
       end
     end
 

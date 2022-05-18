@@ -10,6 +10,7 @@ require("channels");
 require("semantic-ui-sass");
 require("infinite-scroll");
 require("jquery");
+require("jquery-ui");
 require("trix");
 require("@rails/actiontext");
 require("jquery-raty-js");
@@ -23,3 +24,8 @@ require("custom/modal");
 require("custom/anime");
 require("custom/dimmer");
 require("custom/popup");
+
+import $ from "jquery/dist/jquery.js";
+
+globalThis.jQuery = $;
+globalThis.$ = $;

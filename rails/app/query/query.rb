@@ -7,9 +7,11 @@ class Query
     @relation = relation
   end
 
+  # :nocov:
   def call
     raise NotImplementedError
   end
+  # :nocov:
 
   private
 

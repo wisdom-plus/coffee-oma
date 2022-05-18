@@ -13,4 +13,9 @@ module LoginHelper
     fill_in 'パスワード', with: user.password
     click_button 'ログイン'
   end
+
+  def gest_login
+    visit new_user_session_path
+    click_link 'ゲストログイン'
+  end
 end

@@ -109,7 +109,9 @@ class User < ApplicationRecord
     when 'bean_review'
       bean_review_likes.where(liked_id: reviews.map(&:id))
     else
+      # :nocov:
       []
+      # :nocov:
     end
   end
 end
