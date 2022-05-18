@@ -26,7 +26,7 @@ RSpec.describe 'Admin report', type: :system do
     it 'created admin' do
       expect do
         visit new_admin_report_path
-        fill_in 'report_review_id' , with: review.id
+        fill_in 'report_review_id', with: review.id
         fill_in 'report_user_id', with: user.id
         fill_in 'report_review_type', with: review.class
         click_on '通報を作成'
