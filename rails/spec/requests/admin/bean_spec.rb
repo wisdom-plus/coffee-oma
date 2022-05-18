@@ -5,7 +5,7 @@ RSpec.describe 'Admin', type: :request do
   let_it_be(:user) { create(:user) }
 
 
-  describe 'BeanReview' do
+  describe 'Bean' do
     before do
       user
       sign_in admin

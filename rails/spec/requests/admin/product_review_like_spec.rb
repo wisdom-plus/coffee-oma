@@ -7,7 +7,7 @@ RSpec.describe 'Admin', type: :request do
   let(:review) { create(:review, product: product, user: user) }
 
 
-  describe 'BeanLike' do
+  describe 'ProductReviewLike' do
     before do
       user
       review
