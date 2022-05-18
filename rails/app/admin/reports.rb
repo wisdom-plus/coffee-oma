@@ -55,6 +55,15 @@ ActiveAdmin.register Report do # rubocop:disable Metrics/BlockLength
     active_admin_comments
   end
 
+  form do |f|
+    f.inputs do
+      f.input :user_id
+      f.input :review_id
+      f.input :review_type
+    end
+    f.actions
+  end
+
   permit_params do
     permitted = %i[user_id review_type review_id]
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
