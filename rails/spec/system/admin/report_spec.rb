@@ -23,6 +23,16 @@ RSpec.describe 'Admin report', type: :system do
       expect(page).to have_content '通報'
     end
 
+    it 'created admin' do
+      expect do
+        visit new_admin_report_path
+        fill_in 'report_review_id' , with: review.id
+        fill_in 'report_user_id', with: user.id
+        fill_in 'report_review_type', with: review.class
+        click_on '通報を作成'
+      end.to change(Report, :count).by(1)
+    end
+
     it 'displayed show(review)' do
       visit admin_report_path(review_report.id)
       expect(page).to have_content user1.username
