@@ -23,6 +23,17 @@ RSpec.describe 'Admin user', type: :system do
       expect(page).to have_content 'ユーザー'
     end
 
+    it 'created user' do
+      expect do
+        visit new_admin_user_path
+        fill_in 'user_email', with: 'test1@example.com'
+        fill_in 'user_username', with: 'test1'
+        fill_in 'user_password', with: 'password'
+        fill_in 'user_password_confirmation', with: 'password'
+        click_on 'ユーザーを作成'
+      end.to change(User, :count).by(1)
+    end
+
     it 'displayed show' do
       visit admin_user_path(user.id)
       expect(page).to have_content user.username
