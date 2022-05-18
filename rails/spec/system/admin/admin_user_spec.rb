@@ -13,7 +13,7 @@ RSpec.describe 'Admin admin_user', type: :system do
       expect(page).to have_content '管理者'
     end
 
-    it 'displayed new' do
+    it 'created admin' do
       expect do
         visit new_admin_admin_user_path
         fill_in 'admin_user_email', with: 'admin_test@example.com'
