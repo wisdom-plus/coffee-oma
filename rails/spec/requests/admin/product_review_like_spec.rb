@@ -6,7 +6,6 @@ RSpec.describe 'Admin', type: :request do
   let(:product) { create(:product, user: user) }
   let(:review) { create(:review, product: product, user: user) }
 
-
   describe 'ProductReviewLike' do
     before do
       user
@@ -16,7 +15,7 @@ RSpec.describe 'Admin', type: :request do
 
     it 'created resource' do
       expect do
-        post admin_product_review_likes_path, params: { product_review_like: attributes_for(:like, user_id: user.id,liked_id: review.id,type: 'ProductReviewLike') }
+        post admin_product_review_likes_path, params: { product_review_like: attributes_for(:like, user_id: user.id, liked_id: review.id, type: 'ProductReviewLike') }
       end.to change(Like, :count).by 1
     end
   end

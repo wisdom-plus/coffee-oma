@@ -5,7 +5,6 @@ RSpec.describe 'Admin', type: :request do
   let(:user) { create(:user) }
   let(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
 
-
   describe 'Relationship' do
     before do
       user

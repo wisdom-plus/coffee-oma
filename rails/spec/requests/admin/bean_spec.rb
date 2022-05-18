@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Admin', type: :request do
   let(:admin) { create(:admin_user) }
-  let_it_be(:user) { create(:user) }
 
+  let_it_be(:user) { create(:user) }
 
   describe 'Bean' do
     before do

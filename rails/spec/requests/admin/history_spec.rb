@@ -6,7 +6,6 @@ RSpec.describe 'Admin', type: :request do
   let(:product) { create(:product, user: user) }
   let(:bean) { create(:bean, user: user) }
 
-
   describe 'History' do
     before do
       user

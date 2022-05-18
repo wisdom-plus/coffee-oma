@@ -6,7 +6,6 @@ RSpec.describe 'Admin', type: :request do
   let(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
   let(:notification) { create(:notification, visitor: user, visited: user1, action: 'follow') }
 
-
   describe 'Notification' do
     before do
       user

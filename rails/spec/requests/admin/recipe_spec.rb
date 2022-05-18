@@ -6,7 +6,6 @@ RSpec.describe 'Admin', type: :request do
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }
 
-
   describe 'Recipe' do
     before do
       bean_review

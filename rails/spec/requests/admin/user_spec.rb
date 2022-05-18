@@ -10,7 +10,7 @@ RSpec.describe 'Admin', type: :request do
 
     it 'created resource' do
       expect do
-        post admin_users_path, params: { user: {email: 'test@example.com', username: 'test',password: 'password',password_confirmation: 'password'} }
+        post admin_users_path, params: { user: { email: 'test@example.com', username: 'test', password: 'password', password_confirmation: 'password' } }
       end.to change(User, :count).by 1
     end
   end
