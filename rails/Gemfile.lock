@@ -162,6 +162,8 @@ GEM
       ssrf_filter (~> 1.0)
     childprocess (4.1.0)
     chronic (0.10.2)
+    codecov (0.6.0)
+      simplecov (>= 0.15, < 0.22)
     coderay (1.1.3)
     concurrent-ruby (1.1.10)
     counter_culture (2.9.0)
@@ -553,6 +555,7 @@ DEPENDENCIES
   byebug
   capybara
   carrierwave (= 2.2.1)
+  codecov
   counter_culture (~> 2.0)
   daemons
   delayed_job_active_record
