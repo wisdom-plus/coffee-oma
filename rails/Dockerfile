@@ -22,6 +22,7 @@ RUN apk  --no-cache add linux-headers\
                         mysql-dev \
                         git \
                         less \
+                        curl \
                         imagemagick \
                         yarn &&\
     apk add --virtual build-dependencies --no-cache build-base curl-dev &&\
