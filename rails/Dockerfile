@@ -23,7 +23,8 @@ RUN apk  --no-cache add linux-headers\
                         git \
                         less \
                         curl \
-                        gpg \
+                        coreutils \
+                        gnupg \
                         imagemagick \
                         yarn &&\
     apk add --virtual build-dependencies --no-cache build-base curl-dev &&\
