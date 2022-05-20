@@ -1,4 +1,4 @@
-FROM ruby:2.7.4-alpine3.12
+FROM ruby:2.7.6-alpine3.15
 
 WORKDIR /coffee-oma
 
@@ -22,6 +22,9 @@ RUN apk  --no-cache add linux-headers\
                         mysql-dev \
                         git \
                         less \
+                        curl \
+                        coreutils \
+                        gnupg \
                         imagemagick \
                         yarn &&\
     apk add --virtual build-dependencies --no-cache build-base curl-dev &&\

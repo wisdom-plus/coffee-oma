@@ -1,5 +1,6 @@
 version: 2.1
 orbs:
+  codecov: codecov/codecov@3.2.2
   aws-ecr: circleci/aws-ecr@7.0.0
   aws-ecs: circleci/aws-ecs@1.4.0
 jobs:
@@ -84,7 +85,8 @@ jobs:
           destination: test-results
       - store_artifacts:
           path: ./coverage
-
+      - codecov/upload:
+          file: ./coverage/codecov-result.json
 
 workflows:
   version: 2
