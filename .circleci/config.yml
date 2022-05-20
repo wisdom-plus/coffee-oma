@@ -36,22 +36,22 @@ jobs:
           docker_layer_caching: true
       - restore_cache:
           keys:
-            - rails-gem-v1-{{ checksum "Gemfile.lock"}}
+            - rails-gem-v2-{{ checksum "Gemfile.lock"}}
       - run:
           name: bundleをインストール
           command: bundle check || bundle install --jobs=4
       - save_cache:
-          key: rails-gem-v1-{{ checksum "Gemfile.lock"}}
+          key: rails-gem-v2-{{ checksum "Gemfile.lock"}}
           paths:
             - /usr/local/bundle
       - restore_cache:
           keys:
-            - rails-yarn-{{ checksum "yarn.lock"}}
+            - rails-yarn-v1-{{ checksum "yarn.lock"}}
       - run:
           name: yarnを追加
           command: yarn install
       - save_cache:
-          key: rails-yarn-{{ checksum "yarn.lock"}}
+          key: rails-yarn-v1-{{ checksum "yarn.lock"}}
           paths:
             - ~/coffee/rails/node_modules
       - run:
