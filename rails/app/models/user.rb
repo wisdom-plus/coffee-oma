@@ -25,8 +25,43 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  include Follow
-  include LikesHasMany
+  concerning :Follow do
+    included do
+      has_many :relationships, dependent: :destroy
+      has_many :followings, through: :relationships, source: :follow
+      has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy, inverse_of: 'user'
+      has_many :followers, through: :reverse_of_relationships, source: :user
+    end
+
+    def follow(other_user)
+      return if self == other_user
+
+      relationships.find_or_create_by(follow_id: other_user.id)
+    end
+
+    def unfollow(other_user_id)
+      relationship = relationships.find_by(follow_id: other_user_id)
+      relationship&.destroy
+    end
+
+    def following?(other_user)
+      followings.include?(other_user)
+    end
+
+    def follow_user(other_user)
+      relationships.find_by(follow_id: other_user.id)
+    end
+  end
+
+  concerning :LikeHasMany do
+    included do
+      has_many :likes, dependent: :destroy
+      has_many :bean_likes, dependent: :destroy
+      has_many :product_likes, dependent: :destroy
+      has_many :product_review_likes, dependent: :destroy
+      has_many :bean_review_likes, dependent: :destroy
+    end
+  end
 
   has_many :participant1_rooms, class_name: 'Room', foreign_key: 'participant1_id', dependent: :destroy, inverse_of: 'participant1'
   has_many :participant2_rooms, class_name: 'Room', foreign_key: 'participant2_id', dependent: :destroy, inverse_of: 'participant2'
