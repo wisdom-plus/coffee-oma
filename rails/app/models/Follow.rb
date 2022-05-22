@@ -8,22 +8,20 @@ class Follow
 
   attr_reader :user, :follower
 
-  def follow(user:,follwer:)
-    return if self == user
-
-    new(user: user,follwer: follower).find_or_create_by(follow_id: user.id)
+  def follow
+    user.relationships.find_or_create_by(follow_id: user.id)
   end
 
-  def unfollow(user:,follower:)
+  def unfollow
     relationship = user.relationships.find_by(follow_id: follower.id)
     relationship&.destroy
   end
 
-  def folloing?(user:,follower:)
+  def folloing?
     user.followings.include?(follower)
   end
 
-  def follow_user(user:,follower:)
-    user.relationships.find_by(follow_id: follower.id)
+  def follow_user
+    relationships.find_by(follow_id: follower.id)
   end
 end
