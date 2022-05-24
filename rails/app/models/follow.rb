@@ -4,12 +4,8 @@ class Follow
     @follower = follower
   end
 
-  private
-
-  attr_reader :user, :follower
-
   def follow
-    user.relationships.find_or_create_by(follow_id: user.id)
+    user.relationships.find_or_create_by(follow_id: follower.id)
   end
 
   def unfollow
@@ -17,11 +13,15 @@ class Follow
     relationship&.destroy
   end
 
-  def folloing?
+  def following?
     user.followings.include?(follower)
   end
 
   def follow_user
     relationships.find_by(follow_id: follower.id)
   end
+
+  private
+
+  attr_reader :user, :follower
 end
