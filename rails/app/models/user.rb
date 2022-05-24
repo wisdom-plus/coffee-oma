@@ -53,16 +53,11 @@ class User < ApplicationRecord
     end
   end
 
-  concerning :LikeHasMany do
-    included do
-      has_many :likes, dependent: :destroy
-      has_many :bean_likes, dependent: :destroy
-      has_many :product_likes, dependent: :destroy
-      has_many :product_review_likes, dependent: :destroy
-      has_many :bean_review_likes, dependent: :destroy
-    end
-  end
-
+  has_many :likes, dependent: :destroy
+  has_many :bean_likes, dependent: :destroy
+  has_many :product_likes, dependent: :destroy
+  has_many :product_review_likes, dependent: :destroy
+  has_many :bean_review_likes, dependent: :destroy
   has_many :participant1_rooms, class_name: 'Room', foreign_key: 'participant1_id', dependent: :destroy, inverse_of: 'participant1'
   has_many :participant2_rooms, class_name: 'Room', foreign_key: 'participant2_id', dependent: :destroy, inverse_of: 'participant2'
   has_many :messages, dependent: :destroy
