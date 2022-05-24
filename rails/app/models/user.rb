@@ -25,6 +25,8 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  include Users::Follow
+
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy, inverse_of: 'user'
@@ -51,6 +53,12 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :timeoutable, :async
+
+  def follow(other_user)
+    return if self == other_user
+
+    Follow.new(self, other_user).follow
+  end
 
   def update_without_current_password(params, *options)
     params.delete(:current_password)
