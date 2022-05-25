@@ -15,12 +15,8 @@ class Follow
     relationship&.destroy
   end
 
-  def following?
-    user.followings.include?(follower)
-  end
-
   def follow_user
-    relationships.find_by(follow_id: follower.id)
+    user.relationships.find_by(follow_id: follower.id)
   end
 
   private
