@@ -1,5 +1,5 @@
 class Follow
-  def initialize(user,follower)
+  def initialize(user, follower)
     @user = user
     @follower = follower
   end
@@ -21,5 +21,5 @@ class Follow
 
   private
 
-  attr_reader :user, :follower
+    attr_reader :user, :follower
 end
