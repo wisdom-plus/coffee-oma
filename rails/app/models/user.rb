@@ -52,6 +52,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :timeoutable, :async
 
+  def following?(other_user)
+    followings.include?(other_user)
+  end
+
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
