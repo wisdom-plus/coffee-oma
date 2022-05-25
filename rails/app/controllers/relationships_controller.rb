@@ -3,7 +3,7 @@ class RelationshipsController < ApplicationController
 
   def create
     @user = User.find_by(id: params[:follow_id])
-    @follow = current_user.follow(@user)
+    @follow = Follow.new(current_user, @user).follow
     @user.create_notification_follow(current_user)
     respond_to do |format|
       format.js
@@ -13,7 +13,7 @@ class RelationshipsController < ApplicationController
 
   def destroy
     @user = User.find_by(id: params[:follow_id])
-    @follow = current_user.unfollow(@user)
+    @follow = Follow.new(current_user, @user).unfollow
     respond_to do |format|
       format.js
       format.html { redirect_to user_registration_path(@user) }
