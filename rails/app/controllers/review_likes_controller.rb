@@ -2,8 +2,7 @@ class ReviewLikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @review_like = ReviewLikeAndNotificationCreate.new(current_user, params[:type], params[:liked_id]).create
-    @review = @review_like.review
+    @review_like, @review = ReviewLikeAndNotificationCreate.new(current_user, params[:type], params[:review_id]).create
     # @reviewと@review_likeはviewに必要
     respond_to do |format|
       format.js
