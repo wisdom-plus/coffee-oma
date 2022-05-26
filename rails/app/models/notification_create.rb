@@ -5,10 +5,6 @@ class NotificationCreate
     @user = user
   end
 
-  def create_like_notification(like_id, user_id, action)
-    user.active_notifications.new(like_id: like_id, visited_id: user_id, action: action)
-  end
-
   def create_follow_notification(follower_id)
     user.active_notifications.new(visited_id: follower_id, action: 'follow')
   end
