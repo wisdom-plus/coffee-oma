@@ -11,6 +11,7 @@ class ReviewLikesController < ApplicationController
       @review = BeanReview.find(params[:review_id])
     end
     @review_like.create_notification(current_user, @review.user_id)
+    # @reviewと@review_likeはviewに必要
     respond_to do |format|
       format.js
       format.html { redirect_to product_path(@review) }
@@ -27,6 +28,7 @@ class ReviewLikesController < ApplicationController
       @review = BeanReview.find_by(id: review_like.liked_id)
     end
     review_like&.destroy unless review_like.nil?
+    # @reviewがviewに必要
     respond_to do |format|
       format.js
       format.html { redirect_to product_path(@review) }
