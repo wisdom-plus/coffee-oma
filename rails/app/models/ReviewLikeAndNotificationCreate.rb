@@ -8,25 +8,16 @@ class ReviewLikeAndNotificationCreate
   end
 
   def create
-    case type
+    case @type
     when 'Review'
-      review_like = @user.product_review_likes.find_or_create_by(liked_id: liked_id)
-      review = Review.find(liked_id)
+      review_like = @user.product_review_likes.find_or_create_by(liked_id: @liked_id)
+      review = Review.find(@liked_id)
     when 'BeanReview'
-      review_like = @user.bean_review_likes.find_or_create_by(liked_id: liked_id)
-      review = BeanReview.find(liked_id)
+      review_like = @user.bean_review_likes.find_or_create_by(liked_id: @liked_id)
+      review = BeanReview.find(@liked_id)
     end
     create_notification(@user,review.user_id)
-    return review_like
-  end
-
-  def review
-    case type
-    when 'Review'
-      return Review.find(liked_id)
-    when 'BeanReview'
-      return BeanReview.find(liked_id)
-    end
+    return review_like,review
   end
 
   private
