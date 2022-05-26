@@ -1,4 +1,5 @@
 class NotificationCreate
+# notificationを作成する
 
   def initialize(user)
     @user = user
