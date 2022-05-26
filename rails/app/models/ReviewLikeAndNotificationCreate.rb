@@ -20,6 +20,14 @@ class ReviewLikeAndNotificationCreate
     return review_like
   end
 
+  def review
+    case type
+    when 'Review'
+      return Review.find(liked_id)
+    when 'BeanReview'
+      return BeanReview.find(liked_id)
+    end
+  end
 
   private
 
