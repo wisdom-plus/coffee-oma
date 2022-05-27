@@ -2,7 +2,8 @@ class ReviewLikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @review_like, @review = ReviewLikeAndNotificationCreate.new(current_user, params[:type], params[:review_id]).create
+    @review_like = ReviewLikeAndNotificationCreate.new(current_user, params[:type], params[:review_id]).create
+    @review = @review_like.accociated_review
     # @reviewと@review_likeはviewに必要
     respond_to do |format|
       format.js
