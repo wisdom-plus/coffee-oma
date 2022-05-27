@@ -23,6 +23,7 @@ class ReviewLikeAndNotificationCreate
   private
 
   def create_notification(like_id,user_id)
-    @user.active_notifications.new(like_id: like_id, visited_id: user_id, action: 'like')
+    notification =  @user.active_notifications.new(like_id: like_id, visited_id: user_id, action: 'like')
+    notification.save
   end
 end
