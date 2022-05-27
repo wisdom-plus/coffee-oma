@@ -1,6 +1,6 @@
+# :nocov:
 class NotificationCreate
 # notificationを作成する
-
   def initialize(user)
     @user = user
   end
@@ -23,3 +23,4 @@ class NotificationCreate
     end
   end
 end
+# :nocov:
