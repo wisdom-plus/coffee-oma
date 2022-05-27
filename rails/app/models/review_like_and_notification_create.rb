@@ -17,7 +17,7 @@ class ReviewLikeAndNotificationCreate
       review = BeanReview.find(@liked_id)
     end
     create_notification(@user,review.user_id)
-    return review_like,review
+    return review_like
   end
 
   private
