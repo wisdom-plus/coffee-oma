@@ -20,7 +20,6 @@ class Like < ApplicationRecord
 
   scope :find_product_and_bean, ->(user_id) { where(["user_id = ? and type IN ('ProductLike','BeanLike')", user_id]).order(created_at: :DESC) }
 
-
   def self.product_and_bean_likes_includes(likes)
     preloader = ActiveRecord::Associations::Preloader.new
     preloader.preload(likes.select { |i| i.type == 'BeanLike' }, :bean)

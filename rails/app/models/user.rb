@@ -100,7 +100,6 @@ class User < ApplicationRecord
     h.update(updated_at: Time.zone.now)
   end
 
-
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.username = 'ゲストユーザー'
@@ -108,7 +107,6 @@ class User < ApplicationRecord
       user.confirmed_at = Time.zone.now
     end
   end
-
 
   def where_review_likes(reviews, like_type)
     case like_type

@@ -1,7 +1,7 @@
 class ReviewLikeAndNotificationCreate
 # review_likeとnotificationを作成する
 
-  def initialize(user,type,liked_id)
+  def initialize(user, type, liked_id)
     @user = user
     @type = type
     @liked_id = liked_id
@@ -16,14 +16,14 @@ class ReviewLikeAndNotificationCreate
       review_like = @user.bean_review_likes.find_or_create_by(liked_id: @liked_id)
       review = BeanReview.find(@liked_id)
     end
-    create_notification(@user,review.user_id)
-    return review_like
+    create_notification(@user, review.user_id)
+    review_like
   end
 
   private
 
-  def create_notification(like_id,user_id)
-    notification =  @user.active_notifications.new(like_id: like_id, visited_id: user_id, action: 'like')
-    notification.save
-  end
+    def create_notification(like_id, user_id)
+      notification = @user.active_notifications.new(like_id: like_id, visited_id: user_id, action: 'like')
+      notification.save
+    end
 end
