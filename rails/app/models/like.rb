@@ -20,14 +20,6 @@ class Like < ApplicationRecord
 
   scope :find_product_and_bean, ->(user_id) { where(["user_id = ? and type IN ('ProductLike','BeanLike')", user_id]).order(created_at: :DESC) }
 
-  # テストで利用されていない
-  # :nocov:
-  # def create_notification(current_user, user_id)
-  #   notification = current_user.create_like_notification(id, user_id, self.class.name)
-  #   notification.save
-  # end
-  # :nocov:
-
 
   def self.product_and_bean_likes_includes(likes)
     preloader = ActiveRecord::Associations::Preloader.new
