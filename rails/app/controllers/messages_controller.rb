@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @message = MeesageAndNotificationCreate.new(current_user).crete(message_params)
+    @message = MessageAndNotificationCreate.new(current_user).crete(message_params)
     return unless @message.save
 
     ActionCable.server.broadcast("room_channel_#{@message.room_id}",
