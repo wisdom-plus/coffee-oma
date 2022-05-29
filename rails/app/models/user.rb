@@ -56,10 +56,6 @@ class User < ApplicationRecord
     followings.include?(other_user)
   end
 
-  def create_message_notification(message_id, user_id)
-    active_notifications.new(message_id: message_id, visited_id: user_id, action: 'message')
-  end
-
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
