@@ -16,7 +16,7 @@ class MessageAndNotificationCreate
   private
 
   def create_notification(message)
-    notification = @user.create_message_notification(message.id, message.room.another_user(@user).id)
+    notification = @user.active_notifications.new(visited_id: message.room.another_user(@user).id,message: message, action: 'message')
     notification.save
   end
 end
