@@ -26,6 +26,7 @@ Coffee-omaはコーヒーに関する器具や、豆などの評価や感想を�
   - action_mailer,active_job,active_cable,action_textなどRailsの標準搭載されている機能を利用しているところ
   - DRY,KISS,YAGNIの原則を意識したコード
   - N+1が起こらないようにデータの取得に気をつけているところ
+  - テストのカバレッジを取得し、100%になるようにしている
 - ### フロントエンド面
   - シンプルなUIになるようにしているところ
   - アニメーションを追加し、UXを意識している
@@ -55,6 +56,7 @@ Coffee-omaはコーヒーに関する器具や、豆などの評価や感想を�
   - チャート機能(chart.js)
   - レート星機能
   - セキュリティ脆弱性性的分析ツール(Brakeman)
+  - テストカバレッジ(simplecov,codecov)
 
 # 使用している技術一覧
   - Ruby 2.7.4
@@ -69,6 +71,7 @@ Coffee-omaはコーヒーに関する器具や、豆などの評価や感想を�
   - Nginx 1.19.4
   - puma
   - Brakeman
+  - Codecov
 
 
 # ER図
