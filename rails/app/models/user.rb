@@ -25,9 +25,15 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  include Follow
-  include LikesHasMany
-
+  has_many :relationships, dependent: :destroy
+  has_many :followings, through: :relationships, source: :follow
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy, inverse_of: 'user'
+  has_many :followers, through: :reverse_of_relationships, source: :user
+  has_many :likes, dependent: :destroy
+  has_many :bean_likes, dependent: :destroy
+  has_many :product_likes, dependent: :destroy
+  has_many :product_review_likes, dependent: :destroy
+  has_many :bean_review_likes, dependent: :destroy
   has_many :participant1_rooms, class_name: 'Room', foreign_key: 'participant1_id', dependent: :destroy, inverse_of: 'participant1'
   has_many :participant2_rooms, class_name: 'Room', foreign_key: 'participant2_id', dependent: :destroy, inverse_of: 'participant2'
   has_many :messages, dependent: :destroy
@@ -45,6 +51,10 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :timeoutable, :async
+
+  def following?(other_user)
+    followings.include?(other_user)
+  end
 
   def update_without_current_password(params, *options)
     params.delete(:current_password)
@@ -72,34 +82,12 @@ class User < ApplicationRecord
     h.update(updated_at: Time.zone.now)
   end
 
-  def create_notification_follow(current_user)
-    temp = Notification.follow_notification(current_user.id, id)
-    if temp.present?
-      temp.update(checked: false)
-    else
-      notification = current_user.create_follow_notification(id)
-      notification.save
-    end
-  end
-
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.username = 'ゲストユーザー'
       user.password = SecureRandom.urlsafe_base64
       user.confirmed_at = Time.zone.now
     end
-  end
-
-  def create_like_notification(like_id, user_id, action)
-    active_notifications.new(like_id: like_id, visited_id: user_id, action: action)
-  end
-
-  def create_follow_notification(follower_id)
-    active_notifications.new(visited_id: follower_id, action: 'follow')
-  end
-
-  def create_message_notificatin(message_id, user_id)
-    active_notifications.new(message_id: message_id, visited_id: user_id, action: 'message')
   end
 
   def where_review_likes(reviews, like_type)

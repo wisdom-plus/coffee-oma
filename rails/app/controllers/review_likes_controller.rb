@@ -2,15 +2,9 @@ class ReviewLikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    case params[:type]
-    when 'Review'
-      @review_like = current_user.product_review_likes.find_or_create_by(liked_id: params[:review_id])
-      @review = Review.find(params[:review_id])
-    when 'BeanReview'
-      @review_like = current_user.bean_review_likes.find_or_create_by(liked_id: params[:review_id])
-      @review = BeanReview.find(params[:review_id])
-    end
-    @review_like.create_notification(current_user, @review.user_id)
+    @review_like = ReviewLikeAndNotificationCreate.new(current_user, params[:type], params[:review_id]).create
+    @review = @review_like.accociated_review
+    # @reviewと@review_likeはviewに必要
     respond_to do |format|
       format.js
       format.html { redirect_to product_path(@review) }
@@ -27,6 +21,7 @@ class ReviewLikesController < ApplicationController
       @review = BeanReview.find_by(id: review_like.liked_id)
     end
     review_like&.destroy unless review_like.nil?
+    # @reviewがviewに必要
     respond_to do |format|
       format.js
       format.html { redirect_to product_path(@review) }

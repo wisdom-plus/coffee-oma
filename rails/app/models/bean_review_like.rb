@@ -22,4 +22,8 @@ class BeanReviewLike < Like
   def self.select_id(review_id)
     find { |n| n.liked_id == review_id }
   end
+
+  def accociated_review
+    bean_review
+  end
 end
