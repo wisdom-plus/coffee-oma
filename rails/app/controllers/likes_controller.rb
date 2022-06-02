@@ -6,12 +6,14 @@ class LikesController < ApplicationController
   end
 
   def create
-    @like = case params[:type]
-            when 'Product'
-              current_user.product_likes.find_or_create_by(liked_id: params[:liked_id])
-            when 'Bean'
-              current_user.bean_likes.find_or_create_by(liked_id: params[:liked_id])
-            end
+    case params[:type]
+    when 'Product'
+      @like = current_user.product_likes.find_or_create_by(liked_id: params[:liked_id])
+      @liked = Product.find_by(id: params[:liked_id]).reload
+    when 'Bean'
+      @like = current_user.bean_likes.find_or_create_by(liked_id: params[:liked_id])
+      @liked = Bean.find_by(id: params[:liked_id]).reload
+    end
     respond_to do |format|
       format.js
       format.html { redirect_to root_path }
@@ -28,6 +30,7 @@ class LikesController < ApplicationController
       @liked = Bean.find_by(id: like.liked_id)
     end
     like&.destroy unless like.nil?
+    @liked.reload
     respond_to do |format|
       format.js
       format.html { redirect_to root_path }
