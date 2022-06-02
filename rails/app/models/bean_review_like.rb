@@ -24,6 +24,6 @@ class BeanReviewLike < Like
   end
 
   def accociated_review
-    bean_review
+    bean_review.reload
   end
 end

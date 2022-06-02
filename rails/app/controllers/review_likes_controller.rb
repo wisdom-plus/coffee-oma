@@ -15,12 +15,11 @@ class ReviewLikesController < ApplicationController
     case params[:type]
     when 'ProductReviewLike'
       review_like = current_user.product_review_likes.find_by(id: params[:id])
-      @review = Review.find_by(id: review_like.liked_id)
     when 'BeanReviewLike'
       review_like = current_user.bean_review_likes.find_by(id: params[:id])
-      @review = BeanReview.find_by(id: review_like.liked_id)
     end
     review_like&.destroy unless review_like.nil?
+    @review = review_like.accociated_review
     # @reviewがviewに必要
     respond_to do |format|
       format.js
