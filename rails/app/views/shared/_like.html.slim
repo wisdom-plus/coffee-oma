@@ -2,8 +2,8 @@
   - if like.nil?
     = link_to likes_path(liked_id: liked.id,type: liked.class), method: :post, class:"circular ui button", remote: true do
       i.heart.icon
-      | お気に入り登録
+      | #{liked.likes_count}
   - else
-    = link_to like_path(like.id, type: like.type), method: :delete, class:"circular ui green button", remote: true do
-      i.heart.icon
-      | お気に入り登録中
+    = link_to like_path(like.id, type: like.type), method: :delete, class:"circular ui button", remote: true do
+      i.red.heart.icon
+        | #{liked.likes_count}
