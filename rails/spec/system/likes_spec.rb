@@ -40,10 +40,22 @@ RSpec.describe 'Likes', type: :system, js: true do
         expect(page).to have_css '#like_destory'
       end
 
+      it 'like_button count up(product)' do
+        visit product_path(product.id)
+        click_link nil, href: likes_path(liked_id: product.id, type: product.class)
+        expect(find('.likes_count')).to have_text '1'
+      end
+
       it 'click like button(bean)' do
         visit bean_path(bean.id)
         click_link nil, href: likes_path(liked_id: bean.id, type: bean.class)
         expect(page).to have_css '#like_destory'
+      end
+
+      it 'like_button count up(bean)' do
+        visit bean_path(bean.id)
+        click_link nil, href: likes_path(liked_id: bean.id, type: bean.class)
+        expect(find('.likes_count')).to have_text '1'
       end
     end
 
