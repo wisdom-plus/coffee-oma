@@ -24,10 +24,20 @@ RSpec.describe 'Likes', type: :request do
       end.to change(Like, :count).by 1
     end
 
+    it 'count up product likes_count' do
+      post likes_path, params: { liked_id: product.id, type: 'Product' }, xhr: true
+      expect(Product.find(product.id).likes_count).to eq 1
+    end
+
     it 'created bean_like success' do
       expect do
         post likes_path, params: { liked_id: bean.id, type: 'Bean' }, xhr: true
       end.to change(Like, :count).by 1
+    end
+
+    it 'count up bean likes_count' do
+      post likes_path, params: { liked_id: bean.id, type: 'Bean' }, xhr: true
+      expect(Bean.find(bean.id).likes_count).to eq 1
     end
   end
 
