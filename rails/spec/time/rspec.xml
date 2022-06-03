@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="8" skipped="0" failures="0" errors="0" time="36.990723" timestamp="2022-06-02T11:05:15+00:00" hostname="02fdf35a2398">
+<testsuite name="rspec" tests="10" skipped="0" failures="0" errors="0" time="39.746273" timestamp="2022-06-03T10:13:19+00:00" hostname="02fdf35a2398">
 <properties>
-<property name="seed" value="5935"/>
+<property name="seed" value="17351"/>
 </properties>
-<testcase classname="spec.system.likes_spec" name="Likes index render product" file="./spec/system/likes_spec.rb" time="23.799870"></testcase>
-<testcase classname="spec.system.likes_spec" name="Likes index render ranking" file="./spec/system/likes_spec.rb" time="2.499209"></testcase>
-<testcase classname="spec.system.likes_spec" name="Likes create when login click like button(product)" file="./spec/system/likes_spec.rb" time="2.373720"></testcase>
-<testcase classname="spec.system.likes_spec" name="Likes create when login click like button(bean)" file="./spec/system/likes_spec.rb" time="2.454319"></testcase>
-<testcase classname="spec.system.likes_spec" name="Likes create when not login not render like button" file="./spec/system/likes_spec.rb" time="0.620648"></testcase>
-<testcase classname="spec.system.likes_spec" name="Likes destroy when login click like destroy button(product)" file="./spec/system/likes_spec.rb" time="2.261222"></testcase>
-<testcase classname="spec.system.likes_spec" name="Likes destroy when login click like destroy button(bean)" file="./spec/system/likes_spec.rb" time="2.258175"></testcase>
-<testcase classname="spec.system.likes_spec" name="Likes destroy when not login not render button" file="./spec/system/likes_spec.rb" time="0.716812"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes index render product" file="./spec/system/likes_spec.rb" time="21.560069"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes index render ranking" file="./spec/system/likes_spec.rb" time="2.137351"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes create when login click like button(product)" file="./spec/system/likes_spec.rb" time="2.028368"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes create when login like_button count up(product)" file="./spec/system/likes_spec.rb" time="2.476999"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes create when login click like button(bean)" file="./spec/system/likes_spec.rb" time="2.448244"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes create when login like_button count up(bean)" file="./spec/system/likes_spec.rb" time="1.781788"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes create when not login not render like button" file="./spec/system/likes_spec.rb" time="0.618620"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes destroy when login click like destroy button(product)" file="./spec/system/likes_spec.rb" time="2.015477"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes destroy when login click like destroy button(bean)" file="./spec/system/likes_spec.rb" time="3.225785"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes destroy when not login not render button" file="./spec/system/likes_spec.rb" time="1.446003"></testcase>
 </testsuite>
