@@ -2,8 +2,10 @@
   - if like.nil?
     = link_to likes_path(liked_id: liked.id,type: liked.class), method: :post, class:"circular ui button",id: 'like_create', remote: true do
       i.heart.icon
-      | #{liked.likes_count}
+      span.likes_count
+        | #{liked.likes_count}
   - else
     = link_to like_path(like.id, type: like.type), method: :delete, class:"circular ui button",id: 'like_destory' , remote: true do
       i.red.heart.icon
+      span.red.likes_count
         | #{liked.likes_count}
