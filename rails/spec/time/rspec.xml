@@ -1,63 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="1" skipped="0" failures="1" errors="0" time="25.144842" timestamp="2022-06-01T03:07:34+00:00" hostname="02fdf35a2398">
+<testsuite name="rspec" tests="10" skipped="0" failures="0" errors="0" time="39.746273" timestamp="2022-06-03T10:13:19+00:00" hostname="02fdf35a2398">
 <properties>
-<property name="seed" value="53054"/>
+<property name="seed" value="17351"/>
 </properties>
-<testcase classname="spec.system.review_likes_spec" name="ReviewLikes when login create product_review_like display button" file="./spec/system/review_likes_spec.rb" time="25.141755"><failure message="" type="ActionView::Template::Error">Failure/Error: Unable to find (execjs) to read failed line
-ActionView::Template::Error:
-
-
-[Screenshot Image]: /coffee-oma/tmp/screenshots/failures_r_spec_example_groups_review_likes_when_login_create_product_review_like_display_button_849.png
-
-
-
-(execjs):1
-/usr/local/bundle/gems/execjs-2.8.1/lib/execjs/external_runtime.rb:219:in `exec_runtime&apos;
-/usr/local/bundle/gems/execjs-2.8.1/lib/execjs/external_runtime.rb:39:in `exec&apos;
-/usr/local/bundle/gems/execjs-2.8.1/lib/execjs/external_runtime.rb:21:in `eval&apos;
-/usr/local/bundle/gems/execjs-2.8.1/lib/execjs/external_runtime.rb:46:in `call&apos;
-/usr/local/bundle/gems/autoprefixer-rails-10.4.2.0/lib/autoprefixer-rails/processor.rb:35:in `process&apos;
-/usr/local/bundle/gems/autoprefixer-rails-10.4.2.0/lib/autoprefixer-rails/sprockets.rb:22:in `run&apos;
-/usr/local/bundle/gems/autoprefixer-rails-10.4.2.0/lib/autoprefixer-rails/sprockets.rb:16:in `call&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/processor_utils.rb:84:in `call_processor&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/processor_utils.rb:66:in `block in call_processors&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/processor_utils.rb:65:in `reverse_each&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/processor_utils.rb:65:in `call_processors&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/loader.rb:182:in `load_from_unloaded&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/loader.rb:59:in `block in load&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/loader.rb:43:in `load&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/cached_environment.rb:44:in `load&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/bundle.rb:32:in `block in call&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/bundle.rb:31:in `call&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/processor_utils.rb:84:in `call_processor&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/processor_utils.rb:66:in `block in call_processors&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/processor_utils.rb:65:in `reverse_each&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/processor_utils.rb:65:in `call_processors&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/loader.rb:182:in `load_from_unloaded&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/loader.rb:59:in `block in load&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/loader.rb:43:in `load&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/cached_environment.rb:44:in `load&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/base.rb:81:in `find_asset&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/base.rb:88:in `find_all_linked_assets&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/manifest.rb:125:in `each&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/manifest.rb:125:in `to_a&apos;
-/usr/local/bundle/gems/sprockets-4.0.3/lib/sprockets/manifest.rb:125:in `block (2 levels) in find&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:47:in `block in synchronize&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:47:in `synchronize&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:47:in `synchronize&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch&apos;
-/usr/local/bundle/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker&apos;
-------------------
---- Caused by: ---
-ExecJS::RuntimeError:
-  (execjs):1</failure></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes index render product" file="./spec/system/likes_spec.rb" time="21.560069"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes index render ranking" file="./spec/system/likes_spec.rb" time="2.137351"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes create when login click like button(product)" file="./spec/system/likes_spec.rb" time="2.028368"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes create when login like_button count up(product)" file="./spec/system/likes_spec.rb" time="2.476999"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes create when login click like button(bean)" file="./spec/system/likes_spec.rb" time="2.448244"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes create when login like_button count up(bean)" file="./spec/system/likes_spec.rb" time="1.781788"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes create when not login not render like button" file="./spec/system/likes_spec.rb" time="0.618620"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes destroy when login click like destroy button(product)" file="./spec/system/likes_spec.rb" time="2.015477"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes destroy when login click like destroy button(bean)" file="./spec/system/likes_spec.rb" time="3.225785"></testcase>
+<testcase classname="spec.system.likes_spec" name="Likes destroy when not login not render button" file="./spec/system/likes_spec.rb" time="1.446003"></testcase>
 </testsuite>

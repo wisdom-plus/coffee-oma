@@ -36,21 +36,33 @@ RSpec.describe 'Likes', type: :system, js: true do
 
       it 'click like button(product)' do
         visit product_path(product.id)
-        click_on 'お気に入り登録'
-        expect(page).to have_link 'お気に入り登録中'
+        click_link nil, href: likes_path(liked_id: product.id, type: product.class)
+        expect(page).to have_css '#like_destory'
+      end
+
+      it 'like_button count up(product)' do
+        visit product_path(product.id)
+        click_link nil, href: likes_path(liked_id: product.id, type: product.class)
+        expect(find('.likes_count')).to have_text '1'
       end
 
       it 'click like button(bean)' do
         visit bean_path(bean.id)
-        click_on 'お気に入り登録'
-        expect(page).to have_link 'お気に入り登録中'
+        click_link nil, href: likes_path(liked_id: bean.id, type: bean.class)
+        expect(page).to have_css '#like_destory'
+      end
+
+      it 'like_button count up(bean)' do
+        visit bean_path(bean.id)
+        click_link nil, href: likes_path(liked_id: bean.id, type: bean.class)
+        expect(find('.likes_count')).to have_text '1'
       end
     end
 
     context 'when not login' do
       it 'not render like button' do
         visit product_path(product.id)
-        expect(page).to have_no_link 'お気に入り登録'
+        expect(page).to have_no_css '#like_destory'
       end
     end
   end
@@ -65,14 +77,14 @@ RSpec.describe 'Likes', type: :system, js: true do
 
       it 'click like destroy button(product)' do
         visit product_path(product.id)
-        click_on 'お気に入り登録中'
-        expect(page).to have_link 'お気に入り登録'
+        click_link nil, href: like_path(product_like.id, type: product_like.type)
+        expect(page).to have_css '#like_create'
       end
 
       it 'click like destroy button(bean)' do
         visit bean_path(bean.id)
-        click_on 'お気に入り登録'
-        expect(page).to have_link 'お気に入り登録'
+        click_link nil, href: like_path(bean_like.id, type: bean_like.type)
+        expect(page).to have_css '#like_create'
       end
     end
 
@@ -83,7 +95,7 @@ RSpec.describe 'Likes', type: :system, js: true do
       end
 
       it 'not render button' do
-        expect(page).to have_no_link 'お気に入り登録中'
+        expect(page).to have_no_css '#like_create'
       end
     end
   end
