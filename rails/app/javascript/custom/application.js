@@ -39,6 +39,9 @@ $(document).on("turbolinks:load", function () {
       $(".placeholder").remove();
       $(".display_none").removeClass("display_none");
     },
+    onStart: function () {
+      $(this).find(".reveal").removeClass("display_none");
+    },
   });
   Turbolinks.setProgressBarDelay(100);
 });
