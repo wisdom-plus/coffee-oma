@@ -45,9 +45,10 @@
           .extra.content
             .ui.placeholder
               .short.line
-            i.comment.teal.icon.display_none
-            | #{bean.reviews_count} reviews
-            i.heart.red.icon.display_none.ml-1rem
-            | #{bean.likes_count} likes
+            .display_none
+              i.comment.teal.icon.display_none
+              | #{bean.reviews_count} reviews
+              i.heart.red.icon.display_none.ml-1rem
+              | #{bean.likes_count} likes
     = paginate @beans
     .segment
