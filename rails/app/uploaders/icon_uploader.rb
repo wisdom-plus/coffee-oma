@@ -19,7 +19,9 @@ class IconUploader < CarrierWave::Uploader::Base
     if Rails.env.test?
       "uploads/#{Rails.env}/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     else
+      # :nocov:
       "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+      # :nocov:
     end
   end
 
