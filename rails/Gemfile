@@ -98,6 +98,7 @@ end
 
 group :test do
   gem 'codecov', require: false
+  gem 'database_cleaner-active_record'
   gem 'simplecov', require: false
   gem 'test-prof', '~> 1.0'
 end

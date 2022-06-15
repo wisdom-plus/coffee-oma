@@ -173,6 +173,10 @@ GEM
       rexml
     crass (1.0.6)
     daemons (1.4.1)
+    database_cleaner-active_record (2.0.1)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     debug_inspector (1.1.0)
     delayed_job (4.1.10)
       activesupport (>= 3.0, < 8.0)
@@ -558,6 +562,7 @@ DEPENDENCIES
   codecov
   counter_culture (~> 2.0)
   daemons
+  database_cleaner-active_record
   delayed_job_active_record
   devise
   devise-async
@@ -614,7 +619,7 @@ DEPENDENCIES
   whenever
 
 RUBY VERSION
-   ruby 2.7.6p219
+   ruby 2.7.4p191
 
 BUNDLED WITH
    2.2.15
