@@ -29,6 +29,6 @@ FactoryBot.define do
     email { 'test@example.com' }
     password { 'password' }
     username { 'test' }
-    icon { Rack::Test::UploadedFile.new('spec/support/test.png','image/png') }
+    icon { Rack::Test::UploadedFile.new('spec/support/test.png', 'image/png') }
   end
 end
