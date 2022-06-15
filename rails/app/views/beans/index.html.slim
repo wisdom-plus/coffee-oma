@@ -24,7 +24,7 @@
             | Top
       - @beans.each do |bean|
         a.ui.fluid.link.card.post.scale href= bean_path(bean.id)
-          .ui.fade.reveal.image
+          .ui.fade.reveal.image.display_none
             = image_tag 'square-image.png',class: 'visible content'
             = image_tag bean.image.url,class: 'hidden content'
           .content
@@ -45,9 +45,10 @@
           .extra.content
             .ui.placeholder
               .short.line
-            i.comment.teal.icon.display_none
-            | #{bean.reviews_count} reviews
-            i.heart.red.icon.display_none.ml-1rem
-            | #{bean.likes_count} likes
+            .display_none
+              i.comment.teal.icon.display_none
+              | #{bean.reviews_count} reviews
+              i.heart.red.icon.display_none.ml-1rem
+              | #{bean.likes_count} likes
     = paginate @beans
     .segment
