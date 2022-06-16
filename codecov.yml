@@ -4,3 +4,5 @@ coverage:
       default:
         target: 100%
         threshold: 1%
+  comment:
+    behavior: new

@@ -32,7 +32,7 @@ FactoryBot.define do
     purification { 'ナチェラル' }
     roast { 'シティ' }
     url { 'https://example.com' }
-    image { File.open('./spec/support/noimage.png') }
+    image { Rack::Test::UploadedFile.new('spec/support/noimage.png', 'image/png') }
     tag_list { 'コーヒー豆' }
   end
 end
