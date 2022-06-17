@@ -69,7 +69,7 @@ group :development, :test do
   gem 'rack-mini-profiler', require: false
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
-  gem 'rubocop', '~> 1.23', require: false
+  gem 'rubocop', '~> 1.30', require: false
   gem 'rubocop-performance'
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec'
