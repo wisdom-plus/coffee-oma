@@ -77,8 +77,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    acts-as-taggable-on (8.1.0)
-      activerecord (>= 5.0, < 6.2)
+    acts-as-taggable-on (9.0.1)
+      activerecord (>= 6.0, < 7.1)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     annotate (3.2.0)
@@ -544,19 +544,19 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin (~> 2.13)
-  acts-as-taggable-on (~> 8.1)
+  acts-as-taggable-on (~> 9.0)
   annotate
   awesome_print
   aws-sdk-rails (~> 3)
   better_errors
   binding_of_caller
-  bootsnap (>= 1.4.2)
+  bootsnap (>= 1.12)
   bootstrap (~> 4.3.1)
   brakeman
   bullet
   byebug
   capybara
-  carrierwave (= 2.2.1)
+  carrierwave (~> 2.2.0)
   codecov
   counter_culture (~> 3.0)
   daemons
