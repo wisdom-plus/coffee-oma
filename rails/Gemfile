@@ -32,7 +32,7 @@ gem 'aws-sdk-rails', '~> 3'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'carrierwave', '2.2.1'
-gem 'counter_culture', '~> 2.0'
+gem 'counter_culture', '~> 3.0'
 gem 'daemons'
 gem 'delayed_job_active_record'
 gem 'devise'
