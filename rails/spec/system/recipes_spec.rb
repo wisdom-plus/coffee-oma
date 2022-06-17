@@ -48,7 +48,7 @@ RSpec.describe 'Recipes', type: :system do
           fill_in 'bean_review_time2', with: '45'
           fill_in 'amount',	with: '230'
           click_button 'submit'
-        end.to change(BeanReview, :count).by 0
+        end.not_to change(BeanReview, :count)
       end
     end
 

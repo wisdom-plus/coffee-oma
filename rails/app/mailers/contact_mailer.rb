@@ -4,7 +4,7 @@ class ContactMailer < ApplicationMailer
   def contact_mail
     @contact = params[:contact]
     mail(
-      to: ENV['MY_MAILADRESS']
+      to: ENV.fetch('MY_MAILADRESS', nil)
     )
   end
 

@@ -119,7 +119,7 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
     port: 587,
     domain: 'coffee-oma.com',
     authentication: :login,
-    user_name: ENV['AWS_SMTP_ACCESS_KEY_ID'],
-    password: ENV['AWS_SMTP_SECRET_ACCESS_KEY']
+    user_name: ENV.fetch('AWS_SMTP_ACCESS_KEY_ID', nil),
+    password: ENV.fetch('AWS_SMTP_SECRET_ACCESS_KEY', nil)
   }
 end

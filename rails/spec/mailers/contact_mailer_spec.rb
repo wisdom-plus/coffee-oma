@@ -12,7 +12,7 @@ RSpec.describe ContactMailer, type: :mailer do
 
       it 'send mail' do
         expect(mail.from.first).to eq('noreply@coffee-oma.com')
-        expect(mail.to.first).to eq(ENV['MY_MAILADRESS'])
+        expect(mail.to.first).to eq(ENV.fetch('MY_MAILADRESS', nil))
         expect(mail.subject).to eq('お問い合わせ通知')
         expect(mail.body).to match('これは問合せメールの本文が入ります')
       end

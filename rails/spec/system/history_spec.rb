@@ -55,7 +55,7 @@ RSpec.describe 'History', type: :system do
     it 'not create history(product)' do
       expect do
         visit product_path(product.id + 1)
-      end.to change(History, :count).by 0
+      end.not_to change(History, :count)
     end
 
     it 'create history(bean)', :perform_enqueued_jobs do
@@ -67,7 +67,7 @@ RSpec.describe 'History', type: :system do
     it 'not create history(bean)' do
       expect do
         visit bean_path(bean.id + 1)
-      end.to change(History, :count).by 0
+      end.not_to change(History, :count)
     end
 
     it 'check the order of history', :perform_enqueued_jobs do

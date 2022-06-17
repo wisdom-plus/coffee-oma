@@ -38,7 +38,7 @@ RSpec.describe 'Beans', type: :system do
           find('#tag', visible: false).set('コーヒー,豆')
           fill_in 'description', with: 'これはテストです'
           click_on 'submit'
-        end.to change(Bean, :count).by 0
+        end.not_to change(Bean, :count)
       end
     end
 

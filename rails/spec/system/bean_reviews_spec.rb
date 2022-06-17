@@ -35,7 +35,7 @@ RSpec.describe 'BeanReviews', type: :system do
           find('#bean_review_flavor', visible: false).set('4')
           find('#bean_review_sweet', visible: false).set('5')
           click_button 'submit'
-        end.to change(BeanReview, :count).by 0
+        end.not_to change(BeanReview, :count)
       end
     end
 
