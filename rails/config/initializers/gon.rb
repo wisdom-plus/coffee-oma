@@ -1,5 +1,5 @@
 Gon.global.tag_form_url = if Rails.env.production?
-                            ENV['TAG_URL']
+                            ENV.fetch('TAG_URL', nil)
                           else
-                            ENV['TAG_LOCAL_URL']
+                            ENV.fetch('TAG_LOCAL_URL', nil)
                           end
