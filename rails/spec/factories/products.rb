@@ -3,15 +3,15 @@
 # Table name: products
 #
 #  id            :bigint           not null, primary key
-#  imageurl      :text(65535)
-#  itemcaption   :text(65535)
-#  itemname      :string(255)
-#  itemprice     :integer
-#  itemurl       :text(65535)
+#  caption       :text(65535)
+#  image         :text(65535)
 #  likes_count   :integer          default(0), not null
+#  name          :string(255)
+#  price         :integer
 #  rate_sum      :integer          default(0), not null
 #  reviews_count :integer          default(0), not null
 #  shopname      :string(255)
+#  url           :text(65535)
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  user_id       :bigint           not null
