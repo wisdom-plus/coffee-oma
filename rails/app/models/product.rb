@@ -34,7 +34,7 @@ class Product < ApplicationRecord
            inverse_of: :product
   belongs_to :user
 
-  mount_uploader :imageurl, ImageurlUploader
+  mount_uploader :image, ImageurlUploader
   acts_as_taggable
 
   validates :itemname, :itemprice, :shopname, :itemcaption, presence: true
