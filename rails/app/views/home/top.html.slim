@@ -80,7 +80,7 @@
       |お気に入りアイテムランキング
     .ui.three.stackable.cards
       - @rankings.each do |rank|
-        a.ui.fluid.link.card.post href= product_path(rank.id) data-turbolinks="false"
+        a.ui.fluid.link.card.post href= product_path(rank.id)
           .image
             =image_tag "square-image.png" ,class: "lazyload",data:{src: "#{rank.image.url}"}
           .content
