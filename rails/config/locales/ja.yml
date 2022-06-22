@@ -67,17 +67,15 @@ ja:
     attributes:
       product:
         keyword: "検索ワード"
-        itemname: "商品名"
-        catchcopy: "キャッチコピー"
-        itemprice: "商品価格"
-        itemcaption: "商品の説明"
-        itemurl: "商品ページURL"
-        imageurl: "画像のURL"
+        name: "商品名"
+        price: "商品価格"
+        caption: "商品の説明"
+        url: "商品ページURL"
+        image: "画像のURL"
         shopname: "メーカー名"
         created_at: "作成日"
         updated_at: "更新日"
         tag_list: "タグ"
-        title: "タイトル"
       bean:
         tag_list: "タグ"
         url: "商品のURL"
