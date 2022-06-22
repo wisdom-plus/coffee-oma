@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Products', type: :request do
   let_it_be(:user) { create(:user) }
   let_it_be(:product) { create(:product, user: user) }
-  let_it_be(:product_params) { attributes_for(:product, imageurl: File.open('./spec/support/noimage.png')) }
+  let_it_be(:product_params) { attributes_for(:product, image: File.open('./spec/support/noimage.png')) }
 
   describe 'GET /products' do
     it 'request success' do
