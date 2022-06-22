@@ -23,7 +23,7 @@ RSpec.describe 'Admin history', type: :system do
     it 'displayed show(product)' do
       visit admin_history_path(history1.id)
       expect(page).to have_content user.username
-      expect(page).to have_content product.itemname
+      expect(page).to have_content product.name
     end
 
     it 'displayed show(bean)' do
