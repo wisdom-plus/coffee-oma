@@ -37,7 +37,7 @@ class Product < ApplicationRecord
   mount_uploader :image, ImageurlUploader
   acts_as_taggable
 
-  validates :itemname, :itemprice, :shopname, :itemcaption, presence: true
+  validates :name, :price, :shopname, :caption, presence: true
 
   scope :keywords_search, ->(keywords) { ransack(keywords) }
   scope :sort_by_likes_count, -> { order('likes_count desc') }
