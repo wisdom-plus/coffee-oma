@@ -27,12 +27,12 @@
 #
 FactoryBot.define do
   factory :product do
-    itemname { 'コーヒーの器具の名前' }
-    itemprice { 1000 }
+    name { 'コーヒーの器具の名前' }
+    price { 1000 }
     shopname { 'コーヒーのお店' }
-    itemurl { 'https://example.com' }
-    itemcaption { 'itemの説明文が入ります' }
-    imageurl { Rack::Test::UploadedFile.new('spec/support/noimage.png', 'image/png') }
+    url { 'https://example.com' }
+    caption { 'itemの説明文が入ります' }
+    image { Rack::Test::UploadedFile.new('spec/support/noimage.png', 'image/png') }
     tag_list { 'コーヒー' }
     user
   end
