@@ -32,10 +32,10 @@ ActiveAdmin.register Report do # rubocop:disable Metrics/BlockLength
       panel '商品レビュー' do
         table_for report.review.product do
           column :id
-          column :itemname
-          column :itemprice
+          column :name
+          column :price
           column :shopname
-          column :itemcaption
+          column :caption
         end
       end
     else

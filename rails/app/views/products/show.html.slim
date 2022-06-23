@@ -10,18 +10,18 @@
     .ui.middle.aligned.stackable.grid.conteiner
       .row
         .six.wide.left.floated.column
-          =image_tag 'square-image.png', class: "ui large bordered rounded image lazyload",data: {src:"#{@product.imageurl}" }
+          =image_tag 'square-image.png', class: "ui large bordered rounded image lazyload",data: {src:"#{@product.image}" }
         .ten.wide.column
           table.ui.celled.table
             thead
               tr
-                th.center.aligned colspan=3  #{@product.itemname}
+                th.center.aligned colspan=3  #{@product.name}
             tbody
               tr
                 td.center.aligned  価格
                 td.center.aligned
                   i.yen.icon.m-0
-                  .inline_yen #{@product.itemprice.to_s(:delimited)}
+                  .inline_yen #{@product.price.to_s(:delimited)}
               tr
                 td.center.aligned ブランド
                 td.center.aligned #{@product.shopname}
@@ -49,7 +49,7 @@
             tbody
               tr
                 td
-                  = simple_format(h(@product.itemcaption))
+                  = simple_format(h(@product.caption))
   h4.ui.horizontal.divider.header
     i.edit.icon
     | ユーザーレビュー

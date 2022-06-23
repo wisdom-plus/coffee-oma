@@ -36,7 +36,7 @@ RSpec.describe 'Admin report', type: :system do
     it 'displayed show(review)' do
       visit admin_report_path(review_report.id)
       expect(page).to have_content user1.username
-      expect(page).to have_content review_report.review.product.itemname
+      expect(page).to have_content review_report.review.product.name
     end
 
     it 'displayed show(bean_review)' do

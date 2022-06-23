@@ -32,10 +32,10 @@ ActiveAdmin.register History do # rubocop:disable Metrics/BlockLength
       panel '商品' do
         table_for history.product do
           column :id
-          column :itemname
-          column :itemprice
+          column :name
+          column :price
           column :shopname
-          column :itemcaption
+          column :caption
         end
       end
     else

@@ -9,7 +9,7 @@ ActiveAdmin.register Product do # rubocop:disable Metrics/BlockLength
   # or
   #
   permit_params do
-    permitted = %i[itemname itemprice shopname imageurl itemurl itemcaption tag_list user_id]
+    permitted = %i[name price shopname image url caption tag_list user_id]
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
   end
 
@@ -39,10 +39,10 @@ ActiveAdmin.register Product do # rubocop:disable Metrics/BlockLength
   index do
     selectable_column
     column :id
-    column :itemname
-    column :itemprice
+    column :name
+    column :price
     column :shopname
-    column :itemcaption
+    column :caption
     column :rate_sum
     column :likes_count
     column :reviews_count
@@ -54,12 +54,12 @@ ActiveAdmin.register Product do # rubocop:disable Metrics/BlockLength
   form do |f|
     f.inputs 'Details', multipart: true do
       f.input :user_id
-      f.input :itemname
-      f.input :itemprice
+      f.input :name
+      f.input :price
       f.input :shopname
-      f.input :imageurl
-      f.input :itemurl
-      f.input :itemcaption
+      f.input :image
+      f.input :url
+      f.input :caption
       f.input :tag_list
     end
     f.actions

@@ -21,15 +21,15 @@
               a.ui.item.grid.spec-item href= product_path(history.product.id)
                 .ui.tiny.image.four.wide.column.fade.reveal
                   = image_tag 'square-image.png',class: 'visible content'
-                  = image_tag history.product.imageurl.url,class: 'hidden content'
+                  = image_tag history.product.image.url,class: 'hidden content'
                 .content.ten.wide.column
                   h2.header
-                    =history.product.itemname
+                    =history.product.name
                   .meta
                     span.mr-1rem Brand:  #{history.product.shopname}
                     span #{time_ago_in_words(history.updated_at)}前
                   .description
-                    =simple_format(h(history.product.itemcaption.truncate(50)))
+                    =simple_format(h(history.product.caption.truncate(50)))
 
             - elsif history.bean_id
               a.ui.item.grid.spec-item href= bean_path(history.bean.id)

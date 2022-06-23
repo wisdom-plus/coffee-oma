@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Products', type: :system do
   let(:product) { create(:product, tag_list: 'コーヒー', user: user) }
-  let(:product1) { create(:product, itemname: '器具の名前が入ります', tag_list: '豆', user: user) }
+  let(:product1) { create(:product, name: '器具の名前が入ります', tag_list: '豆', user: user) }
   let(:user) { create(:user) }
 
   describe 'new' do

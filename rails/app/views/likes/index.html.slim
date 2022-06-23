@@ -13,7 +13,7 @@
     - @rankings.each.with_index(1) do |rank, i|
       a.ui.fluid.link.card.post.scale href= product_path(rank.id)
         .ui.image
-          =image_tag "square-image.png" ,class: "lazyload-post",data: {src:"#{rank.imageurl.url}"}
+          =image_tag "square-image.png" ,class: "lazyload-post",data: {src:"#{rank.image.url}"}
           .ui.teal.top.left.attached.label
             |#{i}
         .content
@@ -25,14 +25,14 @@
               .line
               .line
               .line
-          .herader.display_none =rank.itemname
+          .herader.display_none =rank.name
           .meta.display_none
             span Brand:  #{rank.shopname}
         .extra.content
           .ui.placeholder
               .short.line
           i.yen.icon.m-0.display_none
-            .inline_yen.display_none #{rank.itemprice.to_s(:delimited)}
+            .inline_yen.display_none #{rank.price.to_s(:delimited)}
           .right.floated.display_none
             i.comment.teal.icon
             | #{rank.reviews_count} reviews
