@@ -59,5 +59,7 @@ class IconUploader < CarrierWave::Uploader::Base
     original_filename
   end
 
-
+  def size_range
+    1..10.megabytes
+  end
 end
