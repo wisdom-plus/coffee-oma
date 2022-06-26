@@ -10,6 +10,8 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  config.lograge.enabled = true
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
