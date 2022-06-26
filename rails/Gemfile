@@ -58,6 +58,7 @@ gem 'sitemap_generator'
 gem 'slim'
 gem 'slim-rails'
 gem 'lograge'
+gem 'logstash-event'
 gem 'whenever', require: false
 
 group :development, :test do
