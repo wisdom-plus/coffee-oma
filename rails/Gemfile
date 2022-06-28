@@ -47,6 +47,8 @@ gem 'gon'
 gem 'gretel'
 gem 'html2slim'
 gem 'kaminari'
+gem 'lograge'
+gem 'logstash-event'
 gem 'meta-tags'
 gem 'mini_magick'
 gem 'rails-i18n'
@@ -57,8 +59,6 @@ gem 'semantic-ui-sass', '~> 2.4', '>= 2.4.2.0'
 gem 'sitemap_generator'
 gem 'slim'
 gem 'slim-rails'
-gem 'lograge'
-gem 'logstash-event'
 gem 'whenever', require: false
 
 group :development, :test do
