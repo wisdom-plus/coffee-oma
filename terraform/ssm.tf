@@ -1,13 +1,7 @@
 resource "aws_ssm_parameter" "secret" {
-  name = "var_file"
+  name = "ENV_FILE"
   type = "SecureString"
   value = var.env_file
-}
-
-resource "aws_ssm_parameter" "db" {
-  name = "db_password"
-  type = "SecureString"
-  value = var.rds_password
 }
 
 resource "aws_secretsmanager_secret" "env_file" {
