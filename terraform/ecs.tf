@@ -44,7 +44,7 @@ data "template_file" "rails_task" {
   template = file("${path.module}/task/rails_container_definitions.json")
 
   vars = {
-    env_file    = var.env_file,
+    ssm_parameter = aws_ssm_parameter.secret.arn,
     rails_image = var.rails_image,
     nginx_image = var.nginx_image
   }
