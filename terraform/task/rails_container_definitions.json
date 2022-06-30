@@ -9,10 +9,12 @@
       {
         "name": "RAILS_ENV",
         "value": "production"
-      },
+      }
+    ],
+    "secrets": [
       {
         "name": "ENV_FILE",
-        "value": "${env_file}"
+        "valueFrom": "${ssm_parameter}"
       }
     ],
     "logConfiguration": {
