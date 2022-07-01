@@ -1,14 +1,14 @@
 $(document).on("turbolinks:load", function () {
   // Action textを変更
   const Trix = require("trix");
-  Trix.default.config.blockAttributes.default = {
+  Trix.config.blockAttributes.default = {
     tagName: "p",
     breaakOnReturn: true,
   };
-  Trix.default.config.blockAttributes.heading2 = {
+  Trix.config.blockAttributes.heading2 = {
     tagName: "h2",
   };
-  Trix.default.config.blockAttributes.heading3 = {
+  Trix.config.blockAttributes.heading3 = {
     tagName: "h3",
   };
 
