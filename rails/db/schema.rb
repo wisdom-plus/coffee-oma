@@ -178,14 +178,15 @@ ActiveRecord::Schema.define(version: 2022_07_03_115229) do
   end
 
   create_table "notifications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "action", default: "", null: false
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-    t.bigint "record_id", null: false
+    t.string "source_type"
+    t.bigint "source_id"
     t.index ["checked"], name: "index_notifications_on_checked"
     t.index ["created_at"], name: "index_notifications_on_created_at"
+    t.index ["source_type", "source_id"], name: "index_notifications_on_source"
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
