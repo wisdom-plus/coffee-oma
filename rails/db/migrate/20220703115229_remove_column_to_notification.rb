@@ -6,5 +6,6 @@ class RemoveColumnToNotification < ActiveRecord::Migration[6.1]
     remove_reference :notifications, :visited
     add_reference :notifications, :user, foreign_key: true
     add_column :notifications, :record_id, :bigint, null: false
+    add_index :notifications, [:action, :record_id]
   end
 end
