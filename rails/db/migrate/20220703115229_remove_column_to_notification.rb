@@ -1,9 +1,10 @@
 class RemoveColumnToNotification < ActiveRecord::Migration[6.1]
   def change
-    change_table :notifications do |t|
-      t.remove :visited_id, :visitor_id, :like_id, :message_id
-      t.rename :visited_id, :user_id
-    end
-
+    remove_reference :notifications, :like
+    remove_reference :notifications, :message
+    remove_reference :notifications, :visitor
+    remove_reference :notifications, :visited
+    add_reference :notifications, :user, foreign_key: true
+    add_column :notifications, :record_id, :bigint, null: false
   end
 end
