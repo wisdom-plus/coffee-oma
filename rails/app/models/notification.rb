@@ -26,8 +26,6 @@ class Notification < ApplicationRecord
   belongs_to :like, optional: true
   belongs_to :relationship,optional: true
 
-  before_save :check_some_user?
-
   scope :history_order, -> { order(updated_at: :desc) }
   scope :checked_false, -> { where(checked: false) }
   scope :action_filter, ->(action) { select { |n| n.action == action } }
@@ -39,11 +37,5 @@ class Notification < ApplicationRecord
 
   def self.follow_notification(current_user_id, follower_id)
     where(['visitor_id = ? and visited_id = ? and action = ?', current_user_id, follower_id, 'follow'])
-  end
-
-  def check_some_user?
-    return unless visitor_id == visited_id
-
-    self.checked = true
   end
 end
