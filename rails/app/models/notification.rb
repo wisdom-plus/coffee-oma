@@ -2,18 +2,19 @@
 #
 # Table name: notifications
 #
-#  id         :bigint           not null, primary key
-#  action     :string(255)      default(""), not null
-#  checked    :boolean          default(FALSE), not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  record_id  :bigint           not null
-#  user_id    :bigint
+#  id          :bigint           not null, primary key
+#  checked     :boolean          default(FALSE), not null
+#  source_type :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  source_id   :bigint
+#  user_id     :bigint
 #
 # Indexes
 #
 #  index_notifications_on_checked     (checked)
 #  index_notifications_on_created_at  (created_at)
+#  index_notifications_on_source      (source_type,source_id)
 #  index_notifications_on_user_id     (user_id)
 #
 # Foreign Keys
@@ -22,6 +23,7 @@
 #
 class Notification < ApplicationRecord
   belongs_to :user
+  belongs_to :action,polymorphic: true
   belongs_to :message, optional: true
   belongs_to :like, optional: true
   belongs_to :relationship,optional: true

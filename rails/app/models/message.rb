@@ -22,7 +22,7 @@
 class Message < ApplicationRecord
   belongs_to :user
   belongs_to :room
-  has_many :notifications, dependent: :destroy
+  has_many :notifications, dependent: :destroy,foreign_key: 'record_id'
   validates :message, presence: true
 
   scope :associated_message, ->(room_id) { where(room_id: room_id) }
