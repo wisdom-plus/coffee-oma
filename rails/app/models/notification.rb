@@ -23,10 +23,7 @@
 #
 class Notification < ApplicationRecord
   belongs_to :user
-  belongs_to :action,polymorphic: true
-  belongs_to :message, optional: true
-  belongs_to :like, optional: true
-  belongs_to :relationship,optional: true
+  belongs_to :source, polymorphic: true
 
   scope :history_order, -> { order(updated_at: :desc) }
   scope :checked_false, -> { where(checked: false) }
