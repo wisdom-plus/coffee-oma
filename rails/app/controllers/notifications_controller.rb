@@ -3,11 +3,11 @@ class NotificationsController < ApplicationController
   after_action -> { Notification.checked_notifications(current_user.id) }
 
   def index
-    @notifications = current_user.passive_notifications.includes(:visitor, :message).limit(25).history_order
-    @follow_notifications = @notifications.action_filter('follow')
-    @bean_review_like_notifications = @notifications.action_filter('BeanReviewLike')
-    @product_review_like_notifications = @notifications.action_filter('ProductReviewLike')
-    @message_notifications = @notifications.action_filter('message')
+    @notifications = current_user.notifications.includes(:like, :message,:relationships).limit(25).history_order
+    @follow_notifications = @notifications.ype_filter('follow')
+    @bean_review_like_notifications = @notifications.type_filter('BeanReviewLike')
+    @product_review_like_notifications = @notifications.type_filter('ProductReviewLike')
+    @message_notifications = @notifications.type_filter('message')
     notification_include(@notifications)
     review_like_include(@bean_review_like_notifications)
     bean_review_like_include(@product_review_like_notifications)
