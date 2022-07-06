@@ -31,6 +31,6 @@ class Notification < ApplicationRecord
 
   def self.checked_notifications(user_id)
     user = User.find(user_id)
-    user.passive_notifications.checked_false.update_all(checked: true) # rubocop:disable Rails/SkipsModelValidations
+    user.notifications.checked_false.update_all(checked: true) # rubocop:disable Rails/SkipsModelValidations
   end
 end
