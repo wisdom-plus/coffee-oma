@@ -27,7 +27,7 @@ class Notification < ApplicationRecord
 
   scope :history_order, -> { order(updated_at: :desc) }
   scope :checked_false, -> { where(checked: false) }
-  scope :action_filter, ->(action) { select { |n| n.action == action } }
+  scope :type_filter, ->(type) { select { |n| n.source_type == type } }
 
   def self.checked_notifications(user_id)
     user = User.find(user_id)
