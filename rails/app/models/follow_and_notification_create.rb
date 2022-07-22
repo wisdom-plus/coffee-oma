@@ -6,18 +6,18 @@ class FollowAndNotificationCreate
 
   def create
     follow = Follow.new(@current_user, @user).follow
-    create_notification(@current_user)
+    create_notification(@current_user,follow)
     follow
   end
 
   private
 
-    def create_notification(current_user)
-      temp = Notification.follow_notification(current_user.id, @user.id)
+    def create_notification(current_user,follow)
+      temp = follow.notifications
       if temp.present?
         temp.update(checked: false)
       else
-        notification = current_user.active_notifications.new(visited_id: current_user.id, action: 'follow')
+        notification = current_user.notifications.new(source: follow)
         notification.save
       end
     end
