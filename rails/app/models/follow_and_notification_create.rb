@@ -17,7 +17,7 @@ class FollowAndNotificationCreate
       if temp.present?
         temp.update(checked: false)
       else
-        notification = current_user.notifications.new(source: follow)
+        notification = Notification.new(source: follow, user_id: follow.follow_id)
         notification.save
       end
     end
