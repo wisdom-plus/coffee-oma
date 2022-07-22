@@ -20,8 +20,8 @@
             .ui.segment
               .ui.items
                 .item
-                  - case notification.action
-                  - when 'follow'
+                  - case notification.source_type
+                  - when 'Relationship'
                     h3.ui.icon.header
                       i.blue.users.icon.mt-10
                     .ui.tiny.circular.image
@@ -58,7 +58,7 @@
                         span.date #{time_ago_in_words(notification.created_at)}前
                       .description
                         =simple_format(h(notification.like.bean_review.content))
-                  - when 'message'
+                  - when 'Message'
                     h3.ui.icon.header
                       i.blue.mail.icon.mt-10
                     .ui.tiny.circular.image
