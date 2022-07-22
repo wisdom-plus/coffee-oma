@@ -34,7 +34,4 @@ class Notification < ApplicationRecord
     user.notifications.checked_false.update_all(checked: true) # rubocop:disable Rails/SkipsModelValidations
   end
 
-  def self.follow_notifications(user_id)
-
-  end
 end
