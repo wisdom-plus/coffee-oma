@@ -4,7 +4,7 @@ class NotificationsController < ApplicationController
 
   def index
     @notifications = current_user.notifications.includes(:like, :message,:relationships).limit(25).history_order
-    @follow_notifications = @notifications.ype_filter('follow')
+    @follow_notifications = @notifications.type_filter('follow')
     @bean_review_like_notifications = @notifications.type_filter('BeanReviewLike')
     @product_review_like_notifications = @notifications.type_filter('ProductReviewLike')
     @message_notifications = @notifications.type_filter('message')
