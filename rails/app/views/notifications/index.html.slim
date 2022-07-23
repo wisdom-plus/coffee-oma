@@ -64,7 +64,7 @@
                     .ui.tiny.circular.image
                         img src = notification.sender.icon.url
                     .content
-                      a.header href = room_path(notification.message.room_id)
+                      a.header href = room_path(notification.source.room_id)
                         = notification.sender.username
                         |さんからメッセージが届きました
                       .meta
@@ -140,7 +140,7 @@
                   .ui.tiny.circular.image
                     img src = notification.sender.icon.url
                   .content
-                    a.header href = room_path(notification.message.room_id)
+                    a.header href = room_path(notification.source.room_id)
                       = notification.sender.username
                       |さんからメッセージが届きました
                     .meta
