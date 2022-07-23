@@ -29,9 +29,14 @@ class Notification < ApplicationRecord
   scope :checked_false, -> { where(checked: false) }
   scope :type_filter, ->(type) { select { |n| n.source_type == type } }
 
+
   def self.checked_notifications(user_id)
     user = User.find(user_id)
     user.notifications.checked_false.update_all(checked: true) # rubocop:disable Rails/SkipsModelValidations
+  end
+
+  def sender
+    source.user
   end
 
 end
