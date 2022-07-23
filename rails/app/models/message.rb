@@ -32,6 +32,7 @@ class Message < ApplicationRecord
   end
 
   def sender
+    #メソッド名は変更予定
     room.another_user(user)
   end
 end
