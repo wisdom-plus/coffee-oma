@@ -25,10 +25,10 @@
                     h3.ui.icon.header
                       i.blue.users.icon.mt-10
                     .ui.tiny.circular.image
-                      img src = notification.visitor.icon.url
+                      img src = notification.sender.icon.url
                     .content
-                      a.header href = "/users/#{notification.visitor.id}/show"
-                        = notification.visitor.username
+                      a.header href = "/users/#{notification.sender.id}/show"
+                        = notification.sender.username
                         |さんにフォローされました
                       .meta
                         span.date #{time_ago_in_words(notification.created_at)}前
@@ -36,10 +36,10 @@
                     h3.ui.icon.header
                       i.red.heart.icon.mt-10
                     .ui.tiny.circular.image
-                        img src = notification.visitor.icon.url
+                        img src = notification.sender.icon.url
                     .content
                       a.header href = product_path(notification.like.liked_id)
-                        = notification.visitor.username
+                        = notification.sender.username
                         |さんがあなたのレビューにライクしました
                       .meta
                         span.date #{time_ago_in_words(notification.created_at)}前
@@ -49,10 +49,10 @@
                     h3.ui.icon.header
                       i.red.heart.icon.mt-10
                     .ui.tiny.circular.image
-                        img src = notification.visitor.icon.url
+                        img src = notification.sender.icon.url
                     .content
                       a.header href = bean_path(notification.like.liked_id)
-                        = notification.visitor.username
+                        = notification.sender.username
                         |さんがあなたのレビューにライクしました
                       .meta
                         span.date #{time_ago_in_words(notification.created_at)}前
@@ -62,10 +62,10 @@
                     h3.ui.icon.header
                       i.blue.mail.icon.mt-10
                     .ui.tiny.circular.image
-                        img src = notification.visitor.icon.url
+                        img src = notification.sender.icon.url
                     .content
                       a.header href = room_path(notification.message.room_id)
-                        = notification.visitor.username
+                        = notification.sender.username
                         |さんからメッセージが届きました
                       .meta
                         span.date #{time_ago_in_words(notification.created_at)}前
@@ -80,10 +80,10 @@
                   h3.ui.icon.header
                     i.blue.users.icon.mt-10
                   .ui.tiny.circular.image
-                    img src = notification.visitor.icon.url
+                    img src = notification.sender.icon.url
                   .content
-                    a.header href = "users/#{notification.visitor.id}/show"
-                      = notification.visitor.username
+                    a.header href = "users/#{notification.sender.id}/show"
+                      = notification.sender.username
                       |さんにフォローされました
                     .meta
                       span.date #{time_ago_in_words(notification.created_at)}前
@@ -98,10 +98,10 @@
                   h3.ui.icon.header
                     i.red.heart.icon.mt-10
                   .ui.tiny.circular.image
-                    img src = notification.visitor.icon.url
+                    img src = notification.sender.icon.url
                   .content
                     a.header href = product_path(notification.like.liked_id)
-                      = notification.visitor.username
+                      = notification.sender.username
                       |さんがあなたのレビューにライクしました
                     .meta
                       span.date #{time_ago_in_words(notification.created_at)}前
@@ -118,10 +118,10 @@
                   h3.ui.icon.header
                     i.red.heart.icon.mt-10
                   .ui.tiny.circular.image
-                    img src = notification.visitor.icon.url
+                    img src = notification.sender.icon.url
                   .content
                     a.header href = bean_path(notification.like.liked_id)
-                      = notification.visitor.username
+                      = notification.sender.username
                       |さんがあなたのレビューにライクしました
                     .meta
                       span.date #{time_ago_in_words(notification.created_at)}前
@@ -138,10 +138,10 @@
                   h3.ui.icon.header
                     i.blue.mail.icon.mt-10
                   .ui.tiny.circular.image
-                    img src = notification.visitor.icon.url
+                    img src = notification.sender.icon.url
                   .content
                     a.header href = room_path(notification.message.room_id)
-                      = notification.visitor.username
+                      = notification.sender.username
                       |さんからメッセージが届きました
                     .meta
                       span.date #{time_ago_in_words(notification.created_at)}前
