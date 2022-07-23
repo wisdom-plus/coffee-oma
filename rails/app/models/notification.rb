@@ -21,6 +21,8 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
+# userは通知の受取手
+# 通知の送信者はsenderで取り出すことができる
 class Notification < ApplicationRecord
   belongs_to :user
   belongs_to :source, polymorphic: true
