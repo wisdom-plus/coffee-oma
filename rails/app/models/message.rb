@@ -30,4 +30,8 @@ class Message < ApplicationRecord
   def self.room_message(room_id)
     Message.includes([:user]).associated_message(room_id)
   end
+
+  def sender
+    room.another_user(user)
+  end
 end
