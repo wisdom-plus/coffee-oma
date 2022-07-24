@@ -8,8 +8,8 @@ class NotificationsController < ApplicationController
     @like_notifications = @notifications.type_filter('Like')
     @message_notifications = @notifications.type_filter('Message')
     notification_include(@notifications)
-    review_like_include(@bean_review_like_notifications)
-    bean_review_like_include(@product_review_like_notifications)
+    # review_like_include(@bean_review_like_notifications)
+    # bean_review_like_include(@product_review_like_notifications)
   end
 
   private
