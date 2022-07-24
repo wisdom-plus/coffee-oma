@@ -31,8 +31,7 @@ class Message < ApplicationRecord
     Message.includes([:user]).associated_message(room_id)
   end
 
-  def sender
-    #メソッド名は変更予定
+  def receiver
     room.another_user(user)
   end
 end
