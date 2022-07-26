@@ -33,8 +33,8 @@ class Notification < ApplicationRecord
 
 
   def self.checked_notifications(user_id)
-    user = User.find(user_id)
-    user.notifications.checked_false.update_all(checked: true) # rubocop:disable Rails/SkipsModelValidations
+    notifications = Notification.where(user_id: user_id, checked: false)
+    notifications.update_all(checked: true) # rubocop:disable Rails/SkipsModelValidations
   end
 
   def sender
