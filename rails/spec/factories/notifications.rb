@@ -25,21 +25,5 @@ FactoryBot.define do
   factory :notification do
     user
     checked { false }
-
-    factory :product_review_like_notification do
-      source { product_review_like }
-    end
-
-    factory :bean_review_like_notification do
-      source { bean_review_like }
-    end
-
-    factory :message_notification do
-      source { message }
-    end
-
-    factory :follow_notification do
-      source { relationship}
-    end
   end
 end

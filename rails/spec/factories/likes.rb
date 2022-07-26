@@ -17,21 +17,5 @@
 FactoryBot.define do
   factory :like do
     user
-
-    factory :product_like do
-      liked { product }
-    end
-
-    factory :bean_like do
-      liked { bean }
-    end
-
-    factory :product_review_like do
-      liked { review }
-    end
-
-    factory :bean_review_like do
-      liked { bean_review }
-    end
   end
 end
