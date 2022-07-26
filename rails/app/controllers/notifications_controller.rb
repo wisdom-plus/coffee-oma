@@ -15,7 +15,7 @@ class NotificationsController < ApplicationController
 
     def notification_include(likes)
       preloader = ActiveRecord::Associations::Preloader.new
-      preloader.preload(likes.select { |i| i.source.class.name == 'BeanReviewLike' }, source: [:bean_review,:user])
-      preloader.preload(likes.select { |i| i.source.class.name == 'ProductReviewLike' }, source: [:review,:user])
+      preloader.preload(likes.select { |i| i.source.instance_of?(BeanReviewLike) }, source: %i[bean_review user])
+      preloader.preload(likes.select { |i| i.source.instance_of?(ProductReviewLike) }, source: %i[review user])
     end
 end

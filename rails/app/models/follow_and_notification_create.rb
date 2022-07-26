@@ -6,13 +6,13 @@ class FollowAndNotificationCreate
 
   def create
     follow = Follow.new(@current_user, @user).follow
-    create_notification(@current_user,follow)
+    create_notification(@current_user, follow)
     follow
   end
 
   private
 
-    def create_notification(current_user,follow)
+    def create_notification(_current_user, follow)
       temp = follow.notifications
       if temp.present?
         temp.update(checked: false)

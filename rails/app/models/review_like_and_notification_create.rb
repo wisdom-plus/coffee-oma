@@ -23,7 +23,7 @@ class ReviewLikeAndNotificationCreate
   private
 
     def create_notification(review_like, user)
-      notification = Notification.new(source: review_like,user: user)
+      notification = Notification.new(source: review_like, user: user)
       notification.save
     end
 end

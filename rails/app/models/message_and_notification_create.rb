@@ -15,7 +15,7 @@ class MessageAndNotificationCreate
   private
 
     def create_notification(message)
-      notification =Notification.new(source: message, user: message.receiver)
+      notification = Notification.new(source: message, user: message.receiver)
       notification.save
     end
 end
