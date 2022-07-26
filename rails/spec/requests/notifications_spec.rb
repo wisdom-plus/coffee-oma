@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Notifications', type: :request do
   let_it_be(:user) { create(:user) }
   let_it_be(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
-  let_it_be(:notification) { create(:notification, visitor: user, visited: user1, action: 'follow') }
+  let_it_be(:follow) { create(:relationship,user: user, follow: user)}
+  let_it_be(:notification) { create(:notification, source: follow,user: user) }
 
   describe 'GET /index' do
     before do
