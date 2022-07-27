@@ -3,7 +3,7 @@ class RelationshipsController < ApplicationController
 
   def create
     @user = User.find_by(id: params[:follow_id])
-    @follow = FollowAndNotificationCreate.new(current_user, user).create
+    @follow = FollowAndNotificationCreate.new(current_user, @user).create
     # @userと@followが必要
     respond_to do |format|
       format.js
