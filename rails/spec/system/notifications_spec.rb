@@ -76,7 +76,30 @@ RSpec.describe 'Notifications', type: :system do
     end
   end
 
-  describe 'like_notification' do
+  describe 'product_review_like_notification' do
+    before do
+      notification_bean_review_like
+      login(user, user.email, user.password)
+    end
+
+    it 'render new_notification icon' do
+      visit root_path
+      expect(page).to have_css '.new_notification'
+    end
+
+    it 'create like notification' do
+      visit notifications_path
+      expect(page).to have_content "#{user1.username}さんがあなたのレビューにライクしました"
+    end
+
+    it 'not render new_notification icon' do
+      visit notifications_path
+      visit root_path
+      expect(page).to have_no_css '.new_notification'
+    end
+  end
+
+  describe 'bean_review_like_notification' do
     before do
       notification_product_review_like
       login(user, user.email, user.password)
@@ -98,6 +121,7 @@ RSpec.describe 'Notifications', type: :system do
       expect(page).to have_no_css '.new_notification'
     end
   end
+
 
   describe 'message_notification' do
     before do

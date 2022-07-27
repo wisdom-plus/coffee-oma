@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="3" skipped="0" failures="0" errors="0" time="22.181650" timestamp="2022-07-27T07:06:44+00:00" hostname="359acfb198ff">
+<testsuite name="rspec" tests="16" skipped="0" failures="0" errors="0" time="38.398271" timestamp="2022-07-27T11:05:21+00:00" hostname="359acfb198ff">
 <properties>
-<property name="seed" value="47326"/>
+<property name="seed" value="37564"/>
 </properties>
-<testcase classname="spec.system.admin.notification_spec" name="Admin Notifications notification displayed index" file="./spec/system/admin/notification_spec.rb" time="20.461728"></testcase>
-<testcase classname="spec.system.admin.notification_spec" name="Admin Notifications notification displayed show(follow)" file="./spec/system/admin/notification_spec.rb" time="0.819282"></testcase>
-<testcase classname="spec.system.admin.notification_spec" name="Admin Notifications notification delete resource" file="./spec/system/admin/notification_spec.rb" time="0.885153"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications index when login render page" file="./spec/system/notifications_spec.rb" time="22.786073"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications index when login render new_notification icon" file="./spec/system/notifications_spec.rb" time="1.134577"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications index when login not render new_notification icon" file="./spec/system/notifications_spec.rb" time="1.194683"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications index when not login not render page" file="./spec/system/notifications_spec.rb" time="0.174012"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications follow_notification render new_notification icon" file="./spec/system/notifications_spec.rb" time="0.743671"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications follow_notification create follow notification" file="./spec/system/notifications_spec.rb" time="0.948664"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications follow_notification not render new_notification icon" file="./spec/system/notifications_spec.rb" time="0.826333"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications product_review_like_notification render new_notification icon" file="./spec/system/notifications_spec.rb" time="1.134246"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications product_review_like_notification create like notification" file="./spec/system/notifications_spec.rb" time="1.255267"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications product_review_like_notification not render new_notification icon" file="./spec/system/notifications_spec.rb" time="1.376967"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications bean_review_like_notification render new_notification icon" file="./spec/system/notifications_spec.rb" time="1.144897"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications bean_review_like_notification create like notification" file="./spec/system/notifications_spec.rb" time="1.037216"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications bean_review_like_notification not render new_notification icon" file="./spec/system/notifications_spec.rb" time="1.242330"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications message_notification render new_notification icon" file="./spec/system/notifications_spec.rb" time="0.852305"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications message_notification create like notification" file="./spec/system/notifications_spec.rb" time="1.125861"></testcase>
+<testcase classname="spec.system.notifications_spec" name="Notifications message_notification not render new_notification icon" file="./spec/system/notifications_spec.rb" time="1.210985"></testcase>
 </testsuite>
