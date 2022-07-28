@@ -1,4 +1,4 @@
-ActiveAdmin.register Notification do
+ActiveAdmin.register Notification do # rubocop:disable Metrics/BlockLength
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -15,7 +15,6 @@ ActiveAdmin.register Notification do
     column :source_type
     column :checked
     column :created_at
-    column :updated_at
     actions
   end
 
