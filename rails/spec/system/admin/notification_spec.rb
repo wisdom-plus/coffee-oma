@@ -5,7 +5,7 @@ RSpec.describe 'Admin Notifications', type: :system do
   let(:user) { create(:user) }
   let(:user1) { create(:user, email: 'test2@example.com', username: 'test2') }
   let(:product) { create(:product, user: user) }
-  let(:follow) { create(:relationship,user: user, follow: user1) }
+  let(:follow) { create(:relationship, user: user, follow: user1) }
   let(:notification_follow) { create(:notification, source: follow, user: user) }
 
   describe 'notification' do

@@ -3,19 +3,19 @@ require 'rails_helper'
 RSpec.describe 'Notifications', type: :system do
   let(:user) { create(:user) }
   let(:user1) { create(:user, email: 'test2@example.com', username: 'test2') }
-  let(:follow) { create(:relationship, user: user1, follow: user)}
+  let(:follow) { create(:relationship, user: user1, follow: user) }
   let(:product) { create(:product, user: user) }
   let(:review) { create(:review, user: user, product: product) }
   let(:product_review_like) { create(:like, user: user1, liked_id: review.id, type: 'ProductReviewLike') }
-  let(:bean) { create(:bean, user: user)}
+  let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }
   let(:bean_review_like) { create(:like, user: user1, liked_id: bean_review.id, type: 'BeanReviewLike') }
   let(:room) { create(:room, participant1: user, participant2: user1) }
   let(:message) { create(:message, room: room, user: user1) }
   let(:notification_follow) { create(:notification, user: user, source: follow) }
-  let(:notification_product_review_like) { create(:notification, user: user, source: product_review_like ) }
-  let(:notification_bean_review_like) { create(:notification, user: user, source: bean_review_like ) }
-  let(:notification_message) { create(:notification,user: user, source: message) }
+  let(:notification_product_review_like) { create(:notification, user: user, source: product_review_like) }
+  let(:notification_bean_review_like) { create(:notification, user: user, source: bean_review_like) }
+  let(:notification_message) { create(:notification, user: user, source: message) }
 
   describe 'index' do
     context 'when login' do
@@ -121,7 +121,6 @@ RSpec.describe 'Notifications', type: :system do
       expect(page).to have_no_css '.new_notification'
     end
   end
-
 
   describe 'message_notification' do
     before do
