@@ -58,7 +58,7 @@ RSpec.describe Room, type: :model do
     it 'check_participant(1 < 2)' do
       user
       user1
-      r = Room.new(participant1_id:user.id, participant2_id:user1.id)
+      r = Room.new(participant1_id: user.id, participant2_id: user1.id)
       r.save
       expect(Room.last.participant1_id).to eq user.id
     end
@@ -66,7 +66,7 @@ RSpec.describe Room, type: :model do
     it 'check_participant(2 > 1)' do
       user
       user1
-      r = Room.new(participant1_id:user1.id, participant2_id:user.id)
+      r = Room.new(participant1_id: user1.id, participant2_id: user.id)
       r.save
       expect(Room.last.participant1_id).to eq user.id
     end
