@@ -19,6 +19,17 @@ RSpec.describe 'Admin Notifications', type: :system do
       expect(page).to have_content '通知'
     end
 
+    it 'created notification' do
+      expect do
+        visit new_admin_notification_path
+        fill_in 'notification_user_id', with: user.id
+        fill_in 'notification_source_id', with: follow.id
+        fill_in 'notification_source_type', with: 'Relationship'
+        uncheck 'notification_checked'
+        click_on '通知を作成'
+      end.to change(Notification, :count).by(1)
+    end
+
     it 'displayed show(follow)' do
       visit admin_notification_path(notification_follow.id)
       expect(page).to have_content notification_follow.id
