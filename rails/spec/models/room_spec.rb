@@ -54,5 +54,21 @@ RSpec.describe Room, type: :model do
       expect(r.another_user(user)).to eq user1
       expect(r.another_user(user1)).to eq user
     end
+
+    it 'check_participant(1 < 2)' do
+      user
+      user1
+      r = Room.new(participant1_id: user.id, participant2_id: user1.id)
+      r.save
+      expect(Room.last.participant1_id).to eq user.id
+    end
+
+    it 'check_participant(2 > 1)' do
+      user
+      user1
+      r = Room.new(participant1_id: user1.id, participant2_id: user.id)
+      r.save
+      expect(Room.last.participant1_id).to eq user.id
+    end
   end
 end

@@ -22,12 +22,16 @@
 class Message < ApplicationRecord
   belongs_to :user
   belongs_to :room
-  has_many :notifications, dependent: :destroy
+  has_many :notifications, dependent: :destroy, as: :source
   validates :message, presence: true
 
   scope :associated_message, ->(room_id) { where(room_id: room_id) }
 
   def self.room_message(room_id)
     Message.includes([:user]).associated_message(room_id)
+  end
+
+  def receiver
+    room.another_user(user)
   end
 end

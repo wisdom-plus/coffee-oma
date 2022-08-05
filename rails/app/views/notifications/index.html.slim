@@ -9,9 +9,8 @@
       .ui.top.attached.four.tabular.menu
         a.active.item data-tab = "first" すべて
         a.item data-tab = "second" フォロー
-        a.item data-tab = "third" アイテムレビューライク
-        a.item data-tab = "four" コーヒー豆レビューライク
-        a.item data-tab = "five" メッセージ
+        a.item data-tab = "third" レビューお気に入り
+        a.item data-tab = "four" メッセージ
       .ui.bottom.attached.tab.segment.active data-tab= "first"
         - if @notifications.empty?
           |通知はまだ届いていません
@@ -20,52 +19,48 @@
             .ui.segment
               .ui.items
                 .item
-                  - case notification.action
-                  - when 'follow'
+                  - case notification.source_type
+                  - when 'Relationship'
                     h3.ui.icon.header
                       i.blue.users.icon.mt-10
                     .ui.tiny.circular.image
-                      img src = notification.visitor.icon.url
+                      img src = notification.sender.icon.url
                     .content
-                      a.header href = "/users/#{notification.visitor.id}/show"
-                        = notification.visitor.username
+                      a.header href = "/users/#{notification.sender.id}/show"
+                        = notification.sender.username
                         |さんにフォローされました
                       .meta
                         span.date #{time_ago_in_words(notification.created_at)}前
-                  - when "ProductReviewLike"
+                  - when "Like"
                     h3.ui.icon.header
                       i.red.heart.icon.mt-10
                     .ui.tiny.circular.image
-                        img src = notification.visitor.icon.url
+                      img src = notification.sender.icon.url
                     .content
-                      a.header href = product_path(notification.like.liked_id)
-                        = notification.visitor.username
-                        |さんがあなたのレビューにライクしました
-                      .meta
-                        span.date #{time_ago_in_words(notification.created_at)}前
-                      .description
-                        =simple_format(h(notification.like.review.content))
-                  - when "BeanReviewLike"
-                    h3.ui.icon.header
-                      i.red.heart.icon.mt-10
-                    .ui.tiny.circular.image
-                        img src = notification.visitor.icon.url
-                    .content
-                      a.header href = bean_path(notification.like.liked_id)
-                        = notification.visitor.username
-                        |さんがあなたのレビューにライクしました
-                      .meta
-                        span.date #{time_ago_in_words(notification.created_at)}前
-                      .description
-                        =simple_format(h(notification.like.bean_review.content))
-                  - when 'message'
+                      - if notification.source.class.name === 'ProductReviewLike'
+                        a.header href = product_path(notification.source.liked_id)
+                          = notification.sender.username
+                          |さんがあなたのレビューにライクしました
+                        .meta
+                          span.date #{time_ago_in_words(notification.created_at)}前
+                        .description
+                          =simple_format(h(notification.source.review.content))
+                      - elsif notification.source.class.name === 'BeanReviewLike'
+                        a.header href = bean_path(notification.source.liked_id)
+                          = notification.sender.username
+                          |さんがあなたのレビューにライクしました
+                        .meta
+                          span.date #{time_ago_in_words(notification.created_at)}前
+                        .description
+                          =simple_format(h(notification.source.bean_review.content))
+                  - when 'Message'
                     h3.ui.icon.header
                       i.blue.mail.icon.mt-10
                     .ui.tiny.circular.image
-                        img src = notification.visitor.icon.url
+                        img src = notification.sender.icon.url
                     .content
-                      a.header href = room_path(notification.message.room_id)
-                        = notification.visitor.username
+                      a.header href = room_path(notification.source.room_id)
+                        = notification.sender.username
                         |さんからメッセージが届きました
                       .meta
                         span.date #{time_ago_in_words(notification.created_at)}前
@@ -80,54 +75,19 @@
                   h3.ui.icon.header
                     i.blue.users.icon.mt-10
                   .ui.tiny.circular.image
-                    img src = notification.visitor.icon.url
+                    img src = notification.sender.icon.url
                   .content
-                    a.header href = "users/#{notification.visitor.id}/show"
-                      = notification.visitor.username
+                    a.header href = "users/#{notification.sender.id}/show"
+                      = notification.sender.username
                       |さんにフォローされました
                     .meta
                       span.date #{time_ago_in_words(notification.created_at)}前
       .ui.bottom.attached.tab.segment data-tab= "third"
-        - if @product_review_like_notifications.empty?
+        - if @like_notifications.empty?
           |通知はまだ届いていません
         - else
-          - @product_review_like_notifications.each do |notification|
-            .ui.segment
-              .ui.items
-                .item
-                  h3.ui.icon.header
-                    i.red.heart.icon.mt-10
-                  .ui.tiny.circular.image
-                    img src = notification.visitor.icon.url
-                  .content
-                    a.header href = product_path(notification.like.liked_id)
-                      = notification.visitor.username
-                      |さんがあなたのレビューにライクしました
-                    .meta
-                      span.date #{time_ago_in_words(notification.created_at)}前
-                    .description
-                      =simple_format(h(notification.like.review.content))
-      .ui.bottom.attached.tab.segment data-tab= "four"
-        - if @bean_review_like_notifications.empty?
-          |通知はまだ届いていません
-        - else
-          - @bean_review_like_notifications.each do |notification|
-            .ui.segment
-              .ui.items
-                .item
-                  h3.ui.icon.header
-                    i.red.heart.icon.mt-10
-                  .ui.tiny.circular.image
-                    img src = notification.visitor.icon.url
-                  .content
-                    a.header href = bean_path(notification.like.liked_id)
-                      = notification.visitor.username
-                      |さんがあなたのレビューにライクしました
-                    .meta
-                      span.date #{time_ago_in_words(notification.created_at)}前
-                    .description
-                      =simple_format(h(notification.like.bean_review.content))
-      .ui.bottom.attached.tab.segment data-tab = "five"
+          = render partial: 'shared/notification_like' ,collection:  @like_notifications, as: :notification
+      .ui.bottom.attached.tab.segment data-tab = "four"
         - if @message_notifications.empty?
           |通知はまだ届いていません
         - else
@@ -138,10 +98,10 @@
                   h3.ui.icon.header
                     i.blue.mail.icon.mt-10
                   .ui.tiny.circular.image
-                    img src = notification.visitor.icon.url
+                    img src = notification.sender.icon.url
                   .content
-                    a.header href = room_path(notification.message.room_id)
-                      = notification.visitor.username
+                    a.header href = room_path(notification.source.room_id)
+                      = notification.sender.username
                       |さんからメッセージが届きました
                     .meta
                       span.date #{time_ago_in_words(notification.created_at)}前

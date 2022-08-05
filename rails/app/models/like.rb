@@ -16,7 +16,7 @@
 #
 class Like < ApplicationRecord
   belongs_to :user
-  has_many :notifications, dependent: :destroy
+  has_many :notifications, as: :source, dependent: :destroy
 
   scope :find_product_and_bean, ->(user_id) { where(["user_id = ? and type IN ('ProductLike','BeanLike')", user_id]).order(created_at: :DESC) }
 

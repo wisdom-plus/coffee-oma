@@ -5,7 +5,8 @@ RSpec.describe 'Admin Notifications', type: :system do
   let(:user) { create(:user) }
   let(:user1) { create(:user, email: 'test2@example.com', username: 'test2') }
   let(:product) { create(:product, user: user) }
-  let(:notification_follow) { create(:notification, visitor: user1, visited: user, action: 'follow') }
+  let(:follow) { create(:relationship, user: user, follow: user1) }
+  let(:notification_follow) { create(:notification, source: follow, user: user) }
 
   describe 'notification' do
     before do
@@ -16,6 +17,17 @@ RSpec.describe 'Admin Notifications', type: :system do
 
     it 'displayed index' do
       expect(page).to have_content '通知'
+    end
+
+    it 'created notification' do
+      expect do
+        visit new_admin_notification_path
+        fill_in 'notification_user_id', with: user.id
+        fill_in 'notification_source_id', with: follow.id
+        fill_in 'notification_source_type', with: 'Relationship'
+        uncheck 'notification_checked'
+        click_on '通知を作成'
+      end.to change(Notification, :count).by(1)
     end
 
     it 'displayed show(follow)' do
