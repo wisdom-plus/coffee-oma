@@ -5,9 +5,9 @@ class RelationshipsController < ApplicationController
     @user = User.find_by(id: params[:follow_id])
     @follow = FollowAndNotificationCreate.new(current_user, @user).create
     if @follow.save
-      flash[:notice] = "#{@user.username}をフォローしました"
+      @notice = "#{@user.username}をフォローしました"
     else
-      flash[:alert] = "フォローに失敗しました"
+      @alert = "フォローに失敗しました"
     end
     # @userと@followが必要
     respond_to do |format|
@@ -20,9 +20,9 @@ class RelationshipsController < ApplicationController
     @user = User.find_by(id: params[:follow_id])
     @follow = Follow.new(current_user, @user).unfollow
     if @follow.destroy
-      flash[:notice] = "#{@user.username}のフォローを解除しました"
+      @notice = "#{@user.username}フォローを解除しました"
     else
-      flash[:alert] = "フォロー解除に失敗しました"
+      @alert = "フォロー解除に失敗しました"
     end
     respond_to do |format|
       format.js
