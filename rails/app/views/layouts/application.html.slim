@@ -26,17 +26,6 @@ html
     =render partial: 'shared/sidebar'
     .pusher#back-image
       = render partial: 'shared/top_menu'
-      - if notice
-        .ui.container.top-padding
-          .ui.positive.message.flash-message
-            i.close.icon
-            .ui.center.aligned.header#message
-              font style= "vertical-align: inherit;" = notice
-      - if alert
-        .ui.container.top-padding
-          .ui.negative.message.flash-message
-            i.close.icon
-            .ui.center.aligned.header#message
-              font style= "vertical-align: inherit;" = alert
+      = render partial: 'shared/flash_message'
       = yield
     =render partial: 'shared/footer'
