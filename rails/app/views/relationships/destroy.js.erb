@@ -1,1 +1,2 @@
 $('#follow_button').html("<%= j(render partial: 'shared/follow', locals: {user: @user}) %>");
+$('#flash_message').html("<%= j(render partial: 'shared/flash_message', locals: {alert: 'OK'}) %>");
