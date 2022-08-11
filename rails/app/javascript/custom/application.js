@@ -3,7 +3,7 @@ $(document).on("turbolinks:load", function () {
     window.scroll({ top: 0, behavior: "smooth" });
   });
   $(".flash-message > .close").click(function () {
-    $(".flash-message").closest(".ui.container.top-padding").transition("fade");
+    $(".flash-message").closest("flash-container").transition("fade");
   });
   $(".ui.accordion").accordion();
   $(".sidebar.icon").on("click", function () {
