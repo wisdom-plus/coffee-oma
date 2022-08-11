@@ -26,6 +26,7 @@ html
     =render partial: 'shared/sidebar'
     .pusher#back-image
       = render partial: 'shared/top_menu'
-      = render partial: 'shared/flash_message'
+      #flash_message
+        = render partial: 'shared/flash_message'
       = yield
     =render partial: 'shared/footer'
