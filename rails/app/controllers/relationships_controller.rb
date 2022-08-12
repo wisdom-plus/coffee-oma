@@ -20,7 +20,7 @@ class RelationshipsController < ApplicationController
     @user = User.find_by(id: params[:follow_id])
     @follow = Follow.new(current_user, @user).unfollow
     if @follow.destroy
-      @notice = "#{@user.username}フォローを解除しました"
+      @notice = "#{@user.username}のフォローを解除しました"
     else
       @alert = 'フォロー解除に失敗しました'
     end
