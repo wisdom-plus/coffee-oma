@@ -7,7 +7,7 @@ class RelationshipsController < ApplicationController
     if @follow.save
       @notice = "#{@user.username}をフォローしました"
     else
-      @alert = "フォローに失敗しました"
+      @alert = 'フォローに失敗しました'
     end
     # @userと@followが必要
     respond_to do |format|
@@ -22,7 +22,7 @@ class RelationshipsController < ApplicationController
     if @follow.destroy
       @notice = "#{@user.username}フォローを解除しました"
     else
-      @alert = "フォロー解除に失敗しました"
+      @alert = 'フォロー解除に失敗しました'
     end
     respond_to do |format|
       format.js
