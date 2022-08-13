@@ -15,6 +15,7 @@ RSpec.describe 'Relationships', type: :system, js: true do
       it 'created relationship' do
         visit "/users/#{user1.id}/show"
         click_link 'フォローする'
+        expect(page).to have_content "#{user1.username}をフォローしました"
         expect(page).to have_link 'フォロー解除'
       end
 
@@ -32,6 +33,7 @@ RSpec.describe 'Relationships', type: :system, js: true do
       it 'destroy relationship' do
         visit "/users/#{user1.id}/show"
         click_link 'フォロー解除'
+        expect(page).to have_content "#{user1.username}のフォローを解除しました"
         expect(page).to have_link 'フォローする'
       end
 

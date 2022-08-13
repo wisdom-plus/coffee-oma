@@ -1,1 +1,5 @@
 $('#follow_button').html("<%= j(render partial: 'shared/follow', locals: {user: @user}) %>");
+$('#flash_message').html("<%= j(render partial: 'shared/flash_message',locals: {notice: @notice,alert: @alert}) %>");
+$(".flash-message > .close").click(function () {
+  $(".flash-message").closest(".flash-container").transition("fade");
+});

@@ -59,7 +59,7 @@
           i.lock.icon
           = f.password_field :password,autocomplete: "password",placeholder: "password",id: "login_popup_password_form"
       .field.ui.checkbox
-        = f.check_box :remember_me
+        = f.check_box :remember_me,id: 'login_popup_remember_me_form'
         = f.label :remember_me
       .field
         = f.button type: "submit",class: "ui teal fluid animated fade button", data: { disable_with: "送信中"} do

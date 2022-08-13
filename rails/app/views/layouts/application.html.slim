@@ -10,33 +10,24 @@ html
     script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
     script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"
     link rel="preconnect" href="https://fonts.googleapis.com"
-    link rel="preconnect" href="https://fonts.gstatic.com" crossorigin
+    link rel="preconnect" href="https://fonts.gstatic.com"
     link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet"
-    link href="https://fonts.googleapis.com/css?family=Vollkorn rel="stylesheet"
+    link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet"
   body#wrapper
-    .ui.page.dimmer.load-dimmer
-      .content
-        h1.ml5
-          span.text-wrapper
-            span.line.line1
-            span.letters.letters-left Coffee
-            span.letters.ampersand &ndash;
-            span.letters.letters-right oma
-            span.line.line2
+    - if current_page?(root_path)
+      .ui.page.dimmer.load-dimmer
+        .content
+          h1.ml5
+            span.text-wrapper
+              span.line.line1
+              span.letters.letters-left Coffee
+              span.letters.ampersand &ndash;
+              span.letters.letters-right oma
+              span.line.line2
     =render partial: 'shared/sidebar'
     .pusher#back-image
       = render partial: 'shared/top_menu'
-      - if notice
-        .ui.container.top-padding
-          .ui.positive.message.flash-message
-            i.close.icon
-            .ui.center.aligned.header#message
-              font style= "vertical-align: inherit;" = notice
-      - if alert
-        .ui.container.top-padding
-          .ui.negative.message.flash-message
-            i.close.icon
-            .ui.center.aligned.header#message
-              font style= "vertical-align: inherit;" = alert
+      #flash_message
+        = render partial: 'shared/flash_message'
       = yield
     =render partial: 'shared/footer'
