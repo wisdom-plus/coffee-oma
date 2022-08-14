@@ -6,6 +6,10 @@ class RoomsController < ApplicationController
     @rooms = Room.join_room_list(current_user)
   end
 
+  def new
+    @room = Room.new(participant1_id: current_user.id)
+  end
+
   def create
     room = Room.room_new(current_user.id, params[:user_id].to_i)
     if room.save
