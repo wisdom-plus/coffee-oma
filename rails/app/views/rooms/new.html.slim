@@ -1,0 +1,22 @@
+.ui.container
+  .ui.grid
+    .column
+      - breadcrumb :room
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  .ui.middle.aligned.center.aligned.grid
+    .column
+      h1#title メッセージ宛先一覧
+  .ui.centered.grid
+    .twelve.wide.column
+      .ui.segment
+        .ui.items
+          - @followers.each do |follower|
+            a.ui.item href = "#"
+              .ui.tiny.circular.image
+                =image_tag "square-image.png" ,class: "lazyload",data: {src: "#{follower.icon}"}
+              .content
+                .header
+                  = follower.username
+                .meta
+                  span.date #{time_ago_in_words(follower.created_at)}前
+
