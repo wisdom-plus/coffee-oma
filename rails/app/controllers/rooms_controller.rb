@@ -7,6 +7,7 @@ class RoomsController < ApplicationController
   end
 
   def new
+    @followers = current_user.followings
     @room = Room.new(participant1_id: current_user.id)
   end
 
