@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_including?, only: %i[show]
+  before_action :room_exists?, only: %i[create]
 
   def index
     @rooms = Room.join_room_list(current_user)
@@ -8,7 +9,6 @@ class RoomsController < ApplicationController
 
   def new
     @followings = current_user.followings
-    @room = Room.new(participant1_id: current_user.id)
   end
 
   def create
@@ -35,5 +35,15 @@ class RoomsController < ApplicationController
       return if room.join?(current_user.id)
 
       redirect_to root_path, flash: { alert: t('.alert') }
+    end
+
+    def room_exists?
+      room = Room.find_room(current_user, User.find(params[:user_id]))
+
+      binding.pry
+
+      return unless room.present?
+
+      redirect_to room_path(room.id)
     end
 end
