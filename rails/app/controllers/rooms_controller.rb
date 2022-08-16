@@ -8,7 +8,8 @@ class RoomsController < ApplicationController
   end
 
   def new
-    @followings = current_user.followings
+    @q = current_user.followings.ransack(params[:q])
+    @followings = @q.result(distinct: true)
   end
 
   def create
