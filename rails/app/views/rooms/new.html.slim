@@ -11,15 +11,18 @@
         = f.submit class: "ui teal button",id: 'search'
   .ui.centered.grid
     .twelve.wide.column
-      .ui.segment
-        .ui.items
-          - @followings.each do |follower|
-            = link_to rooms_path(user_id: follower.id),method: :post, class: 'ui item' do
-              .ui.tiny.circular.image
-                =image_tag "square-avatar-image.png" ,class: "lazyload",data: {src: "#{follower.icon}"}
-              .content
-                .header
-                  = follower.username
-                .meta
-                  span.date #{time_ago_in_words(follower.created_at)}前
-
+      - if @followings.nil?
+        .ui.segment
+          .ui.items
+            - @followings.each do |follower|
+              = link_to rooms_path(user_id: follower.id),method: :post, class: 'ui item' do
+                .ui.tiny.circular.image
+                  =image_tag "square-avatar-image.png" ,class: "lazyload",data: {src: "#{follower.icon}"}
+                .content
+                  .header
+                    = follower.username
+                  .meta
+                    span.date #{time_ago_in_words(follower.created_at)}前
+      - else
+        .ui.segment
+          | フォローしているユーザーがいません
