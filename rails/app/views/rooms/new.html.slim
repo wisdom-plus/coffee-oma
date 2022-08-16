@@ -6,6 +6,9 @@
   .ui.middle.aligned.center.aligned.grid
     .column
       h1#title メッセージ宛先一覧
+      = search_form_for @q,url: new_room_path, class: 'ui action mini input width-40' do |f|
+        = f.search_field :username_cont, placeholder: "search"
+        = f.submit class: "ui teal button",id: 'search'
   .ui.centered.grid
     .twelve.wide.column
       .ui.segment
