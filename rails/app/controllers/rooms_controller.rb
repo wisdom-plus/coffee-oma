@@ -39,9 +39,6 @@ class RoomsController < ApplicationController
 
     def room_exists?
       room = Room.find_room(current_user, User.find(params[:user_id]))
-
-      binding.pry
-
       return unless room.present?
 
       redirect_to room_path(room.id)
