@@ -37,6 +37,11 @@ crumb :room do
   parent :root
 end
 
+crumb :room_new do
+  link 'メッセージ宛先一覧', new_room_path
+  parent :room
+end
+
 crumb :message do |room|
   link 'メッセージ', room_path(room.id)
   parent :room

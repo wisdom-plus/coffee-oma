@@ -297,7 +297,7 @@ Rails.application.routes.draw do
   resources :relationships, only: %i[create destroy]
   resources :contacts, only: %i[new create]
   resources :notifications, only: :index
-  resources :rooms, only: %i[show create index]
+  resources :rooms, only: %i[show create index new]
   resources :messages, only: %i[create]
   resources :reports, only: %i[create]
   resources :histories, only: %i[index]

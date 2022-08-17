@@ -14,7 +14,7 @@
             .ui.items
               a.item href = room_path(room.id)
                 .ui.tiny.circular.image
-                  =image_tag "square-image.png" ,class: "lazyload",data: {src: "#{room.another_user(current_user).icon}"}
+                  =image_tag "square-avatar-image.png" ,class: "lazyload",data: {src: "#{room.another_user(current_user).icon}"}
                 .content
                   .header
                     = room.another_user(current_user).username
@@ -22,4 +22,12 @@
                     span.date #{time_ago_in_words(room.messages.last.created_at)}前
                   .describe.no-color-change
                     =simple_format(h(room.messages.last.message))
-      .segment
+      .ui.center.aligned.segment
+        .ui.links.items
+          a.item href = new_room_path
+            .content
+              h2.ui.header
+                i.big.icons.mr-01em
+                  i.mail.teal.icon
+                  i.inverted.corner.add.icon
+                | メッセージを送る

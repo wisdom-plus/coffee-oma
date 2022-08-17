@@ -7,9 +7,10 @@ class RelationshipsController < ApplicationController
     if @follow.save
       @notice = "#{@user.username}をフォローしました"
     else
+      # :nocov:
       @alert = 'フォローに失敗しました'
+      # :nocov:
     end
-    # @userと@followが必要
     respond_to do |format|
       format.js
       format.html { redirect_to user_registration_path(@user) }
@@ -22,7 +23,9 @@ class RelationshipsController < ApplicationController
     if @follow.destroy
       @notice = "#{@user.username}のフォローを解除しました"
     else
+      # :nocov:
       @alert = 'フォロー解除に失敗しました'
+      # :nocov:
     end
     respond_to do |format|
       format.js
