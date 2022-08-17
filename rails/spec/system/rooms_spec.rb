@@ -50,7 +50,7 @@ RSpec.describe 'Rooms', type: :system do
         expect do
           click_on user1.username
         end.to change(Room, :count).by 1
-        expect(page).to have_current_path room_path( Room.last.id )
+        expect(page).to have_current_path room_path(Room.last.id)
       end
 
       it 'created room(room exists)' do
@@ -59,11 +59,11 @@ RSpec.describe 'Rooms', type: :system do
         visit new_room_path
         expect do
           click_on user1.username
-        end.to change(Room, :count).by 0
+        end.not_to change(Room, :count)
         expect(page).to have_current_path room_path(room.id)
       end
 
-      it 'render page' do
+      it 'render page(no following)' do
         visit new_room_path
         expect(page).to have_content 'フォローしているユーザーがいません'
       end

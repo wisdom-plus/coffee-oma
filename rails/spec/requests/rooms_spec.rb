@@ -37,7 +37,7 @@ RSpec.describe 'Rooms', type: :request do
     end
 
     it 'serach success' do
-      get new_room_path, params: {q: user2.username}
+      get new_room_path, params: { q: user2.username }
       expect(response).to have_http_status(:ok)
     end
   end
