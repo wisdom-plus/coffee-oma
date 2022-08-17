@@ -11,7 +11,7 @@
         = f.submit class: "ui teal button",id: 'search'
   .ui.centered.grid
     .twelve.wide.column
-      - if @followings.nil?
+      - if @followings.present?
         .ui.segment
           .ui.items
             - @followings.each do |follower|
