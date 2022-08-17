@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="5" skipped="0" failures="1" errors="0" time="33.031787" timestamp="2022-08-12T11:38:57+00:00" hostname="088ec9b41835">
+<testsuite name="rspec" tests="12" skipped="0" failures="0" errors="0" time="27.576582" timestamp="2022-08-17T02:50:25+00:00" hostname="088ec9b41835">
 <properties>
-<property name="seed" value="63728"/>
+<property name="seed" value="60860"/>
 </properties>
-<testcase classname="spec.system.relationships_spec" name="Relationships when login create created relationship" file="./spec/system/relationships_spec.rb" time="26.157857"><failure message="expected to find text &quot;testをフォローしました&quot; in &quot;アイテム一覧\nランキング\nユーザー\n\n\ntest1をフォローしました\nHome &gt; プロフィール\ntest1\nフォロー解除\n2022年08月から利用0フォロー中0フォロワーメッセージを送る\nプロフィール\nプロフィールはまだありません\n投稿したレビュー\nお気に入りしたアイテム\nフォロー中\nフォロワー\nまだ投稿はありません\nトップページ\nプライベートポリシー\n利用規約\nお問い合わせ\nアイテムの一覧を見る\nアイテムを登録する&quot;" type="RSpec::Expectations::ExpectationNotMetError">Failure/Error: expect(page).to have_content &quot;#{user.username}をフォローしました&quot;
-  expected to find text &quot;testをフォローしました&quot; in &quot;アイテム一覧\nランキング\nユーザー\n\n\ntest1をフォローしました\nHome &gt; プロフィール\ntest1\nフォロー解除\n2022年08月から利用0フォロー中0フォロワーメッセージを送る\nプロフィール\nプロフィールはまだありません\n投稿したレビュー\nお気に入りしたアイテム\nフォロー中\nフォロワー\nまだ投稿はありません\nトップページ\nプライベートポリシー\n利用規約\nお問い合わせ\nアイテムの一覧を見る\nアイテムを登録する&quot;
-
-
-[Screenshot Image]: /coffee-oma/tmp/screenshots/failures_r_spec_example_groups_relationships_when_login_create_created_relationship_801.png
-
-
-
-./spec/system/relationships_spec.rb:18:in `block (4 levels) in &lt;top (required)&gt;&apos;</failure></testcase>
-<testcase classname="spec.system.relationships_spec" name="Relationships when login create not render link" file="./spec/system/relationships_spec.rb" time="1.871263"></testcase>
-<testcase classname="spec.system.relationships_spec" name="Relationships when login destroy destroy relationship" file="./spec/system/relationships_spec.rb" time="2.206607"></testcase>
-<testcase classname="spec.system.relationships_spec" name="Relationships when login destroy not render link" file="./spec/system/relationships_spec.rb" time="1.967161"></testcase>
-<testcase classname="spec.system.relationships_spec" name="Relationships when not login is displayed follow button" file="./spec/system/relationships_spec.rb" time="0.768564"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when login index render page" file="./spec/system/rooms_spec.rb" time="19.935599"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when login index render new button" file="./spec/system/rooms_spec.rb" time="0.747246"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when login new render page" file="./spec/system/rooms_spec.rb" time="0.663098"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when login new created room(room not exists)" file="./spec/system/rooms_spec.rb" time="0.845603"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when login new created room(room exists)" file="./spec/system/rooms_spec.rb" time="0.818467"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when login new render page" file="./spec/system/rooms_spec.rb" time="0.645400"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when login show render page" file="./spec/system/rooms_spec.rb" time="0.828353"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when login show not included room" file="./spec/system/rooms_spec.rb" time="0.921202"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when login create created room" file="./spec/system/rooms_spec.rb" time="0.897222"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when not login not displayed message-label" file="./spec/system/rooms_spec.rb" time="0.263902"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when not login redirect sign_in page(index)" file="./spec/system/rooms_spec.rb" time="0.447993"></testcase>
+<testcase classname="spec.system.rooms_spec" name="Rooms when not login redirect sign_in page(show)" file="./spec/system/rooms_spec.rb" time="0.499229"></testcase>
 </testsuite>
