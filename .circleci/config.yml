@@ -96,7 +96,7 @@ workflows:
       - aws-ecr/build-and-push-image:
           filters:
             branches:
-              only: master
+              only: deploy
           requires:
             - test
           name: rails-build-and-push-image
@@ -110,7 +110,7 @@ workflows:
       - aws-ecs/deploy-service-update:
           filters:
             branches:
-              only: master
+              only: deploy
           name: rails-deploy-service-update
           requires:
             - rails-build-and-push-image
