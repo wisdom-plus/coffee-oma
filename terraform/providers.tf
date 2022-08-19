@@ -7,12 +7,6 @@ terraform {
       version = "3.38.0"
     }
   }
-  backend "s3" {
-    bucket = "terraform-portfolio-tfstate"
-    key = "terraform.tfstate"
-    encrypt = true
-    region = "ap-northeast-1"
-  }
 }
 
 provider "aws" {
