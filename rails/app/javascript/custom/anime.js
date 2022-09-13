@@ -1,5 +1,6 @@
+import Cookies from "js-cookie";
+
 $(document).one("turbolinks:load", function () {
-  const Cookies = require("js-cookie");
   const flag = Cookies.get("animation-flag");
   if ($("#top-image").length && flag == undefined) {
     $(".ui.page.dimmer").dimmer("show", {
