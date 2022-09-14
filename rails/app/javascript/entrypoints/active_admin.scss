@@ -1,9 +1,11 @@
 @import "@activeadmin/activeadmin/src/scss/mixins";
 @import "@activeadmin/activeadmin/src/scss/base";
-
+@import '@activeadmin-plugins/active_admin_theme/src/active_admin_theme.scss';
 
 
 
 #site_title_image{
   width: 150px;
 }
+
+$menu-arrow-dark-icon-url: 'active_admin/nested_menu_arrow_dark.gif' !default;
