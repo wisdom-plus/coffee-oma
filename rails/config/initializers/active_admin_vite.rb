@@ -10,3 +10,4 @@ module ActiveAdminViteJS
 end
 
 ActiveAdmin::Views::Pages::Base.include ActiveAdminViteJS
+ActionView::Base.include ActiveAdminViteJS
