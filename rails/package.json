@@ -2,12 +2,12 @@
   "name": "coffee",
   "private": true,
   "dependencies": {
+    "@activeadmin-plugins/active_admin_theme": "^1.1.4",
     "@activeadmin/activeadmin": "^2.13.0",
     "@rails/actioncable": "^6.0.0",
     "@rails/actiontext": "^6.1.6",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "active_admin_theme": "^1.1.2",
     "infinite-scroll": "^4.0.1",
     "jquery": "^3.5.1",
     "jquery-raty-js": "^2.8.0",
@@ -19,6 +19,9 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^15.0.0",
+    "postcss-preset-env": "^7.8.1",
     "sass": "^1.54.9",
     "vite": "^3.0.0",
     "vite-plugin-ruby": "^3.1.0"
