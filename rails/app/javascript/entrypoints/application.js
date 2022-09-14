@@ -43,11 +43,11 @@ import "@/custom/scroll";
 import "@/custom/form";
 import "@/custom/chart";
 import "@/custom/rating";
-import "@/custom/scroll";
 import "@/custom/modal";
 import "@/custom/anime";
 import "@/custom/dimmer";
 import "@/custom/popup";
+import "@/custom/actiontext";
 
 import "@/channels";
 import "semantic-ui-sass";
