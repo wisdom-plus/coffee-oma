@@ -52,6 +52,7 @@ gem 'lograge'
 gem 'logstash-event'
 gem 'meta-tags'
 gem 'mini_magick'
+gem 'rack-cors'
 gem 'rails-i18n'
 gem 'ransack'
 gem 'recaptcha', require: 'recaptcha/rails'
@@ -61,7 +62,6 @@ gem 'sitemap_generator'
 gem 'slim'
 gem 'slim-rails'
 gem 'whenever', require: false
-gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
