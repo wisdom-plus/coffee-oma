@@ -5,7 +5,8 @@ html
     = csp_meta_tag
     = display_meta_tags(default_meta_tags)
     = Gon::Base.render_data
-    = vite_client_tag
+    / HMRはうまくいかないのでコメントアウト
+    / = vite_client_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = vite_javascript_tag 'application', 'data-turbolinks-track': 'reload'
     script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
