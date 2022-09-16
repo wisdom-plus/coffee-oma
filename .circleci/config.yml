@@ -58,6 +58,9 @@ jobs:
           name: Decode ENV file
           command: echo $ENV_FILE | base64 -d > .env
       - run:
+          name: Viteをビルドする
+          command: bin/vite build --clear --mode=test
+      - run:
           name: rubocop
           command: bundle exec rubocop
       - run: mv ./config/database.yml.ci ./config/database.yml
