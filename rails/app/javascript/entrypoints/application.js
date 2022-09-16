@@ -29,13 +29,11 @@
 
 // Example: Import a stylesheet in app/frontend/index.css
 // import '~/index.css'
-import ujs from "@rails/ujs";
+import * as ujs from "@rails/ujs";
 import tubolinks from "turbolinks";
-ujs.start();
 tubolinks.start();
 import "infinite-scroll";
 import "jquery";
-import "jquery-ujs";
 import "trix";
 import "@rails/actiontext";
 import "@/custom/jquery";
