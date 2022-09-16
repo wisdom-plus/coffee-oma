@@ -55,9 +55,6 @@ jobs:
           paths:
             - ~/coffee/rails/node_modules
       - run:
-          name: webpackを追加
-          command: bundle exec bin/webpack
-      - run:
           name: Decode ENV file
           command: echo $ENV_FILE | base64 -d > .env
       - run:
