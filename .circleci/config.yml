@@ -44,14 +44,11 @@ jobs:
           key: rails-gem-v2-{{ checksum "Gemfile.lock"}}
           paths:
             - /usr/local/bundle
-      - restore_cache:
-          keys:
-            - rails-yarn-v1-{{ checksum "yarn.lock"}}
       - run:
           name: yarnを追加
           command: yarn install
       - save_cache:
-          key: rails-yarn-v1-{{ checksum "yarn.lock"}}
+          key: rails-yarn-v2-{{ checksum "yarn.lock"}}
           paths:
             - ~/coffee/rails/node_modules
       - run:
