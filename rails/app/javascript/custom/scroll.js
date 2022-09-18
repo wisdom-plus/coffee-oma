@@ -1,7 +1,8 @@
+import InfiniteScroll from "infinite-scroll";
+
 $(document).on("turbolinks:load", function () {
   // 無限スクロールのscript
   if ($(".page_next").length && $(".scroll").length) {
-    var InfiniteScroll = require("infinite-scroll");
     var infScroll = new InfiniteScroll(".scroll", {
       path: ".page_next",
       append: ".post",

@@ -1,6 +1,7 @@
+import Trix from "trix";
+
 $(document).on("turbolinks:load", function () {
   // Action textを変更
-  const Trix = require("trix");
   Trix.config.blockAttributes.default = {
     tagName: "p",
     breaakOnReturn: true,

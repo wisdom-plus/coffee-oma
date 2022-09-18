@@ -6,7 +6,7 @@ services:
       - ./rails:/coffee-oma:delegated
     ports:
       - "3000:3000"
-      - "3035:3035"
+      - "3036:3036"
     tty: true
     stdin_open: true
     depends_on:
