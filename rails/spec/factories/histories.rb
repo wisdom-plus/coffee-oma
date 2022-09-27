@@ -18,5 +18,13 @@
 FactoryBot.define do
   factory :history do
     user
+
+    trait :product_history do
+      product
+    end
+
+    trait :bean_history do
+      bean
+    end
   end
 end
