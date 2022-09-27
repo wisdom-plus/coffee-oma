@@ -25,7 +25,7 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
-class self < ApplicationRecord
+class Product < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :histories, dependent: :destroy
   has_many :self_likes,
