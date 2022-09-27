@@ -72,13 +72,14 @@ class User < ApplicationRecord
   end
 
   def create_or_update_history(params)
-    h = case params[:controller]
+    history = case params[:controller]
         when 'products'
           histories.find_or_create_by(product_id: params[:id])
         when 'beans'
           histories.find_or_create_by(bean_id: params[:id])
         end
-    h.update(updated_at: Time.zone.now)
+    history.update(updated_at: Time.zone.now)
+    history
   end
 
   def self.guest
