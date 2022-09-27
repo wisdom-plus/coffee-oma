@@ -73,11 +73,11 @@ class User < ApplicationRecord
 
   def create_or_update_history(params)
     history = case params[:controller]
-        when 'products'
-          histories.find_or_create_by(product_id: params[:id])
-        when 'beans'
-          histories.find_or_create_by(bean_id: params[:id])
-        end
+              when 'products'
+                histories.find_or_create_by(product_id: params[:id])
+              when 'beans'
+                histories.find_or_create_by(bean_id: params[:id])
+              end
     history.update(updated_at: Time.zone.now)
     history
   end

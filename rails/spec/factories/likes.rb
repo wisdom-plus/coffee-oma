@@ -19,7 +19,7 @@ FactoryBot.define do
     user
 
     trait :product_review_like do
-      type {'ProductReviewLike'}
+      type { 'ProductReviewLike' }
     end
   end
 end

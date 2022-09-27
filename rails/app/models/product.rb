@@ -59,14 +59,14 @@ class Product < ApplicationRecord
   end
 
   def self.like_top
-    self.all.sort_by_likes_count.limit(TOP_DISPALY_NUM)
+    all.sort_by_likes_count.limit(TOP_DISPALY_NUM)
   end
 
   def self.tag_result(tag_name, page)
-    self.tagged_with(tag_name).page(page).per(INDEX_DISPALY_NUM)
+    tagged_with(tag_name).page(page).per(INDEX_DISPALY_NUM)
   end
 
   def self.ranking_index
-    self.all.sort_by_likes_count.limit(INDEX_DISPALY_NUM)
+    all.sort_by_likes_count.limit(INDEX_DISPALY_NUM)
   end
 end
