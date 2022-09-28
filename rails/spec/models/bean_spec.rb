@@ -5,17 +5,17 @@ RSpec.describe Bean, type: :model do
   let(:bean) { create(:bean,user: user) }
   let(:bean_build) { build(:bean) }
 
-  it "is valid with a name" do
+  it "is invalid with a name" do
     bean_build.name = ''
     expect(bean_build.valid?).to be false
   end
 
-  it "is valid with a country" do
+  it "is invalid with a country" do
     bean_build.country = ''
     expect(bean_build.valid?).to be false
   end
 
-  it "is valid with a roast" do
+  it "is invalid with a roast" do
     bean_build.roast = ''
     expect(bean_build.valid?).to be false
   end
