@@ -72,7 +72,7 @@ RSpec.describe User, type: :model do
     end
 
     it "don't create history and return nil" do
-      expect(user.create_or_update_history(controller: 'other',id: product.id)).to eq nil
+      expect(user.create_or_update_history(controller: 'other', id: product.id)).to be_nil
     end
   end
 end
