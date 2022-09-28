@@ -77,6 +77,8 @@ class User < ApplicationRecord
                 histories.find_or_create_by(product_id: params[:id])
               when 'beans'
                 histories.find_or_create_by(bean_id: params[:id])
+              else
+                return nil
               end
     history.update(updated_at: Time.zone.now)
     history
@@ -97,9 +99,7 @@ class User < ApplicationRecord
     when 'bean_review'
       bean_review_likes.where(liked_id: reviews.map(&:id))
     else
-      # :nocov:
       []
-      # :nocov:
     end
   end
 end
