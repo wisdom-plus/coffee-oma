@@ -32,7 +32,7 @@ FactoryBot.define do
     icon { Rack::Test::UploadedFile.new('spec/support/test.png', 'image/png') }
 
     trait :other_user do
-      email { ' test1@example.com' }
+      email { 'test1@example.com' }
       username { 'test1' }
     end
   end
