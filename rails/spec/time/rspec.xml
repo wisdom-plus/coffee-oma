@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="9" skipped="0" failures="0" errors="0" time="7.740346" timestamp="2022-09-28T12:00:26+00:00" hostname="59790d092216">
+<testsuite name="rspec" tests="3" skipped="0" failures="0" errors="0" time="43.191944" timestamp="2022-09-29T07:45:14+00:00" hostname="59790d092216">
 <properties>
-<property name="seed" value="54626"/>
+<property name="seed" value="192"/>
 </properties>
-<testcase classname="spec.models.review_spec" name="Review get latest review" file="./spec/models/review_spec.rb" time="0.691391"></testcase>
-<testcase classname="spec.models.review_spec" name="Review get reviews associated with product" file="./spec/models/review_spec.rb" time="1.805360"></testcase>
-<testcase classname="spec.models.review_spec" name="Review get reviews associated with user" file="./spec/models/review_spec.rb" time="0.913821"></testcase>
-<testcase classname="spec.models.review_spec" name="Review get unreported reviews" file="./spec/models/review_spec.rb" time="1.317327"></testcase>
-<testcase classname="spec.models.review_spec" name="Review validation is invalid with a title" file="./spec/models/review_spec.rb" time="0.687023"></testcase>
-<testcase classname="spec.models.review_spec" name="Review validation is invalid with a content" file="./spec/models/review_spec.rb" time="0.647844"></testcase>
-<testcase classname="spec.models.review_spec" name="Review validation is invalid with a rate" file="./spec/models/review_spec.rb" time="0.579686"></testcase>
-<testcase classname="spec.models.review_spec" name="Review validation is invalid with a rate for 0" file="./spec/models/review_spec.rb" time="0.504203"></testcase>
-<testcase classname="spec.models.review_spec" name="Review validation is invalid with a rate for 6" file="./spec/models/review_spec.rb" time="0.454501"></testcase>
+<testcase classname="spec.system.bean_reviews_spec" name="BeanReviews create when login created success" file="./spec/system/bean_reviews_spec.rb" time="41.538009"></testcase>
+<testcase classname="spec.system.bean_reviews_spec" name="BeanReviews create when login not created success" file="./spec/system/bean_reviews_spec.rb" time="1.076502"></testcase>
+<testcase classname="spec.system.bean_reviews_spec" name="BeanReviews create when not login is not render review_form" file="./spec/system/bean_reviews_spec.rb" time="0.558228"></testcase>
 </testsuite>
