@@ -17,9 +17,13 @@
 FactoryBot.define do
   factory :like do
     user
+  end
 
-    trait :product_review_like do
-      type { 'ProductReviewLike' }
-    end
+  factory :product_like, class: "ProductLike" do
+    type { 'ProductLike' }
+  end
+
+  factory :bean_like, class: 'BeanLike' do
+    type { 'BeanLike' }
   end
 end
