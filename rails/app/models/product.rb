@@ -28,7 +28,7 @@
 class Product < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :histories, dependent: :destroy
-  has_many :self_likes,
+  has_many :product_likes,
            foreign_key: 'liked_id',
            dependent: :destroy,
            inverse_of: :self
