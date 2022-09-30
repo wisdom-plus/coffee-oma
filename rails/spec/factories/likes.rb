@@ -19,7 +19,7 @@ FactoryBot.define do
     user
   end
 
-  factory :product_like, class: "ProductLike" do
+  factory :product_like, class: 'ProductLike' do
     type { 'ProductLike' }
   end
 
