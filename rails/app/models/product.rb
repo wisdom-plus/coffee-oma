@@ -31,7 +31,7 @@ class Product < ApplicationRecord
   has_many :product_likes,
            foreign_key: 'liked_id',
            dependent: :destroy,
-           inverse_of: :self
+           inverse_of: :product
   belongs_to :user
 
   mount_uploader :image, ImageurlUploader
