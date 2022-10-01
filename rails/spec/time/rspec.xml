@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="1" skipped="0" failures="0" errors="0" time="0.742188" timestamp="2022-09-30T09:33:01+00:00" hostname="59790d092216">
+<testsuite name="rspec" tests="1" skipped="0" failures="0" errors="0" time="1.028784" timestamp="2022-10-01T11:15:20+00:00" hostname="59790d092216">
 <properties>
-<property name="seed" value="62834"/>
+<property name="seed" value="30699"/>
 </properties>
-<testcase classname="spec.models.like_spec" name="Like find product_like and bean_like" file="./spec/models/like_spec.rb" time="0.726034"></testcase>
+<testcase classname="spec.models.review_like_spec" name="Like get review_likes accosiated a review " file="./spec/models/review_like_spec.rb" time="1.009786"></testcase>
 </testsuite>
