@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="1" skipped="0" failures="0" errors="0" time="1.028784" timestamp="2022-10-01T11:15:20+00:00" hostname="59790d092216">
+<testsuite name="rspec" tests="3" skipped="0" failures="0" errors="0" time="0.066486" timestamp="2022-10-01T11:24:49+00:00" hostname="59790d092216">
 <properties>
-<property name="seed" value="30699"/>
+<property name="seed" value="36687"/>
 </properties>
-<testcase classname="spec.models.review_like_spec" name="Like get review_likes accosiated a review " file="./spec/models/review_like_spec.rb" time="1.009786"></testcase>
+<testcase classname="spec.models.contact_spec" name="Contact is valid with a name" file="./spec/models/contact_spec.rb" time="0.046606"></testcase>
+<testcase classname="spec.models.contact_spec" name="Contact is valid with a email" file="./spec/models/contact_spec.rb" time="0.006134"></testcase>
+<testcase classname="spec.models.contact_spec" name="Contact is valid with a content" file="./spec/models/contact_spec.rb" time="0.009668"></testcase>
 </testsuite>
