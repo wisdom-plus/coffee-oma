@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="3" skipped="0" failures="0" errors="0" time="1.167140" timestamp="2022-10-01T12:57:54+00:00" hostname="59790d092216">
+<testsuite name="rspec" tests="1" skipped="0" failures="0" errors="0" time="0.486235" timestamp="2022-10-02T11:13:18+00:00" hostname="59790d092216">
 <properties>
-<property name="seed" value="14174"/>
+<property name="seed" value="52765"/>
 </properties>
-<testcase classname="spec.models.notification_spec" name="Notification get unckecked" file="./spec/models/notification_spec.rb" time="0.384897"></testcase>
-<testcase classname="spec.models.notification_spec" name="Notification is sender for source user" file="./spec/models/notification_spec.rb" time="0.334663"></testcase>
-<testcase classname="spec.models.notification_spec" name="Notification is update checked" file="./spec/models/notification_spec.rb" time="0.419596"></testcase>
+<testcase classname="spec.models.recipe_spec" name="Recipe set time" file="./spec/models/recipe_spec.rb" time="0.475321"></testcase>
 </testsuite>
