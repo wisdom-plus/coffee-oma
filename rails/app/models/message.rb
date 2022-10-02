@@ -28,7 +28,7 @@ class Message < ApplicationRecord
   scope :associated_message, ->(room_id) { where(room_id: room_id) }
 
   def self.room_message(room_id)
-    self.includes([:user]).associated_message(room_id)
+    includes([:user]).associated_message(room_id)
   end
 
   def receiver

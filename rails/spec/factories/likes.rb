@@ -27,11 +27,11 @@ FactoryBot.define do
     type { 'BeanLike' }
   end
 
-  factory :product_review_like , class: "ProductReviewLike" do
-    type { "ProductReviewLike" }
+  factory :product_review_like, class: 'ProductReviewLike' do
+    type { 'ProductReviewLike' }
   end
 
-  factory :bean_review_like , class: "BeanReviewLike" do
-    type { "BeanReviewLike" }
+  factory :bean_review_like, class: 'BeanReviewLike' do
+    type { 'BeanReviewLike' }
   end
 end
