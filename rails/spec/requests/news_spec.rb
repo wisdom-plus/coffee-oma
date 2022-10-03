@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'News', type: :request do
-  let(:admin) { create(:admin_user) }
-  let(:news) { create(:news, user: admin) }
+  let_it_be(:admin) { create(:admin_user) }
+  let_it_be(:news) { create(:news, user: admin) }
   let(:news_params) { attributes_for(:news) }
   let(:update_news_params) { attributes_for(:news, title: 'version upのお知らせ', content: '<p>version1.1での変更点</p>') }
 
