@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'Reports', type: :request do
   let_it_be(:user) { create(:user) }
-  let_it_be(:product) { create(:product, user: user) }
-  let_it_be(:bean) { create(:bean, user: user) }
-  let_it_be(:review) { create(:review, user: user, product: product) }
-  let_it_be(:bean_review) { create(:bean_review, user: user, bean: bean) }
+  let(:product) { create(:product, user: user) }
+  let(:bean) { create(:bean, user: user) }
+  let(:review) { create(:review, user: user, product: product) }
+  let(:bean_review) { create(:bean_review, user: user, bean: bean) }
 
   describe 'GET /create' do
     before do
