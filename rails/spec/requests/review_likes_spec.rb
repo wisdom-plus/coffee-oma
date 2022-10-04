@@ -42,8 +42,6 @@ RSpec.describe 'ReviewLikes', type: :request do
     before do
       user.confirm
       sign_in user
-      product_review_like
-      bean_review_like
     end
 
     it 'returns http success(prodcut)' do
@@ -52,6 +50,7 @@ RSpec.describe 'ReviewLikes', type: :request do
     end
 
     it 'destroy like success(product)' do
+      product_review_like
       expect do
         delete review_like_path(product_review_like.id, type: 'ProductReviewLike'), xhr: true
       end.to change(ProductReviewLike, :count).by(-1)
@@ -63,6 +62,7 @@ RSpec.describe 'ReviewLikes', type: :request do
     end
 
     it 'destroy like success(bean)' do
+      bean_review_like
       expect do
         delete review_like_path(bean_review_like.id, type: 'BeanReviewLike'), xhr: true
       end.to change(BeanReviewLike, :count).by(-1)
