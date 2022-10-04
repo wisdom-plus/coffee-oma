@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Relationships', type: :request do
   let_it_be(:user) { create(:user) }
-  let_it_be(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
+  let(:user1) { create(:user, :other_user) }
   let(:follow) { create(:relationship, user: user, follow: user1) }
 
   describe 'POST create' do
