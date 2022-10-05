@@ -7,12 +7,9 @@ RSpec.describe 'Admin', type: :request do
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }
 
   describe 'Recipe' do
-    before do
+    it 'created resource' do
       bean_review
       sign_in admin
-    end
-
-    it 'created resource' do
       expect do
         post admin_recipes_path, params: { recipe: attributes_for(:recipe, bean_review_id: bean_review.id) }
       end.to change(Recipe, :count).by 1
