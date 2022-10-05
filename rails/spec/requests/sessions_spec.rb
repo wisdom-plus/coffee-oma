@@ -11,23 +11,17 @@ RSpec.describe 'Sessions', type: :request do
   end
 
   describe 'POST users/sign_in' do
-    before do
-      user.confirm
-      post user_session_path, params: { user: { email: 'test@example.com', password: 'password', remember_me: '0' } }
-    end
-
     it 'request success' do
+      user.confirm
+      post user_session_path, params: { user: { email: user.email, password: user.password, remember_me: '0' } }
       expect(response).to have_http_status(:found)
     end
   end
 
   describe 'DELELTE users/sign_out' do
-    before do
+    it 'requests success' do
       user.confirm
       sign_in user
-    end
-
-    it 'requests success' do
       delete destroy_user_session_path
       expect(response).to have_http_status(:found)
     end
