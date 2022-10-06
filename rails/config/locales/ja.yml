@@ -12,7 +12,7 @@ ja:
   contacts:
     create:
       notice: 'お問い合わせメールが送信されました'
-      alert: 'お問い合わせメールの送信し失敗しました'
+      alert: 'お問い合わせメールの送信に失敗しました'
   news:
     create:
       notice: '登録が完了しました。'

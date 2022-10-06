@@ -6,11 +6,8 @@ RSpec.describe 'Contacts', type: :system do
 
   describe 'new' do
     context 'when to succeed' do
-      before do
-        visit new_contact_path
-      end
-
       it 'created contact' do
+        visit new_contact_path
         fill_in 'お名前', with: contact.name
         fill_in 'メールアドレス',	with: contact.email
         fill_in 'contact[content]',	with: contact.content
@@ -19,6 +16,7 @@ RSpec.describe 'Contacts', type: :system do
       end
 
       it 'redirect root' do
+        visit new_contact_path
         fill_in 'お名前', with: contact.name
         fill_in 'メールアドレス',	with: contact.email
         fill_in 'contact[content]',	with: contact.content
@@ -28,32 +26,31 @@ RSpec.describe 'Contacts', type: :system do
     end
 
     context 'when to fail' do
-      before do
-        visit new_contact_path
-      end
-
       it 'is blank name' do
+        visit new_contact_path
         fill_in 'お名前', with: ''
         fill_in 'メールアドレス',	with: contact.email
         fill_in 'contact[content]',	with: contact.content
         click_on '送信'
-        expect(page).to have_content 'お問い合わせメールの送信し失敗しました'
+        expect(page).to have_content 'お問い合わせメールの送信に失敗しました'
       end
 
       it 'is blank email' do
+        visit new_contact_path
         fill_in 'お名前', with: contact.name
         fill_in 'メールアドレス',	with: ''
         fill_in 'contact[content]',	with: contact.content
         click_on '送信'
-        expect(page).to have_content 'お問い合わせメールの送信し失敗しました'
+        expect(page).to have_content 'お問い合わせメールの送信に失敗しました'
       end
 
       it 'is blank content' do
+        visit new_contact_path
         fill_in 'お名前', with: contact.name
         fill_in 'メールアドレス',	with: contact.email
         fill_in 'contact[content]',	with: ''
         click_on '送信'
-        expect(page).to have_content 'お問い合わせメールの送信し失敗しました'
+        expect(page).to have_content 'お問い合わせメールの送信に失敗しました'
       end
     end
   end
