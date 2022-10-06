@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'History', type: :system do
-  let(:user) { create(:user) }
-  let(:product) { create(:product, user: user) }
-  let(:bean) { create(:bean, user: user) }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:product) { create(:product, user: user) }
+  let_it_be(:bean) { create(:bean, user: user) }
   let(:history1) { create(:history, product: product, user: user) }
   let(:history2) { create(:history, bean: bean, user: user) }
 
@@ -14,11 +14,8 @@ RSpec.describe 'History', type: :system do
     end
 
     context 'when login' do
-      before do
-        login(user, user.email, user.password)
-      end
-
       it 'render history' do
+        login(user, user.email, user.password)
         visit histories_path
         expect(page).to have_link nil, href: product_path(product.id)
         expect(page).to have_link nil, href: bean_path(bean.id)
