@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe 'Registrations', type: :system, js: true do
   let(:user) { create(:user) }
-  let(:user1) { create(:user, email: 'test1@example.com', username: 'test1') }
+  let(:user1) { create(:user, :other_user) }
 
   describe 'sign_up' do
     context 'when success' do
-      before do
+      it 'displayed message' do
         visit new_user_registration_path
         fill_in 'user-name', with: 'test1'
         fill_in 'E-mail address', with: 'test@example.com'
@@ -14,9 +14,6 @@ RSpec.describe 'Registrations', type: :system, js: true do
         fill_in 'Confirmation password', with: 'password'
         find('.spec-policy').click
         click_button 'Sign up'
-      end
-
-      it 'displayed message' do
         expect(page).to have_content '本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。'
       end
     end
@@ -180,17 +177,10 @@ RSpec.describe 'Registrations', type: :system, js: true do
 
   describe 'get /users/:id/show' do
     context 'when login' do
-      before do
-        login(user, user.email, user.password)
-      end
-
       it 'displayed icon' do
+        login(user, user.email, user.password)
         visit "/users/#{user.id}/show"
         expect(page).to have_selector 'img'
-      end
-
-      it 'have link edit' do
-        visit "/users/#{user.id}/show"
         expect(page).to have_link 'プロフィールを編集'
       end
     end
