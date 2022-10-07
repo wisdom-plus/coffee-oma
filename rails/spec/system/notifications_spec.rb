@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe 'Notifications', type: :system do
   let(:user) { create(:user) }
-  let(:user1) { create(:user, email: 'test2@example.com', username: 'test2') }
+  let(:user1) { create(:user, :other_user) }
   let(:follow) { create(:relationship, user: user1, follow: user) }
   let(:product) { create(:product, user: user) }
   let(:review) { create(:review, user: user, product: product) }
-  let(:product_review_like) { create(:like, user: user1, liked_id: review.id, type: 'ProductReviewLike') }
+  let(:product_review_like) { create(:product_review_like,user: user1, liked_id: review.id) }
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }
-  let(:bean_review_like) { create(:like, user: user1, liked_id: bean_review.id, type: 'BeanReviewLike') }
+  let(:bean_review_like) { create(:bean_review_like, user: user1, liked_id: bean_review.id) }
   let(:room) { create(:room, participant1: user, participant2: user1) }
   let(:message) { create(:message, room: room, user: user1) }
   let(:notification_follow) { create(:notification, user: user, source: follow) }
@@ -26,20 +26,15 @@ RSpec.describe 'Notifications', type: :system do
         login(user, user.email, user.password)
       end
 
-      it 'render page' do
+      it 'have notification_icon and render page, then no have notification' do
+        visit root_path
+        expect(page).to have_css '.new_notification'
+
         visit notifications_path
         expect(page).to have_content "#{user1.username}さんにフォローされました"
         expect(page).to have_content "#{user1.username}さんがあなたのレビューにライクしました"
         expect(page).to have_content "#{user1.username}さんからメッセージが届きました"
-      end
 
-      it 'render new_notification icon' do
-        visit root_path
-        expect(page).to have_css '.new_notification'
-      end
-
-      it 'not render new_notification icon' do
-        visit notifications_path
         visit root_path
         expect(page).to have_no_css '.new_notification'
       end
@@ -59,18 +54,13 @@ RSpec.describe 'Notifications', type: :system do
       login(user, user.email, user.password)
     end
 
-    it 'render new_notification icon' do
+    it 'render new_notification icon and render page, after not render new_notification icon' do
       visit root_path
       expect(page).to have_css '.new_notification'
-    end
 
-    it 'create follow notification' do
       visit notifications_path
       expect(page).to have_content "#{user1.username}さんにフォローされました"
-    end
 
-    it 'not render new_notification icon' do
-      visit notifications_path
       visit root_path
       expect(page).to have_no_css '.new_notification'
     end
@@ -82,18 +72,13 @@ RSpec.describe 'Notifications', type: :system do
       login(user, user.email, user.password)
     end
 
-    it 'render new_notification icon' do
+    it 'render new_notification icon and render page, after not render new_notification icon' do
       visit root_path
       expect(page).to have_css '.new_notification'
-    end
 
-    it 'create like notification' do
       visit notifications_path
       expect(page).to have_content "#{user1.username}さんがあなたのレビューにライクしました"
-    end
 
-    it 'not render new_notification icon' do
-      visit notifications_path
       visit root_path
       expect(page).to have_no_css '.new_notification'
     end
@@ -105,18 +90,13 @@ RSpec.describe 'Notifications', type: :system do
       login(user, user.email, user.password)
     end
 
-    it 'render new_notification icon' do
+    it 'render new_notification icon and render page, after not render new_notification icon' do
       visit root_path
       expect(page).to have_css '.new_notification'
-    end
 
-    it 'create like notification' do
       visit notifications_path
       expect(page).to have_content "#{user1.username}さんがあなたのレビューにライクしました"
-    end
 
-    it 'not render new_notification icon' do
-      visit notifications_path
       visit root_path
       expect(page).to have_no_css '.new_notification'
     end
@@ -128,18 +108,13 @@ RSpec.describe 'Notifications', type: :system do
       login(user, user.email, user.password)
     end
 
-    it 'render new_notification icon' do
+    it 'render new_notification icon and render page, after not render new_notification icon' do
       visit root_path
       expect(page).to have_css '.new_notification'
-    end
 
-    it 'create like notification' do
       visit notifications_path
       expect(page).to have_content "#{user1.username}さんからメッセージが届きました"
-    end
 
-    it 'not render new_notification icon' do
-      visit notifications_path
       visit root_path
       expect(page).to have_no_css '.new_notification'
     end
