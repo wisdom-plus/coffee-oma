@@ -25,5 +25,18 @@ FactoryBot.define do
     title { '公式からのお知らせ' }
     content { '<p>Hello world</p>' }
     publicshed_at { Time.current }
+
+    trait :another_news do
+      title {'訂正のお知らせ'}
+      content {'<h4>good bye</h4>'}
+      active {false}
+    end
+
+    trait :after_published_new do
+      title {'訂正のお知らせ'}
+      content {'<h4>good bye</h4>'}
+      active {false}
+      publicshed_at {1.hour.from_now}
+    end
   end
 end

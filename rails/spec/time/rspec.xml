@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="2" skipped="0" failures="0" errors="0" time="28.236623" timestamp="2022-10-07T11:18:47+00:00" hostname="59790d092216">
+<testsuite name="rspec" tests="7" skipped="0" failures="0" errors="0" time="29.372015" timestamp="2022-10-07T11:30:47+00:00" hostname="59790d092216">
 <properties>
-<property name="seed" value="46771"/>
+<property name="seed" value="48991"/>
 </properties>
-<testcase classname="spec.system.messages_spec" name="Messages create create message" file="./spec/system/messages_spec.rb" time="26.004758"></testcase>
-<testcase classname="spec.system.messages_spec" name="Messages create not create message" file="./spec/system/messages_spec.rb" time="2.216797"></testcase>
+<testcase classname="spec.system.news_spec" name="News index displayed news" file="./spec/system/news_spec.rb" time="18.843685"></testcase>
+<testcase classname="spec.system.news_spec" name="News show display news adn new1" file="./spec/system/news_spec.rb" time="0.301597"></testcase>
+<testcase classname="spec.system.news_spec" name="News show display fail" file="./spec/system/news_spec.rb" time="0.255318"></testcase>
+<testcase classname="spec.system.news_spec" name="News new when login create news" file="./spec/system/news_spec.rb" time="5.820835"></testcase>
+<testcase classname="spec.system.news_spec" name="News new when not login redirect sign_in" file="./spec/system/news_spec.rb" time="0.299032"></testcase>
+<testcase classname="spec.system.news_spec" name="News edit when login edit news" file="./spec/system/news_spec.rb" time="3.534893"></testcase>
+<testcase classname="spec.system.news_spec" name="News edit when not login redirect sign_in" file="./spec/system/news_spec.rb" time="0.311032"></testcase>
 </testsuite>
