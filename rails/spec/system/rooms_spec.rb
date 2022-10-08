@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Rooms', type: :system do
   let(:user) { create(:user) }
-  let(:user1) { create(:user, email: 'test2@example.com', username: 'test2') }
+  let(:user1) { create(:user, :other_user) }
   let(:user2) { create(:user, email: 'test3@example.com', username: 'test3') }
   let(:follow) { create(:relationship, user: user, follow: user1) }
   let(:room) { create(:room, participant1: user, participant2: user1) }
@@ -23,30 +23,23 @@ RSpec.describe 'Rooms', type: :system do
         message
       end
 
-      it 'render page' do
+      it 'render page and render button' do
         visit rooms_path
         expect(page).to have_content 'メッセージ一覧'
         expect(page).to have_content user1.username.to_s
         expect(page).to have_content message.message.to_s
-      end
 
-      it 'render new button' do
-        visit rooms_path
         click_on 'メッセージを送る'
         expect(page).to have_current_path new_room_path
       end
     end
 
     context 'new' do
-      it 'render page' do
-        follow
-        visit new_room_path
-        expect(page).to have_content user1.username
-      end
-
       it 'created room(room not exists)' do
         follow
         visit new_room_path
+        expect(page).to have_content user1.username
+
         expect do
           click_on user1.username
         end.to change(Room, :count).by 1
@@ -63,7 +56,7 @@ RSpec.describe 'Rooms', type: :system do
         expect(page).to have_current_path room_path(room.id)
       end
 
-      it 'render page(no following)' do
+      it "render page(no following)" do
         visit new_room_path
         expect(page).to have_content 'フォローしているユーザーがいません'
       end
