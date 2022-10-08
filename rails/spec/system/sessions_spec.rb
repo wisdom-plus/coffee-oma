@@ -5,15 +5,12 @@ RSpec.describe 'Sessions', type: :system do
 
   describe 'sign_in' do
     context 'when success' do
-      before do
+      it 'successfully login' do
         user.confirm
         visit new_user_session_path
         fill_in 'E-mail address', with: user.email
         fill_in 'Password', with: user.password
         click_button 'Log in'
-      end
-
-      it 'successfully login' do
         expect(page).to have_content 'ログインしました。'
       end
     end
@@ -40,15 +37,12 @@ RSpec.describe 'Sessions', type: :system do
   end
 
   describe 'sign_out' do
-    before do
+    it 'is successfully sign_out' do
       user.confirm
       visit new_user_session_path
       fill_in 'E-mail address', with: user.email
       fill_in 'Password', with: user.password
       click_button 'Log in'
-    end
-
-    it 'is successfully sign_out' do
       find('.spec-logout').click
       expect(page).to have_content 'ログアウトしました。'
     end
