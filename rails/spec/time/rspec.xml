@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="3" skipped="0" failures="0" errors="0" time="28.084544" timestamp="2022-10-08T04:27:59+00:00" hostname="59790d092216">
+<testsuite name="rspec" tests="3" skipped="0" failures="0" errors="0" time="28.240430" timestamp="2022-10-08T04:34:21+00:00" hostname="59790d092216">
 <properties>
-<property name="seed" value="39042"/>
+<property name="seed" value="34623"/>
 </properties>
-<testcase classname="spec.system.reports_spec" name="Reports when login review display button and click button" file="./spec/system/reports_spec.rb" time="23.479663"></testcase>
-<testcase classname="spec.system.reports_spec" name="Reports when login bean_review display button and click button" file="./spec/system/reports_spec.rb" time="3.701004"></testcase>
-<testcase classname="spec.system.reports_spec" name="Reports when not login not display report button" file="./spec/system/reports_spec.rb" time="0.855330"></testcase>
+<testcase classname="spec.system.reports_spec" name="Reports when login review display button and click button" file="./spec/system/reports_spec.rb" time="23.648851"></testcase>
+<testcase classname="spec.system.reports_spec" name="Reports when login bean_review display button and click button" file="./spec/system/reports_spec.rb" time="3.588307"></testcase>
+<testcase classname="spec.system.reports_spec" name="Reports when not login not display report button" file="./spec/system/reports_spec.rb" time="0.957461"></testcase>
 </testsuite>
