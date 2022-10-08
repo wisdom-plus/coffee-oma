@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="3" skipped="0" failures="0" errors="0" time="28.240430" timestamp="2022-10-08T04:34:21+00:00" hostname="59790d092216">
+<testsuite name="rspec" tests="5" skipped="0" failures="0" errors="0" time="23.544434" timestamp="2022-10-08T04:37:33+00:00" hostname="59790d092216">
 <properties>
-<property name="seed" value="34623"/>
+<property name="seed" value="51438"/>
 </properties>
-<testcase classname="spec.system.reports_spec" name="Reports when login review display button and click button" file="./spec/system/reports_spec.rb" time="23.648851"></testcase>
-<testcase classname="spec.system.reports_spec" name="Reports when login bean_review display button and click button" file="./spec/system/reports_spec.rb" time="3.588307"></testcase>
-<testcase classname="spec.system.reports_spec" name="Reports when not login not display report button" file="./spec/system/reports_spec.rb" time="0.957461"></testcase>
+<testcase classname="spec.system.reviews_spec" name="Reviews create when login success redirect product page and displayed review" file="./spec/system/reviews_spec.rb" time="19.772351"></testcase>
+<testcase classname="spec.system.reviews_spec" name="Reviews create when login failure has blank title" file="./spec/system/reviews_spec.rb" time="0.985577"></testcase>
+<testcase classname="spec.system.reviews_spec" name="Reviews create when login failure has blank content" file="./spec/system/reviews_spec.rb" time="1.083000"></testcase>
+<testcase classname="spec.system.reviews_spec" name="Reviews create when login failure has blank rate" file="./spec/system/reviews_spec.rb" time="1.072823"></testcase>
+<testcase classname="spec.system.reviews_spec" name="Reviews create when not login is not render review_form" file="./spec/system/reviews_spec.rb" time="0.598029"></testcase>
 </testsuite>
