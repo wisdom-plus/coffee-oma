@@ -4,13 +4,12 @@ RSpec.describe 'Admin bean_review', type: :system do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
   let(:bean) { create(:bean, user: user) }
-  let(:bean_review) { create(:bean_review, user: user, bean: bean) }
-  let(:bean_review_like) { create(:like, user: user, liked_id: bean_review.id, type: 'BeanReviewLike') }
+  let!(:bean_review) { create(:bean_review, user: user, bean: bean) }
+  let(:bean_review_like) { create(:bean_review_like, user: user, liked_id: bean_review.id) }
 
   describe 'bean_review' do
     before do
       admin_login(admin)
-      bean_review_like
       visit admin_bean_reviews_path
     end
 
@@ -44,6 +43,7 @@ RSpec.describe 'Admin bean_review', type: :system do
     # end
 
     it 'delete resource' do
+      bean_review_like
       expect do
         visit admin_bean_review_path(bean_review.id)
         click_on 'コーヒー豆レビュー を削除する'
