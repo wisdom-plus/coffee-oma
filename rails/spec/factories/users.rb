@@ -26,7 +26,7 @@
 #
 FactoryBot.define do
   factory :user do
-    sequence(:email) { |n| "test#{n}@example.com"}
+    sequence(:email) { |n| "test#{n}@example.com" }
     password { 'password' }
     username { 'test' }
     icon { Rack::Test::UploadedFile.new('spec/support/test.png', 'image/png') }
