@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="2" skipped="0" failures="0" errors="0" time="0.816337" timestamp="2022-10-09T06:05:24+00:00" hostname="59790d092216">
+<testsuite name="rspec" tests="4" skipped="0" failures="0" errors="0" time="5.199408" timestamp="2022-10-09T06:08:12+00:00" hostname="59790d092216">
 <properties>
-<property name="seed" value="39476"/>
+<property name="seed" value="34000"/>
 </properties>
-<testcase classname="spec.system.admin.dashboard_spec" name="Admin dashboard dashboard when logged in display dashborad" file="./spec/system/admin/dashboard_spec.rb" time="0.515081"></testcase>
-<testcase classname="spec.system.admin.dashboard_spec" name="Admin dashboard dashboard when not logged in after sign in page login success" file="./spec/system/admin/dashboard_spec.rb" time="0.297776"></testcase>
+<testcase classname="spec.system.admin.history_spec" name="Admin history history displayed index" file="./spec/system/admin/history_spec.rb" time="1.356915"></testcase>
+<testcase classname="spec.system.admin.history_spec" name="Admin history history displayed show(product)" file="./spec/system/admin/history_spec.rb" time="1.168262"></testcase>
+<testcase classname="spec.system.admin.history_spec" name="Admin history history displayed show(bean)" file="./spec/system/admin/history_spec.rb" time="1.199923"></testcase>
+<testcase classname="spec.system.admin.history_spec" name="Admin history history delete resource" file="./spec/system/admin/history_spec.rb" time="1.414147"></testcase>
 </testsuite>
