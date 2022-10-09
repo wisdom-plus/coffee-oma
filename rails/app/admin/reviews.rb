@@ -20,7 +20,7 @@ ActiveAdmin.register Review do # rubocop:disable Metrics/BlockLength
     column :updated_at
     actions
   end
-
+# :nocov:
   show do |review|
     attributes_table(*review.class.columns.collect { |column| column.name.to_sym })
     panel 'お気に入り' do
@@ -32,7 +32,7 @@ ActiveAdmin.register Review do # rubocop:disable Metrics/BlockLength
         column :created_at
       end
     end
-
+# :nocov:
     panel '商品' do
       table_for review.product do
         column :id

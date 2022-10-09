@@ -7,7 +7,7 @@ ActiveAdmin.register Bean do # rubocop:disable Metrics/BlockLength
   # permit_params :name, :roast, :url, :purification, :country, :area, :description, :user_id, :image
   #
   # or
-  #
+# :nocov:
   index do
     column :id
     column :name
@@ -22,7 +22,7 @@ ActiveAdmin.register Bean do # rubocop:disable Metrics/BlockLength
     column :updated_at
     actions
   end
-
+# :nocov:
   show do |bean|
     attributes_table(*bean.class.columns.collect { |column| column.name.to_sym })
     panel 'レビュー' do
@@ -33,7 +33,7 @@ ActiveAdmin.register Bean do # rubocop:disable Metrics/BlockLength
         column :content
       end
     end
-
+# :nocov:
     panel 'お気に入り' do
       table_for bean.bean_likes do
         column :id
@@ -44,7 +44,7 @@ ActiveAdmin.register Bean do # rubocop:disable Metrics/BlockLength
     end
     active_admin_comments
   end
-
+# :nocov:
   permit_params do
     permitted = %i[name roast url purification country area description user_id image]
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
