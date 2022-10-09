@@ -20,7 +20,6 @@ RSpec.describe 'Admin bean_review', type: :system do
     it 'displayed show' do
       visit admin_bean_review_path(bean_review.id)
       expect(page).to have_content bean_review.title
-      expect(page).to have_content user.username
     end
 
     # なぜかsubmitが操作できない
