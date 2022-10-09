@@ -5,12 +5,11 @@ RSpec.describe 'Admin product_review_like', type: :system do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
   let(:review) { create(:review, user: user, product: product) }
-  let(:product_review_like) { create(:like, user: user, liked_id: review.id, type: 'ProductReviewLike') }
+  let!(:product_review_like) { create(:product_review_like, user: user, liked_id: review.id) }
 
   describe 'product_review_like' do
     before do
       admin_login(admin)
-      product_review_like
       visit admin_product_review_likes_path
     end
 
