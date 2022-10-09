@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'News', type: :system do
   let(:admin) { create(:admin_user) }
   let(:news) { create(:news, user: admin) }
-  let(:news1) { create(:news,:another_news, user: admin ) }
-  let(:news2) { create(:news,:after_published_new, user: admin ) }
+  let(:news1) { create(:news, :another_news, user: admin) }
+  let(:news2) { create(:news, :after_published_new, user: admin) }
 
   describe 'index' do
     it 'displayed news' do

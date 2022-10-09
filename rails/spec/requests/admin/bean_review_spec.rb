@@ -6,7 +6,6 @@ RSpec.describe 'Admin', type: :request do
   let(:bean) { create(:bean, user: user) }
 
   describe 'BeanReview' do
-
     it 'created resource' do
       user
       bean

@@ -6,7 +6,7 @@ RSpec.describe 'Notifications', type: :system do
   let(:follow) { create(:relationship, user: user1, follow: user) }
   let(:product) { create(:product, user: user) }
   let(:review) { create(:review, user: user, product: product) }
-  let(:product_review_like) { create(:product_review_like,user: user1, liked_id: review.id) }
+  let(:product_review_like) { create(:product_review_like, user: user1, liked_id: review.id) }
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }
   let(:bean_review_like) { create(:bean_review_like, user: user1, liked_id: bean_review.id) }

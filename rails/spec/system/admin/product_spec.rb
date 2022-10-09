@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Admin product', type: :system do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
-  let(:product) { create(:product, user: user) }
-  let!(:product_like) { create(:product_like, user: user, liked_id: product.id) }
+  let!(:product) { create(:product, user: user) }
 
   describe 'product' do
     before do

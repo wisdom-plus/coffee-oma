@@ -4,8 +4,8 @@ RSpec.describe 'Likes', type: :request do
   let_it_be(:user) { create(:user) }
   let_it_be(:product) { create(:product, user: user) }
   let_it_be(:bean) { create(:bean, user: user) }
-  let(:product_like) { create(:product_like,user: user, liked_id: product.id) }
-  let(:bean_like) { create(:bean_like ,user: user, liked_id: bean.id) }
+  let(:product_like) { create(:product_like, user: user, liked_id: product.id) }
+  let(:bean_like) { create(:bean_like, user: user, liked_id: bean.id) }
 
   describe 'POST create' do
     before do

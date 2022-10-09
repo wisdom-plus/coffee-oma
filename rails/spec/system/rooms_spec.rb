@@ -56,7 +56,7 @@ RSpec.describe 'Rooms', type: :system do
         expect(page).to have_current_path room_path(room.id)
       end
 
-      it "render page(no following)" do
+      it 'render page(no following)' do
         visit new_room_path
         expect(page).to have_content 'フォローしているユーザーがいません'
       end
