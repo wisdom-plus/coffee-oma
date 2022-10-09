@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="4" skipped="0" failures="0" errors="0" time="4.267221" timestamp="2022-10-09T06:13:43+00:00" hostname="59790d092216">
+<testsuite name="rspec" tests="3" skipped="0" failures="0" errors="0" time="3.315645" timestamp="2022-10-09T06:15:22+00:00" hostname="59790d092216">
 <properties>
-<property name="seed" value="59626"/>
+<property name="seed" value="19278"/>
 </properties>
-<testcase classname="spec.system.admin.notification_spec" name="Admin Notifications notification displayed index" file="./spec/system/admin/notification_spec.rb" time="0.960027"></testcase>
-<testcase classname="spec.system.admin.notification_spec" name="Admin Notifications notification created notification" file="./spec/system/admin/notification_spec.rb" time="1.217177"></testcase>
-<testcase classname="spec.system.admin.notification_spec" name="Admin Notifications notification displayed show(follow)" file="./spec/system/admin/notification_spec.rb" time="0.949724"></testcase>
-<testcase classname="spec.system.admin.notification_spec" name="Admin Notifications notification delete resource" file="./spec/system/admin/notification_spec.rb" time="1.083756"></testcase>
+<testcase classname="spec.system.admin.product_like_spec" name="Admin product_like product_like displayed index" file="./spec/system/admin/product_like_spec.rb" time="1.003680"></testcase>
+<testcase classname="spec.system.admin.product_like_spec" name="Admin product_like product_like displayed show" file="./spec/system/admin/product_like_spec.rb" time="0.965470"></testcase>
+<testcase classname="spec.system.admin.product_like_spec" name="Admin product_like product_like delete resource" file="./spec/system/admin/product_like_spec.rb" time="1.298766"></testcase>
 </testsuite>
