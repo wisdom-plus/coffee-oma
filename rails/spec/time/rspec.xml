@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="3" skipped="0" failures="0" errors="0" time="3.425860" timestamp="2022-10-09T06:47:37+00:00" hostname="59790d092216">
+<testsuite name="rspec" tests="4" skipped="0" failures="0" errors="0" time="25.577395" timestamp="2022-10-09T06:51:56+00:00" hostname="59790d092216">
 <properties>
-<property name="seed" value="32269"/>
+<property name="seed" value="56358"/>
 </properties>
-<testcase classname="spec.system.admin.review_spec" name="Admin review review displayed index" file="./spec/system/admin/review_spec.rb" time="1.155691"></testcase>
-<testcase classname="spec.system.admin.review_spec" name="Admin review review displayed" file="./spec/system/admin/review_spec.rb" time="1.033813"></testcase>
-<testcase classname="spec.system.admin.review_spec" name="Admin review review delete resource" file="./spec/system/admin/review_spec.rb" time="1.204361"></testcase>
+<testcase classname="spec.system.admin.user_spec" name="Admin user user displayed index" file="./spec/system/admin/user_spec.rb" time="1.415379"></testcase>
+<testcase classname="spec.system.admin.user_spec" name="Admin user user created user" file="./spec/system/admin/user_spec.rb" time="21.220094"></testcase>
+<testcase classname="spec.system.admin.user_spec" name="Admin user user displayed show" file="./spec/system/admin/user_spec.rb" time="1.310217"></testcase>
+<testcase classname="spec.system.admin.user_spec" name="Admin user user delete resource" file="./spec/system/admin/user_spec.rb" time="1.584847"></testcase>
 </testsuite>
