@@ -148,7 +148,7 @@ ActiveRecord::Schema.define(version: 2022_10_10_042740) do
   create_table "image_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "imageable_type", null: false
     t.bigint "imageable_id", null: false
-    t.string "attachment", null: false
+    t.string "attachment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["imageable_type", "imageable_id"], name: "index_image_attachments_on_imageable"
