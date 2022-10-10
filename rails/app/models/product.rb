@@ -1,10 +1,9 @@
 # == Schema Information
 #
-# Table name: selfs
+# Table name: products
 #
 #  id            :bigint           not null, primary key
 #  caption       :text(65535)
-#  image         :text(65535)
 #  likes_count   :integer          default(0), not null
 #  name          :string(255)
 #  price         :integer
@@ -18,8 +17,8 @@
 #
 # Indexes
 #
-#  index_selfs_on_likes_count  (likes_count)
-#  index_selfs_on_user_id      (user_id)
+#  index_products_on_likes_count  (likes_count)
+#  index_products_on_user_id      (user_id)
 #
 # Foreign Keys
 #
@@ -32,15 +31,17 @@ class Product < ApplicationRecord
            foreign_key: 'liked_id',
            dependent: :destroy,
            inverse_of: :product
+  has_one :image_attachment, as: :imageable, dependent: :destroy
   belongs_to :user
 
-  mount_uploader :image, ImageurlUploader
   acts_as_taggable
 
   validates :name, :price, :shopname, :caption, presence: true
 
   scope :keywords_search, ->(keywords) { ransack(keywords) }
   scope :sort_by_likes_count, -> { order('likes_count desc') }
+
+  delegate :image, to: :image_attachment, allow_nil: true
 
   def rate_average_num
     if reviews_count.zero?
@@ -68,5 +69,13 @@ class Product < ApplicationRecord
 
   def self.ranking_index
     all.sort_by_likes_count.limit(INDEX_DISPALY_NUM)
+  end
+
+  def image=(file)
+    if image_attachment
+      image_attachment.update(attachment: file)
+    else
+      build_image_attachment(attachment: file)
+    end
   end
 end

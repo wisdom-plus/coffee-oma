@@ -4,7 +4,6 @@
 #
 #  id            :bigint           not null, primary key
 #  caption       :text(65535)
-#  image         :text(65535)
 #  likes_count   :integer          default(0), not null
 #  name          :string(255)
 #  price         :integer
