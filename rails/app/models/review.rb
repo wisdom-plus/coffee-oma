@@ -43,7 +43,7 @@ class Review < ApplicationRecord
   scope :exclude_reviews, ->(product_id, user_id) { ExcludeReportedReviewsQuery.call(product_id, user_id) }
 
   def self.latest_review
-    all.includes([:product], [:user]).sort_by_created_at.limit(TOP_DISPALY_NUM)
+    all.includes([:user], product: :image_attachment).sort_by_created_at.limit(TOP_DISPALY_NUM)
   end
 
   def self.show_review(product_id)
