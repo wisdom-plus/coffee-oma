@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_03_115229) do
+ActiveRecord::Schema.define(version: 2022_10_10_042740) do
 
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -105,7 +105,6 @@ ActiveRecord::Schema.define(version: 2022_07_03_115229) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "image"
     t.integer "likes_count", default: 0, null: false
     t.integer "reviews_count", default: 0, null: false
     t.index ["likes_count"], name: "index_beans_on_likes_count"
@@ -144,6 +143,15 @@ ActiveRecord::Schema.define(version: 2022_07_03_115229) do
     t.index ["bean_id"], name: "index_histories_on_bean_id"
     t.index ["product_id"], name: "index_histories_on_product_id"
     t.index ["user_id"], name: "index_histories_on_user_id"
+  end
+
+  create_table "image_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "imageable_type", null: false
+    t.bigint "imageable_id", null: false
+    t.string "attachment", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_image_attachments_on_imageable"
   end
 
   create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -195,7 +203,6 @@ ActiveRecord::Schema.define(version: 2022_07_03_115229) do
     t.integer "price"
     t.text "caption"
     t.text "url"
-    t.text "image"
     t.string "shopname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
