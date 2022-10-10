@@ -10,7 +10,7 @@
       .ui.middle.aligned.stackable.grid.conteiner
         .row
           .six.wide.left.floated.column
-            =image_tag 'square-image.png', class: "ui large bordered rounded image lazyload",data: {src: "#{@bean.image}"}
+            =image_tag 'square-image.png', class: "ui large bordered rounded image lazyload",data: {src: "#{@bean.image.url}"}
           .ten.wide.column
             table.ui.celled.table
               thead
