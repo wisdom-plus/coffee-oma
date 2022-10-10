@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: likes
+#
+#  id         :bigint           not null, primary key
+#  type       :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  liked_id   :bigint
+#  user_id    :integer
+#
+# Indexes
+#
+#  index_likes_on_created_at  (created_at)
+#  index_likes_on_user_id     (user_id)
+#
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
