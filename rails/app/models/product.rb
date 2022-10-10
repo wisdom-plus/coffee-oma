@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: products
+# Table name: selfs
 #
 #  id            :bigint           not null, primary key
 #  caption       :text(65535)
@@ -18,8 +18,8 @@
 #
 # Indexes
 #
-#  index_products_on_likes_count  (likes_count)
-#  index_products_on_user_id      (user_id)
+#  index_selfs_on_likes_count  (likes_count)
+#  index_selfs_on_user_id      (user_id)
 #
 # Foreign Keys
 #
@@ -59,14 +59,14 @@ class Product < ApplicationRecord
   end
 
   def self.like_top
-    Product.all.sort_by_likes_count.limit(TOP_DISPALY_NUM)
+    all.sort_by_likes_count.limit(TOP_DISPALY_NUM)
   end
 
   def self.tag_result(tag_name, page)
-    Product.tagged_with(tag_name).page(page).per(INDEX_DISPALY_NUM)
+    tagged_with(tag_name).page(page).per(INDEX_DISPALY_NUM)
   end
 
   def self.ranking_index
-    Product.all.sort_by_likes_count.limit(INDEX_DISPALY_NUM)
+    all.sort_by_likes_count.limit(INDEX_DISPALY_NUM)
   end
 end

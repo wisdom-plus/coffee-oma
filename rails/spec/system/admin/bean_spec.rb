@@ -4,13 +4,10 @@ RSpec.describe 'Admin bean', type: :system do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
   let(:bean) { create(:bean, user: user) }
-  let(:bean_like) { create(:like, user: user, liked_id: bean.id, type: 'BeanLike') }
-  let(:bean_review) { create(:bean_review, bean: bean, user: user) }
 
   describe 'bean' do
     before do
       admin_login(admin)
-      bean_like
       visit admin_beans_path
     end
 
@@ -24,6 +21,7 @@ RSpec.describe 'Admin bean', type: :system do
     end
 
     it 'delete resource' do
+      bean
       expect do
         visit admin_bean_path(bean.id)
         click_on 'コーヒー豆 を削除する'

@@ -26,9 +26,13 @@
 #
 FactoryBot.define do
   factory :user do
-    email { 'test@example.com' }
+    sequence(:email) { |n| "test#{n}@example.com" }
     password { 'password' }
     username { 'test' }
     icon { Rack::Test::UploadedFile.new('spec/support/test.png', 'image/png') }
+
+    trait :other_user do
+      username { 'test1' }
+    end
   end
 end

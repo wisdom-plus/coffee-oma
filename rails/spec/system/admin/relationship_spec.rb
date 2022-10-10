@@ -3,13 +3,12 @@ require 'rails_helper'
 RSpec.describe 'Admin relationship', type: :system do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
-  let(:user1) { create(:user, username: 'test1', email: 'test1@example.com') }
-  let(:follow) { create(:relationship, user: user, follow: user1) }
+  let(:user1) { create(:user, :other_user) }
+  let!(:follow) { create(:relationship, user: user, follow: user1) }
 
   describe 'relationship' do
     before do
       admin_login(admin)
-      follow
       visit admin_relationships_path
     end
 

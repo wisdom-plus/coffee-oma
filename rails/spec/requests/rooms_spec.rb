@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Rooms', type: :request do
   let_it_be(:user) { create(:user) }
-  let_it_be(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }
+  let_it_be(:user1) { create(:user, :other_user) }
   let_it_be(:user2) { create(:user, email: 'test2@example.com', username: 'test3') }
   let(:follow) { create(:relationship, user: user, follow: user1) }
   let(:follow2) { create(:relationship, user: user, follow: user2) }
@@ -10,14 +10,11 @@ RSpec.describe 'Rooms', type: :request do
   let(:message) { create(:message, user: user, room: room) }
 
   describe 'GET index' do
-    before do
+    it 'request success' do
       user.confirm
       sign_in user
       room
       message
-    end
-
-    it 'request success' do
       get rooms_path
       expect(response).to have_http_status(:ok)
     end

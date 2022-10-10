@@ -3,15 +3,11 @@ require 'rails_helper'
 RSpec.describe 'Admin product', type: :system do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
-  let(:product) { create(:product, user: user) }
-  let(:product_like) { create(:like, user: user, liked_id: product.id, type: 'ProductLike') }
-  let(:review) { create(:review, user: user, product: product) }
+  let!(:product) { create(:product, user: user) }
 
   describe 'product' do
     before do
       admin_login(admin)
-      review
-      product_like
       visit admin_products_path
     end
 

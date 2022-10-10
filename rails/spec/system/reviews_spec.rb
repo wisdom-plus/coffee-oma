@@ -13,18 +13,13 @@ RSpec.describe 'Reviews', type: :system do
       end
 
       context 'success' do
-        before do
+        it 'redirect product page and displayed review' do
           fill_in 'title',	with: 'レビューのタイトル'
           fill_in 'content',	with: 'レビューの内容'
           find('#review_rate', visible: false).set('1')
           click_button 'submit'
-        end
-
-        it 'redirect product page' do
           expect(page).to have_current_path product_path(product.id), ignore_query: true
-        end
 
-        it 'displayed review' do
           expect(page).to have_content 'レビューのタイトル'
           expect(find('.read')['data-rating']).to eq '1.0'
         end

@@ -3,15 +3,14 @@ require 'rails_helper'
 RSpec.describe 'Admin Notifications', type: :system do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
-  let(:user1) { create(:user, email: 'test2@example.com', username: 'test2') }
+  let(:user1) { create(:user, :other_user) }
   let(:product) { create(:product, user: user) }
   let(:follow) { create(:relationship, user: user, follow: user1) }
-  let(:notification_follow) { create(:notification, source: follow, user: user) }
+  let!(:notification_follow) { create(:notification, source: follow, user: user) }
 
   describe 'notification' do
     before do
       admin_login(admin)
-      notification_follow
       visit admin_notifications_path
     end
 

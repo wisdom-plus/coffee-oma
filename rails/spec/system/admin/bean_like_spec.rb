@@ -4,12 +4,11 @@ RSpec.describe 'Admin bean_like', type: :system do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
   let(:bean) { create(:bean, user: user) }
-  let(:bean_like) { create(:like, user: user, liked_id: bean.id, type: 'BeanLike') }
+  let!(:bean_like) { create(:bean_like, user: user, liked_id: bean.id) }
 
   describe 'bean_like' do
     before do
       admin_login(admin)
-      bean_like
       visit admin_bean_likes_path
     end
 

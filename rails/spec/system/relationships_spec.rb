@@ -2,9 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Relationships', type: :system, js: true do
   let(:user) { create(:user) }
-  let(:user1) { create(:user, username: 'test1', email: 'test1@example.com') }
+  let(:user1) { create(:user, :other_user) }
   let(:follow) { create(:relationship, user: user, follow: user1) }
-  let(:notification_follow) { create(:notification, user: user, source: follow) }
 
   context 'when login' do
     before do
@@ -12,32 +11,25 @@ RSpec.describe 'Relationships', type: :system, js: true do
     end
 
     context 'create' do
-      it 'created relationship' do
+      it 'created relationship render follow' do
         visit "/users/#{user1.id}/show"
         click_link 'フォローする'
         expect(page).to have_content "#{user1.username}をフォローしました"
         expect(page).to have_link 'フォロー解除'
-      end
 
-      it 'not render link' do
         visit "/users/#{user.id}/show"
         expect(page).to have_no_link 'フォローする'
       end
     end
 
     context 'destroy' do
-      before do
-        follow
-      end
-
       it 'destroy relationship' do
+        follow
         visit "/users/#{user1.id}/show"
         click_link 'フォロー解除'
         expect(page).to have_content "#{user1.username}のフォローを解除しました"
         expect(page).to have_link 'フォローする'
-      end
 
-      it 'not render link' do
         visit "/users/#{user.id}/show"
         expect(page).to have_no_link 'フォロー解除'
       end

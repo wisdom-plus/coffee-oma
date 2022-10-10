@@ -3,19 +3,18 @@ require 'rails_helper'
 RSpec.describe 'Admin report', type: :system do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
-  let(:user1) { create(:user, email: 'test2@example.com', username: 'test2') }
+  let(:user1) { create(:user, :other_user) }
   let(:product) { create(:product, user: user) }
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }
   let(:review) { create(:review, user: user, product: product) }
   let(:review1) { create(:review, user: user1, product: product) }
-  let(:review_report) { create(:report, user: user1, review: review) }
-  let(:bean_review_report) { create(:report, user: user1, review: bean_review) }
+  let!(:review_report) { create(:report, user: user1, review: review) }
+  let!(:bean_review_report) { create(:report, user: user1, review: bean_review) }
 
   describe 'report' do
     before do
       admin_login(admin)
-      review_report
       visit admin_reports_path
     end
 

@@ -33,6 +33,12 @@ class BeanReview < ApplicationRecord
            inverse_of: :bean_review
   counter_culture :bean, column_name: 'reviews_count'
 
+  validates :title, :content, presence: true
+  validates :acidity, :bitter, :flavor, :rich, :sweet, numericality: {
+    greater_than_or_equal_to: 1,
+    less_than_or_equal_to: 5
+  }, presence: true
+
   scope :accociated_review, ->(associated_id) { where(bean_id: associated_id) }
   scope :find_reviews, ->(review_id) { find_by(id: review_id) }
   scope :evaluations, -> {
@@ -44,10 +50,7 @@ class BeanReview < ApplicationRecord
                       }
   scope :exclude_reviews, ->(bean_id, user_id) { ExcludeReportedBeanReviewsQuery.call(bean_id, user_id) }
 
-  # 利用しているかもしれないので、削除しない
-  # def like_record(liker_id)
-  #   bean_review_likes.find_by(user_id: liker_id)
-  # end
+  RATES = %w[acidity bitter sweet rich flavor].freeze
 
   def self.show_review(bean_id)
     accociated_review(bean_id).includes([:user], [:recipe])

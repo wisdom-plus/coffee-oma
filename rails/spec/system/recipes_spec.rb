@@ -4,7 +4,6 @@ RSpec.describe 'Recipes', type: :system do
   let(:user) { create(:user) }
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, bean: bean) }
-  let(:recipe) { create(:recipe, bean_review: bean_review) }
 
   describe 'create' do
     context 'when login' do

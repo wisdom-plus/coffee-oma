@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe 'BeanReviews', type: :system do
   let(:user) { create(:user) }
   let(:bean) { create(:bean, user: user) }
-  let(:bean_review) { create(:bean_review) }
 
   describe 'create' do
     context 'when login' do

@@ -24,7 +24,7 @@ ActiveAdmin.register Product do # rubocop:disable Metrics/BlockLength
         column :content
       end
     end
-
+# :nocov:
     panel 'お気に入り' do
       table_for product.product_likes do
         column :id
@@ -35,7 +35,7 @@ ActiveAdmin.register Product do # rubocop:disable Metrics/BlockLength
     end
     active_admin_comments
   end
-
+# :nocov:
   index do
     selectable_column
     column :id

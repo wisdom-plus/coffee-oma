@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Admin user', type: :system do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
-  let(:user1) { create(:user, email: 'test1@example.com', username: 'test1') }
+  let(:user1) { create(:user, :other_user) }
   let(:product) { create(:product, user: user) }
   let(:review) { create(:review, user: user, product: product) }
   let(:bean) { create(:bean, user: user) }

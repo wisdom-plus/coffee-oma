@@ -14,11 +14,8 @@ RSpec.describe 'History', type: :system do
     end
 
     context 'when login' do
-      before do
-        login(user, user.email, user.password)
-      end
-
       it 'render history' do
+        login(user, user.email, user.password)
         visit histories_path
         expect(page).to have_link nil, href: product_path(product.id)
         expect(page).to have_link nil, href: bean_path(bean.id)

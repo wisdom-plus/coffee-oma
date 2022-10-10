@@ -4,8 +4,8 @@ RSpec.describe 'Likes', type: :request do
   let_it_be(:user) { create(:user) }
   let_it_be(:product) { create(:product, user: user) }
   let_it_be(:bean) { create(:bean, user: user) }
-  let(:product_like) { create(:like, user: user, liked_id: product.id, type: 'ProductLike') }
-  let(:bean_like) { create(:like, user: user, liked_id: bean.id, type: 'BeanLike') }
+  let(:product_like) { create(:product_like, user: user, liked_id: product.id) }
+  let(:bean_like) { create(:bean_like, user: user, liked_id: bean.id) }
 
   describe 'POST create' do
     before do
@@ -68,13 +68,10 @@ RSpec.describe 'Likes', type: :request do
   end
 
   describe 'GET index' do
-    before do
+    it 'request success' do
       user.confirm
       sign_in user
       product_like
-    end
-
-    it 'request success' do
       get likes_path
       expect(response).to have_http_status(:ok)
     end

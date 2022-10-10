@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Reports', type: :system, js: true do
   let(:user) { create(:user) }
-  let(:user1) { create(:user, email: 'test2@example.com', username: 'test2') }
+  let(:user1) { create(:user, :other_user) }
   let(:product) { create(:product, user: user) }
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }
@@ -22,23 +22,12 @@ RSpec.describe 'Reports', type: :system, js: true do
         visit product_path(product.id)
       end
 
-      it 'display button' do
+      it 'display button and click button' do
         first('.report-modal-button').click
         expect(page).to have_link 'レビューを削除する', href: reports_path(review_id: review.id, type: review.class)
-      end
 
-      it 'click report button' do
-        first('.report-modal-button').click
         click_link 'レビューを削除する', href: reports_path(review_id: review.id, type: review.class)
         expect(page).to have_content 'レビューを通報しました。'
-      end
-
-      it 'review delete' do
-        expect do
-          perform_enqueued_jobs do
-            DeleteReviewJob.perform_later(review)
-          end
-        end.to change(Review, :count).by(-1)
       end
     end
 
@@ -48,34 +37,20 @@ RSpec.describe 'Reports', type: :system, js: true do
         visit bean_path(bean.id)
       end
 
-      it 'display button' do
+      it 'display button and click button' do
         first('.report-modal-button').click
         expect(page).to have_link 'レビューを削除する', href: reports_path(review_id: bean_review.id, type: bean_review.class)
-      end
 
-      it 'click report button' do
-        first('.report-modal-button').click
         click_link nil, href: reports_path(review_id: bean_review.id, type: bean_review.class)
         expect(page).to have_content 'レビューを通報しました。'
-      end
-
-      it 'review delete' do
-        expect do
-          perform_enqueued_jobs do
-            DeleteReviewJob.perform_later(bean_review)
-          end
-        end.to change(BeanReview, :count).by(-1)
       end
     end
   end
 
   context 'when not login' do
-    before do
+    it 'not display report button' do
       review
       visit product_path(product.id)
-    end
-
-    it 'not display report button' do
       expect(page).to have_no_link nil, href: reports_path(review_id: review.id)
     end
   end

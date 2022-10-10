@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Beans', type: :system do
   let(:user) { create(:user) }
-  let(:user1) { create(:user, email: 'test1@example.com', username: 'test1') }
+  let(:user1) { create(:user, :other_user) }
   let(:bean) { create(:bean, user: user) }
   let(:bean1) { create(:bean, name: '珈琲屋の豆', user: user1) }
 
@@ -51,32 +51,20 @@ RSpec.describe 'Beans', type: :system do
   end
 
   describe 'index' do
-    before do
+    it 'displayed bean1' do
       bean
       bean1
       visit beans_path
-    end
-
-    it 'displayed bean1' do
       link = all('a.ui.fluid.link.card.post')[1]
       expect(link[:href]).to eq bean_path(bean1.id)
     end
   end
 
   describe 'show' do
-    before do
-      bean
-      visit bean_path(bean.id)
-    end
-
-    it 'display test', :aggregate_failures do
+    it 'display test' do
       visit bean_path(bean.id)
       expect(page).to have_content bean.name
       expect(page).to have_css '.ui.teal.tag.label'
-    end
-
-    it 'redirect index(tag)' do
-      visit bean_path(bean.id)
       click_on 'コーヒー豆 (1)'
       expect(page).to have_current_path beans_path, ignore_query: true
     end
