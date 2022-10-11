@@ -25,7 +25,6 @@ require 'rails_helper'
 
 RSpec.describe Bean, type: :model do
   let(:user) { create(:user) }
-  let(:bean) { create(:bean, user: user) }
   let(:bean_build) { build(:bean) }
 
   it 'is invalid with a name' do

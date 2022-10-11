@@ -28,7 +28,7 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
   let(:user) { create(:user) }
-  let(:product_build) { build(:product, user: user) }
+  let(:product_build) { build(:product) }
 
   describe 'validate' do
     it 'product name presence' do

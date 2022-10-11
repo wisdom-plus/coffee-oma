@@ -15,6 +15,6 @@
 #
 FactoryBot.define do
   factory :image_attachment do
-    
+    attachment { Rack::Test::UploadedFile.new('spec/support/noimage.png', 'image/png') }
   end
 end
