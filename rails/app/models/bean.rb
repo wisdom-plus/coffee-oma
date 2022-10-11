@@ -47,13 +47,18 @@ class Bean < ApplicationRecord
 
   scope :keywords_search, ->(keywords) { ransack(keywords) }
 
+  def initialize(*args)
+    super(*args)
+    self.image = nil
+  end
+
   def self.tag_result(tag_name, page)
     Bean.tagged_with(tag_name).page(page).per(INDEX_DISPALY_NUM)
   end
 
   def image=(file)
     if image_attachment
-      image_attachment.update(attachment: file)
+      image_attachment.attachment = file
     else
       build_image_attachment(attachment: file)
     end

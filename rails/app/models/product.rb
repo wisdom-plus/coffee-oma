@@ -43,6 +43,11 @@ class Product < ApplicationRecord
 
   delegate :image, to: :image_attachment, allow_nil: true
 
+  def initialize(*args)
+    super(*args)
+    self.image = nil
+  end
+
   def rate_average_num
     if reviews_count.zero?
       return 0
@@ -73,7 +78,7 @@ class Product < ApplicationRecord
 
   def image=(file)
     if image_attachment
-      image_attachment.update(attachment: file)
+      image_attachment.attachment = file
     else
       build_image_attachment(attachment: file)
     end
