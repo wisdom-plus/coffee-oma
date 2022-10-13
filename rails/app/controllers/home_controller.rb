@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def top
-    @rankings = Product.includes([:image_attachment]).like_top
+    @rankings = Product.includes([:thread_image]).like_top
     @reviews = Review.latest_review
     @news = News.latest_news
   end
