@@ -31,7 +31,7 @@ class Product < ApplicationRecord
            foreign_key: 'liked_id',
            dependent: :destroy,
            inverse_of: :product
-  has_one :image_attachment, as: :imageable, dependent: :destroy
+  has_one :thread_image, as: :imageable, dependent: :destroy
   belongs_to :user
 
   acts_as_taggable
@@ -41,7 +41,7 @@ class Product < ApplicationRecord
   scope :keywords_search, ->(keywords) { ransack(keywords) }
   scope :sort_by_likes_count, -> { order('likes_count desc') }
 
-  delegate :image, to: :image_attachment, allow_nil: true
+  delegate :image, to: :thread_image, allow_nil: true
 
   def initialize(*args)
     super(*args)
@@ -77,10 +77,10 @@ class Product < ApplicationRecord
   end
 
   def image=(file)
-    if image_attachment
-      image_attachment.attachment = file
+    if thread_image
+      thread_image.attachment = file
     else
-      build_image_attachment(attachment: file)
+      build_thread_image(attachment: file)
     end
   end
 end

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: image_attachments
+# Table name: thread_images
 #
 #  id             :bigint           not null, primary key
 #  attachment     :string(255)
@@ -11,9 +11,9 @@
 #
 # Indexes
 #
-#  index_image_attachments_on_imageable  (imageable_type,imageable_id)
+#  index_thread_images_on_imageable  (imageable_type,imageable_id)
 #
-class ImageAttachment < ApplicationRecord
+class ThreadImage < ApplicationRecord
   belongs_to :imageable, polymorphic: true
 
   mount_uploader :attachment, ImageUploader
