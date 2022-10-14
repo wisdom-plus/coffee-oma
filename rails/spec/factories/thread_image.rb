@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: image_attachments
+# Table name: thread_images
 #
 #  id             :bigint           not null, primary key
 #  attachment     :string(255)
@@ -11,10 +11,10 @@
 #
 # Indexes
 #
-#  index_image_attachments_on_imageable  (imageable_type,imageable_id)
+#  index_thread_images_on_imageable  (imageable_type,imageable_id)
 #
 FactoryBot.define do
-  factory :image_attachment do
+  factory :thread_image do
     attachment { Rack::Test::UploadedFile.new('spec/support/noimage.png', 'image/png') }
   end
 end
