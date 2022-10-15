@@ -1,3 +1,27 @@
+# == Schema Information
+#
+# Table name: bean_reviews
+#
+#  id                :bigint           not null, primary key
+#  acidity           :integer
+#  bitter            :integer
+#  content           :text(65535)      not null
+#  flavor            :integer
+#  reviewlikes_count :integer          default(0), not null
+#  rich              :integer
+#  sweet             :integer
+#  title             :string(255)      not null
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  bean_id           :integer
+#  user_id           :integer
+#
+# Indexes
+#
+#  index_bean_reviews_on_bean_id     (bean_id)
+#  index_bean_reviews_on_created_at  (created_at)
+#  index_bean_reviews_on_user_id     (user_id)
+#
 require 'rails_helper'
 
 RSpec.describe BeanReview, type: :model do

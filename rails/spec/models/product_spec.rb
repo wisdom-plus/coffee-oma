@@ -1,8 +1,34 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id            :bigint           not null, primary key
+#  caption       :text(65535)
+#  likes_count   :integer          default(0), not null
+#  name          :string(255)
+#  price         :integer
+#  rate_sum      :integer          default(0), not null
+#  reviews_count :integer          default(0), not null
+#  shopname      :string(255)
+#  url           :text(65535)
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  user_id       :bigint           not null
+#
+# Indexes
+#
+#  index_products_on_likes_count  (likes_count)
+#  index_products_on_user_id      (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
+#
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
   let(:user) { create(:user) }
-  let(:product_build) { build(:product, user: user) }
+  let(:product_build) { build(:product) }
 
   describe 'validate' do
     it 'product name presence' do

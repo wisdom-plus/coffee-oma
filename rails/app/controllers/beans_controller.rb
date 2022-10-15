@@ -34,7 +34,7 @@ class BeansController < ApplicationController
     @beans = if params[:tag_name]
                Bean.tag_result(params[:tag_name], params[:page])
              else
-               @q.result(distinct: true).page(params[:page]).per(INDEX_DISPALY_NUM)
+               @q.result(distinct: true).includes([:thread_image]).page(params[:page]).per(INDEX_DISPALY_NUM)
              end
   end
 

@@ -84,7 +84,7 @@
                 - elsif like.type == 'BeanLike'
                   a.item href= bean_path(like.bean.id)
                     .ui.tiny.circular.image
-                      img src= like.bean.image
+                      img src= like.bean.image.url
                     .content
                       h3.header
                         =like.bean.name

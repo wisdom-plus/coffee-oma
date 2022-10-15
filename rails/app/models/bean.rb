@@ -6,7 +6,6 @@
 #  area          :string(255)
 #  country       :string(255)      not null
 #  description   :text(65535)
-#  image         :string(255)
 #  likes_count   :integer          default(0), not null
 #  name          :string(255)      not null
 #  purification  :integer          default("不明"), not null
@@ -33,7 +32,6 @@ class Bean < ApplicationRecord
                 イタリアン: 7 }
   enum purification: { 不明: 0, ナチェラル: 1, ウォッシュド: 2, ハニー: 3, スマトラ式: 4 }
   validates :name, :country, :roast, presence: true
-  mount_uploader :image, ImageurlUploader
   acts_as_taggable
 
   belongs_to :user
@@ -43,10 +41,26 @@ class Bean < ApplicationRecord
            foreign_key: 'liked_id',
            dependent: :destroy,
            inverse_of: :bean
+  has_one :thread_image, as: :imageable, dependent: :destroy
+
+  delegate :image, to: :thread_image, allow_nil: true
 
   scope :keywords_search, ->(keywords) { ransack(keywords) }
 
+  def initialize(*args)
+    super(*args)
+    self.image = nil
+  end
+
   def self.tag_result(tag_name, page)
     Bean.tagged_with(tag_name).page(page).per(INDEX_DISPALY_NUM)
+  end
+
+  def image=(file)
+    if thread_image
+      thread_image.attachment = file
+    else
+      build_thread_image(attachment: file)
+    end
   end
 end

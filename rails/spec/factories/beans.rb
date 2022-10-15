@@ -6,7 +6,6 @@
 #  area          :string(255)
 #  country       :string(255)      not null
 #  description   :text(65535)
-#  image         :string(255)
 #  likes_count   :integer          default(0), not null
 #  name          :string(255)      not null
 #  purification  :integer          default("不明"), not null
