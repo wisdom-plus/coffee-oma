@@ -78,9 +78,9 @@ class Product < ApplicationRecord
 
   def image=(file)
     if thread_image
-      thread_image.attachment = file
+      thread_image.attachments = file
     else
-      build_thread_image(attachment: file)
+      build_thread_image(attachments: file)
     end
   end
 end
