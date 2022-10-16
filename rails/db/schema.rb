@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_10_042740) do
+ActiveRecord::Schema.define(version: 2022_10_16_025845) do
 
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -291,9 +291,9 @@ ActiveRecord::Schema.define(version: 2022_10_10_042740) do
   create_table "thread_images", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "imageable_type", null: false
     t.bigint "imageable_id", null: false
-    t.string "attachment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.json "attachments"
     t.index ["imageable_type", "imageable_id"], name: "index_thread_images_on_imageable"
   end
 
