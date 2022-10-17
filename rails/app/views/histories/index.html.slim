@@ -21,7 +21,7 @@
               a.ui.item.grid.spec-item href= product_path(history.product.id)
                 .ui.tiny.image.four.wide.column.fade.reveal
                   = image_tag 'square-image.png',class: 'visible content'
-                  = image_tag history.product.image[0].url,class: 'hidden content'
+                  = image_tag history.product.images[0].url,class: 'hidden content'
                 .content.ten.wide.column
                   h2.header
                     =history.product.name
@@ -35,7 +35,7 @@
               a.ui.item.grid.spec-item href= bean_path(history.bean.id)
                 .ui.tiny.image.four.wide.column.fade.reveal
                   = image_tag 'square-image.png',class: 'visible content',size: '246x172'
-                  = image_tag history.bean.image[0].url,class: 'hidden content'
+                  = image_tag history.bean.images[0].url,class: 'hidden content'
                 .content.ten.wide.column
                   h2.header
                     =history.bean.name
