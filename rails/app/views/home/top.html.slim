@@ -82,7 +82,7 @@
       - @rankings.each do |rank|
         a.ui.fluid.link.card.post href= product_path(rank.id)
           .image
-            =image_tag "square-image.png" ,class: "lazyload",data:{src: "#{rank.image.url}"}
+            =image_tag "square-image.png" ,class: "lazyload",data:{src: "#{rank.image[0].url}"}
           .content
             .herader =rank.name
             .meta
@@ -117,7 +117,7 @@
                   =simple_format(h(review.content))
             a.item.five.wide.column.pl-5em href= product_path(review.product.id)
               .ui.medium.image
-                =image_tag 'square-image.png', class: "lazyload",data: {src: "#{review.product.image}"}
+                =image_tag 'square-image.png', class: "lazyload",data: {src: "#{review.product.image[0].url}"}
               .content
                   p.header
                     =review.product.name
