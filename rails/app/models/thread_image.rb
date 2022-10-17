@@ -18,7 +18,7 @@ class ThreadImage < ApplicationRecord
 
   mount_uploaders :attachments, ImageUploader
 
-  def image
+  def images
     attachments
   end
 end
