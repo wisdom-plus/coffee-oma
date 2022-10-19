@@ -47,6 +47,7 @@ import "@/custom/anime";
 import "@/custom/dimmer";
 import "@/custom/popup";
 import "@/custom/actiontext";
+import "@/custom/swiper";
 
 import "@/channels";
 import "semantic-ui-sass";
