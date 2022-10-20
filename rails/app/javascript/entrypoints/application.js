@@ -53,3 +53,4 @@ import "@/channels";
 import "semantic-ui-sass";
 import "jquery-raty-js";
 import "@/custom/application";
+import "swiper/css/bundle";
