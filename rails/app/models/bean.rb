@@ -43,6 +43,8 @@ class Bean < ApplicationRecord
            inverse_of: :bean
   has_one :thread_image, as: :imageable, dependent: :destroy
 
+  before_save :default_image
+
   delegate :images, to: :thread_image, allow_nil: true
 
   scope :keywords_search, ->(keywords) { ransack(keywords) }
@@ -63,4 +65,12 @@ class Bean < ApplicationRecord
       build_thread_image(attachments: file)
     end
   end
+
+  private
+
+    def default_image
+      return unless images == []
+
+      self.images = [File.open('public/noimage.jpg')]
+    end
 end

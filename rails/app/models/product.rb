@@ -38,6 +38,8 @@ class Product < ApplicationRecord
 
   validates :name, :price, :shopname, :caption, presence: true
 
+  before_save :default_image
+
   scope :keywords_search, ->(keywords) { ransack(keywords) }
   scope :sort_by_likes_count, -> { order('likes_count desc') }
 
@@ -83,4 +85,12 @@ class Product < ApplicationRecord
       build_thread_image(attachments: file)
     end
   end
+
+  private
+
+    def default_image
+      return unless images == []
+
+      self.images = [File.open('public/noimage.jpg')]
+    end
 end
