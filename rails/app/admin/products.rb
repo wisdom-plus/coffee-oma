@@ -9,7 +9,7 @@ ActiveAdmin.register Product do # rubocop:disable Metrics/BlockLength
   # or
   #
   permit_params do
-    permitted = %i[name price shopname image url caption tag_list user_id]
+    permitted = %i[name price shopname images url caption tag_list user_id]
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
   end
 
@@ -57,7 +57,7 @@ ActiveAdmin.register Product do # rubocop:disable Metrics/BlockLength
       f.input :name
       f.input :price
       f.input :shopname
-      f.input :image
+      f.input :images
       f.input :url
       f.input :caption
       f.input :tag_list
