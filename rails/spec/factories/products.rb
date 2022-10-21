@@ -31,7 +31,7 @@ FactoryBot.define do
     shopname { 'コーヒーのお店' }
     url { 'https://example.com' }
     caption { 'itemの説明文が入ります' }
-    image { Rack::Test::UploadedFile.new('spec/support/noimage.png', 'image/png') }
+    images { [Rack::Test::UploadedFile.new('spec/support/noimage.png', 'image/png')] }
     tag_list { 'コーヒー' }
     user
   end
