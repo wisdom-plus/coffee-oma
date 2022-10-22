@@ -37,6 +37,10 @@ $(document).on("turbolinks:load", function () {
   });
 
   // ファイルフォームのscript
+  $("#upload-button").click(function () {
+    $("#file-form").click();
+  });
+
   $(".file-form").on("change", function () {
     $("#dimmer").dimmer("hide");
     $("#dimmer-product").dimmer("hide");

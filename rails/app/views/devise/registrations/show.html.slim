@@ -56,7 +56,7 @@
           - @reviews.each do |review|
             .ui.segment
               h4.ui.header
-                img.ui.circular.image src=review.product.image.url alt="アイテム画像"
+                img.ui.circular.image src=review.product.images[0].url alt="アイテム画像"
                 a href=product_path(review.product.id)
                   =review.product.name
               .item
@@ -77,14 +77,14 @@
                 - if like.type == 'ProductLike'
                   a.item href= product_path(like.product.id)
                     .ui.tiny.circular.image
-                      img src= like.product.image.url alt="アイテム画像"
+                      img src= like.product.images[0].url alt="アイテム画像"
                     .content
                       h3.header
                         =like.product.name
                 - elsif like.type == 'BeanLike'
                   a.item href= bean_path(like.bean.id)
                     .ui.tiny.circular.image
-                      img src= like.bean.image.url
+                      img src= like.bean.images[0].url
                     .content
                       h3.header
                         =like.bean.name

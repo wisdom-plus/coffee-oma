@@ -43,24 +43,34 @@ class Bean < ApplicationRecord
            inverse_of: :bean
   has_one :thread_image, as: :imageable, dependent: :destroy
 
-  delegate :image, to: :thread_image, allow_nil: true
+  before_save :default_image
+
+  delegate :images, to: :thread_image, allow_nil: true
 
   scope :keywords_search, ->(keywords) { ransack(keywords) }
 
   def initialize(*args)
     super(*args)
-    self.image = nil
+    self.images = nil
   end
 
   def self.tag_result(tag_name, page)
     Bean.tagged_with(tag_name).page(page).per(INDEX_DISPALY_NUM)
   end
 
-  def image=(file)
+  def images=(file)
     if thread_image
-      thread_image.attachment = file
+      thread_image.attachments = file
     else
-      build_thread_image(attachment: file)
+      build_thread_image(attachments: file)
     end
   end
+
+  private
+
+    def default_image
+      return unless images == []
+
+      self.images = [File.open('public/noimage.jpg')]
+    end
 end

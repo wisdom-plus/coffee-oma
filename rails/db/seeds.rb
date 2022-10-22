@@ -21,7 +21,7 @@ AdminUser.create!(email: "admin@example.com", password: ENV['ADMIN_PASSWORD'],pa
 end
 
 Product.create!(
-  image:File.open("./public/seed/product-01.jpg"),
+  images:[File.open("./public/seed/product-01.jpg")],
   caption:"大きな穴からペーパーの先端が出ることで、
   注がれたお湯がドリッパーからの制限を受けることなく、
   よりネルドリップに近い抽出ができる
@@ -40,7 +40,7 @@ Product.create!(
 )
 
 Product.create!(
-  image:File.open("./public/seed/product-02.jpg"),
+  images:[File.open("./public/seed/product-02.jpg")],
   caption:"カリタ三つ穴ドリッパー
   雑味がでる前に美味しさだけをドリップする
   軽くて扱い易いプラスチック製
@@ -53,7 +53,7 @@ Product.create!(
   user_id: 2
 )
 Product.create!(
-  image:File.open("./public/seed/product-03.jpg"),
+  images:[File.open("./public/seed/product-03.jpg")],
   caption:"長時間フィルターとウェーブゾーンにコーヒー液がとどまらないので、
   雑美成分の抽出が少なく美味しさだけをドリップするドリッパー【
   特長】・味ブレの少ないドリップコーヒーを、ご家庭で手軽にお楽しみいただけるドリッパー。
@@ -68,7 +68,7 @@ Product.create!(
   user_id: 3
 )
 Product.create!(
-  image:File.open("./public/seed/product-04.jpg"),
+  images:[File.open("./public/seed/product-04.jpg")],
   caption: "おいしいコーヒーを淹れるためには、抽出量と抽出時間の計測が不可欠。
   V60ドリップスケールは両方を同時に計測することができるハンドドリップのためのスケール
   ※V60メタルドリップスケールは充電式バッテリー/バックライト仕様",
@@ -80,7 +80,7 @@ Product.create!(
   user_id: 4
 )
 Product.create!(
-  image:File.open("./public/seed/product-05.jpg"),
+  images:[File.open("./public/seed/product-05.jpg")],
   caption:"●セラミック製の臼は摩擦熱が発生しにくく、熱によるコーヒー粉へのダメージを防ぐ。
   ●透明な目盛り付きボトルなので、挽いた量が一目でわかり、計量カップいらず。
   ●粉の粗さは、つまみを回すだけで簡単に調節可能。
@@ -93,7 +93,7 @@ Product.create!(
   user_id: 5
 )
 Product.create!(
-  image:File.open("./public/seed/product-06.jpg"),
+  images:[File.open("./public/seed/product-06.jpg")],
   caption:"初心者からプロのバリスタまで、誰もが手軽に、ベストな味わいをお楽しみいただけるKalitaオリジナルのプロダクトシリーズ
   ウェーブフィルター185(155)は、ドリッパーとの接触面が少ないから、長時間フィルター内のかたよったところにお湯がたまらず、すみやかにドリップされる
   かたよってお湯を注いでも、ウェーブゾーンは底が平らなので粉に均一になじみやすい",
@@ -105,7 +105,7 @@ Product.create!(
   user_id: 6
 )
 Product.create!(
-  image:File.open("./public/seed/product-07.jpg"),
+  images:[File.open("./public/seed/product-07.jpg")],
   caption:"●抽出温度が一目で分かる温度計が蓋の中央に付いている便利なドリップケトル
   ●コーヒーの味を決める大事な要素となるお湯の温度。
   ●一般的に最適な抽出温度と言われている84度~92度の部分が一目でが分かりやすい目盛り
@@ -121,7 +121,7 @@ Product.create!(
   user_id: 7
 )
 Product.create!(
-  image:File.open("./public/seed/product-08.jpg"),
+  images:[File.open("./public/seed/product-08.jpg")],
   caption:"源がついていない時はまっさらな黒いボックスのように見えるほどシンプルなデザインでかっこいいです。
   type-CのUSBで充電できるタイプです。
   サイズは、15.2cm × 13cm × 2.6cmで、大きすぎず、小さいすぎず、ちょうどいいサイズ。
@@ -135,7 +135,7 @@ Product.create!(
   user_id: 8
 )
 Product.create!(
-  image:File.open("./public/seed/product-09.jpg"),
+  images:[File.open("./public/seed/product-09.jpg")],
   caption:"オール耐熱ガラス製のサーバー
   ●ポット・フタとともに耐熱ガラス製のサーバーです。
   ●フタにはシリコンパッキン付きの安心設計です。
@@ -150,7 +150,7 @@ Product.create!(
   user_id: 9
 )
 Product.create!(
-  image:File.open("./public/seed/product-10.jpg"),
+  images:[File.open("./public/seed/product-10.jpg")],
   caption:"いつでもどこでも使いやすい、簡単、コンパクトな「AEROPRESS (R) GO」
   空気の力を利用したコーヒー抽出器具エアロプレスコーヒーメーカーの持ち運び便利なコンパクトタイプ
   すべての部品を一つにまとめて、持ち運びできる",
@@ -162,7 +162,7 @@ Product.create!(
   user_id: 10
 )
 Product.create!(
-  image:File.open("./public/seed/product-11.jpg"),
+  images:[File.open("./public/seed/product-11.jpg")],
   caption: "贅沢なくつろぎの時間を演出するオリーブウッド
   ぬくもりのあるオリーブウッドのハンドルは使うほどに手になじみます。
   V60計量スプーン付き",
@@ -174,7 +174,7 @@ Product.create!(
   user_id: 11
 )
 Product.create!(
-  image:File.open("./public/seed/product-12.jpg"),
+  images:[File.open("./public/seed/product-12.jpg")],
   caption: "珈琲粉と水だけでアイス珈琲が作れます。
   粉全体が湿るように少量ずつ水を注ぎ、「の」の字を描くようにドリップします。水を注ぎ終えたら、冷蔵庫で8時間程抽出してできあがりです。",
   name: "水出し珈琲ポットミニ 600ml　MCPN-7CBR",
@@ -185,7 +185,7 @@ Product.create!(
   user_id: 12
 )
 Product.create!(
-  image:File.open("./public/seed/product-13.jpg"),
+  images:[File.open("./public/seed/product-13.jpg")],
   caption: "●イタリア100年の伝統。
   ●1919年から今日に渡り、100年以上も調理器具を作り続けてきたビアレッティはイタリアの老舗ブランドです。
   ●定番ともいえる直火式エスプレッソメーカー「モカエキスプレス」は、伝統的な美しいフォルムをそのままに、人間工学に基づいた新しいハンドルを採用するなど、今でも細部へのこだわりと進化を続けています。
@@ -206,7 +206,7 @@ Product.create!(
   user_id: 1
 )
 Product.create!(
-  image:File.open("./public/seed/product-14.jpg"),
+  images:[File.open("./public/seed/product-14.jpg")],
   caption: "水出しアイスコーヒー専用ストレーナー付き
   フィルターは300メッシュ (目の細かい)のポリエステルを使用。水洗いしてくり返し使える
   サーバーは耐久性に優れる素材を使用。軽量で、落としても割れない
@@ -220,7 +220,7 @@ Product.create!(
   user_id: 1
 )
 Product.create!(
-  image:File.open("./public/seed/product-15.jpg"),
+  images:[File.open("./public/seed/product-15.jpg")],
   caption: "ドリップ時に発生するガスを外に逃がす! 壁のないドリッパー
   ガスの抜けが良いので、お湯が均一にコーヒー粉を通り雑味を出さない
   香りをダイレクトに抽出できて、豆のもつ旨みを最大限に引き出す
@@ -235,7 +235,7 @@ Product.create!(
   user_id: 2
 )
 Product.create!(
-  image:File.open("./public/seed/product-16.jpg"),
+  images:[File.open("./public/seed/product-16.jpg")],
   caption: "美味しいコーヒーの為に
   美味しいコーヒーを淹れるためには、コーヒー豆、粉の計量が大切
 
@@ -248,7 +248,7 @@ Product.create!(
   user_id: 4
 )
 Product.create!(
-  image:File.open("./public/seed/product-17.jpg"),
+  images:[File.open("./public/seed/product-17.jpg")],
   caption: "フレンチプレスは、最もコーヒー豆の成分を抽出するのに適した92℃~96℃のお湯の温度を目安に、ゆっくりと豆の膨らみを確かめるようにお湯を注ぐことで、コーヒー豆の旨みや香り、おいしさに必要な豆の油分(コーヒーオイル)を余すことなく抽出します。
   コーヒー豆本来の味が最大限に引き出された豊かな味わいのコーヒーをお楽しみください。",
   name: "BODUM ボダム CHAMBORD シャンボール フレンチプレス 350ml シルバー ",
@@ -259,7 +259,7 @@ Product.create!(
   user_id: 7
 )
 Product.create!(
-  image:File.open("./public/seed/product-18.jpg"),
+  images:[File.open("./public/seed/product-18.jpg")],
   caption: "リブをさらに短くして誰でもしっかりコーヒーの風味を抽出できるようにしたMDKシリーズ。
   環境ホルモンの出ない（ビスフェノールフリー）素材を採用し、安全性が高く、クラックの入りにく耐久性のあるフィルターとなりました。",
   name: "KONO式 コーノ 珈琲サイフォン 名門フィルター クリア 透明 2人用 (MDK型)",
@@ -270,7 +270,7 @@ Product.create!(
   user_id: 2
 )
 Product.create!(
-  image:File.open("./public/seed/product-19.jpg"),
+  images:[File.open("./public/seed/product-19.jpg")],
   caption: "当工房でお薦めするのは円錐形のフィルターです。 底が平らなフィルターより抽出をスムーズにコントロールできます。",
   name: "コーノ式ペーパー 1～2人用 100枚入り",
   price: 898,
@@ -280,7 +280,7 @@ Product.create!(
   user_id: 10
 )
 Product.create!(
-  image:File.open("./public/seed/product-20.jpg"),
+  images:[File.open("./public/seed/product-20.jpg")],
   caption: "より気軽に、ストレスなくコーヒーを楽しんで欲しい」という思いのもと作られました。
   抽出する速度や挽きの粗さで、フレンチプレスやネルドリップやペーパードリップのようなテイストが ドリップできます。",
   name: "MT.FUJI DRIPPER/富士山ドリッパー",
@@ -294,7 +294,7 @@ Bean.create!(
   area:"スルミナス",
   country:"ブラジル",
   description: "主に南米のアラビカ種を配合したオーガニックブレンドはディープなコクのある苦味と、 ほのかな甘みと包み込む様な、 優しい酸味が特徴的です",
-  image: File.open("./public/seed/bean-01.jpg"),
+  images: [File.open("./public/seed/bean-01.jpg")],
   name: "TOKYO COFFEE",
   purification: "ナチェラル",
   roast: "ミディアム",
@@ -308,7 +308,7 @@ Bean.create!(
   description: "偶然買ったコーヒー豆ですが、おいしかったのでシェアさせていただきます。
   どこで買ったのかを忘れてしまったのですがまたどこかで出会いたいです
   比較的焙煎が効いた味ですごく美味しいです",
-  image: File.open("./public/seed/bean-02.jpg"),
+  images: [File.open("./public/seed/bean-02.jpg")],
   name: Faker::Coffee.unique.blend_name,
   purification: "ナチェラル",
   roast: "焙煎度不明",
@@ -320,7 +320,7 @@ Bean.create!(
   country:"ブラジル",
   description: "Little Napで販売されているオリジナルブレンドです
   深煎りの豆です",
-  image: File.open("./public/seed/bean-03.jpg"),
+  images: [File.open("./public/seed/bean-03.jpg")],
   name: "Little Nap original blend",
   purification: "ナチェラル",
   roast: "フルシティ",
@@ -330,7 +330,7 @@ Bean.create!(
 Bean.create!(
   country:"ブラジル　エチオピア",
   description: "たいへんおいしいコーヒーブレンドです",
-  image: File.open("./public/seed/bean-04.jpg"),
+  images: [File.open("./public/seed/bean-04.jpg")],
   name: "Mocha blend",
   purification: "ウォッシュド",
   roast: "ハイ",
@@ -341,7 +341,7 @@ Bean.create!(
   area:"アンティグア",
   country:"グァテマラ",
   description: "グァテマラ特有のコクがあり、コーヒーらしい味になっています",
-  image: File.open("./public/seed/bean-05.jpg"),
+  images: [File.open("./public/seed/bean-05.jpg")],
   name: "ALL ARABICA coffee",
   purification: "ナチェラル",
   roast: "シティ",
@@ -351,7 +351,7 @@ Bean.create!(
 Bean.create!(
   country:"コロンビア",
   description: "収穫量が少ない希少な超大型豆。酸味はまろやかで香ばしいほろ苦さ",
-  image: File.open("./public/seed/bean-06.jpg"),
+  images: [File.open("./public/seed/bean-06.jpg")],
   name: "珈琲問屋",
   purification: "ナチェラル",
   roast: "フルシティ",
@@ -362,7 +362,7 @@ Bean.create!(
   country:"エチオピア",
   description: "エチオピア西部ウォレガ地方の産出品であるモカレケンプティは、野性的な栽培をされているため、独特の風味をもっています。エチオピアの非水洗式精製コーヒーは品質に多少のブレが生じがちですが、本品は品質的には安定している地域です。
   モカ特有の果実ような芳醇な香りで甘く、フルーティーなアロマを感じます。とても柔らかな酸味をもち、上品で甘美な味わいが堪能出来る逸品です。",
-  image: File.open("./public/seed/bean-07.jpg"),
+  images: [File.open("./public/seed/bean-07.jpg")],
   name: "珈琲問屋",
   purification: "ナチェラル",
   roast: "ミディアム",
@@ -374,7 +374,7 @@ Bean.create!(
   country:"ハワイ",
   description: "【特徴】
   甘い香りと柔らかな酸味をもつミディアムボディー。ワイン風味のなかにスパイシーな風味が見事に調和されています。",
-  image: File.open("./public/seed/bean-08.jpg"),
+  images: [File.open("./public/seed/bean-08.jpg")],
   name: "珈琲問屋",
   purification: "ナチェラル",
   roast: "フルシティ",
@@ -385,7 +385,7 @@ Bean.create!(
   country:"キューバ",
   description: "酸味とコクのバランスがとれブレンドのベースにも適する良質なコーヒー。
   産地：キューバ",
-  image: File.open("./public/seed/bean-09.jpg"),
+  images: [File.open("./public/seed/bean-09.jpg")],
   name: "珈琲問屋",
   purification: "ナチェラル",
   roast: "フレンチ",
@@ -399,7 +399,7 @@ Bean.create!(
 
   タンジェリンゼストやマジパン（砂糖とアーモンドを挽いて練りあわせたお菓子）を思わせる風味が特徴のコーヒーです。チョコレートのようななめらかな口あたりで、後味にはちみつの甘みを感じさせます。シトラス感ある酸味とはちみつのような甘みのバランスがとれた爽やかな味わいを、秋の高く澄んだ空と一緒に楽しむのもこの季節だけの特別な時間です。
   --公式ウェブサイトより",
-  image: File.open("./public/seed/bean-10.jpg"),
+  images: [File.open("./public/seed/bean-10.jpg")],
   name: "STARBUCKS COFFEE",
   purification: "ナチェラル",
   roast: "ミディアム",
@@ -413,7 +413,7 @@ Bean.create!(
   酸味はあるが、そこまで強くはない。リンゴの酸味。苦さはほぼない。
 
   さっぱりとしているので、夕方から夜に飲むようなコーヒーというよりは、朝1番に飲みたくなるような味わい。キリッと1日を迎えたくなる。",
-  image: File.open("./public/seed/bean-11.jpg"),
+  images: [File.open("./public/seed/bean-11.jpg")],
   name: "ドトール",
   purification: "ナチェラル",
   roast: "シティ",

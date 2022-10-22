@@ -17,9 +17,9 @@
                   i.ui.bottom.right.corner.add.icon
               .ui.dimmer.field
                 = f.label :image do
-                  .ui.teal.button
+                  .ui.teal.button#upload-button
                     |画像を追加する
-                  = f.file_field :image, autofocus: true, class: "file-form"
+                  = f.file_field :images, autofocus: true, multiple: true, id: "file-form"
             .content
               .header.field
                 =f.label :name

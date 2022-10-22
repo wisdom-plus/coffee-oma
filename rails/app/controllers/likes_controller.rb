@@ -2,7 +2,7 @@ class LikesController < ApplicationController
   before_action :authenticate_user!, only: %i[create destroy]
 
   def index
-    @rankings = Product.ranking_index
+    @rankings = Product.includes(:thread_image).ranking_index
   end
 
   def create

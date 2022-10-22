@@ -3,7 +3,7 @@
 # Table name: thread_images
 #
 #  id             :bigint           not null, primary key
-#  attachment     :string(255)
+#  attachments    :json
 #  imageable_type :string(255)      not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
@@ -16,9 +16,9 @@
 class ThreadImage < ApplicationRecord
   belongs_to :imageable, polymorphic: true
 
-  mount_uploader :attachment, ImageUploader
+  mount_uploaders :attachments, ImageUploader
 
-  def image
-    attachment
+  def images
+    attachments
   end
 end

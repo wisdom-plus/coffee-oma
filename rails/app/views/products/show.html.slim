@@ -10,7 +10,12 @@
     .ui.middle.aligned.stackable.grid.conteiner
       .row
         .six.wide.left.floated.column
-          =image_tag 'square-image.png', class: "ui large bordered rounded image lazyload",data: {src:"#{@product.image.url}" }
+          .swiper.image-swiper
+            .swiper-wrapper
+              - @product.images.each do |image|
+                .swiper-slide
+                  =image_tag image.url ,class: "ui large bordered rounded image"
+            .swiper-pagination
         .ten.wide.column
           table.ui.celled.table
             thead

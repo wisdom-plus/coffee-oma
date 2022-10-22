@@ -31,6 +31,7 @@
 // import '~/index.css'
 import * as ujs from "@rails/ujs";
 import tubolinks from "turbolinks";
+ujs.start();
 tubolinks.start();
 import "infinite-scroll";
 import "jquery";
@@ -46,8 +47,10 @@ import "@/custom/anime";
 import "@/custom/dimmer";
 import "@/custom/popup";
 import "@/custom/actiontext";
+import "@/custom/swiper";
 
 import "@/channels";
 import "semantic-ui-sass";
 import "jquery-raty-js";
 import "@/custom/application";
+import "swiper/css/bundle";

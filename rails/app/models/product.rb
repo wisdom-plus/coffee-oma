@@ -38,14 +38,16 @@ class Product < ApplicationRecord
 
   validates :name, :price, :shopname, :caption, presence: true
 
+  before_save :default_image
+
   scope :keywords_search, ->(keywords) { ransack(keywords) }
   scope :sort_by_likes_count, -> { order('likes_count desc') }
 
-  delegate :image, to: :thread_image, allow_nil: true
+  delegate :images, to: :thread_image, allow_nil: true
 
   def initialize(*args)
     super(*args)
-    self.image = nil
+    self.images = nil
   end
 
   def rate_average_num
@@ -76,11 +78,19 @@ class Product < ApplicationRecord
     all.sort_by_likes_count.limit(INDEX_DISPALY_NUM)
   end
 
-  def image=(file)
+  def images=(file)
     if thread_image
-      thread_image.attachment = file
+      thread_image.attachments = file
     else
-      build_thread_image(attachment: file)
+      build_thread_image(attachments: file)
     end
   end
+
+  private
+
+    def default_image
+      return unless images == []
+
+      self.images = [File.open('public/noimage.jpg')]
+    end
 end
