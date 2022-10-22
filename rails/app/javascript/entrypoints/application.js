@@ -29,13 +29,9 @@
 
 // Example: Import a stylesheet in app/frontend/index.css
 // import '~/index.css'
-import * as ujs from "@rails/ujs";
+import Rails from "@rails/ujs";
 import tubolinks from "turbolinks";
-ujs.start();
-tubolinks.start();
-import "infinite-scroll";
 import "jquery";
-import "trix";
 import "@rails/actiontext";
 import "@/custom/jquery";
 import "@/custom/scroll";
@@ -49,8 +45,9 @@ import "@/custom/popup";
 import "@/custom/actiontext";
 import "@/custom/swiper";
 
-import "@/channels";
+import.meta.globEager("./**/*_channel.js");
 import "semantic-ui-sass";
-import "jquery-raty-js";
 import "@/custom/application";
-import "swiper/css/bundle";
+
+Rails.start();
+tubolinks.start();

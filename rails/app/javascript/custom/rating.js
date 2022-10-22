@@ -1,3 +1,5 @@
+import "jquery-raty-js";
+
 $(document).on("turbolinks:load", function () {
   // レート星のscript
   $("#rating").rating({
