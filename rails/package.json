@@ -8,6 +8,8 @@
     "@rails/actiontext": "^7.0.4",
     "@rails/activestorage": "^7.0.4",
     "@rails/ujs": "^7.0.4",
+    "animejs": "^3.2.1",
+    "chart.js": "^3.9.1",
     "infinite-scroll": "^4.0.1",
     "jquery": "^3.6.1",
     "jquery-raty-js": "^2.8.0",
