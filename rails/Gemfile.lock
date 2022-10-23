@@ -613,7 +613,7 @@ DEPENDENCIES
   rubocop-rspec
   sassc-rails
   selenium-webdriver
-  semantic-ui-sass (~> 2.4, >= 2.4.2.0)
+  semantic-ui-sass (~> 2.4)
   simplecov
   sitemap_generator
   slim
