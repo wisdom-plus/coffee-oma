@@ -45,7 +45,7 @@ import "@/custom/dimmer";
 import "@/custom/popup";
 import "@/custom/actiontext";
 import "@/custom/swiper";
-import.meta.globEager("./**/*_channel.js");
+import.meta.globEager("../channels/*_channel.js");
 import "@/custom/form";
 
 Rails.start();
