@@ -31,11 +31,12 @@
 // import '~/index.css'
 import Rails from "@rails/ujs";
 import tubolinks from "turbolinks";
-import "jquery";
+import * as ActiveStorage from "@rails/activestorage";
 import "@rails/actiontext";
 import "@/custom/jquery";
+import "semantic-ui-sass";
+import "@/custom/application";
 import "@/custom/scroll";
-import "@/custom/form";
 import "@/custom/chart";
 import "@/custom/rating";
 import "@/custom/modal";
@@ -44,10 +45,9 @@ import "@/custom/dimmer";
 import "@/custom/popup";
 import "@/custom/actiontext";
 import "@/custom/swiper";
-
 import.meta.globEager("./**/*_channel.js");
-import "semantic-ui-sass";
-import "@/custom/application";
+import "@/custom/form";
 
 Rails.start();
 tubolinks.start();
+ActiveStorage.start();
