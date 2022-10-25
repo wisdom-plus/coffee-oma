@@ -37,8 +37,8 @@ $(document).on("turbolinks:load", function () {
   });
 
   // ファイルフォームのscript
-  $("#upload-button").click(function () {
-    $("#file-form").click();
+  $("#upload-button").on("click", function () {
+    $("#file-form").on("click", function () {});
   });
 
   $(".file-form").on("change", function () {

@@ -29,17 +29,14 @@
 
 // Example: Import a stylesheet in app/frontend/index.css
 // import '~/index.css'
-import * as ujs from "@rails/ujs";
+import Rails from "@rails/ujs";
 import tubolinks from "turbolinks";
-ujs.start();
-tubolinks.start();
-import "infinite-scroll";
-import "jquery";
-import "trix";
+import * as ActiveStorage from "@rails/activestorage";
 import "@rails/actiontext";
 import "@/custom/jquery";
+import "semantic-ui-sass";
+import "@/custom/application";
 import "@/custom/scroll";
-import "@/custom/form";
 import "@/custom/chart";
 import "@/custom/rating";
 import "@/custom/modal";
@@ -48,9 +45,9 @@ import "@/custom/dimmer";
 import "@/custom/popup";
 import "@/custom/actiontext";
 import "@/custom/swiper";
+import.meta.globEager("../channels/*_channel.js");
+import "@/custom/form";
 
-import "@/channels";
-import "semantic-ui-sass";
-import "jquery-raty-js";
-import "@/custom/application";
-import "swiper/css/bundle";
+Rails.start();
+tubolinks.start();
+ActiveStorage.start();

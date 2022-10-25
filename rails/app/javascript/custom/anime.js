@@ -1,4 +1,5 @@
 import Cookies from "js-cookie";
+import anime from "animejs";
 
 $(document).one("turbolinks:load", function () {
   const flag = Cookies.get("animation-flag");

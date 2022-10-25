@@ -5,7 +5,7 @@ $(document).on("turbolinks:load", function () {
   });
   $("#login_button").on({
     mouseenter: function () {
-      $("#login_button").click();
+      $("#login_button").on("click", function () {});
     },
   });
 
