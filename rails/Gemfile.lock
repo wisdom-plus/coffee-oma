@@ -611,7 +611,6 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   rubocop-rspec
-  sassc-rails
   selenium-webdriver
   semantic-ui-sass (~> 2.4)
   simplecov
