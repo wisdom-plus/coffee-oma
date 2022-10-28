@@ -25,7 +25,7 @@
       - @beans.each do |bean|
         a.ui.fluid.link.card.post.scale href= bean_path(bean.id)
           .ui.fade.reveal.image.display_none
-            = image_tag 'square-image.png',class: 'visible content'
+            = vite_image_tag 'images/square-image.png',class: 'visible content'
             = image_tag bean.images[0].url,class: 'hidden content'
           .content
             .ui.placeholder

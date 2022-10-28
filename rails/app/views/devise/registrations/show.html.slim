@@ -4,7 +4,7 @@
       - breadcrumb :profile, @user
       = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
   .ui.center.aligned.container
-    =image_tag "square-image.png" , class: "ui centered small circular image lazyload",data:{src: "#{@user.icon.url}"}
+    =vite_image_tag "images/square-image.png" , class: "ui centered small circular image lazyload",data:{src: "#{@user.icon.url}"}
     h1.header
       =@user.username
     .segment.mb-12

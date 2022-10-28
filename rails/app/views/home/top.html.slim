@@ -31,7 +31,7 @@
         br
         | そんな想いがこのサイトを動かしています。
     .six.wide.right.floated.column
-      =image_tag 'coffee-image' ,class: 'ui big bordered rounded image'
+      =vite_image_tag 'images/coffee-image.jpg' ,class: 'ui big bordered rounded image'
 
 .ui.container
   .ui.vertical.stripe.center.aligned.segment.grid.m-3rem
@@ -82,7 +82,7 @@
       - @rankings.each do |rank|
         a.ui.fluid.link.card.post href= product_path(rank.id)
           .image
-            =image_tag "square-image.png" ,class: "lazyload",data:{src: "#{rank.images[0].url}"}
+            =vite_image_tag "images/square-image.png" ,class: "lazyload",data:{src: "#{rank.images[0].url}"}
           .content
             .herader =rank.name
             .meta
@@ -105,7 +105,7 @@
         .balloon_l.top
           .ui.grid
             .topfaceicon.three.wide.center.aligned.column
-              =image_tag "square-image.png",class:"ui centered circular image lazyload" ,data:{src:"#{review.user.icon.url}"}
+              =vite_image_tag "images/square-image.png",class:"ui centered circular image lazyload" ,data:{src:"#{review.user.icon.url}"}
               .ui.header = review.user.username
             .says.eight.wide.column.top_review_min
               .content
@@ -117,7 +117,7 @@
                   =simple_format(h(review.content))
             a.item.five.wide.column.pl-5em href= product_path(review.product.id)
               .ui.medium.image
-                =image_tag 'square-image.png', class: "lazyload",data: {src: "#{review.product.images[0].url}"}
+                =vite_image_tag 'images/square-image.png', class: "lazyload",data: {src: "#{review.product.images[0].url}"}
               .content
                   p.header
                     =review.product.name
