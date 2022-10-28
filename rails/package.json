@@ -4,6 +4,7 @@
   "dependencies": {
     "@activeadmin-plugins/active_admin_theme": "^1.1.4",
     "@activeadmin/activeadmin": "^2.13.0",
+    "@doabit/semantic-ui-sass": "^2.4.5",
     "@rails/actioncable": "^7.0.4",
     "@rails/actiontext": "^7.0.4",
     "@rails/activestorage": "^7.0.4",
@@ -16,7 +17,6 @@
     "js-cookie": "^3.0.1",
     "popper.js": "^1.16.1",
     "postcss-load-config": "^4.0.1",
-    "semantic-ui-sass": "^2.4.2",
     "swiper": "^8.4.4",
     "trix": "^1.2.0",
     "turbolinks": "^5.2.0"
