@@ -33,6 +33,8 @@ module CoffeeOma
     config.time_zone = 'Tokyo'
     config.generators.active_record = true
     config.generators do |g|
+      g.assets false
+      g.helper false
       g.template_engine :slim
       g.integration_tool :rspec
       g.system_tests :rspec
@@ -41,7 +43,9 @@ module CoffeeOma
                        helper_specs: false,
                        controller_specs: false,
                        routing_specs: false,
-                       model_specs: false
+                       model_specs: true,
+                       request_specs: true,
+                       system_specs: true
     end
     config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag }
   end
