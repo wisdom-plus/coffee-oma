@@ -328,9 +328,14 @@ h1.ui.header.home_icon{
   justify-content: center;
 }
 
+.square_image{
+  height: 2.5em !important;
+  width: 2.5em !important;
+}
+
 .topfaceicon img{
   width: 100px;
-  height: auto;
+  height: 100px;
 }
 .balloon_l.top .says:after {
   top:30px;
@@ -391,6 +396,10 @@ span.date {
 }
 .ui.accordion.recipe_accordion {
   max-width: 120%;
+}
+
+.ui.circular.image {
+  object-fit: cover;
 }
 
 .ui.animated.fade.button:disabled{

@@ -70,7 +70,7 @@
       - @bean_reviews.each do |review|
         .ui.segment.review_item
           h4.ui.header
-            =vite_image_tag 'images/square-image.png', class:"ui circular image lazyload",data: {src: "#{review.user.icon}"}
+            =vite_image_tag 'images/square-image.png', class:"ui circular image lazyload square_image",data: {src: "#{review.user.icon}"}
             =review.user.username
           .item
             .content
