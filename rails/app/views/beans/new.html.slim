@@ -7,7 +7,7 @@
     .column style= "width: 640px"
       h1#title コーヒー豆を登録する
       .content.field
-        =form_with model: @bean, url: beans_path ,local: true,class: "ui mini form" do |f|
+        =form_with model: @bean, url: beans_path ,local: true,class: "ui mini bean_new form" do |f|
           .ui.centered.card.field.text-left#newcard
             .image#dimmer-product
               img#img-prev src="/noimage.jpg"

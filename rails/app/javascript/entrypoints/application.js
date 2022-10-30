@@ -47,6 +47,7 @@ import "@/custom/actiontext";
 import "@/custom/swiper";
 import.meta.globEager("../channels/*_channel.js");
 import "@/custom/form";
+import "@/custom/form_validate";
 
 Rails.start();
 tubolinks.start();
