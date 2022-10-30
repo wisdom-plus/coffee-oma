@@ -31,8 +31,9 @@
         .extra.content
           .ui.placeholder
               .short.line
-          i.yen.icon.m-0.display_none
-            .inline_yen.display_none #{rank.price.to_s(:delimited)}
+          span.display_none
+            i.yen.icon.m-0.display_none
+            | #{rank.price.to_s(:delimited)}
           .right.floated.display_none
             i.comment.teal.icon
             | #{rank.reviews_count} reviews

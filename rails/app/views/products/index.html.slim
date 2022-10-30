@@ -37,13 +37,15 @@
                 .line
             .herader.display_none =product.name
             .meta.display_none
-              span Brand:  #{product.shopname}
+              span Brand:#{product.shopname}
             .description.display_none
               =simple_format(h(product.caption.truncate(50)))
           .extra.content
             .ui.placeholder
               .short.line
-            i.yen.icon.m-0.display_none #{product.price.to_s(:delimited)}
+            span.display_none
+              i.yen.icon.m-0.display_none
+              | #{product.price.to_s(:delimited)}
             .right.floated.display_none
               i.comment.teal.icon
               | #{product.reviews_count} reviews
