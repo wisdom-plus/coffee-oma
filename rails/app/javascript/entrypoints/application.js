@@ -34,7 +34,7 @@ import tubolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "@rails/actiontext";
 import "@/custom/jquery";
-import "@doabit/semantic-ui-sass";
+import "fomantic-ui";
 import "@/custom/application";
 import "@/custom/scroll";
 import "@/custom/chart";

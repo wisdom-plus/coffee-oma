@@ -1,5 +1,4 @@
-
-@import '@doabit/semantic-ui-sass/src/scss/semantic-ui.scss';
+@import "fomantic-ui/dist/semantic.min";
 @import "@/stylesheets/home.scss";
 @import "@/stylesheets/actiontext.scss";
 @import "@/stylesheets/rooms.scss";
@@ -199,7 +198,7 @@ body,
   margin-bottom: 1rem;
 }
 
-.inverted.menu .right.menu.toc {
+.inverted.menu .container .right.menu.toc {
   display: none;
 }
 
@@ -405,12 +404,13 @@ span.date {
 .ui.animated.fade.button:disabled{
   padding: 0.78571429em 1.5em 0.78571429em !important;
 }
-@media only screen and (max-width: 768px) {
-  .inverted.menu .right.menu.toc {
-    display: block;
+
+@media only screen and (max-width: 768px){
+  .inverted.menu .container .right.menu.toc {
+    display: block !important;
   }
 
-  .inverted.menu .right.menu.hide {
+  .inverted.menu .container .right.menu.hide{
     display: none;
   }
 }
