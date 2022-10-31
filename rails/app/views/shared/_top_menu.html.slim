@@ -1,7 +1,7 @@
 .ui.main.fixed.teal.inverted.menu
   .ui.container
     =link_to root_path , class: "item", id: "logopadding" do
-      =image_tag("/coffeeoma-logo.png", class: "ui tinysmall image")
+      = vite_image_tag "images/coffeeoma-logo.png", class: "ui tinysmall image"
     .ui.floating.dropdown.item
       i.search.icon
       font style= "vertical-align: inherit;" アイテム一覧
@@ -39,8 +39,8 @@
           = link_to "ログイン",user_session_path,class: "item",id: "login_button"
           = link_to "新規登録", new_user_registration_path, class: "item"
     .right.menu.toc
-      a.item
-          i.sidebar.icon
+      .item
+        i.sidebar.icon
 .ui.popup.login_popup
   .middle.aligned.center.aligned.grid
     .column

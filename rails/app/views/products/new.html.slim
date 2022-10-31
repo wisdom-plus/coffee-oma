@@ -7,7 +7,7 @@
     .column style= "width: 640px"
       h1#title アイテムを登録する
       .ui.content.field
-        =form_with model: @product, url: products_path ,local: true,class: "ui mini form" do |f|
+        =form_with model: @product, url: products_path ,local: true,class: "ui mini product_new form" do |f|
           .ui.centered.card.field.text-left#newcard
             .image#dimmer-product
               img#img-prev src="/noimage.jpg"

@@ -14,7 +14,7 @@
             .ui.items
               a.item href = room_path(room.id)
                 .ui.tiny.circular.image
-                  =image_tag "square-avatar-image.png" ,class: "lazyload",data: {src: "#{room.another_user(current_user).icon}"}
+                  = vite_image_tag "images/square-avatar-image.png" ,class: "lazyload",data: {src: "#{room.another_user(current_user).icon}"}
                 .content
                   .header
                     = room.another_user(current_user).username

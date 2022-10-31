@@ -1,6 +1,6 @@
 $(document).on("turbolinks:load", function () {
   $("#login_button").popup({
-    on: "click",
+    on: "hover",
     popup: ".ui.popup.login_popup",
   });
   $("#login_button").on({

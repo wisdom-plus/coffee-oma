@@ -17,7 +17,7 @@
             - @followings.each do |follower|
               = link_to rooms_path(user_id: follower.id),method: :post, class: 'ui item' do
                 .ui.tiny.circular.image
-                  =image_tag "square-avatar-image.png" ,class: "lazyload",data: {src: "#{follower.icon}"}
+                  = vite_image_tag "images/square-avatar-image.png" ,class: "lazyload",data: {src: "#{follower.icon}"}
                 .content
                   .header
                     = follower.username

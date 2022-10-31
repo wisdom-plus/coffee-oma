@@ -7,10 +7,10 @@
     .twelve.wide.column
       h1#title 通知
       .ui.top.attached.four.tabular.menu
-        a.active.item data-tab = "first" すべて
-        a.item data-tab = "second" フォロー
-        a.item data-tab = "third" レビューお気に入り
-        a.item data-tab = "four" メッセージ
+        a.active.tab.item data-tab = "first" すべて
+        a.tab.item data-tab = "second" フォロー
+        a.tab.item data-tab = "third" レビューお気に入り
+        a.tab.item data-tab = "four" メッセージ
       .ui.bottom.attached.tab.segment.active data-tab= "first"
         - if @notifications.empty?
           |通知はまだ届いていません

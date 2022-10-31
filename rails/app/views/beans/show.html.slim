@@ -70,7 +70,7 @@
       - @bean_reviews.each do |review|
         .ui.segment.review_item
           h4.ui.header
-            =image_tag 'square-image.png', class:"ui circular image lazyload",data: {src: "#{review.user.icon}"}
+            =vite_image_tag 'images/square-image.png', class:"ui circular image lazyload square_image",data: {src: "#{review.user.icon}"}
             =review.user.username
           .item
             .content
@@ -79,15 +79,15 @@
                 span #{time_ago_in_words(review.created_at)}前
               .meta.review_meta
                 span.mr-05em 酸味
-                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.acidity}"
+                span.ui.yellow.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.acidity}"
                 span.mr-05em 苦味
-                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.bitter}"
+                span.ui.yellow.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.bitter}"
                 span.mr-05em 甘み
-                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.sweet}"
+                span.ui.yellow.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.sweet}"
                 span.mr-05em コク
-                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.rich}"
+                span.ui.yellow.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.rich}"
                 span.mr-05em 風味
-                span.ui.star.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.flavor}"
+                span.ui.yellow.rating.read.mr-05em data-max-rating= "5" data-rating= "#{review.flavor}"
               .description
                 =simple_format(h(review.content))
               .extra

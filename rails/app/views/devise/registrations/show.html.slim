@@ -4,7 +4,7 @@
       - breadcrumb :profile, @user
       = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
   .ui.center.aligned.container
-    =image_tag "square-image.png" , class: "ui centered small circular image lazyload",data:{src: "#{@user.icon.url}"}
+    =vite_image_tag "images/square-image.png" , class: "ui centered small circular image lazyload",data:{src: "#{@user.icon.url}"}
     h1.header
       =@user.username
     .segment.mb-12
@@ -45,10 +45,10 @@
   .ui.centered.grid.margin-zero
     .twelve.wide.column
       .ui.top.attached.four.tabular.menu
-        a.active.item data-tab= "first" 投稿したレビュー
-        a.item data-tab= "second" お気に入りしたアイテム
-        a.item data-tab= "third" フォロー中
-        a.item data-tab= "four" フォロワー
+        a.active.item.tab data-tab= "first" 投稿したレビュー
+        a.item.tab data-tab= "second" お気に入りしたアイテム
+        a.item.tab data-tab= "third" フォロー中
+        a.item.tab data-tab= "four" フォロワー
       .ui.bottom.attached.tab.segment.active data-tab= "first"
         -if @reviews.empty?
           h4 まだ投稿はありません

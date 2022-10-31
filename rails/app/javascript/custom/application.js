@@ -6,10 +6,10 @@ $(document).on("turbolinks:load", function () {
     $(".flash-message").closest(".flash-container").transition("fade");
   });
   $(".ui.accordion").accordion();
-  $(".sidebar.icon").on("click", function () {
+  $(".right.menu.toc").on("click", function () {
     $(".ui.sidebar").sidebar("toggle");
   });
-  $(".menu .item").tab();
+  $(".menu .item.tab").tab();
   $(".sticky").sticky({
     context: "#sidebar",
   });
