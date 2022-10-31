@@ -3,12 +3,6 @@ $(document).on("turbolinks:load", function () {
   $(".ui.registration_edit.form").form({
     fields: {
       "user[username]": "empty",
-      "user[password]": [
-        "minLength[6]",
-        "empty",
-        "match[password_confirmation]",
-      ],
-      "user[password_confirmation]": "empty",
       "user[email]": ["empty", "email"],
     },
     prompt: {

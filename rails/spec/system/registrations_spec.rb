@@ -84,7 +84,7 @@ RSpec.describe 'Registrations', type: :system, js: true do
       login(user, user.email, user.password)
       visit edit_user_registration_path
       find('.delete-accordion').click
-      find('#modal-button').click
+      find_by_id('modal-button').click
       click_on 'delete_button'
       expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
     end
@@ -93,7 +93,7 @@ RSpec.describe 'Registrations', type: :system, js: true do
       gest_login
       visit edit_user_registration_path
       find('.delete-accordion').click
-      find('#modal-button').click
+      find_by_id('modal-button').click
       click_on 'delete_button'
       expect(page).to have_content 'ゲストユーザーは変更・削除ができません。'
     end
@@ -141,7 +141,8 @@ RSpec.describe 'Registrations', type: :system, js: true do
           fill_in 'spec-user-name', with: ''
           fill_in 'spec-E-mail address', with: user.email
           click_button 'Update'
-          expect(page).to have_current_path '/users'
+          expect(page).to have_current_path '/users/edit'
+          expect(page).to have_content 'ユーザー名が入力されていません。'
         end
 
         it 'not change email' do
@@ -150,7 +151,9 @@ RSpec.describe 'Registrations', type: :system, js: true do
           fill_in 'spec-user-name', with: 'test1'
           fill_in 'spec-E-mail address', with: ''
           click_button 'Update'
-          expect(page).to have_current_path '/users'
+          expect(page).to have_current_path '/users/edit'
+          expect(page).to have_content 'Eメールが入力されていません。'
+          expect(page).to have_content 'Eメールは有効なメールアドレスではありません。'
         end
 
         it 'not change password' do
