@@ -31,10 +31,12 @@ Coffee-oma はコーヒーに関する器具や、豆などの評価や感想を
 
   - シンプルな UI になるようにしているところ
   - アニメーションを追加し、UX を意識している
+  - viteを利用した、開発環境の構築
 
 - ### その他
 
   - チーム開発を意識し、Github flow に従った開発手法を取り入れている点。
+  - isseus,Projectsなどを利用し、課題・進行状況を記録している
 
 # 機能一覧
 
@@ -61,6 +63,7 @@ Coffee-oma はコーヒーに関する器具や、豆などの評価や感想を
 - レート星機能
 - セキュリティ脆弱性性的分析ツール(Brakeman)
 - テストカバレッジ(simplecov,codecov)
+- javascriptバンドル(webpacker,vite)
 
 # 使用している技術一覧
 
@@ -77,6 +80,7 @@ Coffee-oma はコーヒーに関する器具や、豆などの評価や感想を
 - puma
 - Brakeman
 - Codecov
+- Vite_Ruby
 
 # ER 図
 
