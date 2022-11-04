@@ -61,6 +61,10 @@ GEM
       globalid (>= 0.3.6)
     activemodel (6.1.6.1)
       activesupport (= 6.1.6.1)
+    activemodel-serializers-xml (1.0.2)
+      activemodel (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (6.1.6.1)
       activemodel (= 6.1.6.1)
       activesupport (= 6.1.6.1)
@@ -197,6 +201,13 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
+    draper (4.0.2)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
+      activemodel-serializers-xml (>= 1.0)
+      activesupport (>= 5.0)
+      request_store (>= 1.0)
+      ruby2_keywords
     dry-cli (0.7.0)
     e2mmap (0.1.0)
     erubi (1.11.0)
@@ -577,6 +588,7 @@ DEPENDENCIES
   devise-i18n
   devise-i18n-views
   dotenv-rails
+  draper
   factory_bot_rails
   faker!
   fog-aws
