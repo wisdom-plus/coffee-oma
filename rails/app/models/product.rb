@@ -50,22 +50,6 @@ class Product < ApplicationRecord
     self.images = nil
   end
 
-  def rate_average_num
-    if reviews_count.zero?
-      return 0
-    end
-
-    (rate_average * 2).floor / 2.to_f
-  end
-
-  def rate_average
-    if reviews_count.zero?
-      return 0
-    end
-
-    (rate_sum.to_f / reviews_count).floor(1)
-  end
-
   def self.like_top
     all.sort_by_likes_count.limit(TOP_DISPALY_NUM)
   end

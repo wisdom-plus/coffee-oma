@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find_by(id: params[:id])
+    @product = Product.find_by(id: params[:id]).decorate
     @tags = @product.tag_counts_on(:tags)
     @review = Review.new
     @reviews = Review.show_review(@product.id).page(params[:page]).per(SHOW_DISPLAY_NUM)

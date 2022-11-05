@@ -1,7 +1,7 @@
 td.center.aligned タグ
 td.center.aligned
   .ui.accordion.field
-    - if target.class == Product
+    - if target.class == ProductDecorator
       - tags.each do |tag|
         .ui.teal.tag.label
           =link_to "#{tag} (#{tag.taggings_count})",products_path(tag_name: tag.name), class: 'tag_link'
