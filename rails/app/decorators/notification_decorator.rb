@@ -5,7 +5,15 @@ class NotificationDecorator < ApplicationDecorator
   def class_name
     self.source.class.name
   end
-  
+ 
+  def class_product_review?
+    class_name === "ProductReviewLike"
+  end
+
+  def class_bean_review?
+    class_name === "BeanReviewLike"
+  end
+
   def sender_id
     self.sender.id
   end
@@ -27,9 +35,9 @@ class NotificationDecorator < ApplicationDecorator
   end
 
   def review_content
-    if class_name === "ProductReviewLike"
+    if class_product_review? 
       self.source.review.content
-    elsif class_name === "BeanReviewLike"
+    elsif class_bean_review?
       self.course.bean_review.content
     end
   end
