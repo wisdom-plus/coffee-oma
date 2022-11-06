@@ -24,46 +24,46 @@
                     h3.ui.icon.header
                       i.blue.users.icon.mt-10
                     .ui.tiny.circular.image
-                      img src = notification.sender.icon.url
+                      img src = notification.sender_icon
                     .content
                       a.header href = "/users/#{notification.sender.id}/show"
-                        = notification.sender.username
+                        = notification.sender_name
                         |さんにフォローされました
                       .meta
-                        span.date #{time_ago_in_words(notification.created_at)}前
+                        span.date #{notification.created_ago}前
                   - when "Like"
                     h3.ui.icon.header
                       i.red.heart.icon.mt-10
                     .ui.tiny.circular.image
-                      img src = notification.sender.icon.url
+                      img src = notification.sender_icon
                     .content
                       - if notification.source.class.name === 'ProductReviewLike'
-                        a.header href = product_path(notification.source.liked_id)
-                          = notification.sender.username
+                        a.header href = product_path(notification.liked_id)
+                          = notification.sender_name
                           |さんがあなたのレビューにライクしました
                         .meta
-                          span.date #{time_ago_in_words(notification.created_at)}前
+                          span.date #{notification.created_ago}前
                         .description
-                          =simple_format(h(notification.source.review.content))
+                          =simple_format(h(notification.review_content))
                       - elsif notification.source.class.name === 'BeanReviewLike'
-                        a.header href = bean_path(notification.source.liked_id)
-                          = notification.sender.username
+                        a.header href = bean_path(notification.liked_id)
+                          = notification.sender_name
                           |さんがあなたのレビューにライクしました
                         .meta
-                          span.date #{time_ago_in_words(notification.created_at)}前
+                          span.date #{notification.created_ago}前
                         .description
-                          =simple_format(h(notification.source.bean_review.content))
+                          =simple_format(h(notification.review_content))
                   - when 'Message'
                     h3.ui.icon.header
                       i.blue.mail.icon.mt-10
                     .ui.tiny.circular.image
-                        img src = notification.sender.icon.url
+                        img src = notification.sender_icon
                     .content
-                      a.header href = room_path(notification.source.room_id)
-                        = notification.sender.username
+                      a.header href = room_path(notification.room_id)
+                        = notification.sender_name
                         |さんからメッセージが届きました
                       .meta
-                        span.date #{time_ago_in_words(notification.created_at)}前
+                        span.date #{notification.created_ago}前
       .ui.bottom.attached.tab.segment data-tab= "second"
         - if @follow_notifications.empty?
           |通知はまだ届いていません
