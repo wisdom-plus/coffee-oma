@@ -17,5 +17,11 @@ class ProductDecorator < ApplicationDecorator
     (rate_sum.to_f / reviews_count).floor(1)
   end
 
+  def image_url(i = 0)
+    images[i].url
+  end
 
+  def price_delimited
+    price.to_s(:delimited)
+  end
 end

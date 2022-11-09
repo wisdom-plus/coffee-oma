@@ -3,6 +3,7 @@ class LikesController < ApplicationController
 
   def index
     @rankings = Product.includes(:thread_image).ranking_index
+    @rankings = ProductDecorator.decorate_collection(@rankings)
   end
 
   def create
