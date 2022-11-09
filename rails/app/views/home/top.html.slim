@@ -105,8 +105,8 @@
         .balloon_l.top
           .ui.grid
             .topfaceicon.three.wide.center.aligned.column
-              =vite_image_tag "images/square-image.png",class:"ui centered circular image lazyload" ,data:{src:"#{review.user.icon.url}"}
-              .ui.header = review.user.username
+              =vite_image_tag "images/square-image.png",class:"ui centered circular image lazyload" ,data:{src:"#{review.user_icon}"}
+              .ui.header = review.user_name
             .says.eight.wide.column.top_review_min
               .content
                 h3.header =review.title
@@ -115,12 +115,12 @@
                   span.date #{time_ago_in_words(review.created_at)}前
                 .description
                   =simple_format(h(review.content))
-            a.item.five.wide.column.pl-5em href= product_path(review.product.id)
+            a.item.five.wide.column.pl-5em href= product_path(review.product_id)
               .ui.medium.image
-                =vite_image_tag 'images/square-image.png', class: "lazyload",data: {src: "#{review.product.images[0].url}"}
+                =vite_image_tag 'images/square-image.png', class: "lazyload",data: {src: "#{review.product_image}"}
               .content
                   p.header
-                    =review.product.name
+                    =review.product_name
     =link_to products_path,class: "ui teal huge animated fade button" do
       .visible.content
         i.search.icon
