@@ -1,7 +1,7 @@
 class BeanDecorator < ApplicationDecorator
   delegate_all
 
-  def review_evaluations
-    bean_reivws.evaluations
+  def reviews_evaluations
+    bean_reviews.evaluations
   end
 end

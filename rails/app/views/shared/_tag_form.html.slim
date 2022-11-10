@@ -5,7 +5,7 @@ td.center.aligned
       - tags.each do |tag|
         .ui.teal.tag.label
           =link_to "#{tag} (#{tag.taggings_count})",products_path(tag_name: tag.name), class: 'tag_link'
-    - elsif target.class == Bean
+    - elsif target.class == BeanDecorator
       - tags.each do |tag|
         .ui.teal.tag.label
           =link_to "#{tag} (#{tag.taggings_count})",beans_path(tag_name: tag.name), class: 'tag_link'

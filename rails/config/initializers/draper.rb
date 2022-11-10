@@ -4,4 +4,5 @@ Draper::CollectionDecorator.delegate :current_page,
                                      :entry_name,
                                      :total_count,
                                      :num_pages,
-                                     :offset_value
+                                     :offset_value,
+                                     :exists?

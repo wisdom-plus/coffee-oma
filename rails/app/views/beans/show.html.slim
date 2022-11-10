@@ -70,8 +70,8 @@
       - @bean_reviews.each do |review|
         .ui.segment.review_item
           h4.ui.header
-            =vite_image_tag 'images/square-image.png', class:"ui circular image lazyload square_image",data: {src: "#{review.user.icon}"}
-            =review.user.username
+            =vite_image_tag 'images/square-image.png', class:"ui circular image lazyload square_image",data: {src: "#{review.user_icon}"}
+            =review.user_name
           .item
             .content
               h3.header = review.title
@@ -93,13 +93,13 @@
               .extra
                 - if review.recipe
                   = render partial: 'shared/recipe', locals: {review: review}
-                a.ui.teal.label href= "/users/#{review.user.id}/show"
+                a.ui.teal.label href= "/users/#{review.user_id}/show"
                   |ユーザーの詳細
                 - if user_signed_in?
                   div class="review_like_button_#{review.id} inline"
                     =render partial:'shared/review_like', locals: {review_like: @review_likes.select_id(review.id), review: review}
                   div class= "report_button_#{review.id} inline"
-                    .ui.grey.label.button.report-modal-button data-reviewid="#{review.id}" data-class= "#{review.class}"
+                    .ui.grey.label.button.report-modal-button data-reviewid="#{review.id}" data-class= "#{review.base_class}"
                       i.flag.outloine.icon
     - else
       .ui.placeholder.segment
