@@ -26,7 +26,7 @@
                     .ui.tiny.circular.image
                       img src = notification.sender_icon
                     .content
-                      a.header href = "/users/#{notification.sender.id}/show"
+                      a.header href = "/users/#{notification.sender_id}/show"
                         = notification.sender_name
                         |さんにフォローされました
                       .meta
@@ -37,7 +37,7 @@
                     .ui.tiny.circular.image
                       img src = notification.sender_icon
                     .content
-                      - if notification.class_product_review? 
+                      - if notification.class_product_review?
                         a.header href = product_path(notification.liked_id)
                           = notification.sender_name
                           |さんがあなたのレビューにライクしました
@@ -45,7 +45,7 @@
                           span.date #{notification.created_ago}前
                         .description
                           =simple_format(h(notification.review_content))
-                      - elsif notification.class_bean_review? 
+                      - elsif notification.class_bean_review?
                         a.header href = bean_path(notification.liked_id)
                           = notification.sender_name
                           |さんがあなたのレビューにライクしました

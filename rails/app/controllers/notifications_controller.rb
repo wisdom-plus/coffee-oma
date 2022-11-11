@@ -9,7 +9,7 @@ class NotificationsController < ApplicationController
     @message_notifications = @notifications.type_filter('Message')
     notification_include(@notifications)
     session[:checked] = false if session[:checked]
-    @notifications= NotificationDecorator.decorate_collection(@notifications)
+    @notifications = NotificationDecorator.decorate_collection(@notifications)
   end
 
   private
