@@ -28,4 +28,12 @@ class HistoryDecorator < ApplicationDecorator
   def bean?
     history.bean_id.present?
   end
+
+  def product_images(num = 0)
+    product.images[num].url
+  end
+
+  def bean_images(num = 0)
+    bean.images[num].url
+  end
 end
