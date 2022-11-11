@@ -31,11 +31,12 @@ class ProductsController < ApplicationController
     @tags = @product.tag_counts_on(:tags)
     @review = Review.new
     @reviews = Review.show_review(@product.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
-    return unless user_signed_in?
-
-    @reviews = Review.exclude_reviews(@product.id, current_user.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
-    @like = current_user.product_likes.find_by(liked_id: params[:id])
-    @review_likes = current_user.where_review_likes(@reviews, 'review')
+    if user_signed_in?
+      @reviews = Review.exclude_reviews(@product.id, current_user.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
+      @like = current_user.product_likes.find_by(liked_id: params[:id])
+      @review_likes = current_user.where_review_likes(@reviews, 'review')
+    end
+    @reviews = ReviewDecorator.decorate_collection(@reviews)
   end
 
   private

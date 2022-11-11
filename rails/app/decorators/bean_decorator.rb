@@ -4,4 +4,8 @@ class BeanDecorator < ApplicationDecorator
   def reviews_evaluations
     bean_reviews.evaluations
   end
+
+  def base_class
+    'Bean'
+  end
 end

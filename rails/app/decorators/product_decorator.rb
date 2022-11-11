@@ -24,4 +24,8 @@ class ProductDecorator < ApplicationDecorator
   def price_delimited
     price.to_s(:delimited)
   end
+
+  def base_class
+    'Product'
+  end
 end
