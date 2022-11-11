@@ -6,7 +6,7 @@
   .ui.middle.aligned.center.aligned.grid
     .column
       h1#title
-        =@room.another_user(current_user).username
+        =@room.another_user_name(current_user)
   .ui.centered.grid
     .twelve.wide.column#room data-user_id=current_user.id data-room_id= @room.id
       =render partial: "shared/message", locals: {messages: @messages}
