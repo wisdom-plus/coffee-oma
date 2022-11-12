@@ -1,49 +1,42 @@
 class NotificationDecorator < ApplicationDecorator
   delegate_all
-  include ActionView::Helpers::DateHelper 
+  include ActionView::Helpers::DateHelper
 
   def class_name
-    self.source.class.name
+    source.class.name
   end
- 
+
   def class_product_review?
-    class_name === "ProductReviewLike"
+    class_name === 'ProductReviewLike'
   end
 
   def class_bean_review?
-    class_name === "BeanReviewLike"
+    class_name === 'BeanReviewLike'
   end
 
-  def sender_id
-    self.sender.id
-  end
+  delegate :id, to: :sender, prefix: true
 
   def sender_name
-    self.sender.username
+    sender.username
   end
 
   def sender_icon
-    self.sender.icon.url
+    sender.icon.url
   end
 
-  def room_id
-    self.source.room_id
-  end
+  delegate :room_id, to: :source
 
-  def liked_id
-    self.source.liked_id
-  end
+  delegate :liked_id, to: :source
 
   def review_content
-    if class_product_review? 
-      self.source.review.content
+    if class_product_review?
+      source.review.content
     elsif class_bean_review?
-      self.course.bean_review.content
+      source.bean_review.content
     end
   end
 
   def created_ago
-    time_ago_in_words(self.created_at)
+    time_ago_in_words(created_at)
   end
-
 end
