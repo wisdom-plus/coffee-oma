@@ -7,11 +7,11 @@ class NotificationDecorator < ApplicationDecorator
   end
 
   def class_product_review?
-    class_name === 'ProductReviewLike'
+    class_name == 'ProductReviewLike'
   end
 
   def class_bean_review?
-    class_name === 'BeanReviewLike'
+    class_name == 'BeanReviewLike'
   end
 
   delegate :id, to: :sender, prefix: true
