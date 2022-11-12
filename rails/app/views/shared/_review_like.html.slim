@@ -1,5 +1,5 @@
 - if review_like.nil?
-  = link_to review_likes_path(review_id: review.id,type: review.class), method: :post, class:"ui grey label create_button", remote: true do
+  = link_to review_likes_path(review_id: review.id,type: review.base_class), method: :post, class:"ui grey label create_button", remote: true do
     i.heart.outline.icon
     | #{review.reviewlikes_count}
 - else
