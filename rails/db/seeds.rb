@@ -8,6 +8,8 @@
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 AdminUser.create!(email: "admin@example.com", password: ENV['ADMIN_PASSWORD'],password_confirmation: ENV['ADMIN_PASSWORD]']) if Rails.env.production?
+puts "Admin user created"
+
 12.times do |n|
   name = Faker::Internet.unique.username
   email = Faker::Internet.unique.email
@@ -19,6 +21,8 @@ AdminUser.create!(email: "admin@example.com", password: ENV['ADMIN_PASSWORD'],pa
               icon: File.open("./public/seed/icon-#{n+1}.png")
   )
 end
+
+puts "User created"
 
 Product.create!(
   images:[File.open("./public/seed/product-01.jpg")],
@@ -290,6 +294,9 @@ Product.create!(
   tag_list: ["コーヒー" ,"イルカナ","コーヒードリッパー","富士山ドリッパー"],
   user_id: 9
 )
+
+puts "Product created!"
+
 Bean.create!(
   area:"スルミナス",
   country:"ブラジル",
@@ -420,6 +427,8 @@ Bean.create!(
   user: User.find(6),
   tag_list: ['コーヒー豆','タンザニア','不明','ナチェラル','キリマンジェロ']
 )
+
+puts "Bean created!"
 
 Review.create!(
   user: User.find(1),
@@ -743,6 +752,9 @@ Review.create!(
   よい品に出会えたと思っています。",
   rate: 4
 )
+
+puts "Review created!"
+
 BeanReview.create!(
   user: User.find(1),
   bean: Bean.find(1),
@@ -1039,6 +1051,9 @@ BeanReview.create!(
   牛乳を少し足して飲んでもよき。"
 )
 
+puts 'BeanReview created!'
+
+
 9.times do |n|
   u = User.find(n + 1)
   Report.create!(
@@ -1050,6 +1065,8 @@ BeanReview.create!(
     review: Review.find(2)
   )
 end
+
+puts 'Report created!'
 
 10.times do |n|
   Relationship.create!(
@@ -1110,6 +1127,8 @@ end
   )
 end
 
+puts 'Relationship and Like created!'
+
 News.create!(
   title: "coffee-omaのサービス開始のお知らせ",
   user_id: 1,
@@ -1122,3 +1141,7 @@ ActionText::RichText.create!(
   name: 'content',
   body: "<p>新サービス「Coffee-oma」を開始いたします。本サービスは、コーヒーに関するアイテムやコーヒー豆のレビューサイトとなっており、レビュー機能、ライク機能を実装。<br>ユーザー同士の交流を促進するための機能として、フォロー機能、リアルタイムチャット機能を実装しております。</p><p><br>利用無料となっており、あなたのコーヒーライフにぜひご活用ください。</p><p>あなたのレビューを心よりお待ちしております。</p>"
 )
+
+puts 'News created!'
+
+puts "All data created!"
