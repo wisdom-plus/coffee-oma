@@ -1,18 +1,18 @@
 td.center.aligned タグ
 td.center.aligned
   .ui.accordion.field
-    - if target.class == ProductDecorator
+    - if target.base_class == "Product"
       - tags.each do |tag|
         .ui.teal.tag.label
           =link_to "#{tag} (#{tag.taggings_count})",products_path(tag_name: tag.name), class: 'tag_link'
-    - elsif target.class == BeanDecorator
+    - elsif target.base_class == "Bean"
       - tags.each do |tag|
         .ui.teal.tag.label
           =link_to "#{tag} (#{tag.taggings_count})",beans_path(tag_name: tag.name), class: 'tag_link'
     - if user_signed_in?
       .mini.ui.right.floated.button.title.tag_form_edit_button#accordion タグを編集
       .content.field
-        =form_with  url: tag_path(target.id, type: target.class), method: :patch,class: "ui mini form tag_form" do |f|
+        =form_with  url: tag_path(target.id, type: target.base_class), method: :patch,class: "ui mini form tag_form" do |f|
           .ui.fluid.multiple.search.selection.dropdown#tag_form
             =f.hidden_field :tag_list,value: target.tag_list.join(','),id: 'spec_tag_form'
             .default.text タグを登録する

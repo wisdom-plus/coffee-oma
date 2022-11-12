@@ -4,9 +4,9 @@ class TagsController < ApplicationController
   def update
     case params[:type]
     when 'Product'
-      @target = Product.find(params[:id])
+      @target = Product.find(params[:id]).decorate
     when 'Bean'
-      @target = Bean.find(params[:id])
+      @target = Bean.find(params[:id]).decorate
     end
 
     @target.tag_list = params[:tag_list].split(',')
