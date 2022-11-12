@@ -17,7 +17,7 @@ class BeansController < ApplicationController
     end
   end
 
-  def show
+  def show  # rubocop:disable Metrics/AbcSize
     @bean = Bean.find_by(id: params[:id]).decorate
     @tags = @bean.tag_counts_on(:tags)
     @bean_reviews = BeanReview.show_review(@bean.id).page(params[:page]).per(SHOW_DISPLAY_NUM)

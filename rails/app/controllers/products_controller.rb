@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
                 end
   end
 
-  def show
+  def show # rubocop:disable Metrics/AbcSize
     @product = Product.find_by(id: params[:id]).decorate
     @tags = @product.tag_counts_on(:tags)
     @review = Review.new
