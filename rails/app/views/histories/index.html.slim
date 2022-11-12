@@ -26,7 +26,7 @@
                   h2.header
                     = history.product_name
                   .meta
-                    span.mr-1rem Brand:  #{history.product_name}
+                    span.mr-1rem Brand:  #{history.product_shop}
                     span #{time_ago_in_words(history.updated_at)}前
                   .description
                     =simple_format(h(history.caption_truncate))

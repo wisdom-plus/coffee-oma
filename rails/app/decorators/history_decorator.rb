@@ -10,7 +10,7 @@ class HistoryDecorator < ApplicationDecorator
   delegate :roast, to: :bean, prefix: true
 
   def product_shop
-    product_shopname
+    product.shopname
   end
 
   def caption_truncate(limit = 50)

@@ -9,10 +9,6 @@ class BeanReviewDecorator < ApplicationDecorator
     user.username
   end
 
-  def bean_image
-    bean.images[0].url
-  end
-
   def base_class
     'BeanReview'
   end
