@@ -3,7 +3,7 @@ class ReviewLikesController < ApplicationController
 
   def create
     @review_like = ReviewLikeAndNotificationCreate.new(current_user, params[:type], params[:review_id]).create
-    @review = @review_like.accociated_review
+    @review = @review_like.accociated_review.decorate
     # @reviewと@review_likeはviewに必要
     respond_to do |format|
       format.js
@@ -19,7 +19,7 @@ class ReviewLikesController < ApplicationController
       review_like = current_user.bean_review_likes.find_by(id: params[:id])
     end
     review_like&.destroy unless review_like.nil?
-    @review = review_like.accociated_review
+    @review = review_like.accociated_review.decorate
     # @reviewがviewに必要
     respond_to do |format|
       format.js

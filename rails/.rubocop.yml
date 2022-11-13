@@ -1,9 +1,13 @@
+inherit_from: .rubocop_todo.yml
+
 require:
   - rubocop-rails
   - rubocop-rspec
   - rubocop-performance
-  - 'test_prof/rubocop'
+  - "test_prof/rubocop"
 
+inherit_gem:
+  test-prof: "config/rubocop-rspec.yml"
 
 ## 全体に適応する項目を定義します。ここで Exclude に設定したファイルは、チェック対象外になります。
 AllCops:
@@ -177,7 +181,6 @@ Style/SlicingWithRange:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
-
 
 Layout/SpaceBeforeBrackets: # (new in 1.7)
   Enabled: true

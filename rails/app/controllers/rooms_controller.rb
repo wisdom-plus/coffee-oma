@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
   before_action :room_exists?, only: %i[create]
 
   def index
-    @rooms = Room.join_room_list(current_user)
+    @rooms = RoomDecorator.decorate_collection(Room.join_room_list(current_user))
   end
 
   def new
@@ -24,7 +24,7 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find(params[:id])
+    @room = Room.find(params[:id]).decorate
     @message = Message.new
     @messages = Message.room_message(params[:id])
   end
