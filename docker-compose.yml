@@ -12,6 +12,7 @@ services:
     depends_on:
       - db
       - chrome
+      - redis
   db:
     image: mysql:8.0
     environment:
@@ -27,6 +28,14 @@ services:
     shm_size: 256m
     ports:
       - "4444:4444"
+  redis:
+    image: redis:7.0.5-alpine3.16
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/var/lib/redis
 volumes:
   mysql-data:
     driver: local
+  redis-data:
