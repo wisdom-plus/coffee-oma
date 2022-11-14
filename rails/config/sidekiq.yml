@@ -1,0 +1,6 @@
+:verbose: false
+:concurrency: 3
+production:
+  :concurrency: 10
+:queues:
+  - default
