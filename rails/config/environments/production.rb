@@ -114,7 +114,6 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.action_mailer.default_url_options = { host: 'coffee-oma.com', protocol: 'https' }
   config.action_mailer.delivery_method = :smtp
-  config.active_job.queue_adapter = :delayed_job
   config.action_mailer.perform_caching = true
   ActionMailer::Base.smtp_settings = {
     address: 'email-smtp.ap-northeast-1.amazonaws.com',
