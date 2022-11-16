@@ -6,8 +6,8 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      ContactMailer.with(contact: @contact).delay.contact_mail
-      ContactMailer.with(contact: @contact).delay.reply_mail
+      ContactMailer.with(contact: @contact).contact_mail.deliver_later
+      ContactMailer.with(contact: @contact).reply_mail.deliver_later
       redirect_to root_path, notice: t('.notice')
     else
       flash.now[:alert] = t('.alert')
