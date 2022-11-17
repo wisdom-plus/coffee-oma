@@ -71,5 +71,4 @@ Rails.application.configure do
   BetterErrors::Middleware.allow_ip! '0.0.0.0/0'
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   ActionMailer::Base.delivery_method = :letter_opener_web
-  config.active_job.queue_adapter = :async
 end

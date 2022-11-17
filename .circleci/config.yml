@@ -9,7 +9,7 @@ jobs:
       - image: tomoron/portfolio-coffee:latest
         auth:
           username: tomoron
-          password: $DOCKERHUB_PASSWORD
+          password: $DOCKERHUB_ACCESS_TOKEN
         environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
@@ -17,7 +17,7 @@ jobs:
       - image: mysql:8.0
         auth:
           username: tomoron
-          password: $DOCKERHUB_PASSWORD
+          password: $DOCKERHUB_ACCESS_TOKEN
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: "true"
           MYSQL_ROOT_HOST: "127.0.0.1"
@@ -27,7 +27,7 @@ jobs:
         name: chrome
         auth:
           username: tomoron
-          password: $DOCKERHUB_PASSWORD
+          password: $DOCKERHUB_ACCESS_TOKEN
     working_directory: ~/coffee/rails
     steps:
       - checkout:

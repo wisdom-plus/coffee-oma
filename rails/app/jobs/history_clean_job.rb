@@ -1,5 +1,6 @@
 class HistoryCleanJob < ApplicationJob
-  queue_as :default
+  queue_as :high_priority
+  sidekiq_options retry: 3
 
   def perform
     User.includes(:histories).find_each do |user|
