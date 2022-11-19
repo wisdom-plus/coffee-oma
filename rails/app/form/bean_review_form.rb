@@ -23,7 +23,7 @@ class BeanReviewForm
     return if invalid?
 
     ActiveRecord::Base.transaction do
-      @bean_review = BeanReview.create!(bean_review_params(current_user))
+      @bean_review = current_user.beanReview.create!(bean_review_params)
       unless recipe_params_exists?
         Recipe.create!(recipe_params(@bean_review))
       end
@@ -39,11 +39,11 @@ class BeanReviewForm
 
     attr_reader :bean_review
 
-    def bean_review_params(user)
+    def bean_review_params
       {
         title: title, content: content, acidity: acidity,
         flavor: flavor, rich: rich, sweet: sweet,
-        bitter: bitter, bean_id: bean_id, user: user
+        bitter: bitter, bean_id: bean_id
       }
     end
 
