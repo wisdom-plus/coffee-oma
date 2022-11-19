@@ -14,37 +14,37 @@
           .ten.wide.field.bean_review_rate_form
             .two.wide.inline.field
               = f.label :acidity
-              .ui.star.rating.form_rating data-taste="acidity"
+              .ui.yellow.star.rating.form_rating data-taste="acidity"
               = f.hidden_field(:acidity)
             .two.wide.inline.field
               = f.label :bitter
-              .ui.star.rating.form_rating data-taste="bitter"
+              .ui.yellow.star.rating.form_rating data-taste="bitter"
               = f.hidden_field(:bitter)
             .two.wide.inline.field
               = f.label :sweet
-              .ui.star.rating.form_rating data-taste="sweet"
+              .ui.yellow.star.rating.form_rating data-taste="sweet"
               = f.hidden_field(:sweet)
             .two.wide.inline.field
               = f.label :rich
-              .ui.star.rating.form_rating data-taste="rich"
+              .ui.yellow.star.rating.form_rating data-taste="rich"
               = f.hidden_field(:rich)
             .two.wide.inline.field
               = f.label :flavor
-              .ui.star.rating.form_rating data-taste="flavor"
+              .ui.yellow.star.rating.form_rating data-taste="flavor"
               = f.hidden_field(:flavor)
         .fields
           = f.label :content, class: "four wide field"
           .ten.wide.field
             = f.text_area :content, placeholder: "content", id: 'content'
-        .fields.ui.accordion.recipe_accordion
-          .four.wide.field.title#accordion
-            .ui.teal.button
+        .fields
+          .ui.styled.accordion.centered.recipe_accordion
+            .title#accordion
               i.dropdown.icon
               font style="vertical-align: inherit;"
                 font style="vertical-align: inherit;"
                   |抽出レシピを登録する
-          .ten.wide.field.inline.field
-            = render partial: "shared/recipe_form", locals: {f: f}
+            .field
+              = render partial: "shared/recipe_form", locals: {f: f}
         .ui.error.message
         .field
           =f.button type: "submit",class: "large ui center floated positive animated fade button", data: { disable_with: "送信中" }  do

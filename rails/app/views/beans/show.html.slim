@@ -28,7 +28,7 @@
                 tr
                   td.center.aligned 地域
                   td.center.aligned
-                    = @bean.area.empty? ? "不明" : @bean.area
+                    = @bean.area.nil? ? "不明" : @bean.area
                 tr
                   td.center.aligned 焙煎
                   td.center.aligned #{@bean.roast}
