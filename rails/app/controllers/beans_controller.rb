@@ -21,7 +21,7 @@ class BeansController < ApplicationController
     @bean = Bean.find_by(id: params[:id]).decorate
     @tags = @bean.tag_counts_on(:tags)
     @bean_reviews = BeanReview.show_review(@bean.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
-    @bean_review = BeanReviewForm.new
+    @bean_review_form = BeanReviewForm.new
     if user_signed_in?
       @like = current_user.bean_likes.find_by(liked_id: params[:id])
       @bean_reviews = BeanReview.exclude_reviews(@bean.id, current_user.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
