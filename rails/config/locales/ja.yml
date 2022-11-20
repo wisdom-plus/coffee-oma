@@ -103,6 +103,11 @@ ja:
         sweet: "甘み"
         rich: "コク"
         flavor: "風味"
+        amount: "抽出量"
+        powdergram: "粉量"
+        grinding: "挽き具合"
+        temperature: "湯温"
+        time: "抽出時間"
       contact:
         name: "お名前"
         email: "メールアドレス"
