@@ -7,7 +7,7 @@ class BeanReviewsController < ApplicationController
       flash[:notice] = t('.notice')
     elsif @bean_review.recipe_error
       # :nocov:
-      flash[:alert] = 'レシピの登録に失敗しました'
+      flash[:alert] = t('.recipe_alert')
       # :nocov:
     else
       flash[:alert] = t('.alert')

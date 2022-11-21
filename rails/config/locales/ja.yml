@@ -3,6 +3,7 @@ ja:
     create:
       notice: 'レビューの登録に成功しました'
       alert: 'レビューの登録に失敗しました'
+      recipe_alert: 'レシピの登録に失敗しました'
   beans:
     create:
       notice: '登録に成功しました。'
