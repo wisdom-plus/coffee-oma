@@ -1,20 +1,23 @@
-.ui.centered.card.field.text-left.transition.hidden#recipe_card
-  .content
-    .inline.fields
-        =f.label "粉量"
-        .four.wide.field
-          = f.number_field :powdergram, autofocus: true, placeholder: "powdergram", min: 0
-        =f.label "挽き目"
-        .four.wide.field
-          =f.select :grinding,Recipe.grindings.keys.map{|k| [k,k]},include_blank: "選択してください", selected: "選択してください"
-        =f.label "湯温"
-        .four.wide.field
-          = f.number_field :temperature,autofocus: true, placeholder: "temperature", max: 100
-    .inline.fields
-      =f.label "抽出時間"
-      .seven.wide.field
-        = f.number_field :time1, autofocus: true, placeholder: "min", min: 0, max: 10
-        = f.number_field :time2, autofocus: true, placeholder: "sec", min: 0, max: 60
-      = f.label "抽出量"
-      .five.wide.field
+.ui.field.text-left.transition.hidden#recipe_card
+  .content.m-1em
+    .fields
+      .field
+        = f.label :powdergram, "粉量"
+        = f.number_field :powdergram, autofocus: true, placeholder: "powdergram", min: 0
+      .field
+        = f.label :grinding, "挽き目"
+        = f.select :grinding,Recipe.grindings.keys.map{|k| [k,k]},include_blank: "選択してください", selected: "選択してください"
+      .field
+        = f.label :temperature, "湯温"
+        = f.number_field :temperature,autofocus: true, placeholder: "temperature", max: 100
+    .fields
+      .field
+        = f.label :amount, "抽出量"
         = f.number_field :amount, autofocus: true, placeholder: "amount",min: 0, step: 10
+      .field
+        = f.label :time, "抽出時間"
+        .inline.field
+          = f.select :time1, [0,1,2,3], include_blank: true
+          | 分
+          = f.select :time2, [*0..59], include_blank: true
+          | 秒

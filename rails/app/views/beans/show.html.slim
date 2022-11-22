@@ -28,7 +28,7 @@
                 tr
                   td.center.aligned 地域
                   td.center.aligned
-                    = @bean.area.empty? ? "不明" : @bean.area
+                    = @bean.area.nil? ? "不明" : @bean.area
                 tr
                   td.center.aligned 焙煎
                   td.center.aligned #{@bean.roast}
@@ -108,5 +108,5 @@
           | このコーヒー豆に寄せられたレビューはまだありません。
   = paginate @bean_reviews
   .ui.section.divider
-  = render partial: 'shared/bean_review_form', locals: {bean_review: @bean_review, bean: @bean}
+  = render partial: 'shared/bean_review_form', locals: {bean_review_form: @bean_review_form, bean: @bean}
 =render partial: 'shared/report_modal'

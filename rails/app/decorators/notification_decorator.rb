@@ -28,6 +28,14 @@ class NotificationDecorator < ApplicationDecorator
 
   delegate :liked_id, to: :source
 
+  def bean_id
+    source.bean_review.bean_id
+  end
+
+  def product_id
+    source.review.product_id
+  end
+
   def review_content
     if class_product_review?
       source.review.content

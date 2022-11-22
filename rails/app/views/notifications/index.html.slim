@@ -38,7 +38,7 @@
                       img src = notification.sender_icon
                     .content
                       - if notification.class_product_review?
-                        a.header href = product_path(notification.liked_id)
+                        a.header href = product_path(notification.product_id)
                           = notification.sender_name
                           |さんがあなたのレビューにライクしました
                         .meta
@@ -46,7 +46,7 @@
                         .description
                           =simple_format(h(notification.review_content))
                       - elsif notification.class_bean_review?
-                        a.header href = bean_path(notification.liked_id)
+                        a.header href = bean_path(notification.bean_id)
                           = notification.sender_name
                           |さんがあなたのレビューにライクしました
                         .meta

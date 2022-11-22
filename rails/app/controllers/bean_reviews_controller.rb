@@ -5,6 +5,10 @@ class BeanReviewsController < ApplicationController
     @bean_review = BeanReviewForm.new(bean_review_recipe_params)
     if @bean_review.save(current_user)
       flash[:notice] = t('.notice')
+    elsif @bean_review.recipe_error
+      # :nocov:
+      flash[:alert] = t('.recipe_alert')
+      # :nocov:
     else
       flash[:alert] = t('.alert')
     end

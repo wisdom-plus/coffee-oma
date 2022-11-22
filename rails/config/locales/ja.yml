@@ -3,6 +3,7 @@ ja:
     create:
       notice: 'レビューの登録に成功しました'
       alert: 'レビューの登録に失敗しました'
+      recipe_alert: 'レシピの登録に失敗しました'
   beans:
     create:
       notice: '登録に成功しました。'
@@ -103,6 +104,11 @@ ja:
         sweet: "甘み"
         rich: "コク"
         flavor: "風味"
+        amount: "抽出量"
+        powdergram: "粉量"
+        grinding: "挽き具合"
+        temperature: "湯温"
+        time: "抽出時間"
       contact:
         name: "お名前"
         email: "メールアドレス"
