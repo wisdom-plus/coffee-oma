@@ -7,7 +7,6 @@ html
     = Gon::Base.render_data
     / HMRはうまくいかないのでコメントアウト
     / = vite_client_tag
-    / = stylesheet_link_tag 'application',media: 'all', 'data-turbolinks-track': 'reload'
     = vite_javascript_tag 'application', 'data-turbolinks-track': 'reload',media: 'all',defar: true
     = vite_stylesheet_tag 'application.scss', media: 'all', 'data-turbolinks-track': 'reload'
     link rel="preconnect" href="https://fonts.googleapis.com"
@@ -27,8 +26,9 @@ html
               span.line.line2
     =render partial: 'shared/sidebar'
     .pusher#back-image
-      = render partial: 'shared/top_menu'
+      = render(TopMenu::Component.new(current_user: current_user))
       #flash_message
-        = render partial: 'shared/flash_message'
+        = render(Notice::Component.new(notice: notice))
+        = render(Alert::Component.new(alert: alert))
       = yield
-    =render partial: 'shared/footer'
+    = render(Footer::Component.new)
