@@ -39,7 +39,7 @@
                   td.center.aligned
                     |評価はまだありません
               tr#tag_area
-                = render partial: 'shared/tag_form',locals: {tags: @tags, target: @product}
+                = component('tag_form',tags: @tags, target: @product, current_user: current_user)
               tr
                 td.cen colspan=3
                   = item_url_link(@product)
