@@ -89,5 +89,5 @@
           | このアイテムに寄せられたレビューはまだありません。
   = paginate @reviews
   .ui.section.divider
-  = render partial: 'shared/product_review_form', locals: {review: @review,product: @product}
+  = component('review_form',review: @review, product_id: @product.id, current_user: current_user)
 =render partial: 'shared/report_modal'
