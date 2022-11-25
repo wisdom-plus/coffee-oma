@@ -24,11 +24,11 @@ html
               span.letters.ampersand &ndash;
               span.letters.letters-right oma
               span.line.line2
-    = render(Sidebar::Component.new(current_user: current_user))
+    = component('sidebar', { current_user: current_user })
     .pusher#back-image
-      = render(TopMenu::Component.new(current_user: current_user))
+      = component( 'top_menu', current_user: current_user)
       #flash_message
-        = render(Notice::Component.new(notice: notice))
-        = render(Alert::Component.new(alert: alert))
+        = component('notice', notice: notice)
+        = component('alert', alert: alert)
       = yield
-    = render(Footer::Component.new)
+    = component('footer')
