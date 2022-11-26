@@ -1,0 +1,52 @@
+.ui.segment.review_item
+  h4.ui.header
+    =vite_image_tag 'images/square-image.png', class:"ui circular image lazyload square_image",data: {src: "#{@review.user_icon}"}
+    =@review.user_name
+  .item
+    .content
+      h3.header = @review.title
+      .meta
+        span #{time_ago_in_words(@review.created_at)}前
+      .meta.review_meta
+        span.mr-05em 酸味
+        span.ui.yellow.rating.read.mr-05em data-max-rating= "5" data-rating= "#{@review.acidity}"
+        span.mr-05em 苦味
+        span.ui.yellow.rating.read.mr-05em data-max-rating= "5" data-rating= "#{@review.bitter}"
+        span.mr-05em 甘み
+        span.ui.yellow.rating.read.mr-05em data-max-rating= "5" data-rating= "#{@review.sweet}"
+        span.mr-05em コク
+        span.ui.yellow.rating.read.mr-05em data-max-rating= "5" data-rating= "#{@review.rich}"
+        span.mr-05em 風味
+        span.ui.yellow.rating.read.mr-05em data-max-rating= "5" data-rating= "#{@review.flavor}"
+      .description
+        =simple_format(h(@review.content))
+      .extra
+        - if @review.recipe.present?
+          .ui.accordion.inline
+            .title.inline.ui.teal.label.recipe_button
+              i.dropdown.icon
+              |抽出レシピを見る
+            .content.mb-1rem
+              table.ui.celled.table
+                thead
+                  tr
+                    th.center.aligned 粉量
+                    th.center.aligned 挽き目
+                    th.center.aligned 湯温
+                    th.center.aligned 抽出時間
+                    th.center.aligned 抽出量
+                tbody
+                  tr
+                    td.center.aligned #{@review.recipe.powdergram}g
+                    td.center.aligned #{@review.recipe.grinding}
+                    td.center.aligned #{@review.recipe.temperature}℃
+                    td.center.aligned #{@review.recipe.time1}:#{@review.recipe.time2}
+                    td.center.aligned.spec #{@review.recipe.amount}cc
+        a.ui.teal.label href= "/users/#{@review.user_id}/show"
+          |ユーザーの詳細
+        - if user_signed_in?
+          div class="review_like_button_#{@review.id} inline"
+            =render partial:'shared/review_like', locals: {review_like: @review_likes.select_id(@review.id), review: @review}
+          div class= "report_button_#{@review.id} inline"
+            .ui.grey.label.button.report-modal-button data-reviewid="#{@review.id}" data-class= "#{@review.base_class}"
+              i.flag.outloine.icon
