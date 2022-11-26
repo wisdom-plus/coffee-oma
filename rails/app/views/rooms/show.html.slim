@@ -9,8 +9,7 @@
         =@room.another_user_name(current_user)
   .ui.centered.grid
     .twelve.wide.column#room data-user_id=current_user.id data-room_id= @room.id
-      =render partial: "shared/message", locals: {messages: @messages}
-
+      = render(Message::Component.with_collection(@messages, current_user: current_user))
     = form_with model: @message, url: messages_path(room_id: @room.id), class: "ui form center aligned ten wide column mb-20" ,method: :post do |f|
       .field
         = f.text_area :message, placeholder: "メッセージの内容"

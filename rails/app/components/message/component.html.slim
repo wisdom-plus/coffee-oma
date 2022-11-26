@@ -1,0 +1,18 @@
+- if @message.user_id == @current_user.id
+  .balloon_r
+    .faceicon
+      img.ui.circular.image src = message_user_icon
+    .meta.room_meta_r
+      span.date =l @message.created_at, format: :date
+    .says
+      .content
+        =simple_format(h(@message.message))
+- else
+  .balloon_l
+    .faceicon
+      img.ui.circular.image src = message_user_icon
+    .says
+      .content
+        =simple_format(h(@message.message))
+    .meta.room_meta_l
+      span.date =l @message.created_at, format: :date
