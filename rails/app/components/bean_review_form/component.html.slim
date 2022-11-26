@@ -1,0 +1,76 @@
+
+.ui.middle.aligned.center.aligned.grid
+  .column.mb-12
+    h1.content レビューの投稿
+    =form_with model: @form, url: bean_bean_reviews_path(@bean.id), class: "ui equal width bean_review form column", id: "bean_review_form", method: :post,local: true do |f|
+      .fields
+        = f.label :title, class: "four wide field"
+        .ten.wide.field
+          = f.text_field :title, placeholder: "title"
+      .fields
+        .four.wide.field
+          p
+          | 評価
+        .ten.wide.field.bean_review_rate_form
+          .two.wide.inline.field
+            = f.label :acidity
+            .ui.yellow.star.rating.form_rating data-taste="acidity"
+            = f.hidden_field(:acidity)
+          .two.wide.inline.field
+            = f.label :bitter
+            .ui.yellow.star.rating.form_rating data-taste="bitter"
+            = f.hidden_field(:bitter)
+          .two.wide.inline.field
+            = f.label :sweet
+            .ui.yellow.star.rating.form_rating data-taste="sweet"
+            = f.hidden_field(:sweet)
+          .two.wide.inline.field
+            = f.label :rich
+            .ui.yellow.star.rating.form_rating data-taste="rich"
+            = f.hidden_field(:rich)
+          .two.wide.inline.field
+            = f.label :flavor
+            .ui.yellow.star.rating.form_rating data-taste="flavor"
+            = f.hidden_field(:flavor)
+      .fields
+        = f.label :content, class: "four wide field"
+        .ten.wide.field
+          = f.text_area :content, placeholder: "content", id: 'content'
+      .fields
+        .ui.styled.accordion.centered.recipe_accordion
+          .title#accordion
+            i.dropdown.icon
+            font style="vertical-align: inherit;"
+              font style="vertical-align: inherit;"
+                |抽出レシピを登録する
+          .field
+          .ui.field.text-left.transition.hidden#recipe_card
+            .content.m-1em
+              .fields
+                .field
+                  = f.label :powdergram, "粉量"
+                  = f.number_field :powdergram, autofocus: true, placeholder: "powdergram", min: 0
+                .field
+                  = f.label :grinding, "挽き目"
+                  = f.select :grinding,Recipe.grindings.keys.map{|k| [k,k]},include_blank: "選択してください", selected: "選択してください"
+                .field
+                  = f.label :temperature, "湯温"
+                  = f.number_field :temperature,autofocus: true, placeholder: "temperature", max: 100
+              .fields
+                .field
+                  = f.label :amount, "抽出量"
+                  = f.number_field :amount, autofocus: true, placeholder: "amount",min: 0, step: 10
+                .field
+                  = f.label :time, "抽出時間"
+                  .inline.field
+                    = f.select :time1, [0,1,2,3], include_blank: true
+                    | 分
+                    = f.select :time2, [*0..59], include_blank: true
+                    | 秒
+      .ui.error.message
+      .field
+        =f.button type: "submit",class: "large ui center floated positive animated fade button", data: { disable_with: "送信中" }  do
+          .visible.content
+            |submit
+          .hidden.content
+            |投稿

@@ -91,7 +91,8 @@
               .description
                 =simple_format(h(review.content))
               .extra
-                - if review.recipe
+                - if review.recipe.present?
+                  / = render(Recipe::Component.new(recipe: Recipe.first))
                   = render partial: 'shared/recipe', locals: {review: review}
                 a.ui.teal.label href= "/users/#{review.user_id}/show"
                   |ユーザーの詳細
@@ -108,5 +109,8 @@
           | このコーヒー豆に寄せられたレビューはまだありません。
   = paginate @bean_reviews
   .ui.section.divider
-  = render partial: 'shared/bean_review_form', locals: {bean_review_form: @bean_review_form, bean: @bean}
+  - if user_signed_in?
+    = component('bean_review_form', form: @bean_review_form, bean: @bean)
+  - else
+    .segment
 = component('report_modal')
