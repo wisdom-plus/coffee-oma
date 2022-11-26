@@ -109,4 +109,4 @@
   = paginate @bean_reviews
   .ui.section.divider
   = render partial: 'shared/bean_review_form', locals: {bean_review_form: @bean_review_form, bean: @bean}
-=render partial: 'shared/report_modal'
+= component('report_modal')

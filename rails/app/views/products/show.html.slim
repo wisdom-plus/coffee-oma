@@ -90,4 +90,4 @@
   = paginate @reviews
   .ui.section.divider
   = component('review_form',review: @review, product_id: @product.id, current_user: current_user)
-=render partial: 'shared/report_modal'
+= component('report_modal')
