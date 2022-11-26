@@ -1,0 +1,17 @@
+- if @notifications.present?
+  - @notifications.each do |notification|
+    .ui.segment
+      .ui.items
+        .item
+          h3.ui.icon.header
+            i.blue.mail.icon.mt-10
+          .ui.tiny.circular.image
+            img src = notification.sender.icon.url
+          .content
+            a.header href = room_path(notification.source.room_id)
+              = notification.sender.username
+              |さんからメッセージが届きました
+            .meta
+              span.date #{time_ago_in_words(notification.created_at)}前
+- else
+  |通知はまだ届いていません
