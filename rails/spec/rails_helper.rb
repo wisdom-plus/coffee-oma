@@ -15,6 +15,7 @@ require 'capybara/rspec'
 require 'test_prof/recipes/rspec/let_it_be'
 require 'test_prof/recipes/logging'
 require 'test_prof/recipes/rspec/factory_default'
+require 'view_component/test_helpers'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -108,4 +109,11 @@ RSpec.configure do |config|
   config.include ActionTextHelper, type: :system
   config.include ActiveJob::TestHelper
   config.include ActiveSupport::Testing::TimeHelpers
+  config.include ViewComponent::TestHelpers, type: :component
+  config.include Capybara::RSpecMatchers, type: :component
+  config.include Devise::Test::ControllerHelpers, type: :component
+
+  config.before(:each, type: :component) do
+    @request = controller.request
+  end
 end
