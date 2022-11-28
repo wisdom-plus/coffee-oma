@@ -9,7 +9,6 @@ RSpec.describe FollwNotification::Component, type: :component do
   let(:notification) { create(:notification, source: follow, user: user) }
 
   it 'renders a follow notification' do
-    notifications = notification.decorate
     render_inline(described_class.new(notifications: [notification]))
 
     expect(page).to have_text notification.sender.username

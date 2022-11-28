@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe MessageNotification::Component, type: :component do
   let(:user) { create(:user) }
@@ -10,7 +10,6 @@ RSpec.describe MessageNotification::Component, type: :component do
   let(:notification) { create(:notification, source: message, user: user) }
 
   it 'renders a follow notification' do
-    notifications = notification.decorate
     render_inline(described_class.new(notifications: [notification]))
 
     expect(page).to have_text notification.sender.username
