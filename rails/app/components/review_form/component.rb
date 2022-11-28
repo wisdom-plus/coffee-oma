@@ -2,6 +2,7 @@
 
 class ReviewForm::Component < ViewComponent::Base
   def initialize(review:, product_id:, current_user:)
+    super
     @review = review
     @product_id = product_id
     @current_user = current_user

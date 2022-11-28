@@ -2,6 +2,7 @@
 
 class FollwNotification::Component < ViewComponent::Base
   def initialize(notifications:)
+    super
     @notifications = filter_notifications(notifications)
   end
 

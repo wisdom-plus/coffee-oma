@@ -4,6 +4,7 @@ class ProductReview::Component < ViewComponent::Base
   with_collection_parameter :review
 
   def initialize(review:, review_likes:, current_user:)
+    super
     @review = review
     @review_likes = review_likes
     @current_user = current_user

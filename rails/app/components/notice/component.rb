@@ -2,6 +2,7 @@
 
 class Notice::Component < ViewComponent::Base
   def initialize(notice:)
+    super
     @notice = notice
   end
 

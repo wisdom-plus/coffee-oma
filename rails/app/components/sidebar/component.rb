@@ -2,6 +2,7 @@
 
 class Sidebar::Component < ViewComponent::Base
   def initialize(current_user:)
+    super
     @current_user = current_user
   end
 

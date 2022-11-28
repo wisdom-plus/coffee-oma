@@ -4,6 +4,7 @@ class Message::Component < ViewComponent::Base
   with_collection_parameter :message
 
   def initialize(message:, current_user:)
+    super
     @message = message
     @current_user = current_user
   end

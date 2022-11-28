@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class TagForm::Component < ViewComponent::Base
-
-  def initialize(tags:,target:,current_user:)
+  def initialize(tags:, target:, current_user:)
+    super
     @tags = tags
     @target = target
     @current_user = current_user

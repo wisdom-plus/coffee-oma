@@ -2,6 +2,7 @@
 
 class Alert::Component < ViewComponent::Base
   def initialize(alert:)
+    super
     @alert = alert
   end
 
