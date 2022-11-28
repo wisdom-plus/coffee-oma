@@ -1,0 +1,12 @@
+- if notice
+  .ui.container.top-padding.flash-container
+    .ui.positive.message.flash-message
+      i.close.icon
+      .ui.center.aligned.header#message
+        font style= "vertical-align: inherit;" = notice
+- if alert
+  .ui.container.top-padding.flash-container
+    .ui.negative.message.flash-message
+      i.close.icon
+      .ui.center.aligned.header#message
+        font style= "vertical-align: inherit;" = alert
