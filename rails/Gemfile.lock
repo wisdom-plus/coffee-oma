@@ -554,6 +554,10 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.2.0)
     uniform_notifier (1.16.0)
+    view_component (2.77.0)
+      activesupport (>= 5.0.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     vite_rails (3.0.12)
       railties (>= 5.1, < 8)
       vite_ruby (~> 3.0, >= 3.2.2)
@@ -661,6 +665,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   test-prof (~> 1.0)
   turbolinks (~> 5)
+  view_component
   vite_rails
   web-console (>= 3.3.0)
   webmock

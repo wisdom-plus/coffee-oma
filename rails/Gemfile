@@ -62,6 +62,7 @@ gem 'sidekiq'
 gem 'sitemap_generator'
 gem 'slim'
 gem 'slim-rails'
+gem 'view_component'
 gem 'whenever', require: false
 
 group :development, :test do

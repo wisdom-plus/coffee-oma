@@ -24,9 +24,9 @@ RSpec.describe 'Reports', type: :system, js: true do
 
       it 'display button and click button' do
         first('.report-modal-button').click
-        expect(page).to have_link 'レビューを削除する', href: reports_path(review_id: review.id, type: review.class)
+        expect(page).to have_link 'レビューを通報する', href: reports_path(review_id: review.id, type: review.class)
 
-        click_link 'レビューを削除する', href: reports_path(review_id: review.id, type: review.class)
+        click_link 'レビューを通報する', href: reports_path(review_id: review.id, type: review.class)
         expect(page).to have_content 'レビューを通報しました。'
       end
     end
@@ -39,7 +39,7 @@ RSpec.describe 'Reports', type: :system, js: true do
 
       it 'display button and click button' do
         first('.report-modal-button').click
-        expect(page).to have_link 'レビューを削除する', href: reports_path(review_id: bean_review.id, type: bean_review.class)
+        expect(page).to have_link 'レビューを通報する', href: reports_path(review_id: bean_review.id, type: bean_review.class)
 
         click_link nil, href: reports_path(review_id: bean_review.id, type: bean_review.class)
         expect(page).to have_content 'レビューを通報しました。'

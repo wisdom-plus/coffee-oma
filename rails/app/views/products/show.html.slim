@@ -39,7 +39,7 @@
                   td.center.aligned
                     |評価はまだありません
               tr#tag_area
-                = render partial: 'shared/tag_form',locals: {tags: @tags, target: @product}
+                = component('tag_form',tags: @tags, target: @product, current_user: current_user)
               tr
                 td.cen colspan=3
                   = item_url_link(@product)
@@ -59,29 +59,8 @@
     i.edit.icon
     | ユーザーレビュー
   .ui.items
-    - if @reviews.exists?
-      - @reviews.each do |review|
-        .ui.segment.review_item
-          h4.ui.header
-            =vite_image_tag 'images/square-image.png', class:"ui circular image lazyload square_image",data: {src:"#{review.user_icon}"}
-            =review.user.username
-          .item
-            .content
-              h3.header =review.title
-              .meta.review_meta
-                span.ui.yellow.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
-                span.date #{time_ago_in_words(review.created_at)}前
-              .description
-                =simple_format(h(review.content))
-              .extra
-                a.ui.teal.label href= "/users/#{review.user_id}/show"
-                  |ユーザーの詳細
-                - if user_signed_in?
-                  div class="review_like_button_#{review.id} inline"
-                    =render partial:'shared/review_like', locals: {review_like: @review_likes.select_id(review.id), review: review}
-                  div class= "report_button_#{review.id} inline"
-                    .ui.grey.label.button.report-modal-button data-reviewid="#{review.id}" data-class= "#{review.base_class}"
-                      i.flag.outloine.icon
+    - if @reviews.present?
+      = render(ProductReview::Component.with_collection(@reviews, review_likes: @review_likes, current_user: current_user))
     - else
       .ui.placeholder.segment
         .ui.icon.header
@@ -89,5 +68,5 @@
           | このアイテムに寄せられたレビューはまだありません。
   = paginate @reviews
   .ui.section.divider
-  = render partial: 'shared/product_review_form', locals: {review: @review,product: @product}
-=render partial: 'shared/report_modal'
+  = component('review_form',review: @review, product_id: @product.id, current_user: current_user)
+= component('report_modal')

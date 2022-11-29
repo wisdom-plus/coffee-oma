@@ -28,8 +28,10 @@ class BeanReviewForm
 
       if recipe_params_exists?
         unless recipe_params_full_filled?
+          # :nocov:
           self.recipe_error = true
           raise ActiveRecord::Rollback
+          # :nocov:
         end
         bean_review.build_recipe(recipe_params)
       end

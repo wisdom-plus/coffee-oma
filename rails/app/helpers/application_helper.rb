@@ -21,4 +21,9 @@ module ApplicationHelper
       }
     }
   end
+
+  def component(name, *args, **kwards, &block)
+    component = name.to_s.camelize.constantize::Component
+    render(component.new(*args, **kwards), &block)
+  end
 end

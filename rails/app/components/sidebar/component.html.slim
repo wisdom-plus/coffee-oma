@@ -3,12 +3,12 @@
     .item
       i.user.icon
       font style= "vertical-align: inherit;" ユーザー
-    = link_to 'プロフィール',"/users/#{current_user.id}/show", class: "item"
+    = link_to 'プロフィール',"/users/#{@current_user.id}/show", class: "item"
     = link_to 'ユーザーを編集', edit_user_registration_path, class:"item"
     = link_to '閲覧履歴',histories_path, class:"item"
     = link_to 'メッセージ一覧', rooms_path, class: "item"
     = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "item"
-    - if @checked
+    - if session[:checked]
       = link_to notifications_path, class: "ui item new_notification" do
         i.icons
           i.bell.outline.icon

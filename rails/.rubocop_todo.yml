@@ -33,3 +33,7 @@ RSpec/EmptyExampleGroup:
     - 'spec/decorators/product_decorator_spec.rb'
     - 'spec/decorators/review_decorator_spec.rb'
     - 'spec/decorators/room_decorator_spec.rb'
+
+RSpec/FilePath:
+  Exclude:
+    - 'spec/components/**/*'

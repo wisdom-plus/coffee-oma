@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+class TopMenu::Component < ViewComponent::Base
+  def initialize(current_user:)
+    super
+    @current_user = current_user
+  end
+
+  def user_signed_in?
+    @current_user.present?
+  end
+end
