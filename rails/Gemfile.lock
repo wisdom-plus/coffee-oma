@@ -644,7 +644,6 @@ DEPENDENCIES
   ransack
   recaptcha
   redis (~> 4.0)
-  redis-actionpack
   redis-rails
   rename
   rspec-rails
