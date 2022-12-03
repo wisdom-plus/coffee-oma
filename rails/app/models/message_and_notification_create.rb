@@ -3,7 +3,7 @@ class MessageAndNotificationCreate
     @user = user
   end
 
-  def crete(message_params)
+  def create(message_params)
     message = @user.messages.new(message_params)
     if message.save
       create_notification(message)
