@@ -4,8 +4,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   before_action :user_exist?, only: [:show]
-  before_action :check_guest, only: %i[destroy update] # rubocop:disable Rails/LexicallyScopedActionFilter スーパークラスのメソッドを指定している
-  prepend_before_action :customize_sign_up_params, only: [:create] # rubocop:disable Rails/LexicallyScopedActionFilter
+  before_action :check_guest, only: %i[destroy update]スーパークラスのメソッドを指定している
+  prepend_before_action :customize_sign_up_params, only: [:create]
   # GET /resource/sign_up
   # def new
   #   super
@@ -43,6 +43,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     @room = Room.find_room(current_user, @user)
   end
+
+  def my_page; end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
