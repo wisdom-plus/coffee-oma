@@ -8,6 +8,9 @@
     h1.header
       =@current_user.username
     .segment.mb-12
+      .segment.mb-12
+        =link_to edit_user_registration_path,class: "circular ui blue button"
+          |プロフィールを編集
       .ui.label
         i.calendar.alternate.outline.icon
         | #{@current_user.created_at.strftime("%Y年%m月")}から利用

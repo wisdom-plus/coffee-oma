@@ -4,7 +4,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   before_action :user_exist?, only: [:show]
-  before_action :check_my_page, only: [:show]
   before_action :authenticate_user!, only: [:my_page]
   before_action :check_guest, only: %i[destroy update]
   # スーパークラスのメソッドを指定している
@@ -48,6 +47,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def my_page
+    return redirect_to users_my_page_path if current_user.id == params[:id].to_i
+
     @likes = Like.like_includes(@current_user.id)
     @reviews = Review.user_review(@current_user)
     @followers = @current_user.followers
@@ -98,10 +99,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     def customize_sign_up_params
       devise_parameter_sanitizer.permit :sign_up, keys: %i[username email password password_confirmation remember_me]
-    end
-
-    def check_my_page
-      return redirect_to users_my_page_path if current_user.id == params[:id].to_i
     end
 
   protected
