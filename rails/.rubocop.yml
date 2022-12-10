@@ -30,6 +30,10 @@ Rails/FilePath:
     - "lib/tasks/dev.rake"
     - "spec/rails_helper.rb"
 
+Rails/LexicallyScopedActionFilter:
+  Exclude:
+    - "app/controllers/users/*"
+
 ## `and return` の形式を利用できるようにします。基本的には、&& と || を使います。
 Style/AndOr:
   Enabled: false
