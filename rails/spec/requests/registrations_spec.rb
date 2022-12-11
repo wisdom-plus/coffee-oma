@@ -32,7 +32,7 @@ RSpec.describe 'Registrations', type: :request do
     end
 
     it 'request success(user)' do
-      get "/users/#{user.id}/show"
+      get users_my_page_path
       expect(response).to have_http_status(:ok)
     end
 

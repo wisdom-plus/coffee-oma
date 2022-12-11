@@ -182,7 +182,7 @@ RSpec.describe 'Registrations', type: :system, js: true do
     context 'when login' do
       it 'displayed icon' do
         login(user, user.email, user.password)
-        visit "/users/#{user.id}/show"
+        visit users_my_page_path
         expect(page).to have_selector 'img'
         expect(page).to have_link 'プロフィールを編集'
       end
