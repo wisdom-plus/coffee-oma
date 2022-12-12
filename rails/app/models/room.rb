@@ -36,11 +36,11 @@ class Room < ApplicationRecord
     end
   end
 
-  def self.find_room(user1, user2)
-    if user1.id < user2.id
-      find_by(participant1_id: user1.id, participant2_id: user2.id)
+  def self.find_room(user1_id, user2_id)
+    if user1_id < user2_id
+      find_by(participant1_id: user1_id, participant2_id: user2_id)
     else
-      find_by(participant1_id: user2.id, participant2_id: user1.id)
+      find_by(participant1_id: user2_id, participant2_id: user1_id)
     end
   end
 
