@@ -16,10 +16,10 @@
         | #{@user.created_at.strftime("%Y年%m月")}から利用
       .ui.label
         i.user.icon
-        | #{@user.followings.count}フォロー中
+        | #{@followings.length}フォロー中
       .ui.label
         i.users.icon
-        | #{@user.followers.count}フォロワー
+        | #{@followers.length}フォロワー
       - if user_signed_in?
         - if @room.nil?
           = link_to rooms_path(user_id: @user.id), method: :post, class: "ui label spec-messge" do
@@ -38,10 +38,11 @@
           tbody
             tr
               td
-                - if @user.profile.nil?
-                  h3 プロフィールはまだありません
-                - else
+                - if @user.profile.present?
                   =simple_format(h(@user.profile))
+                - else
+                  h3 プロフィールはまだありません
+
   .ui.centered.grid.margin-zero
     .twelve.wide.column
       .ui.top.attached.four.tabular.menu
@@ -63,7 +64,7 @@
                 .content
                   h3.header =review.title
                   .meta.review_meta
-                    span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
+                    span.ui.yellow.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
                     span.date #{time_ago_in_words(review.created_at)}前
                   .description
                     =simple_format(h(review.content))

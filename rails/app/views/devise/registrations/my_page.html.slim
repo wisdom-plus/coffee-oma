@@ -16,10 +16,10 @@
         | #{@current_user.created_at.strftime("%Y年%m月")}から利用
       .ui.label
         i.user.icon
-        | #{@current_user.followings.count}フォロー中
+        | #{@followings.length}フォロー中
       .ui.label
         i.users.icon
-        | #{@current_user.followers.count}フォロワー
+        | #{@followers.length}フォロワー
     .ui.centered.grid
       .nine.wide.column
         table.ui.celled.table
@@ -29,10 +29,10 @@
           tbody
             tr
               td
-                - if @current_user.profile.nil?
-                  h3 プロフィールはまだありません
+                - if @current_user.profile.present?
+                  = simple_format(h(@current_user.profile))
                 - else
-                  =simple_format(h(@current_user.profile))
+                  h3 プロフィールはまだありません
   .ui.centered.grid.margin-zero
     .twelve.wide.column
       .ui.top.attached.four.tabular.menu
