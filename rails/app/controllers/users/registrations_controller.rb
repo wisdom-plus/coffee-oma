@@ -41,10 +41,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @followers = @user.followers
     @followings = @user.followings
 
-    if user_signed_in?
-      @follow = Follow.new(current_user, @user).follow_user
-      @room = Room.find_room(current_user.id, @user.id)
-    end
+    return unless user_signed_in?
+
+    @follow = Follow.new(current_user, @user).follow_user
+    @room = Room.find_room(current_user.id, @user.id)
   end
 
   def my_page
