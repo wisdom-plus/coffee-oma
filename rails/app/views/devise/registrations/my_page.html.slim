@@ -1,34 +1,25 @@
 .ui.container
   .ui.grid
     .column
-      - breadcrumb :profile, @user
+      - breadcrumb :profile, @current_user
       = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
   .ui.center.aligned.container
-    =vite_image_tag "images/square-image.png" , class: "ui centered small circular image lazyload",data:{src: "#{@user.icon.url}"}
+    =vite_image_tag "images/square-image.png" , class: "ui centered small circular image lazyload",data:{src: "#{@current_user.icon.url}"}
     h1.header
-      =@user.username
+      =@current_user.username
     .segment.mb-12
-      - if user_signed_in?
-        .segment.mb-12#follow_button
-          =render partial: 'shared/follow', locals: {user: @user, follow: @follow}
+      .segment.mb-12
+        =link_to edit_user_registration_path,class: "circular ui blue button"
+          |プロフィールを編集
       .ui.label
         i.calendar.alternate.outline.icon
-        | #{@user.created_at.strftime("%Y年%m月")}から利用
+        | #{@current_user.created_at.strftime("%Y年%m月")}から利用
       .ui.label
         i.user.icon
         | #{@followings.length}フォロー中
       .ui.label
         i.users.icon
         | #{@followers.length}フォロワー
-      - if user_signed_in?
-        - if @room.nil?
-          = link_to rooms_path(user_id: @user.id), method: :post, class: "ui label spec-messge" do
-            i.mail.icon
-            |メッセージを送る
-        - else
-          = link_to room_path(@room.id),class: "ui label spec-message" do
-            i.mail.icon
-            |メッセージを送る
     .ui.centered.grid
       .nine.wide.column
         table.ui.celled.table
@@ -38,11 +29,10 @@
           tbody
             tr
               td
-                - if @user.profile.present?
-                  =simple_format(h(@user.profile))
+                - if @current_user.profile.present?
+                  = simple_format(h(@current_user.profile))
                 - else
                   h3 プロフィールはまだありません
-
   .ui.centered.grid.margin-zero
     .twelve.wide.column
       .ui.top.attached.four.tabular.menu
@@ -64,7 +54,7 @@
                 .content
                   h3.header =review.title
                   .meta.review_meta
-                    span.ui.yellow.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
+                    span.ui.star.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
                     span.date #{time_ago_in_words(review.created_at)}前
                   .description
                     =simple_format(h(review.content))

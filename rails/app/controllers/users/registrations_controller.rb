@@ -4,8 +4,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   before_action :user_exist?, only: [:show]
-  before_action :check_guest, only: %i[destroy update] # rubocop:disable Rails/LexicallyScopedActionFilter スーパークラスのメソッドを指定している
-  prepend_before_action :customize_sign_up_params, only: [:create] # rubocop:disable Rails/LexicallyScopedActionFilter
+  before_action :check_my_page, only: [:show], if: :user_signed_in?
+  before_action :authenticate_user!, only: [:my_page]
+  before_action :check_guest, only: %i[destroy update]
+  # スーパークラスのメソッドを指定している
+  prepend_before_action :customize_sign_up_params, only: [:create]
   # GET /resource/sign_up
   # def new
   #   super
@@ -33,15 +36,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def show
     @user = User.find_user(params[:id])
-    @follow = Follow.new(current_user, @user).follow_user if user_signed_in?
     @likes = Like.like_includes(@user.id)
     @reviews = Review.user_review(@user)
     @followers = @user.followers
     @followings = @user.followings
 
-    return unless user_signed_in? && @user != current_user
+    return unless user_signed_in?
 
-    @room = Room.find_room(current_user, @user)
+    @follow = Follow.new(current_user, @user).follow_user
+    @room = Room.find_room(current_user.id, @user.id)
+  end
+
+  def my_page
+    return redirect_to users_my_page_path if current_user.id == params[:id].to_i
+
+    @likes = Like.like_includes(@current_user.id)
+    @reviews = Review.user_review(@current_user)
+    @followers = @current_user.followers
+    @followings = @current_user.followings
   end
 
   # GET /resource/cancel
@@ -84,6 +96,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       return unless resource.email == 'guest@example.com'
 
       redirect_to root_path, alert: t('.alert')
+    end
+
+    def check_my_page
+      redirect_to users_my_page_path if current_user.id == params[:id].to_i
     end
 
     def customize_sign_up_params

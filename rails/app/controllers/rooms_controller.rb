@@ -39,7 +39,7 @@ class RoomsController < ApplicationController
     end
 
     def room_exists?
-      room = Room.find_room(current_user, User.find(params[:user_id]))
+      room = Room.find_room(current_user.id, User.find(params[:user_id]).id)
       return if room.blank?
 
       redirect_to room_path(room.id)

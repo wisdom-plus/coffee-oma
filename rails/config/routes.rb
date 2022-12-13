@@ -287,6 +287,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_scope :user do
     get 'users/:id/show' => 'users/registrations#show'
+    get 'users/my_page' => 'users/registrations#my_page'
     post 'users/guest_sign_in' => 'users/sessions#new_guest'
   end
   resources :products, only: %i[new create index show] do
