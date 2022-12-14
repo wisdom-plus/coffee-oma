@@ -1,0 +1,4 @@
+clean_history:
+  cron: '0 0 1 * *'
+  class: 'HistoryCleanJob'
+  queue: 'cron'
