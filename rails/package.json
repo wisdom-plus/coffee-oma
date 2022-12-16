@@ -4,6 +4,7 @@
   "dependencies": {
     "@activeadmin-plugins/active_admin_theme": "^1.1.4",
     "@activeadmin/activeadmin": "^2.13.0",
+    "@hotwired/stimulus": "^3.2.1",
     "@rails/actioncable": "^7.0.4",
     "@rails/actiontext": "^7.0.4",
     "@rails/activestorage": "^7.0.4",
