@@ -1,4 +1,5 @@
 import "jquery-raty-js";
+import $ from "jquery";
 
 $(document).on("turbolinks:load", function () {
   // レート星のscript

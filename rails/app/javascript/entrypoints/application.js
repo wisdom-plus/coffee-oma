@@ -33,21 +33,11 @@ import Rails from "@rails/ujs";
 import tubolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "@rails/actiontext";
-import "@/custom/jquery";
+// import "@/custom/jquery"; jqueryでエラーが出たら元に戻す
 import "fomantic-ui";
-import "@/custom/application";
-import "@/custom/scroll";
-import "@/custom/chart";
-import "@/custom/rating";
-import "@/custom/modal";
-import "@/custom/anime";
-import "@/custom/dimmer";
-import "@/custom/popup";
-import "@/custom/actiontext";
-import "@/custom/swiper";
 import.meta.globEager("../channels/*_channel.js");
-import "@/custom/form";
-import "@/custom/form_validate";
+import.meta.globEager("@/custom/*.js");
+import "../controllers/index";
 
 Rails.start();
 tubolinks.start();

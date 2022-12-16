@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 $(document).on("turbolinks:load", function () {
   // ファイルフォームのscript
   $("#upload-button").on("click", function () {

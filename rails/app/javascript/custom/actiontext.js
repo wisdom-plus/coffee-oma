@@ -1,4 +1,5 @@
 import Trix from "trix";
+import $ from "jquery";
 
 $(document).on("turbolinks:load", function () {
   // Action textを変更

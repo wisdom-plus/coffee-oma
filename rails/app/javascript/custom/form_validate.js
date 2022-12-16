@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 $(document).on("turbolinks:load", function () {
   //  registraction_editのvalidation
   $(".ui.registration_edit.form").form({

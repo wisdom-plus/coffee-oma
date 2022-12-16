@@ -1,4 +1,5 @@
 import InfiniteScroll from "infinite-scroll";
+import $ from "jquery";
 
 $(document).on("turbolinks:load", function () {
   // 無限スクロールのscript

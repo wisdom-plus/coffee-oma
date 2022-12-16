@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 $(document).on("turbolinks:load", function () {
   $("#dimmer-button").on("click", function () {
     $("#dimmer").dimmer("toggle");

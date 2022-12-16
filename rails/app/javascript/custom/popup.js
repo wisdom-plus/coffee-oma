@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 $(document).on("turbolinks:load", function () {
   $("#login_button").popup({
     on: "hover",

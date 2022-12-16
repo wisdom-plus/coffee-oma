@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 $(document).on("turbolinks:load", function () {
   $("#top-button").on("click", function () {
     window.scroll({ top: 0, behavior: "smooth" });
