@@ -552,6 +552,8 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.8)
+    stimulus-rails (1.2.1)
+      railties (>= 6.0.0)
     temple (0.8.2)
     test-prof (1.0.9)
     thor (1.2.1)
@@ -673,6 +675,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
+  stimulus-rails
   test-prof (~> 1.0)
   turbolinks (~> 5)
   view_component
