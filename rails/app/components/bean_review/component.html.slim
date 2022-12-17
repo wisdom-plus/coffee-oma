@@ -47,6 +47,6 @@
         - if user_signed_in?
           div class="review_like_button_#{@review.id} inline"
             =render partial:'shared/review_like', locals: {review_like: @review_likes.select_id(@review.id), review: @review}
-          div class= "report_button_#{@review.id} inline"
-            .ui.grey.label.button.report-modal-button data-reviewid="#{@review.id}" data-class= "#{@review.base_class}"
+          div class= "report_button_#{@review.id} inline" data-controller='modal'
+            .ui.grey.label.button.report-modal-button data-action='click->modal#report' data-modal-id-param = "#{@review.id}" data-modal-reviewclass-param="#{@review.base_class}"
               i.flag.outloine.icon

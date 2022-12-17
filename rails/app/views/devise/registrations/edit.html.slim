@@ -77,9 +77,9 @@
                 font style="vertical-align: inherit;"
                   font style="vertical-align: inherit;"
                     |アカウントの削除
-              .content.text-center
+              .content.text-center data-controller='modal'
                 h3.header 削除すると元には戻すことはできません。
-                .ui.negative.animated.button#modal-button
+                .ui.negative.animated.button#modal-button data-action = "click->modal#open"
                   .visible.content.p-0
                     |Delete
                   .hidden.content.p-0
