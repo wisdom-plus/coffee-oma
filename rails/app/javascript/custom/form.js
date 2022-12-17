@@ -43,11 +43,5 @@ $(document).on("turbolinks:load", function () {
         noResults: "登録されてません",
       },
     });
-    $("#tag_form").keyup(function (e) {
-      var form_value = $("input.search").val();
-      if (form_value == "") {
-        $(".menu.transition.visible").empty();
-      }
-    });
   }
 });
