@@ -9,7 +9,7 @@
       p
         |全アイテムのお気に入り数をランキング順に表示しています。
 
-  .ui.three.stackable.cards.segment.mt-3rem
+  .ui.three.stackable.cards.segment.mt-3rem data-controller='popup' data-action='connect->popup#ratepopup'
     - @rankings.each.with_index(1) do |rank, i|
       a.ui.fluid.link.card.post.scale href= product_path(rank.id)
         .ui.image

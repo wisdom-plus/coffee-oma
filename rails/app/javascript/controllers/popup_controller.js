@@ -1,17 +1,13 @@
+import { Controller } from "@hotwired/stimulus";
 import $ from "jquery";
+// Connects to data-controller="popup"
+export default class extends Controller {
+  connect() {
+    $("#login_button").popup({
+      on: "hover",
+      popup: ".ui.popup.login_popup",
+    });
 
-$(document).on("turbolinks:load", function () {
-  $("#login_button").popup({
-    on: "hover",
-    popup: ".ui.popup.login_popup",
-  });
-  $("#login_button").on({
-    mouseenter: function () {
-      $("#login_button").on("click", function () {});
-    },
-  });
-
-  if ($(".popup > .poprating").length) {
     $("a.ui.fluid.link.card.post.scale").popup({
       onShow: function () {
         const id = this.data("id");
@@ -28,4 +24,8 @@ $(document).on("turbolinks:load", function () {
       },
     });
   }
-});
+
+  loginshow() {
+    $("#login_button").on("click");
+  }
+}
