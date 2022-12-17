@@ -10,6 +10,9 @@ application.register("anime", AnimeController)
 import ChartController from "./chart_controller"
 application.register("chart", ChartController)
 
+import DimmerController from "./dimmer_controller"
+application.register("dimmer", DimmerController)
+
 import FlashController from "./flash_controller"
 application.register("flash", FlashController)
 

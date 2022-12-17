@@ -8,10 +8,10 @@
       h1#title アイテムを登録する
       .ui.content.field
         =form_with model: @product, url: products_path ,local: true,class: "ui mini product_new form" do |f|
-          .ui.centered.card.field.text-left#newcard
+          .ui.centered.card.field.text-left#newcard data-controller='dimmer'
             .image#dimmer-product
               img#img-prev src="/noimage.jpg"
-              .ui.bottom.right.attached.label#dimmer-button
+              .ui.bottom.right.attached.label#dimmer-button data-action='click->dimmer#toggle'
                 i.icons
                   i.ui.large.camera.icon
                   i.ui.bottom.right.corner.add.icon

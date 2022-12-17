@@ -8,10 +8,10 @@
       h1#title アカウント編集
       = form_with model: @user, url: user_registration_path ,id: 'edit_user',class: "edit_user ui registration_edit form text-left",method: :put, local: true do |f|
         .field
-          .ui.circular.segment#dimmer
+          .ui.circular.segment#dimmer data-controller='dimmer'
             .ui.fluid.small.image
               =image_tag @user.icon.url,alt: "アイコン画像",id: "img-prev",class: "ui circular image"
-              .ui.bottom.right.attached.label#dimmer-button
+              .ui.bottom.right.attached.label#dimmer-button data-action='click->dimmer#toggle'
                 i.icons
                   i.ui.large.camera.icon
                   i.ui.bottom.right.corner.add.icon
