@@ -5,7 +5,7 @@ $(document).on("turbolinks:load", function () {
   // Action textを変更
   Trix.config.blockAttributes.default = {
     tagName: "p",
-    breaakOnReturn: true,
+    breakOnReturn: true,
   };
   Trix.config.blockAttributes.heading2 = {
     tagName: "h2",
