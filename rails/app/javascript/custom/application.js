@@ -4,9 +4,7 @@ $(document).on("turbolinks:load", function () {
   $("#top-button").on("click", function () {
     window.scroll({ top: 0, behavior: "smooth" });
   });
-  $(".flash-message > .close").on("click", function () {
-    $(".flash-message").closest(".flash-container").transition("fade");
-  });
+
   $(".ui.accordion").accordion();
   $(".right.menu.toc").on("click", function () {
     $(".ui.sidebar").sidebar("toggle");
