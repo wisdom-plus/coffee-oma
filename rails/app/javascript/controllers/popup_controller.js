@@ -8,7 +8,7 @@ export default class extends Controller {
       popup: ".ui.popup.login_popup",
     });
 
-    $("a.ui.fluid.link.card.post.scale").popup({
+    $(".rank-card").popup({
       onShow: function () {
         const id = this.data("id");
         const rate_average = $(`#rate-${id}`).data("rating");

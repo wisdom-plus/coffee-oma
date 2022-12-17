@@ -11,7 +11,7 @@
 
   .ui.three.stackable.cards.segment.mt-3rem data-controller='popup' data-action='connect->popup#ratepopup'
     - @rankings.each.with_index(1) do |rank, i|
-      a.ui.fluid.link.card.post.scale href= product_path(rank.id)
+      a.ui.fluid.link.card.post.scale.rank-card href= product_path(rank.id)
         .ui.image
           =vite_image_tag "images/square-image.png" ,class: "lazyload-post",data: {src:"#{rank.image_url}"}
           .ui.teal.top.left.attached.label
