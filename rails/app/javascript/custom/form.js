@@ -1,23 +1,6 @@
 import $ from "jquery";
 
 $(document).on("turbolinks:load", function () {
-  // ファイルフォームのscript
-  $("#upload-button").on("click", function () {
-    $("#file-form").on("click", function () {});
-  });
-
-  $(".file-form").on("change", function () {
-    $("#dimmer").dimmer("hide");
-    $("#dimmer-product").dimmer("hide");
-    var file = this.files[0];
-    var reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      var image = this.result;
-      $("#img-prev").attr({ src: image });
-    };
-  });
-
   // タグフォームのscript
   if ($("#tag_form").length) {
     $("#tag_form").dropdown({

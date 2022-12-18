@@ -3,6 +3,10 @@ import $ from "jquery";
 
 // Connects to data-controller="dimmer"
 export default class extends Controller {
+  connect() {
+    this.element[this.identifier] = this;
+  }
+
   toggle() {
     $("#dimmer").dimmer("toggle");
     $("#dimmer-product").dimmer("toggle");
