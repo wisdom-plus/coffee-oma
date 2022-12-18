@@ -25,5 +25,8 @@ application.register("modal", ModalController)
 import PopupController from "./popup_controller"
 application.register("popup", PopupController)
 
+import SidebarController from "./sidebar_controller"
+application.register("sidebar", SidebarController)
+
 import TransitionController from "./transition_controller"
 application.register("transition", TransitionController)

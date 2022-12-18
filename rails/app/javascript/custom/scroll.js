@@ -12,10 +12,8 @@ $(document).on("turbolinks:load", function () {
       status: ".page-load-status",
       hideNav: ".pagination",
     });
-    infScroll.on("request", function () {
-      $(".ui.sticky").sticky("refresh");
-    });
     infScroll.on("append", function () {
+      $(".ui.sticky").sticky("refresh");
       $(".post.scale").transition({
         animation: "scale in",
         duration: 800,
