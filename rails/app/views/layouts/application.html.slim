@@ -5,6 +5,7 @@ html
     = csp_meta_tag
     = display_meta_tags(default_meta_tags)
     = Gon::Base.render_data
+    meta name="viewport" content="width=device-width,initial-scale=1"
     / HMRはうまくいかないのでコメントアウト
     / = vite_client_tag
     = vite_javascript_tag 'application', 'data-turbolinks-track': 'reload',media: 'all',defar: true
