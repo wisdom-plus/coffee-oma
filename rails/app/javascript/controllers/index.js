@@ -30,3 +30,6 @@ application.register("sidebar", SidebarController)
 
 import TransitionController from "./transition_controller"
 application.register("transition", TransitionController)
+
+import TrixController from "./trix_controller"
+application.register("trix", TrixController)

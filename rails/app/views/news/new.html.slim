@@ -7,7 +7,7 @@
     .column
       h1#title お知らせ作成
 
-  .ui.middle.aligned.center.aligned.grid
+  .ui.middle.aligned.center.aligned.grid data-controller='trix'
     .eleven.wide.column
       =form_with model: @news, class: "ui equal width form", id: "news_form", method: :post,local: true do |f|
         .field
