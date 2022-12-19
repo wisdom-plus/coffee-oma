@@ -7,11 +7,11 @@
         = f.label :title, class: "four wide field"
         .ten.wide.field
           = f.text_field :title, placeholder: "title"
-      .fields
+      .fields data-controller='rate'
         .four.wide.field
           p
           | 評価
-        .ten.wide.field.bean_review_rate_form
+        .ten.wide.field.bean_review_rate_form data-rate-target='bean'
           .two.wide.inline.field
             = f.label :acidity
             .ui.yellow.star.rating.form_rating data-taste="acidity"

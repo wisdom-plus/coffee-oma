@@ -30,10 +30,10 @@
               tr
                 td.center.aligned ブランド
                 td.center.aligned #{@product.shopname}
-              tr
+              tr data-controller='rate'
                 td.center.aligned 評価
                 - unless @product.rate_average.zero?
-                  td.center.aligned#star data-rating = @product.rate_average_num
+                  td.center.aligned#star data-rating=@product.rate_average_num  data-rate-target='average'
                     = @product.rate_average
                 - else
                   td.center.aligned

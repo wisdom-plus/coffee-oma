@@ -7,10 +7,10 @@
           =f.label :title,class: "four wide field"
           .ten.wide.field
             =f.text_field :title, placeholder: "title",id: "title"
-        .fields
+        .fields data-controller='rate'
           =f.label :rate, class: "four wide field"
           .ten.wide.field
-            .ui.yellow.star.rating#rating
+            .ui.yellow.star.rating#rating data-rate-target='review'
             =f.hidden_field(:rate)
         .fields
           =f.label :content, "レビュー内容", class: "four wide field"

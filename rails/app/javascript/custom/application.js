@@ -5,6 +5,7 @@ $(document).on("turbolinks:load", function () {
   $(".menu .item.tab").tab();
   $(".ui.dropdown").dropdown();
   $(".ui.checkbox").checkbox();
+  $(".ui.rating").rating();
   $("img.lazyload").visibility({
     type: "image",
     transition: "scale in",
