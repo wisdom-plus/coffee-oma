@@ -28,6 +28,9 @@ application.register("popup", PopupController)
 import RateController from "./rate_controller"
 application.register("rate", RateController)
 
+import ScrollController from "./scroll_controller"
+application.register("scroll", ScrollController)
+
 import SidebarController from "./sidebar_controller"
 application.register("sidebar", SidebarController)
 
