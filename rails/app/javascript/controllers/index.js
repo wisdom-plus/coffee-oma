@@ -34,6 +34,9 @@ application.register("scroll", ScrollController)
 import SidebarController from "./sidebar_controller"
 application.register("sidebar", SidebarController)
 
+import SwiperController from "./swiper_controller"
+application.register("swiper", SwiperController)
+
 import TransitionController from "./transition_controller"
 application.register("transition", TransitionController)
 
