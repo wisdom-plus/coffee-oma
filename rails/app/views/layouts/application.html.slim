@@ -7,7 +7,7 @@ html
     = Gon::Base.render_data
     meta name="viewport" content="width=device-width,initial-scale=1"
     / HMRはうまくいかないのでコメントアウト
-    / = vite_client_tag
+    = vite_client_tag
     = vite_javascript_tag 'application', 'data-turbolinks-track': 'reload',media: 'all',defar: true
     = vite_stylesheet_tag 'application.scss', media: 'all', 'data-turbolinks-track': 'reload'
     link rel="preconnect" href="https://fonts.googleapis.com"
