@@ -3,7 +3,7 @@
     .column
       - breadcrumb :product_new
       = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
-  .ui.middle.aligned.center.aligned.grid.vertical.stripe
+  .ui.middle.aligned.center.aligned.grid.vertical.stripe data-controller='validate'
     .column style= "width: 640px"
       h1#title アイテムを登録する
       .ui.content.field
@@ -21,13 +21,13 @@
                     |画像を追加する
                   = f.file_field :images, autofocus: true, multiple: true, id: "file-form" ,data: { action: 'change->file-form#set change->dimer#toggle', file_form_target: 'input'}
             .content
-              .header.field
+              .header.required.field
                 = f.label :name
                 = f.text_field :name, autofocus: true, placeholder: "item-name",id: 'name'
-              .meta.field
+              .meta.required.field
                 = f.label :shopname
                 = f.text_field :shopname, autofocus: true, placeholder: "shop-name", id: 'shopname'
-            .extra.content.field
+            .extra.content.required.field
               = f.label :price
               .ui.left.icon.input
                 i.yen.icon
@@ -35,7 +35,7 @@
             .extra.content.field
               = f.label :url
               = f.url_field :url, autofocus: true, placeholder: "item-url", id: 'url'
-            .extra.content.field
+            .extra.content.required.field
               = f.label :tag_list
               .ui.fluid.multiple.search.selection.dropdown#tag_form
                   = f.hidden_field :tag_list, value: @product.tag_list.split(" "), id: 'tag'
@@ -43,7 +43,7 @@
           table.ui.celled.table.field
             thead
               tr
-                th = f.label :caption
+                th = f.label :caption,class:'required'
             tbody
               tr
                 td

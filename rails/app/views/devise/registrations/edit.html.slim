@@ -3,7 +3,7 @@
     .column
       - breadcrumb :user_edit
       = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
-  .ui.middle.aligned.center.aligned.grid
+  .ui.middle.aligned.center.aligned.grid data-controller='validate'
     .column style= "width: 543px"
       h1#title アカウント編集
       = form_with model: @user, url: user_registration_path ,id: 'edit_user',class: "edit_user ui registration_edit form text-left",method: :put, local: true do |f|
@@ -20,13 +20,13 @@
                 .ui.teal.button#upload-button data-action='click->file-form#upload'
                   |アイコンを変更する
                 = f.file_field :icon, autofocus: true, id: "file-form", data: { action: 'change->file-form#set change->dimmer#toggle', file_form_target: 'input'}
-        .field
+        .required.field
           = f.label :username
           br
           .ui.left.icon.input
             i.user.icon
             = f.text_field :username, autofocus: true, autocomplete: "name", placeholder: "user-name", id: "spec-user-name"
-        .field
+        .required.field
           = f.label :email
           br
           .ui.left.icon.input

@@ -1,19 +1,19 @@
 - if user_signed_in?
-  .ui.middle.aligned.center.aligned.grid
+  .ui.middle.aligned.center.aligned.grid data-controller='validate'
     .column.mb-12
       h1.content レビューの投稿
       =form_with model: @review, url: product_reviews_path(@product_id), class: "ui equal width product_review form column", id: "review_form", method: :post,local: true do |f|
         .fields
-          =f.label :title,class: "four wide field"
+          =f.label :title,class: "four wide required field"
           .ten.wide.field
             =f.text_field :title, placeholder: "title",id: "title"
         .fields data-controller='rate'
-          =f.label :rate, class: "four wide field"
+          =f.label :rate, class: "four wide required field"
           .ten.wide.field
             .ui.yellow.star.rating#rating data-rate-target='review'
             =f.hidden_field(:rate)
         .fields
-          =f.label :content, "レビュー内容", class: "four wide field"
+          =f.label :content, "レビュー内容", class: "four wide required field"
           .ten.wide.field
             =f.text_area :content, placeholder: "レビューの内容",id: "content"
         .ui.error.message
