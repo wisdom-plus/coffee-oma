@@ -19,6 +19,9 @@ application.register("file-form", FileFormController)
 import FlashController from "./flash_controller"
 application.register("flash", FlashController)
 
+import InitializeController from "./initialize_controller"
+application.register("initialize", InitializeController)
+
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
@@ -36,6 +39,9 @@ application.register("sidebar", SidebarController)
 
 import SwiperController from "./swiper_controller"
 application.register("swiper", SwiperController)
+
+import TagFormController from "./tag_form_controller"
+application.register("tag-form", TagFormController)
 
 import TransitionController from "./transition_controller"
 application.register("transition", TransitionController)
