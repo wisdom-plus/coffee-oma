@@ -33,10 +33,9 @@ import Rails from "@rails/ujs";
 import tubolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "@rails/actiontext";
-// import "@/custom/jquery"; jqueryでエラーが出たら元に戻す
+import "./jquery";
 import "fomantic-ui";
 import.meta.globEager("../channels/*_channel.js");
-import.meta.globEager("@/custom/*.js");
 import "../controllers/index";
 
 Rails.start();
