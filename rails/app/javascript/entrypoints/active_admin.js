@@ -1,4 +1,4 @@
-import "@/custom/jquery";
+import "./jquery";
 import "jquery-ui";
 import "jquery-ui/ui/widgets/mouse";
 
