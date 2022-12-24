@@ -35,7 +35,7 @@
             .extra.content.field
               = f.label :url
               = f.url_field :url, autofocus: true, placeholder: "item-url", id: 'url'
-            .extra.content.required.field
+            .extra.content.required.field data-controller='tag-form'
               = f.label :tag_list
               .ui.fluid.multiple.search.selection.dropdown#tag_form
                   = f.hidden_field :tag_list, value: @product.tag_list.split(" "), id: 'tag'

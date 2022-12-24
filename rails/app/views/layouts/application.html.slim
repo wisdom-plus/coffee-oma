@@ -6,7 +6,6 @@ html
     = display_meta_tags(default_meta_tags)
     = Gon::Base.render_data
     meta name="viewport" content="width=device-width,initial-scale=1"
-    / HMRはうまくいかないのでコメントアウト
     = vite_client_tag
     = vite_javascript_tag 'application', 'data-turbolinks-track': 'reload',media: 'all',defar: true
     = vite_stylesheet_tag 'application.scss', media: 'all', 'data-turbolinks-track': 'reload'
@@ -14,7 +13,7 @@ html
     link rel="preconnect" href="https://fonts.gstatic.com"
     link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet"
     link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet"
-  body#wrapper
+  body#wrapper data-controller='initialize'
     - if current_page?(root_path)
       .ui.page.dimmer.load-dimmer
         .content

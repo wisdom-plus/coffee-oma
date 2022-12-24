@@ -1,6 +1,6 @@
 td.center.aligned タグ
 td.center.aligned
-  .ui.accordion.field
+  .ui.accordion.field data-controller='tag-form'
     - if @target.base_class == "Product"
       - @tags.each do |tag|
         .ui.teal.tag.label
