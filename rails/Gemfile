@@ -58,12 +58,12 @@ gem 'ransack'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'rename'
 gem 'semantic-ui-sass', '~> 2.4'
-gem 'stimulus-rails'
 gem 'sidekiq'
 gem 'sidekiq-cron'
 gem 'sitemap_generator'
 gem 'slim'
 gem 'slim-rails'
+gem 'stimulus-rails'
 gem 'view_component'
 gem 'whenever', require: false
 
