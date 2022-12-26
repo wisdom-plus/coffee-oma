@@ -1,4 +1,4 @@
-.ui.main.fixed.teal.inverted.menu
+.ui.main.fixed.teal.inverted.menu data-controller="popup sidebar"
   .ui.container
     =link_to root_path , class: "item", id: "logopadding" do
       = vite_image_tag "images/coffeeoma-logo.png", class: "ui tinysmall image"
@@ -36,9 +36,9 @@
             i.bell.outline.icon
       - else
           = link_to "ゲストログイン", users_guest_sign_in_path, method: :post,class: "item"
-          = link_to "ログイン",user_session_path,class: "item",id: "login_button"
+          = link_to "ログイン",user_session_path,class: "item",id: "login_button" ,data: {action:'mouseover->popup#loginshow'}
           = link_to "新規登録", new_user_registration_path, class: "item"
-    .right.menu.toc
+    .right.menu.toc data-action='click->sidebar#sidemenu'
       .item
         i.sidebar.icon
 .ui.popup.login_popup

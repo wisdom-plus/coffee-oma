@@ -7,61 +7,63 @@
     .column
       h1#title コーヒー豆の詳細
   .ui.vertical.stripe.segment
-      .ui.middle.aligned.stackable.grid.conteiner
-        .row
-          .six.wide.left.floated.column
-            .swiper.image-swiper
-              .swiper-wrapper
-                - @bean.images.each do |image|
-                  .swiper-slide
-                    =image_tag image.url ,class: "ui large bordered rounded image"
-              .swiper-pagination
-          .ten.wide.column
-            table.ui.celled.table
-              thead
-                tr
-                  th.center.aligned colspan=3  #{@bean.name}
-              tbody
-                tr
-                  td.center.aligned 生産国
-                  td.center.aligned #{@bean.country}
-                tr
-                  td.center.aligned 地域
-                  td.center.aligned
-                    = @bean.area.nil? ? "不明" : @bean.area
-                tr
-                  td.center.aligned 焙煎
-                  td.center.aligned #{@bean.roast}
-                tr
-                  td.center.aligned 精製方法
-                  td.center.aligned #{@bean.purification}
-                tr#tag_area
-                  = component('tag_form',tags: @tags, target: @bean, current_user: current_user)
-                tr
-                  td.center.aligned 評価
-                  - unless @bean_reviews.empty?
-                    td.center.aligned.chart-container style = "position: relative; width: 350px; height: 100px;"
-                      canvas#chart data-evaluations = @bean.reviews_evaluations
+    .ui.middle.aligned.stackable.grid.conteiner data-controller='swiper'
+      .row
+        .six.wide.left.floated.column
+          .swiper.image-swiper
+            .swiper-wrapper
+              - @bean.images.each do |image|
+                .swiper-slide
+                  =image_tag image.url ,class: "ui large bordered rounded image"
+            .swiper-pagination
+            .swiper-button-prev
+            .swiper-button-next
+        .ten.wide.column
+          table.ui.celled.table
+            thead
+              tr
+                th.center.aligned colspan=3  #{@bean.name}
+            tbody
+              tr
+                td.center.aligned 生産国
+                td.center.aligned #{@bean.country}
+              tr
+                td.center.aligned 地域
+                td.center.aligned
+                  = @bean.area.nil? ? "不明" : @bean.area
+              tr
+                td.center.aligned 焙煎
+                td.center.aligned #{@bean.roast}
+              tr
+                td.center.aligned 精製方法
+                td.center.aligned #{@bean.purification}
+              tr#tag_area
+                = component('tag_form',tags: @tags, target: @bean, current_user: current_user)
+              tr
+                td.center.aligned 評価
+                - unless @bean_reviews.empty?
+                  td.center.aligned.chart-container data-controller='chart' data-chart-evaluations-value = @bean.reviews_evaluations style = "position: relative; width: 350px; height: 100px;"
+                    canvas#chart
+                - else
+                  td.center.aligned まだ評価がありません
+              tr
+                td.cen colspan=3
+                  - unless @bean.url.blank?
+                    =link_to '商品ページを見に行く', "#{@bean.url}", class: "circular ui red button"
                   - else
-                    td.center.aligned まだ評価がありません
-                tr
-                  td.cen colspan=3
-                    - unless @bean.url.blank?
-                      =link_to '商品ページを見に行く', "#{@bean.url}", class: "circular ui red button"
-                    - else
-                      .circular.ui.button URLがありません
-                    #like_button
-                      = render partial:'shared/like',locals: {like: @like, liked: @bean}
-        .row
-          .column
-            table.ui.celled.table
-              thead
-                tr
-                  th 商品の説明文
-              tbody
-                tr
-                  td
-                    = simple_format(h(@bean.description))
+                    .circular.ui.button URLがありません
+                  #like_button
+                    = render partial:'shared/like',locals: {like: @like, liked: @bean}
+      .row
+        .column
+          table.ui.celled.table
+            thead
+              tr
+                th 商品の説明文
+            tbody
+              tr
+                td
+                  = simple_format(h(@bean.description))
   h4.ui.horizontal.divider.header
     i.edit.icon
     | ユーザーレビュー

@@ -8,10 +8,10 @@
       h1#title 閲覧履歴
 
   - if @histories.present?
-    .ui.segment.scroll#sidebar
+    .ui.segment.scroll#sidebar data-controller='transition sidebar scroll'
       .ui.right.close.rail
         .ui.sticky
-          .ui.labeled.icon.teal.button#top-button
+          .ui.labeled.icon.teal.button#top-button data-action='click->sidebar#top'
             i.up.arrow.icon
             | Top
       - @histories.each do |history|

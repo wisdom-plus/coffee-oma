@@ -7,7 +7,7 @@
     .column
       h1#title アイテムの詳細
   .ui.vertical.stripe.segment
-    .ui.middle.aligned.stackable.grid.conteiner
+    .ui.middle.aligned.stackable.grid.conteiner data-controller='swiper'
       .row
         .six.wide.left.floated.column
           .swiper.image-swiper
@@ -16,6 +16,8 @@
                 .swiper-slide
                   =image_tag image.url ,class: "ui large bordered rounded image"
             .swiper-pagination
+            .swiper-button-prev
+            .swiper-button-next
         .ten.wide.column
           table.ui.celled.table
             thead
@@ -30,10 +32,10 @@
               tr
                 td.center.aligned ブランド
                 td.center.aligned #{@product.shopname}
-              tr
+              tr data-controller='rate'
                 td.center.aligned 評価
                 - unless @product.rate_average.zero?
-                  td.center.aligned#star data-rating = @product.rate_average_num
+                  td.center.aligned#star data-rating=@product.rate_average_num  data-rate-target='average'
                     = @product.rate_average
                 - else
                   td.center.aligned

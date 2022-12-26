@@ -63,6 +63,7 @@ gem 'sidekiq-cron'
 gem 'sitemap_generator'
 gem 'slim'
 gem 'slim-rails'
+gem 'stimulus-rails'
 gem 'view_component'
 gem 'whenever', require: false
 

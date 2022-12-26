@@ -8,12 +8,13 @@ export default defineConfig({
     FullReload(["config/routes.rb", "app/views/**/*"], { delay: 100 }),
   ],
   server: {
-    hmr: {
-      port: 3036,
-      protocol: "ws",
-      host: "localhost",
-      clientPort: 3036,
-    },
+    host: true,
     port: 3036,
+    hmr: {
+      host: "0.0.0.0",
+    },
+    watch: {
+      usePolling: true,
+    },
   },
 });

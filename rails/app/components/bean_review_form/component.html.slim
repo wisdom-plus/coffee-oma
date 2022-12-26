@@ -1,17 +1,15 @@
-
-.ui.middle.aligned.center.aligned.grid
+.ui.middle.aligned.center.aligned.grid data-controller='validate'
   .column.mb-12
     h1.content レビューの投稿
     =form_with model: @form, url: bean_bean_reviews_path(@bean.id), class: "ui equal width bean_review form column", id: "bean_review_form", method: :post,local: true do |f|
       .fields
-        = f.label :title, class: "four wide field"
+        = f.label :title, class: "four wide required field"
         .ten.wide.field
           = f.text_field :title, placeholder: "title"
-      .fields
-        .four.wide.field
-          p
-          | 評価
-        .ten.wide.field.bean_review_rate_form
+      .fields data-controller='rate'
+        .four.wide.required.field
+          label 評価
+        .ten.wide.field.bean_review_rate_form data-rate-target='bean'
           .two.wide.inline.field
             = f.label :acidity
             .ui.yellow.star.rating.form_rating data-taste="acidity"
@@ -33,7 +31,7 @@
             .ui.yellow.star.rating.form_rating data-taste="flavor"
             = f.hidden_field(:flavor)
       .fields
-        = f.label :content, class: "four wide field"
+        = f.label :content, class: "four wide required field"
         .ten.wide.field
           = f.text_area :content, placeholder: "content", id: 'content'
       .fields

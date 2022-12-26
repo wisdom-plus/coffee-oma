@@ -18,7 +18,9 @@ Rails.application.config.content_security_policy do |policy|
   policy.style_src :self, :https
     # Allow @vite/client to hot reload style changes in development
   policy.style_src(*policy.style_src, :unsafe_inline) if Rails.env.development?
-  policy.connect_src :self, :https, "http://#{ViteRuby.config.host_with_port}", "ws://#{ViteRuby.config.host_with_port}" if Rails.env.development?
+  if Rails.env.development?
+    policy.connect_src :self, :https, "http://#{ViteRuby.config.host_with_port}", "ws://#{ViteRuby.config.host_with_port}"
+  end
     # Allow @vite/client to hot reload changes in development
   policy.connect_src(*policy.connect_src, "ws://#{ViteRuby.config.host_with_port}") if Rails.env.development?
 

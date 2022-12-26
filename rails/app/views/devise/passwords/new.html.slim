@@ -3,11 +3,11 @@
     .column
       - breadcrumb :password_new
       = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
-  .ui.middle.aligned.center.aligned.grid
+  .ui.middle.aligned.center.aligned.grid data-controller='validate'
     .column style= "width: 543px"
       h1#title パスワードの再設定
       = form_with model: @user, url: user_password_path,id: "new_user",class: "new_user ui password_new form text-left",local: true do |f|
-        .field
+        .required.field
           = f.label :email
           br
           .ui.left.icon.input

@@ -3,23 +3,23 @@
     .column
       - breadcrumb :sign_in
       = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
-  .ui.middle.aligned.center.aligned.grid
+  .ui.middle.aligned.center.aligned.grid data-controller='validate'
     .column style= "width: 543px"
       h1#title 新規登録
       = form_with model: @user, url: user_registration_path,id: "new_user", class: "new_user ui sign_up form text-left", local: true do |f|
-        .field
+        .required.field
           = f.label :username
           br
           .ui.left.icon.input
             i.user.icon
             = f.text_field :username, autofocus: true, autocomplete: "name", placeholder: "user-name",id: 'username'
-        .field
+        .required.field
           = f.label :email
           br
           .ui.left.icon.input
             i.mail.icon
             = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail address",id: 'email'
-        .field
+        .required.field
           = f.label :password
           - if @minimum_password_length
             .ui.pointing.below.label
@@ -31,7 +31,7 @@
           .ui.left.icon.input
             i.lock.icon
             = f.password_field :password, autocomplete: "new-password",placeholder: "Password", id:'password'
-        .field
+        .required.field
           = f.label :password_confirmation
           br
           .ui.left.icon.input

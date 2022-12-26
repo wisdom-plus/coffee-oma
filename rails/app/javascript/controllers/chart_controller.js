@@ -1,9 +1,12 @@
+import { Controller } from "@hotwired/stimulus";
 import Chart from "chart.js/auto";
 
-$(document).on("turbolinks:load", function () {
-  // チャートの表示
-  if ($("#chart").length) {
-    const evaluations = $("#chart").data("evaluations");
+export default class extends Controller {
+  static values = {
+    evaluations: Array,
+  };
+
+  connect() {
     const ctx = document.getElementById("chart").getContext("2d");
     const myChart = new Chart(ctx, {
       type: "radar",
@@ -12,7 +15,7 @@ $(document).on("turbolinks:load", function () {
         datasets: [
           {
             label: "",
-            data: evaluations,
+            data: this.evaluationsValue,
             backgroundColor: "rgba(123,85,68,0.6)",
           },
         ],
@@ -28,4 +31,4 @@ $(document).on("turbolinks:load", function () {
       },
     });
   }
-});
+}

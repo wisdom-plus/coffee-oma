@@ -3,22 +3,22 @@
     .column
       - breadcrumb :product
       = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
-  .ui.middle.aligned.center.aligned.grid.vertical.stripe
+  .ui.middle.aligned.center.aligned.grid.vertical.stripe data-controller='dimmer'
     .column
       h1#title アイテムの一覧
       - if user_signed_in?
         h3
           | なければ
           = link_to 'こちらから登録', new_product_path
-      = search_form_for @q,url: products_path ,class: "ui action mini input width-40" do |f|
-        = f.search_field :name_cont, placeholder: "search"
+      = search_form_for @q, class: "ui action mini input width-40" do |f|
+        = f.search_field :name_cont, placeholder: "search",data: {action: 'focus->dimmer#show blur->dimmer#hide'}
         = f.submit class: "ui teal button",id: 'search'
 
   - if @products.present?
-    .ui.three.stackable.cards.segment.scroll#sidebar
+    .ui.three.stackable.cards.segment.scroll#sidebar data-controller='transition sidebar scroll'
       .ui.right.close.rail
         .ui.sticky
-          .ui.labeled.icon.teal.button#top-button
+          .ui.labeled.icon.teal.button#top-button data-action='click->sidebar#top'
             i.up.arrow.icon
             | Top
       - @products.each do |product|

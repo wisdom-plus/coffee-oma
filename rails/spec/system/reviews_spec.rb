@@ -21,7 +21,7 @@ RSpec.describe 'Reviews', type: :system do
           expect(page).to have_current_path product_path(product.id), ignore_query: true
 
           expect(page).to have_content 'レビューのタイトル'
-          expect(find('.read')['data-rating']).to eq '1.0'
+          expect(find('.disabled')['data-rating']).to eq '1.0'
         end
       end
 

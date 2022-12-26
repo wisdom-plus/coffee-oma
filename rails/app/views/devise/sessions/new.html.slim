@@ -3,17 +3,17 @@
     .column
       - breadcrumb :session
       = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
-  .ui.middle.aligned.center.aligned.grid
+  .ui.middle.aligned.center.aligned.grid data-controller='validate'
     .column style= "width: 543px"
       h1#title ログイン
       = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user ui sign_in form text-left', local: true do |f|
-        .field
+        .required.field
           = f.label :email
           br
           .ui.left.icon.input
             i.mail.icon
             = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "E-mail address", id: 'email'
-        .field
+        .required.field
           = f.label :password
           br
           .ui.left.icon.input

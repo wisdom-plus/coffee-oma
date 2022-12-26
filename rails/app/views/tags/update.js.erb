@@ -1,4 +1,5 @@
 $('#tag_area').html("<%= j(render partial: 'shared/tag_form', locals: {tags: @tags, target: @target}) %>");
+$('#flash_message').html("<%= j(render partial: 'shared/flash_message',locals: {notice: @notice,alert: @alert}) %>");
 $(".ui.accordion").accordion();
   $("#tag_form").dropdown({
     allowAdditions: true,
@@ -12,20 +13,6 @@ $(".ui.accordion").accordion();
     }
   });
 
-const message_html = `
-<div class="ui container top-padding">
-  <div class="ui positive message flash-message">
-    <i class="close icon"></i>
-    <div class="ui center aligned header" id="message">
-      <font style="vertical-align: inherit;">タグを登録しました</font>
-    </div>
-  </div>
-</div>
-`
-$('.ui.main.fixed.teal.inverted.menu').after(message_html)
-$(".flash-message > .close").click(function () {
-  $(".flash-message").closest(".ui.container.top-padding").transition("fade");
-});
 if ($("#tag_form").length) {
     $("#tag_form").dropdown({
       allowAdditions: true,

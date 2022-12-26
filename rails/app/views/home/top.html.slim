@@ -1,4 +1,4 @@
-.ui.inverted.vertical.masthead.center.aligned.segment#top-image
+.ui.inverted.vertical.masthead.center.aligned.segment#top-image data-controller='anime'
   .ui.text.container
     h1.ui.header.top-title
       |Coffee-oma
@@ -111,7 +111,7 @@
               .content
                 h3.header =review.title
                 .meta.review_meta
-                  span.ui.yellow.rating.read data-max-rating= "5" data-rating= "#{review.rate}"
+                  span.ui.yellow.rating.disabled data-max-rating= "5" data-rating= "#{review.rate}"
                   span.date #{time_ago_in_words(review.created_at)}前
                 .description
                   =simple_format(h(review.content))

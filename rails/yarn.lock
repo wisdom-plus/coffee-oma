@@ -17,11 +17,6 @@
   dependencies:
     tunnel "^0.0.6"
 
-"@activeadmin-plugins/active_admin_theme@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@activeadmin-plugins/active_admin_theme/-/active_admin_theme-1.1.4.tgz#d7c123ed410ee58788a9e16d74f339d97c91c8f0"
-  integrity sha512-bbLN3/3n9DT/ECHmjB1mLpbMLen9zk5WL8vi8RxtvVN8PWqzK0wEZ/gz7Erw42Y+/0Pfk811lWBUDg9BckigmQ==
-
 "@activeadmin/activeadmin@^2.13.0":
   version "2.13.1"
   resolved "https://registry.yarnpkg.com/@activeadmin/activeadmin/-/activeadmin-2.13.1.tgz#2f33210aa0026a6937e0b08994270e8a77a9ac74"
@@ -146,6 +141,11 @@
   version "0.15.7"
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.15.7.tgz#1ec4af4a16c554cbd402cc557ccdd874e3f7be53"
   integrity sha512-IKznSJOsVUuyt7cDzzSZyqBEcZe+7WlBqTVXiF1OXP/4Nm387ToaXZ0fyLwI1iBlI/bzpxVq411QE2/Bt2XWWw==
+
+"@hotwired/stimulus@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.2.1.tgz#e3de23623b0c52c247aba4cd5d530d257008676b"
+  integrity sha512-HGlzDcf9vv/EQrMJ5ZG6VWNs8Z/xMN+1o2OhV1gKiSG6CqZt5MCBB1gRg5ILiN3U0jEAxuDTNPRfBcnZBDmupQ==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -397,6 +397,10 @@ abbrev@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
   integrity sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
+
+activeadmin_blaze_theme@blocknotes/activeadmin_blaze_theme:
+  version "1.0.0"
+  resolved "https://codeload.github.com/blocknotes/activeadmin_blaze_theme/tar.gz/dd6a1ea177d2bacb5263e21c762b7b8f6d36ba48"
 
 animejs@^3.2.1:
   version "3.2.1"
