@@ -28,7 +28,7 @@ RUN apk  --no-cache add linux-headers\
                         imagemagick \
                         yarn &&\
     apk add --virtual build-dependencies --no-cache build-base curl-dev &&\
-    gem install bundler --no-document --version 2.2.15 && \
+    gem install bundler --no-document --version 2.3.26 && \
     bundle install -j4 &&\
     apk del build-dependencies
 
