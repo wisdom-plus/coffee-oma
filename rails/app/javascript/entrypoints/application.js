@@ -30,7 +30,7 @@
 // Example: Import a stylesheet in app/frontend/index.css
 // import '~/index.css'
 import Rails from "@rails/ujs";
-import tubolinks from "turbolinks";
+import * as Turbo from "@hotwired/turbo-rails";
 import * as ActiveStorage from "@rails/activestorage";
 import "@rails/actiontext";
 import "./jquery";
@@ -39,5 +39,5 @@ import.meta.globEager("../channels/*_channel.js");
 import "../controllers/index";
 
 Rails.start();
-tubolinks.start();
+Turbo.start();
 ActiveStorage.start();
