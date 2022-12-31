@@ -34,6 +34,7 @@
             .hidden.content
               |パスワードを変更する
         .ui.error.message
+        = render 'devise/shared/error_messages', model:f.object
       .ui.message.text-left
         .container= render "devise/shared/links"
 

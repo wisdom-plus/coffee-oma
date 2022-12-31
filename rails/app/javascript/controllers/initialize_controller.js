@@ -15,6 +15,6 @@ export default class extends Controller {
       duration: 1000,
       once: false,
     });
-    Turbolinks.setProgressBarDelay(100);
+    Turbo.setProgressBarDelay(100);
   }
 }

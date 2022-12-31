@@ -12,7 +12,7 @@
           br
           .ui.left.icon.input
             i.mail.icon
-            = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),id: 'email'
+            = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "E-mail address",id: 'email'
         .actions
           =f.button type: "submit",class: "ui teal fluid animated fade button" , data: { disable_with: "送信中" } do
             .visible.content
@@ -20,6 +20,7 @@
             .hidden.content
               |確認メールを送る
         .ui.error.message
+        = render 'devise/shared/error_messages', model:f.object
       .ui.message.text-left
         .container= render "devise/shared/links"
 
