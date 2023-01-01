@@ -35,7 +35,7 @@
           =link_to notifications_path, class: "ui item" do
             i.bell.outline.icon
       - else
-          = link_to "ゲストログイン", users_guest_sign_in_path, method: :post,class: "item"
+          = link_to "ゲストログイン", users_guest_sign_in_path, method: :post,class: "item",data: {turbo: false}, id: "guest_login_button"
           = link_to "ログイン",user_session_path,class: "item",id: "login_button" ,data: {action:'mouseover->popup#loginshow'}
           = link_to "新規登録", new_user_registration_path, class: "item"
     .right.menu.toc data-action='click->sidebar#sidemenu'
@@ -45,7 +45,7 @@
   .middle.aligned.center.aligned.grid
     .column
     h3 ログイン
-    = form_with model: User.new,url: user_session_path,id: "login_popup_form",class: "ui form text-left", local: true do |f|
+    = form_with model: User.new,url: user_session_path,id: "login_popup_form",class: "ui form text-left", local: true, data: {turbo: false} do |f|
       .field
         = f.label :email
         br

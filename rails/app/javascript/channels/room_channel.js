@@ -1,7 +1,7 @@
 import consumer from "./consumer";
 import $ from "jquery";
 
-$(document).on("turbolinks:load", function () {
+$(document).on("turbo:load", function () {
   if ($("#room").length) {
     const chatChannel = consumer.subscriptions.create(
       { channel: "RoomChannel", room_id: $("#room").data("room_id") },

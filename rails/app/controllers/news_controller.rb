@@ -16,7 +16,7 @@ class NewsController < ApplicationController
       redirect_to root_path, notice: t('.notice')
     else
       flash.now[:alert] = t('.alert')
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

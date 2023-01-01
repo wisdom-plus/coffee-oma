@@ -16,6 +16,6 @@ module LoginHelper
 
   def gest_login
     visit new_user_session_path
-    click_link 'ゲストログイン'
+    find_by_id('guest_login_button').click
   end
 end

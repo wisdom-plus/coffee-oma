@@ -6,7 +6,7 @@
   .ui.middle.aligned.center.aligned.grid data-controller='validate'
     .column style= "width: 543px"
       h1#title アカウント編集
-      = form_with model: @user, url: user_registration_path ,id: 'edit_user',class: "edit_user ui registration_edit form text-left",method: :put, local: true do |f|
+      = form_with model: @user, url: user_registration_path ,id: 'edit_user',class: "edit_user ui registration_edit form text-left", method: :put,local: true, data: {turbo: false} do |f|
         .field
           .ui.circular.segment#dimmer data-controller='dimmer file-form'
             .ui.fluid.small.image

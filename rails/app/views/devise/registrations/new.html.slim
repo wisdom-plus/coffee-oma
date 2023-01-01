@@ -6,7 +6,7 @@
   .ui.middle.aligned.center.aligned.grid data-controller='validate'
     .column style= "width: 543px"
       h1#title 新規登録
-      = form_with model: @user, url: user_registration_path,id: "new_user", class: "new_user ui sign_up form text-left", local: true do |f|
+      = form_with model: @user, url: user_registration_path,id: "new_user", class: "new_user ui sign_up form text-left", local: true, data: {turbo: false} do |f|
         .required.field
           = f.label :username
           br
@@ -52,6 +52,7 @@
             .hidden.content
               |登録
         .ui.error.message
+        = render 'devise/shared/error_messages', model:f.object
       .ui.message.text-left
         .container= render "devise/shared/links"
       .segment

@@ -6,13 +6,13 @@
   .ui.middle.aligned.center.aligned.grid data-controller='validate'
     .column style= "width: 543px"
       h2#title 確認メールを再送する
-      = form_with model: @user, url: user_confirmation_path, id: "new_user",class: "new_user ui confirmations_new form text-left",method: :post, local: true do |f|
+      = form_with model: @user, url: user_confirmation_path, id: "new_user",class: "new_user ui confirmations_new form text-left",data: {turbo: false, turbo_method: :post}, local: true do |f|
         .required.field
           = f.label :email
           br
           .ui.left.icon.input
             i.mail.icon
-            = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),id: 'email'
+            = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "E-mail address",id: 'email'
         .actions
           =f.button type: "submit",class: "ui teal fluid animated fade button" , data: { disable_with: "送信中" } do
             .visible.content
@@ -20,6 +20,7 @@
             .hidden.content
               |確認メールを送る
         .ui.error.message
+        = render 'devise/shared/error_messages', model:f.object
       .ui.message.text-left
         .container= render "devise/shared/links"
 

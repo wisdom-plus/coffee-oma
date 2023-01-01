@@ -4,6 +4,7 @@
   "dependencies": {
     "@activeadmin/activeadmin": "^2.13.0",
     "@hotwired/stimulus": "^3.2.1",
+    "@hotwired/turbo-rails": "^7.2.4",
     "@rails/actioncable": "^7.0.4",
     "@rails/actiontext": "^7.0.4",
     "@rails/activestorage": "^7.0.4",
@@ -21,8 +22,7 @@
     "postcss-load-config": "^4.0.1",
     "semantic-ui-css": "^2.5.0",
     "swiper": "^8.4.4",
-    "trix": "^1.2.0",
-    "turbolinks": "^5.2.0"
+    "trix": "^1.2.0"
   },
   "version": "0.1.1",
   "devDependencies": {

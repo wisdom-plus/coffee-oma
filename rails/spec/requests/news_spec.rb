@@ -31,7 +31,7 @@ RSpec.describe 'News', type: :request do
 
     it 'created failed' do
       post '/news', params: { news: news_params.merge(title: nil) }
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(:unprocessable_entity)
     end
   end
 
