@@ -92,6 +92,7 @@ RSpec.describe 'Registrations', type: :system, js: true do
     it 'when get login delete fail' do
       gest_login
       visit edit_user_registration_path
+      expect(page).to have_current_path '/users/edit'
       find('.delete-accordion').click
       find_by_id('modal-button').click
       click_on 'delete_button'
