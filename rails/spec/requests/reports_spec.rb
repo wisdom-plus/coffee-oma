@@ -15,12 +15,12 @@ RSpec.describe 'Reports', type: :request do
 
     it 'request success(review)' do
       post reports_path, params: { review_id: review.id, type: review.class }, xhr: true
-      expect(response).to have_http_status(302)
+      expect(response).to have_http_status(200)
     end
 
     it 'request success(bean_review)' do
       post reports_path, params: { review_id: bean_review.id, type: bean_review.class }, xhr: true
-      expect(response).to have_http_status(302)
+      expect(response).to have_http_status(200)
     end
 
     it 'created report success(reivew)' do
