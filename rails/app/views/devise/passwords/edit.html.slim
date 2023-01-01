@@ -6,7 +6,7 @@
   .ui.middle.aligned.center.aligned.grid data-controller='validate'
     .column style= "width: 543px"
       h1#title パスワードを変更する
-      = form_with model: @user, url: user_password_path ,id: 'new_user',class: "new_user ui password_edit form text-left",local: true, method: :put do |f|
+      = form_with model: @user, url: user_password_path ,id: 'new_user',class: "new_user ui password_edit form text-left",local: true, data: {turbo: false, turbo_method: :put} do |f|
         = f.hidden_field :reset_password_token
         .required.field
           = f.label :password

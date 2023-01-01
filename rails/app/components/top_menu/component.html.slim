@@ -45,7 +45,7 @@
   .middle.aligned.center.aligned.grid
     .column
     h3 ログイン
-    = form_with model: User.new,url: user_session_path,id: "login_popup_form",class: "ui form text-left", local: true do |f|
+    = form_with model: User.new,url: user_session_path,id: "login_popup_form",class: "ui form text-left", local: true, data: {turbo: false} do |f|
       .field
         = f.label :email
         br

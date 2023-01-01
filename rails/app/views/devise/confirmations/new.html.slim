@@ -6,7 +6,7 @@
   .ui.middle.aligned.center.aligned.grid data-controller='validate'
     .column style= "width: 543px"
       h2#title 確認メールを再送する
-      = form_with model: @user, url: user_confirmation_path, id: "new_user",class: "new_user ui confirmations_new form text-left",method: :post, local: true do |f|
+      = form_with model: @user, url: user_confirmation_path, id: "new_user",class: "new_user ui confirmations_new form text-left",data: {turbo: false, turbo_method: :post}, local: true do |f|
         .required.field
           = f.label :email
           br

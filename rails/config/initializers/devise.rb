@@ -23,9 +23,9 @@ class TurboController < ApplicationController
         controller.render(options.merge(formats: :html))
       end
     rescue ActionView::MissingTemplate => e
-      if get?
-        raise e
-      elsif has_errors? && default_action
+      raise e if get?
+
+      if has_errors? && default_action
         render rendering_options.merge(formats: :html, status: :unprocessable_entity)
       else
         navigation_behavior e
@@ -339,7 +339,9 @@ Devise.setup do |config|
   config.parent_controller = 'TurboController'
 
   # ==> Warden configuration
-  config.warden do |manager|
-    manager.failure_app = TurboFailureApp
+  Rails.application.reloader.to_prepare do
+    config.warden do |manager|
+      manager.failure_app = TurboFailureApp
+    end
   end
 end
