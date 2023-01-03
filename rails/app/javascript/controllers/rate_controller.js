@@ -16,7 +16,6 @@ export default class extends Controller {
   }
 
   beanTargetConnected() {
-    console.log("bean_review_rate");
     $(".form_rating").rating({
       maxRating: 5,
       onRate: function (rating) {
