@@ -14,11 +14,13 @@
             i.mail.icon
             = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "E-mail address",id: 'email'
         .actions
-          =f.button type: "submit",class: "ui teal fluid animated fade button" , data: { disable_with: "送信中" } do
-            .visible.content
+          =f.button type: "submit",class: "ui teal fluid animated fade button" do
+            .visible.content.show-when-enabled
               |Send Mail
-            .hidden.content
+            .hidden.content.show-when-enabled
               |確認メールを送る
+            .show-when-diabled
+              |送信中
         .ui.error.message
         = render 'devise/shared/error_messages', model:f.object
       .ui.message.text-left

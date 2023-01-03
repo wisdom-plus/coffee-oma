@@ -65,11 +65,13 @@
               = f.password_field :password_confirmation, autocomplete: "new-password", plachoder: "confrimation-new-password", id: "spec-password-confirmation"
         .field
           .ui.error.message
-          =f.button type: "submit",class: "ui teal fluid animated fade button" , data: { disable_with: "送信中" } do
-            .visible.content
+          =f.button type: "submit",class: "ui teal fluid animated fade button" do
+            .visible.content.show-when-enabled
               |Update
-            .hidden.content
+            .hidden.content.show-when-enabled
               |更新
+            .show-when-disabled
+              |送信中
         .field
           .ui.styled.accordion.field
               .title.delete-accordion#accordion

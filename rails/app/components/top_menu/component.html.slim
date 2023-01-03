@@ -62,9 +62,11 @@
         = f.check_box :remember_me,id: 'login_popup_remember_me_form'
         = f.label :remember_me
       .field
-        = f.button type: "submit",class: "ui teal fluid animated fade button", data: { disable_with: "送信中"} do
-          .visible.content
+        = f.button type: "submit",class: "ui teal fluid animated fade button" do
+          .visible.content.show-when-enabled
             | Login
-          .hidden.content
+          .hidden.content.show-when-enabled
             | ログイン
+          .show-when-disabled
+            | 送信中
 
