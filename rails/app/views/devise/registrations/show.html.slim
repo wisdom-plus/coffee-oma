@@ -22,7 +22,7 @@
         | #{@followers.length}フォロワー
       - if user_signed_in?
         - if @room.nil?
-          = link_to rooms_path(user_id: @user.id), method: :post, class: "ui label spec-messge" do
+          = link_to rooms_path(user_id: @user.id), data: {turbo_method: :post}, class: "ui label spec-messge" do
             i.mail.icon
             |メッセージを送る
         - else

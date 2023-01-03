@@ -9,7 +9,7 @@
 
   .ui.middle.aligned.center.aligned.grid data-controller='trix'
     .eleven.wide.column
-      =form_with model: @news, class: "ui equal width form", id: "news_form", method: :post,local: true,data: {turbo: false} do |f|
+      =form_with model: @news, class: "ui equal width form", id: "news_form", local: true,data: {turbo: false, turbo_method: :post} do |f|
         .field
           =f.text_field :title, placeholder: "title",id: "news_title"
         .field.text-left

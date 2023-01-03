@@ -7,7 +7,7 @@
     = link_to 'ユーザーを編集', edit_user_registration_path, class:"item"
     = link_to '閲覧履歴',histories_path, class:"item"
     = link_to 'メッセージ一覧', rooms_path, class: "item"
-    = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "item"
+    = link_to "ログアウト",destroy_user_session_path,data: {turbo_method: :delete},class: "item"
     - if session[:checked]
       = link_to notifications_path, class: "ui item new_notification" do
         i.icons
@@ -17,6 +17,6 @@
       =link_to notifications_path, class: "ui item" do
         i.bell.outline.icon
   - else
-      = link_to "ゲストログイン", users_guest_sign_in_path, method: :post,class: "item"
+      = link_to "ゲストログイン", users_guest_sign_in_path, data: {turbo_method: :post},class: "item"
       = link_to "ログイン",user_session_path,class: "item"
       = link_to "新規登録", new_user_registration_path, class: "item"

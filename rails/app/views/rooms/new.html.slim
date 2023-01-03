@@ -15,7 +15,7 @@
         .ui.segment
           .ui.items
             - @followings.each do |follower|
-              = link_to rooms_path(user_id: follower.id),method: :post, class: 'ui item' do
+              = link_to rooms_path(user_id: follower.id), data: {turbo_method: :post}, class: 'ui item' do
                 .ui.tiny.circular.image
                   = vite_image_tag "images/square-avatar-image.png" ,class: "lazyload",data: {src: "#{follower.icon}"}
                 .content
