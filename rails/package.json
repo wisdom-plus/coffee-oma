@@ -8,7 +8,6 @@
     "@rails/actioncable": "^7.0.4",
     "@rails/actiontext": "^7.0.4",
     "@rails/activestorage": "^7.0.4",
-    "@rails/ujs": "^7.0.4",
     "activeadmin_blaze_theme": "blocknotes/activeadmin_blaze_theme",
     "animejs": "^3.2.1",
     "chart.js": "^3.9.1",
