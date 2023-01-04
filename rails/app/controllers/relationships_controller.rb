@@ -13,7 +13,7 @@ class RelationshipsController < ApplicationController
     end
     respond_to do |format|
       format.js
-      format.html { redirect_to user_registration_path(@user) }
+      format.html { redirect_to user_registration_path(@user), status: :see_other }
     end
   end
 
@@ -29,7 +29,7 @@ class RelationshipsController < ApplicationController
     end
     respond_to do |format|
       format.js
-      format.html { redirect_to user_registration_path(@user) }
+      format.html { redirect_to user_registration_path(@user), status: :see_other }
     end
   end
 end

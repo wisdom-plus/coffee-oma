@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     else
       flash[:alert] = t('.alert')
     end
-    redirect_to product_path(review.product_id)
+    redirect_to product_path(review.product_id), status: :see_other
   end
 
   private

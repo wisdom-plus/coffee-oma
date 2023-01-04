@@ -7,7 +7,7 @@ class ReviewLikesController < ApplicationController
     # @reviewと@review_likeはviewに必要
     respond_to do |format|
       format.js
-      format.html { redirect_to product_path(@review) }
+      format.html { redirect_to product_path(@review), status: :see_other }
     end
   end
 
@@ -23,7 +23,7 @@ class ReviewLikesController < ApplicationController
     # @reviewがviewに必要
     respond_to do |format|
       format.js
-      format.html { redirect_to product_path(@review) }
+      format.html { redirect_to product_path(@review), status: :see_other }
     end
   end
 end

@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   def create
     @product = current_user.products.new(product_params)
     if @product.save
-      redirect_to products_path, notice: t('.notice')
+      redirect_to products_path, notice: t('.notice'), status: :see_other
     else
       flash.now[:alert] = t('.alert')
       render :new, status: :unprocessable_entity
@@ -52,6 +52,6 @@ class ProductsController < ApplicationController
     def product_exists?
       return if Product.exists?(id: params[:id])
 
-      redirect_to products_path, alert: t('.alert')
+      redirect_to products_path, alert: t('.alert'), status: :see_other
     end
 end

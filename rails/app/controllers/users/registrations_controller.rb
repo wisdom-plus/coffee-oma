@@ -48,7 +48,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def my_page
-    return redirect_to users_my_page_path if current_user.id == params[:id].to_i
+    return redirect_to users_my_page_path, status: :see_other if current_user.id == params[:id].to_i
 
     @likes = Like.like_includes(@current_user.id)
     @reviews = Review.user_review(@current_user)
@@ -89,17 +89,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
     def user_exist?
-      redirect_to root_path, alert: t('.alert') if User.find_by(id: params[:id]).nil?
+      redirect_to root_path, alert: t('.alert'), status: :see_other if User.find_by(id: params[:id]).nil?
     end
 
     def check_guest
       return unless resource.email == 'guest@example.com'
 
-      redirect_to root_path, alert: t('.alert')
+      redirect_to root_path, alert: t('.alert'), status: :see_other
     end
 
     def check_my_page
-      redirect_to users_my_page_path if current_user.id == params[:id].to_i
+      redirect_to users_my_page_path, status: :see_other if current_user.id == params[:id].to_i
     end
 
     def customize_sign_up_params

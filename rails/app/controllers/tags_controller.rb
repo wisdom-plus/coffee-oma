@@ -15,7 +15,7 @@ class TagsController < ApplicationController
     @notice = 'タグを更新しました。'
     respond_to do |format|
       format.js
-      format.html { redirect_to root_path, alert: t('.alert') }
+      format.html { redirect_to root_path, alert: t('.alert'), status: :see_other }
     end
   end
 end

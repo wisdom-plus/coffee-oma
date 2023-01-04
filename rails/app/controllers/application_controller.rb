@@ -3,8 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :unchecked_notifications?, if: :user_signed_in?
 
-  include Turbo::Redirection
-
   INDEX_DISPALY_NUM = 9
   SHOW_DISPLAY_NUM = 5
 # :nocov:

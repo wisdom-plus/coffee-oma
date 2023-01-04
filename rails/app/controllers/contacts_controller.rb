@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
     if @contact.save
       ContactMailer.with(contact: @contact).contact_mail.deliver_later
       ContactMailer.with(contact: @contact).reply_mail.deliver_later
-      redirect_to root_path, notice: t('.notice')
+      redirect_to root_path, notice: t('.notice'), status: :see_other
     else
       flash.now[:alert] = t('.alert')
       render :new, status: :unprocessable_entity

@@ -18,7 +18,7 @@ class LikesController < ApplicationController
     @liked.reload
     respond_to do |format|
       format.js
-      format.html { redirect_to root_path }
+      format.html { redirect_to root_path, status: :see_other }
     end
   end
 
@@ -35,7 +35,7 @@ class LikesController < ApplicationController
     @liked.reload
     respond_to do |format|
       format.js
-      format.html { redirect_to root_path }
+      format.html { redirect_to root_path, status: :see_other }
     end
   end
 end
