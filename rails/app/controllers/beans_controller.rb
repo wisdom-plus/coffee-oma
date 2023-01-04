@@ -10,7 +10,7 @@ class BeansController < ApplicationController
   def create
     @bean = current_user.beans.new(bean_params)
     if @bean.save
-      redirect_to beans_path, notice: t('.notice'),, status: :see_other
+      redirect_to beans_path, notice: t('.notice'), status: :see_other
     else
       flash.now[:alert] = t('.alert')
       render :new, status: :unprocessable_entity
