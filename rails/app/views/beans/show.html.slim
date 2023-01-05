@@ -53,7 +53,8 @@
                   - else
                     .circular.ui.button URLがありません
                   #like_button
-                    = render partial:'shared/like',locals: {like: @like, liked: @bean}
+                    - if user_signed_in?
+                      = component('like_button',like: @like, liked: @bean)
       .row
         .column
           table.ui.celled.table
