@@ -17,7 +17,10 @@ class LikesController < ApplicationController
     end
     @liked.reload
     respond_to do |format|
-      format.js
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace('like_button',
+                             LikeButton::Component.new(like: @like, liked: @liked).render_in(view_context))
+      end
       format.html { redirect_to root_path, status: :see_other }
     end
   end
@@ -25,16 +28,19 @@ class LikesController < ApplicationController
   def destroy
     case params[:type]
     when 'ProductLike'
-      like = current_user.product_likes.find_by(id: params[:id])
-      @liked = Product.find_by(id: like.liked_id).decorate
+      @like = current_user.product_likes.find_by(id: params[:id])
+      @liked = Product.find_by(id: @like.liked_id).decorate
     when 'BeanLike'
-      like = current_user.bean_likes.find_by(id: params[:id])
-      @liked = Bean.find_by(id: like.liked_id).decorate
+      @like = current_user.bean_likes.find_by(id: params[:id])
+      @liked = Bean.find_by(id: @like.liked_id).decorate
     end
-    like&.destroy unless like.nil?
+    @like&.destroy unless @like.nil?
     @liked.reload
     respond_to do |format|
-      format.js
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace('like_button',
+                             LikeButton::Component.new(like: nil, liked: @liked).render_in(view_context))
+      end
       format.html { redirect_to root_path, status: :see_other }
     end
   end
