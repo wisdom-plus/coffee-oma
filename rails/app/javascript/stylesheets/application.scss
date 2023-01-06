@@ -432,6 +432,9 @@ button[disabled] .show-when-enabled {
   display: none;
 }
 
+.block {
+  display: block;
+}
 
 @media only screen and (max-width: 768px){
   .right.menu.toc {

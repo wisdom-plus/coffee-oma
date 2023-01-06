@@ -12,7 +12,10 @@ class RelationshipsController < ApplicationController
       # :nocov:
     end
     respond_to do |format|
-      format.js
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace('follow_button',
+                                                  FollowButton::Component.new(user: @user, follow: @follow).render_in(view_context))
+      end
       format.html { redirect_to user_registration_path(@user), status: :see_other }
     end
   end
@@ -28,7 +31,10 @@ class RelationshipsController < ApplicationController
       # :nocov:
     end
     respond_to do |format|
-      format.js
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace('follow_button',
+                                                  FollowButton::Component.new(user: @user, follow: nil).render_in(view_context))
+      end
       format.html { redirect_to user_registration_path(@user), status: :see_other }
     end
   end
