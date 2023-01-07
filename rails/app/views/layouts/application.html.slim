@@ -28,7 +28,6 @@ html
     .pusher#back-image
       = component( 'top_menu', current_user: current_user)
       #flash_message
-        = component('notice', notice: notice)
-        = component('alert', alert: alert)
+        = component('flash', flash: flash)
       = yield
     = component('footer')
