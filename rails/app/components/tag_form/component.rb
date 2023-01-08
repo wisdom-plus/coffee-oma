@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class TagForm::Component < ViewComponent::Base
+  include Turbo::FramesHelper
+
   def initialize(tags:, target:, current_user:)
     super
     @tags = tags
