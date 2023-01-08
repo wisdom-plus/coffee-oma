@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AccordionController from "./accordion_controller"
+application.register("accordion", AccordionController)
+
 import AnimeController from "./anime_controller"
 application.register("anime", AnimeController)
 

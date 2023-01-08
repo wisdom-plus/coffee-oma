@@ -1,5 +1,5 @@
 = turbo_frame_tag 'tag_table_form' do
-  .ui.accordion.field data-controller='tag-form'
+  .ui.accordion.field data-controller='tag-form accordion' data-accordion-target='accordion'
     - if @target.base_class == "Product"
       - @tags.each do |tag|
         .ui.teal.tag.label
