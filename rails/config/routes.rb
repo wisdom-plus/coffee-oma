@@ -302,7 +302,7 @@ Rails.application.routes.draw do
   resources :messages, only: %i[create]
   resources :reports, only: %i[create]
   resources :histories, only: %i[index]
-  resources :tags, only: %i[update]
+  resources :tags, only: %i[update create]
   resources :news
   resources :beans do
     resources :bean_reviews, only: %i[create destroy]

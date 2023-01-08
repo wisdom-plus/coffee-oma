@@ -11,7 +11,7 @@
     - if user_signed_in?
       .mini.ui.right.floated.button.title.tag_form_edit_button#accordion タグを編集
       .content.field
-        =form_with  url: tag_path(@target.id, type: @target.base_class) ,data: {turbo_method: :patch},local: true,class: "ui mini form tag_form" do |f|
+        =form_with  url: tags_path(id: @target.id, type: @target.base_class) ,data: {turbo_method: :patch},local: true,class: "ui mini form tag_form" do |f|
           .ui.fluid.multiple.search.selection.dropdown#tag_form
             =f.hidden_field :tag_list,value: @target.tag_list.join(','),id: 'spec_tag_form'
             .default.text タグを登録する
