@@ -8,14 +8,8 @@ class LikesController < ApplicationController
   end
 
   def create
-    case params[:type]
-    when 'Product'
-      @like = current_user.product_likes.find_or_create_by(liked_id: params[:liked_id])
-      @liked = Product.find_by(id: params[:liked_id]).decorate
-    when 'Bean'
-      @like = current_user.bean_likes.find_or_create_by(liked_id: params[:liked_id])
-      @liked = Bean.find_by(id: params[:liked_id]).decorate
-    end
+    @like = get_like(params[:type], params[:liked_id])
+    @liked = get_liked(params[:type], params[:liked_id])
     @liked.reload
     respond_to do |format|
       format.turbo_stream do
@@ -26,14 +20,8 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    case params[:type]
-    when 'ProductLike'
-      @like = current_user.product_likes.find_by(id: params[:id])
-      @liked = Product.find_by(id: @like.liked_id).decorate
-    when 'BeanLike'
-      @like = current_user.bean_likes.find_by(id: params[:id])
-      @liked = Bean.find_by(id: @like.liked_id).decorate
-    end
+    @like = get_destroy_like(params[:type], params[:id])
+    @liked = get_liked(params[:type], @like.liked_id)
     @like&.destroy unless @like.nil?
     @liked.reload
     respond_to do |format|
@@ -43,4 +31,27 @@ class LikesController < ApplicationController
       format.html { redirect_to root_path, status: :see_other }
     end
   end
+
+  private
+
+    def get_like(type, params_id)
+      if type == 'Product'
+        current_user.product_likes.find_or_create_by(liked_id: params_id)
+      else
+        current_user.bean_likes.find_or_create_by(liked_id: params_id)
+      end
+    end
+
+    def get_destroy_like(type, params_id)
+      if type == 'Product'
+        current_user.product_likes.find_by(id: params_id)
+      else
+        current_user.bean_likes.find_by(id: params_id)
+      end
+    end
+
+    def get_liked(type, params_id)
+      klass = type.constantize
+      klass.find_by(id: params_id).decorate
+    end
 end

@@ -5,7 +5,7 @@
       span.likes_count
         | #{@liked.likes_count}
   - else
-    = link_to like_path(@like.id, type: @like.type), data: {turbo_method: :delete}, class:"circular ui button",id: 'like_destory' do
+    = link_to like_path(@like.id, type: @liked.base_class), data: {turbo_method: :delete}, class:"circular ui button",id: 'like_destory' do
       i.red.large.heart.icon
       span.red.likes_count
         | #{@liked.likes_count}
