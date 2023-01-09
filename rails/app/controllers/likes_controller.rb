@@ -19,7 +19,7 @@ class LikesController < ApplicationController
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: turbo_stream.replace('like_button',
-                             LikeButton::Component.new(like: @like, liked: @liked).render_in(view_context))
+                                                  LikeButton::Component.new(like: @like, liked: @liked).render_in(view_context))
       end
       format.html { redirect_to root_path, status: :see_other }
     end
@@ -39,7 +39,7 @@ class LikesController < ApplicationController
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: turbo_stream.replace('like_button',
-                             LikeButton::Component.new(like: nil, liked: @liked).render_in(view_context))
+                                                  LikeButton::Component.new(like: nil, liked: @liked).render_in(view_context))
       end
       format.html { redirect_to root_path, status: :see_other }
     end

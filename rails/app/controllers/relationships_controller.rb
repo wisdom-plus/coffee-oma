@@ -8,7 +8,7 @@ class RelationshipsController < ApplicationController
       flash[:notice] = "#{@user.username}をフォローしました"
     else
       # :nocov:
-      flash[:alert] = 'フォローに失敗しました'
+      flash[:alert] = t('.alert')
       # :nocov:
     end
     respond_to do |format|
@@ -35,7 +35,7 @@ class RelationshipsController < ApplicationController
       flash[:notice] = "#{@user.username}のフォローを解除しました"
     else
       # :nocov:
-      flash[:alert] = 'フォロー解除に失敗しました'
+      flash[:alert] = t('.alert')
       # :nocov:
     end
     respond_to do |format|

@@ -23,6 +23,8 @@ class ApplicationController < ActionController::Base
       session[:checked] = current_user.notifications.exists?(checked: false) unless session[:checked]
     end
 
+    def turbo_stream_flash; end
+
   protected
 
     def configure_permitted_parameters
