@@ -3,17 +3,12 @@ class TagsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    case params[:type]
-    when 'Product'
-      @target = Product.find(params[:id]).decorate
-    when 'Bean'
-      @target = Bean.find(params[:id]).decorate
-    end
+    @target = get_target(params[:type], params[:id])
 
     @target.tag_list = params[:tag_list].split(',')
     @target.save
     @tags = @target.tag_counts_on(:tags)
-    flash.now[:notice] = t('.notice')
+    flash[:notice] = t('.notice')
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: [
@@ -26,17 +21,12 @@ class TagsController < ApplicationController
   end
 
   def update
-    case params[:type]
-    when 'Product'
-      @target = Product.find(params[:id]).decorate
-    when 'Bean'
-      @target = Bean.find(params[:id]).decorate
-    end
+    @target = get_target(params[:type], params[:id])
 
     @target.tag_list = params[:tag_list].split(',')
     @target.save
     @tags = @target.tag_counts_on(:tags)
-    flash.now[:notice] = t('.notice')
+    flash[:notice] = t('.notice')
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: [
@@ -47,4 +37,11 @@ class TagsController < ApplicationController
       format.html { redirect_to root_path, alert: t('.alert'), status: :see_other }
     end
   end
+
+  private
+
+    def get_target(type, params_id)
+      klass = type.constantize
+      klass.find(params_id).decorate
+    end
 end
