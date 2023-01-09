@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  include TurboStreamComponent
   before_action :authenticate_user!
 
   def create
@@ -12,7 +13,7 @@ class TagsController < ApplicationController
     @target.tag_list = params[:tag_list].split(',')
     @target.save
     @tags = @target.tag_counts_on(:tags)
-    flash.now[:notice] = 'タグを更新しました。'
+    flash.now[:notice] = t('.notice')
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: [
@@ -20,10 +21,7 @@ class TagsController < ApplicationController
             'tag_table_form',
             TagForm::Component.new(tags: @tags, target: @target, current_user: current_user).render_in(view_context)
           ),
-          turbo_stream.replace(
-            'flash',
-            Flash::Component.new(flash: flash).render_in(view_context)
-          )
+          turbo_stream_flash(flash, view_context)
         ]
       end
       format.html { redirect_to root_path, alert: t('.alert'), status: :see_other }
@@ -41,7 +39,7 @@ class TagsController < ApplicationController
     @target.tag_list = params[:tag_list].split(',')
     @target.save
     @tags = @target.tag_counts_on(:tags)
-    flash.now[:notice] = 'タグを更新しました。'
+    flash.now[:notice] = t('.notice')
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: [
@@ -49,10 +47,7 @@ class TagsController < ApplicationController
             'tag_table_form',
             TagForm::Component.new(tags: @tags, target: @target, current_user: current_user).render_in(view_context)
           ),
-          turbo_stream.replace(
-            'flash',
-            Flash::Component.new(flash: flash).render_in(view_context)
-          )
+          turbo_stream_flash(flash, view_context)
         ]
       end
       format.html { redirect_to root_path, alert: t('.alert'), status: :see_other }

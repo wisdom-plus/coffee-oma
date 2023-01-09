@@ -1,4 +1,5 @@
 class RelationshipsController < ApplicationController
+  include TurboStreamComponent
   before_action :authenticate_user!
 
   def create
@@ -18,10 +19,7 @@ class RelationshipsController < ApplicationController
             'follow_button',
             FollowButton::Component.new(user: @user, follow: @follow).render_in(view_context)
           ),
-          turbo_stream.replace(
-            'flash',
-            Flash::Component.new(flash: flash).render_in(view_context)
-          )
+          turbo_stream_flash(flash, view_context)
         ]
       end
       format.html { redirect_to user_registration_path(@user), status: :see_other }
@@ -45,10 +43,7 @@ class RelationshipsController < ApplicationController
             'follow_button',
             FollowButton::Component.new(user: @user, follow: nil).render_in(view_context)
           ),
-          turbo_stream.replace(
-            'flash',
-            Flash::Component.new(flash: flash).render_in(view_context)
-          )
+          turbo_stream_flash(flash, view_context)
         ]
       end
       format.html { redirect_to user_registration_path(@user), status: :see_other }

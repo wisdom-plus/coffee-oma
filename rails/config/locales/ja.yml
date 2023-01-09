@@ -53,6 +53,10 @@ ja:
   tags:
     update:
       alert: '登録に失敗しました。'
+      notice: 'タグを更新しました。'
+    create:
+      alert: '登録に失敗しました。'
+      notice: 'タグを更新しました。'
   users:
     sessions:
       new_guest:
