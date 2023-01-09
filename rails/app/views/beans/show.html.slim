@@ -40,7 +40,7 @@
               tr#tag_area
                 td.center.aligned タグ
                 td.center.aligned
-                  = component('tag_form',tags: @tags, target: @bean, current_user: current_user)
+                  = component('tag_table_form',tags: @tags, target: @bean, current_user: current_user)
               tr
                 td.center.aligned 評価
                 - unless @bean_reviews.empty?

@@ -1,4 +1,5 @@
 class ReviewLikesController < ApplicationController
+  include TurboStreamComponent
   before_action :authenticate_user!
 
   def create

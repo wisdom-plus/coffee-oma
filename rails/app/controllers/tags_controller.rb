@@ -17,11 +17,8 @@ class TagsController < ApplicationController
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: [
-          turbo_stream.replace(
-            'tag_table_form',
-            TagForm::Component.new(tags: @tags, target: @target, current_user: current_user).render_in(view_context)
-          ),
-          turbo_stream_flash(flash, view_context)
+          turbo_stream_component_replace('tag_table_form', tags: @tags, target: @target, current_user: current_user),
+          turbo_stream_flash(flash)
         ]
       end
       format.html { redirect_to root_path, alert: t('.alert'), status: :see_other }
@@ -43,11 +40,8 @@ class TagsController < ApplicationController
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: [
-          turbo_stream.replace(
-            'tag_table_form',
-            TagForm::Component.new(tags: @tags, target: @target, current_user: current_user).render_in(view_context)
-          ),
-          turbo_stream_flash(flash, view_context)
+          turbo_stream_component_replace('tag_table_form', tags: @tags, target: @target, current_user: current_user),
+          turbo_stream_flash(flash)
         ]
       end
       format.html { redirect_to root_path, alert: t('.alert'), status: :see_other }

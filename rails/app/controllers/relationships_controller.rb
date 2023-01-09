@@ -15,11 +15,8 @@ class RelationshipsController < ApplicationController
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: [
-          turbo_stream.replace(
-            'follow_button',
-            FollowButton::Component.new(user: @user, follow: @follow).render_in(view_context)
-          ),
-          turbo_stream_flash(flash, view_context)
+          turbo_stream_component_replace('follow_button', user: @user, follow: @follow),
+          turbo_stream_flash(flash)
         ]
       end
       format.html { redirect_to user_registration_path(@user), status: :see_other }
@@ -39,11 +36,8 @@ class RelationshipsController < ApplicationController
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: [
-          turbo_stream.replace(
-            'follow_button',
-            FollowButton::Component.new(user: @user, follow: nil).render_in(view_context)
-          ),
-          turbo_stream_flash(flash, view_context)
+          turbo_stream_component_replace('follow_button', user: @user, follow: nil),
+          turbo_stream_flash(flash)
         ]
       end
       format.html { redirect_to user_registration_path(@user), status: :see_other }
