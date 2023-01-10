@@ -35,7 +35,7 @@ RSpec.describe 'Beans', type: :request do
 
       it 'request success' do
         post beans_path, params: { bean: bean_params }
-        expect(response).to have_http_status(:found)
+        expect(response).to have_http_status(:see_other)
       end
 
       it 'created bean' do
