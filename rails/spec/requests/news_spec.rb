@@ -20,7 +20,7 @@ RSpec.describe 'News', type: :request do
 
     it 'requests success' do
       post '/news', params: { news: news_params }
-      expect(response).to have_http_status(:found)
+      expect(response).to have_http_status(:see_other)
     end
 
     it 'created news' do
@@ -71,7 +71,7 @@ RSpec.describe 'News', type: :request do
 
     it 'request success' do
       put news_path(news.id), params: { news: update_news_params }
-      expect(response).to have_http_status(:found)
+      expect(response).to have_http_status(:see_other)
     end
 
     it 'updated news' do
@@ -93,12 +93,12 @@ RSpec.describe 'News', type: :request do
 
     it 'request success' do
       delete news_path(news.id)
-      expect(response).to have_http_status(:found)
+      expect(response).to have_http_status(:see_other)
     end
 
     it 'request fail' do
       delete news_path(news.id + 1)
-      expect(response).to have_http_status(:found)
+      expect(response).to have_http_status(:see_other)
       expect(flash[:alert]).to eq '削除に失敗しました。'
     end
 

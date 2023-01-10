@@ -60,7 +60,7 @@ RSpec.describe 'Rooms', type: :request do
 
     it 'request success' do
       post rooms_path, params: { user_id: user1.id }
-      expect(response).to have_http_status(:found)
+      expect(response).to have_http_status(:see_other)
     end
 
     it 'created room' do

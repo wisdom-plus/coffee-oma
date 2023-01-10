@@ -14,7 +14,7 @@ RSpec.describe 'Contacts', type: :request do
   describe 'POST /create' do
     it 'returns http success' do
       post contacts_path, params: { contact: contact_params }
-      expect(response).to have_http_status(:found)
+      expect(response).to have_http_status(:see_other)
     end
 
     it 'created contact' do

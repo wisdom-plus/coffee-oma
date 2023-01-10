@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'BeanReviews', type: :request do
+RSpec.describe 'Recipe', type: :request do
   let(:user) { create(:user) }
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }
@@ -16,7 +16,7 @@ RSpec.describe 'BeanReviews', type: :request do
 
     it 'request success' do
       post bean_bean_reviews_path(bean.id), params: { bean_review: bean_review_params }
-      expect(response).to have_http_status(:found)
+      expect(response).to have_http_status(:see_other)
     end
 
     it 'review created' do

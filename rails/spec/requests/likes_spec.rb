@@ -15,7 +15,7 @@ RSpec.describe 'Likes', type: :request do
 
     it 'request success' do
       post likes_path, params: { liked_id: product.id, type: 'Product' }, xhr: true
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(:see_other)
     end
 
     it 'created product_like success' do

@@ -61,7 +61,7 @@ RSpec.describe 'Beans', type: :request do
 
     it 'request fail' do
       get bean_path(bean.id + 1)
-      expect(response).to have_http_status(:found)
+      expect(response).to have_http_status(:see_other)
     end
   end
 
