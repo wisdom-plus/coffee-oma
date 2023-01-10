@@ -94,5 +94,5 @@
       h3.header.text-center
         |本当によろしいですか？
   .actions.text-center
-    = button_to '削除',registration_path(resource_name), data: {turbo_method: :delete}, class: "ui negative button", id: "delete_button"
+    = link_to '削除',registration_path(resource_name), data: {turbo_method: :delete}, class: "ui negative button", id: "delete_button"
 
