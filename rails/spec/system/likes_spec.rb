@@ -60,13 +60,13 @@ RSpec.describe 'Likes', type: :system, js: true do
 
       it 'click like destroy button(product)' do
         visit product_path(product.id)
-        click_link nil, href: like_path(product_like.id, type: product_like.type)
+        click_link nil, href: like_path(product_like.id, type: product.class)
         expect(page).to have_css '#like_create'
       end
 
       it 'click like destroy button(bean)' do
         visit bean_path(bean.id)
-        click_link nil, href: like_path(bean_like.id, type: bean_like.type)
+        click_link nil, href: like_path(bean_like.id, type: bean.class)
         expect(page).to have_css '#like_create'
       end
     end

@@ -1,7 +1,7 @@
 .ui.middle.aligned.center.aligned.grid data-controller='validate'
   .column.mb-12
     h1.content レビューの投稿
-    =form_with model: @form, url: bean_bean_reviews_path(@bean.id), class: "ui equal width bean_review form column", id: "bean_review_form", method: :post,local: true do |f|
+    =form_with model: @form, url: bean_bean_reviews_path(@bean.id), class: "ui equal width bean_review form column", id: "bean_review_form", data: {turbo_method: :post},local: true do |f|
       .fields
         = f.label :title, class: "four wide required field"
         .ten.wide.field
@@ -12,23 +12,23 @@
         .ten.wide.field.bean_review_rate_form data-rate-target='bean'
           .two.wide.inline.field
             = f.label :acidity
-            .ui.yellow.star.rating.form_rating data-taste="acidity"
+            .ui.yellow.star.rating.form_rating data-taste="acidity" data-max-rating="5"
             = f.hidden_field(:acidity)
           .two.wide.inline.field
             = f.label :bitter
-            .ui.yellow.star.rating.form_rating data-taste="bitter"
+            .ui.yellow.star.rating.form_rating data-taste="bitter" data-max-rating="5"
             = f.hidden_field(:bitter)
           .two.wide.inline.field
             = f.label :sweet
-            .ui.yellow.star.rating.form_rating data-taste="sweet"
+            .ui.yellow.star.rating.form_rating data-taste="sweet" data-max-rating="5"
             = f.hidden_field(:sweet)
           .two.wide.inline.field
             = f.label :rich
-            .ui.yellow.star.rating.form_rating data-taste="rich"
+            .ui.yellow.star.rating.form_rating data-taste="rich" data-max-rating="5"
             = f.hidden_field(:rich)
           .two.wide.inline.field
             = f.label :flavor
-            .ui.yellow.star.rating.form_rating data-taste="flavor"
+            .ui.yellow.star.rating.form_rating data-taste="flavor" data-max-rating="5"
             = f.hidden_field(:flavor)
       .fields
         = f.label :content, class: "four wide required field"
@@ -67,8 +67,10 @@
                     | 秒
       .ui.error.message
       .field
-        =f.button type: "submit",class: "large ui center floated positive animated fade button", data: { disable_with: "送信中" }  do
-          .visible.content
+        =f.button type: "submit",class: "large ui center floated positive animated fade button" do
+          .visible.content.show-when-enabled
             |submit
-          .hidden.content
+          .hidden.content.show-when-enabled
             |投稿
+          .show-when-disabled
+            |送信中

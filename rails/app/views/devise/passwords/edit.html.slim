@@ -27,12 +27,13 @@
             i.lock.icon
             = f.password_field :password_confirmation, autocomplete: "new-password", id: 'password_confirmation'
         .field
-          = f.submit "パスワードをリセットする", class: "ui fluid teal submit button"
-          =f.button type: "submit",class: "ui teal animated fade button", data: { disable_with: "送信中" }  do
-            .visible.content
+          =f.button type: "submit",class: "ui teal fluid animated fade button" do
+            .visible.content.show-when-enabled
               |Reset Password
-            .hidden.content
+            .hidden.content.show-when-enabled
               |パスワードを変更する
+            .show-when-diabled
+              |送信中
         .ui.error.message
         = render 'devise/shared/error_messages', model:f.object
       .ui.message.text-left

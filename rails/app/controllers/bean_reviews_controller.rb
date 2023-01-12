@@ -12,7 +12,7 @@ class BeanReviewsController < ApplicationController
     else
       flash[:alert] = t('.alert')
     end
-    redirect_to bean_path(@bean_review.bean_id)
+    redirect_to bean_path(@bean_review.bean_id), status: :see_other
   end
 
   private

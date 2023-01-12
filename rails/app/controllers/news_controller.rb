@@ -13,7 +13,7 @@ class NewsController < ApplicationController
   def create
     @news = current_admin_user.news.create(news_params)
     if @news.save
-      redirect_to root_path, notice: t('.notice')
+      redirect_to root_path, notice: t('.notice'), status: :see_other
     else
       flash.now[:alert] = t('.alert')
       render :new, status: :unprocessable_entity
@@ -25,7 +25,7 @@ class NewsController < ApplicationController
     if @news.publicshed?
       @news.activate unless @news.active
     else
-      redirect_to root_path, alert: t('.alert')
+      redirect_to root_path, alert: t('.alert'), status: :see_other
     end
   end
 
@@ -33,7 +33,7 @@ class NewsController < ApplicationController
 
   def update
     if @news.update(news_params)
-      redirect_to root_path, notice: t('.notice')
+      redirect_to root_path, notice: t('.notice'), status: :see_other
     else
       flash.now[:alert] = t('.alert')
       render :edit
@@ -42,9 +42,9 @@ class NewsController < ApplicationController
 
   def destroy
     if @news&.destroy
-      redirect_to root_path, notice: t('.notice')
+      redirect_to root_path, notice: t('.notice'), status: :see_other
     else
-      redirect_to root_path, alert: t('.alert')
+      redirect_to root_path, alert: t('.alert'), status: :see_other
     end
   end
 

@@ -38,7 +38,9 @@
                 td.center.aligned 精製方法
                 td.center.aligned #{@bean.purification}
               tr#tag_area
-                = component('tag_form',tags: @tags, target: @bean, current_user: current_user)
+                td.center.aligned タグ
+                td.center.aligned
+                  = component('tag_table_form',tags: @tags, target: @bean, current_user: current_user)
               tr
                 td.center.aligned 評価
                 - unless @bean_reviews.empty?
@@ -53,7 +55,8 @@
                   - else
                     .circular.ui.button URLがありません
                   #like_button
-                    = render partial:'shared/like',locals: {like: @like, liked: @bean}
+                    - if user_signed_in?
+                      = component('like_button',like: @like, liked: @bean)
       .row
         .column
           table.ui.celled.table

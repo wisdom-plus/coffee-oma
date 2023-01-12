@@ -2,7 +2,7 @@
   .ui.middle.aligned.center.aligned.grid data-controller='validate'
     .column.mb-12
       h1.content レビューの投稿
-      =form_with model: @review, url: product_reviews_path(@product_id), class: "ui equal width product_review form column", id: "review_form", method: :post,local: true do |f|
+      =form_with model: @review, url: product_reviews_path(@product_id), class: "ui equal width product_review form column", id: "review_form", data: {turbo_method: :post},local: true do |f|
         .fields
           =f.label :title,class: "four wide required field"
           .ten.wide.field
@@ -10,7 +10,7 @@
         .fields data-controller='rate'
           =f.label :rate, class: "four wide required field"
           .ten.wide.field
-            .ui.yellow.star.rating#rating data-rate-target='review'
+            .ui.yellow.star.rating#rating data-rate-target='review' data-max-rating="5"
             =f.hidden_field(:rate)
         .fields
           =f.label :content, "レビュー内容", class: "four wide required field"
@@ -18,10 +18,12 @@
             =f.text_area :content, placeholder: "レビューの内容",id: "content"
         .ui.error.message
         .field
-          =f.button nil,type: 'submit',class: "large ui center floated positive animated fade button", data: { disable_with: "送信中" }  do
-            .visible.content
+          =f.button nil,type: 'submit',class: "large ui center floated positive animated fade button" do
+            .visible.content.show-when-enabled
               |submit
-            .hidden.content
+            .hidden.content.show-when-enabled
               |投稿
+            .show-when-disabled
+              |送信中
 - else
   .segment

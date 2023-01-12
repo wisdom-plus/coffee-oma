@@ -15,7 +15,7 @@ RSpec.describe 'Likes', type: :request do
 
     it 'request success' do
       post likes_path, params: { liked_id: product.id, type: 'Product' }, xhr: true
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(:see_other)
     end
 
     it 'created product_like success' do
@@ -50,19 +50,19 @@ RSpec.describe 'Likes', type: :request do
     end
 
     it 'request success' do
-      delete like_path(product_like.id, type: 'ProductLike'), xhr: true
-      expect(response).to have_http_status(:ok)
+      delete like_path(product_like.id, type: 'Product'), xhr: true
+      expect(response).to have_http_status(:see_other)
     end
 
     it 'destroy product_like success' do
       expect do
-        delete like_path(product_like.id, type: 'ProductLike'), xhr: true
+        delete like_path(product_like.id, type: 'Product'), xhr: true
       end.to change(Like, :count).by(-1)
     end
 
     it 'destroy bean_like success' do
       expect do
-        delete like_path(bean_like.id, type: 'BeanLike'), xhr: true
+        delete like_path(bean_like.id, type: 'Bean'), xhr: true
       end.to change(Like, :count).by(-1)
     end
   end

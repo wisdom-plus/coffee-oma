@@ -3,8 +3,10 @@ import $ from "jquery";
 
 // Connects to data-controller="tag-form"
 export default class extends Controller {
+  static targets = ["form"];
+
   connect() {
-    $("#tag_form").dropdown({
+    $(this.formTarget).dropdown({
       allowAdditions: true,
       forceSelection: false,
       saveRemoteData: false,

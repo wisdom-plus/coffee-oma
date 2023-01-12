@@ -419,6 +419,23 @@ span.date {
   padding: 0.78571429em 1.5em 0.78571429em !important;
 }
 
+button .show-when-disabled {
+  display: none;
+}
+button .show-when-enabled {
+  display: initial;
+}
+button[disabled] .show-when-disabled {
+  display: initial;
+}
+button[disabled] .show-when-enabled {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
 @media only screen and (max-width: 768px){
   .right.menu.toc {
     display: block !important;

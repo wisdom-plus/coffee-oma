@@ -29,7 +29,6 @@
 
 // Example: Import a stylesheet in app/frontend/index.css
 // import '~/index.css'
-import Rails from "@rails/ujs";
 import "@hotwired/turbo-rails";
 import * as ActiveStorage from "@rails/activestorage";
 import "@rails/actiontext";
@@ -38,5 +37,4 @@ import "fomantic-ui";
 import.meta.globEager("../channels/*_channel.js");
 import "../controllers/index";
 
-Rails.start();
 ActiveStorage.start();

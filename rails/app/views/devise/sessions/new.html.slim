@@ -24,11 +24,13 @@
           = f.check_box :remember_me
           = f.label :remember_me
         .field
-          =f.button type: "submit",class: "ui teal fluid animated fade button", data: { disable_with: "送信中" }  do
-            .visible.content
+          =f.button type: "submit",class: "ui teal fluid animated fade button" do
+            .visible.content.show-when-enabled
               |Log in
-            .hidden.content
+            .hidden.content.show-when-enabled
               |ログイン
+            .show-when-diabled
+              |送信中
         .ui.error.message
       .ui.message.text-left
         .container= render "devise/shared/links"

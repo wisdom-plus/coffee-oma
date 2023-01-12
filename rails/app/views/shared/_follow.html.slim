@@ -1,6 +1,0 @@
-- if follow.present?
-  =link_to relationship_path(follow.id,follow_id: user.id), method: :delete,class: "circular ui blue button", remote: true
-    |フォロー解除
-- else
-  =link_to relationships_path(follow_id: user.id), method: :post,class: "circular ui blue button", remote: true
-    |フォローする

@@ -11,9 +11,9 @@ class ReportsController < ApplicationController
     Report.create_report(current_user, @review)
     case params[:type]
     when 'Review'
-      redirect_to product_path(@review.product_id), notice: t('.notice')
+      redirect_to product_path(@review.product_id), notice: t('.notice'), status: :see_other
     when 'BeanReview'
-      redirect_to bean_path(@review.bean_id), notice: t('.alert')
+      redirect_to bean_path(@review.bean_id), notice: t('.alert'), status: :see_other
     end
   end
 end

@@ -11,7 +11,7 @@ RSpec.describe 'Contacts', type: :system do
         fill_in 'お名前', with: contact.name
         fill_in 'メールアドレス',	with: contact.email
         fill_in 'contact[content]',	with: contact.content
-        click_on '送信'
+        click_on 'send'
         expect(page).to have_content 'お問い合わせメールが送信されました'
       end
 
@@ -20,7 +20,7 @@ RSpec.describe 'Contacts', type: :system do
         fill_in 'お名前', with: contact.name
         fill_in 'メールアドレス',	with: contact.email
         fill_in 'contact[content]',	with: contact.content
-        click_on '送信'
+        click_on 'send'
         expect(page).to have_current_path root_path, ignore_query: true
       end
     end
@@ -31,7 +31,7 @@ RSpec.describe 'Contacts', type: :system do
         fill_in 'お名前', with: ''
         fill_in 'メールアドレス',	with: contact.email
         fill_in 'contact[content]',	with: contact.content
-        click_on '送信'
+        click_on 'send'
         expect(page).to have_content 'お問い合わせメールの送信に失敗しました'
       end
 
@@ -40,7 +40,7 @@ RSpec.describe 'Contacts', type: :system do
         fill_in 'お名前', with: contact.name
         fill_in 'メールアドレス',	with: ''
         fill_in 'contact[content]',	with: contact.content
-        click_on '送信'
+        click_on 'send'
         expect(page).to have_content 'お問い合わせメールの送信に失敗しました'
       end
 
@@ -49,7 +49,7 @@ RSpec.describe 'Contacts', type: :system do
         fill_in 'お名前', with: contact.name
         fill_in 'メールアドレス',	with: contact.email
         fill_in 'contact[content]',	with: ''
-        click_on '送信'
+        click_on 'send'
         expect(page).to have_content 'お問い合わせメールの送信に失敗しました'
       end
     end

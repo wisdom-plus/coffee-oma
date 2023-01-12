@@ -6,7 +6,7 @@
 
   .ui.middle.aligned.center.aligned.grid
     .eleven.wide.column
-      = form_with model: @news, class: "ui segment form", id: "edit_form", method: :put, local: true, data: {turbo: false} do |f|
+      = form_with model: @news, class: "ui segment form", id: "edit_form", local: true, data: {turbo: false, turbo_method: :put} do |f|
         .field
           h3=f.text_field :title , placeholder: "title",id: "title",class: "aligned center content"
           .field.text-left
