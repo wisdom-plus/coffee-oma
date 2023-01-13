@@ -64,10 +64,11 @@ Coffee-oma はコーヒーに関する器具や、豆などの評価や感想を
 - セキュリティ脆弱性性的分析ツール(Brakeman)
 - テストカバレッジ(simplecov,codecov)
 - javascriptバンドル(webpacker,vite)
+- turbo-rails
 
 # 使用している技術一覧
 
-- Ruby 2.7.4
+- Ruby 3.1.3
 - rails 6.1.3
 - AWS(VPC,ECR,ECS,RDS,Elasticache,ALB,VPCEndpoint,ACM,Route53,S3,SES,CloudWatch,CloudWatchEvent)
 - mysql 8.0
@@ -81,6 +82,7 @@ Coffee-oma はコーヒーに関する器具や、豆などの評価や感想を
 - Brakeman
 - Codecov
 - Vite_Ruby
+- turbo-rails
 
 # ER 図
 
