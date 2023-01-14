@@ -10,6 +10,7 @@ on:
 jobs:
   rspec:
     runs-on: ubuntu-latest
+    environment: actions
     container:
       image: tomoron/portfolio-coffee:latest
       credentials:
@@ -41,7 +42,7 @@ jobs:
         working-directory: ./rails
       - name: Decode env
         run: |
-          echo ${{ secrets.ENV_FIEL}} | base64 -d > .env
+          echo ${{ secrets.ENV_FILE}} | base64 -d > .env
         working-directory: ./rails
       - name: Viteをビルドする
         run: |
