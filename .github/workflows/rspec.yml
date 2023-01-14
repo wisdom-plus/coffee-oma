@@ -53,8 +53,8 @@ jobs:
         working-directory: ./rails
       - name: Setup database
         run: |
-          bundle exec rails db:create
-          bundle exec rails db:migrate
+          bundle exec rails db:create RAILS_ENV=test
+          bundle exec rails db:migrate RAILS_ENV=test
         working-directory: ./rails
       - name: Run RSpec
         run: |
