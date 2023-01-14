@@ -1,0 +1,65 @@
+name: Run rubocop, Rspec
+
+on:
+  push:
+    paths-ignore:
+      - README.md
+      - Dockerfile
+      - docker-compose.yml
+
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+    container:
+      image: tomoron/portfolio-coffee:latest
+      credentials:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+    services:
+      db:
+        image: mysql:8.0
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABE: db
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+        options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
+      chrome:
+        image: selenium/standalone-chrome-debug:latest
+        ports:
+          - 4444:4444
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          bundle install --jobs 4 --retry 3
+        working-directory: ./rails
+      - name: yarn install
+        run: |
+          yarn install
+        working-directory: ./rails
+      - name: Decode env
+        run: |
+          echo ${{ secrets.ENV_FIEL}} | base64 -d > .env
+        working-directory: ./rails
+      - name: Viteをビルドする
+        run: |
+          bin/vite build --clear --mode=test
+        working-directory: ./rails
+      - name: Detabase.yml
+        run: mv ./config/database.yml.ci ./config/database.yml
+        working-directory: ./rails
+      - name: Setup database
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:migrate
+        working-directory: ./rails
+      - name: Run RSpec
+        run: |
+          bundle exec rspec
+        working-directory: ./rails
+      - name: Run Rubocop
+        run: |
+          bundle exec rubocop
+        working-directory: ./rails
