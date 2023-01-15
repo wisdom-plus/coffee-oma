@@ -69,7 +69,7 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
-          file: ./rails/coverage/codecov-result.json
+          directory: ./rails/coverage
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: true
