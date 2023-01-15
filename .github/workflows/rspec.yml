@@ -68,6 +68,8 @@ jobs:
         run: |
           bundle exec rubocop
         working-directory: ./rails
+      - name: ls
+        run: ls -al ./rails/coverage/
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
