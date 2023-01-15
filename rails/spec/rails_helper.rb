@@ -3,8 +3,8 @@ require 'spec_helper'
 require 'codecov'
 require 'simplecov'
 SimpleCov.start 'rails'
-if ENV['CODECOV_TOKEN']
-  SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
+if ENV['CI']
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
