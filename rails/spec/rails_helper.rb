@@ -3,7 +3,7 @@ require 'spec_helper'
 require 'codecov'
 require 'simplecov'
 SimpleCov.start 'rails'
-if ENV['CI']
+if ENV['CODECOV_TOKEN']
   SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
 end
 ENV['RAILS_ENV'] ||= 'test'
