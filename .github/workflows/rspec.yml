@@ -68,12 +68,10 @@ jobs:
         run: |
           bundle exec rubocop
         working-directory: ./rails
-      - name: ls
-        run: ls -al ./rails/coverage/
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
-          file: ./rails/coverage/codecov-result.json
+          file: ./rails/coverage/resultset.json
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: true
