@@ -18,6 +18,7 @@ jobs:
         password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
       env:
         RAILS_ENV: test
+        CI: true
     services:
       db:
         image: mysql:8.0
@@ -69,7 +70,7 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
-          directory: ./rails/coverage
+          file: ./rails/coverage/codecov-result.json
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: true
