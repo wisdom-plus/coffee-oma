@@ -60,17 +60,16 @@ jobs:
         working-directory: ./rails
       - name: Run RSpec
         run: |
-          bundle exec rspec
+          bundle exec rspec --format progress --format RspecJunitFormatter --out rspec.xml
         working-directory: ./rails
       - name: Run Rubocop
         run: |
-          bundle exec rspec --format progress
+          bundle exec rubocop
         working-directory: ./rails
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./rails/coverage/codecov-result.json
+          file: ./coverage/codecov-result.json
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: true
