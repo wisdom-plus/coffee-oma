@@ -70,7 +70,7 @@ jobs:
         working-directory: ./rails
       - name: ls
         run: ls -al
-        working-directory: ./rails
+        working-directory: ./rails/coverage
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
