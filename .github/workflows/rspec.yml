@@ -19,6 +19,7 @@ jobs:
       env:
         RAILS_ENV: test
         CI: true
+        GITHUB_ACTIONS: true
     services:
       db:
         image: mysql:8.0
