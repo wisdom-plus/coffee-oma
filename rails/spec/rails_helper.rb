@@ -3,7 +3,7 @@ require 'spec_helper'
 require 'codecov'
 require 'simplecov'
 SimpleCov.start 'rails'
-if ENV['CODECOV_TOKEN']
+if ENV['CI']
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
 ENV['RAILS_ENV'] ||= 'test'
@@ -49,6 +49,7 @@ Capybara.register_driver :remote_chrome do |app|
         'no-sandbox',
         'headless',
         'disable-gpu',
+        'disable-dev-shm-usage',
         'window-size=1024,640'
       ]
     }
