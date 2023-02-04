@@ -22,7 +22,7 @@ class ProductDecorator < ApplicationDecorator
   end
 
   def price_delimited
-    price.to_s(:delimited)
+    price.to_fs(:delimited)
   end
 
   def base_class

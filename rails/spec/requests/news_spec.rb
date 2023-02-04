@@ -76,7 +76,7 @@ RSpec.describe 'News', type: :request do
 
     it 'updated news' do
       put news_path(news.id), params: { news: update_news_params }
-      expect(news.reload.content.body.to_s).to eq "<div class=\"trix-content\">\n  <p>version1.1での変更点</p>\n</div>\n"
+      expect(news.reload.content.body.to_html).to eq '<p>version1.1での変更点</p>'
     end
 
     it 'updated fail' do
