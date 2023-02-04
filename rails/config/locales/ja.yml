@@ -50,6 +50,8 @@ ja:
       alert: 'エラーが発生しました。'
     check_including?:
       alert: '参加しているルームではないので、参加できませんでした'
+    show:
+      alert: '参加していないルームのため、参加できませんでした'
   tags:
     update:
       alert: '登録に失敗しました。'
