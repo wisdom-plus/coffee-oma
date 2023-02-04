@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin admin_user', type: :system do
+RSpec.describe 'Admin admin_user' do
   let(:admin) { create(:admin_user) }
 
   describe 'admin user' do

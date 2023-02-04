@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Notifications', type: :request do
+RSpec.describe 'Notifications' do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
   let(:follow) { create(:relationship, user: user, follow: user) }

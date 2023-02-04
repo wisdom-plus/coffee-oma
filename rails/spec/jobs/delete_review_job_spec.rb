@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'delete_review', type: :job do
+RSpec.describe 'delete_review' do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
   let(:review) { create(:review, user: user, product: product) }

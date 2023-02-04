@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Products', type: :system do
+RSpec.describe 'Products' do
   let(:user) { create(:user) }
   let(:product) { create(:product, tag_list: 'コーヒー', user: user) }
   let(:product1) { create(:product, name: '器具の名前が入ります', tag_list: '豆', user: user) }
@@ -18,7 +18,7 @@ RSpec.describe 'Products', type: :system do
           fill_in 'shop-name', with: 'コーヒーのメーカー'
           fill_in 'item-price', with: '1000'
           fill_in 'item-caption', with: 'アイテムの説明文が入ります'
-          find('#tag', visible: false).set('コーヒー,豆')
+          find_by_id('tag', visible: false).set('コーヒー,豆')
           click_on 'submit'
         end.to change(Product, :count).by 1
         expect(page).to have_current_path products_path, ignore_query: true
@@ -50,7 +50,7 @@ RSpec.describe 'Products', type: :system do
 
     it 'search product' do
       fill_in 'search',	with: 'コーヒー'
-      find('#search').click
+      find_by_id('search').click
       expect(page).to have_content 'コーヒーの器具の名前'
       expect(page).to have_no_content '器具の名前が入ります'
 
@@ -84,9 +84,9 @@ RSpec.describe 'Products', type: :system do
 
   context 'when not login' do
     it 'not displayed' do
-      expect(page).to have_no_css '.tag_form'
-      expect(page).to have_no_css '#review_form'
-      expect(page).to have_no_css '#like_button'
+      expect(page).not_to have_css '.tag_form'
+      expect(page).not_to have_css '#review_form'
+      expect(page).not_to have_css '#like_button'
     end
   end
 end

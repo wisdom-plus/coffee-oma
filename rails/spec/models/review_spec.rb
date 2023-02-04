@@ -20,7 +20,7 @@
 #
 require 'rails_helper'
 
-RSpec.describe Review, type: :model do
+RSpec.describe Review do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
   let(:review) { create(:review, user: user, product: product) }

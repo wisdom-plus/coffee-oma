@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Contacts', type: :request do
+RSpec.describe 'Contacts' do
   let_it_be(:contact) { create(:contact) }
   let_it_be(:contact_params) { attributes_for(:contact) }
 

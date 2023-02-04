@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Registrations', type: :request do
+RSpec.describe 'Registrations' do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
   let(:user_params) { attributes_for(:user, icon: File.open('./spec/support/test.png')) }

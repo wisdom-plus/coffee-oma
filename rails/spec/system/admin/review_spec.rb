@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin review', type: :system do
+RSpec.describe 'Admin review' do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }

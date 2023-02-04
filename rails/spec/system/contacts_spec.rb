@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Contacts', type: :system do
+RSpec.describe 'Contacts' do
   let(:contact) { build_stubbed(:contact) }
   let(:contact_params) { attributes_for(:contact) }
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Api', type: :request do
+RSpec.describe 'Api' do
   let(:user) { create(:user) }
 
   describe 'Tag' do

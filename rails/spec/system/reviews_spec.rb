@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Reviews', type: :system do
+RSpec.describe 'Reviews' do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
   let(:review) { create(:review, user: user, product: product) }
@@ -16,7 +16,7 @@ RSpec.describe 'Reviews', type: :system do
         it 'redirect product page and displayed review' do
           fill_in 'title',	with: 'レビューのタイトル'
           fill_in 'content',	with: 'レビューの内容'
-          find('#review_rate', visible: false).set('1')
+          find_by_id('review_rate', visible: false).set('1')
           click_button 'submit'
           expect(page).to have_current_path product_path(product.id), ignore_query: true
 
@@ -29,7 +29,7 @@ RSpec.describe 'Reviews', type: :system do
         it 'has blank title' do
           fill_in 'title',	with: ''
           fill_in 'content',	with: 'レビューの内容'
-          find('#review_rate', visible: false).set('1')
+          find_by_id('review_rate', visible: false).set('1')
           click_button 'submit'
           expect(page).to have_content 'レビューの登録に失敗しました'
         end
@@ -37,7 +37,7 @@ RSpec.describe 'Reviews', type: :system do
         it 'has blank content' do
           fill_in 'title',	with: 'レビューのタイトル'
           fill_in 'content',	with: ''
-          find('#review_rate', visible: false).set('1')
+          find_by_id('review_rate', visible: false).set('1')
           click_button 'submit'
           expect(page).to have_content 'レビューの登録に失敗しました'
         end
@@ -54,7 +54,7 @@ RSpec.describe 'Reviews', type: :system do
     context 'when not login' do
       it 'is not render review_form' do
         visit product_path(product.id)
-        expect(page).to have_no_css '#review_form'
+        expect(page).not_to have_css '#review_form'
       end
     end
   end

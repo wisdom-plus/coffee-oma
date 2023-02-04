@@ -6,9 +6,20 @@ class NewsController < ApplicationController
     @news_all = News.all
   end
 
+  def show
+    @news = News.find_by(id: params[:id])
+    if @news.publicshed?
+      @news.activate unless @news.active
+    else
+      redirect_to root_path, alert: t('.alert'), status: :see_other
+    end
+  end
+
   def new
     @news = News.new
   end
+
+  def edit; end
 
   def create
     @news = current_admin_user.news.create(news_params)
@@ -19,17 +30,6 @@ class NewsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
-  def show
-    @news = News.find_by(id: params[:id])
-    if @news.publicshed?
-      @news.activate unless @news.active
-    else
-      redirect_to root_path, alert: t('.alert'), status: :see_other
-    end
-  end
-
-  def edit; end
 
   def update
     if @news.update(news_params)

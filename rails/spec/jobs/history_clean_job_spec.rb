@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'history_clean', type: :job do
+RSpec.describe 'history_clean' do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
   let(:history) { create(:history, product: product, user: user) }

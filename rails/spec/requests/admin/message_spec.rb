@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin', type: :request do
+RSpec.describe 'Admin' do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
   let(:user1) { create(:user, email: 'test1@example.com', username: 'test2') }

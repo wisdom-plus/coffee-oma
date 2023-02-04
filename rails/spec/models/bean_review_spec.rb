@@ -24,7 +24,7 @@
 #
 require 'rails_helper'
 
-RSpec.describe BeanReview, type: :model do
+RSpec.describe BeanReview do
   let(:user) { create(:user) }
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }

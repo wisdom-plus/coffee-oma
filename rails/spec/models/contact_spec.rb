@@ -11,7 +11,7 @@
 #
 require 'rails_helper'
 
-RSpec.describe Contact, type: :model do
+RSpec.describe Contact do
   let(:build_contact) { build(:contact) }
 
   it 'is valid with a name' do

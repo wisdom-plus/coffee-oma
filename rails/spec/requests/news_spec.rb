@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'News', type: :request do
+RSpec.describe 'News' do
   let_it_be(:admin) { create(:admin_user) }
   let_it_be(:news) { create(:news, user: admin) }
   let(:news_params) { attributes_for(:news) }

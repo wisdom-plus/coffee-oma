@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Rooms', type: :request do
+RSpec.describe 'Rooms' do
   let_it_be(:user) { create(:user) }
   let_it_be(:user1) { create(:user, :other_user) }
   let_it_be(:user2) { create(:user, email: 'test2@example.com', username: 'test3') }

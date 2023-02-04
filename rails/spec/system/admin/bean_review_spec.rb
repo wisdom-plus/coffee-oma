@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin bean_review', type: :system do
+RSpec.describe 'Admin bean_review' do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
   let(:bean) { create(:bean, user: user) }

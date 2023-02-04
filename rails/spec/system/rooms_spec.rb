@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Rooms', type: :system do
+RSpec.describe 'Rooms' do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
   let(:user2) { create(:user, email: 'test3@example.com', username: 'test3') }
@@ -98,7 +98,7 @@ RSpec.describe 'Rooms', type: :system do
   context 'when not login' do
     it 'not displayed message-label' do
       visit "users/#{user1.id}/show"
-      expect(page).to have_no_css '.spec-message'
+      expect(page).not_to have_css '.spec-message'
     end
 
     it 'redirect sign_in page(index)' do

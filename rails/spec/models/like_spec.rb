@@ -16,7 +16,7 @@
 #
 require 'rails_helper'
 
-RSpec.describe Like, type: :model do
+RSpec.describe Like do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
   let(:bean) { create(:bean, user: user) }
