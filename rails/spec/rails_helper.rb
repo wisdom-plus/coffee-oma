@@ -2,7 +2,7 @@
 require 'spec_helper'
 require 'codecov'
 require 'simplecov'
-SimpleCov.start 'rails'
+# SimpleCov.start 'rails'
 if ENV['CI']
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
