@@ -16,7 +16,7 @@
 #
 require 'rails_helper'
 
-RSpec.describe Room, type: :model do
+RSpec.describe Room do
   let(:user) { create(:user) }
   let(:user1) { create(:user, email: 'test2@example.com', username: 'test2') }
   let(:user2) { create(:user, email: 'test3@example.com', username: 'test3') }

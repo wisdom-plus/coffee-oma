@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Sessions', type: :request do
+RSpec.describe 'Sessions' do
   let_it_be(:user) { create(:user) }
 
   describe 'GET users/sign_in' do

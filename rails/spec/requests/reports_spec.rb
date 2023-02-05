@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Reports', type: :request do
+RSpec.describe 'Reports' do
   let_it_be(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
   let(:bean) { create(:bean, user: user) }

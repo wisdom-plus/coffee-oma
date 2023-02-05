@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Recipes', type: :system do
+RSpec.describe 'Recipes' do
   let(:user) { create(:user) }
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, bean: bean) }
@@ -54,7 +54,7 @@ RSpec.describe 'Recipes', type: :system do
     context 'when not login' do
       it 'is not render review_form' do
         visit bean_path(bean.id)
-        expect(page).to have_no_css '#bean_review_form'
+        expect(page).not_to have_css '#bean_review_form'
       end
     end
   end

@@ -21,7 +21,7 @@
 #
 require 'rails_helper'
 
-RSpec.describe Message, type: :model do
+RSpec.describe Message do
   let(:user) { create(:user) }
   let(:other_user) { create(:user, :other_user) }
   let(:room) { create(:room, participant1: user, participant2: other_user) }

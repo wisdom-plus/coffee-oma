@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Beans', type: :system do
+RSpec.describe 'Beans' do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
   let(:bean) { create(:bean, user: user) }
@@ -21,7 +21,7 @@ RSpec.describe 'Beans', type: :system do
           select 'イタリアン', from: 'bean_roast'
           select 'ナチェラル', from: 'bean_purification'
           fill_in 'url', with: 'https://example.com'
-          find('#tag', visible: false).set('コーヒー,豆')
+          find_by_id('tag', visible: false).set('コーヒー,豆')
           fill_in 'description', with: 'これはテストです'
           click_on 'submit'
         end.to change(Bean, :count).by 1
@@ -35,7 +35,7 @@ RSpec.describe 'Beans', type: :system do
           select 'イタリアン', from: 'bean_roast'
           select 'ナチェラル', from: 'bean_purification'
           fill_in 'url', with: 'https://example.com'
-          find('#tag', visible: false).set('コーヒー,豆')
+          find_by_id('tag', visible: false).set('コーヒー,豆')
           fill_in 'description', with: 'これはテストです'
           click_on 'submit'
         end.not_to change(Bean, :count)

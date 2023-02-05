@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Tags', type: :system, js: true do
+RSpec.describe 'Tags', js: true do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
   let(:bean) { create(:bean, user: user) }
@@ -36,7 +36,7 @@ RSpec.describe 'Tags', type: :system, js: true do
         first('#accordion').click
         page.execute_script "$('#spec_tag_form').val('');"
         click_on '更新'
-        expect(page).to have_no_css '.tag_link'
+        expect(page).not_to have_css '.tag_link'
       end
 
       it 'update tag_list(bean)' do
@@ -64,7 +64,7 @@ RSpec.describe 'Tags', type: :system, js: true do
         first('#accordion').click
         page.execute_script "$('#spec_tag_form').val('');"
         click_button '更新'
-        expect(page).to have_no_css '.tag_link'
+        expect(page).not_to have_css '.tag_link'
       end
     end
   end

@@ -16,7 +16,7 @@ class ReviewLikesController < ApplicationController
 
   def destroy
     review_like = get_review_like(params[:type], params[:id])
-    review_like&.destroy unless review_like.nil?
+    review_like&.destroy
     @review = review_like.accociated_review.decorate
     respond_to do |format|
       format.turbo_stream do

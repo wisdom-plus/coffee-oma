@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Beans', type: :request do
+RSpec.describe 'Beans' do
   let_it_be(:user) { create(:user) }
   let_it_be(:bean) { create(:bean, user: user) }
   let_it_be(:bean_params) { attributes_for(:bean, image: File.open('./spec/support/noimage.png')) }

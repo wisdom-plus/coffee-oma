@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Likes', type: :system, js: true do
+RSpec.describe 'Likes', js: true do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
   let(:product) { create(:product, user: user) }
@@ -45,7 +45,7 @@ RSpec.describe 'Likes', type: :system, js: true do
     context 'when not login' do
       it 'not render like button' do
         visit product_path(product.id)
-        expect(page).to have_no_css '#like_destory'
+        expect(page).not_to have_css '#like_destory'
       end
     end
   end
@@ -75,7 +75,7 @@ RSpec.describe 'Likes', type: :system, js: true do
       it 'not render button' do
         product_like
         visit product_path(product.id)
-        expect(page).to have_no_css '#like_create'
+        expect(page).not_to have_css '#like_create'
       end
     end
   end

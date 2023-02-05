@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'ReviewLikes', type: :system, js: true do
+RSpec.describe 'ReviewLikes', js: true do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
   let!(:review) { create(:review, user: user, product: product) }
@@ -68,7 +68,7 @@ RSpec.describe 'ReviewLikes', type: :system, js: true do
   context 'when not signed' do
     it 'not render like button' do
       visit product_path(product.id)
-      expect(page).to have_no_link nil, href: review_likes_path(review_id: review.id)
+      expect(page).not_to have_link nil, href: review_likes_path(review_id: review.id)
     end
   end
 end

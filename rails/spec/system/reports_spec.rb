@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Reports', type: :system, js: true do
+RSpec.describe 'Reports', js: true do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
   let(:product) { create(:product, user: user) }
@@ -51,7 +51,7 @@ RSpec.describe 'Reports', type: :system, js: true do
     it 'not display report button' do
       review
       visit product_path(product.id)
-      expect(page).to have_no_link nil, href: reports_path(review_id: review.id)
+      expect(page).not_to have_link nil, href: reports_path(review_id: review.id)
     end
   end
 end

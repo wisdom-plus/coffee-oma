@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'News', type: :system do
+RSpec.describe 'News' do
   let(:admin) { create(:admin_user) }
   let(:news) { create(:news, user: admin) }
   let(:news1) { create(:news, :another_news, user: admin) }

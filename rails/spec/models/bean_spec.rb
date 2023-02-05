@@ -23,7 +23,7 @@
 #
 require 'rails_helper'
 
-RSpec.describe Bean, type: :model do
+RSpec.describe Bean do
   let(:user) { create(:user) }
   let(:bean_build) { build(:bean) }
 

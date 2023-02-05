@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Likes', type: :request do
+RSpec.describe 'Likes' do
   let_it_be(:user) { create(:user) }
   let_it_be(:product) { create(:product, user: user) }
   let_it_be(:bean) { create(:bean, user: user) }

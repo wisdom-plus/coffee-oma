@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Relationships', type: :system, js: true do
+RSpec.describe 'Relationships', js: true do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
   let(:follow) { create(:relationship, user: user, follow: user1) }
@@ -18,7 +18,7 @@ RSpec.describe 'Relationships', type: :system, js: true do
         expect(page).to have_link 'フォロー解除'
 
         visit "/users/#{user.id}/show"
-        expect(page).to have_no_link 'フォローする'
+        expect(page).not_to have_link 'フォローする'
       end
     end
 
@@ -31,7 +31,7 @@ RSpec.describe 'Relationships', type: :system, js: true do
         expect(page).to have_link 'フォローする'
 
         visit "/users/#{user.id}/show"
-        expect(page).to have_no_link 'フォロー解除'
+        expect(page).not_to have_link 'フォロー解除'
       end
     end
   end
@@ -39,7 +39,7 @@ RSpec.describe 'Relationships', type: :system, js: true do
   context 'when not login' do
     it 'is displayed follow button' do
       visit "/users/#{user1.id}/show"
-      expect(page).to have_no_link 'フォローする'
+      expect(page).not_to have_link 'フォローする'
     end
   end
 end

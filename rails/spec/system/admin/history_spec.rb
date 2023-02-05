@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin history', type: :system do
+RSpec.describe 'Admin history' do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }

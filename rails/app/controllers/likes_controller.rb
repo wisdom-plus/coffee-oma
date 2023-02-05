@@ -22,7 +22,7 @@ class LikesController < ApplicationController
   def destroy
     @like = get_destroy_like(params[:type], params[:id])
     @liked = get_liked(params[:type], @like.liked_id)
-    @like&.destroy unless @like.nil?
+    @like&.destroy
     @liked.reload
     respond_to do |format|
       format.turbo_stream do

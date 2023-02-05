@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_15_110016) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_02_03_112827) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
     t.string "record_type", null: false
     t.integer "record_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
@@ -29,8 +28,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
     t.integer "resource_id"
     t.string "author_type"
     t.integer "author_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
@@ -41,7 +40,7 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -53,8 +52,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
     t.text "metadata"
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
+    t.string "checksum"
+    t.datetime "created_at", precision: nil, null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -68,10 +67,10 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
@@ -86,8 +85,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
     t.integer "user_id"
     t.string "title", null: false
     t.text "content", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "reviewlikes_count", default: 0, null: false
     t.index ["bean_id"], name: "index_bean_reviews_on_bean_id"
     t.index ["created_at"], name: "index_bean_reviews_on_created_at"
@@ -103,8 +102,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
     t.string "area"
     t.text "description"
     t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "likes_count", default: 0, null: false
     t.integer "reviews_count", default: 0, null: false
     t.index ["likes_count"], name: "index_beans_on_likes_count"
@@ -115,16 +114,16 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
     t.string "name", null: false
     t.string "email", null: false
     t.text "content", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "histories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
     t.integer "bean_id"
     t.integer "product_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["bean_id"], name: "index_histories_on_bean_id"
     t.index ["product_id"], name: "index_histories_on_product_id"
     t.index ["user_id"], name: "index_histories_on_user_id"
@@ -132,8 +131,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
 
   create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "type"
     t.bigint "liked_id"
     t.index ["created_at"], name: "index_likes_on_created_at"
@@ -144,8 +143,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
     t.bigint "user_id", null: false
     t.bigint "room_id", null: false
     t.text "message", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -154,17 +153,17 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
     t.string "title", null: false
     t.text "content"
     t.boolean "active", default: false
-    t.datetime "publicshed_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "publicshed_at", precision: nil, default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_news_on_user_id"
   end
 
   create_table "notifications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.boolean "checked", default: false, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "source_type"
     t.bigint "source_id"
@@ -180,8 +179,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
     t.text "caption"
     t.text "url"
     t.string "shopname"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "likes_count", default: 0, null: false
     t.integer "reviews_count", default: 0, null: false
     t.integer "rate_sum", default: 0, null: false
@@ -196,8 +195,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
     t.integer "temperature", null: false
     t.integer "time", null: false
     t.integer "amount", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "bean_review_id"
     t.index ["bean_review_id"], name: "index_recipes_on_bean_review_id"
   end
@@ -205,8 +204,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
   create_table "relationships", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "follow_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["follow_id"], name: "index_relationships_on_follow_id"
     t.index ["user_id", "follow_id"], name: "index_relationships_on_user_id_and_follow_id", unique: true
     t.index ["user_id"], name: "index_relationships_on_user_id"
@@ -216,8 +215,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
     t.bigint "user_id", null: false
     t.string "review_type", null: false
     t.integer "review_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["review_type", "review_id"], name: "index_reports_on_review_type_and_review_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
@@ -227,8 +226,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
     t.integer "product_id"
     t.string "title", null: false
     t.text "content", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.float "rate"
     t.integer "reviewlikes_count", default: 0, null: false
     t.index ["created_at"], name: "index_reviews_on_created_at"
@@ -237,8 +236,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
   end
 
   create_table "rooms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "participant1_id", null: false
     t.bigint "participant2_id", null: false
     t.index ["participant1_id", "participant2_id"], name: "uique_partcipant1_partcipant2", unique: true
@@ -253,7 +252,7 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
     t.string "tagger_type"
     t.integer "tagger_id"
     t.string "context", limit: 128
-    t.datetime "created_at"
+    t.datetime "created_at", precision: nil
     t.index ["context"], name: "index_taggings_on_context"
     t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
@@ -267,8 +266,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
 
   create_table "tags", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", collation: "utf8mb3_bin"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
@@ -276,8 +275,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
   create_table "thread_images", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "imageable_type", null: false
     t.bigint "imageable_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.json "attachments"
     t.index ["imageable_type", "imageable_id"], name: "index_thread_images_on_imageable"
   end
@@ -286,14 +285,14 @@ ActiveRecord::Schema.define(version: 2022_11_15_110016) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
     t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
+    t.datetime "confirmed_at", precision: nil
+    t.datetime "confirmation_sent_at", precision: nil
     t.string "unconfirmed_email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "username"
     t.text "profile"
     t.string "icon"

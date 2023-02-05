@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'create_history', type: :job do
+RSpec.describe 'CreateHistoryJob' do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
 

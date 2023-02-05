@@ -3,20 +3,6 @@ class ProductsController < ApplicationController
   before_action :product_exists?, only: %i[show]
   after_action  -> { CreateHistoryJob.perform_later(current_user.id, history_params) }, only: %i[show], if: -> { user_signed_in? && @product }
 
-  def new
-    @product = Product.new(tag_list: 'コーヒー')
-  end
-
-  def create
-    @product = current_user.products.new(product_params)
-    if @product.save
-      redirect_to products_path, notice: t('.notice'), status: :see_other
-    else
-      flash.now[:alert] = t('.alert')
-      render :new, status: :unprocessable_entity
-    end
-  end
-
   def index
     @q = Product.keywords_search(params[:q])
     @products = if params[:tag_name]
@@ -37,6 +23,20 @@ class ProductsController < ApplicationController
       @review_likes = current_user.where_review_likes(@reviews, 'review')
     end
     @reviews = ReviewDecorator.decorate_collection(@reviews)
+  end
+
+  def new
+    @product = Product.new(tag_list: 'コーヒー')
+  end
+
+  def create
+    @product = current_user.products.new(product_params)
+    if @product.save
+      redirect_to products_path, notice: t('.notice'), status: :see_other
+    else
+      flash.now[:alert] = t('.alert')
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private

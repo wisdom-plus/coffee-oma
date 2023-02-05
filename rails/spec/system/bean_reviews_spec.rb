@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'BeanReviews', type: :system do
+RSpec.describe 'BeanReviews' do
   let(:user) { create(:user) }
   let(:bean) { create(:bean, user: user) }
 
@@ -15,11 +15,11 @@ RSpec.describe 'BeanReviews', type: :system do
         expect do
           fill_in 'title', with: 'レビューのタイトル'
           fill_in 'content', with: 'レビューの内容'
-          find('#bean_review_acidity', visible: false).set('1')
-          find('#bean_review_bitter', visible: false).set('2')
-          find('#bean_review_rich', visible: false).set('3')
-          find('#bean_review_flavor', visible: false).set('4')
-          find('#bean_review_sweet', visible: false).set('5')
+          find_by_id('bean_review_acidity', visible: false).set('1')
+          find_by_id('bean_review_bitter', visible: false).set('2')
+          find_by_id('bean_review_rich', visible: false).set('3')
+          find_by_id('bean_review_flavor', visible: false).set('4')
+          find_by_id('bean_review_sweet', visible: false).set('5')
           click_button 'submit'
         end.to change(BeanReview, :count).by 1
       end
@@ -28,11 +28,11 @@ RSpec.describe 'BeanReviews', type: :system do
         expect do
           fill_in 'title', with: 'レビューのタイトル'
           fill_in 'content', with: ''
-          find('#bean_review_acidity', visible: false).set('1')
-          find('#bean_review_bitter', visible: false).set('2')
-          find('#bean_review_rich', visible: false).set('3')
-          find('#bean_review_flavor', visible: false).set('4')
-          find('#bean_review_sweet', visible: false).set('5')
+          find_by_id('bean_review_acidity', visible: false).set('1')
+          find_by_id('bean_review_bitter', visible: false).set('2')
+          find_by_id('bean_review_rich', visible: false).set('3')
+          find_by_id('bean_review_flavor', visible: false).set('4')
+          find_by_id('bean_review_sweet', visible: false).set('5')
           click_button 'submit'
         end.not_to change(BeanReview, :count)
       end
@@ -41,7 +41,7 @@ RSpec.describe 'BeanReviews', type: :system do
     context 'when not login' do
       it 'is not render review_form' do
         visit bean_path(bean.id)
-        expect(page).to have_no_css '#bean_review_form'
+        expect(page).not_to have_css '#bean_review_form'
       end
     end
   end

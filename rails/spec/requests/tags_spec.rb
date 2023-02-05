@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Tags', type: :request do
+RSpec.describe 'Tags' do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
   let(:bean) { create(:bean, user: user) }

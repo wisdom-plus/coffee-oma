@@ -23,7 +23,7 @@
 #
 require 'rails_helper'
 
-RSpec.describe Notification, type: :model do
+RSpec.describe Notification do
   let(:user) { create(:user) }
   let(:other_user) { create(:user, :other_user) }
   let(:follow) { create(:relationship, user: other_user, follow: user) }

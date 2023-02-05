@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin Notifications', type: :system do
+RSpec.describe 'Admin Notifications' do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }

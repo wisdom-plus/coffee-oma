@@ -26,7 +26,7 @@
 #
 require 'rails_helper'
 
-RSpec.describe Product, type: :model do
+RSpec.describe Product do
   let(:user) { create(:user) }
   let(:product_build) { build(:product) }
 

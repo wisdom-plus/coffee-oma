@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Products', type: :request do
+RSpec.describe 'Products' do
   let_it_be(:user) { create(:user) }
   let_it_be(:product) { create(:product, user: user) }
   let(:product_params) { attributes_for(:product, image: File.open('./spec/support/noimage.png')) }

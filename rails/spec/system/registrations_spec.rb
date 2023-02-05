@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Registrations', type: :system, js: true do
+RSpec.describe 'Registrations', js: true do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
 
@@ -193,7 +193,7 @@ RSpec.describe 'Registrations', type: :system, js: true do
     context 'when not login' do
       it 'not have link edit' do
         visit "/users/#{user.id}/show"
-        expect(page).to have_no_link edit_user_registration_path
+        expect(page).not_to have_link edit_user_registration_path
       end
     end
   end

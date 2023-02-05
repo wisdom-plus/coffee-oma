@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'BeanReviews', type: :request do
+RSpec.describe 'BeanReviews' do
   let_it_be(:user) { create(:user) }
   let_it_be(:bean) { create(:bean, user: user) }
   let_it_be(:bean_review) { create(:bean_review, user: user, bean: bean) }

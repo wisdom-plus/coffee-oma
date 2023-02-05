@@ -14,7 +14,7 @@
 #
 require 'rails_helper'
 
-RSpec.describe Tag, type: :model do
+RSpec.describe Tag do
   describe 'scope' do
     it 'tag_search' do
       tag = create(:tag, name: 'tag1')

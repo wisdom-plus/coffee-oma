@@ -12,7 +12,7 @@ RSpec.describe TagTableForm::Component, type: :component do
     render_inline(described_class.new(tags: tag, target: product.decorate, current_user: nil))
 
     expect(page).to have_css '.tag_link'
-    expect(page).to have_no_css '#accordion'
+    expect(page).not_to have_css '#accordion'
   end
 
   it 'renders a form(product, signed)' do
@@ -28,7 +28,7 @@ RSpec.describe TagTableForm::Component, type: :component do
     render_inline(described_class.new(tags: tag, target: bean.decorate, current_user: nil))
 
     expect(page).to have_css '.tag_link'
-    expect(page).to have_no_css '#accordion'
+    expect(page).not_to have_css '#accordion'
   end
 
   it 'renders a form(bean , signed)' do

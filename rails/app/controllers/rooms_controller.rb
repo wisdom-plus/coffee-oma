@@ -7,6 +7,12 @@ class RoomsController < ApplicationController
     @rooms = RoomDecorator.decorate_collection(Room.join_room_list(current_user))
   end
 
+  def show
+    @room = Room.find(params[:id]).decorate
+    @message = Message.new
+    @messages = Message.room_message(params[:id])
+  end
+
   def new
     @q = current_user.followings.ransack(params[:q])
     @followings = @q.result(distinct: true)
@@ -21,12 +27,6 @@ class RoomsController < ApplicationController
       redirect_to root_path, flash: { alert: t('.alert') }, status: :see_other
       # :nocov:
     end
-  end
-
-  def show
-    @room = Room.find(params[:id]).decorate
-    @message = Message.new
-    @messages = Message.room_message(params[:id])
   end
 
   private

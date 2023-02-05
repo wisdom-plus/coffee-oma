@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Messages', type: :request do
+RSpec.describe 'Messages' do
   let_it_be(:user) { create(:user) }
   let_it_be(:user1) { create(:user, :other_user) }
   let_it_be(:room) { create(:room, participant1: user, participant2: user1) }
