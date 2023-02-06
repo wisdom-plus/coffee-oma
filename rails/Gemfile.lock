@@ -206,6 +206,10 @@ GEM
     devise-i18n (1.10.2)
       devise (>= 4.8.0)
     devise-i18n-views (0.3.7)
+    devise_token_auth (1.2.1)
+      bcrypt (~> 3.0)
+      devise (> 3.5.2, < 5)
+      rails (>= 4.2.0, < 7.1)
     diff-lcs (1.5.0)
     docile (1.4.0)
     dotenv (2.8.1)
@@ -653,6 +657,7 @@ DEPENDENCIES
   devise-async
   devise-i18n
   devise-i18n-views
+  devise_token_auth
   dotenv-rails
   draper
   factory_bot_rails
