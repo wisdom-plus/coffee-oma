@@ -1,6 +1,6 @@
 module Api
   module V1
-    class RelationshipsController < ApiApplicationController
+    class RelationshipsController < ApplicationController
       before_action :authenticate_api_v1_user!, only: %i[create destroy]
 
       def create
@@ -33,7 +33,7 @@ module Api
             end
           render json: { follow: follow }, status: :ok
         else
-          render status: :not_found
+          render json: {}, status: :not_found
         end
       end
     end
