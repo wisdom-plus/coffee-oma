@@ -85,7 +85,7 @@ class Product < ApplicationRecord
     }
   end
 
-  def self.index_pagenaiton(page)
+  def self.index_pagenation(page)
     limit(INDEX_DISPALY_NUM).offset(page * INDEX_DISPALY_NUM)
   end
 

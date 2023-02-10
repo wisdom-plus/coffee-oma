@@ -106,6 +106,4 @@ class User < ApplicationRecord
   def token_validation_response
     as_json(except: %i[tokens updated_at provider uid allow_password_change])
   end
-
-  def
 end

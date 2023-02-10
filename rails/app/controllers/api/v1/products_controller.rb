@@ -1,7 +1,6 @@
 module Api
   module V1
-    class ProductsController < ApiApplicationController
-
+    class ProductsController < ApplicationController
       def index
         products = Product.index_pagenation(params[:page].to_i)
         if products.empty?
@@ -11,7 +10,7 @@ module Api
             pages: params[:page].to_i,
             nextpage: next_page?(params[:page].to_i),
             data: products
-          }}. status: :ok
+          } }, status: :ok
         end
       end
 
@@ -37,13 +36,13 @@ module Api
 
       private
 
-      def product_params
-        params.require(:product).permit(:name, :price, :url, :shopname, :caption, :tag_list, images: [])
-      end
+        def product_params
+          params.require(:product).permit(:name, :price, :url, :shopname, :caption, :tag_list, images: [])
+        end
 
-      def next_page?(page)
-        !((page + 1) * 9 > Product.count || (page + 1) > 10)
-      end
+        def next_page?(page)
+          !((page + 1) * 9 > Product.count || (page + 1) > 10)
+        end
     end
   end
 end
