@@ -1,6 +1,6 @@
 module Api
-  module Vi
-    class HealthCotroller < ApiApplicationController
+  module V1
+    class HealthsController < ApplicationController
       def index
         render json: { status: 'ok' }
       end

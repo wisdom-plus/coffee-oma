@@ -313,7 +313,7 @@ Rails.application.routes.draw do
   namespace :api, { format: 'json' } do
     namespace :v1 do
       resources :tags, only: %i[index]
-      resources :health, only: %i[index]
+      resources :healths, only: %i[index]
       resources :products, only: %i[index show create] do
         resources :reviews, only: %i[create destroy] do
           collection do
