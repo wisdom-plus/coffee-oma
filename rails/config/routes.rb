@@ -289,6 +289,8 @@ Rails.application.routes.draw do
     get 'users/:id/show' => 'users/registrations#show'
     get 'users/my_page' => 'users/registrations#my_page'
     post 'users/guest_sign_in' => 'users/sessions#new_guest'
+    get 'api/v1/auth/registrations/:id' => 'api/v1/auth/registrations#show'
+    get 'api/v1/auth/guest_login' => 'api/v1/auth/sessions#guest_login'
   end
   resources :products, only: %i[new create index show] do
     resources :reviews, only: %i[create destroy]
@@ -330,6 +332,12 @@ Rails.application.routes.draw do
         end
       end
     end
+    moun_devise_token_auth_for 'User', at: 'auth', controllers: {
+      registrations: 'api/v1/auth/registrations',
+      token_validations: 'api/v1/auth/token_validations',
+      passwords: 'api/v1/auth/passwords',
+      sessions: 'api/v1/auth/sessions'
+    }
   end
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
