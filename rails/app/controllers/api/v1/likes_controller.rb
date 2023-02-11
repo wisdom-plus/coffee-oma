@@ -21,7 +21,7 @@ module Api
         end
       end
 
-      def destory
+      def destroy
         like = current_api_v1_user.product_likes.find_by(product_id: params[:id])
         if like&.destory
           render json: {}, status: :ok

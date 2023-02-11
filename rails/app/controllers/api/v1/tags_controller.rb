@@ -1,4 +1,4 @@
-class Api::V1::TagsController < ActionController::Base
+class Api::V1::TagsController < ApplicationController
   def index
     return nil if params[:keyword].blank?
 
