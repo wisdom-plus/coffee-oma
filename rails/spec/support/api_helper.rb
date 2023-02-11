@@ -11,7 +11,7 @@ module Requests
 
   module AuthHelpers
     module Extensions
-      def sign_in(user)
+      def api_sign_in(user)
         let(:auth_helpers_auth_token) {
           public_send(user).create_new_auth_token
         }
