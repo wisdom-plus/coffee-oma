@@ -114,8 +114,7 @@ RSpec.configure do |config|
   config.include Capybara::RSpecMatchers, type: :component
   config.include Devise::Test::ControllerHelpers, type: :component
   config.include Requests::JsonHelpers, type: :request
-  config.include Requests::AuthHelpers::Includables, type: :request
-  config.include Requests::AuthHelpers::Extensions, type: :request
+  config.include Requests::AuthorizationHelpers, type: :request
 
   config.before(:each, type: :component) do
     @request = controller.request

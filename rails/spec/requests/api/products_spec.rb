@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Products', type: :request do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
-  let(:product_params) { attributes_for(:product) }
+  let(:product_params) { attributes_for(:product, image: nil) }
+  let(:headers) { api_sign_in(user) }
 
   describe 'GET /api/v1/products' do
     it 'レスポンス成功' do
@@ -45,14 +46,8 @@ RSpec.describe 'Products', type: :request do
 
   describe 'POST /api/v1/products' do
     context 'ログインしている場合' do
-      let(:auth_helpers_auth_token) {
-        public_send(:user).create_new_auth_token
-      }
-
       it 'レスポンス成功' do
-        binding.pry
-
-        post api_v1_products_path, params: { product: product_params }
+        post api_v1_products_path, params: { product: product_params }, headers: headers
         expect(response).to have_http_status(:created)
       end
     end

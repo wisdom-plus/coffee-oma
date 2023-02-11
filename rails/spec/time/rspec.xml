@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="7" skipped="0" failures="1" errors="0" time="31.869508" timestamp="2023-02-11T11:47:14+09:00" hostname="d0771f5fd11b">
+<testsuite name="rspec" tests="7" skipped="0" failures="0" errors="0" time="16.042288" timestamp="2023-02-11T16:40:59+09:00" hostname="d0771f5fd11b">
 <properties>
-<property name="seed" value="57510"/>
+<property name="seed" value="49751"/>
 </properties>
-<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products レスポンス成功" file="./spec/requests/api/products_spec.rb" time="0.589724"></testcase>
-<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products レスポンスボディの検証" file="./spec/requests/api/products_spec.rb" time="0.418426"></testcase>
-<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products レスポンス失敗" file="./spec/requests/api/products_spec.rb" time="0.118693"></testcase>
-<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products/:id レスポンス成功" file="./spec/requests/api/products_spec.rb" time="0.402328"></testcase>
-<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products/:id レスポンスボディの検証" file="./spec/requests/api/products_spec.rb" time="0.403521"></testcase>
-<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products/:id レスポンス失敗" file="./spec/requests/api/products_spec.rb" time="0.122468"></testcase>
-<testcase classname="spec.requests.api.products_spec" name="Products POST /api/v1/products ログインしている場合 レスポンス成功" file="./spec/requests/api/products_spec.rb" time="29.791272"><failure message="undefined method `create_new_auth_token&apos; for #&lt;User id: 388, email: &quot;test5@example.com&quot;, created_at: &quot;2023-02-11 11:47:28.428070000 +0900&quot;, updated_at: &quot;2023-02-11 11:47:28.428070000 +0900&quot;, username: &quot;test&quot;, profile: nil, icon: &quot;test.png&quot;&gt;
-Did you mean?  created_at_change_to_be_saved" type="NoMethodError">Failure/Error: public_send(:user).create_new_auth_token
-
-NoMethodError:
-  undefined method `create_new_auth_token&apos; for #&lt;User id: 388, email: &quot;test5@example.com&quot;, created_at: &quot;2023-02-11 11:47:28.428070000 +0900&quot;, updated_at: &quot;2023-02-11 11:47:28.428070000 +0900&quot;, username: &quot;test&quot;, profile: nil, icon: &quot;test.png&quot;&gt;
-  Did you mean?  created_at_change_to_be_saved
-./spec/requests/api/products_spec.rb:51:in `block (4 levels) in &lt;top (required)&gt;&apos;
-./spec/support/api_helper.rb:36:in `add_auth_headers&apos;
-./spec/support/api_helper.rb:25:in `block (2 levels) in &lt;module:Includables&gt;&apos;
-./spec/requests/api/products_spec.rb:57:in `block (4 levels) in &lt;top (required)&gt;&apos;</failure></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products レスポンス成功" file="./spec/requests/api/products_spec.rb" time="0.654173"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products レスポンスボディの検証" file="./spec/requests/api/products_spec.rb" time="0.395971"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products レスポンス失敗" file="./spec/requests/api/products_spec.rb" time="0.111287"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products/:id レスポンス成功" file="./spec/requests/api/products_spec.rb" time="0.392497"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products/:id レスポンスボディの検証" file="./spec/requests/api/products_spec.rb" time="0.372897"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products/:id レスポンス失敗" file="./spec/requests/api/products_spec.rb" time="0.126194"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products POST /api/v1/products ログインしている場合 レスポンス成功" file="./spec/requests/api/products_spec.rb" time="13.957097"></testcase>
 </testsuite>

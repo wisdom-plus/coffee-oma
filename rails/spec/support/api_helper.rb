@@ -9,32 +9,12 @@ module Requests
     end
   end
 
-  module AuthHelpers
-    module Extensions
-      def api_sign_in(user)
-        let(:auth_helpers_auth_token) {
-          public_send(user).create_new_auth_token
-        }
-      end
-    end
+  module AuthorizationHelpers
+    def api_sign_in(user)
+      user.confirm
+      post new_api_v1_user_session_path, params: { session: { email: user.email, password: user.password } }
 
-    module Includables
-      HTTP_HELPERS_TO_OVERRIDE = %i[get post patch put delete].freeze
-      HTTP_HELPERS_TO_OVERRIDE.each do |helper|
-        define_method(helper) do |path, **args|
-          add_auth_headers(args)
-          args == {} ? super(path) : super(path, **args)
-        end
-      end
-
-      private
-
-      def add_auth_headers(args)
-        return unless defined? auth_helpers_auth_token
-
-        args[:headers] ||= {}
-        args[:headers].merge!(auth_helpers_auth_token)
-      end
+      response.headers.slice('access-token', 'client', 'uid', 'expiry', 'token-type')
     end
   end
 end
