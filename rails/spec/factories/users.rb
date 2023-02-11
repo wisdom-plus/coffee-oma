@@ -39,5 +39,11 @@ FactoryBot.define do
     trait :other_user do
       username { 'test1' }
     end
+
+    trait :guest do
+      username { 'ゲストユーザー' }
+      email { 'guest@example.com' }
+      profile { 'ゲストユーザーのプロフィールです' }
+    end
   end
 end

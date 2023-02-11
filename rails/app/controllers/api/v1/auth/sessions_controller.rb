@@ -18,7 +18,7 @@ module Api
 
           def create_and_assign_guest_login
             if @resource.respond_to?(:with_lock)
-              @resource.whith_lock do
+              @resource.with_lock do
                 @token = @resource.create_token
                 @resource.save!
               end
