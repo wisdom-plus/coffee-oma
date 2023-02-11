@@ -1,7 +1,7 @@
 module Api
   module V1
     class ProductsController < ApplicationController
-      before_action :authenticate_api_user!, only: %i[create]
+      before_action :authenticate_api_v1_user!, only: %i[create]
 
       def index
         products = Product.index_pagenation(params[:page].to_i)
@@ -28,12 +28,10 @@ module Api
       end
 
       def create
-        @product = current_api_user.products.new(product_params)
-
-        binding.pry
+        @product = current_api_v1_user.products.new(product_params)
 
         if @product.save
-          render status: :created
+          render json: { message: 'create success' }, status: :created
         else
           render status: :bad_request, json: { message: 'Bad Request' }
         end

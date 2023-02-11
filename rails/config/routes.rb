@@ -331,13 +331,13 @@ Rails.application.routes.draw do
           get 'exists'
         end
       end
+      mount_devise_token_auth_for 'User', at: 'auth', controllers: {
+        registrations: 'api/v1/auth/registrations',
+        token_validations: 'api/v1/auth/token_validations',
+        passwords: 'api/v1/auth/passwords',
+        sessions: 'api/v1/auth/sessions'
+      }
     end
-    mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-      registrations: 'api/v1/auth/registrations',
-      token_validations: 'api/v1/auth/token_validations',
-      passwords: 'api/v1/auth/passwords',
-      sessions: 'api/v1/auth/sessions'
-    }
   end
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
