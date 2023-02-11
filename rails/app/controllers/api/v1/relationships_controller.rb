@@ -4,21 +4,28 @@ module Api
       before_action :authenticate_api_v1_user!, only: %i[create destroy]
 
       def create
-        user = User.find_by(id: params[:relationships][:followed_id])
-        follow = current_api_v1_user.folow(user)
-        if follow.ni?
-          render status: :not_found
+        user = User.find_by(id: params[:relationships][:follow_id])
+
+        return render json: { message: 'user not found' }, status: :not_found unless user
+
+        follow = FollowAndNotificationCreate.new(current_api_v1_user, user).create
+        if follow.save
+          render json: {}, status: :created
         else
-          render status: :created
+          render json: {}, status: :bad_request
         end
       end
 
       def destroy
-        follow = current_api_v1_user.unfollow(params[:id])
-        if follow.nil?
-          render status: :not_found
+        user = User.find_by(id: params[:id])
+
+        return render json: { message: 'user not found' }, status: :not_found unless user
+
+        follow = Follow.new(current_api_v1_user, user).unfollow
+        if follow.destroy
+          render json: {}, status: :ok
         else
-          render status: :ok
+          render json: {}, status: :bad_request
         end
       end
 
