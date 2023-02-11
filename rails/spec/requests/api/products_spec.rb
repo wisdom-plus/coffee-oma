@@ -50,6 +50,34 @@ RSpec.describe 'Products', type: :request do
         post api_v1_products_path, params: { product: product_params }, headers: headers
         expect(response).to have_http_status(:created)
       end
+
+      it 'データが保存される' do
+        expect do
+          post api_v1_products_path, params: { product: product_params }, headers: headers
+        end.to change(Product, :count).by 1
+      end
+
+      it 'レスポンス失敗(name)' do
+        post api_v1_products_path, params: { product: attributes_for(:product, name: '') }, headers: headers
+        expect(response).to have_http_status(:bad_request)
+      end
+
+      it 'レスポンス失敗(priceが空)' do
+        post api_v1_products_path, params: { product: attributes_for(:product, price: '') }, headers: headers
+        expect(response).to have_http_status(:bad_request)
+      end
+
+      it 'レスポンス失敗(caption)' do
+        post api_v1_products_path, params: { product: attributes_for(:product, caption: '') }, headers: headers
+        expect(response).to have_http_status(:bad_request)
+      end
+    end
+
+    context 'ログインしていない場合' do
+      it 'レスポンス失敗' do
+        post api_v1_products_path, params: { product: product_params }
+        expect(response).to have_http_status(:unauthorized)
+      end
     end
   end
 end

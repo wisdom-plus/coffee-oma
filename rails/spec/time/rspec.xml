@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="7" skipped="0" failures="0" errors="0" time="16.042288" timestamp="2023-02-11T16:40:59+09:00" hostname="d0771f5fd11b">
+<testsuite name="rspec" tests="12" skipped="0" failures="0" errors="0" time="5.105063" timestamp="2023-02-11T17:06:15+09:00" hostname="d0771f5fd11b">
 <properties>
-<property name="seed" value="49751"/>
+<property name="seed" value="33330"/>
 </properties>
-<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products レスポンス成功" file="./spec/requests/api/products_spec.rb" time="0.654173"></testcase>
-<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products レスポンスボディの検証" file="./spec/requests/api/products_spec.rb" time="0.395971"></testcase>
-<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products レスポンス失敗" file="./spec/requests/api/products_spec.rb" time="0.111287"></testcase>
-<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products/:id レスポンス成功" file="./spec/requests/api/products_spec.rb" time="0.392497"></testcase>
-<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products/:id レスポンスボディの検証" file="./spec/requests/api/products_spec.rb" time="0.372897"></testcase>
-<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products/:id レスポンス失敗" file="./spec/requests/api/products_spec.rb" time="0.126194"></testcase>
-<testcase classname="spec.requests.api.products_spec" name="Products POST /api/v1/products ログインしている場合 レスポンス成功" file="./spec/requests/api/products_spec.rb" time="13.957097"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products レスポンス成功" file="./spec/requests/api/products_spec.rb" time="0.598372"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products レスポンスボディの検証" file="./spec/requests/api/products_spec.rb" time="0.408182"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products レスポンス失敗" file="./spec/requests/api/products_spec.rb" time="0.115138"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products/:id レスポンス成功" file="./spec/requests/api/products_spec.rb" time="0.408090"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products/:id レスポンスボディの検証" file="./spec/requests/api/products_spec.rb" time="0.464164"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products GET /api/v1/products/:id レスポンス失敗" file="./spec/requests/api/products_spec.rb" time="0.118988"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products POST /api/v1/products ログインしている場合 レスポンス成功" file="./spec/requests/api/products_spec.rb" time="0.680361"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products POST /api/v1/products ログインしている場合 データが保存される" file="./spec/requests/api/products_spec.rb" time="0.527720"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products POST /api/v1/products ログインしている場合 レスポンス失敗(name)" file="./spec/requests/api/products_spec.rb" time="0.556121"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products POST /api/v1/products ログインしている場合 レスポンス失敗(priceが空)" file="./spec/requests/api/products_spec.rb" time="0.515442"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products POST /api/v1/products ログインしている場合 レスポンス失敗(caption)" file="./spec/requests/api/products_spec.rb" time="0.520770"></testcase>
+<testcase classname="spec.requests.api.products_spec" name="Products POST /api/v1/products ログインしていない場合 レスポンス失敗" file="./spec/requests/api/products_spec.rb" time="0.124555"></testcase>
 </testsuite>
