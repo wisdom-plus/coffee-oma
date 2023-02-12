@@ -22,8 +22,8 @@ module Api
       end
 
       def destroy
-        like = current_api_v1_user.product_likes.find_by(product_id: params[:id])
-        if like&.destory
+        like = current_api_v1_user.product_likes.find_by(id: params[:id])
+        if like&.destroy
           render json: {}, status: :ok
         else
           render json: {}, status: :not_found
@@ -31,10 +31,10 @@ module Api
       end
 
       def exists
-        product = Product.find_by(id: params[:id])
+        product = Product.find_by(id: params[:liked_id])
         if product
-          liked = api_v1_user_signed_in && product.product_likes.exists(user_id: current_api_v1_user.id)
-          render json: { liked: liked, count: product.likes.size }, status: :ok
+          liked = api_v1_user_signed_in? && product.product_likes.exists?(user_id: current_api_v1_user.id)
+          render json: { liked: liked, count: product.product_likes.size }, status: :ok
         else
           render json: {}, status: :not_found
         end
@@ -43,7 +43,7 @@ module Api
       private
 
         def like_params
-          params.require(:like).permit(:product_id)
+          params.require(:like).permit(:liked_id)
         end
     end
   end
