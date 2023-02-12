@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="17" skipped="0" failures="0" errors="0" time="9.080376" timestamp="2023-02-12T13:08:55+09:00" hostname="d0771f5fd11b">
+<testsuite name="rspec" tests="13" skipped="0" failures="0" errors="0" time="7.454556" timestamp="2023-02-12T15:14:49+09:00" hostname="d0771f5fd11b">
 <properties>
-<property name="seed" value="47018"/>
+<property name="seed" value="29243"/>
 </properties>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes GET /api/v1/likes レスポンス成功" file="./spec/requests/api/likes_spec.rb" time="0.938430"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes GET /api/v1/likes レスポンスボディの検証" file="./spec/requests/api/likes_spec.rb" time="0.725636"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes GET /api/v1/likes レスポンス失敗" file="./spec/requests/api/likes_spec.rb" time="0.147741"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes POST /api/v1/likes ログインしている場合 レスポンス成功" file="./spec/requests/api/likes_spec.rb" time="0.677615"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes POST /api/v1/likes ログインしている場合 データが保存される" file="./spec/requests/api/likes_spec.rb" time="0.619072"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes POST /api/v1/likes ログインしている場合 レスポンス失敗" file="./spec/requests/api/likes_spec.rb" time="0.488117"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes POST /api/v1/likes ログインしていない場合 レスポンス失敗" file="./spec/requests/api/likes_spec.rb" time="0.490284"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes DELETE /api/v1/likes/:id ログインしている場合 レスポンス成功" file="./spec/requests/api/likes_spec.rb" time="0.654835"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes DELETE /api/v1/likes/:id ログインしている場合 データが削除される" file="./spec/requests/api/likes_spec.rb" time="0.639391"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes DELETE /api/v1/likes/:id ログインしている場合 レスポンス失敗" file="./spec/requests/api/likes_spec.rb" time="0.517114"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes DELETE /api/v1/likes/:id ログインしていない場合 レスポンス失敗" file="./spec/requests/api/likes_spec.rb" time="0.500284"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes GET /api/v1/likes/exists ログインしている場合 レスポンス成功" file="./spec/requests/api/likes_spec.rb" time="0.576358"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes GET /api/v1/likes/exists ログインしている場合 レスポンスボディの検証" file="./spec/requests/api/likes_spec.rb" time="0.581331"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes GET /api/v1/likes/exists ログインしている場合 レスポンス失敗" file="./spec/requests/api/likes_spec.rb" time="0.439464"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes GET /api/v1/likes/exists ログインしていない場合 レスポンス成功" file="./spec/requests/api/likes_spec.rb" time="0.415751"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes GET /api/v1/likes/exists ログインしていない場合 レスポンスボディの検証" file="./spec/requests/api/likes_spec.rb" time="0.451369"></testcase>
-<testcase classname="spec.requests.api.likes_spec" name="API::Likes GET /api/v1/likes/exists ログインしていない場合 レスポンス失敗" file="./spec/requests/api/likes_spec.rb" time="0.127376"></testcase>
+<testcase classname="spec.requests.api.reviews_spec" name="API::Reviews POST /api/v1/products/:id/reviews ログインしている場合 レスポンス成功" file="./spec/requests/api/reviews_spec.rb" time="0.790430"></testcase>
+<testcase classname="spec.requests.api.reviews_spec" name="API::Reviews POST /api/v1/products/:id/reviews ログインしている場合 データが保存される" file="./spec/requests/api/reviews_spec.rb" time="0.548411"></testcase>
+<testcase classname="spec.requests.api.reviews_spec" name="API::Reviews POST /api/v1/products/:id/reviews ログインしている場合 レスポンス失敗" file="./spec/requests/api/reviews_spec.rb" time="0.563130"></testcase>
+<testcase classname="spec.requests.api.reviews_spec" name="API::Reviews POST /api/v1/products/:id/reviews ログインしていない場合 レスポンス失敗" file="./spec/requests/api/reviews_spec.rb" time="0.411837"></testcase>
+<testcase classname="spec.requests.api.reviews_spec" name="API::Reviews DELETE /api/v1/products/:id/reviews/:id ログインしている場合 レスポンス成功" file="./spec/requests/api/reviews_spec.rb" time="0.694028"></testcase>
+<testcase classname="spec.requests.api.reviews_spec" name="API::Reviews DELETE /api/v1/products/:id/reviews/:id ログインしている場合 データが削除される" file="./spec/requests/api/reviews_spec.rb" time="0.593763"></testcase>
+<testcase classname="spec.requests.api.reviews_spec" name="API::Reviews DELETE /api/v1/products/:id/reviews/:id ログインしている場合 レスポンス失敗" file="./spec/requests/api/reviews_spec.rb" time="0.412550"></testcase>
+<testcase classname="spec.requests.api.reviews_spec" name="API::Reviews DELETE /api/v1/products/:id/reviews/:id ログインしていない場合 レスポンス失敗" file="./spec/requests/api/reviews_spec.rb" time="0.427263"></testcase>
+<testcase classname="spec.requests.api.reviews_spec" name="API::Reviews GET /api/v1/products/:id/reviews/exists ログインしている場合 レスポンス成功" file="./spec/requests/api/reviews_spec.rb" time="0.739956"></testcase>
+<testcase classname="spec.requests.api.reviews_spec" name="API::Reviews GET /api/v1/products/:id/reviews/exists ログインしている場合 レスポンスボディの検証" file="./spec/requests/api/reviews_spec.rb" time="0.713134"></testcase>
+<testcase classname="spec.requests.api.reviews_spec" name="API::Reviews GET /api/v1/products/:id/reviews/exists ログインしている場合 レスポンス失敗" file="./spec/requests/api/reviews_spec.rb" time="0.485942"></testcase>
+<testcase classname="spec.requests.api.reviews_spec" name="API::Reviews GET /api/v1/products/:id/reviews/exists ログインしていない場合 レスポンス成功" file="./spec/requests/api/reviews_spec.rb" time="0.592089"></testcase>
+<testcase classname="spec.requests.api.reviews_spec" name="API::Reviews GET /api/v1/products/:id/reviews/exists ログインしていない場合 レスポンス失敗" file="./spec/requests/api/reviews_spec.rb" time="0.413458"></testcase>
 </testsuite>
