@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'API::Likes', type: :request do
+RSpec.describe 'API::Likes' do
   let(:user) { create(:user) }
   let(:headers) { api_sign_in(user) }
   let(:product) { create(:product, user: user) }

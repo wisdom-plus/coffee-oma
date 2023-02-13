@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Api::Auth::Sessions', type: :request do
+RSpec.describe 'Api::Auth::Sessions' do
   let(:guest) { create(:user, :guest) }
 
   describe 'GET /api/auth/guest_login' do

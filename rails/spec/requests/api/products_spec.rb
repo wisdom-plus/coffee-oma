@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'API::Products', type: :request do
+RSpec.describe 'API::Products' do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
   let(:product_params) { attributes_for(:product, image: nil) }

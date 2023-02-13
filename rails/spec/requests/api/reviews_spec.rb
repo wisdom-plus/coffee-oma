@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'API::Reviews', type: :request do
+RSpec.describe 'API::Reviews' do
   let(:user) { create(:user) }
   let(:other_user) { create(:user, :other_user) }
   let(:product) { create(:product, user: user) }

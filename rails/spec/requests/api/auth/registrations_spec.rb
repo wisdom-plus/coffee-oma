@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Auth::Registrations', type: :request do
+RSpec.describe 'Auth::Registrations' do
   let(:user) { create(:user) }
   let(:user_params) { attributes_for(:user) }
   let(:headers) { api_sign_in(user) }

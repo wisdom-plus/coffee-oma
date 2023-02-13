@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Api::Relationships', type: :request do
+RSpec.describe 'Api::Relationships' do
   let(:user) { create(:user) }
   let(:other_user) { create(:user, :other_user) }
   let(:follow) { create(:relationship, user: user, follow: other_user) }
@@ -58,6 +58,7 @@ RSpec.describe 'Api::Relationships', type: :request do
     context 'ログインしている場合' do
       it 'レスポンス成功(フォローが存在する時)' do
         get exists_api_v1_relationships_path(follow_id: other_user.id), headers: headers
+        expect(response).to have_http_status(:ok)
       end
 
       it 'レスポンス成功(フォローが存在しない時)' do
@@ -73,7 +74,8 @@ RSpec.describe 'Api::Relationships', type: :request do
     end
 
     context 'ログインしていない場合' do
-      it 'レスポンス成功' do
+      it 'レスポンス成功(フォローが存在する時)' do
+        follow
         get exists_api_v1_relationships_path(follow_id: other_user.id)
         expect(response).to have_http_status(:ok)
         expect(json['follow']).to eq(expect_json(false))
