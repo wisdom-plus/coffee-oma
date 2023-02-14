@@ -103,6 +103,9 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  Selenium::WebDriver.logger.level = :warn
+  Selenium::WebDriver.logger.ignore(:caps_browsers)
+
   config.include FactoryBot::Syntax::Methods
   config.include Warden::Test::Helpers
   config.include Devise::Test::IntegrationHelpers, type: :request
