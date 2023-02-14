@@ -8,8 +8,8 @@ module Api
 
         return render json: { message: 'user not found' }, status: :not_found unless user
 
-        follow = FollowAndNotificationCreate.new(current_api_v1_user, user).create
-        if follow.save
+        follow = FollowAndNotificationCreate.new(current_api_v1_user, user)
+        if follow.create
           render json: {}, status: :created
         else
           render json: {}, status: :bad_request
@@ -21,8 +21,8 @@ module Api
 
         return render json: { message: 'user not found' }, status: :not_found unless user
 
-        follow = Follow.new(current_api_v1_user, user).unfollow
-        if follow.destroy
+        follow = Follow.new(current_api_v1_user, user)
+        if follow.unfollow
           render json: {}, status: :ok
         else
           render json: {}, status: :bad_request

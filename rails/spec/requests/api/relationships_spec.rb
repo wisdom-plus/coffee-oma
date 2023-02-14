@@ -19,7 +19,12 @@ RSpec.describe 'Api::Relationships' do
         end.to change(Relationship, :count).by 1
       end
 
-      it 'レスポンス失敗' do
+      it 'レスポンス失敗(同じユーザー)' do
+        post api_v1_relationships_path, params: { relationships: { follow_id: user.id } }, headers: headers
+        expect(response).to  have_http_status(:bad_request)
+      end
+
+      it 'レスポンス失敗(idが存在しない)' do
         post api_v1_relationships_path, params: { relationships: { follow_id: 0 } }, headers: headers
         expect(response).to have_http_status(:not_found)
       end
@@ -45,6 +50,11 @@ RSpec.describe 'Api::Relationships' do
         expect do
           delete api_v1_relationship_path(follow.follow_id), headers: headers
         end.to change(Relationship, :count).by(-1)
+      end
+
+      it 'レスポンス失敗(同じユーザー)' do
+        delete api_v1_relationship_path(user.id), headers: headers
+        expect(response).to have_http_status(:bad_request)
       end
 
       it 'レスポンス失敗' do
