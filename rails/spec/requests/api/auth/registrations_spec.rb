@@ -29,6 +29,11 @@ RSpec.describe 'Auth::Registrations' do
         expect(response).to have_http_status(:ok)
       end
 
+      it 'レスポンス成功(パスワードなし)' do
+        put api_v1_user_registration_path, params: { registration: { username: 'testuser', password: '', password_confirmation: '' } }, headers: headers
+        expect(response).to have_http_status(:ok)
+      end
+
       it 'レスポンス失敗' do
         put api_v1_user_registration_path, params: { registration: { username: '' } }, headers: headers
         expect(response).to have_http_status(:not_found)
@@ -40,6 +45,18 @@ RSpec.describe 'Auth::Registrations' do
         put api_v1_user_registration_path, params: { registration: { username: 'testuser' } }
         expect(response).to have_http_status(:unauthorized)
       end
+    end
+  end
+
+  describe 'POST /api/auth/registrations' do
+    it 'レスポンス成功' do
+      post api_v1_user_registration_path, params: { registration: user_params }
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'レスポンス失敗' do
+      post api_v1_user_registration_path, params: { registration: { username: '', email: '', password: '', password_confirmation: '' } }
+      expect(response).to have_http_status(:unprocessable_entity)
     end
   end
 end

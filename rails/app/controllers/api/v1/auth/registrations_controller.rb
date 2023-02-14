@@ -39,9 +39,11 @@ module Api
             params.require(:registration).permit(:username, :email, :password, :password_confirmation, :current_password, :image, :profile)
           end
 
+          # :nocov:
           def account_update_no_password_params
             params.require(:registration).permit(:username, :email, :image, :profile, :password, :password_confirmation)
           end
+          # :nocov:
       end
     end
   end

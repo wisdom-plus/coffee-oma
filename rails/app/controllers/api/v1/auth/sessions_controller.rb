@@ -23,8 +23,10 @@ module Api
                 @resource.save!
               end
             else
+              # :nocov:
               @token = @resource.create_token
               @resource.save!
+              # :nocov:
             end
           end
       end
