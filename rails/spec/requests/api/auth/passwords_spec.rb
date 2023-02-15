@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Api::Auth::Passwords', type: :request do
+RSpec.describe 'Api::Auth::Passwords' do
   let(:user) { create(:user) }
 
   describe 'POST /api/auth/password' do
