@@ -5,7 +5,10 @@ class FollowAndNotificationCreate
   end
 
   def create
-    follow = Follow.new(@user, @follower).follow
+    follow = Follow.new(@user, @follower)
+    return false if @user == @follower
+
+    follow = follow.follow
     create_notification(follow)
     follow
   end

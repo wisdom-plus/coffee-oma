@@ -18,6 +18,8 @@ class Like < ApplicationRecord
   belongs_to :user
   has_many :notifications, as: :source, dependent: :destroy
 
+  validates :liked_id, presence: true
+
   scope :find_product_and_bean, ->(user_id) { where(["user_id = ? and type IN ('ProductLike','BeanLike')", user_id]).order(created_at: :DESC) }
 
   def self.product_and_bean_likes_includes(_likes)

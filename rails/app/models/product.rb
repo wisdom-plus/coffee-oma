@@ -42,6 +42,7 @@ class Product < ApplicationRecord
 
   scope :keywords_search, ->(keywords) { ransack(keywords) }
   scope :sort_by_likes_count, -> { order('likes_count desc') }
+  scope :page_offset, ->(page) { offset(page * INDEX_DISPALY_NUM) }
 
   delegate :images, to: :thread_image, allow_nil: true
 
@@ -68,6 +69,24 @@ class Product < ApplicationRecord
     else
       build_thread_image(attachments: file)
     end
+  end
+
+  def api_json
+    {
+      id: id,
+      name: name,
+      url: url,
+      shopname: shopname,
+      price: price,
+      caption: caption,
+      reviews_count: reviews_count,
+      image: { url: images[0].url }
+      # rate_average: rate_average
+    }
+  end
+
+  def self.index_pagenation(page)
+    limit(INDEX_DISPALY_NUM).offset(page * INDEX_DISPALY_NUM)
   end
 
   private

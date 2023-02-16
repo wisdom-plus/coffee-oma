@@ -19,6 +19,8 @@
 #  index_reviews_on_user_id     (user_id)
 #
 class Review < ApplicationRecord
+  include ActionView::Helpers::DateHelper
+
   belongs_to :product
   belongs_to :user
   has_many :product_review_likes,
@@ -52,5 +54,21 @@ class Review < ApplicationRecord
 
   def self.user_review(user_id)
     associated_user_review(user_id).includes(:product)
+  end
+
+  def self.api_json(product_id)
+    reviews = where(product_id: product_id)
+    reviews.map(&:as_json)
+  end
+
+  def as_json
+    {
+      id: id,
+      title: title,
+      content: content,
+      rate: rate,
+      time_ago: time_ago_in_words(created_at),
+      user_id: user_id
+    }
   end
 end
