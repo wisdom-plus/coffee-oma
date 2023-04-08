@@ -1,4 +1,3 @@
-[![CircleCI](https://circleci.com/gh/tomoron/coffee-oma/tree/master.svg?style=svg&circle-token=b57eb7c3d1df44c2e42ade91fa43d36ec6790cd7)](https://circleci.com/gh/tomoron/coffee-oma/tree/master)
 ![github issue](https://img.shields.io/github/issues/tomoron/coffee-oma?style=plastic)
 [![codecov](https://codecov.io/gh/tomoron/coffee-oma/branch/master/graph/badge.svg?token=PYLRMXDK0D)](https://codecov.io/gh/tomoron/coffee-oma)
 
