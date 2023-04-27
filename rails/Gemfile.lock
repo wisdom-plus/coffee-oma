@@ -695,6 +695,7 @@ DEPENDENCIES
   rspec-rails
   rspec_junit_formatter
   rubocop (~> 1.30)
+  rubocop-capybara
   rubocop-performance
   rubocop-rails
   rubocop-rspec
