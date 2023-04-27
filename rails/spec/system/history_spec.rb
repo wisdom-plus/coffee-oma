@@ -4,13 +4,13 @@ RSpec.describe 'History' do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
   let(:bean) { create(:bean, user: user) }
-  let(:history1) { create(:history, product: product, user: user) }
-  let(:history2) { create(:history, bean: bean, user: user) }
+  let(:product_history) { create(:history, product: product, user: user) }
+  let(:bean_history) { create(:history, bean: bean, user: user) }
 
   describe 'index' do
     before do
-      history1
-      history2
+      product_history
+      bean_history
     end
 
     context 'when login' do
@@ -71,10 +71,10 @@ RSpec.describe 'History' do
       visit product_path(product.id)
       visit bean_path(bean.id)
       visit histories_path
-      bean_history = all('.spec-item')[0]
-      product_history = all('.spec-item')[1]
-      expect(bean_history[:href]).to eq bean_path(bean.id)
-      expect(product_history[:href]).to eq product_path(product.id)
+      bean_history_item = all('.spec-item')[0]
+      product_history_item = all('.spec-item')[1]
+      expect(bean_history_item[:href]).to eq bean_path(bean.id)
+      expect(product_history_item[:href]).to eq product_path(product.id)
     end
   end
 end
