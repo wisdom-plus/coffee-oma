@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="2" skipped="0" failures="0" errors="0" time="1.834654" timestamp="2023-04-27T20:21:04+09:00" hostname="d0771f5fd11b">
+<testsuite name="rspec" tests="6" skipped="0" failures="0" errors="0" time="1.926248" timestamp="2023-04-27T20:25:28+09:00" hostname="d0771f5fd11b">
 <properties>
-<property name="seed" value="50537"/>
+<property name="seed" value="60826"/>
 </properties>
-<testcase classname="spec.requests.histories_spec" name="Histories GET /index when login request success" file="./spec/requests/histories_spec.rb" time="0.977255"></testcase>
-<testcase classname="spec.requests.histories_spec" name="Histories GET /index when not login request fail" file="./spec/requests/histories_spec.rb" time="0.191911"></testcase>
+<testcase classname="spec.models.room_spec" name="Room class method find_room(user,other_user)" file="./spec/models/room_spec.rb" time="0.377380"></testcase>
+<testcase classname="spec.models.room_spec" name="Room class method room_new(user,other_user)" file="./spec/models/room_spec.rb" time="0.295680"></testcase>
+<testcase classname="spec.models.room_spec" name="Room class method room_new(other_user,another_user)" file="./spec/models/room_spec.rb" time="0.285285"></testcase>
+<testcase classname="spec.models.room_spec" name="Room instance method another_user" file="./spec/models/room_spec.rb" time="0.318143"></testcase>
+<testcase classname="spec.models.room_spec" name="Room instance method check_participant(1 &lt; 2)" file="./spec/models/room_spec.rb" time="0.283763"></testcase>
+<testcase classname="spec.models.room_spec" name="Room instance method check_participant(2 &gt; 1)" file="./spec/models/room_spec.rb" time="0.330270"></testcase>
 </testsuite>
