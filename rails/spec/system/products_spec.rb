@@ -52,7 +52,7 @@ RSpec.describe 'Products' do
       fill_in 'search',	with: 'コーヒー'
       find_by_id('search').click
       expect(page).to have_content 'コーヒーの器具の名前'
-      expect(page).to have_no_content '器具の名前が入ります'
+      expect(page).not_to have_content '器具の名前が入ります'
 
       visit products_path(tag_name: 'コーヒー')
       expect(page).to have_content 'コーヒーの器具の名前'
