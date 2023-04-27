@@ -4,16 +4,16 @@ RSpec.describe 'Histories' do
   let_it_be(:user) { create(:user) }
   let_it_be(:product) { create(:product, user: user) }
   let_it_be(:bean) { create(:bean, user: user) }
-  let_it_be(:history1) { create(:history, product: product, user: user) }
-  let_it_be(:history2) { create(:history, bean: bean, user: user) }
+  let_it_be(:product_history) { create(:history, product: product, user: user) }
+  let_it_be(:bean_history) { create(:history, bean: bean, user: user) }
 
   describe 'GET /index' do
     context 'when login' do
       before do
         user.confirm
         sign_in user
-        history1
-        history2
+        product_history
+        bean_history
       end
 
       it 'request success' do
