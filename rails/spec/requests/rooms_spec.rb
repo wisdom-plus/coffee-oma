@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe 'Rooms' do
   let_it_be(:user) { create(:user) }
-  let_it_be(:user1) { create(:user, :other_user) }
-  let_it_be(:user2) { create(:user, email: 'test2@example.com', username: 'test3') }
-  let(:follow) { create(:relationship, user: user, follow: user1) }
-  let(:follow2) { create(:relationship, user: user, follow: user2) }
-  let(:room) { create(:room, participant1: user, participant2: user1) }
+  let_it_be(:another_user) { create(:user, :other_user) }
+  let_it_be(:other_user) { create(:user, username: 'test3') }
+  let(:follow) { create(:relationship, user: user, follow: another_user) }
+  let(:another_follow) { create(:relationship, user: user, follow: other_user) }
+  let(:room) { create(:room, participant1: user, participant2: another_user) }
   let(:message) { create(:message, user: user, room: room) }
 
   describe 'GET index' do
@@ -25,7 +25,7 @@ RSpec.describe 'Rooms' do
       user.confirm
       sign_in user
       follow
-      follow2
+      another_follow
     end
 
     it 'request success' do
@@ -34,7 +34,7 @@ RSpec.describe 'Rooms' do
     end
 
     it 'serach success' do
-      get new_room_path, params: { q: user2.username }
+      get new_room_path, params: { q: other_user.username }
       expect(response).to have_http_status(:ok)
     end
   end
@@ -59,13 +59,13 @@ RSpec.describe 'Rooms' do
     end
 
     it 'request success' do
-      post rooms_path, params: { user_id: user1.id }
+      post rooms_path, params: { user_id: another_user.id }
       expect(response).to have_http_status(:see_other)
     end
 
     it 'created room' do
       expect do
-        post rooms_path, params: { user_id: user1.id }
+        post rooms_path, params: { user_id: another_user.id }
       end.to change(Room, :count).by 1
     end
   end

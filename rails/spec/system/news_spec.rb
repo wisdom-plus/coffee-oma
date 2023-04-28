@@ -3,39 +3,39 @@ require 'rails_helper'
 RSpec.describe 'News' do
   let(:admin) { create(:admin_user) }
   let(:news) { create(:news, user: admin) }
-  let(:news1) { create(:news, :another_news, user: admin) }
-  let(:news2) { create(:news, :after_published_new, user: admin) }
+  let(:another_news) { create(:news, :another_news, user: admin) }
+  let(:after_published_news) { create(:news, :after_published_new, user: admin) }
 
   describe 'index' do
     it 'displayed news' do
       news
-      news1
+      another_news
       visit news_index_path
       link = first('.spec-item')
       link1 = all('.spec-item').last
       expect(link[:href]).to eq news_path(news.id)
-      expect(link1[:href]).to eq news_path(news1.id)
+      expect(link1[:href]).to eq news_path(another_news.id)
     end
   end
 
   describe 'show' do
     before do
       news
-      news1
-      news2
+      another_news
+      after_published_news
     end
 
     it 'display news adn new1' do
       visit news_path(news.id)
       expect(page).to have_content news.title
       expect(page).to have_content I18n.l(news.publicshed_at, format: :news_short)
-      visit news_path(news1.id)
-      expect(page).to have_content news1.title
-      expect(page).to have_content I18n.l(news1.publicshed_at, format: :news_short)
+      visit news_path(another_news.id)
+      expect(page).to have_content another_news.title
+      expect(page).to have_content I18n.l(another_news.publicshed_at, format: :news_short)
     end
 
     it 'display fail' do
-      visit news_path(news2.id)
+      visit news_path(after_published_news.id)
       expect(page).to have_content '公開させておりません。'
       expect(page).to have_current_path root_path
     end

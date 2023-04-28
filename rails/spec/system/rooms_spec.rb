@@ -2,19 +2,19 @@ require 'rails_helper'
 
 RSpec.describe 'Rooms' do
   let(:user) { create(:user) }
-  let(:user1) { create(:user, :other_user) }
-  let(:user2) { create(:user, email: 'test3@example.com', username: 'test3') }
-  let(:follow) { create(:relationship, user: user, follow: user1) }
-  let(:room) { create(:room, participant1: user, participant2: user1) }
-  let(:room1) { create(:room, participant1: user1, participant2: user2) }
+  let(:another_user) { create(:user, :other_user) }
+  let(:other_user) { create(:user, email: 'test3@example.com', username: 'test3') }
+  let(:follow) { create(:relationship, user: user, follow: another_user) }
+  let(:room) { create(:room, participant1: user, participant2: another_user) }
+  let(:room1) { create(:room, participant1: another_user, participant2: other_user) }
   let(:message) { create(:message, user: user, room: room) }
-  let(:message1) { create(:message, user: user1, room: room, message: 'これはuser1のメッセージです') }
+  let(:message1) { create(:message, user: another_user, room: room, message: 'これはuser1のメッセージです') }
   let(:message_params) { attributes_for(:message, user_id: user.id, room_id: room.id) }
 
   context 'when login' do
     before do
       login(user, user.email, user.password)
-      user1
+      another_user
     end
 
     context 'index' do
@@ -26,7 +26,7 @@ RSpec.describe 'Rooms' do
       it 'render page and render button' do
         visit rooms_path
         expect(page).to have_content 'メッセージ一覧'
-        expect(page).to have_content user1.username.to_s
+        expect(page).to have_content another_user.username.to_s
         expect(page).to have_content message.message.to_s
 
         click_on 'メッセージを送る'
@@ -38,10 +38,10 @@ RSpec.describe 'Rooms' do
       it 'created room(room not exists)' do
         follow
         visit new_room_path
-        expect(page).to have_content user1.username
+        expect(page).to have_content another_user.username
 
         expect do
-          click_on user1.username
+          click_on another_user.username
         end.to change(Room, :count).by 1
         expect(page).to have_current_path room_path(Room.last.id)
       end
@@ -51,7 +51,7 @@ RSpec.describe 'Rooms' do
         room
         visit new_room_path
         expect do
-          click_on user1.username
+          click_on another_user.username
         end.not_to change(Room, :count)
         expect(page).to have_current_path room_path(room.id)
       end
@@ -72,7 +72,7 @@ RSpec.describe 'Rooms' do
 
       it 'render page' do
         visit room_path(room.id)
-        expect(page).to have_content user1.username.to_s
+        expect(page).to have_content another_user.username.to_s
         expect(page).to have_content message.message.to_s
         expect(page).to have_content message1.message.to_s
         expect(page).to have_css '.balloon_r'
@@ -87,17 +87,17 @@ RSpec.describe 'Rooms' do
 
     context 'create' do
       it 'created room' do
-        visit "users/#{user1.id}/show"
+        visit "users/#{another_user.id}/show"
         click_on 'メッセージを送る'
         expect(page).to have_current_path room_path(Room.first.id), ignore_query: true
-        expect(page).to have_content user1.username.to_s
+        expect(page).to have_content another_user.username.to_s
       end
     end
   end
 
   context 'when not login' do
     it 'not displayed message-label' do
-      visit "users/#{user1.id}/show"
+      visit "users/#{another_user.id}/show"
       expect(page).not_to have_css '.spec-message'
     end
 

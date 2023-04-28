@@ -12,8 +12,8 @@ Capybara.add_selector :rich_text_area do
     else
       input_located_by_name = XPath.anywhere(:input).where(XPath.attr(:name) == locator).attr(:id)
 
-      XPath.descendant(:'trix-editor').where \
-        XPath.attr(:id).equals(locator) |
+      XPath.descendant(:'trix-editor').where
+      XPath.attr(:id).equals(locator) |
         XPath.attr(:placeholder).equals(locator) |
         XPath.attr(:'aria-label').equals(locator) |
         XPath.attr(:input).equals(input_located_by_name)

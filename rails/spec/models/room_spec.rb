@@ -18,55 +18,55 @@ require 'rails_helper'
 
 RSpec.describe Room do
   let(:user) { create(:user) }
-  let(:user1) { create(:user, email: 'test2@example.com', username: 'test2') }
-  let(:user2) { create(:user, email: 'test3@example.com', username: 'test3') }
-  let(:room) { create(:room, participant1: user, participant2: user1) }
-  let(:room1) { create(:room, participant1: user1, participant2: user2) }
+  let(:other_user) { create(:user, username: 'test2') }
+  let(:another_user) { create(:user, username: 'test3') }
+  let(:room) { create(:room, participant1: user, participant2: other_user) }
+  let(:another_room) { create(:room, participant1: other_user, participant2: another_user) }
 
   describe 'class method' do
-    it 'find_room(user,user1)' do
+    it 'find_room(user,other_user)' do
       room
-      r = Room.find_room(user.id, user1.id)
-      r1 = Room.find_room(user1.id, user.id)
+      r = Room.find_room(user.id, other_user.id)
+      r1 = Room.find_room(other_user.id, user.id)
       expect(r).to eq room
       expect(r1).to eq room
     end
 
-    it 'room_new(user,user1)' do
-      r = Room.room_new(user.id, user1.id)
+    it 'room_new(user,other_user)' do
+      r = Room.room_new(user.id, other_user.id)
       expect(r.participant1_id).to eq user.id
-      expect(r.participant2_id).to eq user1.id
+      expect(r.participant2_id).to eq other_user.id
     end
 
-    it 'room_new(user1,user2)' do
+    it 'room_new(other_user,another_user)' do
       user
-      user2
-      r = Room.room_new(user2.id, user.id)
+      another_user
+      r = Room.room_new(another_user.id, user.id)
       expect(r.participant1_id).to eq user.id
-      expect(r.participant2_id).to eq user2.id
+      expect(r.participant2_id).to eq another_user.id
     end
   end
 
   describe 'instance method' do
     it 'another_user' do
       room
-      r = Room.find_room(user.id, user1.id)
-      expect(r.another_user(user)).to eq user1
-      expect(r.another_user(user1)).to eq user
+      r = Room.find_room(user.id, other_user.id)
+      expect(r.another_user(user)).to eq other_user
+      expect(r.another_user(other_user)).to eq user
     end
 
     it 'check_participant(1 < 2)' do
       user
-      user1
-      r = Room.new(participant1_id: user.id, participant2_id: user1.id)
+      other_user
+      r = Room.new(participant1_id: user.id, participant2_id: other_user.id)
       r.save
       expect(Room.last.participant1_id).to eq user.id
     end
 
     it 'check_participant(2 > 1)' do
       user
-      user1
-      r = Room.new(participant1_id: user1.id, participant2_id: user.id)
+      other_user
+      r = Room.new(participant1_id: other_user.id, participant2_id: user.id)
       r.save
       expect(Room.last.participant1_id).to eq user.id
     end

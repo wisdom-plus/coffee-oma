@@ -114,12 +114,13 @@ RSpec.configure do |config|
   config.include ActiveJob::TestHelper
   config.include ActiveSupport::Testing::TimeHelpers
   config.include ViewComponent::TestHelpers, type: :component
+  config.include ViewComponent::SystemTestHelpers, type: :component
   config.include Capybara::RSpecMatchers, type: :component
   config.include Devise::Test::ControllerHelpers, type: :component
   config.include Requests::JsonHelpers, type: :request
   config.include Requests::AuthorizationHelpers, type: :request
 
   config.before(:each, type: :component) do
-    @request = controller.request
+    @request = vc_test_controller.request
   end
 end
