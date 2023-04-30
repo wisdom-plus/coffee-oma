@@ -185,14 +185,8 @@ GEM
     crack (0.4.5)
       rexml
     crass (1.0.6)
-    daemons (1.4.1)
     date (3.3.3)
     debug_inspector (1.1.0)
-    delayed_job (4.1.11)
-      activesupport (>= 3.0, < 8.0)
-    delayed_job_active_record (4.1.7)
-      activerecord (>= 3.0, < 8.0)
-      delayed_job (>= 3.0, < 5)
     devise (4.9.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -650,8 +644,6 @@ DEPENDENCIES
   carrierwave (~> 2.2.0)
   codecov
   counter_culture (~> 3.0)
-  daemons
-  delayed_job_active_record
   devise
   devise-async
   devise-i18n

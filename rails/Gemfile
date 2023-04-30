@@ -34,8 +34,6 @@ gem 'bootsnap', '>= 1.12', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'carrierwave', '~> 2.2.0'
 gem 'counter_culture', '~> 3.0'
-gem 'daemons'
-gem 'delayed_job_active_record'
 gem 'devise'
 gem 'devise-async'
 gem 'devise-i18n'
