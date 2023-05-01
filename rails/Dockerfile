@@ -26,6 +26,7 @@ RUN apk  --no-cache add linux-headers\
                         coreutils \
                         gnupg \
                         imagemagick \
+                        graphviz \
                         yarn &&\
     apk add --virtual build-dependencies --no-cache build-base curl-dev &&\
     gem install bundler --no-document --version 2.3.26 && \

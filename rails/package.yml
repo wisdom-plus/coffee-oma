@@ -4,7 +4,6 @@
 
 # Turn on dependency checks for this package
 enforce_dependencies: true
-enforce_privacy: true
 
 # A list of this package's dependencies
 # Note that packages in this list require their own `package.yml` file
