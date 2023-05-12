@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_11_024909) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_12_115001) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -108,6 +108,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_024909) do
     t.integer "reviews_count", default: 0, null: false
     t.index ["likes_count"], name: "index_beans_on_likes_count"
     t.index ["user_id"], name: "index_beans_on_user_id"
+  end
+
+  create_table "brands", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "logo"
+    t.string "description"
+    t.string "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "contacts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
