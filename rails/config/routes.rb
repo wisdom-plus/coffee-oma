@@ -309,6 +309,7 @@ Rails.application.routes.draw do
   resources :beans do
     resources :bean_reviews, only: %i[create destroy]
   end
+  resources :brands
 
   namespace :api, { format: 'json' } do
     namespace :v1 do
