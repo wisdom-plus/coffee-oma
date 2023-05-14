@@ -1,2 +1,35 @@
-h1 Brands#new
-p Find me in app/views/brands/new.html.slim
+.ui.container
+  .ui.grid
+    .column
+  .ui.middle.aligned.center.aligned.grid
+    .column
+      h1#title ブランドの詳細
+  .ui.vertical.stripe.segment
+    .ui.middle.aligned.stackable.grid.conteiner
+      .row
+        .six.wide.left.floated.column
+          =image_tag brand.logo.url ,class: "ui large bordered rounded image"
+        .ten.wide.column
+          table.ui.celled.table
+            thead
+              tr
+                th.center.aligned colspan=3 #{@brand.name}
+            tbody
+              tr
+                td.center.aligned テスト
+                td.center.aligned testuo
+              tr
+                td.center.aligned Webサイト
+                td.center.aligned
+                  a href=@brand.website
+      .row
+        .column
+          table.ui.celled.table
+            thead
+              tr
+                th 商品の説明文
+            tbody
+              tr
+                td
+                  = simple_format(h(@brand.description))
+  .ui.section.divider
