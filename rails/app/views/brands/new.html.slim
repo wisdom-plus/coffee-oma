@@ -1,35 +1,46 @@
 .ui.container
   .ui.grid
     .column
-  .ui.middle.aligned.center.aligned.grid
-    .column
-      h1#title ブランドの詳細
-  .ui.vertical.stripe.segment
-    .ui.middle.aligned.stackable.grid.conteiner
-      .row
-        .six.wide.left.floated.column
-          =image_tag brand.logo.url ,class: "ui large bordered rounded image"
-        .ten.wide.column
-          table.ui.celled.table
+      - breadcrumb :product_new
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  .ui.middle.aligned.center.aligned.grid.vertical.stripe data-controller='validate'
+    .column style= "width: 640px"
+      h1#title ブランドを登録する
+      .ui.content.field
+        =form_with model: @brand, url: brands_path ,local: true,class: "ui mini product_new form" do |f|
+          .ui.centered.card.field.text-left#newcard data-controller='dimmer file-form'
+            .image#dimmer-product
+              img#img-prev src="/noimage.jpg"
+              .ui.bottom.right.attached.label#dimmer-button data-action='click->dimmer#toggle'
+                i.icons
+                  i.ui.large.camera.icon
+                  i.ui.bottom.right.corner.add.icon
+              .ui.dimmer.field
+                = f.label :logo do
+                  .ui.teal.button#upload-button data-action='click->file-form#upload'
+                    |画像を追加する
+                  = f.file_field :logo, id: "file-form" ,data: { action: 'change->file-form#set change->dimer#toggle', file_form_target: 'input'}
+            .content
+              .header.required.field
+                = f.label :name
+                = f.text_field :name, autofocus: true, placeholder: "brand-name",id: 'name'
+            .extra.content.field
+              = f.label :website
+              = f.url_field :website, autofocus: true, placeholder: "website-url", id: 'url'
+          table.ui.celled.table.field
             thead
               tr
-                th.center.aligned colspan=3 #{@brand.name}
-            tbody
-              tr
-                td.center.aligned テスト
-                td.center.aligned testuo
-              tr
-                td.center.aligned Webサイト
-                td.center.aligned
-                  a href=@brand.website
-      .row
-        .column
-          table.ui.celled.table
-            thead
-              tr
-                th 商品の説明文
+                th = f.label :description,class:'required'
             tbody
               tr
                 td
-                  = simple_format(h(@brand.description))
-  .ui.section.divider
+                  = f.text_area :description, placeholder: "brand description",id: 'description'
+          .ui.error.message
+          =f.button type: "submit",class: "ui teal animated fade button" do
+            .visible.content.show-when-enabled
+              |submit
+            .hidden.content.show-when-enabled
+              |登録
+            .show-when-diabled
+              |登録中
+  .grid
