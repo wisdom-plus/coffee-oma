@@ -12,7 +12,7 @@ class BrandsController < ApplicationController
   end
 
   def create
-    @brand = Brand.new(name: params[:name])
+    @brand = Brand.new(brand_params)
     if @brand.save
       redirect_to brands_path, notice: "Brand created successfully"
     else
@@ -37,5 +37,11 @@ class BrandsController < ApplicationController
     @brand = Brand.find_by(id: params[:id])
     @brand.destroy
     redirect_to brands_path, notice: "Brand deleted successfully"
+  end
+
+  private
+
+  def brand_params
+    params.require(:brand).permit(:name, :description, :logo, :website)
   end
 end

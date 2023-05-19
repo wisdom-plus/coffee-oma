@@ -23,10 +23,10 @@
             .content
               .header.required.field
                 = f.label :name
-                = f.text_field :name, autofocus: true, placeholder: "brand-name",id: 'name'
+                = f.text_field :name, placeholder: "brand-name",id: 'name'
             .extra.content.field
               = f.label :website
-              = f.url_field :website, autofocus: true, placeholder: "website-url", id: 'url'
+              = f.url_field :website, placeholder: "website-url", id: 'url'
           table.ui.celled.table.field
             thead
               tr
@@ -34,13 +34,13 @@
             tbody
               tr
                 td
-                  = f.text_area :description, placeholder: "brand description",id: 'description'
+                  = f.text_area :description, placeholder: "brand-description",id: 'description'
           .ui.error.message
           =f.button type: "submit",class: "ui teal animated fade button" do
             .visible.content.show-when-enabled
               |submit
             .hidden.content.show-when-enabled
               |登録
-            .show-when-diabled
+            .show-when-disabled
               |登録中
   .grid
