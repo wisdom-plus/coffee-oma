@@ -98,6 +98,13 @@ ja:
         purification: "精製方法"
         description: "商品の説明"
         title: 'タイトル'
+      brand:
+        name: "ブランド名"
+        description: "ブランドの説明"
+        website: "ブランドのURL"
+        logo: "ブランドのロゴ"
+        created_at: "作成日"
+        updated_at: "更新日"
       review:
         user: "投稿者"
         product: "商品"
@@ -162,6 +169,7 @@ ja:
       product_like: '商品お気に入り'
       product_review_like: '商品レビューお気に入り'
       report: '通報'
+      brand: "ブランド"
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
