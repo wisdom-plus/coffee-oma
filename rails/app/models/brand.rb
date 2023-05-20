@@ -11,4 +11,6 @@
 #  updated_at  :datetime         not null
 #
 class Brand < ApplicationRecord
+
+  mount_uploader :logo, LogoUploader
 end
