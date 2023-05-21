@@ -10,6 +10,15 @@ ja:
       alert: '登録に失敗しました'
     show:
       alert: '存在しないページです。'
+  brands:
+    create:
+      notice: 'ブランドを登録しました'
+      alert: 'ブランドの登録に失敗しました'
+    update:
+      notice: 'ブランドを更新しました'
+      alert: 'ブランドの更新に失敗しました'
+    destroy:
+      notice: 'ブランドを削除しました'
   contacts:
     create:
       notice: 'お問い合わせメールが送信されました'
