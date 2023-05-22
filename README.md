@@ -1,5 +1,5 @@
-![github issue](https://img.shields.io/github/issues/tomoron/coffee-oma?style=plastic)
-[![codecov](https://codecov.io/gh/tomoron/coffee-oma/branch/master/graph/badge.svg?token=PYLRMXDK0D)](https://codecov.io/gh/tomoron/coffee-oma)
+![github issue](https://img.shields.io/github/issues/wisdom-plus/coffee-oma?style=plastic)
+[![codecov](https://codecov.io/gh/wisdom-plus/coffee-oma/branch/master/graph/badge.svg?token=PYLRMXDK0D)](https://codecov.io/gh/wisdon-plus/coffee-oma)
 
 # Coffee-oma
 
@@ -46,7 +46,7 @@ Coffee-oma はコーヒーに関する器具や、豆などの評価や感想を
 - ページネーション機能(kaminari)
 - 無限スクロール機能
 - 投稿に対するレビュー機能
-- レビューに対しての通報機能(Active Job,Delayed_job)
+- レビューに対しての通報機能(Active Job,Sidekiq)
 - お気に入り機能(STI)
 - 通知機能
 - DM 機能(Action_Cable)
@@ -62,16 +62,15 @@ Coffee-oma はコーヒーに関する器具や、豆などの評価や感想を
 - レート星機能
 - セキュリティ脆弱性性的分析ツール(Brakeman)
 - テストカバレッジ(simplecov,codecov)
-- javascriptバンドル(webpacker,vite)
+- javascriptバンドル(vite)
 - turbo-rails
 
 # 使用している技術一覧
 
 - Ruby 3.1.3
-- rails 6.1.3
+- rails 7.0.4
 - AWS(VPC,ECR,ECS,RDS,Elasticache,ALB,VPCEndpoint,ACM,Route53,S3,SES,CloudWatch,CloudWatchEvent)
 - mysql 8.0
-- CircleCI 2.1
 - Docker 20.10.5, docker-compose 1.28.5
 - terraform 1.0.2
 - Rspec, Capybara, rubocop, selenium
@@ -82,6 +81,9 @@ Coffee-oma はコーヒーに関する器具や、豆などの評価や感想を
 - Codecov
 - Vite_Ruby
 - turbo-rails
+- view_component
+- stimulus
+- packwerk
 
 # ER 図
 
