@@ -35,14 +35,5 @@
             .herader.display_none =brand.name
             .description.display_none
               =simple_format(h(brand.description.truncate(50)))
-          .extra.content
-            .ui.placeholder
-              .short.line
-            span.display_none
-              i.yen.icon.m-0.display_none
-              | 100
-            .right.floated.display_none
-              i.comment.teal.icon
-                | 1
     = paginate @brands
     .segment

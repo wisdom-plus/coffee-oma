@@ -1,6 +1,8 @@
 .ui.container
   .ui.grid
     .column
+      - breadcrumb :product_new
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
   .ui.middle.aligned.center.aligned.grid
     .column
       h1#title ブランドの詳細
@@ -8,7 +10,7 @@
     .ui.middle.aligned.stackable.grid.conteiner
       .row
         .six.wide.left.floated.column
-          =image_tag brand.logo.url ,class: "ui large bordered rounded image"
+          =image_tag @brand.logo.url ,class: "ui large bordered rounded image"
         .ten.wide.column
           table.ui.celled.table
             thead
