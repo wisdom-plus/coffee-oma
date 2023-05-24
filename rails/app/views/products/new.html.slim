@@ -1,8 +1,5 @@
 .ui.container
-  .ui.grid
-    .column
-      - breadcrumb :product_new
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  = component('breadcrumb', path: 'product_new')
   .ui.middle.aligned.center.aligned.grid.vertical.stripe data-controller='validate'
     .column style= "width: 640px"
       h1#title アイテムを登録する

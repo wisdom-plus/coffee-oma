@@ -1,8 +1,5 @@
 .ui.container
-  .ui.grid
-    .column
-      - breadcrumb :product
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  = component('breadcrumb', path: 'product')
   .ui.middle.aligned.center.aligned.grid.vertical.stripe data-controller='dimmer'
     .column
       h1#title アイテムの一覧
