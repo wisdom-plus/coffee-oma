@@ -1,8 +1,5 @@
 .ui.container
-  .ui.grid
-    .column
-      - breadcrumb :ranking
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  = component('breadcrumb', path: 'ranking')
   .ui.middle.aligned.center.aligned.grid.vertical.stripe
     .text.column
       h1.content 人気ランキング

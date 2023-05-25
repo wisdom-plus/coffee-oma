@@ -1,8 +1,5 @@
 .ui.container
-  .ui.grid
-    .column
-      - breadcrumb :bean_show, @bean
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  = component('breadcrumb', path: 'bean_show', model: @bean)
   .ui.middle.aligned.center.aligned.grid
     .column
       h1#title コーヒー豆の詳細
