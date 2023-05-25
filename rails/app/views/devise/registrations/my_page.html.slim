@@ -1,8 +1,5 @@
 .ui.container
-  .ui.grid
-    .column
-      - breadcrumb :profile, @current_user
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  = component('breadcrumb', path: 'user_edit')
   .ui.center.aligned.container
     =vite_image_tag "images/square-image.png" , class: "ui centered small circular image lazyload",data:{src: "#{@current_user.icon.url}"}
     h1.header
