@@ -1,8 +1,5 @@
 .ui.container
-  .ui.grid
-    .column
-      - breadcrumb :contact
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  = component('breadcrumb', path: 'contact')
   .ui.middle.aligned.center.aligned.grid
     .column style= "width: 543px"
       h1#title お問い合わせ

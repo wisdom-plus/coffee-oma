@@ -1,8 +1,5 @@
 .ui.container
-  .ui.grid
-    .column
-      - breadcrumb :message, @room
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  = component( 'breadcrumb', path: 'message', model: @room)
   .ui.middle.aligned.center.aligned.grid
     .column
       h1#title
