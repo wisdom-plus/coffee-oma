@@ -21,9 +21,10 @@
               .header.required.field
                 = f.label :name
                 = f.text_field :name, autofocus: true, placeholder: "item-name",id: 'name'
-              .meta.required.field
-                = f.label :shopname
-                = f.text_field :shopname, autofocus: true, placeholder: "shop-name", id: 'shopname'
+              .meta.required.field data-controller='brand-form'
+                = f.label :brand
+                .ui.fluid.multiple.search.selection.dropdown#brand_form
+                  = f.hidden_field :brand, value: @product.brand, placeholder: "brand-name", id: 'brand-name'
             .extra.content.required.field
               = f.label :price
               .ui.left.icon.input
