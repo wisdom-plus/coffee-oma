@@ -39,7 +39,7 @@
               = f.url_field :url, autofocus: true, placeholder: "url",id: 'url'
             extra.content.required.field data-controller='tag-form'
               =f.label :tag_list
-              .ui.fluid.multiple.search.selection.dropdown#tag_form
+              .ui.fluid.multiple.search.selection.dropdown#tag_form data-tag-form-target='form'
                   =f.hidden_field :tag_list, value: @bean.tag_list.split(' '), id: 'tag'
                   .default.text tag
           table.ui.celled.table.field

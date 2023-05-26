@@ -30,7 +30,7 @@
 class Product < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :histories, dependent: :destroy
-  has_one :brand, optional: true, dependent: :destroy
+  has_many :brands, dependent: :destroy
   has_many :product_likes,
            foreign_key: 'liked_id',
            dependent: :destroy,

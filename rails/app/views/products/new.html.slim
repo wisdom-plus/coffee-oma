@@ -22,9 +22,9 @@
                 = f.label :name
                 = f.text_field :name, autofocus: true, placeholder: "item-name",id: 'name'
               .meta.required.field data-controller='brand-form'
-                = f.label :brand
+                = f.label :brands
                 .ui.fluid.multiple.search.selection.dropdown#brand_form
-                  = f.hidden_field :brand, value: @product.brand, placeholder: "brand-name", id: 'brand-name'
+                  = f.hidden_field :brands, value: @product.brands, placeholder: "brand-name", id: 'brand-name'
             .extra.content.required.field
               = f.label :price
               .ui.left.icon.input
@@ -35,7 +35,7 @@
               = f.url_field :url, autofocus: true, placeholder: "item-url", id: 'url'
             .extra.content.required.field data-controller='tag-form'
               = f.label :tag_list
-              .ui.fluid.multiple.search.selection.dropdown#tag_form
+              .ui.fluid.multiple.search.selection.dropdown#tag_form data-tag-form-target='form'
                   = f.hidden_field :tag_list, value: @product.tag_list.split(" "), id: 'tag'
                   .default.text tag
           table.ui.celled.table.field
