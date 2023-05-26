@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_12_115001) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_26_114552) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -194,6 +194,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_12_115001) do
     t.integer "reviews_count", default: 0, null: false
     t.integer "rate_sum", default: 0, null: false
     t.bigint "user_id", null: false
+    t.bigint "brand_id"
+    t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["likes_count"], name: "index_products_on_likes_count"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -321,6 +323,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_12_115001) do
   add_foreign_key "messages", "users"
   add_foreign_key "news", "admin_users", column: "user_id"
   add_foreign_key "notifications", "users"
+  add_foreign_key "products", "brands"
   add_foreign_key "products", "users"
   add_foreign_key "recipes", "bean_reviews"
   add_foreign_key "relationships", "users"

@@ -13,15 +13,18 @@
 #  url           :text(65535)
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  brand_id      :bigint
 #  user_id       :bigint           not null
 #
 # Indexes
 #
+#  index_products_on_brand_id     (brand_id)
 #  index_products_on_likes_count  (likes_count)
 #  index_products_on_user_id      (user_id)
 #
 # Foreign Keys
 #
+#  fk_rails_...  (brand_id => brands.id)
 #  fk_rails_...  (user_id => users.id)
 #
 FactoryBot.define do
