@@ -13,14 +13,8 @@ export default class extends Controller {
       allowTab: false,
       showOnFocus: false,
       prepareHTML: false,
-      className: {
-        label: "ui teal label",
-      },
-      onAdd: () => {
-        $(".menu.transition.visible").empty();
-      },
       apiSettings: {
-        url: "/api/v1/brands?keyword={query}",
+        url: "/api/v1/brands",
         cache: false,
       },
       message: {

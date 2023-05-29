@@ -23,8 +23,9 @@
                 = f.text_field :name, autofocus: true, placeholder: "item-name",id: 'name'
               .meta.required.field data-controller='brand-form'
                 = f.label :brands
-                .ui.fluid.multiple.search.selection.dropdown#brand_form data-brand-form-target='form'
-                  = f.hidden_field :brands, value: @product.brands, placeholder: "brand-name", id: 'brand-name'
+                .ui.fluid.selection.dropdown#brand_form data-brand-form-target='form'
+                  = f.hidden_field :brands, value: @product.brands, id: 'brand-name'
+                  .default.text brand
             .extra.content.required.field
               = f.label :price
               .ui.left.icon.input
