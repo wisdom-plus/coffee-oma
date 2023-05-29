@@ -1,10 +1,5 @@
-class Api::V1::TagsController < ApplicationController
+class Api::V1::BrandsController < ApplicationController
   def index
-    return nil if params[:keyword].blank?
-
-    @brands = Brand.search(params[:keyword])
-    return if @brands.present?
-
-    @brands = [Brand.new(name: params[:keyword])]
+    @brands = Brand.all
   end
 end

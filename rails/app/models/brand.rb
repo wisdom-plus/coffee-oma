@@ -15,9 +15,4 @@ class Brand < ApplicationRecord
 
   mount_uploader :logo, LogoUploader
 
-  scope :serach, ->(keyword) do
-    return if keyword.nil?
-
-    where('name LIKE ?', "#{keyword}%")
-  end
 end
