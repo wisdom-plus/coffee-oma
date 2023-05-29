@@ -21,7 +21,6 @@ export default class extends Controller {
     $(".ui.product_new.form").form({
       fields: {
         name: "empty",
-        shopname: "empty",
         price: ["minLength[1]", "empty", "number"],
         url: "url",
         tag: ["empty", "minCount[1]"],
