@@ -1,9 +1,11 @@
 class AddBrandIdToProducts < ActiveRecord::Migration[7.0]
   def up
-    add_reference :products, :brand, null: true, foreign_key: true
+    remove_column :products, :shopname
+    add_reference :products, :brand, foreign_key: true, null: true
   end
 
   def down
-    remove_column :products, :shopname
+    add_column :products, :shopname, :string
+    remove_reference :products, :brand
   end
 end
