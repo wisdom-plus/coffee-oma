@@ -9,7 +9,6 @@
 #  price         :integer
 #  rate_sum      :integer          default(0), not null
 #  reviews_count :integer          default(0), not null
-#  shopname      :string(255)
 #  url           :text(65535)
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null

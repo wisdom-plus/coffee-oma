@@ -31,6 +31,8 @@ class ProductsController < ApplicationController
 
   def create
     @product = current_user.products.new(product_params)
+    p @product.save
+    p @product.errors.full_messages
     if @product.save
       redirect_to products_path, notice: t('.notice'), status: :see_other
     else
@@ -42,7 +44,7 @@ class ProductsController < ApplicationController
   private
 
     def product_params
-      params.require(:product).permit(:name, :price, :shopname, :url, :caption, :tag_list, images: [])
+      params.require(:product).permit(:name, :price, :url, :caption, :tag_list, images: [], brands: [])
     end
 
     def history_params
