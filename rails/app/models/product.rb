@@ -29,13 +29,13 @@
 class Product < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :histories, dependent: :destroy
-  has_many :brands, dependent: :destroy
   has_many :product_likes,
            foreign_key: 'liked_id',
            dependent: :destroy,
            inverse_of: :product
   has_one :thread_image, as: :imageable, dependent: :destroy
   belongs_to :user
+  belongs_to :brand, optional: true
 
   acts_as_taggable
 
@@ -79,7 +79,6 @@ class Product < ApplicationRecord
       id: id,
       name: name,
       url: url,
-      shopname: shopname,
       price: price,
       caption: caption,
       reviews_count: reviews_count,

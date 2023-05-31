@@ -11,7 +11,7 @@
 #  updated_at  :datetime         not null
 #
 class Brand < ApplicationRecord
-  belongs_to :product, optional: true
+  has_many :products, dependent: :destroy
 
   mount_uploader :logo, LogoUploader
 
