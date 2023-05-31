@@ -40,7 +40,7 @@ module Api
       private
 
         def product_params
-          params.require(:product).permit(:name, :price, :url, :shopname, :caption, :tag_list, images: [])
+          params.require(:product).permit(:name, :price, :url, :caption, :tag_list, :brand_id, images: [])
         end
 
         def next_page?(page)
