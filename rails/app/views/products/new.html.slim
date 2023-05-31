@@ -24,7 +24,7 @@
               .meta.required.field data-controller='brand-form'
                 = f.label :brands
                 .ui.fluid.selection.dropdown#brand_form data-brand-form-target='form'
-                  = f.hidden_field :brands, value: @product.brands, id: 'brand-name'
+                  = f.hidden_field :brand_id, value: @product.brand_id, id: 'brand-name'
                   .default.text brand
             .extra.content.required.field
               = f.label :price

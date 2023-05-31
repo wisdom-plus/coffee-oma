@@ -28,7 +28,7 @@
                   .inline_yen #{@product.price.to_fs(:delimited)}
               tr
                 td.center.aligned ブランド
-                td.center.aligned #{@product.shopname}
+                td.center.aligned #{@product.brand.name}
               tr data-controller='rate'
                 td.center.aligned 評価
                 - unless @product.rate_average.zero?
