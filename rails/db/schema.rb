@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_114552) do
     t.string "name", null: false
     t.text "body", size: :long
     t.string "record_type", null: false
-    t.integer "record_id", null: false
+    t.bigint "record_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
@@ -25,9 +25,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_114552) do
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
@@ -81,8 +81,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_114552) do
     t.integer "rich"
     t.integer "bitter"
     t.integer "flavor"
-    t.integer "bean_id"
-    t.integer "user_id"
+    t.bigint "bean_id"
+    t.bigint "user_id"
     t.string "title", null: false
     t.text "content", null: false
     t.datetime "created_at", null: false
@@ -101,7 +101,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_114552) do
     t.string "country", null: false
     t.string "area"
     t.text "description"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "likes_count", default: 0, null: false
@@ -113,7 +113,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_114552) do
   create_table "brands", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "logo"
-    t.string "description"
+    t.text "description"
     t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -128,9 +128,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_114552) do
   end
 
   create_table "histories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "bean_id"
-    t.integer "product_id"
+    t.bigint "user_id"
+    t.bigint "bean_id"
+    t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bean_id"], name: "index_histories_on_bean_id"
@@ -139,7 +139,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_114552) do
   end
 
   create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "type"
@@ -224,7 +224,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_114552) do
   create_table "reports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "review_type", null: false
-    t.integer "review_id", null: false
+    t.bigint "review_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["review_type", "review_id"], name: "index_reports_on_review_type_and_review_id"
@@ -232,8 +232,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_114552) do
   end
 
   create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "product_id"
+    t.bigint "user_id"
+    t.bigint "product_id"
     t.string "title", null: false
     t.text "content", null: false
     t.datetime "created_at", null: false
