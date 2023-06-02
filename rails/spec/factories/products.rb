@@ -30,7 +30,6 @@ FactoryBot.define do
   factory :product do
     name { 'コーヒーの器具の名前' }
     price { 1000 }
-    shopname { 'コーヒーのお店' }
     url { 'https://example.com' }
     caption { 'itemの説明文が入ります' }
     images { [Rack::Test::UploadedFile.new('spec/support/noimage.png', 'image/png')] }

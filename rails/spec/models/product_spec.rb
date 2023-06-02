@@ -43,11 +43,6 @@ RSpec.describe Product do
       expect(product_build.valid?).to be false
     end
 
-    it 'product shopname presence' do
-      product_build.shopname = ''
-      expect(product_build.valid?).to be false
-    end
-
     it 'product caption presence' do
       product_build.caption = ''
       expect(product_build.valid?).to be false
