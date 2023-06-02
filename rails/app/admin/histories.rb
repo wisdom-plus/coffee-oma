@@ -34,7 +34,6 @@ ActiveAdmin.register History do # rubocop:disable Metrics/BlockLength
           column :id
           column :name
           column :price
-          column :shopname
           column :caption
         end
       end

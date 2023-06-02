@@ -38,7 +38,6 @@ ActiveAdmin.register Review do # rubocop:disable Metrics/BlockLength
         column :id
         column :itemname
         column :itemprice
-        column :shopname
         column :itemcaption
       end
     end

@@ -4,12 +4,11 @@ ActiveAdmin.register Product do # rubocop:disable Metrics/BlockLength
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :itemname, :catchcopy, :itemprice, :itemcaption, :itemurl, :imageurl, :shopname, :tag_list
   #
   # or
   #
   permit_params do
-    permitted = %i[name price shopname images url caption tag_list user_id]
+    permitted = %i[name price images url caption tag_list user_id]
     permitted << :other if params[:action] == 'create' && admin_user_signed_in?
   end
 
@@ -41,7 +40,6 @@ ActiveAdmin.register Product do # rubocop:disable Metrics/BlockLength
     column :id
     column :name
     column :price
-    column :shopname
     column :caption
     column :rate_sum
     column :likes_count
@@ -56,7 +54,6 @@ ActiveAdmin.register Product do # rubocop:disable Metrics/BlockLength
       f.input :user_id
       f.input :name
       f.input :price
-      f.input :shopname
       f.input :images
       f.input :url
       f.input :caption
