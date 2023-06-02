@@ -9,8 +9,8 @@
 #  title             :string(255)      not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
-#  product_id        :integer
-#  user_id           :integer
+#  product_id        :bigint
+#  user_id           :bigint
 #
 # Indexes
 #

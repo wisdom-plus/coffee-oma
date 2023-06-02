@@ -3,7 +3,7 @@
 # Table name: brands
 #
 #  id          :bigint           not null, primary key
-#  description :string(255)
+#  description :text(65535)
 #  logo        :string(255)
 #  name        :string(255)      not null
 #  website     :string(255)
