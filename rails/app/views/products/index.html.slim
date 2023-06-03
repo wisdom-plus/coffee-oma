@@ -34,7 +34,11 @@
                 .line
             .herader.display_none =product.name
             .meta.display_none
-              span Brand:#{product.brand.name}
+              span
+                -if product.brand.present?
+                  Brand:#{product.brand.name}
+                - else
+                  Brand:なし
             .description.display_none
               =simple_format(h(product.caption.truncate(50)))
           .extra.content

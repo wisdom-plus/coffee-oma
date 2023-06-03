@@ -28,4 +28,10 @@ class ProductDecorator < ApplicationDecorator
   def base_class
     'Product'
   end
+
+  def brand_name
+    return 'なし' if brand.blank?
+
+    brand.name
+  end
 end
