@@ -18,20 +18,11 @@
                 th.center.aligned colspan=3 #{@brand.name}
             tbody
               tr
-                td.center.aligned テスト
-                td.center.aligned testuo
-              tr
-                td.center.aligned Webサイト
+                td.center.aligned 公式サイトへ
                 td.center.aligned
-                  a href=@brand.website
-      .row
-        .column
-          table.ui.celled.table
-            thead
+                  a href= @brand.website
+                    | webサイトへ
               tr
-                th 商品の説明文
-            tbody
-              tr
-                td
+                td.center.aligned 説明文
+                td.center.aligned
                   = simple_format(h(@brand.description))
-  .ui.section.divider

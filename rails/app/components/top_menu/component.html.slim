@@ -14,6 +14,9 @@
     a.item href = likes_path
       i.signal.icon
       font style= "vertical-align: inherit;" ランキング
+    a.item href = brands_path
+      i.briefcase.icon
+      font style= "vertical-align: inherit;" ブランド一覧
     .right.menu.hide
       - if user_signed_in?
         .item.ui.floating.dropdown
