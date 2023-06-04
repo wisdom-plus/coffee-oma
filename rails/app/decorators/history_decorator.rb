@@ -10,7 +10,9 @@ class HistoryDecorator < ApplicationDecorator
   delegate :roast, to: :bean, prefix: true
 
   def product_shop
-    product.shopname
+    return 'なし' if product.brand.blank?
+
+    product.brand.name
   end
 
   def caption_truncate(limit = 50)

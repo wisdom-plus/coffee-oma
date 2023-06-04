@@ -86,7 +86,10 @@
           .content
             .herader =rank.name
             .meta
-              span Brand:  #{rank.brand.name}
+              -if rank.brand.present?
+                span Brand: #{rank.brand.name}
+              - else
+                span Brand: なし
           .extra.content
             i.heart.red.icon
             | #{rank.likes_count}
