@@ -31,8 +31,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = current_user.products.new(product_params)
-    p @product.save
-    p @product.errors.full_messages
     if @product.save
       redirect_to products_path, notice: t('.notice'), status: :see_other
     else
