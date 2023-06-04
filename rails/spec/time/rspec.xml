@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="rspec" tests="2" skipped="0" failures="0" errors="0" time="1.453343" timestamp="2023-06-04T09:24:12+09:00" hostname="5232c5bb08f1">
+<properties>
+<property name="seed" value="11225"/>
+</properties>
+<testcase classname="spec.requests.histories_spec" name="Histories GET /index when login request success" file="./spec/requests/histories_spec.rb" time="0.849886"></testcase>
+<testcase classname="spec.requests.histories_spec" name="Histories GET /index when not login request fail" file="./spec/requests/histories_spec.rb" time="0.061168"></testcase>
+</testsuite>

@@ -15,7 +15,6 @@ RSpec.describe 'Products' do
       it 'create product and redirect to index' do
         expect do
           fill_in 'item-name', with: 'コーヒーの器具の名前'
-          fill_in 'shop-name', with: 'コーヒーのメーカー'
           fill_in 'item-price', with: '1000'
           fill_in 'item-caption', with: 'アイテムの説明文が入ります'
           find_by_id('tag', visible: false).set('コーヒー,豆')
