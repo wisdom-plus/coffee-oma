@@ -12,6 +12,9 @@
 #
 FactoryBot.define do
   factory :brand do
-    
+    name { "Coffee Brand" }
+    website { "https://www.coffeebrand.com" }
+    description { "This is a coffee brand" }
+    logo { Rack::Test::UploadedFile.new('spec/support/noimage.png', 'image/png') }
   end
 end
