@@ -15,4 +15,5 @@ class Brand < ApplicationRecord
 
   mount_uploader :logo, LogoUploader
 
+  validates :name, :description, :website, presence: true
 end
