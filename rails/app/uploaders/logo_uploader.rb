@@ -34,6 +34,13 @@ class LogoUploader < CarrierWave::Uploader::Base
 
   #   # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
+  def default_url(*_args)
+    # For Rails 3.1+ asset pipeline compatibility:
+    # ActionController::Base.helpers.asset_path([version_name, 'default.png'].compact.join('_'))
+    # assetを使用しないようにしたので、pubilc以下のdefault.pngを参照する
+    '/noimage.jpg'
+    # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
