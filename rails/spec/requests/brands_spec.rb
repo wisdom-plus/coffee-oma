@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Brands', type: :request do
+RSpec.describe 'Brands' do
   let(:brand) { create(:brand) }
   let(:brand_params) { attributes_for(:brand) }
 

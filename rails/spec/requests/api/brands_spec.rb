@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'API::Brands', type: :request do
+RSpec.describe 'API::Brands' do
   let(:brand) { create(:brand) }
 
   describe 'GET /api/brands' do

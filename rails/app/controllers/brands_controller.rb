@@ -11,6 +11,10 @@ class BrandsController < ApplicationController
     @brand = Brand.new
   end
 
+  def edit
+    @brand = Brand.find_by(id: params[:id])
+  end
+
   def create
     @brand = Brand.new(brand_params)
     if @brand.save
@@ -19,10 +23,6 @@ class BrandsController < ApplicationController
       flash.now[:alert] = t('.alert')
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
-    @brand = Brand.find_by(id: params[:id])
   end
 
   def update
@@ -43,7 +43,7 @@ class BrandsController < ApplicationController
 
   private
 
-  def brand_params
-    params.require(:brand).permit(:name, :description, :logo, :website)
-  end
+    def brand_params
+      params.require(:brand).permit(:name, :description, :logo, :website)
+    end
 end
