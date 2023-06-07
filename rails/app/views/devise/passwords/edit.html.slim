@@ -1,8 +1,5 @@
 .ui.container
-  .ui.grid
-    .column
-      - breadcrumb :password_edit
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  = component('breadcrumb', path: 'password_edit')
   .ui.middle.aligned.center.aligned.grid data-controller='validate'
     .column style= "width: 543px"
       h1#title パスワードを変更する
@@ -32,7 +29,7 @@
               |Reset Password
             .hidden.content.show-when-enabled
               |パスワードを変更する
-            .show-when-diabled
+            .show-when-disabled
               |送信中
         .ui.error.message
         = render 'devise/shared/error_messages', model:f.object

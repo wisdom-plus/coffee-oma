@@ -309,10 +309,12 @@ Rails.application.routes.draw do
   resources :beans do
     resources :bean_reviews, only: %i[create destroy]
   end
+  resources :brands
 
   namespace :api, { format: 'json' } do
     namespace :v1 do
       resources :tags, only: %i[index]
+      resources :brands, only: %i[index]
       resources :healths, only: %i[index]
       resources :products, only: %i[index show create] do
         resources :reviews, only: %i[create destroy] do

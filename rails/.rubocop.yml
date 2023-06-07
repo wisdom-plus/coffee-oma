@@ -4,7 +4,7 @@ require:
   - rubocop-rails
   - rubocop-rspec
   - rubocop-performance
-  - rubocop-capybara
+  # - rubocop-capybara
   - "test_prof/rubocop"
 
 inherit_gem:

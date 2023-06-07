@@ -1,8 +1,5 @@
 .ui.container
-  .ui.grid
-    .column
-      - breadcrumb :product_show, @product
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  = component('breadcrumb', path: 'product_show', model: @product)
   .ui.middle.aligned.center.aligned.grid
     .column
       h1#title アイテムの詳細
@@ -31,7 +28,7 @@
                   .inline_yen #{@product.price.to_fs(:delimited)}
               tr
                 td.center.aligned ブランド
-                td.center.aligned #{@product.shopname}
+                td.center.aligned #{@product.brand_name}
               tr data-controller='rate'
                 td.center.aligned 評価
                 - unless @product.rate_average.zero?

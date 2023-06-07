@@ -9,19 +9,21 @@
 #  price         :integer
 #  rate_sum      :integer          default(0), not null
 #  reviews_count :integer          default(0), not null
-#  shopname      :string(255)
 #  url           :text(65535)
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  brand_id      :bigint
 #  user_id       :bigint           not null
 #
 # Indexes
 #
+#  index_products_on_brand_id     (brand_id)
 #  index_products_on_likes_count  (likes_count)
 #  index_products_on_user_id      (user_id)
 #
 # Foreign Keys
 #
+#  fk_rails_...  (brand_id => brands.id)
 #  fk_rails_...  (user_id => users.id)
 #
 class Product < ApplicationRecord
@@ -33,10 +35,11 @@ class Product < ApplicationRecord
            inverse_of: :product
   has_one :thread_image, as: :imageable, dependent: :destroy
   belongs_to :user
+  belongs_to :brand, optional: true
 
   acts_as_taggable
 
-  validates :name, :price, :shopname, :caption, presence: true
+  validates :name, :price, :caption, presence: true
 
   before_save :default_image
 
@@ -76,7 +79,6 @@ class Product < ApplicationRecord
       id: id,
       name: name,
       url: url,
-      shopname: shopname,
       price: price,
       caption: caption,
       reviews_count: reviews_count,

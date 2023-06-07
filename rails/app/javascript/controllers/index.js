@@ -10,6 +10,9 @@ application.register("accordion", AccordionController)
 import AnimeController from "./anime_controller"
 application.register("anime", AnimeController)
 
+import BrandFormController from "./brand_form_controller"
+application.register("brand-form", BrandFormController)
+
 import ChartController from "./chart_controller"
 application.register("chart", ChartController)
 

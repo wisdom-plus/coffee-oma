@@ -1,0 +1,36 @@
+.ui.container
+  = component('breadcrumb', path: 'brands')
+  .ui.middle.aligned.center.aligned.grid.vertical.stripe data-controller='dimmer'
+    .column
+      h1#title ブランドの一覧
+      - if user_signed_in?
+        h3
+          | なければ
+          = link_to 'こちらから登録', new_brand_path
+
+  - if @brands.present?
+    .ui.three.stackable.cards.segment.scroll#sidebar data-controller='transition sidebar scroll'
+      .ui.right.close.rail
+        .ui.sticky
+          .ui.labeled.icon.teal.button#top-button data-action='click->sidebar#top'
+            i.up.arrow.icon
+            | Top
+      - @brands.each do |brand|
+        a.ui.fluid.link.card.post.scale href= brand_path(brand.id)
+          .ui.fade.reveal.image.display_none
+            = vite_image_tag 'images/square-image.png',class: 'visible content'
+            = image_tag brand.logo.url,class: 'hidden content'
+          .content
+            .ui.placeholder
+              .header
+                .long.line
+              .paragraph
+                .line
+                .line
+                .line
+                .line
+            .herader.display_none =brand.name
+            .description.display_none
+              =simple_format(h(brand.description.truncate(50)))
+    = paginate @brands
+    .segment

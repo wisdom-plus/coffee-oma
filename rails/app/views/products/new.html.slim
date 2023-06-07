@@ -1,8 +1,5 @@
 .ui.container
-  .ui.grid
-    .column
-      - breadcrumb :product_new
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  = component('breadcrumb', path: 'product_new')
   .ui.middle.aligned.center.aligned.grid.vertical.stripe data-controller='validate'
     .column style= "width: 640px"
       h1#title アイテムを登録する
@@ -24,9 +21,11 @@
               .header.required.field
                 = f.label :name
                 = f.text_field :name, autofocus: true, placeholder: "item-name",id: 'name'
-              .meta.required.field
-                = f.label :shopname
-                = f.text_field :shopname, autofocus: true, placeholder: "shop-name", id: 'shopname'
+              .meta.required.field data-controller='brand-form'
+                = f.label :brands
+                .ui.fluid.selection.dropdown#brand_form data-brand-form-target='form'
+                  = f.hidden_field :brand_id, value: @product.brand_id, id: 'brand-name'
+                  .default.text brand
             .extra.content.required.field
               = f.label :price
               .ui.left.icon.input
@@ -37,7 +36,7 @@
               = f.url_field :url, autofocus: true, placeholder: "item-url", id: 'url'
             .extra.content.required.field data-controller='tag-form'
               = f.label :tag_list
-              .ui.fluid.multiple.search.selection.dropdown#tag_form
+              .ui.fluid.multiple.search.selection.dropdown#tag_form data-tag-form-target='form'
                   = f.hidden_field :tag_list, value: @product.tag_list.split(" "), id: 'tag'
                   .default.text tag
           table.ui.celled.table.field
@@ -54,6 +53,6 @@
               |submit
             .hidden.content.show-when-enabled
               |登録
-            .show-when-diabled
+            .show-when-disabled
               |登録中
   .grid

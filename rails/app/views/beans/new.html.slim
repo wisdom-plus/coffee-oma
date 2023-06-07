@@ -1,8 +1,5 @@
 .ui.container
-  .ui.grid
-    .column
-      - breadcrumb :bean_new
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  = component('breadcrumb', path: 'bean_new')
   .ui.middle.aligned.center.aligned.grid.vertical.stripe data-controller='validate'
     .column style= "width: 640px"
       h1#title コーヒー豆を登録する
@@ -42,7 +39,7 @@
               = f.url_field :url, autofocus: true, placeholder: "url",id: 'url'
             extra.content.required.field data-controller='tag-form'
               =f.label :tag_list
-              .ui.fluid.multiple.search.selection.dropdown#tag_form
+              .ui.fluid.multiple.search.selection.dropdown#tag_form data-tag-form-target='form'
                   =f.hidden_field :tag_list, value: @bean.tag_list.split(' '), id: 'tag'
                   .default.text tag
           table.ui.celled.table.field

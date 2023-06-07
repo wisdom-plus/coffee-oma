@@ -1,8 +1,5 @@
 .ui.container
-  .ui.grid
-    .column
-      - breadcrumb :bean_show, @bean
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  = component('breadcrumb', path: 'bean_show', model: @bean)
   .ui.middle.aligned.center.aligned.grid
     .column
       h1#title コーヒー豆の詳細
@@ -44,7 +41,7 @@
               tr
                 td.center.aligned 評価
                 - unless @bean_reviews.empty?
-                  td.center.aligned.chart-container data-controller='chart' data-chart-evaluations-value = @bean.reviews_evaluations style = "position: relative; width: 350px; height: 100px;"
+                  td.center.aligned.chart-container data-controller='chart' data-chart-evaluations-value = @bean.reviews_evaluations style = "position: relative; width: 200px; height: 200px;"
                     canvas#chart
                 - else
                   td.center.aligned まだ評価がありません

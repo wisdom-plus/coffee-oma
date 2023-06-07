@@ -14,18 +14,25 @@ export default class extends Controller {
         labels: ["酸味", "苦味", "甘み", "コク", "香り"],
         datasets: [
           {
-            label: "",
             data: this.evaluationsValue,
             backgroundColor: "rgba(123,85,68,0.6)",
           },
         ],
       },
       options: {
+        Response: true,
         scale: {
-          ticks: {
-            suggestedMin: 0,
-            suggestedMax: 5,
-            stepSize: 1,
+          r: {
+            min: 0,
+            max: 5,
+            ticks: {
+              stepSize: 1,
+            },
+          },
+        },
+        plugins: {
+          legend: {
+            display: false,
           },
         },
       },

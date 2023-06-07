@@ -20,7 +20,6 @@ RSpec.describe 'Admin product' do
         visit new_admin_product_path
         fill_in 'product_name', with: 'test_product'
         fill_in 'product_price', with: '100'
-        fill_in 'product_shopname', with: 'test_shop'
         fill_in 'product_url', with: 'https://example.com'
         fill_in 'product_caption', with: 'test_caption'
         fill_in 'product_user_id', with: user.id

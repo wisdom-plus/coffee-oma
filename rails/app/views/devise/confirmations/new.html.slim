@@ -1,8 +1,5 @@
 .ui.container
-  .ui.grid
-    .column
-      - breadcrumb :confirmation
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  = component('breadcrumb', path: 'confirmation')
   .ui.middle.aligned.center.aligned.grid data-controller='validate'
     .column style= "width: 543px"
       h2#title 確認メールを再送する
@@ -19,7 +16,7 @@
               |Send Mail
             .hidden.content.show-when-enabled
               |確認メールを送る
-            .show-when-diabled
+            .show-when-disabled
               |送信中
         .ui.error.message
         = render 'devise/shared/error_messages', model:f.object

@@ -1,0 +1,28 @@
+.ui.container
+  .ui.grid
+    .column
+      - breadcrumb :product_new
+      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  .ui.middle.aligned.center.aligned.grid
+    .column
+      h1#title ブランドの詳細
+  .ui.vertical.stripe.segment
+    .ui.middle.aligned.stackable.grid.conteiner
+      .row
+        .six.wide.left.floated.column
+          =image_tag @brand.logo.url ,class: "ui large bordered rounded image"
+        .ten.wide.column
+          table.ui.celled.table
+            thead
+              tr
+                th.center.aligned colspan=3 #{@brand.name}
+            tbody
+              tr
+                td.center.aligned#site_link 公式サイトへ
+                td.center.aligned
+                  a href= @brand.website
+                    | webサイトへ
+              tr
+                td.center.aligned 説明文
+                td.center.aligned
+                  = simple_format(h(@brand.description))

@@ -7,7 +7,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  liked_id   :bigint
-#  user_id    :integer
+#  user_id    :bigint
 #
 # Indexes
 #

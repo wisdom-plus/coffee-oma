@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Products' do
   let(:user) { create(:user) }
-  let(:product) { create(:product, tag_list: 'コーヒー', user: user) }
+  let(:brand) { create(:brand) }
+  let(:product) { create(:product, tag_list: 'コーヒー', user: user, brand: brand) }
   let(:product1) { create(:product, name: '器具の名前が入ります', tag_list: '豆', user: user) }
 
   describe 'new' do
@@ -15,7 +16,6 @@ RSpec.describe 'Products' do
       it 'create product and redirect to index' do
         expect do
           fill_in 'item-name', with: 'コーヒーの器具の名前'
-          fill_in 'shop-name', with: 'コーヒーのメーカー'
           fill_in 'item-price', with: '1000'
           fill_in 'item-caption', with: 'アイテムの説明文が入ります'
           find_by_id('tag', visible: false).set('コーヒー,豆')

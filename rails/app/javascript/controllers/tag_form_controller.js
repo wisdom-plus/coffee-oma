@@ -21,7 +21,7 @@ export default class extends Controller {
         $(".menu.transition.visible").empty();
       },
       apiSettings: {
-        url: gon.global.tag_form_url,
+        url: "/api/v1/tags?keyword={query}",
         cache: false,
       },
       message: {

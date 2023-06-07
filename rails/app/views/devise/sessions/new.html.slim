@@ -1,8 +1,5 @@
 .ui.container
-  .ui.grid
-    .column
-      - breadcrumb :session
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  = component('breadcrumb', path: 'session')
   .ui.middle.aligned.center.aligned.grid data-controller='validate'
     .column style= "width: 543px"
       h1#title ログイン
@@ -29,7 +26,7 @@
               |Log in
             .hidden.content.show-when-enabled
               |ログイン
-            .show-when-diabled
+            .show-when-disabled
               |送信中
         .ui.error.message
       .ui.message.text-left

@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'History' do
   let(:user) { create(:user) }
-  let(:product) { create(:product, user: user) }
+  let(:brand) { create(:brand) }
+  let(:product) { create(:product, user: user, brand: brand) }
   let(:bean) { create(:bean, user: user) }
   let(:product_history) { create(:history, product: product, user: user) }
   let(:bean_history) { create(:history, bean: bean, user: user) }

@@ -111,3 +111,22 @@ end
 crumb :private do
   link 'プライベートポリシー', private_policy_path
 end
+
+crumb :brands do
+  link 'ブランド一覧', brands_path
+end
+
+crumb :brand_new do
+  link 'ブランド新規登録', brands_path
+  parent :brands
+end
+
+crumb :brand_show do |brand|
+  link 'ブランド詳細', brand_path(brand.id)
+  parent :brands
+end
+
+crumb :brand_edit do |brand|
+  link 'ブランド編集', edit_brand_path(brand.id)
+  parent :brands
+end

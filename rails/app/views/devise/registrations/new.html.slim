@@ -1,8 +1,5 @@
 .ui.container
-  .ui.grid
-    .column
-      - breadcrumb :sign_in
-      = breadcrumbs separator: " > " ,class: 'ui breadcrumb top-padding', fragment_class: 'section', current_class: 'active'
+  = component('breadcrumb', path: 'sign_in')
   .ui.middle.aligned.center.aligned.grid data-controller='validate'
     .column style= "width: 543px"
       h1#title 新規登録
@@ -51,7 +48,7 @@
               |Sign up
             .hidden.content.show-when-enabled
               |登録
-            .show-when-diabled
+            .show-when-disabled
               |送信中
         .ui.error.message
         = render 'devise/shared/error_messages', model:f.object

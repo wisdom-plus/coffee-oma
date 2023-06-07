@@ -6,7 +6,7 @@
 #  review_type :string(255)      not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  review_id   :integer          not null
+#  review_id   :bigint           not null
 #  user_id     :bigint           not null
 #
 # Indexes
