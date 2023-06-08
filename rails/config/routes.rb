@@ -311,6 +311,12 @@ Rails.application.routes.draw do
   end
   resources :brands
 
+  namespace :component do
+    resources :like, only: [] do
+      get 'home', on: :collection
+    end
+  end
+
   namespace :api, { format: 'json' } do
     namespace :v1 do
       resources :tags, only: %i[index]
