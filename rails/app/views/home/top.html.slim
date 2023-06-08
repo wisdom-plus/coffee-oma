@@ -75,30 +75,9 @@
             a href= news_path(news.id)
               |#{news.title}
 
-  .ui.vertical.stripe.center.aligned.segment.grid.m-3rem
-    h2.ui.header
-      |お気に入りアイテムランキング
-    .ui.three.stackable.cards
-      - @rankings.each do |rank|
-        a.ui.fluid.link.card.post href= product_path(rank.id)
-          .image
-            =vite_image_tag "images/square-image.png" ,class: "lazyload",data:{src: "#{rank.images[0].url}"}
-          .content
-            .herader =rank.name
-            .meta
-              -if rank.brand.present?
-                span Brand: #{rank.brand.name}
-              - else
-                span Brand: なし
-          .extra.content
-            i.heart.red.icon
-            | #{rank.likes_count}
-    =link_to likes_path,class: "ui teal huge animated fade button" do
-      .visible.content
-        i.signal.icon
-        |ランキングを詳しくみる
-      .hidden.content
-        |Let`s Start!
+  turbo-frame src='/component/like/home' loading='lazy' id='home_ranking'
+    p  loading...
+
 
   .ui.vertical.stripe.segment.grid.m-3rem.titlecenter
     h2.ui.header
