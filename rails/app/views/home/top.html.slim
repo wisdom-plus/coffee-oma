@@ -76,8 +76,7 @@
               |#{news.title}
 
   turbo-frame src='/component/like/home' loading='lazy' id='home_ranking'
-    p  loading...
-
+    = component('remote_loading')
 
   .ui.vertical.stripe.segment.grid.m-3rem.titlecenter
     h2.ui.header
