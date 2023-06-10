@@ -1,4 +1,4 @@
-class Component::LikeController < Component::ApplicationController
+class Component::LikesController < Component::ApplicationController
   def home
     @rankings = Product.includes(%i[thread_image brand]).like_top
 
