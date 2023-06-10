@@ -312,7 +312,10 @@ Rails.application.routes.draw do
   resources :brands
 
   namespace :component do
-    resources :like, only: [] do
+    resources :likes, only: [] do
+      get 'home', on: :collection
+    end
+    resources :reviews, only: [] do
       get 'home', on: :collection
     end
   end
