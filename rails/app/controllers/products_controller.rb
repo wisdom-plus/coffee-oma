@@ -5,11 +5,12 @@ class ProductsController < ApplicationController
 
   def index
     @q = Product.keywords_search(params[:q])
-    @products = if params[:tag_name]
-                  Product.tag_result(params[:tag_name], params[:page])
-                else
-                  @q.result(distinct: true).includes([:thread_image]).page(params[:page]).per(INDEX_DISPALY_NUM)
-                end
+    @products =
+      if params[:tag_name]
+        Product.tag_result(params[:tag_name], params[:page]).includes(%i[thread_image brand])
+      else
+        @q.result(distinct: true).includes(%i[thread_image brand]).page(params[:page]).per(INDEX_DISPALY_NUM)
+      end
   end
 
   def show # rubocop:disable Metrics/AbcSize
