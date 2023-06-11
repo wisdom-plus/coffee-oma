@@ -318,6 +318,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [] do
       get 'home', on: :collection
     end
+    resources :notifications, only: [] do
+      get 'bell', on: :collection
+    end
   end
 
   namespace :api, { format: 'json' } do

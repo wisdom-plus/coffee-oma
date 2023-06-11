@@ -33,7 +33,8 @@ module CoffeeOma
       g.integration_tool :rspec
       g.system_tests :rspec
       g.test_framework :rspec,
-                       views_specs: false,
+                       view_specs: false,
+                       component_specs: false,
                        helper_specs: false,
                        controller_specs: false,
                        routing_specs: false,
