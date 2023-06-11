@@ -29,12 +29,7 @@
             = link_to '閲覧履歴',histories_path, class:"item"
             = link_to 'メッセージ一覧', rooms_path, class: "item"
             = link_to "ログアウト",destroy_user_session_path,data: {turbo_method: :delete},class: "item spec-logout"
-        - if session[:checked]
-          = link_to notifications_path, class: "ui item new_notification" do
-            i.icons
-              i.bell.outline.icon
-              i.bottom.right.corner.red.circle.icon
-        - else
+        turbo-frame id="notification_bell" src = bell_component_notifications_path
           =link_to notifications_path, class: "ui item" do
             i.bell.outline.icon
       - else

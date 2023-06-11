@@ -1,0 +1,8 @@
+- if @checked
+  = link_to notifications_path, class: "ui item new_notification" do
+    i.icons
+      i.bell.outline.icon
+      i.bottom.right.corner.red.circle.icon
+- else
+  =link_to notifications_path, class: "ui item" do
+    i.bell.outline.icon
