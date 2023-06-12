@@ -17,13 +17,9 @@ class ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id]).decorate
     @tags = @product.tag_counts_on(:tags)
     @review = Review.new
-    @reviews = Review.show_review(@product.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
     if user_signed_in?
-      @reviews = Review.exclude_reviews(@product.id, current_user.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
       @like = current_user.product_likes.find_by(liked_id: params[:id])
-      @review_likes = current_user.where_review_likes(@reviews, 'review')
     end
-    @reviews = ReviewDecorator.decorate_collection(@reviews)
   end
 
   def new

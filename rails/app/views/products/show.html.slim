@@ -60,15 +60,8 @@
   h4.ui.horizontal.divider.header
     i.edit.icon
     | ユーザーレビュー
-  .ui.items
-    - if @reviews.present?
-      = render(ProductReview::Component.with_collection(@reviews, review_likes: @review_likes, current_user: current_user))
-    - else
-      .ui.placeholder.segment
-        .ui.icon.header
-          i.coffee.icon
-          | このアイテムに寄せられたレビューはまだありません。
-  = paginate @reviews
+  turbo-frame id='review_list' src= list_component_reviews_path(product_id: @product.id)
+    = component('remote_loading')
   .ui.section.divider
   = component('review_form',review: @review, product_id: @product.id, current_user: current_user)
 = component('report_modal')

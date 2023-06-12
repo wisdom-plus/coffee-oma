@@ -4,4 +4,15 @@ class Component::ReviewsController < Component::ApplicationController
 
     render turbo_stream: turbo_stream_component_replace('home_reviews', reviews: @reviews)
   end
+
+  def list
+    @reviews = Review.show_review(params[:product_id]).page(params[:page]).per(5)
+    if user_signed_in?
+      @reviews = Review.exclude_reviews(params[:product_id], current_user.id).page(params[:page]).per(5)
+      @review_likes = current_user.where_review_likes(@reviews, 'review')
+    end
+
+    @reviews = ReviewDecorator.decorate_collection(@reviews)
+    render turbo_stream: turbo_stream_component_replace('review_list', reviews: @reviews, review_likes: @review_likes, current_user: current_user)
+  end
 end

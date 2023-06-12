@@ -317,6 +317,7 @@ Rails.application.routes.draw do
     end
     resources :reviews, only: [] do
       get 'home', on: :collection
+      get 'list', on: :collection
     end
     resources :notifications, only: [] do
       get 'bell', on: :collection

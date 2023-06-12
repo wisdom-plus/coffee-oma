@@ -1,6 +1,6 @@
 .ui.segment.review_item
   h4.ui.header
-    =vite_image_tag 'images/square-image.png', class:"ui circular image lazyload square_image",data: {src:"#{@review.user_icon}"}
+    = image_tag "#{@review.user_icon}", class:"ui circular image square_image"
     =@review.user.username
   .item
     .content
