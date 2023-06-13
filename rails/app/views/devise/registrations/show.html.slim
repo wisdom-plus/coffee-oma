@@ -86,20 +86,8 @@
                       h3.header
                         =like.bean.name
       .ui.bottom.attached.tab.segment data-tab= "third"
-        - if @followings.empty?
-          h4 まだフォローはしていません
-        - else
-          - @followings.each do |user|
-            .ui.segment
-              .ui.items
-                .item
-                  .ui.tiny.circular.image
-                    img src= user.icon.url
-                  .content
-                    h3.header
-                      =user.username
-                    .description
-                      =simple_format(h(user.profile))
+        turbo-frame id='followings_user_show' src= followings_user_show_component_relationships_path(user_id: @user.id)
+          = component('remote_loading')
       .ui.bottom.attached.tab.segment data-tab= "four"
         - if @followers.empty?
           h4 まだフォロワーはいません

@@ -322,6 +322,10 @@ Rails.application.routes.draw do
     resources :notifications, only: [] do
       get 'bell', on: :collection
     end
+    resources :relationships, only: [] do
+      get 'followings_user_show', on: :collection
+      get 'followers_user_show', on: :collection
+    end
   end
 
   namespace :api, { format: 'json' } do
