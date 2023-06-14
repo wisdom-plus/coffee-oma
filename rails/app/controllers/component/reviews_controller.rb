@@ -15,4 +15,11 @@ class Component::ReviewsController < Component::ApplicationController
     @reviews = ReviewDecorator.decorate_collection(@reviews)
     render turbo_stream: turbo_stream_component_replace('review_list', reviews: @reviews, review_likes: @review_likes, current_user: current_user)
   end
+
+  def user_show
+    @user = User.find_by(id: params[:user_id])
+    @reviews = Review.user_review(@user)
+
+    render turbo_stream: turbo_stream_component_replace('reviews_user_show', reviews: @reviews)
+  end
 end

@@ -1,0 +1,17 @@
+-if @reviews.empty?
+  h4 まだ投稿はありません
+- else
+  - @reviews.each do |review|
+    .ui.segment
+      h4.ui.header
+        img.ui.circular.image src=review.product.images[0].url alt="アイテム画像"
+        a href=product_path(review.product.id)
+          =review.product.name
+      .item
+        .content
+          h3.header =review.title
+          .meta.review_meta
+            span.ui.star.rating.disabled data-max-rating= "5" data-rating= "#{review.rate}"
+            span.date #{time_ago_in_words(review.created_at)}前
+          .description
+            =simple_format(h(review.content))
