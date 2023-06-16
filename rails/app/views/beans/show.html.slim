@@ -67,15 +67,8 @@
   h4.ui.horizontal.divider.header
     i.edit.icon
     | ユーザーレビュー
-  .ui.items
-    - if @bean_reviews.exists?
-      = render(BeanReview::Component.with_collection(@bean_reviews, review_likes: @review_likes, current_user: current_user))
-    - else
-      .ui.placeholder.segment
-        .ui.icon.header
-          i.coffee.icon
-          | このコーヒー豆に寄せられたレビューはまだありません。
-  = paginate @bean_reviews
+  turbo-frame id='bean_review_list' src=list_component_bean_reviews_path(bean_id: @bean.id) loading='lazy'
+    = component('remote_loading')
   .ui.section.divider
   - if user_signed_in?
     = component('bean_review_form', form: @bean_review_form, bean: @bean)
