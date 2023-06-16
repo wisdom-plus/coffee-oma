@@ -47,33 +47,15 @@
         a.item.tab data-tab= "third" フォロー中
         a.item.tab data-tab= "four" フォロワー
       .ui.bottom.attached.tab.segment.active data-tab= "first"
-        turbo-frame id='reviews_user_show' src= user_show_component_reviews_path(user_id: @current_user.id) loading='lazy'
+        turbo-frame id='reviews_user_show' src= user_show_component_reviews_path(user_id: @user.id) loading='lazy'
           = component('remote_loading')
       .ui.bottom.attached.tab.segment data-tab= "second"
-        - if @likes.empty?
-          h4 まだお気に入りはありません
-        -else
-          - @likes.each do |like|
-            .ui.segment
-              .ui.items
-                - if like.type == 'ProductLike'
-                  a.item href= product_path(like.product.id)
-                    .ui.tiny.circular.image
-                      img src= like.product.images[0].url alt="アイテム画像"
-                    .content
-                      h3.header
-                        =like.product.name
-                - elsif like.type == 'BeanLike'
-                  a.item href= bean_path(like.bean.id)
-                    .ui.tiny.circular.image
-                      img src= like.bean.images[0].url
-                    .content
-                      h3.header
-                        =like.bean.name
+        turbo-frame id='likes_user_show' src= user_show_component_likes_path(user_id: @user.id) loading='lazy'
+          = component('remote_loading')
       .ui.bottom.attached.tab.segment data-tab= "third"
         turbo-frame id='followings_user_show' src= followings_user_show_component_relationships_path(user_id: @user.id) loading='lazy'
           = component('remote_loading')
       .ui.bottom.attached.tab.segment data-tab= "four"
-        turbo-frame id='follower_user_show' src= followers_user_show_component_relationships_path(user_id: @current_user.id) loading='lazy'
+        turbo-frame id='followers_user_show' src= followers_user_show_component_relationships_path(user_id: @user.id) loading='lazy'
           = component('remote_loading')
       .segment

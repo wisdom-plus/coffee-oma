@@ -314,11 +314,15 @@ Rails.application.routes.draw do
   namespace :component do
     resources :likes, only: [] do
       get 'home', on: :collection
+      get 'user_show', on: :collection
     end
     resources :reviews, only: [] do
       get 'home', on: :collection
       get 'list', on: :collection
       get 'user_show', on: :collection
+    end
+    resources :bean_reviews, only: [] do
+      get 'list', on: :collection
     end
     resources :notifications, only: [] do
       get 'bell', on: :collection
