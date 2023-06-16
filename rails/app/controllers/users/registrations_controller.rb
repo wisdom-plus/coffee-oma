@@ -36,8 +36,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def show
     @user = User.find_user(params[:id])
-    @likes = Like.like_includes(@user.id)
-    @reviews = Review.user_review(@user)
     @followers = @user.followers
     @followings = @user.followings
 
@@ -50,8 +48,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def my_page
     return redirect_to users_my_page_path, status: :see_other if current_user.id == params[:id].to_i
 
-    @likes = Like.like_includes(@current_user.id)
-    @reviews = Review.user_review(@current_user)
     @followers = @current_user.followers
     @followings = @current_user.followings
   end
