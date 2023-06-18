@@ -11,8 +11,7 @@
       .description
         =simple_format(h(@review.content))
       .extra
-        a.ui.teal.label href= "/users/#{@review.user_id}/show"
-          |ユーザーの詳細
+        = link_to "ユーザーの詳細", user_registration_show_path(@review.user_id), class: "ui teal label"
         - if user_signed_in?
           div class="review_like_button_#{@review.id} inline"
             = render(ReviewLikeButton::Component.new(review_like: @review_likes.select_id(@review.id), review: @review))

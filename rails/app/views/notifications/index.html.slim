@@ -62,9 +62,12 @@
                       .meta
                         span.date #{notification.created_ago}前
       .ui.bottom.attached.tab.segment data-tab= "second"
-        = component('follw_notification', notifications: @notifications)
+        turbo-frame id='follow_notification' src= follow_component_notifications_path loading='lazy'
+          = component('remote_loading')
       .ui.bottom.attached.tab.segment data-tab= "third"
-        = component('like_notification', notifications: @notifications)
+        turbo-frame id='like_notification' src= like_component_notifications_path loading='lazy'
+          = component('remote_loading')
       .ui.bottom.attached.tab.segment data-tab = "four"
-        = component('message_notification', notifications: @notifications)
+        turbo-frame id='message_notification' src= message_component_notifications_path loading='lazy'
+          = component('remote_loading')
       .segment
