@@ -42,7 +42,7 @@
                     td.center.aligned #{@review.recipe.temperature}℃
                     td.center.aligned #{@review.recipe.time1}:#{@review.recipe.time2}
                     td.center.aligned.spec #{@review.recipe.amount}cc
-        a.ui.teal.label href= "/users/#{@review.user_id}/show"
+        a.ui.teal.label href= users_registration_show_path(@review.user_id)
           |ユーザーの詳細
         - if user_signed_in?
           div class="review_like_button_#{@review.id} inline"

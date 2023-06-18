@@ -286,7 +286,7 @@ Rails.application.routes.draw do
   get '/policy' => 'home#policy'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_scope :user do
-    get 'users/:id/show' => 'users/registrations#show'
+    get 'users/:id' => 'users/registrations#show', as: 'user_registration_show'
     get 'users/my_page' => 'users/registrations#my_page'
     post 'users/guest_sign_in' => 'users/sessions#new_guest'
     get 'api/v1/auth/registrations/:id' => 'api/v1/auth/registrations#show'
@@ -313,23 +313,34 @@ Rails.application.routes.draw do
 
   namespace :component do
     resources :likes, only: [] do
-      get 'home', on: :collection
-      get 'user_show', on: :collection
+      collection do
+        get 'home'
+        get 'user_show'
+      end
     end
     resources :reviews, only: [] do
-      get 'home', on: :collection
-      get 'list', on: :collection
-      get 'user_show', on: :collection
+      collection do
+        get 'home'
+        get 'list'
+        get 'user_show'
+      end
     end
     resources :bean_reviews, only: [] do
       get 'list', on: :collection
     end
     resources :notifications, only: [] do
-      get 'bell', on: :collection
+      collection do
+        get 'bell'
+        get 'follow'
+        get 'like'
+        get 'message'
+      end
     end
     resources :relationships, only: [] do
-      get 'followings_user_show', on: :collection
-      get 'followers_user_show', on: :collection
+      collection do
+        get 'followings_user_show'
+        get 'followers_user_show'
+      end
     end
   end
 
