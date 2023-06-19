@@ -14,11 +14,7 @@
 
   - if @beans.present?
     .ui.three.stackable.cards.segment.scroll#sidebar data-controller= 'transition sidebar scroll'
-      .ui.right.close.rail
-        .ui.sticky
-          .ui.labeled.icon.teal.button#top-button data-action='click->sidebar#top'
-            i.up.arrow.icon
-            | Top
+      = component('close_rail')
       - @beans.each do |bean|
         a.ui.fluid.link.card.post.scale href= bean_path(bean.id)
           .ui.fade.reveal.image.display_none

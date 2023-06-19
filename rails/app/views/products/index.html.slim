@@ -13,11 +13,7 @@
 
   - if @products.present?
     .ui.three.stackable.cards.segment.scroll#sidebar data-controller='transition sidebar scroll'
-      .ui.right.close.rail
-        .ui.sticky
-          .ui.labeled.icon.teal.button#top-button data-action='click->sidebar#top'
-            i.up.arrow.icon
-            | Top
+      = component('close_rail')
       - @products.each do |product|
         a.ui.fluid.link.card.post.scale href= product_path(product.id)
           .ui.fade.reveal.image.display_none
