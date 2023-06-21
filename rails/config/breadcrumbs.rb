@@ -83,7 +83,7 @@ crumb :user_edit do
 end
 
 crumb :profile do |user|
-  link 'プロフィール', users_registration_show_path(user.id)
+  link 'プロフィール', user_registration_show_path(user.id)
   parent :root
 end
 
