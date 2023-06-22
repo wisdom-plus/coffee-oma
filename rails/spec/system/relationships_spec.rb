@@ -12,12 +12,12 @@ RSpec.describe 'Relationships', js: true do
 
     context 'create' do
       it 'created relationship render follow' do
-        visit users_registration_show_path(user1.id)
+        visit user_registration_show_path(user1.id)
         click_link 'フォローする'
         expect(page).to have_content "#{user1.username}をフォローしました"
         expect(page).to have_link 'フォロー解除'
 
-        visit users_registration_show_path(user.id)
+        visit user_registration_show_path(user.id)
         expect(page).not_to have_link 'フォローする'
       end
     end
@@ -25,12 +25,12 @@ RSpec.describe 'Relationships', js: true do
     context 'destroy' do
       it 'destroy relationship' do
         follow
-        visit users_registration_show_path(user1.id)
+        visit user_registration_show_path(user1.id)
         click_link 'フォロー解除'
         expect(page).to have_content "#{user1.username}のフォローを解除しました"
         expect(page).to have_link 'フォローする'
 
-        visit users_registration_show_path(user.id)
+        visit user_registration_show_path(user.id)
         expect(page).not_to have_link 'フォロー解除'
       end
     end
@@ -38,7 +38,7 @@ RSpec.describe 'Relationships', js: true do
 
   context 'when not login' do
     it 'is displayed follow button' do
-      visit users_registration_show_path(user1.id)
+      visit user_registration_show_path(user1.id)
       expect(page).not_to have_link 'フォローする'
     end
   end

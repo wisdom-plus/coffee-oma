@@ -87,7 +87,7 @@ RSpec.describe 'Rooms' do
 
     context 'create' do
       it 'created room' do
-        visit users_registration_show_path(another_user.id)
+        visit user_registration_show_path(another_user.id)
         click_on 'メッセージを送る'
         expect(page).to have_current_path room_path(Room.first.id), ignore_query: true
         expect(page).to have_content another_user.username.to_s
@@ -97,7 +97,7 @@ RSpec.describe 'Rooms' do
 
   context 'when not login' do
     it 'not displayed message-label' do
-      visit users_registration_show_path(another_user.id)
+      visit user_registration_show_path(another_user.id)
       expect(page).not_to have_css '.spec-message'
     end
 
