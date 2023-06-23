@@ -51,9 +51,8 @@
                     =link_to '商品ページを見に行く', "#{@bean.url}", class: "circular ui red button"
                   - else
                     .circular.ui.button URLがありません
-                  #like_button
-                    - if user_signed_in?
-                      = component('like_button',like: @like, liked: @bean)
+                  turbo-frame id='like_button' src= bean_component_likes_path(liked_id: @bean.id) loading='lazy'
+                    = component('remote_loading')
       .row
         .column
           table.ui.celled.table

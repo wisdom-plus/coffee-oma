@@ -11,4 +11,22 @@ class Component::LikesController < Component::ApplicationController
 
     render turbo_stream: turbo_stream_component_replace('likes_user_show', likes: @likes)
   end
+
+  def product
+    @product = Product.find_by(id: params[:liked_id]).decorate
+    if user_signed_in?
+      @like = current_user.product_likes.find_by(liked_id: params[:liked_id])
+    end
+
+    render turbo_stream: turbo_stream_component_replace('like_button', like: @like, liked: @product, signed_in: user_signed_in?)
+  end
+
+  def bean
+    @bean = Bean.find_by(id: params[:liked_id]).decorate
+    if user_signed_in?
+      @like = current_user.bean_likes.find_by(liked_id: params[:liked_id])
+    end
+
+    render turbo_stream: turbo_stream_component_replace('like_button', like: @like, liked: @bean, signed_in: user_signed_in?)
+  end
 end
