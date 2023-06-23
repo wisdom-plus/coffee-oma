@@ -45,7 +45,8 @@
                 td.cen colspan=3
                   = item_url_link(@product)
                   turbo-frame id='like_button' src= product_component_likes_path(liked_id: @product.id) loading='lazy'
-                    = component('remote_loading')
+                    .circular.ui.button
+                      i.large.heart.icon
       .row
         .column
           table.ui.celled.table
