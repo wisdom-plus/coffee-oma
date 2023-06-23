@@ -316,6 +316,8 @@ Rails.application.routes.draw do
       collection do
         get 'home'
         get 'user_show'
+        get 'product'
+        get 'bean'
       end
     end
     resources :reviews, only: [] do
