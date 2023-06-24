@@ -13,13 +13,10 @@ class ProductsController < ApplicationController
       end
   end
 
-  def show # rubocop:disable Metrics/AbcSize
+  def show
     @product = Product.find_by(id: params[:id]).decorate
     @tags = @product.tag_counts_on(:tags)
     @review = Review.new
-    if user_signed_in?
-      @like = current_user.product_likes.find_by(liked_id: params[:id])
-    end
   end
 
   def new
