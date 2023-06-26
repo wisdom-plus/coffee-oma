@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe ReviewsUserShowComponent, type: :component do
+RSpec.describe ReviewsUserShow::Component, type: :component do
   pending "add some examples to (or delete) #{__FILE__}"
 
   # it "renders something useful" do
