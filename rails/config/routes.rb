@@ -286,8 +286,8 @@ Rails.application.routes.draw do
   get '/policy' => 'home#policy'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_scope :user do
-    get 'users/:id' => 'users/registrations#show', as: 'user_registration_show'
     get 'users/my_page' => 'users/registrations#my_page'
+    get 'users/:id' => 'users/registrations#show', as: 'user_registration_show'
     post 'users/guest_sign_in' => 'users/sessions#new_guest'
     get 'api/v1/auth/registrations/:id' => 'api/v1/auth/registrations#show'
     get 'api/v1/auth/guest_login' => 'api/v1/auth/sessions#guest_login'
