@@ -6,7 +6,7 @@
     .content
       h3.header =@review.title
       .meta.review_meta
-        span.ui.yellow.rating.disabled data-max-rating= "5" data-rating= "#{@review.rate}"
+        span.ui.yellow.rating.disabled data-max-rating= "5" data-rating= "#{@review.rate}" data-rate-target='review'
         span.date #{time_ago_in_words(@review.created_at)}前
       .description
         =simple_format(h(@review.content))

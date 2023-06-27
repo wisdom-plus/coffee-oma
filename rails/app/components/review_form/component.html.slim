@@ -7,11 +7,11 @@
           =f.label :title,class: "four wide required field"
           .ten.wide.field
             =f.text_field :title, placeholder: "title",id: "title"
-        .fields data-controller='rate'
+        .fields
           =f.label :rate, class: "four wide required field"
           .ten.wide.field
-            .ui.yellow.star.rating#rating data-rate-target='review' data-max-rating="5"
-            =f.hidden_field(:rate)
+            .ui.yellow.star.rating#rating data-rate-target='reviewForm' data-max-rating="5"
+            =f.hidden_field(:rate, id: 'review_rate_form')
         .fields
           =f.label :content, "レビュー内容", class: "four wide required field"
           .ten.wide.field

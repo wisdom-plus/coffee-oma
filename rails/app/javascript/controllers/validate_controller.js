@@ -58,7 +58,7 @@ export default class extends Controller {
       fields: {
         title: "empty",
         content: "empty",
-        review_rate: "empty",
+        review_rate_form: "empty",
       },
       prompt: {
         empty: "{name}が入力されていません。",

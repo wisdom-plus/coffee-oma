@@ -3,14 +3,18 @@ import $ from "jquery";
 import "jquery-raty-js";
 // Connects to data-controller="rate"
 export default class extends Controller {
-  static targets = ["review", "bean", "average"];
+  static targets = ["reviewForm", "review", "bean", "average"];
   static values = { num: String };
 
   reviewTargetConnected() {
-    $(this.reviewTargets).rating({
+    $(this.reviewTargets).rating();
+  }
+
+  reviewFormTargetConnected() {
+    $(this.reviewFormTargets).rating({
       maxRating: 5,
       onRate: function (rating) {
-        $("#review_rate").val(rating);
+        $("#review_rate_form").val(rating);
       },
     });
   }
