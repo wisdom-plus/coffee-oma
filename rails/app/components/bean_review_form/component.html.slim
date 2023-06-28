@@ -6,10 +6,10 @@
         = f.label :title, class: "four wide required field"
         .ten.wide.field
           = f.text_field :title, placeholder: "title"
-      .fields data-controller='rate'
+      .fields
         .four.wide.required.field
           label 評価
-        .ten.wide.field.bean_review_rate_form data-rate-target='bean'
+        .ten.wide.field.bean_review_rate_form data-rate-target='beanForm'
           .two.wide.inline.field
             = f.label :acidity
             .ui.yellow.star.rating.form_rating data-taste="acidity" data-max-rating="5"

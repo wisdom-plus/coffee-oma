@@ -7,7 +7,7 @@
       h3.header = @review.title
       .meta
         span #{time_ago_in_words(@review.created_at)}前
-      .meta.review_meta
+      .meta.review_meta data-rate-target='beanReview'
         span.mr-05em 酸味
         span.ui.yellow.rating.disabled.mr-05em data-max-rating= "5" data-rating= "#{@review.acidity}"
         span.mr-05em 苦味
