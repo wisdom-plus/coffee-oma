@@ -46,7 +46,7 @@
         a.item.tab data-tab= "second" お気に入りしたアイテム
         a.item.tab data-tab= "third" フォロー中
         a.item.tab data-tab= "four" フォロワー
-      .ui.bottom.attached.tab.segment.active data-tab= "first"
+      .ui.bottom.attached.tab.segment.active data-tab= "first" data-controller='rate'
         turbo-frame id='reviews_user_show' src= user_show_component_reviews_path(user_id: @user.id) loading='lazy'
           = component('remote_loading')
       .ui.bottom.attached.tab.segment data-tab= "second"
