@@ -60,7 +60,7 @@
   h4.ui.horizontal.divider.header
     i.edit.icon
     | ユーザーレビュー
-  turbo-frame id='review_list' src= list_component_reviews_path(product_id: @product.id) lading='lazy'
+  turbo-frame id='review_list' src= list_component_reviews_path(product_id: @product.id) loading='lazy'
     = component('remote_loading')
   .ui.section.divider
   = component('review_form',review: @review, product_id: @product.id, current_user: current_user)

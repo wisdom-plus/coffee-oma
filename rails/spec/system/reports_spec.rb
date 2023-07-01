@@ -7,7 +7,6 @@ RSpec.describe 'Reports', js: true do
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }
   let(:review) { create(:review, user: user, product: product) }
-  let(:review1) { create(:review, user: user1, product: product) }
   let(:report) { create(:report, user: user1, review: review) }
 
   context 'when login' do
@@ -18,7 +17,6 @@ RSpec.describe 'Reports', js: true do
     context 'review' do
       before do
         review
-        review1
         visit product_path(product.id)
       end
 
