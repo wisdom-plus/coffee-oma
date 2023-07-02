@@ -68,7 +68,7 @@
   h4.ui.horizontal.divider.header
     i.edit.icon
     | ユーザーレビュー
-  turbo-frame id='bean_review_list' src= list_component_bean_reviews_path(bean_id: @bean.id)
+  turbo-frame id='bean_review_list' src=list_component_bean_reviews_path(bean_id: @bean.id) loading='lazy'
     = component('remote_loading')
   .ui.section.divider
   - if user_signed_in?
