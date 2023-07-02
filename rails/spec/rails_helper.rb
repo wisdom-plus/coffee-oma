@@ -111,6 +111,7 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include LoginHelper
   config.include ActionTextHelper, type: :system
+  config.include TurboTestHelper, type: :system
   config.include ActiveJob::TestHelper
   config.include ActiveSupport::Testing::TimeHelpers
   config.include ViewComponent::TestHelpers, type: :component
