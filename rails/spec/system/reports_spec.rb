@@ -21,7 +21,7 @@ RSpec.describe 'Reports', js: true do
       end
 
       it 'display button and click button' do
-        execute_script('window.scrollBy(0,640)') # loading='lazy'のためページをスクロール
+        turbo_lazy_loading('review_list')
         first('.report-modal-button').click
         expect(page).to have_link 'レビューを通報する', href: reports_path(review_id: review.id, type: review.class)
 
@@ -37,7 +37,7 @@ RSpec.describe 'Reports', js: true do
       end
 
       it 'display button and click button' do
-        execute_script('window.scrollBy(0,640)') # loading='lazy'のためページをスクロール
+        turbo_lazy_loading('bean_review_list')
         first('.report-modal-button').click
         expect(page).to have_link 'レビューを通報する', href: reports_path(review_id: bean_review.id, type: bean_review.class)
 
