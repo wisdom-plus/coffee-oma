@@ -29,7 +29,7 @@
               tr
                 td.center.aligned ブランド
                 td.center.aligned #{@product.brand_name}
-              tr data-controller='rate'
+              tr
                 td.center.aligned 評価
                 - unless @product.rate_average.zero?
                   td.center.aligned#star data-rating=@product.rate_average_num  data-rate-target='average'
@@ -63,5 +63,8 @@
   turbo-frame id='review_list' src= list_component_reviews_path(product_id: @product.id) loading='lazy'
     = component('remote_loading')
   .ui.section.divider
-  = component('review_form',review: @review, product_id: @product.id, current_user: current_user)
+  - if user_signed_in?
+    = component('review_form',review: @review, product_id: @product.id)
+  - else
+    .segment
 = component('report_modal')

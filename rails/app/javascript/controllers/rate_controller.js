@@ -20,7 +20,7 @@ export default class extends Controller {
     $(this.reviewFormTargets).rating({
       maxRating: 5,
       onRate: function (rating) {
-        $("#review_rate_form").val(rating);
+        $("#review_rate").val(rating);
       },
     });
   }
