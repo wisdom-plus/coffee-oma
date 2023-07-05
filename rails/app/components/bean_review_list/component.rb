@@ -5,5 +5,6 @@ class BeanReviewList::Component < ViewComponent::Base
     @bean_reviews = bean_reviews
     @bean_review_likes = bean_review_likes
     @current_user = current_user
+    super
   end
 end

@@ -5,5 +5,6 @@ class HomeRanking::Component < ViewComponent::Base
 
   def initialize(rankings:)
     @rankings = rankings
+    super
   end
 end

@@ -3,5 +3,6 @@
 class NotificationBell::Component < ViewComponent::Base
   def initialize(checked:)
     @checked = checked
+    super
   end
 end

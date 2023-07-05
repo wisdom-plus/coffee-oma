@@ -3,5 +3,6 @@
 class LikeNotification::Component < ViewComponent::Base
   def initialize(notifications:)
     @notifications = notifications
+    super
   end
 end
