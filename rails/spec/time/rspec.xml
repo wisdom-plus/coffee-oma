@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="7" skipped="0" failures="0" errors="0" time="2.690086" timestamp="2023-07-06T09:20:09+09:00" hostname="5232c5bb08f1">
+<testsuite name="rspec" tests="3" skipped="0" failures="0" errors="0" time="1.749789" timestamp="2023-07-06T19:54:58+09:00" hostname="5232c5bb08f1">
 <properties>
-<property name="seed" value="39931"/>
+<property name="seed" value="49786"/>
 </properties>
-<testcase classname="spec.requests.component.reviews_spec" name="Component::Reviews GET home request success" file="./spec/requests/component/reviews_spec.rb" time="0.785802"></testcase>
-<testcase classname="spec.requests.component.reviews_spec" name="Component::Reviews GET home request failure" file="./spec/requests/component/reviews_spec.rb" time="0.073558"></testcase>
-<testcase classname="spec.requests.component.reviews_spec" name="Component::Reviews GET list request success when user not signed in" file="./spec/requests/component/reviews_spec.rb" time="0.369065"></testcase>
-<testcase classname="spec.requests.component.reviews_spec" name="Component::Reviews GET list request success when user signed in" file="./spec/requests/component/reviews_spec.rb" time="0.381124"></testcase>
-<testcase classname="spec.requests.component.reviews_spec" name="Component::Reviews GET list request failure" file="./spec/requests/component/reviews_spec.rb" time="0.310786"></testcase>
-<testcase classname="spec.requests.component.reviews_spec" name="Component::Reviews GET user_show request success" file="./spec/requests/component/reviews_spec.rb" time="0.330576"></testcase>
-<testcase classname="spec.requests.component.reviews_spec" name="Component::Reviews GET user_show request failure" file="./spec/requests/component/reviews_spec.rb" time="0.415218"></testcase>
+<testcase classname="spec.requests.component.bean_reviews_spec" name="Component::BeanReviews GET list when user signed in request success" file="./spec/requests/component/bean_reviews_spec.rb" time="0.961967"></testcase>
+<testcase classname="spec.requests.component.bean_reviews_spec" name="Component::BeanReviews GET list when user signed in request success(not bean_review)" file="./spec/requests/component/bean_reviews_spec.rb" time="0.355513"></testcase>
+<testcase classname="spec.requests.component.bean_reviews_spec" name="Component::BeanReviews GET list when user not signed in request success when user not signed in" file="./spec/requests/component/bean_reviews_spec.rb" time="0.417339"></testcase>
 </testsuite>
