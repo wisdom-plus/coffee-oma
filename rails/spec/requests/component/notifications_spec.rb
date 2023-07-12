@@ -38,7 +38,7 @@ RSpec.describe 'Component::Notifications', type: :request do
       user.confirm
       sign_in user
       like_notification
-      get follow_component_notifications_path
+      get like_component_notifications_path
       expect(response).to have_http_status(:ok)
     end
   end
@@ -48,7 +48,7 @@ RSpec.describe 'Component::Notifications', type: :request do
       user.confirm
       sign_in user
       message_notification
-      get follow_component_notifications_path
+      get message_component_notifications_path
       expect(response).to have_http_status(:ok)
     end
   end

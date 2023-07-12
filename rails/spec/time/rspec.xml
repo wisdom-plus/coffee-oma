@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="4" skipped="0" failures="0" errors="0" time="2.731173" timestamp="2023-07-07T20:02:44+09:00" hostname="5232c5bb08f1">
+<testsuite name="rspec" tests="4" skipped="0" failures="0" errors="0" time="1.484204" timestamp="2023-07-11T20:26:34+09:00" hostname="5232c5bb08f1">
 <properties>
-<property name="seed" value="49710"/>
+<property name="seed" value="4236"/>
 </properties>
-<testcase classname="spec.requests.component.likes_spec" name="Component::Likes GET home request success" file="./spec/requests/component/likes_spec.rb" time="1.201196"></testcase>
-<testcase classname="spec.requests.component.likes_spec" name="Component::Likes GET user_show request success" file="./spec/requests/component/likes_spec.rb" time="0.556953"></testcase>
-<testcase classname="spec.requests.component.likes_spec" name="Component::Likes GET product request success" file="./spec/requests/component/likes_spec.rb" time="0.581003"></testcase>
-<testcase classname="spec.requests.component.likes_spec" name="Component::Likes GET bean request success" file="./spec/requests/component/likes_spec.rb" time="0.363508"></testcase>
+<testcase classname="spec.requests.component.notifications_spec" name="Component::Notifications GET /bell request success" file="./spec/requests/component/notifications_spec.rb" time="0.499122"></testcase>
+<testcase classname="spec.requests.component.notifications_spec" name="Component::Notifications GET /follow request success" file="./spec/requests/component/notifications_spec.rb" time="0.204335"></testcase>
+<testcase classname="spec.requests.component.notifications_spec" name="Component::Notifications GET /like request success" file="./spec/requests/component/notifications_spec.rb" time="0.464046"></testcase>
+<testcase classname="spec.requests.component.notifications_spec" name="Component::Notifications GET /mesasge request success" file="./spec/requests/component/notifications_spec.rb" time="0.301607"></testcase>
 </testsuite>
