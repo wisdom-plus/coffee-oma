@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Component::Notifications', type: :request do
+RSpec.describe 'Component::Notifications' do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
   let(:product) { create(:product, user: user) }
