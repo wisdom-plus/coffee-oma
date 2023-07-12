@@ -23,5 +23,13 @@ RSpec.describe 'Reviews' do
         post product_reviews_path(product.id), params: { review: review_params }
       end.to change(Review, :count).by 1
     end
+
+    it 'request fail' do
+      review_params[:content] = nil
+      expect do
+        post product_reviews_path(product.id), params: { review: review_params }
+      end.not_to change(Review, :count)
+      expect(response).to have_http_status(:see_other)
+    end
   end
 end
