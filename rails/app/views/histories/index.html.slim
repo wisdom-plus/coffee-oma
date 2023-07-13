@@ -6,11 +6,7 @@
 
   - if @histories.present?
     .ui.segment.scroll#sidebar data-controller='transition sidebar scroll'
-      .ui.right.close.rail
-        .ui.sticky
-          .ui.labeled.icon.teal.button#top-button data-action='click->sidebar#top'
-            i.up.arrow.icon
-            | Top
+      = component('close_rail')
       - @histories.each do |history|
         .ui.segment.post.scale
           .item

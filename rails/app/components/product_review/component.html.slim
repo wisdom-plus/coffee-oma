@@ -1,18 +1,17 @@
 .ui.segment.review_item
   h4.ui.header
-    =vite_image_tag 'images/square-image.png', class:"ui circular image lazyload square_image",data: {src:"#{@review.user_icon}"}
+    = image_tag "#{@review.user_icon}", class:"ui circular image square_image"
     =@review.user.username
   .item
     .content
       h3.header =@review.title
       .meta.review_meta
-        span.ui.yellow.rating.disabled data-max-rating= "5" data-rating= "#{@review.rate}"
+        span.ui.yellow.rating.disabled data-max-rating= "5" data-rating= "#{@review.rate}" data-rate-target='review'
         span.date #{time_ago_in_words(@review.created_at)}前
       .description
         =simple_format(h(@review.content))
       .extra
-        a.ui.teal.label href= "/users/#{@review.user_id}/show"
-          |ユーザーの詳細
+        = link_to "ユーザーの詳細", user_registration_show_path(@review.user_id), class: "ui teal label"
         - if user_signed_in?
           div class="review_like_button_#{@review.id} inline"
             = render(ReviewLikeButton::Component.new(review_like: @review_likes.select_id(@review.id), review: @review))

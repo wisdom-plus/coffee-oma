@@ -3,7 +3,7 @@ class LikesController < ApplicationController
   before_action :authenticate_user!, only: %i[create destroy]
 
   def index
-    @rankings = Product.includes(:thread_image).ranking_index
+    @rankings = Product.includes(:thread_image, :brand).ranking_index
     @rankings = ProductDecorator.decorate_collection(@rankings)
   end
 
@@ -13,7 +13,7 @@ class LikesController < ApplicationController
     @liked.reload
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: turbo_stream_component_replace('like_button', like: @like, liked: @liked)
+        render turbo_stream: turbo_stream_component_replace('like_button', like: @like, liked: @liked, signed_in: true)
       end
       format.html { redirect_to root_path, status: :see_other }
     end
@@ -26,7 +26,7 @@ class LikesController < ApplicationController
     @liked.reload
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: turbo_stream_component_replace('like_button', like: nil, liked: @liked)
+        render turbo_stream: turbo_stream_component_replace('like_button', like: nil, liked: @liked, signed_in: true)
       end
       format.html { redirect_to root_path, status: :see_other }
     end

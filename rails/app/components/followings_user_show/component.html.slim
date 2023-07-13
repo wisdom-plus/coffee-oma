@@ -1,0 +1,14 @@
+- if @followings.empty?
+  h4 まだフォローはしていません
+- else
+  - @followings.each do |user|
+    .ui.segment
+      .ui.items
+        .item
+          .ui.tiny.circular.image
+            img src= user.icon.url
+          .content
+            h3.header
+              =user.username
+            .description
+              =simple_format(h(user.profile))

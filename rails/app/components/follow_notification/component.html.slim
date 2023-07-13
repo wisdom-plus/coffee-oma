@@ -8,7 +8,7 @@
           .ui.tiny.circular.image
             img src = notification.sender.icon.url
           .content
-            a.header href = "users/#{notification.sender.id}/show"
+            a.header href = user_registration_show_path(notification.sender.id)
               = notification.sender.username
               |さんにフォローされました
             .meta

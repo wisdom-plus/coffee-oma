@@ -22,6 +22,7 @@ class Like < ApplicationRecord
 
   scope :find_product_and_bean, ->(user_id) { where(["user_id = ? and type IN ('ProductLike','BeanLike')", user_id]).order(created_at: :DESC) }
 
+  # :nocov:
   def self.product_and_bean_likes_includes(_likes)
     ActiveRecord::Associations::Preloader.new(records: self, associations: %i[bean_like product_like])
   end
@@ -31,4 +32,5 @@ class Like < ApplicationRecord
     product_and_bean_likes_includes(likes)
     likes
   end
+  # :nocov:
 end

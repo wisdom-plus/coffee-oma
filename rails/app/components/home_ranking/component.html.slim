@@ -1,0 +1,24 @@
+.ui.vertical.stripe.center.aligned.segment.grid.m-3rem
+  h2.ui.header
+    |お気に入りアイテムランキング
+  .ui.three.stackable.cards
+    - @rankings.each do |rank|
+      a.ui.fluid.link.card.post href= product_path(rank.id)
+        .image
+          =image_tag "#{rank.images[0].url}"
+        .content
+          .herader =rank.name
+          .meta
+            -if rank.brand.present?
+              span Brand: #{rank.brand.name}
+            - else
+              span Brand: なし
+        .extra.content
+          i.heart.red.icon
+          | #{rank.likes_count}
+  =link_to likes_path,class: "ui teal huge animated fade button" do
+    .visible.content
+      i.signal.icon
+      |ランキングを詳しくみる
+    .hidden.content
+      |Let`s Start!

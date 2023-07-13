@@ -286,8 +286,8 @@ Rails.application.routes.draw do
   get '/policy' => 'home#policy'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_scope :user do
-    get 'users/:id/show' => 'users/registrations#show'
     get 'users/my_page' => 'users/registrations#my_page'
+    get 'users/:id' => 'users/registrations#show', as: 'user_registration_show'
     post 'users/guest_sign_in' => 'users/sessions#new_guest'
     get 'api/v1/auth/registrations/:id' => 'api/v1/auth/registrations#show'
     get 'api/v1/auth/guest_login' => 'api/v1/auth/sessions#guest_login'
@@ -310,6 +310,41 @@ Rails.application.routes.draw do
     resources :bean_reviews, only: %i[create destroy]
   end
   resources :brands
+
+  namespace :component do
+    resources :likes, only: [] do
+      collection do
+        get 'home'
+        get 'user_show'
+        get 'product'
+        get 'bean'
+      end
+    end
+    resources :reviews, only: [] do
+      collection do
+        get 'home'
+        get 'list'
+        get 'user_show'
+      end
+    end
+    resources :bean_reviews, only: [] do
+      get 'list', on: :collection
+    end
+    resources :notifications, only: [] do
+      collection do
+        get 'bell'
+        get 'follow'
+        get 'like'
+        get 'message'
+      end
+    end
+    resources :relationships, only: [] do
+      collection do
+        get 'followings_user_show'
+        get 'followers_user_show'
+      end
+    end
+  end
 
   namespace :api, { format: 'json' } do
     namespace :v1 do

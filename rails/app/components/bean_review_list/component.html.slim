@@ -1,0 +1,10 @@
+turbo-frame id='bean_review_list'
+  .ui.items
+    - if @bean_reviews.present?
+      = render(BeanReview::Component.with_collection(@bean_reviews, review_likes: @bean_review_likes, current_user: @current_user))
+    - else
+      .ui.placeholder.segment
+        .ui.icon.header
+          i.coffee.icon
+          | このコーヒー豆に寄せられたレビューはまだありません。
+  = paginate @bean_reviews

@@ -7,7 +7,6 @@ RSpec.describe 'Reports', js: true do
   let(:bean) { create(:bean, user: user) }
   let(:bean_review) { create(:bean_review, user: user, bean: bean) }
   let(:review) { create(:review, user: user, product: product) }
-  let(:review1) { create(:review, user: user1, product: product) }
   let(:report) { create(:report, user: user1, review: review) }
 
   context 'when login' do
@@ -18,11 +17,11 @@ RSpec.describe 'Reports', js: true do
     context 'review' do
       before do
         review
-        review1
         visit product_path(product.id)
       end
 
       it 'display button and click button' do
+        turbo_lazy_loading('review_list')
         first('.report-modal-button').click
         expect(page).to have_link 'レビューを通報する', href: reports_path(review_id: review.id, type: review.class)
 
@@ -38,6 +37,7 @@ RSpec.describe 'Reports', js: true do
       end
 
       it 'display button and click button' do
+        turbo_lazy_loading('bean_review_list')
         first('.report-modal-button').click
         expect(page).to have_link 'レビューを通報する', href: reports_path(review_id: bean_review.id, type: bean_review.class)
 

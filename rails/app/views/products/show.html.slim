@@ -1,4 +1,4 @@
-.ui.container
+.ui.container data-controller='rate'
   = component('breadcrumb', path: 'product_show', model: @product)
   .ui.middle.aligned.center.aligned.grid
     .column
@@ -29,7 +29,7 @@
               tr
                 td.center.aligned ブランド
                 td.center.aligned #{@product.brand_name}
-              tr data-controller='rate'
+              tr
                 td.center.aligned 評価
                 - unless @product.rate_average.zero?
                   td.center.aligned#star data-rating=@product.rate_average_num  data-rate-target='average'
@@ -44,9 +44,9 @@
               tr
                 td.cen colspan=3
                   = item_url_link(@product)
-                  #like_button
-                    - if user_signed_in?
-                      = component('like_button',like: @like, liked: @product)
+                  turbo-frame id='like_button' src= product_component_likes_path(liked_id: @product.id) loading='lazy'
+                    .circular.ui.button
+                      i.large.heart.icon
       .row
         .column
           table.ui.celled.table
@@ -60,15 +60,11 @@
   h4.ui.horizontal.divider.header
     i.edit.icon
     | ユーザーレビュー
-  .ui.items
-    - if @reviews.present?
-      = render(ProductReview::Component.with_collection(@reviews, review_likes: @review_likes, current_user: current_user))
-    - else
-      .ui.placeholder.segment
-        .ui.icon.header
-          i.coffee.icon
-          | このアイテムに寄せられたレビューはまだありません。
-  = paginate @reviews
+  turbo-frame id='review_list' src= list_component_reviews_path(product_id: @product.id) loading='lazy'
+    = component('remote_loading')
   .ui.section.divider
-  = component('review_form',review: @review, product_id: @product.id, current_user: current_user)
+  - if user_signed_in?
+    = component('review_form',review: @review, product_id: @product.id)
+  - else
+    .segment
 = component('report_modal')

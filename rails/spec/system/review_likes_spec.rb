@@ -18,6 +18,7 @@ RSpec.describe 'ReviewLikes', js: true do
       context 'product_review_like' do
         it 'display button and click button' do
           visit product_path(product.id)
+          turbo_lazy_loading('review_list')
           expect(page).to have_link nil, href: review_likes_path(review_id: review.id, type: review.class)
 
           click_link nil, href: review_likes_path(review_id: review.id, type: review.class)
@@ -28,6 +29,7 @@ RSpec.describe 'ReviewLikes', js: true do
       context 'bean_review_like' do
         it 'display button and click button' do
           visit bean_path(bean.id)
+          turbo_lazy_loading('bean_review_list')
           expect(page).to have_link nil, href: review_likes_path(review_id: bean_review.id, type: bean_review.class)
 
           click_link nil, href: review_likes_path(review_id: bean_review.id, type: bean_review.class)
@@ -46,6 +48,7 @@ RSpec.describe 'ReviewLikes', js: true do
       context 'product_review_like' do
         it 'reder button and click button' do
           visit product_path(product.id)
+          turbo_lazy_loading('review_list')
           expect(page).to have_link nil, href: review_like_path(product_review_like.id, type: product_review_like.type)
 
           click_link nil, href: review_like_path(product_review_like.id, type: product_review_like.type)
@@ -56,6 +59,7 @@ RSpec.describe 'ReviewLikes', js: true do
       context 'bean_review_like' do
         it 'reder button' do
           visit bean_path(bean.id)
+          turbo_lazy_loading('bean_review_list')
           expect(page).to have_link nil, href: review_like_path(bean_review_like.id, type: bean_review_like.type)
 
           click_link nil, href: review_like_path(bean_review_like.id, type: bean_review_like.type)

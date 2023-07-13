@@ -1,4 +1,4 @@
-.ui.container
+.ui.container data-controller='rate'
   = component('breadcrumb', path: 'bean_show', model: @bean)
   .ui.middle.aligned.center.aligned.grid
     .column
@@ -40,7 +40,7 @@
                   = component('tag_table_form',tags: @tags, target: @bean, current_user: current_user)
               tr
                 td.center.aligned 評価
-                - unless @bean_reviews.empty?
+                - unless @bean.bean_reviews.empty?
                   td.center.aligned.chart-container data-controller='chart' data-chart-evaluations-value = @bean.reviews_evaluations style = "position: relative; width: 200px; height: 200px;"
                     canvas#chart
                 - else
@@ -51,9 +51,10 @@
                     =link_to '商品ページを見に行く', "#{@bean.url}", class: "circular ui red button"
                   - else
                     .circular.ui.button URLがありません
-                  #like_button
-                    - if user_signed_in?
-                      = component('like_button',like: @like, liked: @bean)
+                  turbo-frame id='like_button' src= bean_component_likes_path(liked_id: @bean.id) loading='lazy'
+                    .circular.ui.button
+                      i.large.heart.icon
+
       .row
         .column
           table.ui.celled.table
@@ -67,15 +68,8 @@
   h4.ui.horizontal.divider.header
     i.edit.icon
     | ユーザーレビュー
-  .ui.items
-    - if @bean_reviews.exists?
-      = render(BeanReview::Component.with_collection(@bean_reviews, review_likes: @review_likes, current_user: current_user))
-    - else
-      .ui.placeholder.segment
-        .ui.icon.header
-          i.coffee.icon
-          | このコーヒー豆に寄せられたレビューはまだありません。
-  = paginate @bean_reviews
+  turbo-frame id='bean_review_list' src=list_component_bean_reviews_path(bean_id: @bean.id) loading='lazy'
+    = component('remote_loading')
   .ui.section.divider
   - if user_signed_in?
     = component('bean_review_form', form: @bean_review_form, bean: @bean)

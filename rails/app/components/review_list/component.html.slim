@@ -1,0 +1,10 @@
+turbo-frame id='review_list'
+  .ui.items
+    - if @reviews.present?
+      = render(ProductReview::Component.with_collection(@reviews, review_likes: @review_likes, current_user: @current_user))
+    - else
+      .ui.placeholder.segment
+        .ui.icon.header
+          i.coffee.icon
+          | このアイテムに寄せられたレビューはまだありません。
+  = paginate @reviews

@@ -46,73 +46,16 @@
         a.item.tab data-tab= "second" お気に入りしたアイテム
         a.item.tab data-tab= "third" フォロー中
         a.item.tab data-tab= "four" フォロワー
-      .ui.bottom.attached.tab.segment.active data-tab= "first"
-        -if @reviews.empty?
-          h4 まだ投稿はありません
-        - else
-          - @reviews.each do |review|
-            .ui.segment
-              h4.ui.header
-                img.ui.circular.image src=review.product.images[0].url alt="アイテム画像"
-                a href=product_path(review.product.id)
-                  =review.product.name
-              .item
-                .content
-                  h3.header =review.title
-                  .meta.review_meta
-                    span.ui.yellow.star.rating.disabled data-max-rating= "5" data-rating= "#{review.rate}"
-                    span.date #{time_ago_in_words(review.created_at)}前
-                  .description
-                    =simple_format(h(review.content))
+      .ui.bottom.attached.tab.segment.active data-tab= "first" data-controller='rate'
+        turbo-frame id='reviews_user_show' src= user_show_component_reviews_path(user_id: @user.id) loading='lazy'
+          = component('remote_loading')
       .ui.bottom.attached.tab.segment data-tab= "second"
-        - if @likes.empty?
-          h4 まだお気に入りはありません
-        -else
-          - @likes.each do |like|
-            .ui.segment
-              .ui.items
-                - if like.type == 'ProductLike'
-                  a.item href= product_path(like.product.id)
-                    .ui.tiny.circular.image
-                      img src= like.product.images[0].url alt="アイテム画像"
-                    .content
-                      h3.header
-                        =like.product.name
-                - elsif like.type == 'BeanLike'
-                  a.item href= bean_path(like.bean.id)
-                    .ui.tiny.circular.image
-                      img src= like.bean.images[0].url
-                    .content
-                      h3.header
-                        =like.bean.name
+        turbo-frame id='likes_user_show' src= user_show_component_likes_path(user_id: @user.id) loading='lazy'
+          = component('remote_loading')
       .ui.bottom.attached.tab.segment data-tab= "third"
-        - if @followings.empty?
-          h4 まだフォローはしていません
-        - else
-          - @followings.each do |user|
-            .ui.segment
-              .ui.items
-                .item
-                  .ui.tiny.circular.image
-                    img src= user.icon.url
-                  .content
-                    h3.header
-                      =user.username
-                    .description
-                      =simple_format(h(user.profile))
+        turbo-frame id='followings_user_show' src= followings_user_show_component_relationships_path(user_id: @user.id) loading='lazy'
+          = component('remote_loading')
       .ui.bottom.attached.tab.segment data-tab= "four"
-        - if @followers.empty?
-          h4 まだフォロワーはいません
-        - else
-          - @followers.each do |user|
-            .ui.segment
-              .ui.items
-                .item
-                  .ui.tiny.circular.image
-                    img src= user.icon.url
-                  .content
-                    h3.header
-                      =user.username
-                    .description
-                      =simple_format(h(user.profile))
+        turbo-frame id='followers_user_show' src= followers_user_show_component_relationships_path(user_id: @user.id) loading='lazy'
+          = component('remote_loading')
       .segment

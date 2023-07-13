@@ -1,13 +1,13 @@
 .ui.segment.review_item
   h4.ui.header
-    =vite_image_tag 'images/square-image.png', class:"ui circular image lazyload square_image",data: {src: "#{@review.user_icon}"}
+    = image_tag "#{@review.user_icon}", class:"ui circular image square_image"
     =@review.user_name
   .item
     .content
       h3.header = @review.title
       .meta
         span #{time_ago_in_words(@review.created_at)}前
-      .meta.review_meta
+      .meta.review_meta data-rate-target='beanReview'
         span.mr-05em 酸味
         span.ui.yellow.rating.disabled.mr-05em data-max-rating= "5" data-rating= "#{@review.acidity}"
         span.mr-05em 苦味
@@ -42,7 +42,7 @@
                     td.center.aligned #{@review.recipe.temperature}℃
                     td.center.aligned #{@review.recipe.time1}:#{@review.recipe.time2}
                     td.center.aligned.spec #{@review.recipe.amount}cc
-        a.ui.teal.label href= "/users/#{@review.user_id}/show"
+        a.ui.teal.label href= user_registration_show_path(@review.user_id)
           |ユーザーの詳細
         - if user_signed_in?
           div class="review_like_button_#{@review.id} inline"

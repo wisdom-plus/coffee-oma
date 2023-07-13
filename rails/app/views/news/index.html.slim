@@ -6,10 +6,7 @@
 
 
   .ui.segment.scroll#sidebar data-controller='sidebar'
-    .ui.right.very.close.rail
-      .ui.segment.sticky
-        a href="#"
-          i.chevron.circle.up.icon Top
+    = component('close_rail')
     - if @news_all.present?
       - @news_all.each do |news|
         - if news.publicshed?

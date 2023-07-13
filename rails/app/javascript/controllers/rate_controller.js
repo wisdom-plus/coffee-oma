@@ -3,11 +3,21 @@ import $ from "jquery";
 import "jquery-raty-js";
 // Connects to data-controller="rate"
 export default class extends Controller {
-  static targets = ["review", "bean", "average"];
+  static targets = [
+    "reviewForm",
+    "review",
+    "beanReview",
+    "beanForm",
+    "average",
+  ];
   static values = { num: String };
 
   reviewTargetConnected() {
-    $(this.reviewTargets).rating({
+    $(this.reviewTargets).rating();
+  }
+
+  reviewFormTargetConnected() {
+    $(this.reviewFormTargets).rating({
       maxRating: 5,
       onRate: function (rating) {
         $("#review_rate").val(rating);
@@ -15,7 +25,11 @@ export default class extends Controller {
     });
   }
 
-  beanTargetConnected() {
+  beanReviewTargetConnected() {
+    $(this.beanReviewTargets).children(".ui.rating").rating();
+  }
+
+  beanFormTargetConnected() {
     $(".form_rating").rating({
       maxRating: 5,
       onRate: function (rating) {

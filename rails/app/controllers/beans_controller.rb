@@ -12,17 +12,10 @@ class BeansController < ApplicationController
              end
   end
 
-  def show  # rubocop:disable Metrics/AbcSize
+  def show
     @bean = Bean.find_by(id: params[:id]).decorate
     @tags = @bean.tag_counts_on(:tags)
-    @bean_reviews = BeanReview.show_review(@bean.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
     @bean_review_form = BeanReviewForm.new
-    if user_signed_in?
-      @like = current_user.bean_likes.find_by(liked_id: params[:id])
-      @bean_reviews = BeanReview.exclude_reviews(@bean.id, current_user.id).page(params[:page]).per(SHOW_DISPLAY_NUM)
-      @review_likes = current_user.where_review_likes(@bean_reviews, 'bean_review')
-    end
-    @bean_reviews = BeanReviewDecorator.decorate_collection(@bean_reviews)
   end
 
   def new
