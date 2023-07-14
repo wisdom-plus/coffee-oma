@@ -21,6 +21,8 @@ categories:
     label: 'documentation'
   - title: '⛓️ Dependency update'
     label: 'dependencies'
+  - title: '🔖 Version-up'
+    label: 'version-up'
 
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 
@@ -42,45 +44,3 @@ template: |
   ## Changes
 
   $CHANGES
-
-autolabeler:
-  - label: feature
-    branch:
-      - '/^feat(ure)?[/-].+/'
-  - label: bug
-    branch:
-      - '/^fix[/-].+/'
-  - label: chore
-    branch:
-      - '/^chore[/-].+/'
-  - label: refactor
-    branch:
-      - '/(refactor|refactoring)[/-].+/'
-  - label: documentation
-    branch:
-      - '/doc(umentation)[/-].+/'
-    files:
-      - '*.md'
-  - label: enhancement
-    branch:
-      - '/(enhancement|improve)[/-].+/'
-
-  - label: nextjs
-    files:
-      - 'src/**/*'
-      - 'package.json'
-      - 'yarn.lock'
-      - 'next*'
-      - 'tsconfig.json'
-      - '.eslintrc.json'
-  - label: wasm
-    files:
-      - 'wasm/**/*'
-  - label: docker
-    files:
-      - 'docker/**/*'
-      - 'Dockerfile'
-      - '.dockerignore'
-  - label: github
-    files:
-      - '.github/**/*'
