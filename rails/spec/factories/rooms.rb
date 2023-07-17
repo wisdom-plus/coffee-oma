@@ -16,6 +16,6 @@
 #
 FactoryBot.define do
   factory :room do
-    association :participant1, factory: :user
+    participant1 factory: %i[user]
   end
 end

@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
     end
 
     def product_exists?
-      return if Product.exists?(id: params[:id])
+      return false if Product.exists?(id: params[:id])
 
       redirect_to products_path, alert: t('.alert'), status: :see_other
     end

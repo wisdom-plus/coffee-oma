@@ -21,7 +21,7 @@ RSpec.describe 'Api::Relationships' do
 
       it 'レスポンス失敗(同じユーザー)' do
         post api_v1_relationships_path, params: { relationships: { follow_id: user.id } }, headers: headers
-        expect(response).to  have_http_status(:bad_request)
+        expect(response).to have_http_status(:bad_request)
       end
 
       it 'レスポンス失敗(idが存在しない)' do

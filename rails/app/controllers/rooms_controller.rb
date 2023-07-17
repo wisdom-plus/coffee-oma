@@ -33,14 +33,14 @@ class RoomsController < ApplicationController
 
     def check_including?
       room = Room.find(params[:id])
-      return if room.join?(current_user.id)
+      return false if room.join?(current_user.id)
 
       redirect_to root_path, flash: { alert: t('.alert') }, status: :see_other
     end
 
     def room_exists?
       room = Room.find_room(current_user.id, User.find(params[:user_id]).id)
-      return if room.blank?
+      return false if room.blank?
 
       redirect_to room_path(room.id), status: :see_other
     end
