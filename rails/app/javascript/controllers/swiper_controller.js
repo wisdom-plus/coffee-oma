@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
-import Swiper, { Pagination, Navigation } from "swiper";
+import Swiper from "swiper";
+import { Navigation, Pagination } from "swiper/modules";
 
 // Connects to data-controller="swiper"
 export default class extends Controller {
