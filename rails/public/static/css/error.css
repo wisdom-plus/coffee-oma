@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+html {
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Roboto', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    line-height:1.75;
+    letter-spacing: 0.05em;
+    color: #231815;
+    background: #F9FBFC;
+    margin: 0;
+    padding: 0 0 50px;
+}
+@media screen and (max-width:1024px) {
+    body {
+        padding: 0 10px 50px;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.fw-bold {
+    font-weight: bold;
+}
+
+.py-80 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+@media screen and (max-width:1024px) {
+    .py-80 {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+@media screen and (max-width:1024px) {
+    .mb-40 {
+        margin-bottom: 20px;
+    }
+}
+
+.error-heading1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.error-heading2 {
+    font-size: 1.75rem;
+}
+
+.error-heading3 {
+    font-size: 1.25rem;
+}
+
+
+
+
+.c-btn {
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    width: 100%;
+    transition: opacity .2s;
+    box-sizing: border-box;
+}
+
+.c-btn:hover {
+    text-decoration: none;
+    opacity: .5;
+}
+.c-btn.btn-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.c-btn.c-icon {
+    margin-right: 1rem;
+}
+.c-btn.btn-s {
+     font-size: 1rem;
+     padding: 20px;
+     max-width: 320px;
+}
+@media screen and (max-width:1024px) {
+    .c-btn.btn-s {
+        max-width: 280px;
+    }
+}
+.c-btn.btn-l {
+     font-size: 1.25rem;
+     padding: 2rem;
+     max-width: 460px;
+ }
+.c-btn.btn-primary {
+     text-align: center;
+     color: #fff;
+     background: #F7790D;
+     margin: auto;
+     border: none;
+     border-radius: 50px;
+     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.12);
+ }
+.c-btn.btn-secondary {
+    text-align: center;
+    color: #231815;
+    background: #E4ECEF;
+    margin: auto;
+    border: solid 2px #fff;
+    border-radius: 50px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.12);
+}
