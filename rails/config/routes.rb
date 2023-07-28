@@ -279,6 +279,7 @@
 #               GET    /:id/attachments/:file(.:format) letter_opener_web/letters#attachment
 
 Rails.application.routes.draw do
+  # adminのルーティングを分割するとバグが発生
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: 'home#top'
@@ -311,71 +312,15 @@ Rails.application.routes.draw do
   end
   resources :brands
 
-  namespace :component do
-    resources :likes, only: [] do
-      collection do
-        get 'home'
-        get 'user_show'
-        get 'product'
-        get 'bean'
-      end
-    end
-    resources :reviews, only: [] do
-      collection do
-        get 'home'
-        get 'list'
-        get 'user_show'
-      end
-    end
-    resources :bean_reviews, only: [] do
-      get 'list', on: :collection
-    end
-    resources :notifications, only: [] do
-      collection do
-        get 'bell'
-        get 'follow'
-        get 'like'
-        get 'message'
-      end
-    end
-    resources :relationships, only: [] do
-      collection do
-        get 'followings_user_show'
-        get 'followers_user_show'
-      end
-    end
-  end
+  draw :component
 
   namespace :api, { format: 'json' } do
     namespace :v1 do
       resources :tags, only: %i[index]
       resources :brands, only: %i[index]
-      resources :healths, only: %i[index]
-      resources :products, only: %i[index show create] do
-        resources :reviews, only: %i[create destroy] do
-          collection do
-            get 'exists'
-          end
-        end
-      end
-      resources :likes, only: %i[create destroy index] do
-        collection do
-          get 'exists'
-        end
-      end
-      resources :relationships, only: %i[create destroy] do
-        collection do
-          get 'exists'
-        end
-      end
-      mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-        registrations: 'api/v1/auth/registrations',
-        token_validations: 'api/v1/auth/token_validations',
-        passwords: 'api/v1/auth/passwords',
-        sessions: 'api/v1/auth/sessions'
-      }
     end
   end
+  draw :api
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   mount Sidekiq::Web => '/sidekiq'
