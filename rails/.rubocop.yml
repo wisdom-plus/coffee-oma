@@ -87,6 +87,7 @@ Metrics/BlockLength:
   Exclude:
     - "Guardfile"
     - "config/routes.rb"
+    - "config/routes/*.rb"
     - "spec/**/*.rb"
     - "app/views/**/*.jbuilder"
     - "lib/tasks/dev.rake"
