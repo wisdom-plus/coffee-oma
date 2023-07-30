@@ -1,7 +1,7 @@
 Bean.create!(
   area: 'スルミナス',
   country: 'ブラジル',
-  description: '主に南米のアラビカ種を配合したオーガニックブレンドはディープなコクのある苦味と、 ほのかな甘みと包み込む様な、 優しい酸味��特徴的です',
+  description: '主に南米のアラビカ種を配合したオーガニックブレンドはディープなコクのある苦味と、 ほのかな甘みと包み込む様な、 優しい酸味が特徴的です',
   images: [File.open('./public/seed/bean-01.jpg')],
   name: 'TOKYO COFFEE',
   purification: 'ナチェラル',
@@ -15,7 +15,7 @@ Bean.create!(
   country: 'ケニア',
   description: "偶然買ったコーヒー豆ですが、おいしかったのでシェアさせ��いただきます。
   どこで買ったのかを忘れてしまったのですがまたどこかで出会いたいです
-  �������的焙煎���効いた味ですごく美味し��です",
+  浅煎り的焙煎が効いた味ですごく美味しいです",
   images: [File.open('./public/seed/bean-02.jpg')],
   name: Faker::Coffee.unique.blend_name,
   purification: 'ナチェラル',
@@ -82,7 +82,7 @@ Bean.create!(
 Bean.create!(
   area: 'コナ',
   country: 'ハワイ',
-  description: "【特徴】
+  description: "【特徴���
   甘い香りと柔らかな酸味をもつミディアムボディー。ワイン風味のなかにスパイシーな風味が見事に調和されています。",
   images: [File.open('./public/seed/bean-08.jpg')],
   name: '珈琲問屋',
