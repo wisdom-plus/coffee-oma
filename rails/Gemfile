@@ -17,7 +17,7 @@ gem 'turbo-rails'
 gem 'jbuilder', '~> 2.11'
 # Use Redis adapter to run Action Cable in production
 gem 'net-smtp'
-gem 'redis', '~> 4.8'
+gem 'redis', '~> 5.0'
 gem 'redis-rails'
 gem 'vite_rails'
 # Use Active Model has_secure_password
@@ -27,13 +27,13 @@ gem 'vite_rails'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'activeadmin', '~> 2.14'
+gem 'activeadmin', '~> 3.0'
 gem 'acts-as-taggable-on', '~> 9.0'
 gem 'aws-sdk-rails', '~> 3'
 gem 'bootsnap', '>= 1.16', require: false
 gem 'bootstrap', '~> 5.2'
 gem 'carrierwave', '~> 3.0'
-gem 'counter_culture', '~> 3.4'
+gem 'counter_culture', '~> 3.5'
 gem 'devise'
 gem 'devise-async'
 gem 'devise-i18n'
