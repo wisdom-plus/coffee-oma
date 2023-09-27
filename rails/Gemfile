@@ -27,7 +27,7 @@ gem 'vite_rails'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'activeadmin', '~> 3.0'
+gem 'activeadmin', '~> 2.14'
 gem 'acts-as-taggable-on', '~> 9.0'
 gem 'aws-sdk-rails', '~> 3'
 gem 'bootsnap', '>= 1.16', require: false
