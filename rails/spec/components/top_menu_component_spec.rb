@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe TopMenu::Component, type: :component do
+RSpec.describe TopMenu, type: :component do
   let(:user) { create(:user) }
 
   it 'render the top menu(not login)' do

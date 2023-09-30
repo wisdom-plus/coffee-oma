@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe ReviewForm::Component, type: :component do
+RSpec.describe ReviewForm, type: :component do
   let(:product) { create(:product) }
 
   it 'renders the review form' do

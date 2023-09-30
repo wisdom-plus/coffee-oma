@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Reports', js: true do
+RSpec.describe 'Reports', :js do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
   let(:product) { create(:product, user: user) }

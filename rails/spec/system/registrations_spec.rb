@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Registrations', js: true do
+RSpec.describe 'Registrations', :js do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
 
@@ -109,7 +109,7 @@ RSpec.describe 'Registrations', js: true do
         end
 
         it 'displayed icon' do
-          expect(page).to have_selector '#img-prev'
+          expect(page).to have_css '#img-prev'
         end
 
         it 'change username' do
@@ -185,7 +185,7 @@ RSpec.describe 'Registrations', js: true do
       it 'displayed icon' do
         login(user, user.email, user.password)
         visit users_my_page_path
-        expect(page).to have_selector 'img'
+        expect(page).to have_css 'img'
         expect(page).to have_link 'プロフィールを編集'
       end
     end

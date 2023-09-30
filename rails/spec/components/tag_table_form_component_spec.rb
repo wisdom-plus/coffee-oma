@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe TagTableForm::Component, type: :component do
+RSpec.describe TagTableForm, type: :component do
   let(:user) { create(:user) }
   let(:product) { create(:product, user: user) }
   let(:bean) { create(:bean, user: user) }

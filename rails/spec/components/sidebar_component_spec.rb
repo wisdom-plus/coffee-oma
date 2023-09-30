@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Sidebar::Component, type: :component do
+RSpec.describe Sidebar, type: :component do
   let(:user) { create(:user) }
 
   it 'render the sidebar(not login)' do

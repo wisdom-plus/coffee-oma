@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe ReportModal::Component, type: :component do
+RSpec.describe ReportModal, type: :component do
   it 'renders the component' do
     render_inline(described_class.new)
 

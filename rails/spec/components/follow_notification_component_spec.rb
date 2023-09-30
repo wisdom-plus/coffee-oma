@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe FollowNotification::Component, type: :component do
+RSpec.describe FollowNotification, type: :component do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
   let(:follow) { create(:relationship, user: user, follow: user) }

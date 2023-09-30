@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Message::Component, type: :component do
+RSpec.describe Message, type: :component do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
   let(:room) { create(:room, participant1: user, participant2: user1) }

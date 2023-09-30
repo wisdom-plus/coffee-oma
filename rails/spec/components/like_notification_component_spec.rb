@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe LikeNotification::Component, type: :component do
+RSpec.describe LikeNotification, type: :component do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
   let(:product) { create(:product, user: user) }
