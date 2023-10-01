@@ -9,7 +9,7 @@ RSpec.describe TagTableForm, type: :component do
 
   it 'renders a form(product)' do
     tag = product.tag_counts_on(:tags)
-    render_inline(described_class.new(tags: tag, target: product.decorate, current_user: nil))
+    render_inline(TagTableForm::Component.new(tags: tag, target: product.decorate, current_user: nil))
 
     expect(page).to have_css '.tag_link'
     expect(page).not_to have_css '#accordion'
@@ -17,7 +17,7 @@ RSpec.describe TagTableForm, type: :component do
 
   it 'renders a form(product, signed)' do
     tag = product.tag_counts_on(:tags)
-    render_inline(described_class.new(tags: tag, target: product.decorate, current_user: user))
+    render_inline(TagTableForm::Component.new(tags: tag, target: product.decorate, current_user: user))
 
     expect(page).to have_css '.tag_link'
     expect(page).to have_css '#accordion'
@@ -25,7 +25,7 @@ RSpec.describe TagTableForm, type: :component do
 
   it 'renders a form(bean)' do
     tag = bean.tag_counts_on(:tags)
-    render_inline(described_class.new(tags: tag, target: bean.decorate, current_user: nil))
+    render_inline(TagTableForm::Component.new(tags: tag, target: bean.decorate, current_user: nil))
 
     expect(page).to have_css '.tag_link'
     expect(page).not_to have_css '#accordion'
@@ -33,7 +33,7 @@ RSpec.describe TagTableForm, type: :component do
 
   it 'renders a form(bean , signed)' do
     tag = bean.tag_counts_on(:tags)
-    render_inline(described_class.new(tags: tag, target: bean.decorate, current_user: user))
+    render_inline(TagTableForm::Component.new(tags: tag, target: bean.decorate, current_user: user))
 
     expect(page).to have_css '.tag_link'
     expect(page).to have_css '#accordion'
