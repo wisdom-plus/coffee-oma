@@ -345,3 +345,8 @@ Style/RedundantSelfAssignmentBranch: # new in 1.19
   Enabled: true
 Style/SelectByRegexp: # new in 1.22
   Enabled: true
+
+
+# capybara
+Capybara/ClickLinkOrButtonStyle:
+  Enabled: false

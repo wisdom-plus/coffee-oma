@@ -4,7 +4,7 @@ module Api
       before_action :authenticate_api_v1_user!, only: %i[create destroy]
 
       def index
-        ranks = Product.all.order('likes_count desc').limit(9)
+        ranks = Product.order('likes_count desc').limit(9)
         if ranks.empty?
           render json: { message: 'いいねがありません' }, status: :not_found
         else

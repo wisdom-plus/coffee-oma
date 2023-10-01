@@ -41,7 +41,7 @@ RSpec.describe 'News' do
     end
   end
 
-  describe 'new', js: true do
+  describe 'new', :js do
     context 'when login' do
       it 'create news' do
         admin_login(admin)
@@ -67,7 +67,7 @@ RSpec.describe 'News' do
     end
   end
 
-  describe 'edit', js: true do
+  describe 'edit', :js do
     context 'when login' do
       it 'edit news' do
         admin_login(admin)

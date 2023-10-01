@@ -43,18 +43,8 @@ end
 
 Capybara.register_driver :remote_chrome do |app|
   url = 'http://chrome:4444/wd/hub'
-  caps = Selenium::WebDriver::Remote::Capabilities.chrome(
-    'goog:chromeOptions' => {
-      'args' => [
-        'no-sandbox',
-        'headless',
-        'disable-gpu',
-        'disable-dev-shm-usage',
-        'window-size=1024,640'
-      ]
-    }
-  )
-  Capybara::Selenium::Driver.new(app, browser: :remote, url: url, capabilities: caps)
+  args = Selenium::WebDriver::Chrome::Options.new(args: %w[no-sandbox headless disable-gpu disable-dev-shm-usage window-size=1024,640])
+  Capybara::Selenium::Driver.new(app, browser: :remote, url: url, options: args)
 end
 
 RSpec.configure do |config|
@@ -69,7 +59,7 @@ RSpec.configure do |config|
     driven_by :rack_test
   end
 
-  config.before(:each, js: true, type: :system) do
+  config.before(:each, :js, type: :system) do
     driven_by :remote_chrome
     Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
     Capybara.server_port = 4444

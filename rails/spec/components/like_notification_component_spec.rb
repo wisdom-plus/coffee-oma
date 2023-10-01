@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe LikeNotification::Component, type: :component do
+RSpec.describe LikeNotification, type: :component do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
   let(:product) { create(:product, user: user) }
@@ -11,13 +11,13 @@ RSpec.describe LikeNotification::Component, type: :component do
   let(:notification) { create(:notification, source: like, user: user) }
 
   it 'renders a follow notification' do
-    render_inline(described_class.new(notifications: [notification]))
+    render_inline(LikeNotification::Component.new(notifications: [notification]))
 
     expect(page).to have_text notification.sender.username
   end
 
   it 'renders a follow notification(nil)' do
-    render_inline(described_class.new(notifications: []))
+    render_inline(LikeNotification::Component.new(notifications: []))
 
     expect(page).to have_text '通知はまだ届いていません'
   end

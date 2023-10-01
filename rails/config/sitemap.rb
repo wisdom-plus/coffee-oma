@@ -24,10 +24,10 @@ SitemapGenerator::Sitemap.create do
   #   Article.find_each do |article|
   #     add article_path(article), :lastmod => article.updated_at
   #   end
-  Product.all.each do |product|
+  Product.find_each do |product|
     add product_path(product), lastmod: product.updated_at
   end
-  Bean.all.each do |bean|
+  Bean.find_each do |bean|
     add bean_path(bean), lastmod: bean.updated_at
   end
   add products_path, changefreq: 'daily', priority: 0.9

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Relationships', js: true do
+RSpec.describe 'Relationships', :js do
   let(:user) { create(:user) }
   let(:user1) { create(:user, :other_user) }
   let(:follow) { create(:relationship, user: user, follow: user1) }

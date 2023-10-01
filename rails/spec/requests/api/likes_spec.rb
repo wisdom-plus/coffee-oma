@@ -19,7 +19,7 @@ RSpec.describe 'API::Likes' do
       product1
       product_like
       get api_v1_likes_path
-      expect(json['likes']).to eq(expect_json(Product.all.order('likes_count desc').limit(9)))
+      expect(json['likes']).to eq(expect_json(Product.order('likes_count desc').limit(9)))
     end
 
     it 'レスポンス失敗' do
