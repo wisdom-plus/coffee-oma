@@ -17,6 +17,7 @@ services:
       - db
       - chrome
       - redis
+    platform: linux/x86_64
   db:
     image: mysql:8.0.33
     environment:
@@ -27,11 +28,13 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql:delegated
     command: --default-authentication-plugin=mysql_native_password
+    platform: linux/x86_64
   chrome:
     image: selenium/standalone-chrome:latest
     shm_size: 256m
     ports:
       - "4444:4444"
+    platform: linux/x86_64
   redis:
     image: redis:6.2.13-alpine3.18
     command: redis-server --appendonly yes
@@ -39,6 +42,7 @@ services:
       - "6379:6379"
     volumes:
       - redis-data:/var/lib/redis
+    platform: linux/x86_64
 volumes:
   mysql-data:
     driver: local
