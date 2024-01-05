@@ -69,6 +69,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
+  gem 'colorize_logs'
   gem 'factory_bot_rails'
   gem 'graphwerk'
   gem 'launchy'
@@ -85,7 +86,6 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'spring-commands-rspec'
   gem 'webmock'
-  gem 'colorize_logs'
 end
 
 group :development do
