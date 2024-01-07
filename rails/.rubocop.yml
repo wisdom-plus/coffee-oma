@@ -350,3 +350,6 @@ Style/SelectByRegexp: # new in 1.22
 # capybara
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
+
+FactoryBot/ExcessiveCreateList:
+  MaxAmount: 20
