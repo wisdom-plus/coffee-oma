@@ -34,14 +34,14 @@ RSpec.describe BeanReview do
     context 'valid' do
       it 'is valid with a rates for 1' do
         BeanReview::RATES.each do |rate|
-          build_review.send("#{rate}=", 1)
+          build_review.send(:"#{rate}=", 1)
           expect(build_review.valid?).to be true
         end
       end
 
       it 'is valid with a rates for 5' do
         BeanReview::RATES.each do |rate|
-          build_review.send("#{rate}=", 5)
+          build_review.send(:"#{rate}=", 5)
           expect(build_review.valid?).to be true
         end
       end
@@ -60,21 +60,21 @@ RSpec.describe BeanReview do
 
       it 'is invalid with a rates' do
         BeanReview::RATES.each do |rate|
-          build_review.send("#{rate}=", '')
+          build_review.send(:"#{rate}=", '')
           expect(build_review.valid?).to be false
         end
       end
 
       it 'is invalid with a rates for 0' do
         BeanReview::RATES.each do |rate|
-          build_review.send("#{rate}=", 0)
+          build_review.send(:"#{rate}=", 0)
           expect(build_review.valid?).to be false
         end
       end
 
       it 'is invalid with a rates for 6' do
         BeanReview::RATES.each do |rate|
-          build_review.send("#{rate}=", 6)
+          build_review.send(:"#{rate}=", 6)
           expect(build_review.valid?).to be false
         end
       end

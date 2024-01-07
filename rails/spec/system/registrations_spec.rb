@@ -193,7 +193,7 @@ RSpec.describe 'Registrations', :js do
     context 'when not login' do
       it 'not have link edit' do
         visit user_registration_show_path(user.id)
-        expect(page).not_to have_link edit_user_registration_path
+        expect(page).to have_no_link edit_user_registration_path
       end
     end
   end

@@ -36,7 +36,7 @@ RSpec.describe 'Notifications' do
         expect(page).to have_content "#{user1.username}さんからメッセージが届きました"
 
         visit root_path
-        expect(page).not_to have_css '.new_notification'
+        expect(page).to have_no_css '.new_notification'
       end
     end
 
@@ -62,7 +62,7 @@ RSpec.describe 'Notifications' do
       expect(page).to have_content "#{user1.username}さんにフォローされました"
 
       visit root_path
-      expect(page).not_to have_css '.new_notification'
+      expect(page).to have_no_css '.new_notification'
     end
   end
 
@@ -80,7 +80,7 @@ RSpec.describe 'Notifications' do
       expect(page).to have_content "#{user1.username}さんがあなたのレビューにライクしました"
 
       visit root_path
-      expect(page).not_to have_css '.new_notification'
+      expect(page).to have_no_css '.new_notification'
     end
   end
 
@@ -98,7 +98,7 @@ RSpec.describe 'Notifications' do
       expect(page).to have_content "#{user1.username}さんがあなたのレビューにライクしました"
 
       visit root_path
-      expect(page).not_to have_css '.new_notification'
+      expect(page).to have_no_css '.new_notification'
     end
   end
 
@@ -116,7 +116,7 @@ RSpec.describe 'Notifications' do
       expect(page).to have_content "#{user1.username}さんからメッセージが届きました"
 
       visit root_path
-      expect(page).not_to have_css '.new_notification'
+      expect(page).to have_no_css '.new_notification'
     end
   end
 end

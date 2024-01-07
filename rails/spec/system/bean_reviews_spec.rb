@@ -41,7 +41,7 @@ RSpec.describe 'BeanReviews' do
     context 'when not login' do
       it 'is not render review_form' do
         visit bean_path(bean.id)
-        expect(page).not_to have_css '#bean_review_form'
+        expect(page).to have_no_css '#bean_review_form'
       end
     end
   end

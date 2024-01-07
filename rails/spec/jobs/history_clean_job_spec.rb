@@ -14,11 +14,11 @@ RSpec.describe 'HistoryCleanJob' do
 
     it 'history delete' do
       ActiveJob::Base.queue_adapter = :test
-      create_list(:history, 20, product: product, user: user, updated_at: 2.weeks.ago)
+      create_list(:history, 10, product: product, user: user, updated_at: 2.weeks.ago)
       history
       expect do
         HistoryCleanJob.perform_now
-      end.to change(History, :count).by(-20)
+      end.to change(History, :count).by(-10)
     end
   end
 end

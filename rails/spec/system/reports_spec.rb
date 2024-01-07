@@ -51,7 +51,7 @@ RSpec.describe 'Reports', :js do
     it 'not display report button' do
       review
       visit product_path(product.id)
-      expect(page).not_to have_link nil, href: reports_path(review_id: review.id)
+      expect(page).to have_no_link nil, href: reports_path(review_id: review.id)
     end
   end
 end

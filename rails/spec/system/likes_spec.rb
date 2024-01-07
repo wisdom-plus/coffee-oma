@@ -45,7 +45,7 @@ RSpec.describe 'Likes', :js do
     context 'when not login' do
       it 'not render like button' do
         visit product_path(product.id)
-        expect(page).not_to have_css '#like_destory'
+        expect(page).to have_no_css '#like_destory'
       end
     end
   end
@@ -75,7 +75,7 @@ RSpec.describe 'Likes', :js do
       it 'not render button' do
         product_like
         visit product_path(product.id)
-        expect(page).not_to have_css '#like_create'
+        expect(page).to have_no_css '#like_create'
       end
     end
   end
