@@ -5,6 +5,7 @@ module LoginHelper
     fill_in 'E-mail address', with: email
     fill_in 'Password', with: password
     click_button 'Log in'
+    visit root_path
   end
 
   def admin_login(user)

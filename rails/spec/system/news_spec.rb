@@ -45,6 +45,7 @@ RSpec.describe 'News' do
     context 'when login' do
       it 'create news' do
         admin_login(admin)
+        sleep 0.1
         visit new_news_path
         expect do
           fill_in 'news_title', with: '運営からのお知らせ'

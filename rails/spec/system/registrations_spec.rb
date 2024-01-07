@@ -80,7 +80,7 @@ RSpec.describe 'Registrations', :js do
   end
 
   describe 'delete /users' do
-    it 'delete seccess' do
+    it 'delete success' do
       login(user, user.email, user.password)
       visit edit_user_registration_path
       find('.delete-accordion').click
@@ -91,7 +91,7 @@ RSpec.describe 'Registrations', :js do
 
     it 'when get login delete fail' do
       gest_login
-      sleep 1
+      sleep 0.1
       visit edit_user_registration_path
       find('.delete-accordion').click
       find_by_id('modal-button').click
@@ -169,7 +169,7 @@ RSpec.describe 'Registrations', :js do
 
         it 'when get login delete fail' do
           gest_login
-          sleep 1
+          sleep 0.1
           visit edit_user_registration_path
           fill_in 'spec-user-name', with: 'test'
           fill_in 'spec-E-mail address', with: user.email
