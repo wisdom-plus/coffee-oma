@@ -7,7 +7,7 @@ module TurboTestHelper
         block: 'center',
       });
     "
-    expect(page).to have_selector "##{target_id}"
+    expect(page).to have_css "##{target_id}"
     execute_script(javascript_text)
   end
 end

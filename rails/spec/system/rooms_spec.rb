@@ -98,7 +98,7 @@ RSpec.describe 'Rooms' do
   context 'when not login' do
     it 'not displayed message-label' do
       visit user_registration_show_path(another_user.id)
-      expect(page).not_to have_css '.spec-message'
+      expect(page).to have_no_css '.spec-message'
     end
 
     it 'redirect sign_in page(index)' do

@@ -34,7 +34,7 @@ import * as ActiveStorage from "@rails/activestorage";
 import "@rails/actiontext";
 import "./jquery";
 import "fomantic-ui";
-import.meta.globEager("../channels/*_channel.js");
+import.meta.glob("../channels/*_channel.js", { eager: true });
 import "../controllers/index";
 
 ActiveStorage.start();

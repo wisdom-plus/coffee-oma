@@ -52,7 +52,7 @@ RSpec.describe 'Products' do
       fill_in 'search',	with: 'コーヒー'
       find_by_id('search').click
       expect(page).to have_content 'コーヒーの器具の名前'
-      expect(page).not_to have_content '器具の名前が入ります'
+      expect(page).to have_no_content '器具の名前が入ります'
 
       visit products_path(tag_name: 'コーヒー')
       expect(page).to have_content 'コーヒーの器具の名前'
@@ -84,9 +84,9 @@ RSpec.describe 'Products' do
 
   context 'when not login' do
     it 'not displayed' do
-      expect(page).not_to have_css '.tag_form'
-      expect(page).not_to have_css '#review_form'
-      expect(page).not_to have_css '#like_button'
+      expect(page).to have_no_css '.tag_form'
+      expect(page).to have_no_css '#review_form'
+      expect(page).to have_no_css '#like_button'
     end
   end
 end

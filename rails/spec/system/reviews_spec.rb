@@ -59,7 +59,7 @@ RSpec.describe 'Reviews', :js do
     context 'when not login' do
       it 'is not render review_form' do
         visit product_path(product.id)
-        expect(page).not_to have_css '#review_form'
+        expect(page).to have_no_css '#review_form'
       end
     end
   end

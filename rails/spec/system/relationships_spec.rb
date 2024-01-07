@@ -18,7 +18,7 @@ RSpec.describe 'Relationships', :js do
         expect(page).to have_link 'フォロー解除'
 
         visit user_registration_show_path(user.id)
-        expect(page).not_to have_link 'フォローする'
+        expect(page).to have_no_link 'フォローする'
       end
     end
 
@@ -31,7 +31,7 @@ RSpec.describe 'Relationships', :js do
         expect(page).to have_link 'フォローする'
 
         visit user_registration_show_path(user.id)
-        expect(page).not_to have_link 'フォロー解除'
+        expect(page).to have_no_link 'フォロー解除'
       end
     end
   end
@@ -39,7 +39,7 @@ RSpec.describe 'Relationships', :js do
   context 'when not login' do
     it 'is displayed follow button' do
       visit user_registration_show_path(user1.id)
-      expect(page).not_to have_link 'フォローする'
+      expect(page).to have_no_link 'フォローする'
     end
   end
 end

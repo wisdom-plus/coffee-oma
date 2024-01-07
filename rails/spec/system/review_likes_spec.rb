@@ -72,7 +72,7 @@ RSpec.describe 'ReviewLikes', :js do
   context 'when not signed' do
     it 'not render like button' do
       visit product_path(product.id)
-      expect(page).not_to have_link nil, href: review_likes_path(review_id: review.id)
+      expect(page).to have_no_link nil, href: review_likes_path(review_id: review.id)
     end
   end
 end

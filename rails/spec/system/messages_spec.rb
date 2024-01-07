@@ -22,7 +22,7 @@ RSpec.describe 'Messages', :js do
     it 'not create message' do
       fill_in 'message[message]', with: ''
       click_on '送信'
-      expect(page).not_to have_css '.balloon_r'
+      expect(page).to have_no_css '.balloon_r'
     end
   end
 end
