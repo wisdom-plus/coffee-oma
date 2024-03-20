@@ -21,7 +21,7 @@ Bundler.require(*Rails.groups)
 module CoffeeOma
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 7.1
     config.active_job.queue_adapter = :sidekiq
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
