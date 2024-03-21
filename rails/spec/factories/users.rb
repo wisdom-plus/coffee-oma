@@ -35,6 +35,8 @@ FactoryBot.define do
     password { 'password' }
     username { 'test' }
     icon { Rack::Test::UploadedFile.new('spec/support/test.png', 'image/png') }
+    uid { SecureRandom.uuid }
+    provider { 'email' }
 
     trait :other_user do
       username { 'test1' }

@@ -3,3 +3,4 @@ sessionmanager-bundle/*
 .vscode
 frontend
 backend
+.bundle

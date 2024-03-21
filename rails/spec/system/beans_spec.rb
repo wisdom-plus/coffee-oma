@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'Beans' do
   let(:user) { create(:user) }
-  let(:user1) { create(:user, :other_user) }
+  let(:another_user) { create(:user, :other_user) }
   let(:bean) { create(:bean, user: user) }
-  let(:bean1) { create(:bean, name: '珈琲屋の豆', user: user1) }
+  let(:bean1) { create(:bean, name: '珈琲屋の豆', user: another_user) }
 
   describe 'new' do
     context 'when login' do
@@ -51,9 +51,12 @@ RSpec.describe 'Beans' do
   end
 
   describe 'index' do
-    it 'displayed bean1' do
+    before do
       bean
       bean1
+    end
+
+    it 'displayed bean1' do
       visit beans_path
       link = all('a.ui.fluid.link.card.post')[1]
       expect(link[:href]).to eq bean_path(bean1.id)
@@ -63,14 +66,17 @@ RSpec.describe 'Beans' do
   describe 'show' do
     it 'display test' do
       visit bean_path(bean.id)
+
       expect(page).to have_content bean.name
       expect(page).to have_css '.ui.teal.tag.label'
+
       click_on 'コーヒー豆 (1)'
       expect(page).to have_current_path beans_path, ignore_query: true
     end
 
     it 'redirect index(bean not exists)' do
       visit bean_path(bean.id + 1)
+
       expect(page).to have_current_path beans_path, ignore_query: true
       expect(page).to have_content '存在しないページです。'
     end

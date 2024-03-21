@@ -22,6 +22,14 @@ ActiveAdmin.register Bean do # rubocop:disable Metrics/BlockLength
     column :updated_at
     actions
   end
+
+  filter :id, as: :numeric
+  filter :name, as: :string
+  filter :country, as: :string
+  filter :area, as: :string
+  filter :purification, as: :string
+  filter :roast, as: :string
+
 # :nocov:
   show do |bean|
     attributes_table(*bean.class.columns.collect { |column| column.name.to_sym })
