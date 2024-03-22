@@ -30,7 +30,7 @@
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
 #
 class User < ApplicationRecord
-  # include DeviseTokenAuth::Concerns::User
+  include DeviseTokenAuth::Concerns::User
 
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow

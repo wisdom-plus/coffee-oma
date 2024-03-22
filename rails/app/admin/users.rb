@@ -90,13 +90,14 @@ ActiveAdmin.register User do # rubocop:disable Metrics/BlockLength
     f.actions
   end
 
+  filter :email, as: :string
+  filter :username, as: :string
+  filter :id, as: :numeric
+
   permit_params do
     permitted = %i[email
-                   encrypted_password
-                   reset_password_token
                    reset_password_sent_at
                    remember_created_at
-                   confirmation_token
                    confirmed_at
                    confirmation_sent_at
                    unconfirmed_email
