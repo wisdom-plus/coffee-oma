@@ -6,11 +6,11 @@ module RansackableColumns
                     tokens confirmation_token encrypted_password].freeze
 
   class_methods do
-    def ransackable_attributes(auth_object = nil)
+    def ransackable_attributes(_auth_object = nil)
       column_names - EXCEPTCOLUMN
     end
 
-    def ransackable_associations(auth_object = nil)
+    def ransackable_associations(_auth_object = nil)
       reflect_on_all_associations.map { |a| a.name.to_s }
     end
   end

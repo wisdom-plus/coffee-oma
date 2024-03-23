@@ -5,7 +5,7 @@ RSpec.describe 'Auth::Registrations' do
   let(:user_params) { attributes_for(:user) }
   let(:headers) { api_sign_in(user) }
 
-  xdescribe 'GET /api/auth/registrations/:id' do
+  describe 'GET /api/auth/registrations/:id' do
     it 'レスポンス成功' do
       get "/api/v1/auth/registrations/#{user.id}", headers: headers
       expect(response).to have_http_status(:ok)
@@ -17,7 +17,7 @@ RSpec.describe 'Auth::Registrations' do
     end
   end
 
-  xdescribe 'PUT /api/auth/registrations/:id' do
+  describe 'PUT /api/auth/registrations/:id' do
     context 'ログインしている時' do
       it 'レスポンス成功' do
         put api_v1_user_registration_path, params: { registration: { username: 'testuser' } }, headers: headers
@@ -48,7 +48,7 @@ RSpec.describe 'Auth::Registrations' do
     end
   end
 
-  xdescribe 'POST /api/auth/registrations' do
+  describe 'POST /api/auth/registrations' do
     it 'レスポンス成功' do
       post api_v1_user_registration_path, params: { registration: user_params }
       expect(response).to have_http_status(:ok)
