@@ -49,6 +49,10 @@ ActiveAdmin.register Product do # rubocop:disable Metrics/BlockLength
     actions
   end
 
+  filter :id, as: :numeric
+  filter :name, as: :string
+  filter :price, as: :numeric
+
   form do |f|
     f.inputs 'Details', multipart: true do
       f.input :user_id
