@@ -14,14 +14,17 @@ export default class extends Controller {
 
   show() {
     $("#sidebar").dimmer("show");
-    $(".ui.action.input").css(
-      "box-shadow",
-      "rgba(222, 63, 105, 0.7) 0px 0px 0px 2px"
-    );
+    $(".ui.action.input").css({
+      border: "2px solid rgba(222, 63, 105, 0.7)",
+      "border-radius": "6px",
+    });
   }
 
   hide() {
     $("#sidebar").dimmer("hide");
-    $(".ui.action.input").css("box-shadow", "");
+    $(".ui.action.input").css({
+      border: "none",
+      "border-radius": "0",
+    });
   }
 }

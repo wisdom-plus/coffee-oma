@@ -4,7 +4,9 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   connect() {
     $(".sticky").sticky({
+      offset: 100,
       context: "#sidebar",
+      observeChanges: true,
     });
   }
   top() {

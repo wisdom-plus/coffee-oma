@@ -14,10 +14,9 @@ export default class extends Controller {
         hideNav: ".pagination",
       });
       infScroll.on("append", function () {
-        $(".ui.sticky").sticky("refresh");
         $(".post.scale").transition({
           animation: "scale in",
-          duration: 800,
+          duration: 500,
           interval: 200,
           onComplete: function () {
             $(this).removeClass("scale");
