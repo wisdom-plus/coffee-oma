@@ -12,7 +12,7 @@ export default class extends Controller {
     $("img.lazyload").visibility({
       type: "image",
       transition: "scale in",
-      duration: 1000,
+      duration: 300,
       once: false,
     });
     Turbo.setProgressBarDelay(100);

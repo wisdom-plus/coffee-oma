@@ -5,7 +5,7 @@ export default class extends Controller {
   connect() {
     $(".post.scale").transition({
       animation: "scale in",
-      duration: 800,
+      duration: 500,
       interval: 200,
       onComplete: function () {
         $(this).removeClass("scale");
@@ -14,7 +14,7 @@ export default class extends Controller {
           $("img.lazyload-post", this).visibility({
             type: "image",
             transition: "scale in",
-            duration: 500,
+            duration: 300,
             once: false,
           });
         }

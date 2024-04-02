@@ -7,10 +7,9 @@
         h3
           | なければ
           =link_to "こちらから登録", new_bean_path
-      = search_form_for @q ,class: "ui mini form" do |f|
-        .inline.field.form-centered
-          = f.search_field :name_cont, placeholder: "search",class: 'mr-0 width-40' ,data: {action: 'focus->dimmer#show blur->dimmer#hide'}
-          = f.submit class: "ui icon teal button",id: 'search' do
+      = search_form_for @q ,class: "ui action input width-40", id: 'bean_search_form' do |f|
+        = f.search_field :name_cont, placeholder: "search", data: {action: 'focus->dimmer#show blur->dimmer#hide'}
+        = f.submit class: "ui icon teal button",id: 'search'
 
   - if @beans.present?
     .ui.three.stackable.cards.segment.scroll#sidebar data-controller= 'transition sidebar scroll'
