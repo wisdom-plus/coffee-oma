@@ -18,4 +18,8 @@ class BeanLike < Like
   belongs_to :bean, optional: true, foreign_key: 'liked_id', inverse_of: :bean_likes
   belongs_to :user
   counter_culture :bean, column_name: 'likes_count'
+
+  def liked
+    bean
+  end
 end

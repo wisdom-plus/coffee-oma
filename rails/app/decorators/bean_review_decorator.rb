@@ -9,6 +9,10 @@ class BeanReviewDecorator < ApplicationDecorator
     user.username
   end
 
+  def like_class
+    'BeanReviewLike'
+  end
+
   def base_class
     'BeanReview'
   end

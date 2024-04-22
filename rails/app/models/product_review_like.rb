@@ -26,4 +26,8 @@ class ProductReviewLike < Like
   def accociated_review
     review.reload
   end
+
+  def liked
+    review
+  end
 end

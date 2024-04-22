@@ -25,6 +25,10 @@ class ProductDecorator < ApplicationDecorator
     price.to_fs(:delimited)
   end
 
+  def like_class
+    'ProductLike'
+  end
+
   def base_class
     'Product'
   end

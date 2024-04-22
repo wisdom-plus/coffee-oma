@@ -2,12 +2,8 @@ class ReportsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @review = case params[:type]
-              when 'Review'
-                Review.find_reviews(params[:review_id])
-              when 'BeanReview'
-                BeanReview.find_reviews(params[:review_id])
-              end
+    klass = params[:type].constantize
+    @review = klass.find_reviews(params[:review_id])
     Report.create_report(current_user, @review)
     case params[:type]
     when 'Review'

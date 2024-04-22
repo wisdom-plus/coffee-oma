@@ -8,14 +8,8 @@ class ReviewLikeAndNotificationCreate
   end
 
   def create
-    case @type
-    when 'Review'
-      review_like = @user.product_review_likes.find_or_create_by(liked_id: @liked_id)
-      review = Review.find(@liked_id)
-    when 'BeanReview'
-      review_like = @user.bean_review_likes.find_or_create_by(liked_id: @liked_id)
-      review = BeanReview.find(@liked_id)
-    end
+    review_like = @user.likes.find_or_create_by(liked_id: @liked_id, type: @type)
+    review =review_like.accociated_review
     create_notification(review_like, review.user)
     review_like
   end

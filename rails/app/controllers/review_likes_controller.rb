@@ -30,11 +30,7 @@ class ReviewLikesController < ApplicationController
   private
 
     def get_review_like(type, params_id)
-      if type == 'ProductReviewLike'
-        current_user.product_review_likes.find_by(id: params_id)
-      else
-        current_user.bean_review_likes.find_by(id: params_id)
-      end
+      current_user.likes.find_by(id: params_id)
     end
 
     def turbo_stream_replace(review, review_like = nil)

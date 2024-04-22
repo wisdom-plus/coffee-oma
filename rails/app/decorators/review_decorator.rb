@@ -15,6 +15,10 @@ class ReviewDecorator < ApplicationDecorator
     product.images[0].url
   end
 
+  def like_class
+    'ProductReviewLike'
+  end
+
   def base_class
     'Review'
   end
