@@ -34,7 +34,7 @@
                     .ui.tiny.circular.image
                       img src = notification.sender_icon
                     .content
-                      - if notification.class_product_review?
+                      - if notification.product_review_like?
                         a.header href = product_path(notification.product_id)
                           = notification.sender_name
                           |さんがあなたのレビューにライクしました
@@ -42,7 +42,7 @@
                           span.date #{notification.created_ago}前
                         .description
                           =simple_format(h(notification.review_content))
-                      - elsif notification.class_bean_review?
+                      - elsif notification.bean_review_like?
                         a.header href = bean_path(notification.bean_id)
                           = notification.sender_name
                           |さんがあなたのレビューにライクしました

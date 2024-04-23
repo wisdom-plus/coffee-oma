@@ -6,11 +6,11 @@ class NotificationDecorator < ApplicationDecorator
     source.class.name
   end
 
-  def class_product_review?
+  def product_review_like?
     class_name == 'ProductReviewLike'
   end
 
-  def class_bean_review?
+  def bean_review_like?
     class_name == 'BeanReviewLike'
   end
 
@@ -37,9 +37,9 @@ class NotificationDecorator < ApplicationDecorator
   end
 
   def review_content
-    if class_product_review?
+    if product_review_like?
       source.review.content
-    elsif class_bean_review?
+    elsif bean_review_like?
       source.bean_review.content
     end
   end

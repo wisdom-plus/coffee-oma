@@ -7,7 +7,7 @@
             i.red.heart.icon.mt-10
           .ui.tiny.circular.image
             img src = notification.sender.icon.url
-          - if notification.source.class.name === 'ProductReviewLike'
+          - if notification.proudct_review_like?
             .content
               a.header href = product_path(notification.source.liked_id)
                 = notification.sender.username
@@ -16,7 +16,7 @@
                 span.date #{time_ago_in_words(notification.created_at)}前
               .description
                 =simple_format(h(notification.source.review.content))
-          - elsif notification.source.class.name === 'BeanReviewLike'
+          - elsif notification.bean_review_like?
             .content
               a.header href = bean_path(notification.source.liked_id)
                 = notification.sender.username
