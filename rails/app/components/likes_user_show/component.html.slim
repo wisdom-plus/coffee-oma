@@ -4,17 +4,9 @@
   - @likes.each do |like|
     .ui.segment
       .ui.items
-        - if like.type == 'ProductLike'
-          a.item href= product_path(like.product.id)
-            .ui.tiny.circular.image
-              img src= like.product.images[0].url alt="アイテム画像"
-            .content
-              h3.header
-                =like.product.name
-        - elsif like.type == 'BeanLike'
-          a.item href= bean_path(like.bean.id)
-            .ui.tiny.circular.image
-              img src= like.bean.images[0].url
-            .content
-              h3.header
-                =like.bean.name
+        a.item href= like.like_source_path
+          .ui.tiny.circular.image
+            img src= like.image_url alt="アイテム画像"
+          .content
+            h3.header
+              =like.name

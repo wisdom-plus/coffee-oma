@@ -34,22 +34,13 @@
                     .ui.tiny.circular.image
                       img src = notification.sender_icon
                     .content
-                      - if notification.product_review_like?
-                        a.header href = product_path(notification.product_id)
-                          = notification.sender_name
-                          |さんがあなたのレビューにライクしました
-                        .meta
-                          span.date #{notification.created_ago}前
-                        .description
-                          =simple_format(h(notification.review_content))
-                      - elsif notification.bean_review_like?
-                        a.header href = bean_path(notification.bean_id)
-                          = notification.sender_name
-                          |さんがあなたのレビューにライクしました
-                        .meta
-                          span.date #{notification.created_ago}前
-                        .description
-                          =simple_format(h(notification.review_content))
+                      a.header href = notification.like_source_path
+                        = notification.sender_name
+                        |さんがあなたのレビューにライクしました
+                      .meta
+                        span.date #{notification.created_ago}前
+                      .description
+                        =simple_format(h(notification.review_content))
                   - when 'Message'
                     h3.ui.icon.header
                       i.blue.mail.icon.mt-10
