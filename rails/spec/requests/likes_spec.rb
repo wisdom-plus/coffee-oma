@@ -6,6 +6,8 @@ RSpec.describe 'Likes' do
   let_it_be(:bean) { create(:bean, user: user) }
   let(:product_like) { create(:product_like, user: user, liked_id: product.id) }
   let(:bean_like) { create(:bean_like, user: user, liked_id: bean.id) }
+  let(:product_like_class) { 'ProductLike' }
+  let(:bean_like_class) { 'BeanLike' }
 
   describe 'POST create' do
     before do
@@ -14,29 +16,29 @@ RSpec.describe 'Likes' do
     end
 
     it 'request success' do
-      post likes_path, params: { liked_id: product.id, type: 'Product' }, xhr: true
+      post likes_path, params: { liked_id: product.id, type: product_like_class }, xhr: true
       expect(response).to have_http_status(:see_other)
     end
 
     it 'created product_like success' do
       expect do
-        post likes_path, params: { liked_id: product.id, type: 'Product' }, xhr: true
+        post likes_path, params: { liked_id: product.id, type: product_like_class }, xhr: true
       end.to change(Like, :count).by 1
     end
 
     it 'count up product likes_count' do
-      post likes_path, params: { liked_id: product.id, type: 'Product' }, xhr: true
+      post likes_path, params: { liked_id: product.id, type: product_like_class }, xhr: true
       expect(Product.find(product.id).likes_count).to eq 1
     end
 
     it 'created bean_like success' do
       expect do
-        post likes_path, params: { liked_id: bean.id, type: 'Bean' }, xhr: true
+        post likes_path, params: { liked_id: bean.id, type: bean_like_class }, xhr: true
       end.to change(Like, :count).by 1
     end
 
     it 'count up bean likes_count' do
-      post likes_path, params: { liked_id: bean.id, type: 'Bean' }, xhr: true
+      post likes_path, params: { liked_id: bean.id, type: bean_like_class }, xhr: true
       expect(Bean.find(bean.id).likes_count).to eq 1
     end
   end
@@ -50,19 +52,19 @@ RSpec.describe 'Likes' do
     end
 
     it 'request success' do
-      delete like_path(product_like.id, type: 'Product'), xhr: true
+      delete like_path(product_like.id, type: product_like_class), xhr: true
       expect(response).to have_http_status(:see_other)
     end
 
     it 'destroy product_like success' do
       expect do
-        delete like_path(product_like.id, type: 'Product'), xhr: true
+        delete like_path(product_like.id, type: product_like_class), xhr: true
       end.to change(Like, :count).by(-1)
     end
 
     it 'destroy bean_like success' do
       expect do
-        delete like_path(bean_like.id, type: 'Bean'), xhr: true
+        delete like_path(bean_like.id, type: bean_like_class), xhr: true
       end.to change(Like, :count).by(-1)
     end
   end

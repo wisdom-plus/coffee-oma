@@ -19,9 +19,9 @@ RSpec.describe 'ReviewLikes', :js do
         it 'display button and click button' do
           visit product_path(product.id)
           turbo_lazy_loading('review_list')
-          expect(page).to have_link nil, href: review_likes_path(review_id: review.id, type: review.class)
+          expect(page).to have_link nil, href: review_likes_path(review_id: review.id, type: 'ProductReviewLike')
 
-          click_link nil, href: review_likes_path(review_id: review.id, type: review.class)
+          click_link nil, href: review_likes_path(review_id: review.id, type: 'ProductReviewLike')
           expect(page).to have_css '.destroy_button'
         end
       end
@@ -30,9 +30,9 @@ RSpec.describe 'ReviewLikes', :js do
         it 'display button and click button' do
           visit bean_path(bean.id)
           turbo_lazy_loading('bean_review_list')
-          expect(page).to have_link nil, href: review_likes_path(review_id: bean_review.id, type: bean_review.class)
+          expect(page).to have_link nil, href: review_likes_path(review_id: bean_review.id, type: 'BeanReviewLike')
 
-          click_link nil, href: review_likes_path(review_id: bean_review.id, type: bean_review.class)
+          click_link nil, href: review_likes_path(review_id: bean_review.id, type: 'BeanReviewLike')
           expect(page).to have_css '.destroy_button'
         end
       end
