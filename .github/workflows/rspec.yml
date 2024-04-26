@@ -71,6 +71,7 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
+          token: ${{ secrets.CODECOV_TOKEN }} # 対象リポジトリがpublicリポジトリならばトークン不要
           files: coverage/codecov-result.json
           flags: unittests
           name: codecov-umbrella
