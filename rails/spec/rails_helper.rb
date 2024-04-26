@@ -1,6 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 require 'simplecov'
+require 'simplecov-cobertura'
 SimpleCov.start 'rails'
 if ENV['CI']
   SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
