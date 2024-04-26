@@ -30,7 +30,7 @@ class ReviewLikesController < ApplicationController
   private
 
     def get_review_like(type, params_id)
-      current_user.likes.find_by(id: params_id)
+      current_user.likes.find_by(id: params_id, type: type)
     end
 
     def turbo_stream_replace(review, review_like = nil)

@@ -9,7 +9,7 @@ class ReviewLikeAndNotificationCreate
 
   def create
     review_like = @user.likes.find_or_create_by(liked_id: @liked_id, type: @type)
-    review =review_like.accociated_review
+    review = review_like.accociated_review
     create_notification(review_like, review.user)
     review_like
   end
