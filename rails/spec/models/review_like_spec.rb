@@ -22,4 +22,14 @@ RSpec.describe Like do
       expect(BeanReviewLike.select_id(bean_review.id)).to eq bean_review_like
     end
   end
+
+  describe '#liked' do
+    it 'bean_review_like' do
+      expect(bean_review_like.liked).to eq bean_review
+    end
+
+    it 'product_review_like' do
+      expect(product_review_like.liked).to eq review
+    end
+  end
 end
