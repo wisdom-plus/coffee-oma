@@ -24,11 +24,8 @@ RSpec.describe Like do
   end
 
   describe '#liked' do
-    it 'bean_review_like' do
+    it 'review_like' do
       expect(bean_review_like.liked).to eq bean_review
-    end
-
-    it 'product_review_like' do
       expect(product_review_like.liked).to eq review
     end
   end
