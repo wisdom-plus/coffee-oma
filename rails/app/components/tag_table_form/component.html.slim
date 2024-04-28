@@ -1,10 +1,10 @@
 = turbo_frame_tag 'tag_table_form' do
   .ui.accordion.field data-controller='tag-form accordion' data-accordion-target='accordion'
-    - if @target.base_class == "Product"
+    - if @target.like_class == "ProductLike"
       - @tags.each do |tag|
         .ui.teal.tag.label
           =link_to "#{tag} (#{tag.taggings_count})",products_path(tag_name: tag.name), class: 'tag_link'
-    - elsif @target.base_class == "Bean"
+    - elsif @target.like_class == "BeanLike"
       - @tags.each do |tag|
         .ui.teal.tag.label
           =link_to "#{tag} (#{tag.taggings_count})",beans_path(tag_name: tag.name), class: 'tag_link'

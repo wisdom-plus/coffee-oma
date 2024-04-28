@@ -1,17 +1,18 @@
 class NotificationDecorator < ApplicationDecorator
   delegate_all
   include ActionView::Helpers::DateHelper
+  include Rails.application.routes.url_helpers
 
   def class_name
     source.class.name
   end
 
-  def class_product_review?
-    class_name == 'ProductReviewLike'
+  def product_review_like?
+    source.is_a?(ProductReviewLike)
   end
 
-  def class_bean_review?
-    class_name == 'BeanReviewLike'
+  def bean_review_like?
+    source.is_a?(BeanReviewLike)
   end
 
   delegate :id, to: :sender, prefix: true
@@ -37,14 +38,22 @@ class NotificationDecorator < ApplicationDecorator
   end
 
   def review_content
-    if class_product_review?
+    if product_review_like?
       source.review.content
-    elsif class_bean_review?
+    elsif bean_review_like?
       source.bean_review.content
     end
   end
 
   def created_ago
     time_ago_in_words(created_at)
+  end
+
+  def like_source_path
+    if product_review_like?
+      product_path(product_id)
+    elsif bean_review_like?
+      bean_path(bean_id)
+    end
   end
 end

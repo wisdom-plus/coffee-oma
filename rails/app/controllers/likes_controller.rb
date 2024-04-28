@@ -9,7 +9,7 @@ class LikesController < ApplicationController
 
   def create
     @like = get_like(params[:type], params[:liked_id])
-    @liked = get_liked(params[:type], params[:liked_id])
+    @liked = @like.liked.decorate
     @liked.reload
     respond_to do |format|
       format.turbo_stream do
@@ -21,7 +21,7 @@ class LikesController < ApplicationController
 
   def destroy
     @like = get_destroy_like(params[:type], params[:id])
-    @liked = get_liked(params[:type], @like.liked_id)
+    @liked = @like.liked.decorate
     @like&.destroy
     @liked.reload
     respond_to do |format|
@@ -35,23 +35,10 @@ class LikesController < ApplicationController
   private
 
     def get_like(type, params_id)
-      if type == 'Product'
-        current_user.product_likes.find_or_create_by(liked_id: params_id)
-      else
-        current_user.bean_likes.find_or_create_by(liked_id: params_id)
-      end
+      current_user.likes.find_or_create_by(type: type, liked_id: params_id)
     end
 
     def get_destroy_like(type, params_id)
-      if type == 'Product'
-        current_user.product_likes.find_by(id: params_id)
-      else
-        current_user.bean_likes.find_by(id: params_id)
-      end
-    end
-
-    def get_liked(type, params_id)
-      klass = type.constantize
-      klass.find_by(id: params_id).decorate
+      current_user.likes.find_by(type: type, id: params_id)
     end
 end

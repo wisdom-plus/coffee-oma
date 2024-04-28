@@ -1,12 +1,12 @@
 - if @signed_in
   = turbo_frame_tag 'like_button' do
     - if @like.nil?
-      = link_to likes_path(liked_id: @liked.id,type: @liked.base_class), data: {turbo_method: :post}, class:"circular ui button",id: 'like_create' do
+      = link_to likes_path(liked_id: @liked.id,type: @liked.like_class), data: {turbo_method: :post}, class:"circular ui button",id: 'like_create' do
         i.large.heart.icon
         span.likes_count
           | #{@liked.likes_count}
     - else
-      = link_to like_path(@like.id, type: @liked.base_class), data: {turbo_method: :delete}, class:"circular ui button",id: 'like_destory' do
+      = link_to like_path(@like.id, type: @liked.like_class), data: {turbo_method: :delete}, class:"circular ui button",id: 'like_destory' do
         i.red.large.heart.icon
         span.red.likes_count
           | #{@liked.likes_count}

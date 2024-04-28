@@ -1,6 +1,6 @@
 = turbo_frame_tag "review_like_button_#{@review.id}" do
   - if @review_like.nil?
-    = link_to review_likes_path(review_id: @review.id,type: @review.base_class), data: {turbo_method: :post}, class:"ui grey label create_button" do
+    = link_to review_likes_path(review_id: @review.id,type: @review.like_class), data: {turbo_method: :post}, class:"ui grey label create_button" do
       i.heart.outline.icon
       | #{@review.reviewlikes_count}
   - else

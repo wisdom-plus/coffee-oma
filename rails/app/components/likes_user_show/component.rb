@@ -2,7 +2,7 @@
 
 class LikesUserShow::Component < ViewComponent::Base
   def initialize(likes:)
-    @likes = likes
+    @likes = LikeDecorator.decorate_collection(likes)
     super
   end
 end

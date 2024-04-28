@@ -8,6 +8,8 @@ RSpec.describe 'ReviewLikes' do
   let_it_be(:bean_review) { create(:bean_review, user: user, bean: bean) }
   let(:product_review_like) { create(:like, user: user, liked_id: review.id, type: 'ProductReviewLike') }
   let(:bean_review_like) { create(:like, user: user, liked_id: bean_review.id, type: 'BeanReviewLike') }
+  let(:review_like_class) { 'ProductReviewLike' }
+  let(:bean_review_like_class) { 'BeanReviewLike' }
 
   describe 'POST /create' do
     before do
@@ -16,24 +18,24 @@ RSpec.describe 'ReviewLikes' do
     end
 
     it 'request success(product)' do
-      post review_likes_path, params: { review_id: review.id, type: 'Review' }, xhr: true
+      post review_likes_path, params: { review_id: review.id, type: review_like_class }, xhr: true
       expect(response).to have_http_status(:see_other)
     end
 
     it 'created like success(product)' do
       expect do
-        post review_likes_path, params: { review_id: review.id, type: 'Review' }, xhr: true
+        post review_likes_path, params: { review_id: review.id, type: review_like_class }, xhr: true
       end.to change(ProductReviewLike, :count).by 1
     end
 
     it 'request success(bean)' do
-      post review_likes_path, params: { review_id: bean_review.id, type: 'BeanReview' }, xhr: true
+      post review_likes_path, params: { review_id: bean_review.id, type: bean_review_like_class }, xhr: true
       expect(response).to have_http_status(:see_other)
     end
 
     it 'created like success(bean)' do
       expect do
-        post review_likes_path, params: { review_id: bean_review.id, type: 'BeanReview' }, xhr: true
+        post review_likes_path, params: { review_id: bean_review.id, type: bean_review_like_class }, xhr: true
       end.to change(BeanReviewLike, :count).by 1
     end
   end
@@ -45,26 +47,26 @@ RSpec.describe 'ReviewLikes' do
     end
 
     it 'returns http success(prodcut)' do
-      delete review_like_path(product_review_like.id, type: 'ProductReviewLike'), xhr: true
+      delete review_like_path(product_review_like.id, type: review_like_class), xhr: true
       expect(response).to have_http_status(:see_other)
     end
 
     it 'destroy like success(product)' do
       product_review_like
       expect do
-        delete review_like_path(product_review_like.id, type: 'ProductReviewLike'), xhr: true
+        delete review_like_path(product_review_like.id, type: review_like_class), xhr: true
       end.to change(ProductReviewLike, :count).by(-1)
     end
 
     it 'returns http success(bean)' do
-      delete review_like_path(bean_review_like.id, type: 'BeanReviewLike'), xhr: true
+      delete review_like_path(bean_review_like.id, type: bean_review_like_class), xhr: true
       expect(response).to have_http_status(:see_other)
     end
 
     it 'destroy like success(bean)' do
       bean_review_like
       expect do
-        delete review_like_path(bean_review_like.id, type: 'BeanReviewLike'), xhr: true
+        delete review_like_path(bean_review_like.id, type: bean_review_like_class), xhr: true
       end.to change(BeanReviewLike, :count).by(-1)
     end
   end

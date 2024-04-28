@@ -2,7 +2,7 @@
 
 class LikeNotification::Component < ViewComponent::Base
   def initialize(notifications:)
-    @notifications = notifications
+    @notifications = NotificationDecorator.decorate_collection(notifications)
     super
   end
 end

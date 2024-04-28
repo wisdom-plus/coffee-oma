@@ -29,14 +29,14 @@ RSpec.describe 'Likes', :js do
 
       it 'click like button(product)' do
         visit product_path(product.id)
-        click_link nil, href: likes_path(liked_id: product.id, type: product.class)
+        click_link nil, href: likes_path(liked_id: product.id, type: 'ProductLike')
         expect(page).to have_css '#like_destory'
         expect(find('.likes_count')).to have_text '1'
       end
 
       it 'click like button(bean)' do
         visit bean_path(bean.id)
-        click_link nil, href: likes_path(liked_id: bean.id, type: bean.class)
+        click_link nil, href: likes_path(liked_id: bean.id, type: 'BeanLike')
         expect(page).to have_css '#like_destory'
         expect(find('.likes_count')).to have_text '1'
       end
@@ -60,13 +60,13 @@ RSpec.describe 'Likes', :js do
 
       it 'click like destroy button(product)' do
         visit product_path(product.id)
-        click_link nil, href: like_path(product_like.id, type: product.class)
+        click_link nil, href: like_path(product_like.id, type: 'ProductLike')
         expect(page).to have_css '#like_create'
       end
 
       it 'click like destroy button(bean)' do
         visit bean_path(bean.id)
-        click_link nil, href: like_path(bean_like.id, type: bean.class)
+        click_link nil, href: like_path(bean_like.id, type: 'BeanLike')
         expect(page).to have_css '#like_create'
       end
     end
