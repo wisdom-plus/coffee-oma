@@ -1,0 +1,64 @@
+/* here write mailer css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+.email-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.header {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.header img {
+  max-width: 150px;
+}
+.content {
+  line-height: 1.6;
+}
+.content h2 {
+  color: #333;
+}
+.content p {
+  color: #555;
+}
+.content ul {
+  list-style-type: none;
+  padding: 0;
+}
+.content ul li {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 4px;
+}
+.button {
+  display: block;
+  width: fit-content;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #1db954;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+}
+.footer {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 12px;
+  color: #888;
+}
+.footer a {
+  color: #1db954;
+  text-decoration: none;
+}
+.footer .social-icons img {
+  width: 24px;
+  margin: 0 5px;
+}
