@@ -1,8 +1,15 @@
-p
-  | ようこそ
-  = @email
-  | !
-p
-  | 以下のリンクからアカウントの認証を行ってください！:
-p
-  = link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+.email-container
+  .header
+    img src="/coffeeoma-logo-black.png" alt="Coffee-oma logo"
+  .content
+    p
+      | ようこそ #{@email}
+    p
+      | 以下のリンクからアカウントの認証を行ってください
+    p
+      = link_to 'アカウントを認証する', confirmation_url(@resource, confirmation_token: @token)
+  .footer
+    p
+      | Coffee-oma Team
+    p
+      | ※このメールはシステムによる自動送信です。このメールに直接返信することはできません。
