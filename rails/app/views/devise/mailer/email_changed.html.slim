@@ -1,14 +1,19 @@
-p
-  | Hello
-  = @email
-  | !
-- if @resource.try(:unconfirmed_email?)
-  p
-    | メールアドレスが変更されたことを通知します。
-    = @resource.unconfirmed_email
-    | .
-- else
-  p
-    | メールアドレスが変更されたことを通知します。
-    = @resource.email
-    | .
+.email-container
+  .header
+    img src="/coffeeoma-logo-black.png" alt="Coffee-oma logo"
+  .content
+    p
+      | Hello #{@email}
+    - if @resource.try(:unconfirmed_email?)
+      p
+        | メールアドレスが変更されたことを通知します。
+        = @resource.unconfirmed_email
+    - else
+      p
+        | メールアドレスが変更されたことを通知します。
+        = @resource.email
+  .footer
+    p
+      | Coffee-oma Team
+    p
+      | ※このメールはシステムによる自動送信です。このメールに直接返信することはできません。

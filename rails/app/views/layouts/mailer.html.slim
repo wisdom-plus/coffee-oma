@@ -2,7 +2,9 @@ doctype html
 html
   head
     meta[http-equiv="Content-Type" content="text/html; charset=utf-8"]
-    style
-      |  /* Email styles need to be inline */ 
+    = stylesheet_link_tag '/static/css/normalize.css', media: 'all'
+    = stylesheet_link_tag '/static/css/extra.css', media: 'all'
+    = stylesheet_link_tag '/static/css/outlook.css', media: 'all'
+    = stylesheet_link_tag '/static/css/mailer.css', media: 'all'
   body
     = yield

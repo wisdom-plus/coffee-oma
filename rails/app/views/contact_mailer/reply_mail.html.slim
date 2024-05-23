@@ -1,19 +1,22 @@
-h3
-  |※このメールはシステムによる自動送信です。このメールに直接返信することはできません。
-p
-  |Coffee-omaをにお問い合わせありがとうございます。
-p
-  |下記の内容でメッセージを受け付けました。
-
-h3
-  |＝＝＝＝＝お問い合わせ内容＝＝＝＝＝
-p
-  |お名前： #{@contact.name} 様
-p
-  |メールアドレス： #{@contact.email}
-p
-  |お問い合わせ内容：
-  =simple_format(h(@contact.content))
-h3
-  |＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-
+.email-container
+  .header
+    img src="/coffeeoma-logo-black.png" alt="Coffee-oma logo"
+  .content
+    h2
+      | Coffee-omaへのお問い合わせを受け付けました
+    p
+      |＝＝＝＝＝お問い合わせ内容＝＝＝＝＝
+    p
+      |お名前： #{@contact.name} 様
+    p
+      |メールアドレス： #{@contact.email}
+    p
+      |お問い合わせ内容：
+      =simple_format(h(@contact.content))
+    p
+      |＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+  .footer
+    p
+      |Coffee-oma Team
+    p
+      |※このメールはシステムによる自動送信です。このメールに直接返信することはできません。

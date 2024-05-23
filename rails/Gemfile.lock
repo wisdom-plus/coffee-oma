@@ -217,6 +217,8 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
+    css_parser (1.17.1)
+      addressable
     date (3.3.4)
     debug_inspector (1.2.0)
     devise (4.9.3)
@@ -298,6 +300,7 @@ GEM
     hpricot (0.8.6)
     html2slim (0.2.0)
       hpricot
+    htmlentities (4.3.4)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -406,6 +409,14 @@ GEM
       ast (~> 2.4.1)
       racc
     popper_js (2.11.8)
+    premailer (1.23.0)
+      addressable
+      css_parser (>= 1.12.0)
+      htmlentities (>= 4.0.0)
+    premailer-rails (1.12.0)
+      actionmailer (>= 3)
+      net-smtp
+      premailer (~> 1.7, >= 1.7.9)
     prism (0.24.0)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -720,6 +731,7 @@ DEPENDENCIES
   mysql2 (>= 0.5.5)
   net-smtp
   packwerk
+  premailer-rails
   pry-rails
   puma (~> 6.3)
   rack-cors

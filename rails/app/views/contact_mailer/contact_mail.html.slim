@@ -1,15 +1,16 @@
-h2
-  |お問い合わせ内容
-
-h2
-  |------------------------------------------
-p
-  |name: #{@contact.name}
-p
-  |email: #{@contact.email}
-
-p
-  |content:
-  =simple_format(h(@contact.content))
-h2
-  |------------------------------------------
+.email-container
+  .header
+    img src="/coffeeoma-logo-black.png" alt="Coffee-oma logo"
+  .content
+    h2
+      | お問い合わせを受け付けました
+    p
+      | name: #{@contact.name}
+    p
+      | email: #{@contact.email}
+    p
+      | content:
+      =simple_format(h(@contact.content))
+  .footer
+    p
+      |Coffee-oma Team
